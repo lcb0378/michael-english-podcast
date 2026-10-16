@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.01 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.block .sec-title { font-size: 0.8rem; color: #ff8c42; font-weight: bold; margin-bottom: 8px; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<img src="cover.png" alt="Vol.01 封面">
+<h1>🐢 Vol.01 · 会飞的汽车与194岁的乌龟</h1>
+<div class="meta">英文 529 词 ｜ 音频 4 分 47 秒 ｜ B1 难度</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.75">0.75x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="cover.png" alt="会飞的汽车">
+<img src="cover.png" alt="乌龟爷爷">
+</div>
+<div id="blocks"></div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 17.2, "end": 28.55, "en": "Welcome back to Michael's Morning Listening! Today we have two amazing stories: a car that can fly, and a tortoise that has lived for almost two hundred years. Let's dive in!", "title": "开场白", "cn": "欢迎回到 Michael 的早听晚读！今天有两个超棒的故事：一辆会飞的汽车，和一只活了将近两百年的乌龟。让我们开始吧！", "words": [{"w": "Welcome", "t": 17.2}, {"w": "back", "t": 17.566129032258065}, {"w": "to", "t": 17.932258064516127}, {"w": "Michael's", "t": 18.298387096774192}, {"w": "Morning", "t": 18.664516129032258}, {"w": "Listening!", "t": 19.030645161290323}, {"w": "Today", "t": 19.396774193548385}, {"w": "we", "t": 19.76290322580645}, {"w": "have", "t": 20.129032258064516}, {"w": "two", "t": 20.49516129032258}, {"w": "amazing", "t": 20.861290322580643}, {"w": "stories:", "t": 21.22741935483871}, {"w": "a", "t": 21.593548387096774}, {"w": "car", "t": 21.95967741935484}, {"w": "that", "t": 22.325806451612902}, {"w": "can", "t": 22.691935483870967}, {"w": "fly,", "t": 23.058064516129033}, {"w": "and", "t": 23.424193548387095}, {"w": "a", "t": 23.79032258064516}, {"w": "tortoise", "t": 24.156451612903226}, {"w": "that", "t": 24.52258064516129}, {"w": "has", "t": 24.888709677419357}, {"w": "lived", "t": 25.25483870967742}, {"w": "for", "t": 25.620967741935484}, {"w": "almost", "t": 25.987096774193546}, {"w": "two", "t": 26.35322580645161}, {"w": "hundred", "t": 26.719354838709677}, {"w": "years.", "t": 27.085483870967742}, {"w": "Let's", "t": 27.451612903225808}, {"w": "dive", "t": 27.817741935483873}, {"w": "in!", "t": 28.183870967741935}]}, {"start": 41.99, "end": 50.52, "en": "What if your family car could fly over a traffic jam? That sounds like science fiction, right? But it just happened in real life!", "title": "会飞的汽车", "cn": "如果有一天，你家的汽车能直接飞过堵成长龙的马路，那会怎样？听起来像科幻小说，对吧？但这刚刚在现实中发生了！", "words": [{"w": "What", "t": 41.99}, {"w": "if", "t": 42.345416666666665}, {"w": "your", "t": 42.700833333333335}, {"w": "family", "t": 43.056250000000006}, {"w": "car", "t": 43.41166666666667}, {"w": "could", "t": 43.76708333333333}, {"w": "fly", "t": 44.1225}, {"w": "over", "t": 44.47791666666667}, {"w": "a", "t": 44.833333333333336}, {"w": "traffic", "t": 45.18875}, {"w": "jam?", "t": 45.54416666666667}, {"w": "That", "t": 45.89958333333334}, {"w": "sounds", "t": 46.255}, {"w": "like", "t": 46.610416666666666}, {"w": "science", "t": 46.965833333333336}, {"w": "fiction,", "t": 47.321250000000006}, {"w": "right?", "t": 47.67666666666667}, {"w": "But", "t": 48.03208333333333}, {"w": "it", "t": 48.3875}, {"w": "just", "t": 48.74291666666667}, {"w": "happened", "t": 49.098333333333336}, {"w": "in", "t": 49.45375}, {"w": "real", "t": 49.80916666666667}, {"w": "life!", "t": 50.16458333333334}]}, {"start": 50.52, "end": 78.27, "en": "Engineers showed off a new electric sports car with ten small thrusters built into its body. These thrusters shoot out powerful bursts of compressed air — just like the ones on a spaceship. During a live show, the car drove up a huge curved ramp, kept driving while upside down, then flew into the air, did a complete barrel roll, and landed safely on its wheels. It even lifted itself over five other cars while moving!", "title": "会飞的汽车", "cn": "工程师们展示了一辆全新的电动跑车，车身里装着十个小型推进器。这些推进器喷出强劲的压缩空气——就像宇宙飞船上的一样。在一场现场演示中，这辆车开上了一个巨大的弧形坡道，倒挂着继续行驶，然后腾空而起，在空中完成了一个完整的横滚翻转，最后稳稳地用轮子着陆。它甚至在行驶中从另外五辆车的头顶上\"飞\"了过去！", "words": [{"w": "Engineers", "t": 50.52}, {"w": "showed", "t": 50.88513157894737}, {"w": "off", "t": 51.25026315789474}, {"w": "a", "t": 51.615394736842106}, {"w": "new", "t": 51.980526315789476}, {"w": "electric", "t": 52.345657894736846}, {"w": "sports", "t": 52.710789473684216}, {"w": "car", "t": 53.07592105263158}, {"w": "with", "t": 53.44105263157895}, {"w": "ten", "t": 53.80618421052632}, {"w": "small", "t": 54.17131578947369}, {"w": "thrusters", "t": 54.53644736842105}, {"w": "built", "t": 54.90157894736842}, {"w": "into", "t": 55.26671052631579}, {"w": "its", "t": 55.63184210526316}, {"w": "body.", "t": 55.99697368421053}, {"w": "These", "t": 56.36210526315789}, {"w": "thrusters", "t": 56.72723684210526}, {"w": "shoot", "t": 57.09236842105263}, {"w": "out", "t": 57.4575}, {"w": "powerful", "t": 57.822631578947366}, {"w": "bursts", "t": 58.187763157894736}, {"w": "of", "t": 58.552894736842106}, {"w": "compressed", "t": 58.918026315789476}, {"w": "air", "t": 59.283157894736846}, {"w": "—", "t": 59.64828947368421}, {"w": "just", "t": 60.01342105263158}, {"w": "like", "t": 60.37855263157895}, {"w": "the", "t": 60.74368421052632}, {"w": "ones", "t": 61.10881578947368}, {"w": "on", "t": 61.47394736842105}, {"w": "a", "t": 61.83907894736842}, {"w": "spaceship.", "t": 62.20421052631579}, {"w": "During", "t": 62.56934210526316}, {"w": "a", "t": 62.93447368421052}, {"w": "live", "t": 63.29960526315789}, {"w": "show,", "t": 63.66473684210526}, {"w": "the", "t": 64.02986842105263}, {"w": "car", "t": 64.395}, {"w": "drove", "t": 64.76013157894737}, {"w": "up", "t": 65.12526315789474}, {"w": "a", "t": 65.4903947368421}, {"w": "huge", "t": 65.85552631578948}, {"w": "curved", "t": 66.22065789473685}, {"w": "ramp,", "t": 66.5857894736842}, {"w": "kept", "t": 66.95092105263157}, {"w": "driving", "t": 67.31605263157894}, {"w": "while", "t": 67.68118421052631}, {"w": "upside", "t": 68.04631578947368}, {"w": "down,", "t": 68.41144736842105}, {"w": "then", "t": 68.77657894736842}, {"w": "flew", "t": 69.14171052631579}, {"w": "into", "t": 69.50684210526316}, {"w": "the", "t": 69.87197368421053}, {"w": "air,", "t": 70.2371052631579}, {"w": "did", "t": 70.60223684210526}, {"w": "a", "t": 70.96736842105263}, {"w": "complete", "t": 71.3325}, {"w": "barrel", "t": 71.69763157894737}, {"w": "roll,", "t": 72.06276315789474}, {"w": "and", "t": 72.4278947368421}, {"w": "landed", "t": 72.79302631578946}, {"w": "safely", "t": 73.15815789473683}, {"w": "on", "t": 73.5232894736842}, {"w": "its", "t": 73.88842105263157}, {"w": "wheels.", "t": 74.25355263157894}, {"w": "It", "t": 74.61868421052631}, {"w": "even", "t": 74.98381578947368}, {"w": "lifted", "t": 75.34894736842105}, {"w": "itself", "t": 75.71407894736842}, {"w": "over", "t": 76.07921052631579}, {"w": "five", "t": 76.44434210526316}, {"w": "other", "t": 76.80947368421052}, {"w": "cars", "t": 77.17460526315789}, {"w": "while", "t": 77.53973684210526}, {"w": "moving!", "t": 77.90486842105263}]}, {"start": 78.27, "end": 92.47, "en": "The fastest version can go from zero to sixty miles per hour in less than one second — faster than you can say \"flying car\"! And it can still drive three hundred miles on one charge, just like a normal electric car.", "title": "会飞的汽车", "cn": "最快的版本从静止加速到每小时六十英里不到一秒——比你说完\"飞车\"这个词还快！而且它充一次电还能跑三百英里，和普通电动车一样。", "words": [{"w": "The", "t": 78.27}, {"w": "fastest", "t": 78.60809523809523}, {"w": "version", "t": 78.94619047619047}, {"w": "can", "t": 79.28428571428572}, {"w": "go", "t": 79.62238095238095}, {"w": "from", "t": 79.96047619047619}, {"w": "zero", "t": 80.29857142857142}, {"w": "to", "t": 80.63666666666666}, {"w": "sixty", "t": 80.9747619047619}, {"w": "miles", "t": 81.31285714285714}, {"w": "per", "t": 81.65095238095238}, {"w": "hour", "t": 81.98904761904761}, {"w": "in", "t": 82.32714285714286}, {"w": "less", "t": 82.6652380952381}, {"w": "than", "t": 83.00333333333333}, {"w": "one", "t": 83.34142857142857}, {"w": "second", "t": 83.6795238095238}, {"w": "—", "t": 84.01761904761905}, {"w": "faster", "t": 84.35571428571428}, {"w": "than", "t": 84.69380952380952}, {"w": "you", "t": 85.03190476190476}, {"w": "can", "t": 85.37}, {"w": "say", "t": 85.70809523809524}, {"w": "\"flying", "t": 86.04619047619047}, {"w": "car\"!", "t": 86.38428571428571}, {"w": "And", "t": 86.72238095238095}, {"w": "it", "t": 87.0604761904762}, {"w": "can", "t": 87.39857142857143}, {"w": "still", "t": 87.73666666666666}, {"w": "drive", "t": 88.0747619047619}, {"w": "three", "t": 88.41285714285715}, {"w": "hundred", "t": 88.75095238095238}, {"w": "miles", "t": 89.08904761904762}, {"w": "on", "t": 89.42714285714285}, {"w": "one", "t": 89.76523809523809}, {"w": "charge,", "t": 90.10333333333332}, {"w": "just", "t": 90.44142857142857}, {"w": "like", "t": 90.77952380952381}, {"w": "a", "t": 91.11761904761904}, {"w": "normal", "t": 91.45571428571428}, {"w": "electric", "t": 91.79380952380953}, {"w": "car.", "t": 92.13190476190476}]}, {"start": 92.47, "end": 113.48, "en": "How does it work? The secret is simple physics. When the thrusters push air down, the air pushes the car up. It is the same idea that lifts a rocket off the ground. The car also has strong fans underneath that suck air out, pressing the car tightly onto the road — that is how it can drive upside down without falling!", "title": "会飞的汽车", "cn": "它是怎么做到的？秘密就是简单的物理学：当推进器把空气往下推，空气就把车往上托。这和把火箭送上天的原理一模一样。车底还装着强力风扇，把空气抽走，把车紧紧\"按\"在路面上——这就是它能倒挂行驶而不掉下来的原因！", "words": [{"w": "How", "t": 92.47}, {"w": "does", "t": 92.80887096774194}, {"w": "it", "t": 93.14774193548386}, {"w": "work?", "t": 93.4866129032258}, {"w": "The", "t": 93.82548387096774}, {"w": "secret", "t": 94.16435483870967}, {"w": "is", "t": 94.50322580645161}, {"w": "simple", "t": 94.84209677419355}, {"w": "physics.", "t": 95.18096774193549}, {"w": "When", "t": 95.51983870967742}, {"w": "the", "t": 95.85870967741936}, {"w": "thrusters", "t": 96.1975806451613}, {"w": "push", "t": 96.53645161290322}, {"w": "air", "t": 96.87532258064516}, {"w": "down,", "t": 97.2141935483871}, {"w": "the", "t": 97.55306451612903}, {"w": "air", "t": 97.89193548387097}, {"w": "pushes", "t": 98.2308064516129}, {"w": "the", "t": 98.56967741935483}, {"w": "car", "t": 98.90854838709677}, {"w": "up.", "t": 99.24741935483871}, {"w": "It", "t": 99.58629032258065}, {"w": "is", "t": 99.92516129032258}, {"w": "the", "t": 100.26403225806452}, {"w": "same", "t": 100.60290322580646}, {"w": "idea", "t": 100.94177419354838}, {"w": "that", "t": 101.28064516129032}, {"w": "lifts", "t": 101.61951612903226}, {"w": "a", "t": 101.9583870967742}, {"w": "rocket", "t": 102.29725806451613}, {"w": "off", "t": 102.63612903225807}, {"w": "the", "t": 102.975}, {"w": "ground.", "t": 103.31387096774193}, {"w": "The", "t": 103.65274193548387}, {"w": "car", "t": 103.99161290322581}, {"w": "also", "t": 104.33048387096774}, {"w": "has", "t": 104.66935483870968}, {"w": "strong", "t": 105.00822580645162}, {"w": "fans", "t": 105.34709677419355}, {"w": "underneath", "t": 105.68596774193549}, {"w": "that", "t": 106.02483870967743}, {"w": "suck", "t": 106.36370967741937}, {"w": "air", "t": 106.70258064516129}, {"w": "out,", "t": 107.04145161290323}, {"w": "pressing", "t": 107.38032258064517}, {"w": "the", "t": 107.7191935483871}, {"w": "car", "t": 108.05806451612904}, {"w": "tightly", "t": 108.39693548387098}, {"w": "onto", "t": 108.73580645161292}, {"w": "the", "t": 109.07467741935484}, {"w": "road", "t": 109.41354838709678}, {"w": "—", "t": 109.75241935483871}, {"w": "that", "t": 110.09129032258065}, {"w": "is", "t": 110.43016129032259}, {"w": "how", "t": 110.76903225806453}, {"w": "it", "t": 111.10790322580645}, {"w": "can", "t": 111.44677419354839}, {"w": "drive", "t": 111.78564516129033}, {"w": "upside", "t": 112.12451612903226}, {"w": "down", "t": 112.4633870967742}, {"w": "without", "t": 112.80225806451614}, {"w": "falling!", "t": 113.14112903225808}]}, {"start": 113.48, "end": 133.77, "en": "This car cannot fly you to school yet — the air tanks only last a few seconds. But every big invention starts with a crazy first step. The Wright brothers' first flight lasted only twelve seconds, and look where we are now. Maybe the flying cars of the future are being born right now, in front of our eyes.", "title": "会飞的汽车", "cn": "这辆车暂时还不能送你上学——储气罐只够用几秒钟。但每一项伟大的发明，都始于一个疯狂的第一步。莱特兄弟的第一次飞行只持续了十二秒，再看看现在的我们。也许未来的飞车，此刻正在我们眼前诞生。", "words": [{"w": "This", "t": 113.48}, {"w": "car", "t": 113.82389830508475}, {"w": "cannot", "t": 114.16779661016949}, {"w": "fly", "t": 114.51169491525424}, {"w": "you", "t": 114.85559322033899}, {"w": "to", "t": 115.19949152542374}, {"w": "school", "t": 115.54338983050847}, {"w": "yet", "t": 115.88728813559322}, {"w": "—", "t": 116.23118644067797}, {"w": "the", "t": 116.57508474576272}, {"w": "air", "t": 116.91898305084746}, {"w": "tanks", "t": 117.26288135593221}, {"w": "only", "t": 117.60677966101696}, {"w": "last", "t": 117.9506779661017}, {"w": "a", "t": 118.29457627118644}, {"w": "few", "t": 118.6384745762712}, {"w": "seconds.", "t": 118.98237288135594}, {"w": "But", "t": 119.32627118644068}, {"w": "every", "t": 119.67016949152543}, {"w": "big", "t": 120.01406779661018}, {"w": "invention", "t": 120.35796610169493}, {"w": "starts", "t": 120.70186440677966}, {"w": "with", "t": 121.04576271186441}, {"w": "a", "t": 121.38966101694916}, {"w": "crazy", "t": 121.7335593220339}, {"w": "first", "t": 122.07745762711865}, {"w": "step.", "t": 122.4213559322034}, {"w": "The", "t": 122.76525423728815}, {"w": "Wright", "t": 123.1091525423729}, {"w": "brothers'", "t": 123.45305084745763}, {"w": "first", "t": 123.79694915254238}, {"w": "flight", "t": 124.14084745762713}, {"w": "lasted", "t": 124.48474576271187}, {"w": "only", "t": 124.82864406779662}, {"w": "twelve", "t": 125.17254237288137}, {"w": "seconds,", "t": 125.51644067796612}, {"w": "and", "t": 125.86033898305085}, {"w": "look", "t": 126.2042372881356}, {"w": "where", "t": 126.54813559322035}, {"w": "we", "t": 126.8920338983051}, {"w": "are", "t": 127.23593220338984}, {"w": "now.", "t": 127.57983050847459}, {"w": "Maybe", "t": 127.92372881355934}, {"w": "the", "t": 128.26762711864407}, {"w": "flying", "t": 128.61152542372884}, {"w": "cars", "t": 128.95542372881357}, {"w": "of", "t": 129.2993220338983}, {"w": "the", "t": 129.64322033898307}, {"w": "future", "t": 129.9871186440678}, {"w": "are", "t": 130.33101694915254}, {"w": "being", "t": 130.6749152542373}, {"w": "born", "t": 131.01881355932204}, {"w": "right", "t": 131.36271186440678}, {"w": "now,", "t": 131.70661016949154}, {"w": "in", "t": 132.05050847457628}, {"w": "front", "t": 132.39440677966104}, {"w": "of", "t": 132.73830508474578}, {"w": "our", "t": 133.0822033898305}, {"w": "eyes.", "t": 133.42610169491527}]}, {"start": 147.85, "end": 160.82, "en": "Let's meet Jonathan, a giant tortoise who is now one hundred and ninety-four years old. He was born around the time the first photographs were taken — long before cars, phones, or airplanes existed!", "title": "194 岁的乌龟爷爷", "cn": "来认识一下 Jonathan，一只已经一百九十四岁的巨龟。它出生在第一张照片诞生的年代——那时汽车、电话、飞机都还没有被发明出来！", "words": [{"w": "Let's", "t": 147.85}, {"w": "meet", "t": 148.23147058823528}, {"w": "Jonathan,", "t": 148.61294117647057}, {"w": "a", "t": 148.9944117647059}, {"w": "giant", "t": 149.37588235294118}, {"w": "tortoise", "t": 149.75735294117646}, {"w": "who", "t": 150.13882352941175}, {"w": "is", "t": 150.52029411764704}, {"w": "now", "t": 150.90176470588236}, {"w": "one", "t": 151.28323529411765}, {"w": "hundred", "t": 151.66470588235293}, {"w": "and", "t": 152.04617647058822}, {"w": "ninety-four", "t": 152.4276470588235}, {"w": "years", "t": 152.80911764705883}, {"w": "old.", "t": 153.19058823529411}, {"w": "He", "t": 153.5720588235294}, {"w": "was", "t": 153.9535294117647}, {"w": "born", "t": 154.33499999999998}, {"w": "around", "t": 154.7164705882353}, {"w": "the", "t": 155.09794117647058}, {"w": "time", "t": 155.47941176470587}, {"w": "the", "t": 155.86088235294116}, {"w": "first", "t": 156.24235294117648}, {"w": "photographs", "t": 156.62382352941177}, {"w": "were", "t": 157.00529411764705}, {"w": "taken", "t": 157.38676470588234}, {"w": "—", "t": 157.76823529411763}, {"w": "long", "t": 158.14970588235295}, {"w": "before", "t": 158.53117647058824}, {"w": "cars,", "t": 158.91264705882352}, {"w": "phones,", "t": 159.2941176470588}, {"w": "or", "t": 159.6755882352941}, {"w": "airplanes", "t": 160.05705882352942}, {"w": "existed!", "t": 160.4385294117647}]}, {"start": 160.82, "end": 178.96, "en": "Jonathan lives on a small island in the Atlantic Ocean called Saint Helena. He has met kings and queens, survived two world wars, and he is still slowly munching his vegetables every day, just like your grandpa — except your grandpa is probably not one hundred and ninety-four!", "title": "194 岁的乌龟爷爷", "cn": "Jonathan 住在大西洋上一个叫圣赫勒拿的小岛。它见过国王和王后，经历过两次世界大战，现在还每天慢悠悠地嚼着蔬菜，就跟你爷爷一样——只不过你爷爷大概没有一百九十四岁！", "words": [{"w": "Jonathan", "t": 160.82}, {"w": "lives", "t": 161.19791666666666}, {"w": "on", "t": 161.57583333333332}, {"w": "a", "t": 161.95374999999999}, {"w": "small", "t": 162.33166666666665}, {"w": "island", "t": 162.70958333333334}, {"w": "in", "t": 163.0875}, {"w": "the", "t": 163.46541666666667}, {"w": "Atlantic", "t": 163.84333333333333}, {"w": "Ocean", "t": 164.22125}, {"w": "called", "t": 164.59916666666666}, {"w": "Saint", "t": 164.97708333333333}, {"w": "Helena.", "t": 165.355}, {"w": "He", "t": 165.73291666666665}, {"w": "has", "t": 166.11083333333332}, {"w": "met", "t": 166.48875}, {"w": "kings", "t": 166.86666666666667}, {"w": "and", "t": 167.24458333333334}, {"w": "queens,", "t": 167.6225}, {"w": "survived", "t": 168.00041666666667}, {"w": "two", "t": 168.37833333333333}, {"w": "world", "t": 168.75625}, {"w": "wars,", "t": 169.13416666666666}, {"w": "and", "t": 169.51208333333332}, {"w": "he", "t": 169.89}, {"w": "is", "t": 170.26791666666668}, {"w": "still", "t": 170.64583333333334}, {"w": "slowly", "t": 171.02375}, {"w": "munching", "t": 171.40166666666667}, {"w": "his", "t": 171.77958333333333}, {"w": "vegetables", "t": 172.1575}, {"w": "every", "t": 172.53541666666666}, {"w": "day,", "t": 172.91333333333333}, {"w": "just", "t": 173.29125}, {"w": "like", "t": 173.66916666666668}, {"w": "your", "t": 174.04708333333335}, {"w": "grandpa", "t": 174.425}, {"w": "—", "t": 174.80291666666668}, {"w": "except", "t": 175.18083333333334}, {"w": "your", "t": 175.55875}, {"w": "grandpa", "t": 175.93666666666667}, {"w": "is", "t": 176.31458333333333}, {"w": "probably", "t": 176.6925}, {"w": "not", "t": 177.0704166666667}, {"w": "one", "t": 177.44833333333332}, {"w": "hundred", "t": 177.82625000000002}, {"w": "and", "t": 178.20416666666668}, {"w": "ninety-four!", "t": 178.58208333333334}]}, {"start": 178.96, "end": 205.75, "en": "Scientists recently studied Jonathan's genes to learn the secrets of his super-long life. They found something amazing: the chemical patterns around his energy-making genes are unusually neat and orderly. Think of your genes as a huge library of instruction books. Over time, most people's books get messy and dog-eared. But Jonathan's books? They still look almost brand new, even after nearly two centuries!", "title": "194 岁的乌龟爷爷", "cn": "科学家最近研究了 Jonathan 的基因，想揭开它超级长寿的秘密。他们发现了一个惊人的现象：它负责制造能量的基因周围，化学标记排列得异常整齐有序。把你的基因想象成一座藏满说明书的大图书馆。随着时间流逝，大多数人的\"书\"会变乱、卷角。但 Jonathan 的\"书\"呢？将近两百年过去，看起来还几乎全新！", "words": [{"w": "Scientists", "t": 178.96}, {"w": "recently", "t": 179.3852380952381}, {"w": "studied", "t": 179.8104761904762}, {"w": "Jonathan's", "t": 180.2357142857143}, {"w": "genes", "t": 180.66095238095238}, {"w": "to", "t": 181.0861904761905}, {"w": "learn", "t": 181.51142857142858}, {"w": "the", "t": 181.93666666666667}, {"w": "secrets", "t": 182.36190476190478}, {"w": "of", "t": 182.78714285714287}, {"w": "his", "t": 183.21238095238095}, {"w": "super-long", "t": 183.63761904761907}, {"w": "life.", "t": 184.06285714285715}, {"w": "They", "t": 184.48809523809524}, {"w": "found", "t": 184.91333333333333}, {"w": "something", "t": 185.33857142857144}, {"w": "amazing:", "t": 185.76380952380953}, {"w": "the", "t": 186.1890476190476}, {"w": "chemical", "t": 186.61428571428573}, {"w": "patterns", "t": 187.0395238095238}, {"w": "around", "t": 187.4647619047619}, {"w": "his", "t": 187.89000000000001}, {"w": "energy-making", "t": 188.3152380952381}, {"w": "genes", "t": 188.7404761904762}, {"w": "are", "t": 189.1657142857143}, {"w": "unusually", "t": 189.5909523809524}, {"w": "neat", "t": 190.01619047619047}, {"w": "and", "t": 190.4414285714286}, {"w": "orderly.", "t": 190.86666666666667}, {"w": "Think", "t": 191.29190476190476}, {"w": "of", "t": 191.71714285714287}, {"w": "your", "t": 192.14238095238096}, {"w": "genes", "t": 192.56761904761905}, {"w": "as", "t": 192.99285714285713}, {"w": "a", "t": 193.41809523809525}, {"w": "huge", "t": 193.84333333333333}, {"w": "library", "t": 194.26857142857142}, {"w": "of", "t": 194.69380952380953}, {"w": "instruction", "t": 195.11904761904762}, {"w": "books.", "t": 195.5442857142857}, {"w": "Over", "t": 195.96952380952382}, {"w": "time,", "t": 196.3947619047619}, {"w": "most", "t": 196.82}, {"w": "people's", "t": 197.2452380952381}, {"w": "books", "t": 197.6704761904762}, {"w": "get", "t": 198.09571428571428}, {"w": "messy", "t": 198.5209523809524}, {"w": "and", "t": 198.94619047619048}, {"w": "dog-eared.", "t": 199.37142857142857}, {"w": "But", "t": 199.79666666666668}, {"w": "Jonathan's", "t": 200.22190476190477}, {"w": "books?", "t": 200.64714285714285}, {"w": "They", "t": 201.07238095238097}, {"w": "still", "t": 201.49761904761905}, {"w": "look", "t": 201.92285714285714}, {"w": "almost", "t": 202.34809523809525}, {"w": "brand", "t": 202.77333333333334}, {"w": "new,", "t": 203.19857142857143}, {"w": "even", "t": 203.62380952380954}, {"w": "after", "t": 204.04904761904763}, {"w": "nearly", "t": 204.4742857142857}, {"w": "two", "t": 204.8995238095238}, {"w": "centuries!", "t": 205.3247619047619}]}, {"start": 205.75, "end": 218.53, "en": "Does this mean we can all live to two hundred? Not yet. But every clue brings scientists one step closer to understanding why some bodies age slowly — and how we might all stay healthier, longer.", "title": "194 岁的乌龟爷爷", "cn": "这是否意味着我们都能活到两百岁？还没到那一步。但每一条线索都让科学家离真相更近一步：为什么有些身体衰老得更慢——以及我们怎样才能更健康、更长寿。", "words": [{"w": "Does", "t": 205.75}, {"w": "this", "t": 206.105}, {"w": "mean", "t": 206.46}, {"w": "we", "t": 206.815}, {"w": "can", "t": 207.17}, {"w": "all", "t": 207.525}, {"w": "live", "t": 207.88}, {"w": "to", "t": 208.235}, {"w": "two", "t": 208.59}, {"w": "hundred?", "t": 208.945}, {"w": "Not", "t": 209.3}, {"w": "yet.", "t": 209.655}, {"w": "But", "t": 210.01}, {"w": "every", "t": 210.365}, {"w": "clue", "t": 210.72}, {"w": "brings", "t": 211.075}, {"w": "scientists", "t": 211.43}, {"w": "one", "t": 211.785}, {"w": "step", "t": 212.14}, {"w": "closer", "t": 212.495}, {"w": "to", "t": 212.85}, {"w": "understanding", "t": 213.205}, {"w": "why", "t": 213.56}, {"w": "some", "t": 213.915}, {"w": "bodies", "t": 214.27}, {"w": "age", "t": 214.625}, {"w": "slowly", "t": 214.98}, {"w": "—", "t": 215.335}, {"w": "and", "t": 215.69}, {"w": "how", "t": 216.04500000000002}, {"w": "we", "t": 216.4}, {"w": "might", "t": 216.755}, {"w": "all", "t": 217.11}, {"w": "stay", "t": 217.465}, {"w": "healthier,", "t": 217.82}, {"w": "longer.", "t": 218.175}]}, {"start": 225.25, "end": 233.89, "en": "Here's today's joke: What do you call a tortoise that flies? ... A \"heli-tortoise\"! Get it? Helicopter plus tortoise!", "title": "今日笑话", "cn": "今日笑话时间：会飞的乌龟叫什么？……叫\"heli-tortoise\"（直升机龟）！get 到了吗？helicopter（直升机）加上 tortoise（乌龟）！", "words": [{"w": "Here's", "t": 225.25}, {"w": "today's", "t": 225.70473684210526}, {"w": "joke:", "t": 226.15947368421052}, {"w": "What", "t": 226.6142105263158}, {"w": "do", "t": 227.06894736842105}, {"w": "you", "t": 227.5236842105263}, {"w": "call", "t": 227.97842105263157}, {"w": "a", "t": 228.43315789473684}, {"w": "tortoise", "t": 228.8878947368421}, {"w": "that", "t": 229.34263157894736}, {"w": "flies?", "t": 229.79736842105262}, {"w": "...", "t": 230.2521052631579}, {"w": "A", "t": 230.70684210526315}, {"w": "\"heli-tortoise\"!", "t": 231.1615789473684}, {"w": "Get", "t": 231.61631578947367}, {"w": "it?", "t": 232.07105263157894}, {"w": "Helicopter", "t": 232.5257894736842}, {"w": "plus", "t": 232.98052631578946}, {"w": "tortoise!", "t": 233.43526315789472}]}, {"start": 245.41, "end": 255.87, "en": "That brings us to the end of today's show! Before you go, here's a question: If you could invent one crazy feature for a car of the future, what would it be — and why?", "title": "结束语与互动问题", "cn": "今天的节目就到这里！走之前留一个问题：如果能给未来的汽车发明一个疯狂的功能，你会发明什么？为什么？", "words": [{"w": "That", "t": 245.41}, {"w": "brings", "t": 245.70885714285714}, {"w": "us", "t": 246.0077142857143}, {"w": "to", "t": 246.30657142857143}, {"w": "the", "t": 246.60542857142858}, {"w": "end", "t": 246.90428571428572}, {"w": "of", "t": 247.20314285714286}, {"w": "today's", "t": 247.502}, {"w": "show!", "t": 247.80085714285715}, {"w": "Before", "t": 248.09971428571427}, {"w": "you", "t": 248.39857142857142}, {"w": "go,", "t": 248.69742857142856}, {"w": "here's", "t": 248.9962857142857}, {"w": "a", "t": 249.29514285714285}, {"w": "question:", "t": 249.594}, {"w": "If", "t": 249.89285714285714}, {"w": "you", "t": 250.19171428571428}, {"w": "could", "t": 250.49057142857143}, {"w": "invent", "t": 250.78942857142857}, {"w": "one", "t": 251.08828571428572}, {"w": "crazy", "t": 251.38714285714286}, {"w": "feature", "t": 251.686}, {"w": "for", "t": 251.98485714285715}, {"w": "a", "t": 252.2837142857143}, {"w": "car", "t": 252.58257142857144}, {"w": "of", "t": 252.8814285714286}, {"w": "the", "t": 253.18028571428573}, {"w": "future,", "t": 253.47914285714285}, {"w": "what", "t": 253.778}, {"w": "would", "t": 254.07685714285714}, {"w": "it", "t": 254.37571428571428}, {"w": "be", "t": 254.67457142857143}, {"w": "—", "t": 254.97342857142857}, {"w": "and", "t": 255.27228571428572}, {"w": "why?", "t": 255.57114285714286}]}, {"start": 269.95, "end": 272.78, "en": "Have a wonderful day, and see you tomorrow morning!", "title": "告别", "cn": "祝你有美好的一天，明天早上见！", "words": [{"w": "Have", "t": 269.95}, {"w": "a", "t": 270.26444444444445}, {"w": "wonderful", "t": 270.57888888888886}, {"w": "day,", "t": 270.8933333333333}, {"w": "and", "t": 271.2077777777778}, {"w": "see", "t": 271.5222222222222}, {"w": "you", "t": 271.83666666666664}, {"w": "tomorrow", "t": 272.1511111111111}, {"w": "morning!", "t": 272.4655555555555}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks
+BLOCKS.forEach((b, i) => {
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="sec-title">${escHtml(b.title)}</div><div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => seekTo(b.start + 0.03, true));
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  // word highlight
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
