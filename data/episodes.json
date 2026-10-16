@@ -14,5 +14,21 @@
   "audio": "https://lcb0378.github.io/michael-english-podcast/vol01/audio.mp3",
   "pdf": "https://lcb0378.github.io/michael-english-podcast/vol01/Vol01_晚读讲义_会飞的汽车与194岁的乌龟.pdf",
   "pdfName": "Vol01_晚读讲义_会飞的汽车与194岁的乌龟.pdf"
+ },
+ {
+  "id": "vol02",
+  "title": "蜜蜂踢足球与会做梦的章鱼",
+  "words": 503,
+  "duration": "4分13秒",
+  "level": "B1",
+  "tags": [
+   "中考",
+   "高考",
+   "PET"
+  ],
+  "cover": "https://lcb0378.github.io/michael-english-podcast/vol02/cover.png",
+  "audio": "https://lcb0378.github.io/michael-english-podcast/vol02/audio.mp3",
+  "pdf": "https://lcb0378.github.io/michael-english-podcast/vol02/Vol02_晚读讲义_蜜蜂踢足球与会做梦的章鱼.pdf",
+  "pdfName": "Vol02_晚读讲义_蜜蜂踢足球与会做梦的章鱼.pdf"
  }
 ]
