@@ -8,7 +8,7 @@
     <view class="ep-card" bindtap="goEpisode" data-id="{{item.id}}">
       <image class="ep-cover" src="{{item.cover}}" mode="aspectFill"></image>
       <view class="ep-info">
-        <view class="ep-title">{{item.id | upper}} · {{item.title}}</view>
+        <view class="ep-title">{{item.id}} · {{item.title}}</view>
         <view class="ep-meta">英文 {{item.words}} 词 ｜ {{item.duration}} ｜ {{item.level}}</view>
         <view class="ep-tags">
           <block wx:for="{{item.tags}}" wx:key="*"><text class="tag">{{item}}</text></block>

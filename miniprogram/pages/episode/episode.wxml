@@ -1,6 +1,6 @@
 <view class="container">
   <image class="cover" src="{{ep.cover}}" mode="aspectFill"></image>
-  <view class="title">{{ep.id | upper}} · {{ep.title}}</view>
+  <view class="title">{{ep.id}} · {{ep.title}}</view>
   <view class="meta">英文 {{ep.words}} 词 ｜ {{ep.duration}} ｜ {{ep.level}} 难度</view>
 
   <view class="player">
