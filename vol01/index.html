@@ -83,7 +83,14 @@ BLOCKS.forEach((b, i) => {
   div.className = 'block'; div.dataset.idx = i;
   const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
   div.innerHTML = `<div class="sec-title">${escHtml(b.title)}</div><div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
-  div.addEventListener('click', () => seekTo(b.start + 0.03, true));
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
   blocksEl.appendChild(div);
 });
 function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
