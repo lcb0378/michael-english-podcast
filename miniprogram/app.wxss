@@ -1,0 +1,6 @@
+/** 全局样式 **/
+page {
+  background: #f7f5f0;
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #333;
+}

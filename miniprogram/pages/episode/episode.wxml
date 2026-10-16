@@ -1,0 +1,35 @@
+<view class="container">
+  <image class="cover" src="{{ep.cover}}" mode="aspectFill"></image>
+  <view class="title">{{ep.id | upper}} · {{ep.title}}</view>
+  <view class="meta">英文 {{ep.words}} 词 ｜ {{ep.duration}} ｜ {{ep.level}} 难度</view>
+
+  <view class="player">
+    <view class="controls">
+      <button class="play-btn" bindtap="togglePlay">{{playing ? '⏸' : '▶'}}</button>
+      <slider class="progress" min="0" max="1000" value="{{progress}}" bindchanging="onSeeking" bindchange="onSeek" block-size="14" activeColor="#ff8c42"></slider>
+      <text class="time">{{curTime}} / {{durTime}}</text>
+    </view>
+    <view class="speeds">
+      <block wx:for="{{rates}}" wx:key="*">
+        <button class="speed-btn {{rate===item?'active':''}}" bindtap="setRate" data-r="{{item}}">{{item}}x</button>
+      </block>
+    </view>
+  </view>
+
+  <block wx:for="{{ep.blocks}}" wx:for-index="bi" wx:key="bi">
+    <view class="block {{curBlock===bi?'active':''}}" bindtap="tapBlock" data-idx="{{bi}}">
+      <view class="sec-title">{{item.section}}</view>
+      <view class="en">
+        <block wx:for="{{item.words}}" wx:for-index="wi" wx:key="wi">
+          <text class="w {{curBlock===bi&&curWord===wi?'hl':''}}">{{item.w}} </text>
+        </block>
+      </view>
+      <view class="cn">{{item.cn}}</view>
+    </view>
+  </block>
+
+  <view class="pdf-dl">
+    <button class="pdf-btn" bindtap="downloadPdf">📄 下载本期晚读讲义 PDF</button>
+    <view class="pdf-tip">听完记得做精讲练习，巩固词汇和句型</view>
+  </view>
+</view>

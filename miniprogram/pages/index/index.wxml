@@ -1,0 +1,26 @@
+<view class="container">
+  <image class="banner" src="{{episodes[0].cover}}" mode="aspectFill"></image>
+  <view class="title">🎧 Michael 的早听晚读</view>
+  <view class="desc">每天一期双语播客：早上听故事磨耳朵，晚上读讲义练精读。B1 难度，覆盖中考 / 高考 / PET 词汇。</view>
+
+  <view class="section-title">📻 节目单</view>
+  <block wx:for="{{episodes}}" wx:key="id">
+    <view class="ep-card" bindtap="goEpisode" data-id="{{item.id}}">
+      <image class="ep-cover" src="{{item.cover}}" mode="aspectFill"></image>
+      <view class="ep-info">
+        <view class="ep-title">{{item.id | upper}} · {{item.title}}</view>
+        <view class="ep-meta">英文 {{item.words}} 词 ｜ {{item.duration}} ｜ {{item.level}}</view>
+        <view class="ep-tags">
+          <block wx:for="{{item.tags}}" wx:key="*"><text class="tag">{{item}}</text></block>
+        </view>
+      </view>
+      <view class="ep-arrow">›</view>
+    </view>
+  </block>
+
+  <view class="section-title">📖 怎么学</view>
+  <view class="how">
+    <view class="how-item"><text class="how-emoji">🎧</text><text>早听：跟读页点开即播，英文高亮跟到哪读到哪</text></view>
+    <view class="how-item"><text class="how-emoji">📄</text><text>晚读：下载讲义 PDF，做词汇、阅读、仿写练习</text></view>
+  </view>
+</view>
