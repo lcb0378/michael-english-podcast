@@ -1,0 +1,108 @@
+[
+ {
+  "id": 1,
+  "title": "开场白",
+  "blocks": [
+   {
+    "start": 15.27,
+    "end": 26.43,
+    "en": "Welcome back to Michael's Morning Listening! Today we have two tiny geniuses for you: a bee that learned to play soccer, and an octopus that might be dreaming in color. Let's jump in!"
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "title": "蜜蜂踢足球",
+  "blocks": [
+   {
+    "start": 37.13,
+    "end": 46.52,
+    "en": "Can you imagine a bee playing soccer? Scientists did more than imagine — they actually trained bumblebees to push a tiny ball into a tiny goal!"
+   },
+   {
+    "start": 46.52,
+    "end": 62.6,
+    "en": "Here is how it worked. The scientists built a mini soccer field with a little ball and a small goal. When a bee pushed the ball into the goal — GOAL! — it got a sweet drink of sugar water as a prize. Bees love sweet things, so they learned fast."
+   },
+   {
+    "start": 62.6,
+    "end": 84.66,
+    "en": "But here is the amazing part. The bees did not just learn by trying again and again. They learned by watching! A \"teacher bee\" showed them how to push the ball, and the student bees copied it. Even cooler, some bees found a shorter, smarter path to the goal than the teacher showed them. They were not just copying — they were thinking!"
+   },
+   {
+    "start": 84.66,
+    "end": 102.98,
+    "en": "The most surprising moment came later. When the scientists tested the bees the next day, the bees still remembered how to score — they had not forgotten overnight! For a brain smaller than a grain of rice, that is like remembering a whole dance routine after seeing it only once."
+   },
+   {
+    "start": 102.98,
+    "end": 112.83,
+    "en": "This little experiment tells us something big: even tiny insect brains can learn new tricks and pass them on. Who knows what else small brains can do?"
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "title": "章鱼做梦",
+  "blocks": [
+   {
+    "start": 123.85,
+    "end": 129.68,
+    "en": "Now let's dive under the sea and meet the octopus — the eight-armed genius of the ocean."
+   },
+   {
+    "start": 129.68,
+    "end": 149.68,
+    "en": "When you sleep, your eyes move quickly — scientists call this dream sleep. Octopuses have something similar! When an octopus falls into deep sleep, its skin starts to flash and change: stripes, spots, waves of color, all dancing across its body. It looks like it is watching a movie behind closed eyes."
+   },
+   {
+    "start": 149.68,
+    "end": 168.62,
+    "en": "Scientists watched sleeping octopuses very carefully and recorded their brain activity too. During these colorful moments, the octopus's brain looks surprisingly awake — almost as if it is reliving the day, maybe practicing how to catch a crab or escape from danger, all inside a dream."
+   },
+   {
+    "start": 168.62,
+    "end": 180.61,
+    "en": "And here is a fun thought: octopuses have three hearts and blue blood. With a body that strange, who knows what their dreams look like? Maybe they dream in eight directions at once!"
+   },
+   {
+    "start": 180.61,
+    "end": 189.22,
+    "en": "So the next time you see an octopus nap at the aquarium, take a good look at its skin. You might be watching someone else's dream!"
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "title": "今日笑话",
+  "blocks": [
+   {
+    "start": 194.88,
+    "end": 207.0,
+    "en": "Here's today's joke: Why do bees have sticky hair? ... Because they use honeycombs! Get it? A comb is what you use for your hair, and a honeycomb is where bees keep their honey!"
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "title": "结束语与互动问题",
+  "blocks": [
+   {
+    "start": 216.58,
+    "end": 227.5,
+    "en": "That brings us to the end of today's show! Before you go, here's a question: If you could teach any animal to play any sport, which animal and which sport would you choose — and why?"
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "title": "告别",
+  "blocks": [
+   {
+    "start": 241.56,
+    "end": 244.39,
+    "en": "Have a wonderful day, and see you tomorrow morning!"
+   }
+  ]
+ }
+]
