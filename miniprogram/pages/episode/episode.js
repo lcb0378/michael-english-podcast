@@ -20,7 +20,7 @@ Page({
     curBlock: -1,
     curWord: -1,
     rate: 1,
-    rates: [0.75, 0.85, 1, 1.5],
+    rates: [0.85, 1, 1.5],
     seeking: false,
   },
 
