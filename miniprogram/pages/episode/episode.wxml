@@ -1,4 +1,6 @@
 <view class="container">
+  <view wx:if="{{loading}}" class="loading">节目加载中…</view>
+  <block wx:elif="{{ep}}">
   <image class="cover" src="{{ep.cover}}" mode="aspectFill"></image>
   <view class="title">{{ep.id}} · {{ep.title}}</view>
   <view class="meta">英文 {{ep.words}} 词 ｜ {{ep.duration}} ｜ {{ep.level}} 难度</view>
@@ -32,4 +34,5 @@
     <button class="pdf-btn" bindtap="downloadPdf">📄 下载本期晚读讲义 PDF</button>
     <view class="pdf-tip">听完记得做精讲练习，巩固词汇和句型</view>
   </view>
+  </block>
 </view>

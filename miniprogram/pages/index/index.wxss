@@ -14,3 +14,4 @@
 .how-item { display: flex; padding: 16rpx 0; font-size: 28rpx; border-bottom: 1rpx solid #f0f0f0; }
 .how-item:last-child { border-bottom: none; }
 .how-emoji { margin-right: 12rpx; }
+.loading { text-align: center; color: #999; padding: 100rpx 0; font-size: 28rpx; }

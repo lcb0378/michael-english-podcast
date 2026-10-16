@@ -1,5 +1,5 @@
-// 跟读页：播放 + 单词高亮 + 点段跳转 + 语速 + PDF下载
-const { EPISODES } = require('../../utils/episodes.js');
+// 跟读页：节目数据从服务器动态加载；播放 + 单词高亮 + 点段跳转 + 语速 + PDF下载
+const DATA_BASE = 'https://lcb0378.github.io/michael-english-podcast/data';
 const CURSOR_LEAD = 0.9; // 高亮提前量（秒），与网页版一致
 
 const bgm = wx.getBackgroundAudioManager();
@@ -12,6 +12,7 @@ function fmt(t) {
 Page({
   data: {
     ep: null,
+    loading: true,
     playing: false,
     progress: 0,
     curTime: '0:00',
@@ -24,13 +25,22 @@ Page({
   },
 
   onLoad(opts) {
-    const ep = EPISODES.find(e => e.id === (opts.id || 'vol01')) || EPISODES[0];
-    this.setData({ ep });
-    wx.setNavigationBarTitle({ title: `${ep.id.toUpperCase()} · ${ep.title}` });
-
-    bgm.title = `Michael的早听晚读 ${ep.id.toUpperCase()}`;
-    bgm.epname = ep.title;
-    bgm.singer = 'Michael的早听晚读';
+    const id = opts.id || 'vol01';
+    wx.request({
+      url: `${DATA_BASE}/${id}.json`,
+      success: (res) => {
+        const ep = res.data;
+        this.setData({ ep, loading: false });
+        wx.setNavigationBarTitle({ title: `${ep.id.toUpperCase()} · ${ep.title}` });
+        bgm.title = `Michael的早听晚读 ${ep.id.toUpperCase()}`;
+        bgm.epname = ep.title;
+        bgm.singer = 'Michael的早听晚读';
+      },
+      fail: () => {
+        this.setData({ loading: false });
+        wx.showToast({ title: '节目加载失败', icon: 'none' });
+      },
+    });
 
     bgm.onPlay(() => this.setData({ playing: true }));
     bgm.onPause(() => this.setData({ playing: false }));
@@ -42,12 +52,8 @@ Page({
     });
   },
 
-  onUnload() {
-    // 离开页面不停播（后台继续），如需停播取消下面注释
-    // bgm.stop();
-  },
-
   togglePlay() {
+    if (!this.data.ep) return;
     if (this.data.playing) {
       bgm.pause();
     } else {
@@ -61,6 +67,7 @@ Page({
   },
 
   updateHighlight() {
+    if (!this.data.ep) return;
     const t = bgm.currentTime + CURSOR_LEAD;
     const blocks = this.data.ep.blocks;
     let bi = -1, wi = -1;
@@ -83,7 +90,6 @@ Page({
       d.curWord = wi;
       this.setData(d);
       if (bi >= 0) {
-        // 滚动到当前段
         const q = wx.createSelectorQuery();
         q.selectAll('.block').boundingClientRect();
         q.selectViewport().scrollOffset();
@@ -106,12 +112,12 @@ Page({
   },
 
   tapBlock(e) {
+    if (!this.data.ep) return;
     const idx = e.currentTarget.dataset.idx;
     const b = this.data.ep.blocks[idx];
     const t = bgm.currentTime || 0;
     if (t >= b.start && t < b.end) {
-      // 点正在读的段：原地暂停/继续
-      this.togglePlay();
+      this.togglePlay(); // 点正在读的段：原地暂停/继续
     } else {
       if (!bgm.src) {
         bgm.src = this.data.ep.audio;
@@ -129,7 +135,7 @@ Page({
   onSeek(e) {
     const v = e.detail.value;
     this.setData({ seeking: false });
-    if (!bgm.duration) return;
+    if (!this.data.ep || !bgm.duration) return;
     if (!bgm.src) {
       bgm.src = this.data.ep.audio;
       bgm.playbackRate = this.data.rate;
@@ -146,6 +152,7 @@ Page({
 
   downloadPdf() {
     const ep = this.data.ep;
+    if (!ep) return;
     wx.showLoading({ title: '下载中…' });
     wx.downloadFile({
       url: ep.pdf,
@@ -155,7 +162,6 @@ Page({
           wx.openDocument({
             filePath: res.tempFilePath,
             fileType: 'pdf',
-            success() {},
             fail() { wx.showToast({ title: '打开失败', icon: 'none' }); },
           });
         } else {

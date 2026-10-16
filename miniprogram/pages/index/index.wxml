@@ -1,4 +1,6 @@
 <view class="container">
+  <view wx:if="{{loading}}" class="loading">节目单加载中…</view>
+  <block wx:else>
   <image class="banner" src="{{episodes[0].cover}}" mode="aspectFill"></image>
   <view class="title">🎧 Michael 的早听晚读</view>
   <view class="desc">每天一期双语播客：早上听故事磨耳朵，晚上读讲义练精读。B1 难度，覆盖中考 / 高考 / PET 词汇。</view>
@@ -23,4 +25,5 @@
     <view class="how-item"><text class="how-emoji">🎧</text><text>早听：跟读页点开即播，英文高亮跟到哪读到哪</text></view>
     <view class="how-item"><text class="how-emoji">📄</text><text>晚读：下载讲义 PDF，做词汇、阅读、仿写练习</text></view>
   </view>
+  </block>
 </view>

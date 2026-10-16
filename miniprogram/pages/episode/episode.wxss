@@ -20,3 +20,4 @@
 .pdf-dl { text-align: center; background: #fff; border-radius: 20rpx; padding: 40rpx 24rpx; margin-top: 24rpx; }
 .pdf-btn { background: #ff8c42; color: #fff; font-size: 32rpx; border-radius: 44rpx; padding: 8rpx 0; }
 .pdf-tip { color: #bbb; font-size: 24rpx; margin-top: 16rpx; }
+.loading { text-align: center; color: #999; padding: 100rpx 0; font-size: 28rpx; }
