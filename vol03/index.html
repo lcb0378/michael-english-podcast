@@ -42,7 +42,7 @@ header .meta { color: #888; font-size: 0.9rem; }
 <body>
 <div class="container">
 <header>
-<video id="epVideo" src="video.mp4" poster="cover.png" controls playsinline preload="metadata"></video>
+<video id="epVideo" src="video_v2.mp4" poster="cover.png" controls playsinline preload="metadata"></video>
 <h1>🐟 Vol.03 · 伪装鱼Snuffleupagus与会算数的长颈鹿</h1>
 <div class="meta">英文 586 词 ｜ 音频 5分28秒 ｜ B1 难度</div>
 </header>
@@ -87,7 +87,7 @@ const blocksEl = document.getElementById('blocks');
 let rafId = null, seeking = false, blobReady = false;
 
 // Load audio as blob for reliable seeking on Chromium
-fetch('audio.mp3').then(r => r.blob()).then(blob => {
+fetch('audio_v2.mp3').then(r => r.blob()).then(blob => {
   audio.src = URL.createObjectURL(blob);
   blobReady = true;
 });
