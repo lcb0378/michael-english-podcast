@@ -30,9 +30,50 @@
     </view>
   </block>
 
+  <!-- 晚读讲义：直接在小程序里看和做题 -->
+  <view wx:if="{{ep.guide}}" class="guide">
+    <view class="guide-title">📖 晚读讲义 · 精讲练习</view>
+
+    <!-- Part 2 词汇 -->
+    <view class="g-sec">
+      <view class="g-h2">📚 Part 2：核心词汇</view>
+      <block wx:for="{{ep.guide.vocab}}" wx:key="word">
+        <view class="vocab">
+          <view class="v-word">{{item.word}} <text class="v-phon">{{item.phon}}</text></view>
+          <view class="v-meaning">{{item.meaning}}</view>
+          <view class="v-example">{{item.example}}</view>
+        </view>
+      </block>
+    </view>
+
+    <!-- Part 3 练习题 -->
+    <view class="g-sec">
+      <view class="g-h2">✏️ Part 3：阅读理解自测</view>
+      <block wx:for="{{ep.guide.quiz}}" wx:key="title">
+        <view class="g-h3">{{item.title}}</view>
+        <block wx:for="{{item.questions}}" wx:for-index="qi" wx:key="qi">
+          <view class="q">{{qi+1}}. {{item}}</view>
+        </block>
+        <view wx:if="{{item.extra}}" class="q-extra">{{item.extra}}</view>
+      </block>
+    </view>
+
+    <!-- Part 4 长难句 -->
+    <view wx:if="{{ep.guide.sentence_html}}" class="g-sec">
+      <view class="g-h2">🔬 Part 4：长难句拆解</view>
+      <rich-text nodes="{{ep.guide.sentence_nodes}}"></rich-text>
+    </view>
+
+    <!-- Part 5 答案 -->
+    <view wx:if="{{ep.guide.answers_html}}" class="g-sec">
+      <view class="g-h2">✅ Part 5：答案与解析</view>
+      <rich-text nodes="{{ep.guide.answers_nodes}}"></rich-text>
+    </view>
+  </view>
+
   <view class="pdf-dl">
     <button class="pdf-btn" bindtap="downloadPdf">📄 下载本期晚读讲义 PDF</button>
-    <view class="pdf-tip">听完记得做精讲练习，巩固词汇和句型</view>
+    <view class="pdf-tip">想打印出来做？点上面下载 PDF</view>
   </view>
   </block>
 </view>
