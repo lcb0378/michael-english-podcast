@@ -57,9 +57,9 @@
       <block wx:for="{{ep.guide.quiz}}" wx:key="title">
         <view class="g-h3">{{item.title}}</view>
         <block wx:for="{{item.questions}}" wx:for-index="qi" wx:key="qi">
-          <view class="q">{{qi+1}}. {{item}}</view>
+          <text class="q">{{qi+1}}. {{item}}</text>
         </block>
-        <view wx:if="{{item.extra}}" class="q-extra">{{item.extra}}</view>
+        <text wx:if="{{item.extra}}" class="q-extra">{{item.extra}}</text>
       </block>
     </view>
 

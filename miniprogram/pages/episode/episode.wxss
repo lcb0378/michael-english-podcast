@@ -47,8 +47,8 @@
 .v-phon { color: #999; font-size: 26rpx; font-weight: normal; }
 .v-meaning { font-size: 28rpx; line-height: 1.8; color: #333; margin-bottom: 8rpx; }
 .v-example { font-size: 26rpx; line-height: 1.7; color: #666; font-style: italic; }
-.q { font-size: 28rpx; line-height: 1.8; color: #333; margin-bottom: 16rpx; }
+.q { display: block; font-size: 28rpx; line-height: 1.8; color: #333; margin-bottom: 16rpx; }
 .q:last-child { margin-bottom: 0; }
-.q-extra { font-size: 26rpx; line-height: 1.7; color: #666; background: #f5f5f5; border-radius: 12rpx; padding: 20rpx; margin-top: 16rpx; }
+.q-extra { display: block; font-size: 26rpx; line-height: 1.75; color: #666; background: #f5f5f5; border-radius: 12rpx; padding: 20rpx; margin-top: 16rpx; }
 /* 讲义富文本（Part 4/5）：正文同级 28/1.8，段距由 tag-style 补齐 */
 .rt { font-size: 28rpx; line-height: 1.8; color: #333; }
