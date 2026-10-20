@@ -36,6 +36,22 @@ header .meta { color: #888; font-size: 0.9rem; }
 .pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
 .pdf-dl a:hover { background: #f07a2e; }
 .pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
 @media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
 </style>
 </head>
@@ -44,7 +60,7 @@ header .meta { color: #888; font-size: 0.9rem; }
 <header>
 <video id="epVideo" src="video.mp4" poster="cover.png" controls playsinline preload="metadata"></video>
 <h1>🐢 Vol.01 · 会飞的汽车与194岁的乌龟</h1>
-<div class="meta">英文 529 词 ｜ 音频 5分02秒 ｜ B1 难度</div>
+<div class="meta">英文 529 词 ｜ 音频 5分02秒</div>
 </header>
 <div class="player">
 <div class="controls">
@@ -64,6 +80,88 @@ header .meta { color: #888; font-size: 0.9rem; }
 <img src="story-tortoise.png" alt="乌龟爷爷 Jonathan">
 </div>
 <div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">thruster</span> <span class="phon">/ˈθrʌstər/</span> (n.) 推进器<br>
+  <span class="tag green">科普词汇</span>
+  <div class="example">Example: The car's ten <b>thrusters</b> shoot out compressed air.</div>
+</div>
+<div class="vocab">
+  <span class="word">upside down</span> (adv.) 上下颠倒地；倒挂着<br>
+  <span class="tag orange">地道口语表达</span>
+  <div class="example">Example: The car kept driving while <b>upside down</b>!</div>
+</div>
+<div class="vocab">
+  <span class="word">orderly</span> <span class="phon">/ˈɔːdəli/</span> (adj.) 整齐的；有序的<br>
+  
+  <div class="example">Example: Jonathan's genes are unusually neat and <b>orderly</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">barrel roll</span> (n.) 横滚翻转（飞机/车辆的特技动作）<br>
+  <span class="tag green">趣味词汇</span>
+  <div class="example">Example: The car did a complete <b>barrel roll</b> in the air.</div>
+</div>
+<div class="vocab">
+  <span class="word">invention</span> <span class="phon">/ɪnˈvenʃn/</span> (n.) 发明；创造<br>
+  
+  <div class="example">Example: Every big <b>invention</b> starts with a crazy first step.</div>
+</div>
+
+<div class="pagebreak"></div>
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 标题配对（Match the headings）</h3>
+<p>请为 Part 1 的六个段落选择最合适的标题：</p>
+<ol class="quiz">
+  <li>Paragraph 1 → ______</li>
+  <li>Paragraph 2 → ______</li>
+  <li>Paragraph 3 → ______</li>
+  <li>Paragraph 4 → ______</li>
+  <li>Paragraph 5 → ______</li>
+  <li>Paragraph 6 → ______</li>
+</ol>
+<p><b>Headings:</b> A. 会飞的汽车：现场特技全记录 &nbsp;&nbsp; B. 194 岁乌龟的长寿基因秘密 &nbsp;&nbsp; C. 开场：今天的两大看点 &nbsp;&nbsp; D. 今日笑话：heli-tortoise &nbsp;&nbsp; E. 互动时间：给未来汽车发明一个功能 &nbsp;&nbsp; F. 告别：明天早上见</p>
+
+<h3>B. 单项选择（Multiple Choice）</h3>
+<ol class="quiz">
+  <li>这辆新跑车装了几个推进器？<br>A. 5 个 &nbsp; B. 10 个 &nbsp; C. 60 个 &nbsp; D. 100 个</li>
+  <li>汽车倒挂行驶不掉下来，靠的是什么？<br>A. 它有翅膀 &nbsp; B. 车底强力风扇抽走空气，把车按在路面上 &nbsp; C. 车身特别轻 &nbsp; D. 魔法</li>
+  <li>科学家在 Jonathan 的基因里发现了什么？<br>A. 它的基因和其他乌龟完全不同 &nbsp; B. 它的基因像旧图书馆一样杂乱 &nbsp; C. 能量基因周围的化学标记异常整齐有序 &nbsp; D. 它的基因能让它飞</li>
+  <li>为什么这辆"飞车"暂时不能送你上学？<br>A. 它太慢了 &nbsp; B. 储气罐只够用几秒钟 &nbsp; C. 它不会转弯 &nbsp; D. 它太贵了</li>
+</ol>
+
+<h2 class="newpage">🔬 Part 4：长难句深度拆解与仿写</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">The car also has strong fans underneath <b class="kw">that suck air out</b>, <b class="kw">pressing the car tightly onto the road</b>.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li>主句：<i>The car also has strong fans underneath</i>（车底还装着强力风扇）。</li>
+  <li><i>that suck air out</i> 是<b>定语从句</b>，修饰 fans，说明风扇的功能是"把空气抽走"。that 在从句中作主语，指代 fans。</li>
+  <li><i>pressing the car tightly onto the road</i> 是<b>现在分词作结果状语</b>，表示抽走空气带来的结果——"把车紧紧按在路上"。逻辑主语是整个主句的动作。</li>
+  <li>整句逻辑链：<b>有风扇 → 风扇抽气 → 结果：车被按住</b>。一句话讲清"装置—功能—效果"三层意思，是科普英语的经典句型。</li>
+</ul>
+<b>句型仿写：</b><br>
+<i>She opened the window that faced the garden, letting the fresh air flow into the room.</i><br>
+（她打开了那扇朝向花园的窗，让新鲜空气涌进房间。）
+</div>
+
+<div class="pagebreak"></div>
+<h2>✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. 标题配对：</b> 1 → C（开场介绍两大看点）&nbsp; 2 → A（飞车现场特技全记录）&nbsp; 3 → B（乌龟长寿的基因秘密）&nbsp; 4 → D（今日笑话 heli-tortoise）&nbsp; 5 → E（结束语+互动问题）&nbsp; 6 → F（告别）<br><br>
+<b>B. 单项选择：</b><br>
+1 → <b>B</b>。原文：<i>with ten small thrusters built into its body</i>（车身内置十个小型推进器）。<br>
+2 → <b>B</b>。原文：<i>strong fans underneath that suck air out, pressing the car tightly onto the road</i>（车底强力风扇抽走空气，把车紧紧按在路上）。<br>
+3 → <b>C</b>。原文：<i>the chemical patterns around his energy-making genes are unusually neat and orderly</i>（能量基因周围的化学标记异常整齐有序）。注意 A 项错在"完全不同"过于绝对，B 项和原文相反。<br>
+4 → <b>B</b>。原文：<i>the air tanks only last a few seconds</i>（储气罐只够用几秒钟）。
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 30pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+</div>
 <div class="pdf-dl">
 <a href="Vol01_晚读讲义_会飞的汽车与194岁的乌龟.pdf" download>📄 下载本期晚读讲义 PDF</a>
 <p>听完记得做精讲练习，巩固词汇和句型</p>
@@ -87,7 +185,7 @@ const blocksEl = document.getElementById('blocks');
 let rafId = null, seeking = false, blobReady = false;
 
 // Load audio as blob for reliable seeking on Chromium
-fetch('audio_v8.mp3').then(r => r.blob()).then(blob => {
+fetch('audio.mp3').then(r => r.blob()).then(blob => {
   audio.src = URL.createObjectURL(blob);
   blobReady = true;
 });

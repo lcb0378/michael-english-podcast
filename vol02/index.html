@@ -36,6 +36,22 @@ header .meta { color: #888; font-size: 0.9rem; }
 .pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
 .pdf-dl a:hover { background: #f07a2e; }
 .pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
 @media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
 </style>
 </head>
@@ -44,7 +60,7 @@ header .meta { color: #888; font-size: 0.9rem; }
 <header>
 <video id="epVideo" src="video.mp4" poster="cover.png" controls playsinline preload="metadata"></video>
 <h1>🐝 Vol.02 · 蜜蜂踢足球与会做梦的章鱼</h1>
-<div class="meta">英文 503 词 ｜ 音频 4分35秒 ｜ B1 难度</div>
+<div class="meta">英文 503 词 ｜ 音频 4分35秒</div>
 </header>
 <div class="player">
 <div class="controls">
@@ -64,6 +80,94 @@ header .meta { color: #888; font-size: 0.9rem; }
 <img src="story-octopus.png" alt="做梦的章鱼">
 </div>
 <div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">bumblebee</span> <span class="phon">/ˈbʌmblbiː/</span> (n.) 大黄蜂<br>
+  <span class="tag green">趣味词汇</span>
+  <div class="example">Example: The scientists trained <b>bumblebees</b> to push a tiny ball into a tiny goal.</div>
+</div>
+<div class="vocab">
+  <span class="word">trick</span> <span class="phon">/trɪk/</span> (n.) 把戏；技巧；窍门<br>
+  
+  <div class="example">Example: Even tiny insect brains can learn new <b>tricks</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">stripe</span> <span class="phon">/straɪp/</span> (n.) 条纹<br>
+  
+  <div class="example">Example: Stripes, spots, waves of color, all dancing across its body.</div>
+</div>
+<div class="vocab">
+  <span class="word">relive</span> <span class="phon">/ˌriːˈlɪv/</span> (v.) 重新体验；重温<br>
+  
+  <div class="example">Example: It is almost as if it is <b>reliving</b> the day, inside a dream.</div>
+</div>
+<div class="vocab">
+  <span class="word">honeycomb</span> <span class="phon">/ˈhʌnikəʊm/</span> (n.) 蜂巢<br>
+  <span class="tag green">趣味词汇</span><span class="tag orange">双关语</span>
+  <div class="example">Example: Why do bees have sticky hair? Because they use <b>honeycombs</b>!</div>
+</div>
+
+
+<div class="pagebreak"></div>
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 标题配对（Match the headings）</h3>
+<p>请为 Part 1 的六个段落选择最合适的标题：</p>
+<ol class="quiz">
+  <li>Paragraph 1 → ______</li>
+  <li>Paragraph 2 → ______</li>
+  <li>Paragraph 3 → ______</li>
+  <li>Paragraph 4 → ______</li>
+  <li>Paragraph 5 → ______</li>
+  <li>Paragraph 6 → ______</li>
+</ol>
+<p><b>Headings:</b> A. 蜜蜂"足球课"：进球就有糖水喝 &nbsp;&nbsp; B. 章鱼的梦：皮肤上放电影 &nbsp;&nbsp; C. 开场：今天的两位小天才 &nbsp;&nbsp; D. 今日笑话：honeycomb 的双关 &nbsp;&nbsp; E. 互动时间：教动物玩运动 &nbsp;&nbsp; F. 告别：明天早上见</p>
+
+<h3>B. 单项选择（Multiple Choice）</h3>
+<ol class="quiz">
+  <li>蜜蜂把球推进球门后，会得到什么奖励？<br>A. 花蜜 &nbsp; B. 糖水 &nbsp; C. 花粉 &nbsp; D. 什么都没有</li>
+  <li>蜜蜂主要是靠什么学会推球的？<br>A. 自己一次次试出来 &nbsp; B. 看"老师蜜蜂"示范 &nbsp; C. 科学家手把手教 &nbsp; D. 天生就会</li>
+  <li>章鱼深睡时皮肤变颜色，科学家认为最可能的原因是？<br>A. 它感到害怕 &nbsp; B. 它可能在做梦 &nbsp; C. 海水温度变了 &nbsp; D. 它生气了</li>
+  <li>关于章鱼，哪个说法是正确的？<br>A. 章鱼只有一颗心脏 &nbsp; B. 章鱼流的是红色的血 &nbsp; C. 章鱼有三颗心脏，流蓝色的血 &nbsp; D. 章鱼从不睡觉</li>
+</ol>
+
+
+
+<h2 class="newpage">🔬 Part 4：长难句深度拆解与仿写</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">During these colorful moments, the octopus's brain looks surprisingly awake <b class="kw">— almost as if it is reliving the day</b>, <b class="kw">maybe practicing how to catch a crab</b> or escape from danger, all inside a dream.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li>主句：<i>the octopus's brain looks surprisingly awake</i>（章鱼的大脑看起来惊人地清醒）。look 是系动词，后面跟形容词 awake 作表语。</li>
+  <li><i>almost as if it is reliving the day</i> 是 <b>as if 引导的方式状语从句</b>，表示"仿佛在重温白天"。注意这里用的是 is reliving（陈述语气），因为说的是"很可能正在发生的事"，不是纯假想。</li>
+  <li><i>maybe practicing how to catch a crab</i> 中，<i>practicing...</i> 是<b>现在分词作伴随状语</b>，补充说明"重温"的内容；<i>how to catch</i> 是<b>疑问词 + 不定式</b>作 practicing 的宾语，相当于 how it can catch。</li>
+  <li>整句逻辑链：<b>时间背景（在这些彩色时刻）→ 主句（大脑很清醒）→ 仿佛在干什么（重温白天）→ 具体练什么（抓螃蟹）</b>。一句话层层递进，是科普英语描写"科学家推测"的经典句型。</li>
+</ul>
+<b>句型仿写：</b><br>
+<i>During the quiet nights, the old lighthouse looks surprisingly alive — almost as if it is telling stories, maybe guiding the ships that pass by in the dark.</i><br>
+（在寂静的夜里，老灯塔看起来惊人地"活着"——仿佛在讲故事，也许在指引黑夜中经过的船只。）
+</div>
+
+
+
+<div class="pagebreak"></div>
+<h2>✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. 标题配对：</b> 1 → C（开场介绍今天的两位小天才）&nbsp; 2 → A（蜜蜂足球课：进球得糖水）&nbsp; 3 → B（章鱼的梦：皮肤放电影）&nbsp; 4 → D（今日笑话 honeycomb 双关）&nbsp; 5 → E（结束语+互动问题）&nbsp; 6 → F（告别）<br><br>
+<b>B. 单项选择：</b><br>
+1 → <b>B</b>。原文：<i>it got a sweet drink of sugar water as a prize</i>（得到一杯甜甜的糖水作为奖励）。<br>
+2 → <b>B</b>。原文：<i>They learned by watching! A "teacher bee" showed them how to push the ball</i>（靠看学会："老师蜜蜂"示范推球）。<br>
+3 → <b>B</b>。原文：<i>almost as if it is reliving the day... all inside a dream</i>（仿佛在重温白天……在梦里）。注意这是科学家的推测，用了 almost as if。<br>
+4 → <b>C</b>。原文：<i>octopuses have three hearts and blue blood</i>（章鱼有三颗心脏，蓝色的血）。
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 30pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
 <div class="pdf-dl">
 <a href="Vol02_晚读讲义_蜜蜂踢足球与会做梦的章鱼.pdf" download>📄 下载本期晚读讲义 PDF</a>
 <p>听完记得做精讲练习，巩固词汇和句型</p>
@@ -87,7 +191,7 @@ const blocksEl = document.getElementById('blocks');
 let rafId = null, seeking = false, blobReady = false;
 
 // Load audio as blob for reliable seeking on Chromium
-fetch('audio_v6.mp3').then(r => r.blob()).then(blob => {
+fetch('audio.mp3').then(r => r.blob()).then(blob => {
   audio.src = URL.createObjectURL(blob);
   blobReady = true;
 });
