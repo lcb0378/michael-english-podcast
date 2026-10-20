@@ -10,8 +10,7 @@
 .head-left { flex: 1; min-width: 0; }
 .title { font-size: 36rpx; font-weight: bold; line-height: 1.4; color: #222; margin-bottom: 8rpx; }
 .meta { color: #999; font-size: 24rpx; line-height: 1.6; }
-.dl-btn { flex-shrink: 0; background: #1a56db; color: #fff; font-size: 28rpx; border-radius: 36rpx; padding: 0 30rpx; line-height: 72rpx; margin: 4rpx 0 0 16rpx; }
-.dl-btn::after { border: none; }
+.dl-btn { flex-shrink: 0; background: #1a56db; color: #fff; font-size: 24rpx; line-height: 1.5; border-radius: 999rpx; padding: 9rpx 20rpx; margin: 6rpx 0 0 16rpx; white-space: nowrap; }
 .player { position: sticky; top: 0; background: #fff; border-radius: 20rpx; padding: 24rpx 28rpx; margin-bottom: 20rpx; z-index: 10; }
 .controls { display: flex; align-items: center; }
 .play-btn { flex: 0 0 96rpx; width: 96rpx; height: 96rpx; min-width: 96rpx; border-radius: 50%; background: #ff8c42; color: #fff; font-size: 36rpx; line-height: 96rpx; padding: 0; margin: 0 16rpx 0 0; }

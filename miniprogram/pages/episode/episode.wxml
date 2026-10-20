@@ -7,7 +7,7 @@
       <view class="title">{{ep.id}} · {{ep.title}}</view>
       <view class="meta">英文 {{ep.words}} 词 ｜ 音频 {{ep.duration}}</view>
     </view>
-    <button class="dl-btn" bindtap="downloadPdf">📄 下载讲义</button>
+    <view class="dl-btn" bindtap="downloadPdf">📄 下载讲义</view>
   </view>
 
   <view class="player">

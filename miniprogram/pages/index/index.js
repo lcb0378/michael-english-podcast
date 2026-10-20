@@ -25,7 +25,18 @@ this.setData({ loading: false});
 wx.showToast({ title: '节目单加载失败', icon: 'none'});
 },
 });
-// 首页是根页面，整个生命周期只注册一次监听即可
+this._bindBgm();
+},
+
+onShow() {
+// 每次回到主页都重新注册监听：背景播放器是单例，单集页也会注册同一批
+// 回调，后注册的会顶掉先注册的——不抢回来，主页就收不到暂停/停止通知，
+// 图标不翻、停止后播放条变死条（2026-10-20 David 实测）。
+this._bindBgm();
+this._syncNp();
+},
+
+_bindBgm() {
 bgm.onPlay(() => this._syncNp());
 bgm.onPause(() => this._syncNp());
 bgm.onStop(() => {
@@ -34,10 +45,6 @@ getApp().globalData.bgmEpInfo = null;
 this._syncNp();
 });
 bgm.onEnded(() => this._syncNp());
-},
-
-onShow() {
-this._syncNp();
 },
 
 _syncNp() {
@@ -57,16 +64,27 @@ this.setData({ nowPlaying: info, npPlaying:!bgm.paused});
 },
 
 // 迷你播放器：暂停/继续当前那一期（不切换节目）
+// 不等事件回调，直接同步 UI 状态——回调可能被单集页顶掉，等它会让图标冻住。
 npToggle(e) {
 e.stopPropagation && e.stopPropagation();
 if (!getApp().globalData.bgmEpId) return;
-if (bgm.paused) bgm.play(); else bgm.pause();
+if (bgm.paused) {
+bgm.play();
+this.setData({ npPlaying: true});
+} else {
+bgm.pause();
+this.setData({ npPlaying: false});
+}
 },
 
-// 迷你播放器：停止播放（播放器条随之消失）
+// 迷你播放器：✕ 关闭——停止播放并把播放条从主页移除（David 定版逻辑）
 npStop(e) {
 e.stopPropagation && e.stopPropagation();
 bgm.stop();
+const app = getApp();
+app.globalData.bgmEpId = null;
+app.globalData.bgmEpInfo = null;
+this.setData({ nowPlaying: null, npPlaying: false});
 },
 
 // 点播放器条：回到正在播的那一期页面

@@ -32,7 +32,7 @@
       <view class="np-sub">{{nowPlaying.title}} · 点按回到这一期</view>
     </view>
     <view class="np-btn" catchtap="npToggle">{{npPlaying ? '⏸' : '▶'}}</view>
-    <view class="np-btn np-stop" catchtap="npStop">⏹</view>
+    <view class="np-btn np-stop" catchtap="npStop">✕</view>
   </view>
   <view wx:if="{{nowPlaying}}" class="np-spacer"></view>
 </view>
