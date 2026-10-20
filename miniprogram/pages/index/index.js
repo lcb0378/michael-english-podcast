@@ -4,10 +4,15 @@
 const DATA_BASE = 'https://lcb0378.github.io/michael-english-podcast/data';
 
 const bgm = wx.getBackgroundAudioManager();
+const RANGE_SIZE = 20; // 数字段大小：每 20 期一段（1–20、21–40、41–60…）
 
 Page({
 data: {
-episodes: [],
+episodes: [], // 当前显示的节目（按所选数字段过滤后的）
+allEpisodes: [], // 服务器返回的全量节目单
+ranges: [], // 数字段：[{start, end, label}]，每 20 期一段，最新段在最前
+activeRange: 0,
+listIntoView: '',
 loading: true,
 nowPlaying: null, // {id, title, cover}：当前装在背景播放器里的那一期
 npPlaying: false, // 它是否正在播放
@@ -17,7 +22,9 @@ onLoad() {
 wx.request({
 url: `${DATA_BASE}/episodes.json`,
 success: (res) => {
-this.setData({ episodes: res.data || [], loading: false});
+const all = res.data || [];
+this.setData({ allEpisodes: all, loading: false});
+this._buildRanges();
 this._syncNp();
 },
 fail: () => {
@@ -56,7 +63,7 @@ return;
 }
 let info = app.globalData.bgmEpInfo;
 if (!info || info.id!== id) {
-const found = (this.data.episodes || []).find(e => e.id === id);
+const found = (this.data.allEpisodes || []).find(e => e.id === id);
 info = found? { id: found.id, title: found.title, cover: found.cover}: { id, title: id.toUpperCase(), cover: ''};
 app.globalData.bgmEpInfo = info;
 }
@@ -91,6 +98,40 @@ this.setData({ nowPlaying: null, npPlaying: false});
 npGo() {
 const np = this.data.nowPlaying;
 if (np) wx.navigateTo({ url: `/pages/episode/episode?id=${np.id}`});
+},
+
+// 按期号生成数字段（最新段排最前），并显示第一段（最新的一段）
+_buildRanges() {
+const all = this.data.allEpisodes || [];
+const nums = all.map(e => parseInt(String(e.id).replace(/\D/g, ''), 10) || 0);
+const maxN = nums.length ? Math.max(...nums) : 0;
+const ranges = [];
+for (let end = Math.ceil(maxN / RANGE_SIZE) * RANGE_SIZE; end >= 1; end -= RANGE_SIZE) {
+const start = end - RANGE_SIZE + 1;
+ranges.push({ start, end: Math.min(end, maxN), label: `${start}–${Math.min(end, maxN)}` });
+}
+this.setData({ ranges, activeRange: 0});
+this._applyRange(0);
+},
+
+// 列表只显示所选数字段内的节目（保持最新在前的顺序），并滚回段首
+_applyRange(idx) {
+const r = (this.data.ranges || [])[idx];
+if (!r) { this.setData({ episodes: this.data.allEpisodes || [] }); return; }
+const list = (this.data.allEpisodes || []).filter(e => {
+const n = parseInt(String(e.id).replace(/\D/g, ''), 10) || 0;
+return n >= r.start && n <= r.end;
+});
+this.setData({ episodes: list, listIntoView: '' }, () => {
+this.setData({ listIntoView: 'ep-top' });
+});
+},
+
+selectRange(e) {
+const idx = Number(e.currentTarget.dataset.idx);
+if (idx === this.data.activeRange) return;
+this.setData({ activeRange: idx });
+this._applyRange(idx);
 },
 
 goEpisode(e) {

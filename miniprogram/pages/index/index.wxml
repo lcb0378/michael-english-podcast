@@ -6,16 +6,22 @@
   <view class="desc">每天一期双语播客：早上听故事磨耳朵，晚上读讲义练精读。献给每一个想学好英语的人。</view>
 
   <view class="section-title">📻 节目单</view>
-  <block wx:for="{{episodes}}" wx:key="id">
-    <view class="ep-card" bindtap="goEpisode" data-id="{{item.id}}">
-      <image class="ep-cover" src="{{item.cover}}" mode="aspectFill"></image>
-      <view class="ep-info">
-        <view class="ep-title">{{item.id}} · {{item.title}}</view>
-        <view class="ep-meta">英文 {{item.words}} 词 ｜ 音频 {{item.duration}}</view>
+  <scroll-view wx:if="{{ranges.length > 1}}" class="range-bar" scroll-x="true" show-scrollbar="false">
+    <view wx:for="{{ranges}}" wx:key="start" class="range-chip {{activeRange === index ? 'active' : ''}}" bindtap="selectRange" data-idx="{{index}}">{{item.label}}</view>
+  </scroll-view>
+  <scroll-view class="ep-list" scroll-y="true" scroll-into-view="{{listIntoView}}">
+    <block wx:for="{{episodes}}" wx:key="id">
+      <view class="ep-card" id="{{index === 0 ? 'ep-top' : ''}}" bindtap="goEpisode" data-id="{{item.id}}">
+        <image class="ep-cover" src="{{item.cover}}" mode="aspectFill"></image>
+        <view class="ep-info">
+          <view class="ep-title">{{item.id}} · {{item.title}}</view>
+          <view class="ep-meta">英文 {{item.words}} 词 ｜ 音频 {{item.duration}}</view>
+        </view>
+        <view class="ep-arrow">›</view>
       </view>
-      <view class="ep-arrow">›</view>
-    </view>
-  </block>
+    </block>
+    <view wx:if="{{nowPlaying}}" class="np-spacer"></view>
+  </scroll-view>
 
   <view class="section-title">📖 怎么学</view>
   <view class="how">
@@ -34,5 +40,4 @@
     <view class="np-btn" catchtap="npToggle">{{npPlaying ? '⏸' : '▶'}}</view>
     <view class="np-btn np-stop" catchtap="npStop">✕</view>
   </view>
-  <view wx:if="{{nowPlaying}}" class="np-spacer"></view>
 </view>

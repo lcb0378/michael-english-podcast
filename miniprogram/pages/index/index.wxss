@@ -1,5 +1,13 @@
-/* 主页样式 — 与播放页共用排版标准 v1（字号阶梯/间距/颜色见 episode.wxss 头注） */
-.container { padding: 24rpx 28rpx 60rpx; }
+/* 主页样式 — 与播放页共用排版标准 v1（字号阶梯/间距/颜色见 episode.wxss 头注）
+   布局（2026-10-20 David 定版）：整页 100vh 固定不滚，只有节目单区域内部滚动——
+   做到几百期页面也不变长；迷你播放条 fixed 悬浮，永远在屏幕底部可见。 */
+page { height: 100vh; }
+.container { height: 100vh; box-sizing: border-box; display: flex; flex-direction: column; padding: 24rpx 28rpx 32rpx; }
+.banner, .title, .desc, .section-title, .how { flex-shrink: 0; }
+.ep-list { flex: 1; min-height: 0; }
+.range-bar { flex-shrink: 0; height: 76rpx; white-space: nowrap; margin-bottom: 16rpx; }
+.range-chip { display: inline-flex; align-items: center; height: 60rpx; padding: 0 28rpx; margin-right: 14rpx; background: #fff; color: #666; font-size: 26rpx; line-height: 1.5; border-radius: 999rpx; vertical-align: top; }
+.range-chip.active { background: #ff8c42; color: #fff; font-weight: bold; }
 .banner { width: 100%; height: 340rpx; border-radius: 20rpx; margin-bottom: 24rpx; }
 .title { font-size: 36rpx; font-weight: bold; line-height: 1.4; color: #222; margin-bottom: 8rpx; }
 .desc { color: #666; font-size: 28rpx; line-height: 1.8; }
@@ -16,7 +24,7 @@
 .how-emoji { margin-right: 12rpx; }
 .loading { text-align: center; color: #999; padding: 100rpx 0; font-size: 28rpx; }
 /* 底部迷你播放器（紧凑半透明条；控件用 view 不用原生 button，原生 button 尺寸不可控会撑大） */
-.np-bar { position: fixed; left: 16rpx; right: 16rpx; bottom: 20rpx; z-index: 99; display: flex; align-items: center; background: rgba(255,255,255,0.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 20rpx; padding: 12rpx 18rpx; box-shadow: 0 6rpx 24rpx rgba(0,0,0,0.14); }
+.np-bar { position: fixed; left: 16rpx; right: 16rpx; bottom: 20rpx; z-index: 999; display: flex; align-items: center; background: rgba(255,255,255,0.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 20rpx; padding: 12rpx 18rpx; box-shadow: 0 6rpx 24rpx rgba(0,0,0,0.14); }
 .np-cover { width: 104rpx; height: 104rpx; border-radius: 14rpx; flex-shrink: 0; }
 .np-info { flex: 1; margin-left: 16rpx; min-width: 0; overflow: hidden; }
 .np-title { font-size: 27rpx; font-weight: bold; line-height: 1.45; color: #222; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
