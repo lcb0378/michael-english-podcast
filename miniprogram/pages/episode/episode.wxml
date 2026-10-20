@@ -66,13 +66,13 @@
     <!-- Part 4 长难句 -->
     <view wx:if="{{ep.guide.sentence_nodes}}" class="g-sec">
       <view class="g-h2">🔬 Part 4：长难句拆解</view>
-      <rich-text nodes="{{ep.guide.sentence_nodes}}"></rich-text>
+      <rich-text class="rt" tag-style="{{tagStyle}}" nodes="{{ep.guide.sentence_nodes}}"></rich-text>
     </view>
 
     <!-- Part 5 答案 -->
     <view wx:if="{{ep.guide.answers_nodes}}" class="g-sec">
       <view class="g-h2">✅ Part 5：答案与解析</view>
-      <rich-text nodes="{{ep.guide.answers_nodes}}"></rich-text>
+      <rich-text class="rt" tag-style="{{tagStyle}}" nodes="{{ep.guide.answers_nodes}}"></rich-text>
     </view>
   </view>
 

@@ -27,6 +27,13 @@ curWord: -1,
 rate: 1,
 rates: [0.9, 1, 1.1, 1.5],
 seeking: false,
+// 讲义富文本标签默认样式（排版标准 v1：正文 28/1.8，段距 16）
+tagStyle: {
+p: 'margin: 0 0 16rpx; line-height: 1.8;',
+div: 'line-height: 1.8;',
+ul: 'margin: 8rpx 0 16rpx; padding-left: 40rpx;',
+li: 'line-height: 1.8; margin-bottom: 8rpx;',
+},
 },
 
 _epId: null,
