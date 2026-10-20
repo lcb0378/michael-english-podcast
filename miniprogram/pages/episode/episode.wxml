@@ -23,6 +23,8 @@
     </view>
   </view>
 
+  <view class="part-head">📖 Part 1：双语精读对照</view>
+
   <block wx:for="{{ep.blocks}}" wx:for-index="bi" wx:key="bi">
     <view class="block {{curBlock===bi?'active':''}}" bindtap="tapBlock" data-idx="{{bi}}">
       <view class="sec-title">{{item.title}}</view>
@@ -37,8 +39,6 @@
 
   <!-- 晚读讲义：直接在小程序里看和做题 -->
   <view wx:if="{{ep.guide}}" class="guide">
-    <view class="guide-title">📖 晚读讲义 · 精讲练习</view>
-
     <!-- Part 2 词汇 -->
     <view class="g-sec">
       <view class="g-h2">📚 Part 2：核心词汇</view>
