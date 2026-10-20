@@ -57,11 +57,11 @@ onLoad(opts) {
 const id = opts.id || 'vol01';
 this._epId = id;
 
-// 【播放逻辑定版】播放器里装着别期时（无论在播还是暂停）：进页立即停掉旧期，
-// 本期数据到达后自动接管播放；装的就是本期则完全不动（续播/暂停状态原样保留）。
+// 【播放逻辑定版】播放器里装着别期时（无论在播还是暂停）：进页立即停掉旧期并清出播放器，
+// 本期不自动开播——和冷启动一样，等用户点播放才播（先浏览再听）；
+// 装的就是本期则完全不动（续播/暂停状态、进度原样保留）。
 const curEp = getApp().globalData.bgmEpId;
-this._switchToMe = !!(curEp && curEp!== id);
-if (this._switchToMe) {
+if (curEp && curEp!== id) {
 bgm.stop();
 getApp().globalData.bgmEpId = null;
 getApp().globalData.bgmEpInfo = null;
@@ -108,11 +108,9 @@ const ep = res.data;
 this.setData({ ep, loading: false});
 wx.setNavigationBarTitle({ title: `${ep.id.toUpperCase()} · ${ep.title}`});
 // 若背景里装的就是本期，同步一次按钮与时长显示（状态原样不动）
+// 是别期的话 onLoad 里已停掉清掉，本页静静等用户点播放，不自动开播
 if (this._isMine()) {
 this.setData({ playing:!bgm.paused, durTime: fmt(bgm.duration)});
-} else if (this._switchToMe) {
-// 进页时已停掉旧期：本期接管播放
-this._loadSrc();
 }
 },
 fail: () => {
