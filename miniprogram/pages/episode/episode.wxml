@@ -2,8 +2,13 @@
   <view wx:if="{{loading}}" class="loading">节目加载中…</view>
   <block wx:elif="{{ep}}">
   <image class="cover" src="{{ep.cover}}" mode="aspectFill"></image>
-  <view class="title">{{ep.id}} · {{ep.title}}</view>
-  <view class="meta">英文 {{ep.words}} 词 ｜ 音频 {{ep.duration}}</view>
+  <view class="head-row">
+    <view class="head-left">
+      <view class="title">{{ep.id}} · {{ep.title}}</view>
+      <view class="meta">英文 {{ep.words}} 词 ｜ 音频 {{ep.duration}}</view>
+    </view>
+    <button class="dl-btn" bindtap="downloadPdf">📄 下载讲义</button>
+  </view>
 
   <view class="player">
     <view class="controls">
