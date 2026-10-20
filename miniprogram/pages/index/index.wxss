@@ -15,12 +15,12 @@
 .how-item:last-child { border-bottom: none; }
 .how-emoji { margin-right: 12rpx; }
 .loading { text-align: center; color: #999; padding: 100rpx 0; font-size: 28rpx; }
-/* 底部迷你播放器 */
-.np-bar { position: fixed; left: 20rpx; right: 20rpx; bottom: 24rpx; z-index: 99; display: flex; align-items: center; background: #fff; border-radius: 20rpx; padding: 16rpx 24rpx; box-shadow: 0 8rpx 30rpx rgba(0,0,0,0.18); }
-.np-cover { width: 84rpx; height: 84rpx; border-radius: 12rpx; flex-shrink: 0; }
-.np-info { flex: 1; margin-left: 18rpx; overflow: hidden; }
-.np-title { font-size: 28rpx; font-weight: bold; line-height: 1.5; color: #222; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.np-sub { color: #999; font-size: 24rpx; line-height: 1.5; margin-top: 4rpx; }
-.np-btn { width: 76rpx; height: 76rpx; line-height: 76rpx; border-radius: 50%; background: #ff8c42; color: #fff; font-size: 30rpx; padding: 0; margin-left: 14rpx; flex-shrink: 0; }
-.np-btn::after { border: none; }
-.np-spacer { height: 150rpx; }
+/* 底部迷你播放器（紧凑半透明条；控件用 view 不用原生 button，原生 button 尺寸不可控会撑大） */
+.np-bar { position: fixed; left: 16rpx; right: 16rpx; bottom: 20rpx; z-index: 99; display: flex; align-items: center; background: rgba(255,255,255,0.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 20rpx; padding: 12rpx 18rpx; box-shadow: 0 6rpx 24rpx rgba(0,0,0,0.14); }
+.np-cover { width: 104rpx; height: 104rpx; border-radius: 14rpx; flex-shrink: 0; }
+.np-info { flex: 1; margin-left: 16rpx; min-width: 0; overflow: hidden; }
+.np-title { font-size: 27rpx; font-weight: bold; line-height: 1.45; color: #222; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.np-sub { color: #999; font-size: 24rpx; line-height: 1.45; margin-top: 2rpx; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.np-btn { width: 64rpx; height: 64rpx; border-radius: 50%; background: #ff8c42; color: #fff; font-size: 25rpx; display: flex; align-items: center; justify-content: center; margin-left: 12rpx; flex-shrink: 0; }
+.np-stop { background: rgba(0,0,0,0.06); color: #666; font-size: 22rpx; }
+.np-spacer { height: 140rpx; }

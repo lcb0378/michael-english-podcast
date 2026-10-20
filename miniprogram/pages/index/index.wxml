@@ -28,11 +28,11 @@
   <view wx:if="{{nowPlaying}}" class="np-bar" bindtap="npGo">
     <image wx:if="{{nowPlaying.cover}}" class="np-cover" src="{{nowPlaying.cover}}" mode="aspectFill"></image>
     <view class="np-info">
-      <view class="np-title">正在播放 · {{nowPlaying.id}} {{nowPlaying.title}}</view>
-      <view class="np-sub">点这里回到这一期</view>
+      <view class="np-title">{{npPlaying ? '正在播放' : '已暂停'}} · {{nowPlaying.id}}</view>
+      <view class="np-sub">{{nowPlaying.title}} · 点按回到这一期</view>
     </view>
-    <button class="np-btn" catchtap="npToggle">{{npPlaying ? '⏸' : '▶'}}</button>
-    <button class="np-btn" catchtap="npStop">⏹</button>
+    <view class="np-btn" catchtap="npToggle">{{npPlaying ? '⏸' : '▶'}}</view>
+    <view class="np-btn np-stop" catchtap="npStop">⏹</view>
   </view>
   <view wx:if="{{nowPlaying}}" class="np-spacer"></view>
 </view>
