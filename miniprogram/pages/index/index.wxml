@@ -3,7 +3,7 @@
   <block wx:else>
   <image class="banner" src="{{episodes[0].cover}}" mode="aspectFill"></image>
   <view class="title">🎧 Michael 的早听晚读</view>
-  <view class="desc">每天一期双语播客：早上听故事磨耳朵，晚上读讲义练精读。B1 难度，覆盖中考 / 高考 / PET 词汇。</view>
+  <view class="desc">每天一期双语播客：早上听故事磨耳朵，晚上读讲义练精读。献给每一个想学好英语的人。</view>
 
   <view class="section-title">📻 节目单</view>
   <block wx:for="{{episodes}}" wx:key="id">
@@ -11,10 +11,7 @@
       <image class="ep-cover" src="{{item.cover}}" mode="aspectFill"></image>
       <view class="ep-info">
         <view class="ep-title">{{item.id}} · {{item.title}}</view>
-        <view class="ep-meta">英文 {{item.words}} 词 ｜ {{item.duration}} ｜ {{item.level}}</view>
-        <view class="ep-tags">
-          <block wx:for="{{item.tags}}" wx:key="*"><text class="tag">{{item}}</text></block>
-        </view>
+        <view class="ep-meta">英文 {{item.words}} 词 ｜ 音频 {{item.duration}}</view>
       </view>
       <view class="ep-arrow">›</view>
     </view>
@@ -26,4 +23,16 @@
     <view class="how-item"><text class="how-emoji">📄</text><text>晚读：下载讲义 PDF，做词汇、阅读、仿写练习</text></view>
   </view>
   </block>
+
+  <!-- 底部迷你播放器：有节目在背景播放时出现 -->
+  <view wx:if="{{nowPlaying}}" class="np-bar" bindtap="npGo">
+    <image wx:if="{{nowPlaying.cover}}" class="np-cover" src="{{nowPlaying.cover}}" mode="aspectFill"></image>
+    <view class="np-info">
+      <view class="np-title">正在播放 · {{nowPlaying.id}} {{nowPlaying.title}}</view>
+      <view class="np-sub">点这里回到这一期</view>
+    </view>
+    <button class="np-btn" catchtap="npToggle">{{npPlaying ? '⏸' : '▶'}}</button>
+    <button class="np-btn" catchtap="npStop">⏹</button>
+  </view>
+  <view wx:if="{{nowPlaying}}" class="np-spacer"></view>
 </view>

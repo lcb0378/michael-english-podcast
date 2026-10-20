@@ -47,6 +47,7 @@ bgm.singer = 'Michael的早听晚读';
 bgm.coverImgUrl = ep.cover;
 bgm.src = ep.audio; // 换源点：赋值后自动播放新的一期
 getApp().globalData.bgmEpId = this._epId;
+getApp().globalData.bgmEpInfo = { id: ep.id, title: ep.title, cover: ep.cover };
 bgm.playbackRate = this.data.rate;
 this._pendingSeek = (typeof seekTo === 'number')? seekTo: null;
 this.setData({ progress: 0, curTime: '0:00', curBlock: -1, curWord: -1});
@@ -62,7 +63,12 @@ onPlay: () => this.setData({ playing: true}),
 onPause: () => this.setData({ playing: false}),
 onStop: () => {
 getApp().globalData.bgmEpId = null;
+getApp().globalData.bgmEpInfo = null;
 this.setData({ playing: false, curBlock: -1, curWord: -1});
+},
+onError: () => {
+wx.showToast({ title: '音频加载失败，请检查网络后重试', icon: 'none'});
+this.setData({ playing: false});
 },
 onEnded: () => this.setData({ playing: false}),
 onTimeUpdate: () => this.updateHighlight(),
@@ -83,6 +89,7 @@ bgm.onStop(this._h.onStop);
 bgm.onEnded(this._h.onEnded);
 bgm.onTimeUpdate(this._h.onTimeUpdate);
 bgm.onCanplay(this._h.onCanplay);
+bgm.onError(this._h.onError);
 
 wx.request({
 url: `${DATA_BASE}/${id}.json`,
@@ -93,6 +100,9 @@ wx.setNavigationBarTitle({ title: `${ep.id.toUpperCase()} · ${ep.title}`});
 // 若背景里正播的就是本期，同步一次按钮与时长显示
 if (this._isMine()) {
 this.setData({ playing:!bgm.paused, durTime: fmt(bgm.duration)});
+} else if (bgm.src &&!bgm.paused) {
+// 别的期正在播，用户点进了本期：按预期自动切换到本期播放
+this._loadSrc();
 }
 },
 fail: () => {
@@ -111,6 +121,7 @@ off('offStop', this._h.onStop);
 off('offEnded', this._h.onEnded);
 off('offTimeUpdate', this._h.onTimeUpdate);
 off('offCanplay', this._h.onCanplay);
+off('offError', this._h.onError);
 // 注意：不在这里 stop —— 背景音频本就该在离开页面后继续播；
 // 换期靠 _isMine 校验，不靠停播。
 },

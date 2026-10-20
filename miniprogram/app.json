@@ -1,1 +1,17 @@
-{"pages":["pages/index/index","pages/episode/episode"],"style":"v2","window":{"backgroundColor":"#f7f5f0","backgroundTextStyle":"light","navigationBarBackgroundColor":"#ff8c42","navigationBarTextStyle":"white","navigationBarTitleText":"Michael的早听晚读"}}
+{
+  "pages": [
+    "pages/index/index",
+    "pages/episode/episode"
+  ],
+  "style": "v2",
+  "window": {
+    "backgroundColor": "#f7f5f0",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ff8c42",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "Michael的早听晚读"
+  },
+  "requiredBackgroundModes": [
+    "audio"
+  ]
+}
