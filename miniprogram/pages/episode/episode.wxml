@@ -3,7 +3,7 @@
   <block wx:elif="{{ep}}">
   <image class="cover" src="{{ep.cover}}" mode="aspectFill"></image>
   <view class="title">{{ep.id}} · {{ep.title}}</view>
-  <view class="meta">英文 {{ep.words}} 词 ｜ {{ep.duration}} ｜ {{ep.level}} 难度</view>
+  <view class="meta">英文 {{ep.words}} 词 ｜ 音频 {{ep.duration}}</view>
 
   <view class="player">
     <view class="controls">
@@ -20,7 +20,7 @@
 
   <block wx:for="{{ep.blocks}}" wx:for-index="bi" wx:key="bi">
     <view class="block {{curBlock===bi?'active':''}}" bindtap="tapBlock" data-idx="{{bi}}">
-      <view class="sec-title">{{item.section}}</view>
+      <view class="sec-title">{{item.title}}</view>
       <view class="en">
         <block wx:for="{{item.words}}" wx:for-index="wi" wx:key="wi">
           <text class="w {{curBlock===bi&&curWord===wi?'hl':''}}">{{item.w}} </text>
@@ -59,13 +59,13 @@
     </view>
 
     <!-- Part 4 长难句 -->
-    <view wx:if="{{ep.guide.sentence_html}}" class="g-sec">
+    <view wx:if="{{ep.guide.sentence_nodes}}" class="g-sec">
       <view class="g-h2">🔬 Part 4：长难句拆解</view>
       <rich-text nodes="{{ep.guide.sentence_nodes}}"></rich-text>
     </view>
 
     <!-- Part 5 答案 -->
-    <view wx:if="{{ep.guide.answers_html}}" class="g-sec">
+    <view wx:if="{{ep.guide.answers_nodes}}" class="g-sec">
       <view class="g-h2">✅ Part 5：答案与解析</view>
       <rich-text nodes="{{ep.guide.answers_nodes}}"></rich-text>
     </view>

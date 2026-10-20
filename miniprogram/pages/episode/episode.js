@@ -1,177 +1,237 @@
 // 跟读页：节目数据从服务器动态加载；播放 + 单词高亮 + 点段跳转 + 语速 + PDF下载
+//
+// 背景音频是全局单例：bgm.src 一旦赋值就一直属于那一期，
+// 旧代码只在 `!bgm.src` 时才赋值，导致切到任何一期都继续播第一次打开的那期。
+// 修订原则：用 app.globalData.bgmEpId 记录“当前 src 属于哪一期”，
+// 凡归属不是本期，播放/点段/拖动都先换源；页面卸载时解绑自己注册的监听。
 const DATA_BASE = 'https://lcb0378.github.io/michael-english-podcast/data';
 const CURSOR_LEAD = 0.9; // 高亮提前量（秒），与网页版一致
 
 const bgm = wx.getBackgroundAudioManager();
 
 function fmt(t) {
-  t = Math.max(0, Math.floor(t || 0));
-  return Math.floor(t / 60) + ':' + String(t % 60).padStart(2, '0');
+t = Math.max(0, Math.floor(t || 0));
+return Math.floor(t / 60) + ':' + String(t % 60).padStart(2, '0');
 }
 
 Page({
-  data: {
-    ep: null,
-    loading: true,
-    playing: false,
-    progress: 0,
-    curTime: '0:00',
-    durTime: '0:00',
-    curBlock: -1,
-    curWord: -1,
-    rate: 1,
-    rates: [0.9, 1, 1.1, 1.5],
-    seeking: false,
-  },
+data: {
+ep: null,
+loading: true,
+playing: false,
+progress: 0,
+curTime: '0:00',
+durTime: '0:00',
+curBlock: -1,
+curWord: -1,
+rate: 1,
+rates: [0.9, 1, 1.1, 1.5],
+seeking: false,
+},
 
-  onLoad(opts) {
-    const id = opts.id || 'vol01';
-    wx.request({
-      url: `${DATA_BASE}/${id}.json`,
-      success: (res) => {
-        const ep = res.data;
-        this.setData({ ep, loading: false });
-        wx.setNavigationBarTitle({ title: `${ep.id.toUpperCase()} · ${ep.title}` });
-        bgm.title = `Michael的早听晚读 ${ep.id.toUpperCase()}`;
-        bgm.epname = ep.title;
-        bgm.singer = 'Michael的早听晚读';
-      },
-      fail: () => {
-        this.setData({ loading: false });
-        wx.showToast({ title: '节目加载失败', icon: 'none' });
-      },
-    });
+_epId: null,
+_pendingSeek: null, // 换源后等 onCanplay 再 seek 的绝对秒数
+_pendingSeekRatio: null, // 换源后等 onCanplay 再 seek 的比例（进度条拖动）
 
-    bgm.onPlay(() => this.setData({ playing: true }));
-    bgm.onPause(() => this.setData({ playing: false }));
-    bgm.onStop(() => this.setData({ playing: false, curBlock: -1, curWord: -1 }));
-    bgm.onEnded(() => this.setData({ playing: false }));
-    bgm.onTimeUpdate(() => this.updateHighlight());
-    bgm.onCanplay(() => {
-      this.setData({ durTime: fmt(bgm.duration) });
-    });
-  },
+_isMine() {
+return!!this._epId && getApp().globalData.bgmEpId === this._epId;
+},
 
-  togglePlay() {
-    if (!this.data.ep) return;
-    if (this.data.playing) {
-      bgm.pause();
-    } else {
-      if (!bgm.src) {
-        bgm.src = this.data.ep.audio; // 首次设置会自动播放
-        bgm.playbackRate = this.data.rate;
-      } else {
-        bgm.play();
-      }
-    }
-  },
+// 把指定位置的本期音频装进背景播放器（赋值 src 会自动开始播放）
+_loadSrc(seekTo) {
+const ep = this.data.ep;
+if (!ep) return;
+bgm.title = `Michael的早听晚读 ${ep.id.toUpperCase()}`;
+bgm.epname = ep.title;
+bgm.singer = 'Michael的早听晚读';
+bgm.coverImgUrl = ep.cover;
+bgm.src = ep.audio; // 换源点：赋值后自动播放新的一期
+getApp().globalData.bgmEpId = this._epId;
+bgm.playbackRate = this.data.rate;
+this._pendingSeek = (typeof seekTo === 'number')? seekTo: null;
+this.setData({ progress: 0, curTime: '0:00', curBlock: -1, curWord: -1});
+},
 
-  updateHighlight() {
-    if (!this.data.ep) return;
-    const t = bgm.currentTime + CURSOR_LEAD;
-    const blocks = this.data.ep.blocks;
-    let bi = -1, wi = -1;
-    for (let i = 0; i < blocks.length; i++) {
-      if (t >= blocks[i].start && t < blocks[i].end) {
-        bi = i;
-        const words = blocks[i].words;
-        for (let j = 0; j < words.length; j++) {
-          if (t >= words[j].t) wi = j; else break;
-        }
-        break;
-      }
-    }
-    const d = { curTime: fmt(bgm.currentTime) };
-    if (!this.data.seeking && bgm.duration) {
-      d.progress = Math.round((bgm.currentTime / bgm.duration) * 1000);
-    }
-    if (bi !== this.data.curBlock) {
-      d.curBlock = bi;
-      d.curWord = wi;
-      this.setData(d);
-      if (bi >= 0) {
-        const q = wx.createSelectorQuery();
-        q.selectAll('.block').boundingClientRect();
-        q.selectViewport().scrollOffset();
-        q.exec(res => {
-          const rects = res[0], scroll = res[1];
-          if (rects && rects[bi]) {
-            wx.pageScrollTo({
-              scrollTop: scroll.scrollTop + rects[bi].top - 220,
-              duration: 300,
-            });
-          }
-        });
-      }
-    } else if (wi !== this.data.curWord) {
-      d.curWord = wi;
-      this.setData(d);
-    } else {
-      this.setData(d);
-    }
-  },
+onLoad(opts) {
+const id = opts.id || 'vol01';
+this._epId = id;
 
-  tapBlock(e) {
-    if (!this.data.ep) return;
-    const idx = e.currentTarget.dataset.idx;
-    const b = this.data.ep.blocks[idx];
-    const t = bgm.currentTime || 0;
-    if (t >= b.start && t < b.end) {
-      this.togglePlay(); // 点正在读的段：原地暂停/继续
-    } else {
-      if (!bgm.src) {
-        bgm.src = this.data.ep.audio;
-        bgm.playbackRate = this.data.rate;
-      }
-      bgm.seek(b.start + 0.03);
-      if (!this.data.playing) bgm.play();
-    }
-  },
+// 注册监听（保存引用，onUnload 时解绑，避免多页面实例互相干扰）
+this._h = {
+onPlay: () => this.setData({ playing: true}),
+onPause: () => this.setData({ playing: false}),
+onStop: () => {
+getApp().globalData.bgmEpId = null;
+this.setData({ playing: false, curBlock: -1, curWord: -1});
+},
+onEnded: () => this.setData({ playing: false}),
+onTimeUpdate: () => this.updateHighlight(),
+onCanplay: () => {
+this.setData({ durTime: fmt(bgm.duration)});
+if (this._pendingSeek!= null) {
+bgm.seek(this._pendingSeek);
+this._pendingSeek = null;
+} else if (this._pendingSeekRatio!= null && bgm.duration) {
+bgm.seek(this._pendingSeekRatio * bgm.duration);
+this._pendingSeekRatio = null;
+}
+},
+};
+bgm.onPlay(this._h.onPlay);
+bgm.onPause(this._h.onPause);
+bgm.onStop(this._h.onStop);
+bgm.onEnded(this._h.onEnded);
+bgm.onTimeUpdate(this._h.onTimeUpdate);
+bgm.onCanplay(this._h.onCanplay);
 
-  onSeeking(e) {
-    this.setData({ seeking: true, progress: e.detail.value });
-  },
+wx.request({
+url: `${DATA_BASE}/${id}.json`,
+success: (res) => {
+const ep = res.data;
+this.setData({ ep, loading: false});
+wx.setNavigationBarTitle({ title: `${ep.id.toUpperCase()} · ${ep.title}`});
+// 若背景里正播的就是本期，同步一次按钮与时长显示
+if (this._isMine()) {
+this.setData({ playing:!bgm.paused, durTime: fmt(bgm.duration)});
+}
+},
+fail: () => {
+this.setData({ loading: false});
+wx.showToast({ title: '节目加载失败', icon: 'none'});
+},
+});
+},
 
-  onSeek(e) {
-    const v = e.detail.value;
-    this.setData({ seeking: false });
-    if (!this.data.ep || !bgm.duration) return;
-    if (!bgm.src) {
-      bgm.src = this.data.ep.audio;
-      bgm.playbackRate = this.data.rate;
-    }
-    bgm.seek((v / 1000) * bgm.duration);
-    if (!this.data.playing) bgm.play();
-  },
+onUnload() {
+if (!this._h) return;
+const off = (fn, cb) => { if (typeof bgm[fn] === 'function') bgm[fn](cb);};
+off('offPlay', this._h.onPlay);
+off('offPause', this._h.onPause);
+off('offStop', this._h.onStop);
+off('offEnded', this._h.onEnded);
+off('offTimeUpdate', this._h.onTimeUpdate);
+off('offCanplay', this._h.onCanplay);
+// 注意：不在这里 stop —— 背景音频本就该在离开页面后继续播；
+// 换期靠 _isMine 校验，不靠停播。
+},
 
-  setRate(e) {
-    const r = parseFloat(e.currentTarget.dataset.r);
-    this.setData({ rate: r });
-    bgm.playbackRate = r;
-  },
+togglePlay() {
+if (!this.data.ep) return;
+if (this.data.playing && this._isMine()) {
+bgm.pause();
+} else if (!this._isMine() ||!bgm.src) {
+this._loadSrc(); // 不是本期（或还没装过）：换成本期并播放
+} else {
+bgm.play();
+}
+},
 
-  downloadPdf() {
-    const ep = this.data.ep;
-    if (!ep) return;
-    wx.showLoading({ title: '下载中…' });
-    wx.downloadFile({
-      url: ep.pdf,
-      success(res) {
-        wx.hideLoading();
-        if (res.statusCode === 200) {
-          wx.openDocument({
-            filePath: res.tempFilePath,
-            fileType: 'pdf',
-            fail() { wx.showToast({ title: '打开失败', icon: 'none' }); },
-          });
-        } else {
-          wx.showToast({ title: '下载失败', icon: 'none' });
-        }
-      },
-      fail() {
-        wx.hideLoading();
-        wx.showToast({ title: '下载失败', icon: 'none' });
-      },
-    });
-  },
+updateHighlight() {
+if (!this.data.ep ||!this._isMine()) return; // 播的不是本期，本页不跟着走
+const t = bgm.currentTime + CURSOR_LEAD;
+const blocks = this.data.ep.blocks;
+let bi = -1, wi = -1;
+for (let i = 0; i < blocks.length; i++) {
+if (t >= blocks[i].start && t < blocks[i].end) {
+bi = i;
+const words = blocks[i].words;
+for (let j = 0; j < words.length; j++) {
+if (t >= words[j].t) wi = j; else break;
+}
+break;
+}
+}
+const d = { curTime: fmt(bgm.currentTime)};
+if (!this.data.seeking && bgm.duration) {
+d.progress = Math.round((bgm.currentTime / bgm.duration) * 1000);
+}
+if (bi!== this.data.curBlock) {
+d.curBlock = bi;
+d.curWord = wi;
+this.setData(d);
+if (bi >= 0) {
+const q = wx.createSelectorQuery();
+q.selectAll('.block').boundingClientRect();
+q.selectViewport().scrollOffset();
+q.exec(res => {
+const rects = res[0], scroll = res[1];
+if (rects && rects[bi]) {
+wx.pageScrollTo({
+scrollTop: scroll.scrollTop + rects[bi].top - 220,
+duration: 300,
+});
+}
+});
+}
+} else if (wi!== this.data.curWord) {
+d.curWord = wi;
+this.setData(d);
+} else {
+this.setData(d);
+}
+},
+
+tapBlock(e) {
+if (!this.data.ep) return;
+const idx = e.currentTarget.dataset.idx;
+const b = this.data.ep.blocks[idx];
+const t = bgm.currentTime || 0;
+if (this._isMine() && t >= b.start && t < b.end) {
+this.togglePlay(); // 点正在读的段：原地暂停/继续
+} else if (!this._isMine() ||!bgm.src) {
+this._loadSrc(b.start + 0.03); // 换源并在 canplay 后跳到该段
+} else {
+bgm.seek(b.start + 0.03);
+if (!this.data.playing) bgm.play();
+}
+},
+
+onSeeking(e) {
+this.setData({ seeking: true, progress: e.detail.value});
+},
+
+onSeek(e) {
+const v = e.detail.value;
+this.setData({ seeking: false});
+if (!this.data.ep) return;
+if (!this._isMine() ||!bgm.src) {
+this._loadSrc();
+this._pendingSeekRatio = v / 1000;
+return;
+}
+if (!bgm.duration) return;
+bgm.seek((v / 1000) * bgm.duration);
+if (!this.data.playing) bgm.play();
+},
+
+setRate(e) {
+const r = parseFloat(e.currentTarget.dataset.r);
+this.setData({ rate: r});
+bgm.playbackRate = r;
+},
+
+downloadPdf() {
+const ep = this.data.ep;
+if (!ep) return;
+wx.showLoading({ title: '下载中…'});
+wx.downloadFile({
+url: ep.pdf,
+success(res) {
+wx.hideLoading();
+if (res.statusCode === 200) {
+wx.openDocument({
+filePath: res.tempFilePath,
+fileType: 'pdf',
+fail() { wx.showToast({ title: '打开失败', icon: 'none'});},
+});
+} else {
+wx.showToast({ title: '下载失败', icon: 'none'});
+}
+},
+fail() {
+wx.hideLoading();
+wx.showToast({ title: '下载失败', icon: 'none'});
+},
+});
+},
 });
