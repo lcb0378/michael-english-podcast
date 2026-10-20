@@ -50,7 +50,7 @@ getApp().globalData.bgmEpId = this._epId;
 getApp().globalData.bgmEpInfo = { id: ep.id, title: ep.title, cover: ep.cover };
 bgm.playbackRate = this.data.rate;
 this._pendingSeek = (typeof seekTo === 'number')? seekTo: null;
-this.setData({ progress: 0, curTime: '0:00', curBlock: -1, curWord: -1});
+this.setData({ progress: 0, curTime: '0:00', durTime: '0:00', curBlock: -1, curWord: -1});
 },
 
 onLoad(opts) {
