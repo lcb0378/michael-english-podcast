@@ -19,13 +19,19 @@ header .meta { color: #888; font-size: 0.9rem; }
 #playBtn:hover { background: #f07a2e; }
 .progress-wrap { flex: 1; }
 #progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
 .time { font-size: 0.8rem; color: #888; white-space: nowrap; }
 .speeds { display: flex; gap: 8px; }
 .speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
 .speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
 .block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
 .block.active { border-color: #ff8c42; background: #fff8f2; }
-.block .sec-title { font-size: 0.8rem; color: #ff8c42; font-weight: bold; margin-bottom: 8px; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
 .block .en { font-size: 1.05rem; margin-bottom: 8px; }
 .block .en .w { border-radius: 3px; padding: 1px 0; }
 .block .en .w.hl { background: #ffe082; }
@@ -48,9 +54,7 @@ header .meta { color: #888; font-size: 0.9rem; }
 .guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
 .guide .example { font-style: italic; color: #555; margin-top: 6px; }
 .guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
-.guide .practice { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8pt; padding: 10pt 14pt; margin: 8pt 0; }
-  .practice li { margin-bottom: 5pt; }
-  .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
 .guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
 .guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
 .guide .cn { color: #555; padding: 6px 14px 10px 18px; }
@@ -81,6 +85,7 @@ header .meta { color: #888; font-size: 0.9rem; }
 <img src="story-car.png" alt="会飞的汽车">
 <img src="story-tortoise.png" alt="乌龟爷爷 Jonathan">
 </div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
 <div id="blocks"></div>
 <div class="guide">
 Part 2：核心词汇</h2>
@@ -107,26 +112,26 @@ Part 2：核心词汇</h2>
 </div>
 <h2>✏️ Part 3：阅读理解自测</h2>
 <h3>A. 标题配对（Match the headings）</h3>
-<p>请为 Part 1 的六个段落选择最合适的标题：</p>
+<p>Part 1 全文共分 6 节（Section 1–6），请为每一节选择最合适的标题：</p>
 <ol class="quiz">
-  <li>Paragraph 1 → ______</li>
-  <li>Paragraph 2 → ______</li>
-  <li>Paragraph 3 → ______</li>
-  <li>Paragraph 4 → ______</li>
-  <li>Paragraph 5 → ______</li>
-  <li>Paragraph 6 → ______</li>
+  <li>Section 1 → ______</li>
+  <li>Section 2 → ______</li>
+  <li>Section 3 → ______</li>
+  <li>Section 4 → ______</li>
+  <li>Section 5 → ______</li>
+  <li>Section 6 → ______</li>
 </ol>
-<p><b>Headings:</b> A. 会飞的汽车：现场特技全记录 &nbsp;&nbsp; B. 194 岁乌龟的长寿基因秘密 &nbsp;&nbsp; C. 开场：今天的两大看点 &nbsp;&nbsp; D. 今日笑话：heli-tortoise &nbsp;&nbsp; E. 互动时间：给未来汽车发明一个功能 &nbsp;&nbsp; F. 告别：明天早上见</p>
+<p><b>Headings:</b><br>A. The 194-Year-Old Tortoise's Long-Life Secret<br>B. Invent a Power for Future Cars<br>C. A Flying Car and Its Live Stunts<br>D. See You Tomorrow Morning<br>E. Two Amazing Stories Today<br>F. A Flying Tortoise Joke</p>
 
-<h3>B. 单项选择（Multiple Choice）</h3>
+<h3>B. 单项选择（Single Choice）</h3>
 <ol class="quiz">
-  <li>这辆新跑车装了几个推进器？<br>A. 5 个 &nbsp; B. 10 个 &nbsp; C. 60 个 &nbsp; D. 100 个</li>
-  <li>汽车倒挂行驶不掉下来，靠的是什么？<br>A. 它有翅膀 &nbsp; B. 车底强力风扇抽走空气，把车按在路面上 &nbsp; C. 车身特别轻 &nbsp; D. 魔法</li>
-  <li>科学家在 Jonathan 的基因里发现了什么？<br>A. 它的基因和其他乌龟完全不同 &nbsp; B. 它的基因像旧图书馆一样杂乱 &nbsp; C. 能量基因周围的化学标记异常整齐有序 &nbsp; D. 它的基因能让它飞</li>
-  <li>为什么这辆"飞车"暂时不能送你上学？<br>A. 它太慢了 &nbsp; B. 储气罐只够用几秒钟 &nbsp; C. 它不会转弯 &nbsp; D. 它太贵了</li>
+  <li>How many thrusters does the new sports car have?<br>A. 5<br>B. 10<br>C. 60<br>D. 100</li>
+  <li>Why can the car drive upside down without falling?<br>A. It has wings<br>B. Strong fans underneath suck air out and press the car tightly onto the road<br>C. The car body is very light<br>D. Magic</li>
+  <li>What did scientists find in Jonathan's genes?<br>A. His genes are completely different from other tortoises'<br>B. His genes are messy like an old library<br>C. The chemical patterns around his energy-making genes are unusually neat and orderly<br>D. His genes can make him fly</li>
+  <li>Why can't this "flying car" take you to school yet?<br>A. It is too slow<br>B. The air tanks only last a few seconds<br>C. It cannot turn<br>D. It is too expensive</li>
 </ol>
 
-<h2 class="newpage">🔬 Part 4：长难句深度拆解与练习</h2>
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
 <div class="breakdown">
 <b>经典原句：</b><br>
 <span class="en" style="border:none;background:none;padding:0;">The car also has strong fans underneath <b class="kw">that suck air out</b>, <b class="kw">pressing the car tightly onto the road</b>.</span><br><br>
@@ -162,20 +167,18 @@ Part 2：核心词汇</h2>
 </ol>
 </div>
 
-<div class="pagebreak"></div>
 <h2>✅ Part 5：答案与解析</h2>
 <div class="ans">
-<b>A. 标题配对：</b> 1 → C（开场介绍两大看点）&nbsp; 2 → A（飞车现场特技全记录）&nbsp; 3 → B（乌龟长寿的基因秘密）&nbsp; 4 → D（今日笑话 heli-tortoise）&nbsp; 5 → E（结束语+互动问题）&nbsp; 6 → F（告别）<br><br>
-<b>B. 单项选择：</b><br>
-1 → <b>B</b>。原文：<i>with ten small thrusters built into its body</i>（车身内置十个小型推进器）。<br>
-2 → <b>B</b>。原文：<i>strong fans underneath that suck air out, pressing the car tightly onto the road</i>（车底强力风扇抽走空气，把车紧紧按在路上）。<br>
-3 → <b>C</b>。原文：<i>the chemical patterns around his energy-making genes are unusually neat and orderly</i>（能量基因周围的化学标记异常整齐有序）。注意 A 项错在"完全不同"过于绝对，B 项和原文相反。<br>
-4 → <b>B</b>。原文：<i>the air tanks only last a few seconds</i>（储气罐只够用几秒钟）。
-<br><br><b>C. Part 4 句型练习：</b><br>
+<b>A. Headings:</b><br>1 → E (Two Amazing Stories Today)<br>2 → C (A Flying Car and Its Live Stunts)<br>3 → A (The 194-Year-Old Tortoise's Long-Life Secret)<br>4 → F (A Flying Tortoise Joke)<br>5 → B (Invent a Power for Future Cars)<br>6 → D (See You Tomorrow Morning)<br><br><b>B. Single Choice:</b><br>
+1 → <b>B</b>. The text says: "<i>with ten small thrusters built into its body</i>."<br>
+2 → <b>B</b>. The text says: "<i>strong fans underneath that suck air out, pressing the car tightly onto the road</i>."<br>
+3 → <b>C</b>. The text says: "<i>the chemical patterns around his energy-making genes are unusually neat and orderly</i>." Watch out: option A says "completely different", which is too absolute, and option B is the opposite of the text.<br>
+4 → <b>B</b>. The text says: "<i>the air tanks only last a few seconds</i>." 
+<br><br><b>C. Part 4 Practice:</b><br>
 A. 1. that show&nbsp;&nbsp;2. that rings<br>
 B. 1. turning&nbsp;&nbsp;2. keeping<br>
 C. 1. that spin / keeping&nbsp;&nbsp;2. that films / giving<br>
-D. 翻译练习不提供答案（自己试着译）。
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
 </div>
 
 <p style="text-align:center; color:#888; margin-top: 30pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
@@ -183,7 +186,7 @@ D. 翻译练习不提供答案（自己试着译）。
 
 </div>
 <div class="pdf-dl">
-<a href="Vol01_晚读讲义_会飞的汽车与194岁的乌龟.pdf" download>📄 下载本期晚读讲义 PDF</a>
+<a href="Vol01_晚读讲义_会飞的汽车与194岁的乌龟_v8.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
 <p>听完记得做精讲练习，巩固词汇和句型</p>
 </div>
 </div>
@@ -210,12 +213,21 @@ fetch('audio.mp3').then(r => r.blob()).then(blob => {
   blobReady = true;
 });
 
-// Render blocks
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
 BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
   const div = document.createElement('div');
   div.className = 'block'; div.dataset.idx = i;
   const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
-  div.innerHTML = `<div class="sec-title">${escHtml(b.title)}</div><div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
   div.addEventListener('click', () => {
     const t = audio.currentTime;
     if (t >= b.start && t < b.end) {
