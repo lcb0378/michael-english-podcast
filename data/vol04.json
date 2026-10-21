@@ -5,8 +5,8 @@
  "duration": "5分50秒",
  "cover": "https://lcb0378.github.io/michael-english-podcast/vol04/cover.png",
  "audio": "https://lcb0378.github.io/michael-english-podcast/vol04/audio.mp3",
- "pdf": "https://lcb0378.github.io/michael-english-podcast/vol04/Vol04_晚读讲义_搜救犬Sgiath与火星取土_v4.pdf",
- "pdfName": "Vol04_晚读讲义_搜救犬Sgiath与火星取土_v4.pdf",
+ "pdf": "https://lcb0378.github.io/michael-english-podcast/vol04/Vol04_晚读讲义_搜救犬Sgiath与火星取土_v5.pdf",
+ "pdfName": "Vol04_晚读讲义_搜救犬Sgiath与火星取土_v5.pdf",
  "blocks": [
   {
    "start": 20.91,
@@ -2631,7 +2631,7 @@
      "Section 5 → ______",
      "Section 6 → ______"
     ],
-    "extra": "Headings:\nA. 火星取土：MMX 去 Phobos 挖土\nB. 明天早上见\nC. 神鼻子搜救犬 Sgiath\nD. 超级嗅探员和火星任务\nE. have a nose for something\nF. 训练狗狗闻出一样东西"
+    "extra": "Headings:\nA. Mars Mission: MMX Brings Home a Piece of Phobos\nB. See You Tomorrow Morning\nC. Sgiath, the Super-sniffer Dog\nD. A Super-sniffer and a Trip to Mars\nE. have a nose for something\nF. Train a Dog to Sniff Out One Thing"
    },
    {
     "title": "B. 单项选择（Multiple Choice）",
@@ -2878,7 +2878,7 @@
          },
          {
           "type": "text",
-          "text": "（序数词）后面接不定式或过去分词短语，是常考的语法点。"
+          "text": "（序数词）后面常接不定式或过去分词短语，这个用法在英语里非常常见。"
          }
         ]
        },
@@ -2975,6 +2975,18 @@
      {
       "type": "text",
       "text": "\n"
+     }
+    ]
+   },
+   {
+    "name": "div",
+    "attrs": {
+     "class": "practice"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
      },
      {
       "name": "b",
@@ -2982,9 +2994,18 @@
       "children": [
        {
         "type": "text",
-        "text": "句型仿写："
+        "text": "句型练习"
        }
       ]
+     },
+     {
+      "type": "text",
+      "text": "（练的就是上面拆解的三个知识点）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
      },
      {
       "name": "br",
@@ -2996,32 +3017,248 @@
       "text": "\n"
      },
      {
-      "name": "i",
+      "name": "b",
       "attrs": {},
       "children": [
        {
         "type": "text",
-        "text": "He is now believed to be the first student in the school chosen to join the national team — the youngest player, also known as \"Lightning\"."
+        "text": "A. 被动句型：用 is / are believed to be 改写"
        }
       ]
      },
      {
-      "name": "br",
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ol",
       "attrs": {},
-      "children": []
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "People believe Sgiath is the best sniffer dog in Britain."
+         },
+         {
+          "name": "br",
+          "attrs": {},
+          "children": []
+         },
+         {
+          "type": "text",
+          "text": "→ Sgiath ____________________ the best sniffer dog in Britain."
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "People believe the two moons of Mars are pieces of a broken planet."
+         },
+         {
+          "name": "br",
+          "attrs": {},
+          "children": []
+         },
+         {
+          "type": "text",
+          "text": "→ The two moons of Mars ____________________ pieces of a broken planet."
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
      },
      {
       "type": "text",
-      "text": "\n（他现在被认为是学校里第一个被选入国家队的学生——最年轻的队员，外号\"闪电\"。）\n"
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. 过去分词后置定语：用括号里的短语补全"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ol",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "Sgiath is the first dog in the world ____________________ a dangerous sea creature. (trained to smell)"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "The capsule is the first box ____________________ pieces of a moon back to Earth. (built to carry)"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. 同位语：补全句子"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ol",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "Phobos, ____________________, is about twenty-two kilometers wide.（火星两颗卫星中较大的那颗）"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "The carpet sea squirt, also known as \"____________________\", came from abroad."
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ol",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "The little robot is believed to be the first machine in the world built to clean the deep sea — a quiet helper, also known as \"the Sea Sweeper\"."
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "My grandpa is believed to be the first man in our village trained to fix old radios — a kind man, also known as \"Doctor Radio\"."
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
      }
     ]
-   },
-   {
-    "name": "div",
-    "attrs": {
-     "class": "pagebreak"
-    },
-    "children": []
    }
   ],
   "answers_nodes": [
@@ -3041,7 +3278,7 @@
       "children": [
        {
         "type": "text",
-        "text": "A. 标题配对："
+        "text": "A. Headings:"
        }
       ]
      },
@@ -3052,7 +3289,7 @@
      },
      {
       "type": "text",
-      "text": "1 → D（超级嗅探员和火星任务）"
+      "text": "1 → D (A Super-sniffer and a Trip to Mars)"
      },
      {
       "name": "br",
@@ -3061,7 +3298,7 @@
      },
      {
       "type": "text",
-      "text": "2 → C（神鼻子搜救犬 Sgiath）"
+      "text": "2 → C (Sgiath, the Super-sniffer Dog)"
      },
      {
       "name": "br",
@@ -3070,7 +3307,7 @@
      },
      {
       "type": "text",
-      "text": "3 → A（火星取土：MMX 去 Phobos 挖土）"
+      "text": "3 → A (Mars Mission: MMX Brings Home a Piece of Phobos)"
      },
      {
       "name": "br",
@@ -3079,7 +3316,7 @@
      },
      {
       "type": "text",
-      "text": "4 → E（have a nose for something）"
+      "text": "4 → E (have a nose for something)"
      },
      {
       "name": "br",
@@ -3088,7 +3325,7 @@
      },
      {
       "type": "text",
-      "text": "5 → F（训练狗狗闻出一样东西）"
+      "text": "5 → F (Train a Dog to Sniff Out One Thing)"
      },
      {
       "name": "br",
@@ -3097,7 +3334,7 @@
      },
      {
       "type": "text",
-      "text": "6 → B（明天早上见）"
+      "text": "6 → B (See You Tomorrow Morning)"
      },
      {
       "name": "br",
@@ -3115,7 +3352,7 @@
       "children": [
        {
         "type": "text",
-        "text": "B. 单项选择："
+        "text": "B. Multiple Choice:"
        }
       ]
      },
@@ -3140,7 +3377,7 @@
      },
      {
       "type": "text",
-      "text": "。原文："
+      "text": ". The text says: "
      },
      {
       "name": "i",
@@ -3148,13 +3385,13 @@
       "children": [
        {
         "type": "text",
-        "text": "She began as a mountain rescue dog"
+        "text": "\"She began as a mountain rescue dog.\""
        }
       ]
      },
      {
       "type": "text",
-      "text": "（它一开始是山地搜救犬）。注意迷惑项：警犬、导盲犬在原文都没出现。"
+      "text": " Watch out — police dogs and guide dogs never appear in the text."
      },
      {
       "name": "br",
@@ -3177,7 +3414,7 @@
      },
      {
       "type": "text",
-      "text": "。原文："
+      "text": ". The text says: "
      },
      {
       "name": "i",
@@ -3185,13 +3422,9 @@
       "children": [
        {
         "type": "text",
-        "text": "It grows like a dark cloud over oyster farms and smothers the native sea life underneath"
+        "text": "\"It grows like a dark cloud over oyster farms and smothers the native sea life underneath.\""
        }
       ]
-     },
-     {
-      "type": "text",
-      "text": "（它像乌云一样覆盖牡蛎养殖场，把底下的本土海洋生物闷死）。"
      },
      {
       "name": "br",
@@ -3214,7 +3447,7 @@
      },
      {
       "type": "text",
-      "text": "。原文："
+      "text": ". The text says the robot arm is "
      },
      {
       "name": "i",
@@ -3222,13 +3455,13 @@
       "children": [
        {
         "type": "text",
-        "text": "collecting at least ten grams of dust and rocks"
+        "text": "\"collecting at least ten grams of dust and rocks\""
        }
       ]
      },
      {
       "type": "text",
-      "text": "（收集至少十克尘埃和岩石）+ "
+      "text": " for "
      },
      {
       "name": "i",
@@ -3236,13 +3469,13 @@
       "children": [
        {
         "type": "text",
-        "text": "for the long trip home"
+        "text": "\"the long trip home\""
        }
       ]
      },
      {
       "type": "text",
-      "text": "（踏上回家路）。"
+      "text": "."
      },
      {
       "name": "br",
@@ -3265,7 +3498,7 @@
      },
      {
       "type": "text",
-      "text": "。原文："
+      "text": ". The text says: "
      },
      {
       "name": "i",
@@ -3273,20 +3506,76 @@
       "children": [
        {
         "type": "text",
-        "text": "It means you are good at finding or understanding something"
+        "text": "\"It means you are good at finding or understanding something.\""
        }
       ]
      },
      {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
       "type": "text",
-      "text": "（意思是你特别擅长发现或理解某件事）。\n"
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. is believed to be  2. are believed to be"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. trained to smell  2. built to carry"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. the larger of Mars' two moons  2. sea vomit"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
      }
     ]
    },
    {
     "name": "p",
     "attrs": {
-     "style": "text-align:center; color:#888; margin-top: 30pt;"
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
     },
     "children": [
      {
