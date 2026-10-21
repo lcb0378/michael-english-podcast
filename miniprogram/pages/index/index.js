@@ -22,7 +22,9 @@ onLoad() {
 wx.request({
 url: `${DATA_BASE}/episodes.json`,
 success: (res) => {
-const all = res.data || [];
+// 排序定版（2026-10-21）：一律最新在前 volN 大到小，不依赖服务器数据顺序
+const all = (res.data || []).slice().sort((a, b) =>
+(parseInt(String(b.id).replace(/\D/g, ''), 10) || 0) - (parseInt(String(a.id).replace(/\D/g, ''), 10) || 0));
 this.setData({ allEpisodes: all, loading: false});
 this._buildRanges();
 this._syncNp();

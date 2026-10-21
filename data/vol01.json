@@ -1,3019 +1,3019 @@
 {
- "id": "vol01",
- "title": "会飞的汽车与194岁的乌龟",
- "words": 529,
- "duration": "5分02秒",
- "cover": "https://lcb0378.github.io/michael-english-podcast/vol01/cover.png",
- "audio": "https://lcb0378.github.io/michael-english-podcast/vol01/audio_v8.mp3",
- "pdf": "https://lcb0378.github.io/michael-english-podcast/vol01/Vol01_晚读讲义_会飞的汽车与194岁的乌龟_v6.pdf",
- "pdfName": "Vol01_晚读讲义_会飞的汽车与194岁的乌龟_v6.pdf",
- "blocks": [
-  {
-   "start": 17.24,
-   "end": 29.51,
-   "en": "Welcome back to Michael's Morning Listening! Today we have two amazing stories: a car that can fly, and a tortoise that has lived for almost two hundred years. Let's dive in!",
-   "cn": "欢迎回到 Michael 的早听晚读！今天有两个超棒的故事：一辆会飞的汽车，和一只活了将近两百年的乌龟。让我们开始吧！",
-   "title": "开场白",
-   "words": [
-    {
-     "w": "Welcome",
-     "t": 17.24
-    },
-    {
-     "w": "back",
-     "t": 17.64
-    },
-    {
-     "w": "to",
-     "t": 18.03
-    },
-    {
-     "w": "Michael's",
-     "t": 18.43
-    },
-    {
-     "w": "Morning",
-     "t": 18.82
-    },
-    {
-     "w": "Listening!",
-     "t": 19.22
-    },
-    {
-     "w": "Today",
-     "t": 19.61
-    },
-    {
-     "w": "we",
-     "t": 20.01
-    },
-    {
-     "w": "have",
-     "t": 20.41
-    },
-    {
-     "w": "two",
-     "t": 20.8
-    },
-    {
-     "w": "amazing",
-     "t": 21.2
-    },
-    {
-     "w": "stories:",
-     "t": 21.59
-    },
-    {
-     "w": "a",
-     "t": 21.99
-    },
-    {
-     "w": "car",
-     "t": 22.39
-    },
-    {
-     "w": "that",
-     "t": 22.78
-    },
-    {
-     "w": "can",
-     "t": 23.18
-    },
-    {
-     "w": "fly,",
-     "t": 23.57
-    },
-    {
-     "w": "and",
-     "t": 23.97
-    },
-    {
-     "w": "a",
-     "t": 24.36
-    },
-    {
-     "w": "tortoise",
-     "t": 24.76
-    },
-    {
-     "w": "that",
-     "t": 25.16
-    },
-    {
-     "w": "has",
-     "t": 25.55
-    },
-    {
-     "w": "lived",
-     "t": 25.95
-    },
-    {
-     "w": "for",
-     "t": 26.34
-    },
-    {
-     "w": "almost",
-     "t": 26.74
-    },
-    {
-     "w": "two",
-     "t": 27.14
-    },
-    {
-     "w": "hundred",
-     "t": 27.53
-    },
-    {
-     "w": "years.",
-     "t": 27.93
-    },
-    {
-     "w": "Let's",
-     "t": 28.32
-    },
-    {
-     "w": "dive",
-     "t": 28.72
-    },
-    {
-     "w": "in!",
-     "t": 29.11
-    }
-   ]
-  },
-  {
-   "start": 44.71,
-   "end": 53.64,
-   "en": "What if your family car could fly over a traffic jam? That sounds like science fiction, right? But it just happened in real life!",
-   "cn": "如果有一天，你家的汽车能直接飞过堵成长龙的马路，那会怎样？听起来像科幻小说，对吧？但这刚刚在现实中发生了！",
-   "title": "会飞的汽车",
-   "words": [
-    {
-     "w": "What",
-     "t": 44.71
-    },
-    {
-     "w": "if",
-     "t": 45.08
-    },
-    {
-     "w": "your",
-     "t": 45.45
-    },
-    {
-     "w": "family",
-     "t": 45.83
-    },
-    {
-     "w": "car",
-     "t": 46.2
-    },
-    {
-     "w": "could",
-     "t": 46.57
-    },
-    {
-     "w": "fly",
-     "t": 46.94
-    },
-    {
-     "w": "over",
-     "t": 47.31
-    },
-    {
-     "w": "a",
-     "t": 47.69
-    },
-    {
-     "w": "traffic",
-     "t": 48.06
-    },
-    {
-     "w": "jam?",
-     "t": 48.43
-    },
-    {
-     "w": "That",
-     "t": 48.8
-    },
-    {
-     "w": "sounds",
-     "t": 49.17
-    },
-    {
-     "w": "like",
-     "t": 49.55
-    },
-    {
-     "w": "science",
-     "t": 49.92
-    },
-    {
-     "w": "fiction,",
-     "t": 50.29
-    },
-    {
-     "w": "right?",
-     "t": 50.66
-    },
-    {
-     "w": "But",
-     "t": 51.04
-    },
-    {
-     "w": "it",
-     "t": 51.41
-    },
-    {
-     "w": "just",
-     "t": 51.78
-    },
-    {
-     "w": "happened",
-     "t": 52.15
-    },
-    {
-     "w": "in",
-     "t": 52.52
-    },
-    {
-     "w": "real",
-     "t": 52.9
-    },
-    {
-     "w": "life!",
-     "t": 53.27
-    }
-   ]
-  },
-  {
-   "start": 53.64,
-   "end": 81.93,
-   "en": "Engineers showed off a new electric sports car with ten small thrusters built into its body. These thrusters shoot out powerful bursts of compressed air — just like the ones on a spaceship. During a live show, the car drove up a huge curved ramp, kept driving while upside down, then flew into the air, did a complete barrel roll, and landed safely on its wheels. It even lifted itself over five other cars while moving!",
-   "cn": "工程师们展示了一辆全新的电动跑车，车身里装着十个小型推进器。这些推进器喷出强劲的压缩空气——就像宇宙飞船上的一样。在一场现场演示中，这辆车开上了一个巨大的弧形坡道，倒挂着继续行驶，然后腾空而起，在空中完成了一个完整的横滚翻转，最后稳稳地用轮子着陆。它甚至在行驶中从另外五辆车的头顶上\"飞\"了过去！",
-   "title": "会飞的汽车",
-   "words": [
-    {
-     "w": "Engineers",
-     "t": 53.64
-    },
-    {
-     "w": "showed",
-     "t": 54.01
-    },
-    {
-     "w": "off",
-     "t": 54.38
-    },
-    {
-     "w": "a",
-     "t": 54.76
-    },
-    {
-     "w": "new",
-     "t": 55.13
-    },
-    {
-     "w": "electric",
-     "t": 55.5
-    },
-    {
-     "w": "sports",
-     "t": 55.87
-    },
-    {
-     "w": "car",
-     "t": 56.25
-    },
-    {
-     "w": "with",
-     "t": 56.62
-    },
-    {
-     "w": "ten",
-     "t": 56.99
-    },
-    {
-     "w": "small",
-     "t": 57.36
-    },
-    {
-     "w": "thrusters",
-     "t": 57.73
-    },
-    {
-     "w": "built",
-     "t": 58.11
-    },
-    {
-     "w": "into",
-     "t": 58.48
-    },
-    {
-     "w": "its",
-     "t": 58.85
-    },
-    {
-     "w": "body.",
-     "t": 59.22
-    },
-    {
-     "w": "These",
-     "t": 59.6
-    },
-    {
-     "w": "thrusters",
-     "t": 59.97
-    },
-    {
-     "w": "shoot",
-     "t": 60.34
-    },
-    {
-     "w": "out",
-     "t": 60.71
-    },
-    {
-     "w": "powerful",
-     "t": 61.08
-    },
-    {
-     "w": "bursts",
-     "t": 61.46
-    },
-    {
-     "w": "of",
-     "t": 61.83
-    },
-    {
-     "w": "compressed",
-     "t": 62.2
-    },
-    {
-     "w": "air",
-     "t": 62.57
-    },
-    {
-     "w": "—",
-     "t": 62.95
-    },
-    {
-     "w": "just",
-     "t": 63.32
-    },
-    {
-     "w": "like",
-     "t": 63.69
-    },
-    {
-     "w": "the",
-     "t": 64.06
-    },
-    {
-     "w": "ones",
-     "t": 64.43
-    },
-    {
-     "w": "on",
-     "t": 64.81
-    },
-    {
-     "w": "a",
-     "t": 65.18
-    },
-    {
-     "w": "spaceship.",
-     "t": 65.55
-    },
-    {
-     "w": "During",
-     "t": 65.92
-    },
-    {
-     "w": "a",
-     "t": 66.3
-    },
-    {
-     "w": "live",
-     "t": 66.67
-    },
-    {
-     "w": "show,",
-     "t": 67.04
-    },
-    {
-     "w": "the",
-     "t": 67.41
-    },
-    {
-     "w": "car",
-     "t": 67.78
-    },
-    {
-     "w": "drove",
-     "t": 68.16
-    },
-    {
-     "w": "up",
-     "t": 68.53
-    },
-    {
-     "w": "a",
-     "t": 68.9
-    },
-    {
-     "w": "huge",
-     "t": 69.27
-    },
-    {
-     "w": "curved",
-     "t": 69.65
-    },
-    {
-     "w": "ramp,",
-     "t": 70.02
-    },
-    {
-     "w": "kept",
-     "t": 70.39
-    },
-    {
-     "w": "driving",
-     "t": 70.76
-    },
-    {
-     "w": "while",
-     "t": 71.14
-    },
-    {
-     "w": "upside",
-     "t": 71.51
-    },
-    {
-     "w": "down,",
-     "t": 71.88
-    },
-    {
-     "w": "then",
-     "t": 72.25
-    },
-    {
-     "w": "flew",
-     "t": 72.62
-    },
-    {
-     "w": "into",
-     "t": 73.0
-    },
-    {
-     "w": "the",
-     "t": 73.37
-    },
-    {
-     "w": "air,",
-     "t": 73.74
-    },
-    {
-     "w": "did",
-     "t": 74.11
-    },
-    {
-     "w": "a",
-     "t": 74.49
-    },
-    {
-     "w": "complete",
-     "t": 74.86
-    },
-    {
-     "w": "barrel",
-     "t": 75.23
-    },
-    {
-     "w": "roll,",
-     "t": 75.6
-    },
-    {
-     "w": "and",
-     "t": 75.97
-    },
-    {
-     "w": "landed",
-     "t": 76.35
-    },
-    {
-     "w": "safely",
-     "t": 76.72
-    },
-    {
-     "w": "on",
-     "t": 77.09
-    },
-    {
-     "w": "its",
-     "t": 77.46
-    },
-    {
-     "w": "wheels.",
-     "t": 77.84
-    },
-    {
-     "w": "It",
-     "t": 78.21
-    },
-    {
-     "w": "even",
-     "t": 78.58
-    },
-    {
-     "w": "lifted",
-     "t": 78.95
-    },
-    {
-     "w": "itself",
-     "t": 79.32
-    },
-    {
-     "w": "over",
-     "t": 79.7
-    },
-    {
-     "w": "five",
-     "t": 80.07
-    },
-    {
-     "w": "other",
-     "t": 80.44
-    },
-    {
-     "w": "cars",
-     "t": 80.81
-    },
-    {
-     "w": "while",
-     "t": 81.19
-    },
-    {
-     "w": "moving!",
-     "t": 81.56
-    }
-   ]
-  },
-  {
-   "start": 81.93,
-   "end": 97.57,
-   "en": "The fastest version can go from zero to sixty miles per hour in less than one second — faster than you can say \"flying car\"! And it can still drive three hundred miles on one charge, just like a normal electric car.",
-   "cn": "最快的版本从静止加速到每小时六十英里不到一秒——比你说完\"飞车\"这个词还快！而且它充一次电还能跑三百英里，和普通电动车一样。",
-   "title": "会飞的汽车",
-   "words": [
-    {
-     "w": "The",
-     "t": 81.93
-    },
-    {
-     "w": "fastest",
-     "t": 82.3
-    },
-    {
-     "w": "version",
-     "t": 82.67
-    },
-    {
-     "w": "can",
-     "t": 83.05
-    },
-    {
-     "w": "go",
-     "t": 83.42
-    },
-    {
-     "w": "from",
-     "t": 83.79
-    },
-    {
-     "w": "zero",
-     "t": 84.16
-    },
-    {
-     "w": "to",
-     "t": 84.54
-    },
-    {
-     "w": "sixty",
-     "t": 84.91
-    },
-    {
-     "w": "miles",
-     "t": 85.28
-    },
-    {
-     "w": "per",
-     "t": 85.65
-    },
-    {
-     "w": "hour",
-     "t": 86.03
-    },
-    {
-     "w": "in",
-     "t": 86.4
-    },
-    {
-     "w": "less",
-     "t": 86.77
-    },
-    {
-     "w": "than",
-     "t": 87.14
-    },
-    {
-     "w": "one",
-     "t": 87.52
-    },
-    {
-     "w": "second",
-     "t": 87.89
-    },
-    {
-     "w": "—",
-     "t": 88.26
-    },
-    {
-     "w": "faster",
-     "t": 88.63
-    },
-    {
-     "w": "than",
-     "t": 89.01
-    },
-    {
-     "w": "you",
-     "t": 89.38
-    },
-    {
-     "w": "can",
-     "t": 89.75
-    },
-    {
-     "w": "say",
-     "t": 90.12
-    },
-    {
-     "w": "\"flying",
-     "t": 90.49
-    },
-    {
-     "w": "car\"!",
-     "t": 90.87
-    },
-    {
-     "w": "And",
-     "t": 91.24
-    },
-    {
-     "w": "it",
-     "t": 91.61
-    },
-    {
-     "w": "can",
-     "t": 91.98
-    },
-    {
-     "w": "still",
-     "t": 92.36
-    },
-    {
-     "w": "drive",
-     "t": 92.73
-    },
-    {
-     "w": "three",
-     "t": 93.1
-    },
-    {
-     "w": "hundred",
-     "t": 93.47
-    },
-    {
-     "w": "miles",
-     "t": 93.85
-    },
-    {
-     "w": "on",
-     "t": 94.22
-    },
-    {
-     "w": "one",
-     "t": 94.59
-    },
-    {
-     "w": "charge,",
-     "t": 94.96
-    },
-    {
-     "w": "just",
-     "t": 95.34
-    },
-    {
-     "w": "like",
-     "t": 95.71
-    },
-    {
-     "w": "a",
-     "t": 96.08
-    },
-    {
-     "w": "normal",
-     "t": 96.45
-    },
-    {
-     "w": "electric",
-     "t": 96.83
-    },
-    {
-     "w": "car.",
-     "t": 97.2
-    }
-   ]
-  },
-  {
-   "start": 97.57,
-   "end": 120.65,
-   "en": "How does it work? The secret is simple physics. When the thrusters push air down, the air pushes the car up. It is the same idea that lifts a rocket off the ground. The car also has strong fans underneath that suck air out, pressing the car tightly onto the road — that is how it can drive upside down without falling!",
-   "cn": "它是怎么做到的？秘密就是简单的物理学：当推进器把空气往下推，空气就把车往上托。这和把火箭送上天的原理一模一样。车底还装着强力风扇，把空气抽走，把车紧紧\"按\"在路面上——这就是它能倒挂行驶而不掉下来的原因！",
-   "title": "会飞的汽车",
-   "words": [
-    {
-     "w": "How",
-     "t": 97.57
-    },
-    {
-     "w": "does",
-     "t": 97.94
-    },
-    {
-     "w": "it",
-     "t": 98.31
-    },
-    {
-     "w": "work?",
-     "t": 98.69
-    },
-    {
-     "w": "The",
-     "t": 99.06
-    },
-    {
-     "w": "secret",
-     "t": 99.43
-    },
-    {
-     "w": "is",
-     "t": 99.8
-    },
-    {
-     "w": "simple",
-     "t": 100.18
-    },
-    {
-     "w": "physics.",
-     "t": 100.55
-    },
-    {
-     "w": "When",
-     "t": 100.92
-    },
-    {
-     "w": "the",
-     "t": 101.29
-    },
-    {
-     "w": "thrusters",
-     "t": 101.66
-    },
-    {
-     "w": "push",
-     "t": 102.04
-    },
-    {
-     "w": "air",
-     "t": 102.41
-    },
-    {
-     "w": "down,",
-     "t": 102.78
-    },
-    {
-     "w": "the",
-     "t": 103.15
-    },
-    {
-     "w": "air",
-     "t": 103.53
-    },
-    {
-     "w": "pushes",
-     "t": 103.9
-    },
-    {
-     "w": "the",
-     "t": 104.27
-    },
-    {
-     "w": "car",
-     "t": 104.64
-    },
-    {
-     "w": "up.",
-     "t": 105.02
-    },
-    {
-     "w": "It",
-     "t": 105.39
-    },
-    {
-     "w": "is",
-     "t": 105.76
-    },
-    {
-     "w": "the",
-     "t": 106.13
-    },
-    {
-     "w": "same",
-     "t": 106.5
-    },
-    {
-     "w": "idea",
-     "t": 106.88
-    },
-    {
-     "w": "that",
-     "t": 107.25
-    },
-    {
-     "w": "lifts",
-     "t": 107.62
-    },
-    {
-     "w": "a",
-     "t": 107.99
-    },
-    {
-     "w": "rocket",
-     "t": 108.37
-    },
-    {
-     "w": "off",
-     "t": 108.74
-    },
-    {
-     "w": "the",
-     "t": 109.11
-    },
-    {
-     "w": "ground.",
-     "t": 109.48
-    },
-    {
-     "w": "The",
-     "t": 109.85
-    },
-    {
-     "w": "car",
-     "t": 110.23
-    },
-    {
-     "w": "also",
-     "t": 110.6
-    },
-    {
-     "w": "has",
-     "t": 110.97
-    },
-    {
-     "w": "strong",
-     "t": 111.34
-    },
-    {
-     "w": "fans",
-     "t": 111.72
-    },
-    {
-     "w": "underneath",
-     "t": 112.09
-    },
-    {
-     "w": "that",
-     "t": 112.46
-    },
-    {
-     "w": "suck",
-     "t": 112.83
-    },
-    {
-     "w": "air",
-     "t": 113.2
-    },
-    {
-     "w": "out,",
-     "t": 113.58
-    },
-    {
-     "w": "pressing",
-     "t": 113.95
-    },
-    {
-     "w": "the",
-     "t": 114.32
-    },
-    {
-     "w": "car",
-     "t": 114.69
-    },
-    {
-     "w": "tightly",
-     "t": 115.07
-    },
-    {
-     "w": "onto",
-     "t": 115.44
-    },
-    {
-     "w": "the",
-     "t": 115.81
-    },
-    {
-     "w": "road",
-     "t": 116.18
-    },
-    {
-     "w": "—",
-     "t": 116.56
-    },
-    {
-     "w": "that",
-     "t": 116.93
-    },
-    {
-     "w": "is",
-     "t": 117.3
-    },
-    {
-     "w": "how",
-     "t": 117.67
-    },
-    {
-     "w": "it",
-     "t": 118.04
-    },
-    {
-     "w": "can",
-     "t": 118.42
-    },
-    {
-     "w": "drive",
-     "t": 118.79
-    },
-    {
-     "w": "upside",
-     "t": 119.16
-    },
-    {
-     "w": "down",
-     "t": 119.53
-    },
-    {
-     "w": "without",
-     "t": 119.91
-    },
-    {
-     "w": "falling!",
-     "t": 120.28
-    }
-   ]
-  },
-  {
-   "start": 120.65,
-   "end": 142.61,
-   "en": "This car cannot fly you to school yet — the air tanks only last a few seconds. But every big invention starts with a crazy first step. The Wright brothers' first flight lasted only twelve seconds, and look where we are now. Maybe the flying cars of the future are being born right now, in front of our eyes.",
-   "cn": "这辆车暂时还不能送你上学——储气罐只够用几秒钟。但每一项伟大的发明，都始于一个疯狂的第一步。莱特兄弟的第一次飞行只持续了十二秒，再看看现在的我们。也许未来的飞车，此刻正在我们眼前诞生。",
-   "title": "会飞的汽车",
-   "words": [
-    {
-     "w": "This",
-     "t": 120.65
-    },
-    {
-     "w": "car",
-     "t": 121.02
-    },
-    {
-     "w": "cannot",
-     "t": 121.39
-    },
-    {
-     "w": "fly",
-     "t": 121.77
-    },
-    {
-     "w": "you",
-     "t": 122.14
-    },
-    {
-     "w": "to",
-     "t": 122.51
-    },
-    {
-     "w": "school",
-     "t": 122.88
-    },
-    {
-     "w": "yet",
-     "t": 123.26
-    },
-    {
-     "w": "—",
-     "t": 123.63
-    },
-    {
-     "w": "the",
-     "t": 124.0
-    },
-    {
-     "w": "air",
-     "t": 124.37
-    },
-    {
-     "w": "tanks",
-     "t": 124.74
-    },
-    {
-     "w": "only",
-     "t": 125.12
-    },
-    {
-     "w": "last",
-     "t": 125.49
-    },
-    {
-     "w": "a",
-     "t": 125.86
-    },
-    {
-     "w": "few",
-     "t": 126.23
-    },
-    {
-     "w": "seconds.",
-     "t": 126.61
-    },
-    {
-     "w": "But",
-     "t": 126.98
-    },
-    {
-     "w": "every",
-     "t": 127.35
-    },
-    {
-     "w": "big",
-     "t": 127.72
-    },
-    {
-     "w": "invention",
-     "t": 128.09
-    },
-    {
-     "w": "starts",
-     "t": 128.47
-    },
-    {
-     "w": "with",
-     "t": 128.84
-    },
-    {
-     "w": "a",
-     "t": 129.21
-    },
-    {
-     "w": "crazy",
-     "t": 129.58
-    },
-    {
-     "w": "first",
-     "t": 129.96
-    },
-    {
-     "w": "step.",
-     "t": 130.33
-    },
-    {
-     "w": "The",
-     "t": 130.7
-    },
-    {
-     "w": "Wright",
-     "t": 131.07
-    },
-    {
-     "w": "brothers'",
-     "t": 131.44
-    },
-    {
-     "w": "first",
-     "t": 131.82
-    },
-    {
-     "w": "flight",
-     "t": 132.19
-    },
-    {
-     "w": "lasted",
-     "t": 132.56
-    },
-    {
-     "w": "only",
-     "t": 132.93
-    },
-    {
-     "w": "twelve",
-     "t": 133.3
-    },
-    {
-     "w": "seconds,",
-     "t": 133.68
-    },
-    {
-     "w": "and",
-     "t": 134.05
-    },
-    {
-     "w": "look",
-     "t": 134.42
-    },
-    {
-     "w": "where",
-     "t": 134.79
-    },
-    {
-     "w": "we",
-     "t": 135.17
-    },
-    {
-     "w": "are",
-     "t": 135.54
-    },
-    {
-     "w": "now.",
-     "t": 135.91
-    },
-    {
-     "w": "Maybe",
-     "t": 136.28
-    },
-    {
-     "w": "the",
-     "t": 136.65
-    },
-    {
-     "w": "flying",
-     "t": 137.03
-    },
-    {
-     "w": "cars",
-     "t": 137.4
-    },
-    {
-     "w": "of",
-     "t": 137.77
-    },
-    {
-     "w": "the",
-     "t": 138.14
-    },
-    {
-     "w": "future",
-     "t": 138.52
-    },
-    {
-     "w": "are",
-     "t": 138.89
-    },
-    {
-     "w": "being",
-     "t": 139.26
-    },
-    {
-     "w": "born",
-     "t": 139.63
-    },
-    {
-     "w": "right",
-     "t": 140.0
-    },
-    {
-     "w": "now,",
-     "t": 140.38
-    },
-    {
-     "w": "in",
-     "t": 140.75
-    },
-    {
-     "w": "front",
-     "t": 141.12
-    },
-    {
-     "w": "of",
-     "t": 141.49
-    },
-    {
-     "w": "our",
-     "t": 141.87
-    },
-    {
-     "w": "eyes.",
-     "t": 142.24
-    }
-   ]
-  },
-  {
-   "start": 156.69,
-   "end": 171.56,
-   "en": "Let's meet Jonathan, a giant tortoise who is now one hundred and ninety-four years old. He was born around the time the first photographs were taken — long before cars, phones, or airplanes existed!",
-   "cn": "来认识一下 Jonathan，一只已经一百九十四岁的巨龟。它出生在第一张照片诞生的年代——那时汽车、电话、飞机都还没有被发明出来！",
-   "title": "194 岁的乌龟爷爷",
-   "words": [
-    {
-     "w": "Let's",
-     "t": 156.69
-    },
-    {
-     "w": "meet",
-     "t": 157.13
-    },
-    {
-     "w": "Jonathan,",
-     "t": 157.56
-    },
-    {
-     "w": "a",
-     "t": 158.0
-    },
-    {
-     "w": "giant",
-     "t": 158.44
-    },
-    {
-     "w": "tortoise",
-     "t": 158.88
-    },
-    {
-     "w": "who",
-     "t": 159.31
-    },
-    {
-     "w": "is",
-     "t": 159.75
-    },
-    {
-     "w": "now",
-     "t": 160.19
-    },
-    {
-     "w": "one",
-     "t": 160.63
-    },
-    {
-     "w": "hundred",
-     "t": 161.06
-    },
-    {
-     "w": "and",
-     "t": 161.5
-    },
-    {
-     "w": "ninety-four",
-     "t": 161.94
-    },
-    {
-     "w": "years",
-     "t": 162.38
-    },
-    {
-     "w": "old.",
-     "t": 162.81
-    },
-    {
-     "w": "He",
-     "t": 163.25
-    },
-    {
-     "w": "was",
-     "t": 163.69
-    },
-    {
-     "w": "born",
-     "t": 164.12
-    },
-    {
-     "w": "around",
-     "t": 164.56
-    },
-    {
-     "w": "the",
-     "t": 165.0
-    },
-    {
-     "w": "time",
-     "t": 165.44
-    },
-    {
-     "w": "the",
-     "t": 165.87
-    },
-    {
-     "w": "first",
-     "t": 166.31
-    },
-    {
-     "w": "photographs",
-     "t": 166.75
-    },
-    {
-     "w": "were",
-     "t": 167.19
-    },
-    {
-     "w": "taken",
-     "t": 167.62
-    },
-    {
-     "w": "—",
-     "t": 168.06
-    },
-    {
-     "w": "long",
-     "t": 168.5
-    },
-    {
-     "w": "before",
-     "t": 168.94
-    },
-    {
-     "w": "cars,",
-     "t": 169.37
-    },
-    {
-     "w": "phones,",
-     "t": 169.81
-    },
-    {
-     "w": "or",
-     "t": 170.25
-    },
-    {
-     "w": "airplanes",
-     "t": 170.69
-    },
-    {
-     "w": "existed!",
-     "t": 171.12
-    }
-   ]
-  },
-  {
-   "start": 171.56,
-   "end": 192.55,
-   "en": "Jonathan lives on a small island in the Atlantic Ocean called Saint Helena. He has met kings and queens, survived two world wars, and he is still slowly munching his vegetables every day, just like your grandpa — except your grandpa is probably not one hundred and ninety-four!",
-   "cn": "Jonathan 住在大西洋上一个叫圣赫勒拿的小岛。它见过国王和王后，经历过两次世界大战，现在还每天慢悠悠地嚼着蔬菜，就跟你爷爷一样——只不过你爷爷大概没有一百九十四岁！",
-   "title": "194 岁的乌龟爷爷",
-   "words": [
-    {
-     "w": "Jonathan",
-     "t": 171.56
-    },
-    {
-     "w": "lives",
-     "t": 172.0
-    },
-    {
-     "w": "on",
-     "t": 172.43
-    },
-    {
-     "w": "a",
-     "t": 172.87
-    },
-    {
-     "w": "small",
-     "t": 173.31
-    },
-    {
-     "w": "island",
-     "t": 173.75
-    },
-    {
-     "w": "in",
-     "t": 174.18
-    },
-    {
-     "w": "the",
-     "t": 174.62
-    },
-    {
-     "w": "Atlantic",
-     "t": 175.06
-    },
-    {
-     "w": "Ocean",
-     "t": 175.5
-    },
-    {
-     "w": "called",
-     "t": 175.93
-    },
-    {
-     "w": "Saint",
-     "t": 176.37
-    },
-    {
-     "w": "Helena.",
-     "t": 176.81
-    },
-    {
-     "w": "He",
-     "t": 177.24
-    },
-    {
-     "w": "has",
-     "t": 177.68
-    },
-    {
-     "w": "met",
-     "t": 178.12
-    },
-    {
-     "w": "kings",
-     "t": 178.56
-    },
-    {
-     "w": "and",
-     "t": 178.99
-    },
-    {
-     "w": "queens,",
-     "t": 179.43
-    },
-    {
-     "w": "survived",
-     "t": 179.87
-    },
-    {
-     "w": "two",
-     "t": 180.31
-    },
-    {
-     "w": "world",
-     "t": 180.74
-    },
-    {
-     "w": "wars,",
-     "t": 181.18
-    },
-    {
-     "w": "and",
-     "t": 181.62
-    },
-    {
-     "w": "he",
-     "t": 182.06
-    },
-    {
-     "w": "is",
-     "t": 182.49
-    },
-    {
-     "w": "still",
-     "t": 182.93
-    },
-    {
-     "w": "slowly",
-     "t": 183.37
-    },
-    {
-     "w": "munching",
-     "t": 183.8
-    },
-    {
-     "w": "his",
-     "t": 184.24
-    },
-    {
-     "w": "vegetables",
-     "t": 184.68
-    },
-    {
-     "w": "every",
-     "t": 185.12
-    },
-    {
-     "w": "day,",
-     "t": 185.55
-    },
-    {
-     "w": "just",
-     "t": 185.99
-    },
-    {
-     "w": "like",
-     "t": 186.43
-    },
-    {
-     "w": "your",
-     "t": 186.87
-    },
-    {
-     "w": "grandpa",
-     "t": 187.3
-    },
-    {
-     "w": "—",
-     "t": 187.74
-    },
-    {
-     "w": "except",
-     "t": 188.18
-    },
-    {
-     "w": "your",
-     "t": 188.61
-    },
-    {
-     "w": "grandpa",
-     "t": 189.05
-    },
-    {
-     "w": "is",
-     "t": 189.49
-    },
-    {
-     "w": "probably",
-     "t": 189.93
-    },
-    {
-     "w": "not",
-     "t": 190.36
-    },
-    {
-     "w": "one",
-     "t": 190.8
-    },
-    {
-     "w": "hundred",
-     "t": 191.24
-    },
-    {
-     "w": "and",
-     "t": 191.68
-    },
-    {
-     "w": "ninety-four!",
-     "t": 192.11
-    }
-   ]
-  },
-  {
-   "start": 192.55,
-   "end": 220.1,
-   "en": "Scientists recently studied Jonathan's genes to learn the secrets of his super-long life. They found something amazing: the chemical patterns around his energy-making genes are unusually neat and orderly. Think of your genes as a huge library of instruction books. Over time, most people's books get messy and dog-eared. But Jonathan's books? They still look almost brand new, even after nearly two centuries!",
-   "cn": "科学家最近研究了 Jonathan 的基因，想揭开它超级长寿的秘密。他们发现了一个惊人的现象：它负责制造能量的基因周围，化学标记排列得异常整齐有序。把你的基因想象成一座藏满说明书的大图书馆。随着时间流逝，大多数人的\"书\"会变乱、卷角。但 Jonathan 的\"书\"呢？将近两百年过去，看起来还几乎全新！",
-   "title": "194 岁的乌龟爷爷",
-   "words": [
-    {
-     "w": "Scientists",
-     "t": 192.55
-    },
-    {
-     "w": "recently",
-     "t": 192.99
-    },
-    {
-     "w": "studied",
-     "t": 193.42
-    },
-    {
-     "w": "Jonathan's",
-     "t": 193.86
-    },
-    {
-     "w": "genes",
-     "t": 194.3
-    },
-    {
-     "w": "to",
-     "t": 194.74
-    },
-    {
-     "w": "learn",
-     "t": 195.17
-    },
-    {
-     "w": "the",
-     "t": 195.61
-    },
-    {
-     "w": "secrets",
-     "t": 196.05
-    },
-    {
-     "w": "of",
-     "t": 196.49
-    },
-    {
-     "w": "his",
-     "t": 196.92
-    },
-    {
-     "w": "super-long",
-     "t": 197.36
-    },
-    {
-     "w": "life.",
-     "t": 197.8
-    },
-    {
-     "w": "They",
-     "t": 198.23
-    },
-    {
-     "w": "found",
-     "t": 198.67
-    },
-    {
-     "w": "something",
-     "t": 199.11
-    },
-    {
-     "w": "amazing:",
-     "t": 199.55
-    },
-    {
-     "w": "the",
-     "t": 199.98
-    },
-    {
-     "w": "chemical",
-     "t": 200.42
-    },
-    {
-     "w": "patterns",
-     "t": 200.86
-    },
-    {
-     "w": "around",
-     "t": 201.3
-    },
-    {
-     "w": "his",
-     "t": 201.73
-    },
-    {
-     "w": "energy-making",
-     "t": 202.17
-    },
-    {
-     "w": "genes",
-     "t": 202.61
-    },
-    {
-     "w": "are",
-     "t": 203.05
-    },
-    {
-     "w": "unusually",
-     "t": 203.48
-    },
-    {
-     "w": "neat",
-     "t": 203.92
-    },
-    {
-     "w": "and",
-     "t": 204.36
-    },
-    {
-     "w": "orderly.",
-     "t": 204.79
-    },
-    {
-     "w": "Think",
-     "t": 205.23
-    },
-    {
-     "w": "of",
-     "t": 205.67
-    },
-    {
-     "w": "your",
-     "t": 206.11
-    },
-    {
-     "w": "genes",
-     "t": 206.54
-    },
-    {
-     "w": "as",
-     "t": 206.98
-    },
-    {
-     "w": "a",
-     "t": 207.42
-    },
-    {
-     "w": "huge",
-     "t": 207.86
-    },
-    {
-     "w": "library",
-     "t": 208.29
-    },
-    {
-     "w": "of",
-     "t": 208.73
-    },
-    {
-     "w": "instruction",
-     "t": 209.17
-    },
-    {
-     "w": "books.",
-     "t": 209.6
-    },
-    {
-     "w": "Over",
-     "t": 210.04
-    },
-    {
-     "w": "time,",
-     "t": 210.48
-    },
-    {
-     "w": "most",
-     "t": 210.92
-    },
-    {
-     "w": "people's",
-     "t": 211.35
-    },
-    {
-     "w": "books",
-     "t": 211.79
-    },
-    {
-     "w": "get",
-     "t": 212.23
-    },
-    {
-     "w": "messy",
-     "t": 212.67
-    },
-    {
-     "w": "and",
-     "t": 213.1
-    },
-    {
-     "w": "dog-eared.",
-     "t": 213.54
-    },
-    {
-     "w": "But",
-     "t": 213.98
-    },
-    {
-     "w": "Jonathan's",
-     "t": 214.42
-    },
-    {
-     "w": "books?",
-     "t": 214.85
-    },
-    {
-     "w": "They",
-     "t": 215.29
-    },
-    {
-     "w": "still",
-     "t": 215.73
-    },
-    {
-     "w": "look",
-     "t": 216.16
-    },
-    {
-     "w": "almost",
-     "t": 216.6
-    },
-    {
-     "w": "brand",
-     "t": 217.04
-    },
-    {
-     "w": "new,",
-     "t": 217.48
-    },
-    {
-     "w": "even",
-     "t": 217.91
-    },
-    {
-     "w": "after",
-     "t": 218.35
-    },
-    {
-     "w": "nearly",
-     "t": 218.79
-    },
-    {
-     "w": "two",
-     "t": 219.23
-    },
-    {
-     "w": "centuries!",
-     "t": 219.66
-    }
-   ]
-  },
-  {
-   "start": 220.1,
-   "end": 235.84,
-   "en": "Does this mean we can all live to two hundred? Not yet. But every clue brings scientists one step closer to understanding why some bodies age slowly — and how we might all stay healthier, longer.",
-   "cn": "这是否意味着我们都能活到两百岁？还没到那一步。但每一条线索都让科学家离真相更近一步：为什么有些身体衰老得更慢——以及我们怎样才能更健康、更长寿。",
-   "title": "194 岁的乌龟爷爷",
-   "words": [
-    {
-     "w": "Does",
-     "t": 220.1
-    },
-    {
-     "w": "this",
-     "t": 220.54
-    },
-    {
-     "w": "mean",
-     "t": 220.97
-    },
-    {
-     "w": "we",
-     "t": 221.41
-    },
-    {
-     "w": "can",
-     "t": 221.85
-    },
-    {
-     "w": "all",
-     "t": 222.29
-    },
-    {
-     "w": "live",
-     "t": 222.72
-    },
-    {
-     "w": "to",
-     "t": 223.16
-    },
-    {
-     "w": "two",
-     "t": 223.6
-    },
-    {
-     "w": "hundred?",
-     "t": 224.03
-    },
-    {
-     "w": "Not",
-     "t": 224.47
-    },
-    {
-     "w": "yet.",
-     "t": 224.91
-    },
-    {
-     "w": "But",
-     "t": 225.35
-    },
-    {
-     "w": "every",
-     "t": 225.78
-    },
-    {
-     "w": "clue",
-     "t": 226.22
-    },
-    {
-     "w": "brings",
-     "t": 226.66
-    },
-    {
-     "w": "scientists",
-     "t": 227.1
-    },
-    {
-     "w": "one",
-     "t": 227.53
-    },
-    {
-     "w": "step",
-     "t": 227.97
-    },
-    {
-     "w": "closer",
-     "t": 228.41
-    },
-    {
-     "w": "to",
-     "t": 228.84
-    },
-    {
-     "w": "understanding",
-     "t": 229.28
-    },
-    {
-     "w": "why",
-     "t": 229.72
-    },
-    {
-     "w": "some",
-     "t": 230.16
-    },
-    {
-     "w": "bodies",
-     "t": 230.59
-    },
-    {
-     "w": "age",
-     "t": 231.03
-    },
-    {
-     "w": "slowly",
-     "t": 231.47
-    },
-    {
-     "w": "—",
-     "t": 231.91
-    },
-    {
-     "w": "and",
-     "t": 232.34
-    },
-    {
-     "w": "how",
-     "t": 232.78
-    },
-    {
-     "w": "we",
-     "t": 233.22
-    },
-    {
-     "w": "might",
-     "t": 233.65
-    },
-    {
-     "w": "all",
-     "t": 234.09
-    },
-    {
-     "w": "stay",
-     "t": 234.53
-    },
-    {
-     "w": "healthier,",
-     "t": 234.97
-    },
-    {
-     "w": "longer.",
-     "t": 235.4
-    }
-   ]
-  },
-  {
-   "start": 242.88,
-   "end": 252.92,
-   "en": "Here's today's joke: What do you call a tortoise that flies? ... A \"heli-tortoise\"! Get it? Helicopter plus tortoise!",
-   "cn": "今日笑话时间：会飞的乌龟叫什么？……叫\"heli-tortoise\"（直升机龟）！get 到了吗？helicopter（直升机）加上 tortoise（乌龟）！",
-   "title": "今日笑话",
-   "words": [
-    {
-     "w": "Here's",
-     "t": 242.88
-    },
-    {
-     "w": "today's",
-     "t": 243.41
-    },
-    {
-     "w": "joke:",
-     "t": 243.94
-    },
-    {
-     "w": "What",
-     "t": 244.47
-    },
-    {
-     "w": "do",
-     "t": 244.99
-    },
-    {
-     "w": "you",
-     "t": 245.52
-    },
-    {
-     "w": "call",
-     "t": 246.05
-    },
-    {
-     "w": "a",
-     "t": 246.58
-    },
-    {
-     "w": "tortoise",
-     "t": 247.11
-    },
-    {
-     "w": "that",
-     "t": 247.64
-    },
-    {
-     "w": "flies?",
-     "t": 248.16
-    },
-    {
-     "w": "...",
-     "t": 248.69
-    },
-    {
-     "w": "A",
-     "t": 249.22
-    },
-    {
-     "w": "\"heli-tortoise\"!",
-     "t": 249.75
-    },
-    {
-     "w": "Get",
-     "t": 250.28
-    },
-    {
-     "w": "it?",
-     "t": 250.81
-    },
-    {
-     "w": "Helicopter",
-     "t": 251.33
-    },
-    {
-     "w": "plus",
-     "t": 251.86
-    },
-    {
-     "w": "tortoise!",
-     "t": 252.39
-    }
-   ]
-  },
-  {
-   "start": 265.4,
-   "end": 275.82,
-   "en": "That brings us to the end of today's show! Before you go, here's a question: If you could invent one crazy feature for a car of the future, what would it be — and why?",
-   "cn": "今天的节目就到这里！走之前留一个问题：如果能给未来的汽车发明一个疯狂的功能，你会发明什么？为什么？",
-   "title": "结束语与互动问题",
-   "words": [
-    {
-     "w": "That",
-     "t": 265.4
-    },
-    {
-     "w": "brings",
-     "t": 265.7
-    },
-    {
-     "w": "us",
-     "t": 266.0
-    },
-    {
-     "w": "to",
-     "t": 266.29
-    },
-    {
-     "w": "the",
-     "t": 266.59
-    },
-    {
-     "w": "end",
-     "t": 266.89
-    },
-    {
-     "w": "of",
-     "t": 267.19
-    },
-    {
-     "w": "today's",
-     "t": 267.48
-    },
-    {
-     "w": "show!",
-     "t": 267.78
-    },
-    {
-     "w": "Before",
-     "t": 268.08
-    },
-    {
-     "w": "you",
-     "t": 268.38
-    },
-    {
-     "w": "go,",
-     "t": 268.67
-    },
-    {
-     "w": "here's",
-     "t": 268.97
-    },
-    {
-     "w": "a",
-     "t": 269.27
-    },
-    {
-     "w": "question:",
-     "t": 269.57
-    },
-    {
-     "w": "If",
-     "t": 269.87
-    },
-    {
-     "w": "you",
-     "t": 270.16
-    },
-    {
-     "w": "could",
-     "t": 270.46
-    },
-    {
-     "w": "invent",
-     "t": 270.76
-    },
-    {
-     "w": "one",
-     "t": 271.06
-    },
-    {
-     "w": "crazy",
-     "t": 271.35
-    },
-    {
-     "w": "feature",
-     "t": 271.65
-    },
-    {
-     "w": "for",
-     "t": 271.95
-    },
-    {
-     "w": "a",
-     "t": 272.25
-    },
-    {
-     "w": "car",
-     "t": 272.55
-    },
-    {
-     "w": "of",
-     "t": 272.84
-    },
-    {
-     "w": "the",
-     "t": 273.14
-    },
-    {
-     "w": "future,",
-     "t": 273.44
-    },
-    {
-     "w": "what",
-     "t": 273.74
-    },
-    {
-     "w": "would",
-     "t": 274.03
-    },
-    {
-     "w": "it",
-     "t": 274.33
-    },
-    {
-     "w": "be",
-     "t": 274.63
-    },
-    {
-     "w": "—",
-     "t": 274.93
-    },
-    {
-     "w": "and",
-     "t": 275.22
-    },
-    {
-     "w": "why?",
-     "t": 275.52
-    }
-   ]
-  },
-  {
-   "start": 290.14,
-   "end": 292.95,
-   "en": "Have a wonderful day, and see you tomorrow morning!",
-   "cn": "祝你有美好的一天，明天早上见！",
-   "title": "告别",
-   "words": [
-    {
-     "w": "Have",
-     "t": 290.14
-    },
-    {
-     "w": "a",
-     "t": 290.45
-    },
-    {
-     "w": "wonderful",
-     "t": 290.76
-    },
-    {
-     "w": "day,",
-     "t": 291.08
-    },
-    {
-     "w": "and",
-     "t": 291.39
-    },
-    {
-     "w": "see",
-     "t": 291.7
-    },
-    {
-     "w": "you",
-     "t": 292.01
-    },
-    {
-     "w": "tomorrow",
-     "t": 292.33
-    },
-    {
-     "w": "morning!",
-     "t": 292.64
-    }
-   ]
-  }
- ],
- "guide": {
-  "vocab": [
-   {
-    "word": "thruster",
-    "phon": "/ˈθrʌstər/",
-    "meaning": "(n.) 推进器",
-    "tags": [
-     "科普词汇"
-    ],
-    "example": "Example: The car's ten thrusters shoot out compressed air."
-   },
-   {
-    "word": "upside down",
-    "phon": "",
-    "meaning": "upside down (adv.) 上下颠倒地；倒挂着",
-    "tags": [
-     "地道口语表达"
-    ],
-    "example": "Example: The car kept driving while upside down!"
-   },
-   {
-    "word": "orderly",
-    "phon": "/ˈɔːdəli/",
-    "meaning": "(adj.) 整齐的；有序的",
-    "tags": [],
-    "example": "Example: Jonathan's genes are unusually neat and orderly."
-   },
-   {
-    "word": "barrel roll",
-    "phon": "",
-    "meaning": "barrel roll (n.) 横滚翻转（飞机/车辆的特技动作）",
-    "tags": [
-     "趣味词汇"
-    ],
-    "example": "Example: The car did a complete barrel roll in the air."
-   }
-  ],
-  "quiz": [
-   {
-    "title": "A. 标题配对（Match the headings）",
-    "questions": [
-     "Section 1 → ______",
-     "Section 2 → ______",
-     "Section 3 → ______",
-     "Section 4 → ______",
-     "Section 5 → ______",
-     "Section 6 → ______"
-    ],
-    "extra": "Headings:\nA. 194 岁乌龟的长寿基因秘密\nB. 给未来汽车发明一个功能\nC. 会飞的汽车：现场特技全记录\nD. 明天早上见\nE. 今天的两大看点\nF. heli-tortoise 的谐音梗"
-   },
-   {
-    "title": "B. 单项选择（Multiple Choice）",
-    "questions": [
-     "这辆新跑车装了几个推进器？\nA. 5 个\nB. 10 个\nC. 60 个\nD. 100 个",
-     "汽车倒挂行驶不掉下来，靠的是什么？\nA. 它有翅膀\nB. 车底强力风扇抽走空气，把车按在路面上\nC. 车身特别轻\nD. 魔法",
-     "科学家在 Jonathan 的基因里发现了什么？\nA. 它的基因和其他乌龟完全不同\nB. 它的基因像旧图书馆一样杂乱\nC. 能量基因周围的化学标记异常整齐有序\nD. 它的基因能让它飞",
-     "为什么这辆\"飞车\"暂时不能送你上学？\nA. 它太慢了\nB. 储气罐只够用几秒钟\nC. 它不会转弯\nD. 它太贵了"
-    ]
-   }
-  ],
-  "sentence_nodes": [
-   {
-    "name": "div",
-    "attrs": {
-     "class": "breakdown"
-    },
-    "children": [
-     {
-      "type": "text",
-      "text": "\n"
-     },
-     {
-      "name": "b",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "经典原句："
-       }
+  "id": "vol01",
+  "title": "会飞的汽车与194岁的乌龟",
+  "words": 529,
+  "duration": "5分02秒",
+  "cover": "https://lcb0378.github.io/michael-english-podcast/vol01/cover.png",
+  "audio": "https://lcb0378.github.io/michael-english-podcast/vol01/audio_v8.mp3",
+  "pdf": "https://lcb0378.github.io/michael-english-podcast/vol01/Vol01_晚读讲义_会飞的汽车与194岁的乌龟_v7.pdf",
+  "pdfName": "Vol01_晚读讲义_会飞的汽车与194岁的乌龟_v7.pdf",
+  "blocks": [
+    {
+      "start": 17.24,
+      "end": 29.51,
+      "en": "Welcome back to Michael's Morning Listening! Today we have two amazing stories: a car that can fly, and a tortoise that has lived for almost two hundred years. Let's dive in!",
+      "cn": "欢迎回到 Michael 的早听晚读！今天有两个超棒的故事：一辆会飞的汽车，和一只活了将近两百年的乌龟。让我们开始吧！",
+      "title": "开场白",
+      "words": [
+        {
+          "w": "Welcome",
+          "t": 17.24
+        },
+        {
+          "w": "back",
+          "t": 17.64
+        },
+        {
+          "w": "to",
+          "t": 18.03
+        },
+        {
+          "w": "Michael's",
+          "t": 18.43
+        },
+        {
+          "w": "Morning",
+          "t": 18.82
+        },
+        {
+          "w": "Listening!",
+          "t": 19.22
+        },
+        {
+          "w": "Today",
+          "t": 19.61
+        },
+        {
+          "w": "we",
+          "t": 20.01
+        },
+        {
+          "w": "have",
+          "t": 20.41
+        },
+        {
+          "w": "two",
+          "t": 20.8
+        },
+        {
+          "w": "amazing",
+          "t": 21.2
+        },
+        {
+          "w": "stories:",
+          "t": 21.59
+        },
+        {
+          "w": "a",
+          "t": 21.99
+        },
+        {
+          "w": "car",
+          "t": 22.39
+        },
+        {
+          "w": "that",
+          "t": 22.78
+        },
+        {
+          "w": "can",
+          "t": 23.18
+        },
+        {
+          "w": "fly,",
+          "t": 23.57
+        },
+        {
+          "w": "and",
+          "t": 23.97
+        },
+        {
+          "w": "a",
+          "t": 24.36
+        },
+        {
+          "w": "tortoise",
+          "t": 24.76
+        },
+        {
+          "w": "that",
+          "t": 25.16
+        },
+        {
+          "w": "has",
+          "t": 25.55
+        },
+        {
+          "w": "lived",
+          "t": 25.95
+        },
+        {
+          "w": "for",
+          "t": 26.34
+        },
+        {
+          "w": "almost",
+          "t": 26.74
+        },
+        {
+          "w": "two",
+          "t": 27.14
+        },
+        {
+          "w": "hundred",
+          "t": 27.53
+        },
+        {
+          "w": "years.",
+          "t": 27.93
+        },
+        {
+          "w": "Let's",
+          "t": 28.32
+        },
+        {
+          "w": "dive",
+          "t": 28.72
+        },
+        {
+          "w": "in!",
+          "t": 29.11
+        }
       ]
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "\n"
-     },
-     {
-      "name": "span",
-      "attrs": {
-       "class": "en",
-       "style": "border:none;background:none;padding:0;"
+    },
+    {
+      "start": 44.71,
+      "end": 53.64,
+      "en": "What if your family car could fly over a traffic jam? That sounds like science fiction, right? But it just happened in real life!",
+      "cn": "如果有一天，你家的汽车能直接飞过堵成长龙的马路，那会怎样？听起来像科幻小说，对吧？但这刚刚在现实中发生了！",
+      "title": "会飞的汽车",
+      "words": [
+        {
+          "w": "What",
+          "t": 44.71
+        },
+        {
+          "w": "if",
+          "t": 45.08
+        },
+        {
+          "w": "your",
+          "t": 45.45
+        },
+        {
+          "w": "family",
+          "t": 45.83
+        },
+        {
+          "w": "car",
+          "t": 46.2
+        },
+        {
+          "w": "could",
+          "t": 46.57
+        },
+        {
+          "w": "fly",
+          "t": 46.94
+        },
+        {
+          "w": "over",
+          "t": 47.31
+        },
+        {
+          "w": "a",
+          "t": 47.69
+        },
+        {
+          "w": "traffic",
+          "t": 48.06
+        },
+        {
+          "w": "jam?",
+          "t": 48.43
+        },
+        {
+          "w": "That",
+          "t": 48.8
+        },
+        {
+          "w": "sounds",
+          "t": 49.17
+        },
+        {
+          "w": "like",
+          "t": 49.55
+        },
+        {
+          "w": "science",
+          "t": 49.92
+        },
+        {
+          "w": "fiction,",
+          "t": 50.29
+        },
+        {
+          "w": "right?",
+          "t": 50.66
+        },
+        {
+          "w": "But",
+          "t": 51.04
+        },
+        {
+          "w": "it",
+          "t": 51.41
+        },
+        {
+          "w": "just",
+          "t": 51.78
+        },
+        {
+          "w": "happened",
+          "t": 52.15
+        },
+        {
+          "w": "in",
+          "t": 52.52
+        },
+        {
+          "w": "real",
+          "t": 52.9
+        },
+        {
+          "w": "life!",
+          "t": 53.27
+        }
+      ]
+    },
+    {
+      "start": 53.64,
+      "end": 81.93,
+      "en": "Engineers showed off a new electric sports car with ten small thrusters built into its body. These thrusters shoot out powerful bursts of compressed air — just like the ones on a spaceship. During a live show, the car drove up a huge curved ramp, kept driving while upside down, then flew into the air, did a complete barrel roll, and landed safely on its wheels. It even lifted itself over five other cars while moving!",
+      "cn": "工程师们展示了一辆全新的电动跑车，车身里装着十个小型推进器。这些推进器喷出强劲的压缩空气——就像宇宙飞船上的一样。在一场现场演示中，这辆车开上了一个巨大的弧形坡道，倒挂着继续行驶，然后腾空而起，在空中完成了一个完整的横滚翻转，最后稳稳地用轮子着陆。它甚至在行驶中从另外五辆车的头顶上\"飞\"了过去！",
+      "title": "会飞的汽车",
+      "words": [
+        {
+          "w": "Engineers",
+          "t": 53.64
+        },
+        {
+          "w": "showed",
+          "t": 54.01
+        },
+        {
+          "w": "off",
+          "t": 54.38
+        },
+        {
+          "w": "a",
+          "t": 54.76
+        },
+        {
+          "w": "new",
+          "t": 55.13
+        },
+        {
+          "w": "electric",
+          "t": 55.5
+        },
+        {
+          "w": "sports",
+          "t": 55.87
+        },
+        {
+          "w": "car",
+          "t": 56.25
+        },
+        {
+          "w": "with",
+          "t": 56.62
+        },
+        {
+          "w": "ten",
+          "t": 56.99
+        },
+        {
+          "w": "small",
+          "t": 57.36
+        },
+        {
+          "w": "thrusters",
+          "t": 57.73
+        },
+        {
+          "w": "built",
+          "t": 58.11
+        },
+        {
+          "w": "into",
+          "t": 58.48
+        },
+        {
+          "w": "its",
+          "t": 58.85
+        },
+        {
+          "w": "body.",
+          "t": 59.22
+        },
+        {
+          "w": "These",
+          "t": 59.6
+        },
+        {
+          "w": "thrusters",
+          "t": 59.97
+        },
+        {
+          "w": "shoot",
+          "t": 60.34
+        },
+        {
+          "w": "out",
+          "t": 60.71
+        },
+        {
+          "w": "powerful",
+          "t": 61.08
+        },
+        {
+          "w": "bursts",
+          "t": 61.46
+        },
+        {
+          "w": "of",
+          "t": 61.83
+        },
+        {
+          "w": "compressed",
+          "t": 62.2
+        },
+        {
+          "w": "air",
+          "t": 62.57
+        },
+        {
+          "w": "—",
+          "t": 62.95
+        },
+        {
+          "w": "just",
+          "t": 63.32
+        },
+        {
+          "w": "like",
+          "t": 63.69
+        },
+        {
+          "w": "the",
+          "t": 64.06
+        },
+        {
+          "w": "ones",
+          "t": 64.43
+        },
+        {
+          "w": "on",
+          "t": 64.81
+        },
+        {
+          "w": "a",
+          "t": 65.18
+        },
+        {
+          "w": "spaceship.",
+          "t": 65.55
+        },
+        {
+          "w": "During",
+          "t": 65.92
+        },
+        {
+          "w": "a",
+          "t": 66.3
+        },
+        {
+          "w": "live",
+          "t": 66.67
+        },
+        {
+          "w": "show,",
+          "t": 67.04
+        },
+        {
+          "w": "the",
+          "t": 67.41
+        },
+        {
+          "w": "car",
+          "t": 67.78
+        },
+        {
+          "w": "drove",
+          "t": 68.16
+        },
+        {
+          "w": "up",
+          "t": 68.53
+        },
+        {
+          "w": "a",
+          "t": 68.9
+        },
+        {
+          "w": "huge",
+          "t": 69.27
+        },
+        {
+          "w": "curved",
+          "t": 69.65
+        },
+        {
+          "w": "ramp,",
+          "t": 70.02
+        },
+        {
+          "w": "kept",
+          "t": 70.39
+        },
+        {
+          "w": "driving",
+          "t": 70.76
+        },
+        {
+          "w": "while",
+          "t": 71.14
+        },
+        {
+          "w": "upside",
+          "t": 71.51
+        },
+        {
+          "w": "down,",
+          "t": 71.88
+        },
+        {
+          "w": "then",
+          "t": 72.25
+        },
+        {
+          "w": "flew",
+          "t": 72.62
+        },
+        {
+          "w": "into",
+          "t": 73.0
+        },
+        {
+          "w": "the",
+          "t": 73.37
+        },
+        {
+          "w": "air,",
+          "t": 73.74
+        },
+        {
+          "w": "did",
+          "t": 74.11
+        },
+        {
+          "w": "a",
+          "t": 74.49
+        },
+        {
+          "w": "complete",
+          "t": 74.86
+        },
+        {
+          "w": "barrel",
+          "t": 75.23
+        },
+        {
+          "w": "roll,",
+          "t": 75.6
+        },
+        {
+          "w": "and",
+          "t": 75.97
+        },
+        {
+          "w": "landed",
+          "t": 76.35
+        },
+        {
+          "w": "safely",
+          "t": 76.72
+        },
+        {
+          "w": "on",
+          "t": 77.09
+        },
+        {
+          "w": "its",
+          "t": 77.46
+        },
+        {
+          "w": "wheels.",
+          "t": 77.84
+        },
+        {
+          "w": "It",
+          "t": 78.21
+        },
+        {
+          "w": "even",
+          "t": 78.58
+        },
+        {
+          "w": "lifted",
+          "t": 78.95
+        },
+        {
+          "w": "itself",
+          "t": 79.32
+        },
+        {
+          "w": "over",
+          "t": 79.7
+        },
+        {
+          "w": "five",
+          "t": 80.07
+        },
+        {
+          "w": "other",
+          "t": 80.44
+        },
+        {
+          "w": "cars",
+          "t": 80.81
+        },
+        {
+          "w": "while",
+          "t": 81.19
+        },
+        {
+          "w": "moving!",
+          "t": 81.56
+        }
+      ]
+    },
+    {
+      "start": 81.93,
+      "end": 97.57,
+      "en": "The fastest version can go from zero to sixty miles per hour in less than one second — faster than you can say \"flying car\"! And it can still drive three hundred miles on one charge, just like a normal electric car.",
+      "cn": "最快的版本从静止加速到每小时六十英里不到一秒——比你说完\"飞车\"这个词还快！而且它充一次电还能跑三百英里，和普通电动车一样。",
+      "title": "会飞的汽车",
+      "words": [
+        {
+          "w": "The",
+          "t": 81.93
+        },
+        {
+          "w": "fastest",
+          "t": 82.3
+        },
+        {
+          "w": "version",
+          "t": 82.67
+        },
+        {
+          "w": "can",
+          "t": 83.05
+        },
+        {
+          "w": "go",
+          "t": 83.42
+        },
+        {
+          "w": "from",
+          "t": 83.79
+        },
+        {
+          "w": "zero",
+          "t": 84.16
+        },
+        {
+          "w": "to",
+          "t": 84.54
+        },
+        {
+          "w": "sixty",
+          "t": 84.91
+        },
+        {
+          "w": "miles",
+          "t": 85.28
+        },
+        {
+          "w": "per",
+          "t": 85.65
+        },
+        {
+          "w": "hour",
+          "t": 86.03
+        },
+        {
+          "w": "in",
+          "t": 86.4
+        },
+        {
+          "w": "less",
+          "t": 86.77
+        },
+        {
+          "w": "than",
+          "t": 87.14
+        },
+        {
+          "w": "one",
+          "t": 87.52
+        },
+        {
+          "w": "second",
+          "t": 87.89
+        },
+        {
+          "w": "—",
+          "t": 88.26
+        },
+        {
+          "w": "faster",
+          "t": 88.63
+        },
+        {
+          "w": "than",
+          "t": 89.01
+        },
+        {
+          "w": "you",
+          "t": 89.38
+        },
+        {
+          "w": "can",
+          "t": 89.75
+        },
+        {
+          "w": "say",
+          "t": 90.12
+        },
+        {
+          "w": "\"flying",
+          "t": 90.49
+        },
+        {
+          "w": "car\"!",
+          "t": 90.87
+        },
+        {
+          "w": "And",
+          "t": 91.24
+        },
+        {
+          "w": "it",
+          "t": 91.61
+        },
+        {
+          "w": "can",
+          "t": 91.98
+        },
+        {
+          "w": "still",
+          "t": 92.36
+        },
+        {
+          "w": "drive",
+          "t": 92.73
+        },
+        {
+          "w": "three",
+          "t": 93.1
+        },
+        {
+          "w": "hundred",
+          "t": 93.47
+        },
+        {
+          "w": "miles",
+          "t": 93.85
+        },
+        {
+          "w": "on",
+          "t": 94.22
+        },
+        {
+          "w": "one",
+          "t": 94.59
+        },
+        {
+          "w": "charge,",
+          "t": 94.96
+        },
+        {
+          "w": "just",
+          "t": 95.34
+        },
+        {
+          "w": "like",
+          "t": 95.71
+        },
+        {
+          "w": "a",
+          "t": 96.08
+        },
+        {
+          "w": "normal",
+          "t": 96.45
+        },
+        {
+          "w": "electric",
+          "t": 96.83
+        },
+        {
+          "w": "car.",
+          "t": 97.2
+        }
+      ]
+    },
+    {
+      "start": 97.57,
+      "end": 120.65,
+      "en": "How does it work? The secret is simple physics. When the thrusters push air down, the air pushes the car up. It is the same idea that lifts a rocket off the ground. The car also has strong fans underneath that suck air out, pressing the car tightly onto the road — that is how it can drive upside down without falling!",
+      "cn": "它是怎么做到的？秘密就是简单的物理学：当推进器把空气往下推，空气就把车往上托。这和把火箭送上天的原理一模一样。车底还装着强力风扇，把空气抽走，把车紧紧\"按\"在路面上——这就是它能倒挂行驶而不掉下来的原因！",
+      "title": "会飞的汽车",
+      "words": [
+        {
+          "w": "How",
+          "t": 97.57
+        },
+        {
+          "w": "does",
+          "t": 97.94
+        },
+        {
+          "w": "it",
+          "t": 98.31
+        },
+        {
+          "w": "work?",
+          "t": 98.69
+        },
+        {
+          "w": "The",
+          "t": 99.06
+        },
+        {
+          "w": "secret",
+          "t": 99.43
+        },
+        {
+          "w": "is",
+          "t": 99.8
+        },
+        {
+          "w": "simple",
+          "t": 100.18
+        },
+        {
+          "w": "physics.",
+          "t": 100.55
+        },
+        {
+          "w": "When",
+          "t": 100.92
+        },
+        {
+          "w": "the",
+          "t": 101.29
+        },
+        {
+          "w": "thrusters",
+          "t": 101.66
+        },
+        {
+          "w": "push",
+          "t": 102.04
+        },
+        {
+          "w": "air",
+          "t": 102.41
+        },
+        {
+          "w": "down,",
+          "t": 102.78
+        },
+        {
+          "w": "the",
+          "t": 103.15
+        },
+        {
+          "w": "air",
+          "t": 103.53
+        },
+        {
+          "w": "pushes",
+          "t": 103.9
+        },
+        {
+          "w": "the",
+          "t": 104.27
+        },
+        {
+          "w": "car",
+          "t": 104.64
+        },
+        {
+          "w": "up.",
+          "t": 105.02
+        },
+        {
+          "w": "It",
+          "t": 105.39
+        },
+        {
+          "w": "is",
+          "t": 105.76
+        },
+        {
+          "w": "the",
+          "t": 106.13
+        },
+        {
+          "w": "same",
+          "t": 106.5
+        },
+        {
+          "w": "idea",
+          "t": 106.88
+        },
+        {
+          "w": "that",
+          "t": 107.25
+        },
+        {
+          "w": "lifts",
+          "t": 107.62
+        },
+        {
+          "w": "a",
+          "t": 107.99
+        },
+        {
+          "w": "rocket",
+          "t": 108.37
+        },
+        {
+          "w": "off",
+          "t": 108.74
+        },
+        {
+          "w": "the",
+          "t": 109.11
+        },
+        {
+          "w": "ground.",
+          "t": 109.48
+        },
+        {
+          "w": "The",
+          "t": 109.85
+        },
+        {
+          "w": "car",
+          "t": 110.23
+        },
+        {
+          "w": "also",
+          "t": 110.6
+        },
+        {
+          "w": "has",
+          "t": 110.97
+        },
+        {
+          "w": "strong",
+          "t": 111.34
+        },
+        {
+          "w": "fans",
+          "t": 111.72
+        },
+        {
+          "w": "underneath",
+          "t": 112.09
+        },
+        {
+          "w": "that",
+          "t": 112.46
+        },
+        {
+          "w": "suck",
+          "t": 112.83
+        },
+        {
+          "w": "air",
+          "t": 113.2
+        },
+        {
+          "w": "out,",
+          "t": 113.58
+        },
+        {
+          "w": "pressing",
+          "t": 113.95
+        },
+        {
+          "w": "the",
+          "t": 114.32
+        },
+        {
+          "w": "car",
+          "t": 114.69
+        },
+        {
+          "w": "tightly",
+          "t": 115.07
+        },
+        {
+          "w": "onto",
+          "t": 115.44
+        },
+        {
+          "w": "the",
+          "t": 115.81
+        },
+        {
+          "w": "road",
+          "t": 116.18
+        },
+        {
+          "w": "—",
+          "t": 116.56
+        },
+        {
+          "w": "that",
+          "t": 116.93
+        },
+        {
+          "w": "is",
+          "t": 117.3
+        },
+        {
+          "w": "how",
+          "t": 117.67
+        },
+        {
+          "w": "it",
+          "t": 118.04
+        },
+        {
+          "w": "can",
+          "t": 118.42
+        },
+        {
+          "w": "drive",
+          "t": 118.79
+        },
+        {
+          "w": "upside",
+          "t": 119.16
+        },
+        {
+          "w": "down",
+          "t": 119.53
+        },
+        {
+          "w": "without",
+          "t": 119.91
+        },
+        {
+          "w": "falling!",
+          "t": 120.28
+        }
+      ]
+    },
+    {
+      "start": 120.65,
+      "end": 142.61,
+      "en": "This car cannot fly you to school yet — the air tanks only last a few seconds. But every big invention starts with a crazy first step. The Wright brothers' first flight lasted only twelve seconds, and look where we are now. Maybe the flying cars of the future are being born right now, in front of our eyes.",
+      "cn": "这辆车暂时还不能送你上学——储气罐只够用几秒钟。但每一项伟大的发明，都始于一个疯狂的第一步。莱特兄弟的第一次飞行只持续了十二秒，再看看现在的我们。也许未来的飞车，此刻正在我们眼前诞生。",
+      "title": "会飞的汽车",
+      "words": [
+        {
+          "w": "This",
+          "t": 120.65
+        },
+        {
+          "w": "car",
+          "t": 121.02
+        },
+        {
+          "w": "cannot",
+          "t": 121.39
+        },
+        {
+          "w": "fly",
+          "t": 121.77
+        },
+        {
+          "w": "you",
+          "t": 122.14
+        },
+        {
+          "w": "to",
+          "t": 122.51
+        },
+        {
+          "w": "school",
+          "t": 122.88
+        },
+        {
+          "w": "yet",
+          "t": 123.26
+        },
+        {
+          "w": "—",
+          "t": 123.63
+        },
+        {
+          "w": "the",
+          "t": 124.0
+        },
+        {
+          "w": "air",
+          "t": 124.37
+        },
+        {
+          "w": "tanks",
+          "t": 124.74
+        },
+        {
+          "w": "only",
+          "t": 125.12
+        },
+        {
+          "w": "last",
+          "t": 125.49
+        },
+        {
+          "w": "a",
+          "t": 125.86
+        },
+        {
+          "w": "few",
+          "t": 126.23
+        },
+        {
+          "w": "seconds.",
+          "t": 126.61
+        },
+        {
+          "w": "But",
+          "t": 126.98
+        },
+        {
+          "w": "every",
+          "t": 127.35
+        },
+        {
+          "w": "big",
+          "t": 127.72
+        },
+        {
+          "w": "invention",
+          "t": 128.09
+        },
+        {
+          "w": "starts",
+          "t": 128.47
+        },
+        {
+          "w": "with",
+          "t": 128.84
+        },
+        {
+          "w": "a",
+          "t": 129.21
+        },
+        {
+          "w": "crazy",
+          "t": 129.58
+        },
+        {
+          "w": "first",
+          "t": 129.96
+        },
+        {
+          "w": "step.",
+          "t": 130.33
+        },
+        {
+          "w": "The",
+          "t": 130.7
+        },
+        {
+          "w": "Wright",
+          "t": 131.07
+        },
+        {
+          "w": "brothers'",
+          "t": 131.44
+        },
+        {
+          "w": "first",
+          "t": 131.82
+        },
+        {
+          "w": "flight",
+          "t": 132.19
+        },
+        {
+          "w": "lasted",
+          "t": 132.56
+        },
+        {
+          "w": "only",
+          "t": 132.93
+        },
+        {
+          "w": "twelve",
+          "t": 133.3
+        },
+        {
+          "w": "seconds,",
+          "t": 133.68
+        },
+        {
+          "w": "and",
+          "t": 134.05
+        },
+        {
+          "w": "look",
+          "t": 134.42
+        },
+        {
+          "w": "where",
+          "t": 134.79
+        },
+        {
+          "w": "we",
+          "t": 135.17
+        },
+        {
+          "w": "are",
+          "t": 135.54
+        },
+        {
+          "w": "now.",
+          "t": 135.91
+        },
+        {
+          "w": "Maybe",
+          "t": 136.28
+        },
+        {
+          "w": "the",
+          "t": 136.65
+        },
+        {
+          "w": "flying",
+          "t": 137.03
+        },
+        {
+          "w": "cars",
+          "t": 137.4
+        },
+        {
+          "w": "of",
+          "t": 137.77
+        },
+        {
+          "w": "the",
+          "t": 138.14
+        },
+        {
+          "w": "future",
+          "t": 138.52
+        },
+        {
+          "w": "are",
+          "t": 138.89
+        },
+        {
+          "w": "being",
+          "t": 139.26
+        },
+        {
+          "w": "born",
+          "t": 139.63
+        },
+        {
+          "w": "right",
+          "t": 140.0
+        },
+        {
+          "w": "now,",
+          "t": 140.38
+        },
+        {
+          "w": "in",
+          "t": 140.75
+        },
+        {
+          "w": "front",
+          "t": 141.12
+        },
+        {
+          "w": "of",
+          "t": 141.49
+        },
+        {
+          "w": "our",
+          "t": 141.87
+        },
+        {
+          "w": "eyes.",
+          "t": 142.24
+        }
+      ]
+    },
+    {
+      "start": 156.69,
+      "end": 171.56,
+      "en": "Let's meet Jonathan, a giant tortoise who is now one hundred and ninety-four years old. He was born around the time the first photographs were taken — long before cars, phones, or airplanes existed!",
+      "cn": "来认识一下 Jonathan，一只已经一百九十四岁的巨龟。它出生在第一张照片诞生的年代——那时汽车、电话、飞机都还没有被发明出来！",
+      "title": "194 岁的乌龟爷爷",
+      "words": [
+        {
+          "w": "Let's",
+          "t": 156.69
+        },
+        {
+          "w": "meet",
+          "t": 157.13
+        },
+        {
+          "w": "Jonathan,",
+          "t": 157.56
+        },
+        {
+          "w": "a",
+          "t": 158.0
+        },
+        {
+          "w": "giant",
+          "t": 158.44
+        },
+        {
+          "w": "tortoise",
+          "t": 158.88
+        },
+        {
+          "w": "who",
+          "t": 159.31
+        },
+        {
+          "w": "is",
+          "t": 159.75
+        },
+        {
+          "w": "now",
+          "t": 160.19
+        },
+        {
+          "w": "one",
+          "t": 160.63
+        },
+        {
+          "w": "hundred",
+          "t": 161.06
+        },
+        {
+          "w": "and",
+          "t": 161.5
+        },
+        {
+          "w": "ninety-four",
+          "t": 161.94
+        },
+        {
+          "w": "years",
+          "t": 162.38
+        },
+        {
+          "w": "old.",
+          "t": 162.81
+        },
+        {
+          "w": "He",
+          "t": 163.25
+        },
+        {
+          "w": "was",
+          "t": 163.69
+        },
+        {
+          "w": "born",
+          "t": 164.12
+        },
+        {
+          "w": "around",
+          "t": 164.56
+        },
+        {
+          "w": "the",
+          "t": 165.0
+        },
+        {
+          "w": "time",
+          "t": 165.44
+        },
+        {
+          "w": "the",
+          "t": 165.87
+        },
+        {
+          "w": "first",
+          "t": 166.31
+        },
+        {
+          "w": "photographs",
+          "t": 166.75
+        },
+        {
+          "w": "were",
+          "t": 167.19
+        },
+        {
+          "w": "taken",
+          "t": 167.62
+        },
+        {
+          "w": "—",
+          "t": 168.06
+        },
+        {
+          "w": "long",
+          "t": 168.5
+        },
+        {
+          "w": "before",
+          "t": 168.94
+        },
+        {
+          "w": "cars,",
+          "t": 169.37
+        },
+        {
+          "w": "phones,",
+          "t": 169.81
+        },
+        {
+          "w": "or",
+          "t": 170.25
+        },
+        {
+          "w": "airplanes",
+          "t": 170.69
+        },
+        {
+          "w": "existed!",
+          "t": 171.12
+        }
+      ]
+    },
+    {
+      "start": 171.56,
+      "end": 192.55,
+      "en": "Jonathan lives on a small island in the Atlantic Ocean called Saint Helena. He has met kings and queens, survived two world wars, and he is still slowly munching his vegetables every day, just like your grandpa — except your grandpa is probably not one hundred and ninety-four!",
+      "cn": "Jonathan 住在大西洋上一个叫圣赫勒拿的小岛。它见过国王和王后，经历过两次世界大战，现在还每天慢悠悠地嚼着蔬菜，就跟你爷爷一样——只不过你爷爷大概没有一百九十四岁！",
+      "title": "194 岁的乌龟爷爷",
+      "words": [
+        {
+          "w": "Jonathan",
+          "t": 171.56
+        },
+        {
+          "w": "lives",
+          "t": 172.0
+        },
+        {
+          "w": "on",
+          "t": 172.43
+        },
+        {
+          "w": "a",
+          "t": 172.87
+        },
+        {
+          "w": "small",
+          "t": 173.31
+        },
+        {
+          "w": "island",
+          "t": 173.75
+        },
+        {
+          "w": "in",
+          "t": 174.18
+        },
+        {
+          "w": "the",
+          "t": 174.62
+        },
+        {
+          "w": "Atlantic",
+          "t": 175.06
+        },
+        {
+          "w": "Ocean",
+          "t": 175.5
+        },
+        {
+          "w": "called",
+          "t": 175.93
+        },
+        {
+          "w": "Saint",
+          "t": 176.37
+        },
+        {
+          "w": "Helena.",
+          "t": 176.81
+        },
+        {
+          "w": "He",
+          "t": 177.24
+        },
+        {
+          "w": "has",
+          "t": 177.68
+        },
+        {
+          "w": "met",
+          "t": 178.12
+        },
+        {
+          "w": "kings",
+          "t": 178.56
+        },
+        {
+          "w": "and",
+          "t": 178.99
+        },
+        {
+          "w": "queens,",
+          "t": 179.43
+        },
+        {
+          "w": "survived",
+          "t": 179.87
+        },
+        {
+          "w": "two",
+          "t": 180.31
+        },
+        {
+          "w": "world",
+          "t": 180.74
+        },
+        {
+          "w": "wars,",
+          "t": 181.18
+        },
+        {
+          "w": "and",
+          "t": 181.62
+        },
+        {
+          "w": "he",
+          "t": 182.06
+        },
+        {
+          "w": "is",
+          "t": 182.49
+        },
+        {
+          "w": "still",
+          "t": 182.93
+        },
+        {
+          "w": "slowly",
+          "t": 183.37
+        },
+        {
+          "w": "munching",
+          "t": 183.8
+        },
+        {
+          "w": "his",
+          "t": 184.24
+        },
+        {
+          "w": "vegetables",
+          "t": 184.68
+        },
+        {
+          "w": "every",
+          "t": 185.12
+        },
+        {
+          "w": "day,",
+          "t": 185.55
+        },
+        {
+          "w": "just",
+          "t": 185.99
+        },
+        {
+          "w": "like",
+          "t": 186.43
+        },
+        {
+          "w": "your",
+          "t": 186.87
+        },
+        {
+          "w": "grandpa",
+          "t": 187.3
+        },
+        {
+          "w": "—",
+          "t": 187.74
+        },
+        {
+          "w": "except",
+          "t": 188.18
+        },
+        {
+          "w": "your",
+          "t": 188.61
+        },
+        {
+          "w": "grandpa",
+          "t": 189.05
+        },
+        {
+          "w": "is",
+          "t": 189.49
+        },
+        {
+          "w": "probably",
+          "t": 189.93
+        },
+        {
+          "w": "not",
+          "t": 190.36
+        },
+        {
+          "w": "one",
+          "t": 190.8
+        },
+        {
+          "w": "hundred",
+          "t": 191.24
+        },
+        {
+          "w": "and",
+          "t": 191.68
+        },
+        {
+          "w": "ninety-four!",
+          "t": 192.11
+        }
+      ]
+    },
+    {
+      "start": 192.55,
+      "end": 220.1,
+      "en": "Scientists recently studied Jonathan's genes to learn the secrets of his super-long life. They found something amazing: the chemical patterns around his energy-making genes are unusually neat and orderly. Think of your genes as a huge library of instruction books. Over time, most people's books get messy and dog-eared. But Jonathan's books? They still look almost brand new, even after nearly two centuries!",
+      "cn": "科学家最近研究了 Jonathan 的基因，想揭开它超级长寿的秘密。他们发现了一个惊人的现象：它负责制造能量的基因周围，化学标记排列得异常整齐有序。把你的基因想象成一座藏满说明书的大图书馆。随着时间流逝，大多数人的\"书\"会变乱、卷角。但 Jonathan 的\"书\"呢？将近两百年过去，看起来还几乎全新！",
+      "title": "194 岁的乌龟爷爷",
+      "words": [
+        {
+          "w": "Scientists",
+          "t": 192.55
+        },
+        {
+          "w": "recently",
+          "t": 192.99
+        },
+        {
+          "w": "studied",
+          "t": 193.42
+        },
+        {
+          "w": "Jonathan's",
+          "t": 193.86
+        },
+        {
+          "w": "genes",
+          "t": 194.3
+        },
+        {
+          "w": "to",
+          "t": 194.74
+        },
+        {
+          "w": "learn",
+          "t": 195.17
+        },
+        {
+          "w": "the",
+          "t": 195.61
+        },
+        {
+          "w": "secrets",
+          "t": 196.05
+        },
+        {
+          "w": "of",
+          "t": 196.49
+        },
+        {
+          "w": "his",
+          "t": 196.92
+        },
+        {
+          "w": "super-long",
+          "t": 197.36
+        },
+        {
+          "w": "life.",
+          "t": 197.8
+        },
+        {
+          "w": "They",
+          "t": 198.23
+        },
+        {
+          "w": "found",
+          "t": 198.67
+        },
+        {
+          "w": "something",
+          "t": 199.11
+        },
+        {
+          "w": "amazing:",
+          "t": 199.55
+        },
+        {
+          "w": "the",
+          "t": 199.98
+        },
+        {
+          "w": "chemical",
+          "t": 200.42
+        },
+        {
+          "w": "patterns",
+          "t": 200.86
+        },
+        {
+          "w": "around",
+          "t": 201.3
+        },
+        {
+          "w": "his",
+          "t": 201.73
+        },
+        {
+          "w": "energy-making",
+          "t": 202.17
+        },
+        {
+          "w": "genes",
+          "t": 202.61
+        },
+        {
+          "w": "are",
+          "t": 203.05
+        },
+        {
+          "w": "unusually",
+          "t": 203.48
+        },
+        {
+          "w": "neat",
+          "t": 203.92
+        },
+        {
+          "w": "and",
+          "t": 204.36
+        },
+        {
+          "w": "orderly.",
+          "t": 204.79
+        },
+        {
+          "w": "Think",
+          "t": 205.23
+        },
+        {
+          "w": "of",
+          "t": 205.67
+        },
+        {
+          "w": "your",
+          "t": 206.11
+        },
+        {
+          "w": "genes",
+          "t": 206.54
+        },
+        {
+          "w": "as",
+          "t": 206.98
+        },
+        {
+          "w": "a",
+          "t": 207.42
+        },
+        {
+          "w": "huge",
+          "t": 207.86
+        },
+        {
+          "w": "library",
+          "t": 208.29
+        },
+        {
+          "w": "of",
+          "t": 208.73
+        },
+        {
+          "w": "instruction",
+          "t": 209.17
+        },
+        {
+          "w": "books.",
+          "t": 209.6
+        },
+        {
+          "w": "Over",
+          "t": 210.04
+        },
+        {
+          "w": "time,",
+          "t": 210.48
+        },
+        {
+          "w": "most",
+          "t": 210.92
+        },
+        {
+          "w": "people's",
+          "t": 211.35
+        },
+        {
+          "w": "books",
+          "t": 211.79
+        },
+        {
+          "w": "get",
+          "t": 212.23
+        },
+        {
+          "w": "messy",
+          "t": 212.67
+        },
+        {
+          "w": "and",
+          "t": 213.1
+        },
+        {
+          "w": "dog-eared.",
+          "t": 213.54
+        },
+        {
+          "w": "But",
+          "t": 213.98
+        },
+        {
+          "w": "Jonathan's",
+          "t": 214.42
+        },
+        {
+          "w": "books?",
+          "t": 214.85
+        },
+        {
+          "w": "They",
+          "t": 215.29
+        },
+        {
+          "w": "still",
+          "t": 215.73
+        },
+        {
+          "w": "look",
+          "t": 216.16
+        },
+        {
+          "w": "almost",
+          "t": 216.6
+        },
+        {
+          "w": "brand",
+          "t": 217.04
+        },
+        {
+          "w": "new,",
+          "t": 217.48
+        },
+        {
+          "w": "even",
+          "t": 217.91
+        },
+        {
+          "w": "after",
+          "t": 218.35
+        },
+        {
+          "w": "nearly",
+          "t": 218.79
+        },
+        {
+          "w": "two",
+          "t": 219.23
+        },
+        {
+          "w": "centuries!",
+          "t": 219.66
+        }
+      ]
+    },
+    {
+      "start": 220.1,
+      "end": 235.84,
+      "en": "Does this mean we can all live to two hundred? Not yet. But every clue brings scientists one step closer to understanding why some bodies age slowly — and how we might all stay healthier, longer.",
+      "cn": "这是否意味着我们都能活到两百岁？还没到那一步。但每一条线索都让科学家离真相更近一步：为什么有些身体衰老得更慢——以及我们怎样才能更健康、更长寿。",
+      "title": "194 岁的乌龟爷爷",
+      "words": [
+        {
+          "w": "Does",
+          "t": 220.1
+        },
+        {
+          "w": "this",
+          "t": 220.54
+        },
+        {
+          "w": "mean",
+          "t": 220.97
+        },
+        {
+          "w": "we",
+          "t": 221.41
+        },
+        {
+          "w": "can",
+          "t": 221.85
+        },
+        {
+          "w": "all",
+          "t": 222.29
+        },
+        {
+          "w": "live",
+          "t": 222.72
+        },
+        {
+          "w": "to",
+          "t": 223.16
+        },
+        {
+          "w": "two",
+          "t": 223.6
+        },
+        {
+          "w": "hundred?",
+          "t": 224.03
+        },
+        {
+          "w": "Not",
+          "t": 224.47
+        },
+        {
+          "w": "yet.",
+          "t": 224.91
+        },
+        {
+          "w": "But",
+          "t": 225.35
+        },
+        {
+          "w": "every",
+          "t": 225.78
+        },
+        {
+          "w": "clue",
+          "t": 226.22
+        },
+        {
+          "w": "brings",
+          "t": 226.66
+        },
+        {
+          "w": "scientists",
+          "t": 227.1
+        },
+        {
+          "w": "one",
+          "t": 227.53
+        },
+        {
+          "w": "step",
+          "t": 227.97
+        },
+        {
+          "w": "closer",
+          "t": 228.41
+        },
+        {
+          "w": "to",
+          "t": 228.84
+        },
+        {
+          "w": "understanding",
+          "t": 229.28
+        },
+        {
+          "w": "why",
+          "t": 229.72
+        },
+        {
+          "w": "some",
+          "t": 230.16
+        },
+        {
+          "w": "bodies",
+          "t": 230.59
+        },
+        {
+          "w": "age",
+          "t": 231.03
+        },
+        {
+          "w": "slowly",
+          "t": 231.47
+        },
+        {
+          "w": "—",
+          "t": 231.91
+        },
+        {
+          "w": "and",
+          "t": 232.34
+        },
+        {
+          "w": "how",
+          "t": 232.78
+        },
+        {
+          "w": "we",
+          "t": 233.22
+        },
+        {
+          "w": "might",
+          "t": 233.65
+        },
+        {
+          "w": "all",
+          "t": 234.09
+        },
+        {
+          "w": "stay",
+          "t": 234.53
+        },
+        {
+          "w": "healthier,",
+          "t": 234.97
+        },
+        {
+          "w": "longer.",
+          "t": 235.4
+        }
+      ]
+    },
+    {
+      "start": 242.88,
+      "end": 252.92,
+      "en": "Here's today's joke: What do you call a tortoise that flies? ... A \"heli-tortoise\"! Get it? Helicopter plus tortoise!",
+      "cn": "今日笑话时间：会飞的乌龟叫什么？……叫\"heli-tortoise\"（直升机龟）！get 到了吗？helicopter（直升机）加上 tortoise（乌龟）！",
+      "title": "今日笑话",
+      "words": [
+        {
+          "w": "Here's",
+          "t": 242.88
+        },
+        {
+          "w": "today's",
+          "t": 243.41
+        },
+        {
+          "w": "joke:",
+          "t": 243.94
+        },
+        {
+          "w": "What",
+          "t": 244.47
+        },
+        {
+          "w": "do",
+          "t": 244.99
+        },
+        {
+          "w": "you",
+          "t": 245.52
+        },
+        {
+          "w": "call",
+          "t": 246.05
+        },
+        {
+          "w": "a",
+          "t": 246.58
+        },
+        {
+          "w": "tortoise",
+          "t": 247.11
+        },
+        {
+          "w": "that",
+          "t": 247.64
+        },
+        {
+          "w": "flies?",
+          "t": 248.16
+        },
+        {
+          "w": "...",
+          "t": 248.69
+        },
+        {
+          "w": "A",
+          "t": 249.22
+        },
+        {
+          "w": "\"heli-tortoise\"!",
+          "t": 249.75
+        },
+        {
+          "w": "Get",
+          "t": 250.28
+        },
+        {
+          "w": "it?",
+          "t": 250.81
+        },
+        {
+          "w": "Helicopter",
+          "t": 251.33
+        },
+        {
+          "w": "plus",
+          "t": 251.86
+        },
+        {
+          "w": "tortoise!",
+          "t": 252.39
+        }
+      ]
+    },
+    {
+      "start": 265.4,
+      "end": 275.82,
+      "en": "That brings us to the end of today's show! Before you go, here's a question: If you could invent one crazy feature for a car of the future, what would it be — and why?",
+      "cn": "今天的节目就到这里！走之前留一个问题：如果能给未来的汽车发明一个疯狂的功能，你会发明什么？为什么？",
+      "title": "结束语与互动问题",
+      "words": [
+        {
+          "w": "That",
+          "t": 265.4
+        },
+        {
+          "w": "brings",
+          "t": 265.7
+        },
+        {
+          "w": "us",
+          "t": 266.0
+        },
+        {
+          "w": "to",
+          "t": 266.29
+        },
+        {
+          "w": "the",
+          "t": 266.59
+        },
+        {
+          "w": "end",
+          "t": 266.89
+        },
+        {
+          "w": "of",
+          "t": 267.19
+        },
+        {
+          "w": "today's",
+          "t": 267.48
+        },
+        {
+          "w": "show!",
+          "t": 267.78
+        },
+        {
+          "w": "Before",
+          "t": 268.08
+        },
+        {
+          "w": "you",
+          "t": 268.38
+        },
+        {
+          "w": "go,",
+          "t": 268.67
+        },
+        {
+          "w": "here's",
+          "t": 268.97
+        },
+        {
+          "w": "a",
+          "t": 269.27
+        },
+        {
+          "w": "question:",
+          "t": 269.57
+        },
+        {
+          "w": "If",
+          "t": 269.87
+        },
+        {
+          "w": "you",
+          "t": 270.16
+        },
+        {
+          "w": "could",
+          "t": 270.46
+        },
+        {
+          "w": "invent",
+          "t": 270.76
+        },
+        {
+          "w": "one",
+          "t": 271.06
+        },
+        {
+          "w": "crazy",
+          "t": 271.35
+        },
+        {
+          "w": "feature",
+          "t": 271.65
+        },
+        {
+          "w": "for",
+          "t": 271.95
+        },
+        {
+          "w": "a",
+          "t": 272.25
+        },
+        {
+          "w": "car",
+          "t": 272.55
+        },
+        {
+          "w": "of",
+          "t": 272.84
+        },
+        {
+          "w": "the",
+          "t": 273.14
+        },
+        {
+          "w": "future,",
+          "t": 273.44
+        },
+        {
+          "w": "what",
+          "t": 273.74
+        },
+        {
+          "w": "would",
+          "t": 274.03
+        },
+        {
+          "w": "it",
+          "t": 274.33
+        },
+        {
+          "w": "be",
+          "t": 274.63
+        },
+        {
+          "w": "—",
+          "t": 274.93
+        },
+        {
+          "w": "and",
+          "t": 275.22
+        },
+        {
+          "w": "why?",
+          "t": 275.52
+        }
+      ]
+    },
+    {
+      "start": 290.14,
+      "end": 292.95,
+      "en": "Have a wonderful day, and see you tomorrow morning!",
+      "cn": "祝你有美好的一天，明天早上见！",
+      "title": "告别",
+      "words": [
+        {
+          "w": "Have",
+          "t": 290.14
+        },
+        {
+          "w": "a",
+          "t": 290.45
+        },
+        {
+          "w": "wonderful",
+          "t": 290.76
+        },
+        {
+          "w": "day,",
+          "t": 291.08
+        },
+        {
+          "w": "and",
+          "t": 291.39
+        },
+        {
+          "w": "see",
+          "t": 291.7
+        },
+        {
+          "w": "you",
+          "t": 292.01
+        },
+        {
+          "w": "tomorrow",
+          "t": 292.33
+        },
+        {
+          "w": "morning!",
+          "t": 292.64
+        }
+      ]
+    }
+  ],
+  "guide": {
+    "vocab": [
+      {
+        "word": "thruster",
+        "phon": "/ˈθrʌstər/",
+        "meaning": "(n.) 推进器",
+        "tags": [
+          "科普词汇"
+        ],
+        "example": "Example: The car's ten thrusters shoot out compressed air."
       },
-      "children": [
-       {
-        "type": "text",
-        "text": "The car also has strong fans underneath "
-       },
-       {
-        "name": "b",
+      {
+        "word": "upside down",
+        "phon": "",
+        "meaning": "upside down (adv.) 上下颠倒地；倒挂着",
+        "tags": [
+          "地道口语表达"
+        ],
+        "example": "Example: The car kept driving while upside down!"
+      },
+      {
+        "word": "orderly",
+        "phon": "/ˈɔːdəli/",
+        "meaning": "(adj.) 整齐的；有序的",
+        "tags": [],
+        "example": "Example: Jonathan's genes are unusually neat and orderly."
+      },
+      {
+        "word": "barrel roll",
+        "phon": "",
+        "meaning": "barrel roll (n.) 横滚翻转（飞机/车辆的特技动作）",
+        "tags": [
+          "趣味词汇"
+        ],
+        "example": "Example: The car did a complete barrel roll in the air."
+      }
+    ],
+    "quiz": [
+      {
+        "title": "A. 标题配对（Match the headings）",
+        "questions": [
+          "Section 1 → ______",
+          "Section 2 → ______",
+          "Section 3 → ______",
+          "Section 4 → ______",
+          "Section 5 → ______",
+          "Section 6 → ______"
+        ],
+        "extra": "Headings:\nA. 194 岁乌龟的长寿基因秘密\nB. 给未来汽车发明一个功能\nC. 会飞的汽车：现场特技全记录\nD. 明天早上见\nE. 今天的两大看点\nF. heli-tortoise 的谐音梗"
+      },
+      {
+        "title": "B. 单项选择（Multiple Choice）",
+        "questions": [
+          "这辆新跑车装了几个推进器？\nA. 5 个\nB. 10 个\nC. 60 个\nD. 100 个",
+          "汽车倒挂行驶不掉下来，靠的是什么？\nA. 它有翅膀\nB. 车底强力风扇抽走空气，把车按在路面上\nC. 车身特别轻\nD. 魔法",
+          "科学家在 Jonathan 的基因里发现了什么？\nA. 它的基因和其他乌龟完全不同\nB. 它的基因像旧图书馆一样杂乱\nC. 能量基因周围的化学标记异常整齐有序\nD. 它的基因能让它飞",
+          "为什么这辆\"飞车\"暂时不能送你上学？\nA. 它太慢了\nB. 储气罐只够用几秒钟\nC. 它不会转弯\nD. 它太贵了"
+        ]
+      }
+    ],
+    "sentence_nodes": [
+      {
+        "name": "div",
         "attrs": {
-         "class": "kw"
+          "class": "breakdown"
         },
         "children": [
-         {
-          "type": "text",
-          "text": "that suck air out"
-         }
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "name": "b",
+            "attrs": {},
+            "children": [
+              {
+                "type": "text",
+                "text": "经典原句："
+              }
+            ]
+          },
+          {
+            "name": "br",
+            "attrs": {},
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "name": "span",
+            "attrs": {
+              "class": "en",
+              "style": "border:none;background:none;padding:0;"
+            },
+            "children": [
+              {
+                "type": "text",
+                "text": "The car also has strong fans underneath "
+              },
+              {
+                "name": "b",
+                "attrs": {
+                  "class": "kw"
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "that suck air out"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": ", "
+              },
+              {
+                "name": "b",
+                "attrs": {
+                  "class": "kw"
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "pressing the car tightly onto the road"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "name": "br",
+            "attrs": {},
+            "children": []
+          },
+          {
+            "name": "br",
+            "attrs": {},
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "name": "b",
+            "attrs": {},
+            "children": [
+              {
+                "type": "text",
+                "text": "保姆级结构拆解："
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "name": "ul",
+            "attrs": {},
+            "children": [
+              {
+                "type": "text",
+                "text": "\n  "
+              },
+              {
+                "name": "li",
+                "attrs": {},
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "主句："
+                  },
+                  {
+                    "name": "i",
+                    "attrs": {},
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "The car also has strong fans underneath"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "（车底还装着强力风扇）。"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n  "
+              },
+              {
+                "name": "li",
+                "attrs": {},
+                "children": [
+                  {
+                    "name": "i",
+                    "attrs": {},
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "that suck air out"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " 是"
+                  },
+                  {
+                    "name": "b",
+                    "attrs": {},
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "定语从句"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "，修饰 fans，说明风扇的功能是\"把空气抽走\"。that 在从句中作主语，指代 fans。"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n  "
+              },
+              {
+                "name": "li",
+                "attrs": {},
+                "children": [
+                  {
+                    "name": "i",
+                    "attrs": {},
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "pressing the car tightly onto the road"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " 是"
+                  },
+                  {
+                    "name": "b",
+                    "attrs": {},
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "现在分词作结果状语"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "，表示抽走空气带来的结果——\"把车紧紧按在路上\"。逻辑主语是整个主句的动作。"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n  "
+              },
+              {
+                "name": "li",
+                "attrs": {},
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "整句逻辑链："
+                  },
+                  {
+                    "name": "b",
+                    "attrs": {},
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "有风扇 → 风扇抽气 → 结果：车被按住"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "。一句话讲清\"装置—功能—效果\"三层意思，是科普英语的经典句型。"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "\n"
+          }
         ]
-       },
-       {
-        "type": "text",
-        "text": ", "
-       },
-       {
-        "name": "b",
+      },
+      {
+        "name": "div",
         "attrs": {
-         "class": "kw"
+          "class": "pagebreak"
+        },
+        "children": []
+      }
+    ],
+    "answers_nodes": [
+      {
+        "name": "div",
+        "attrs": {
+          "class": "ans"
         },
         "children": [
-         {
-          "type": "text",
-          "text": "pressing the car tightly onto the road"
-         }
+          {
+            "type": "text",
+            "text": "\n"
+          },
+          {
+            "name": "b",
+            "attrs": {},
+            "children": [
+              {
+                "type": "text",
+                "text": "A. 标题配对："
+              }
+            ]
+          },
+          {
+            "name": "br",
+            "attrs": {},
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "1 → E（今天的两大看点）"
+          },
+          {
+            "name": "br",
+            "attrs": {},
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "2 → C（会飞的汽车：现场特技全记录）"
+          },
+          {
+            "name": "br",
+            "attrs": {},
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "3 → A（194 岁乌龟的长寿基因秘密）"
+          },
+          {
+            "name": "br",
+            "attrs": {},
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "4 → F（heli-tortoise 的谐音梗）"
+          },
+          {
+            "name": "br",
+            "attrs": {},
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "5 → B（给未来汽车发明一个功能）"
+          },
+          {
+            "name": "br",
+            "attrs": {},
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "6 → D（明天早上见）"
+          },
+          {
+            "name": "br",
+            "attrs": {},
+            "children": []
+          },
+          {
+            "name": "br",
+            "attrs": {},
+            "children": []
+          },
+          {
+            "name": "b",
+            "attrs": {},
+            "children": [
+              {
+                "type": "text",
+                "text": "B. 单项选择："
+              }
+            ]
+          },
+          {
+            "name": "br",
+            "attrs": {},
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n1 → "
+          },
+          {
+            "name": "b",
+            "attrs": {},
+            "children": [
+              {
+                "type": "text",
+                "text": "B"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "。原文："
+          },
+          {
+            "name": "i",
+            "attrs": {},
+            "children": [
+              {
+                "type": "text",
+                "text": "with ten small thrusters built into its body"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "（车身内置十个小型推进器）。"
+          },
+          {
+            "name": "br",
+            "attrs": {},
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n2 → "
+          },
+          {
+            "name": "b",
+            "attrs": {},
+            "children": [
+              {
+                "type": "text",
+                "text": "B"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "。原文："
+          },
+          {
+            "name": "i",
+            "attrs": {},
+            "children": [
+              {
+                "type": "text",
+                "text": "strong fans underneath that suck air out, pressing the car tightly onto the road"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "（车底强力风扇抽走空气，把车紧紧按在路上）。"
+          },
+          {
+            "name": "br",
+            "attrs": {},
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n3 → "
+          },
+          {
+            "name": "b",
+            "attrs": {},
+            "children": [
+              {
+                "type": "text",
+                "text": "C"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "。原文："
+          },
+          {
+            "name": "i",
+            "attrs": {},
+            "children": [
+              {
+                "type": "text",
+                "text": "the chemical patterns around his energy-making genes are unusually neat and orderly"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "（能量基因周围的化学标记异常整齐有序）。注意 A 项错在\"完全不同\"过于绝对，B 项和原文相反。"
+          },
+          {
+            "name": "br",
+            "attrs": {},
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\n4 → "
+          },
+          {
+            "name": "b",
+            "attrs": {},
+            "children": [
+              {
+                "type": "text",
+                "text": "B"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "。原文："
+          },
+          {
+            "name": "i",
+            "attrs": {},
+            "children": [
+              {
+                "type": "text",
+                "text": "the air tanks only last a few seconds"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "（储气罐只够用几秒钟）。\n"
+          },
+          {
+            "name": "br",
+            "attrs": {},
+            "children": []
+          },
+          {
+            "name": "br",
+            "attrs": {},
+            "children": []
+          },
+          {
+            "name": "b",
+            "attrs": {},
+            "children": [
+              {
+                "type": "text",
+                "text": "C. Part 4 句型练习："
+              }
+            ]
+          },
+          {
+            "name": "br",
+            "attrs": {},
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nA. 1. that show  2. that rings"
+          },
+          {
+            "name": "br",
+            "attrs": {},
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nB. 1. turning  2. keeping"
+          },
+          {
+            "name": "br",
+            "attrs": {},
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nC. 1. that spin / keeping  2. that films / giving"
+          },
+          {
+            "name": "br",
+            "attrs": {},
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "\nD. 翻译练习不提供答案（自己试着译）。\n"
+          }
         ]
-       },
-       {
-        "type": "text",
-        "text": "."
-       }
-      ]
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "\n"
-     },
-     {
-      "name": "b",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "保姆级结构拆解："
-       }
-      ]
-     },
-     {
-      "type": "text",
-      "text": "\n"
-     },
-     {
-      "name": "ul",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "\n  "
-       },
-       {
-        "name": "li",
-        "attrs": {},
-        "children": [
-         {
-          "type": "text",
-          "text": "主句："
-         },
-         {
-          "name": "i",
-          "attrs": {},
-          "children": [
-           {
-            "type": "text",
-            "text": "The car also has strong fans underneath"
-           }
-          ]
-         },
-         {
-          "type": "text",
-          "text": "（车底还装着强力风扇）。"
-         }
-        ]
-       },
-       {
-        "type": "text",
-        "text": "\n  "
-       },
-       {
-        "name": "li",
-        "attrs": {},
-        "children": [
-         {
-          "name": "i",
-          "attrs": {},
-          "children": [
-           {
-            "type": "text",
-            "text": "that suck air out"
-           }
-          ]
-         },
-         {
-          "type": "text",
-          "text": " 是"
-         },
-         {
-          "name": "b",
-          "attrs": {},
-          "children": [
-           {
-            "type": "text",
-            "text": "定语从句"
-           }
-          ]
-         },
-         {
-          "type": "text",
-          "text": "，修饰 fans，说明风扇的功能是\"把空气抽走\"。that 在从句中作主语，指代 fans。"
-         }
-        ]
-       },
-       {
-        "type": "text",
-        "text": "\n  "
-       },
-       {
-        "name": "li",
-        "attrs": {},
-        "children": [
-         {
-          "name": "i",
-          "attrs": {},
-          "children": [
-           {
-            "type": "text",
-            "text": "pressing the car tightly onto the road"
-           }
-          ]
-         },
-         {
-          "type": "text",
-          "text": " 是"
-         },
-         {
-          "name": "b",
-          "attrs": {},
-          "children": [
-           {
-            "type": "text",
-            "text": "现在分词作结果状语"
-           }
-          ]
-         },
-         {
-          "type": "text",
-          "text": "，表示抽走空气带来的结果——\"把车紧紧按在路上\"。逻辑主语是整个主句的动作。"
-         }
-        ]
-       },
-       {
-        "type": "text",
-        "text": "\n  "
-       },
-       {
-        "name": "li",
-        "attrs": {},
-        "children": [
-         {
-          "type": "text",
-          "text": "整句逻辑链："
-         },
-         {
-          "name": "b",
-          "attrs": {},
-          "children": [
-           {
-            "type": "text",
-            "text": "有风扇 → 风扇抽气 → 结果：车被按住"
-           }
-          ]
-         },
-         {
-          "type": "text",
-          "text": "。一句话讲清\"装置—功能—效果\"三层意思，是科普英语的经典句型。"
-         }
-        ]
-       },
-       {
-        "type": "text",
-        "text": "\n"
-       }
-      ]
-     },
-     {
-      "type": "text",
-      "text": "\n"
-     }
-    ]
-   },
-   {
-    "name": "div",
-    "attrs": {
-     "class": "pagebreak"
-    },
-    "children": []
-   }
-  ],
-  "answers_nodes": [
-   {
-    "name": "div",
-    "attrs": {
-     "class": "ans"
-    },
-    "children": [
-     {
-      "type": "text",
-      "text": "\n"
-     },
-     {
-      "name": "b",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "A. 标题配对："
-       }
-      ]
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "1 → E（今天的两大看点）"
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "2 → C（会飞的汽车：现场特技全记录）"
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "3 → A（194 岁乌龟的长寿基因秘密）"
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "4 → F（heli-tortoise 的谐音梗）"
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "5 → B（给未来汽车发明一个功能）"
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "6 → D（明天早上见）"
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "name": "b",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "B. 单项选择："
-       }
-      ]
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "\n1 → "
-     },
-     {
-      "name": "b",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "B"
-       }
-      ]
-     },
-     {
-      "type": "text",
-      "text": "。原文："
-     },
-     {
-      "name": "i",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "with ten small thrusters built into its body"
-       }
-      ]
-     },
-     {
-      "type": "text",
-      "text": "（车身内置十个小型推进器）。"
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "\n2 → "
-     },
-     {
-      "name": "b",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "B"
-       }
-      ]
-     },
-     {
-      "type": "text",
-      "text": "。原文："
-     },
-     {
-      "name": "i",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "strong fans underneath that suck air out, pressing the car tightly onto the road"
-       }
-      ]
-     },
-     {
-      "type": "text",
-      "text": "（车底强力风扇抽走空气，把车紧紧按在路上）。"
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "\n3 → "
-     },
-     {
-      "name": "b",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "C"
-       }
-      ]
-     },
-     {
-      "type": "text",
-      "text": "。原文："
-     },
-     {
-      "name": "i",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "the chemical patterns around his energy-making genes are unusually neat and orderly"
-       }
-      ]
-     },
-     {
-      "type": "text",
-      "text": "（能量基因周围的化学标记异常整齐有序）。注意 A 项错在\"完全不同\"过于绝对，B 项和原文相反。"
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "\n4 → "
-     },
-     {
-      "name": "b",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "B"
-       }
-      ]
-     },
-     {
-      "type": "text",
-      "text": "。原文："
-     },
-     {
-      "name": "i",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "the air tanks only last a few seconds"
-       }
-      ]
-     },
-     {
-      "type": "text",
-      "text": "（储气罐只够用几秒钟）。\n"
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "name": "b",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "C. Part 4 句型练习："
-       }
-      ]
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "\nA. 1. that show  2. that rings"
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "\nB. 1. turning  2. keeping"
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "\nC. 1. that spin / keeping  2. that films / giving"
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "\nD. 翻译练习不提供答案（自己试着译）。\n"
-     }
-    ]
-   },
-   {
-    "name": "p",
-    "attrs": {
-     "style": "text-align:center; color:#888; margin-top: 30pt;"
-    },
-    "children": [
-     {
-      "type": "text",
-      "text": "🌟 全部答对就是今日 MVP！"
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
-     }
-    ]
-   }
-  ],
-  "keys": {
-   "headings": [
-    "E",
-    "C",
-    "A",
-    "F",
-    "B",
-    "D"
-   ],
-   "choice": [
-    "B",
-    "B",
-    "C",
-    "B"
-   ]
-  },
-  "practice": {
-   "groups": [
-    {
-     "name": "A. 定语从句：that 在从句中作主语",
-     "items": [
-      {
-       "prompt": "The robot has two bright lights ____ the road at night.",
-       "options": [
-        "that show",
-        "that shows",
-        "that it shows"
-       ],
-       "answer": 0
       },
       {
-       "prompt": "My bike has a small bell ____ when I turn left.",
-       "options": [
-        "that ring",
-        "that rings",
-        "that it rings"
-       ],
-       "answer": 1
+        "name": "p",
+        "attrs": {
+          "style": "text-align:center; color:#888; margin-top: 30pt;"
+        },
+        "children": [
+          {
+            "type": "text",
+            "text": "🌟 全部答对就是今日 MVP！"
+          },
+          {
+            "name": "br",
+            "attrs": {},
+            "children": []
+          },
+          {
+            "type": "text",
+            "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+          }
+        ]
       }
-     ]
+    ],
+    "keys": {
+      "headings": [
+        "E",
+        "C",
+        "A",
+        "F",
+        "B",
+        "D"
+      ],
+      "choice": [
+        "B",
+        "B",
+        "C",
+        "B"
+      ]
     },
-    {
-     "name": "B. 现在分词作结果状语：补全结果",
-     "items": [
-      {
-       "prompt": "The wings fold under the car, ____ it into a plane in two minutes.",
-       "options": [
-        "turned",
-        "turn",
-        "turning"
-       ],
-       "answer": 2
-      },
-      {
-       "prompt": "The pump pushes water out of the boat, ____ it light and safe.",
-       "options": [
-        "keeping",
-        "kept",
-        "keep"
-       ],
-       "answer": 0
-      }
-     ]
-    },
-    {
-     "name": "C. 综合运用：定语从句 + 结果分词",
-     "items": [
-      {
-       "prompt": "The drone has four wings ____ fast, ____ it steady in the sky.",
-       "options": [
-        "that spins / keeping",
-        "that spin / keeping",
-        "that spin / kept"
-       ],
-       "answer": 1
-      },
-      {
-       "prompt": "The submarine has a bright camera ____ deep-sea animals, ____ scientists clear pictures.",
-       "options": [
-        "that film / giving",
-        "that films / gave",
-        "that films / giving"
-       ],
-       "answer": 2
-      }
-     ]
+    "practice": {
+      "groups": [
+        {
+          "name": "A. 定语从句：that 在从句中作主语",
+          "items": [
+            {
+              "prompt": "The robot has two bright lights ____ the road at night.",
+              "options": [
+                "that show",
+                "that shows",
+                "that it shows"
+              ],
+              "answer": 0
+            },
+            {
+              "prompt": "My bike has a small bell ____ when I turn left.",
+              "options": [
+                "that ring",
+                "that rings",
+                "that it rings"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "name": "B. 现在分词作结果状语：补全结果",
+          "items": [
+            {
+              "prompt": "The wings fold under the car, ____ it into a plane in two minutes.",
+              "options": [
+                "turned",
+                "turn",
+                "turning"
+              ],
+              "answer": 2
+            },
+            {
+              "prompt": "The pump pushes water out of the boat, ____ it light and safe.",
+              "options": [
+                "keeping",
+                "kept",
+                "keep"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "name": "C. 综合运用：定语从句 + 结果分词",
+          "items": [
+            {
+              "prompt": "The drone has four wings ____ fast, ____ it steady in the sky.",
+              "options": [
+                "that spins / keeping",
+                "that spin / keeping",
+                "that spin / kept"
+              ],
+              "answer": 1
+            },
+            {
+              "prompt": "The submarine has a bright camera ____ deep-sea animals, ____ scientists clear pictures.",
+              "options": [
+                "that film / giving",
+                "that films / gave",
+                "that films / giving"
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+      "open": [
+        "The little car has a roof that opens by itself, letting the sun shine into the seats.",
+        "The boat has strong lights that work under water, showing the divers a safe way home."
+      ]
     }
-   ],
-   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
-   "open": [
-    "The little car has a roof that opens by itself, letting the sun shine into the seats.",
-    "The boat has strong lights that work under water, showing the divers a safe way home."
-   ]
-  }
- },
- "video": "https://lcb0378.github.io/michael-english-podcast/vol01/video.mp4"
+  },
+  "video": "https://lcb0378.github.io/michael-english-podcast/vol01/video.mp4"
 }

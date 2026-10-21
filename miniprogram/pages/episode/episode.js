@@ -27,6 +27,10 @@ curWord: -1,
 rate: 1,
 rates: [0.9, 1, 1.1, 1.5],
 seeking: false,
+// 互动答题（2026-10-21）：Part 3 点选 + Part 4 句型练习点选，核对判分
+quizVm: null, keysH: [], keyC: [], keyCL: [],
+selH: [], markH: [], selC: [], markC: [], selP: [], markP: [],
+score3: '', score4: '',
 // 讲义富文本标签默认样式（排版标准 v1：正文 28/1.8，段距 16）
 tagStyle: {
 p: 'margin: 0 0 16rpx; line-height: 1.8;',
@@ -112,7 +116,13 @@ wx.request({
 url: `${DATA_BASE}/${id}.json`,
 success: (res) => {
 const ep = res.data;
-this.setData({ ep, loading: false});
+// Section 编号（2026-10-21 定版）：按小节名变化给每节第一块打 sec 号，
+// Part 1 显示「Section N」分节标题，与 Part 3 标题配对的 Section 1–6 对应。
+let _secNo = 0, _lastTitle = null;
+(ep.blocks || []).forEach((b) => {
+if (b.title !== _lastTitle) { _secNo++; _lastTitle = b.title; b.sec = _secNo; } else { b.sec = 0; }
+});
+this.setData(Object.assign({ ep, loading: false }, this._buildQuiz(ep)));
 wx.setNavigationBarTitle({ title: `${ep.id.toUpperCase()} · ${ep.title}`});
 // 若背景里装的就是本期，同步一次按钮与时长显示（状态原样不动）
 // 是别期的话 onLoad 里已停掉清掉，本页静静等用户点播放，不自动开播
@@ -141,8 +151,24 @@ off('offError', this._h.onError);
 // 换期靠 _isMine 校验，不靠停播。
 },
 
+// 视频与背景音频互斥（与网页版同规矩，2026-10-21）：播视频先停音频，播音频先停视频
+_video() {
+if (!this._videoCtx) this._videoCtx = wx.createVideoContext('epVideo', this);
+return this._videoCtx;
+},
+
+onVideoPlay() {
+if (bgm.src && !bgm.paused) bgm.pause();
+this.setData({ playing: false });
+},
+
+onHide() {
+if (this.data.ep && this.data.ep.video && this._videoCtx) this._videoCtx.pause();
+},
+
 togglePlay() {
 if (!this.data.ep) return;
+if (this.data.ep.video) this._video().pause();
 if (this.data.playing && this._isMine()) {
 bgm.pause();
 } else if (!this._isMine() ||!bgm.src) {
@@ -150,6 +176,95 @@ this._loadSrc(); // 不是本期（或还没装过）：换成本期并播放
 } else {
 bgm.play();
 }
+},
+
+// ---- 互动答题（2026-10-21 定版）：点选 → 核对答案 → 对勾/叉号 + 正确答案，可改可重做 ----
+_buildQuiz(ep) {
+const g = ep.guide || {};
+const keys = g.keys || {};
+const st = { quizVm: null, keysH: [], keyC: [], keyCL: [], selH: [], markH: [], selC: [], markC: [], selP: [], markP: [], score3: '', score4: '' };
+if (keys.headings && keys.headings.length && g.quiz && g.quiz.length >= 2) {
+const headingsOpts = [];
+(g.quiz[0].extra || '').split('\n').slice(1).forEach((ln) => {
+const m = ln.match(/^([A-F])[.、]\s*(.*)$/);
+if (m) headingsOpts.push({ letter: m[1], text: m[2], i: headingsOpts.length });
+});
+const choiceQs = (g.quiz[1].questions || []).map((q) => {
+const lines = q.split('\n');
+const options = [];
+lines.slice(1).forEach((ln) => {
+const m = ln.match(/^([A-D])[.、]\s*(.*)$/);
+if (m) options.push(m[1] + '. ' + m[2]);
+});
+return { stem: lines[0], options };
+});
+if (headingsOpts.length === keys.headings.length && choiceQs.length === keys.choice.length) {
+st.quizVm = { headingsOpts, choiceQs };
+st.keysH = keys.headings;
+st.keyC = keys.choice.map((L) => L.charCodeAt(0) - 65);
+st.keyCL = keys.choice;
+st.selH = keys.headings.map(() => -1);
+st.markH = keys.headings.map(() => null);
+st.selC = keys.choice.map(() => -1);
+st.markC = keys.choice.map(() => null);
+}
+}
+if (g.practice && g.practice.groups) {
+st.selP = g.practice.groups.map((gr) => gr.items.map(() => -1));
+st.markP = g.practice.groups.map((gr) => gr.items.map(() => null));
+}
+return st;
+},
+
+_set(path, val) { const d = {}; d[path] = val; this.setData(d); },
+
+pickH(e) {
+const i = +e.currentTarget.dataset.i, o = +e.currentTarget.dataset.o;
+this._set(`selH[${i}]`, o);
+if (this.data.markH[i] !== null) this._set(`markH[${i}]`, null);
+},
+
+pickC(e) {
+const q = +e.currentTarget.dataset.q, o = +e.currentTarget.dataset.o;
+this._set(`selC[${q}]`, o);
+if (this.data.markC[q] !== null) this._set(`markC[${q}]`, null);
+},
+
+check3() {
+const { selH, keysH, selC, keyC, quizVm } = this.data;
+let right = 0;
+const total = keysH.length + keyC.length;
+const markH = selH.map((s, i) => { const ok = s >= 0 && quizVm.headingsOpts[s].letter === keysH[i]; if (ok) right++; return ok; });
+const markC = selC.map((s, i) => { const ok = s === keyC[i]; if (ok) right++; return ok; });
+this.setData({ markH, markC, score3: right === total ? `🎉 ${right} / ${total}，全部答对，就是今日 MVP！` : `答对 ${right} / ${total} 题，改一改错题，再核对一次。` });
+},
+
+reset3() {
+this.setData({ selH: this.data.keysH.map(() => -1), markH: this.data.keysH.map(() => null), selC: this.data.keyC.map(() => -1), markC: this.data.keyC.map(() => null), score3: '' });
+},
+
+pickP(e) {
+const ds = e.currentTarget.dataset;
+this._set(`selP[${ds.g}][${ds.i}]`, +ds.o);
+if (this.data.markP[ds.g][ds.i] !== null) this._set(`markP[${ds.g}][${ds.i}]`, null);
+},
+
+check4() {
+const prac = this.data.ep.guide.practice;
+let right = 0, total = 0;
+const markP = prac.groups.map((gr, gi) => gr.items.map((it, ii) => {
+if (it.answer === undefined) return null;
+total++;
+const ok = this.data.selP[gi][ii] === it.answer;
+if (ok) right++;
+return ok;
+}));
+this.setData({ markP, score4: right === total ? `🎉 ${right} / ${total}，全部答对，就是今日 MVP！` : `答对 ${right} / ${total} 题，改一改错题，再核对一次。` });
+},
+
+reset4() {
+const prac = this.data.ep.guide.practice;
+this.setData({ selP: prac.groups.map((gr) => gr.items.map(() => -1)), markP: prac.groups.map((gr) => gr.items.map(() => null)), score4: '' });
 },
 
 updateHighlight() {
