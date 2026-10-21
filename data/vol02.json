@@ -5,15 +5,15 @@
  "duration": "4分35秒",
  "cover": "https://lcb0378.github.io/michael-english-podcast/vol02/cover.png",
  "audio": "https://lcb0378.github.io/michael-english-podcast/vol02/audio_v6.mp3",
- "pdf": "https://lcb0378.github.io/michael-english-podcast/vol02/Vol02_晚读讲义_蜜蜂踢足球与会做梦的章鱼_v3.pdf",
- "pdfName": "Vol02_晚读讲义_蜜蜂踢足球与会做梦的章鱼_v3.pdf",
+ "pdf": "https://lcb0378.github.io/michael-english-podcast/vol02/Vol02_晚读讲义_蜜蜂踢足球与会做梦的章鱼_v4.pdf",
+ "pdfName": "Vol02_晚读讲义_蜜蜂踢足球与会做梦的章鱼_v4.pdf",
  "blocks": [
   {
    "start": 18.52,
    "end": 30.84,
    "en": "Welcome back to Michael's Morning Listening! Today we have two tiny geniuses for you: a bee that learned to play soccer, and an octopus that might be dreaming in color. Let's jump in!",
    "cn": "欢迎回到 Michael 的早听晚读！今天有两个小天才要介绍给你：一只学会了踢足球的蜜蜂，和一只可能会做彩色梦的章鱼。让我们开始吧！",
-   "title": "",
+   "title": "开场白",
    "words": [
     {
      "w": "Welcome",
@@ -154,7 +154,7 @@
    "end": 51.9,
    "en": "Can you imagine a bee playing soccer? Scientists did more than imagine — they actually trained bumblebees to push a tiny ball into a tiny goal!",
    "cn": "你能想象蜜蜂踢足球吗？科学家不只停留在想象——他们真的训练大黄蜂把一颗小球推进小球门！",
-   "title": "",
+   "title": "蜜蜂踢足球",
    "words": [
     {
      "w": "Can",
@@ -267,7 +267,7 @@
    "end": 71.23,
    "en": "Here is how it worked. The scientists built a mini soccer field with a little ball and a small goal. When a bee pushed the ball into the goal — GOAL! — it got a sweet drink of sugar water as a prize. Bees love sweet things, so they learned fast.",
    "cn": "过程是这样的。科学家们搭建了一个迷你足球场，放了一颗小球和一个小球门。当蜜蜂把球推进球门——进球！——它就能喝到一杯甜甜的糖水作为奖励。蜜蜂最爱甜食，所以它们学得飞快。",
-   "title": "",
+   "title": "蜜蜂踢足球",
    "words": [
     {
      "w": "Here",
@@ -480,7 +480,7 @@
    "end": 95.12,
    "en": "But here is the amazing part. The bees did not just learn by trying again and again. They learned by watching! A \"teacher bee\" showed them how to push the ball, and the student bees copied it. Even cooler, some bees found a shorter, smarter path to the goal than the teacher showed them. They were not just copying — they were thinking!",
    "cn": "但最神奇的部分在这里。蜜蜂们不只是靠一次次尝试学会的，它们是靠“看”学会的！一只“老师蜜蜂”先示范怎么推球，学生蜜蜂们跟着模仿。更酷的是，有些蜜蜂找到了一条比老师示范的更短、更聪明的进球路线。它们不只是在模仿——它们在思考！",
-   "title": "",
+   "title": "蜜蜂踢足球",
    "words": [
     {
      "w": "But",
@@ -741,7 +741,7 @@
    "end": 114.07,
    "en": "The most surprising moment came later. When the scientists tested the bees the next day, the bees still remembered how to score — they had not forgotten overnight! For a brain smaller than a grain of rice, that is like remembering a whole dance routine after seeing it only once.",
    "cn": "最惊人的时刻还在后面。第二天科学家再测试这些蜜蜂时，它们居然还记得怎么进球——一夜过去完全没忘！对一颗比米粒还小的大脑来说，这就像只看了一遍就记住了一整套舞蹈动作。",
-   "title": "",
+   "title": "蜜蜂踢足球",
    "words": [
     {
      "w": "The",
@@ -950,7 +950,7 @@
    "end": 124.31,
    "en": "This little experiment tells us something big: even tiny insect brains can learn new tricks and pass them on. Who knows what else small brains can do?",
    "cn": "这个小实验告诉我们一个大道理：哪怕小小的昆虫大脑，也能学会新本领，还能传给同伴。谁知道小小的大脑还能做到什么呢？",
-   "title": "",
+   "title": "蜜蜂踢足球",
    "words": [
     {
      "w": "This",
@@ -1067,7 +1067,7 @@
    "end": 142.88,
    "en": "Now let's dive under the sea and meet the octopus — the eight-armed genius of the ocean.",
    "cn": "现在让我们潜入海底，认识一下章鱼——海洋里的八臂天才。",
-   "title": "",
+   "title": "章鱼做梦",
    "words": [
     {
      "w": "Now",
@@ -1144,7 +1144,7 @@
    "end": 164.43,
    "en": "When you sleep, your eyes move quickly — scientists call this dream sleep. Octopuses have something similar! When an octopus falls into deep sleep, its skin starts to flash and change: stripes, spots, waves of color, all dancing across its body. It looks like it is watching a movie behind closed eyes.",
    "cn": "你睡觉时，眼球会快速转动——科学家把这叫作“梦睡眠”。章鱼也有类似的现象！当章鱼进入深睡，它的皮肤开始闪烁变幻：条纹、斑点、一波波颜色，在它身上跳起舞来。看起来就像它闭着眼睛在看电影。",
-   "title": "",
+   "title": "章鱼做梦",
    "words": [
     {
      "w": "When",
@@ -1361,7 +1361,7 @@
    "end": 183.5,
    "en": "Scientists watched sleeping octopuses very carefully and recorded their brain activity too. During these colorful moments, the octopus's brain looks surprisingly awake — almost as if it is reliving the day, maybe practicing how to catch a crab or escape from danger, all inside a dream.",
    "cn": "科学家非常仔细地观察了熟睡的章鱼，还记录了它们的大脑活动。在这些色彩斑斓的时刻，章鱼的大脑看起来惊人地“清醒”——仿佛它正在重温白天发生的事，也许在梦里练习怎么抓螃蟹、怎么躲避危险。",
-   "title": "",
+   "title": "章鱼做梦",
    "words": [
     {
      "w": "Scientists",
@@ -1554,7 +1554,7 @@
    "end": 197.18,
    "en": "And here is a fun thought: octopuses have three hearts and blue blood. With a body that strange, who knows what their dreams look like? Maybe they dream in eight directions at once!",
    "cn": "再告诉你一个有趣的冷知识：章鱼有三颗心脏，流的是蓝色的血。身体都这么奇特了，谁知道它的梦长什么样？也许它同时朝八个方向做梦呢！",
-   "title": "",
+   "title": "章鱼做梦",
    "words": [
     {
      "w": "And",
@@ -1695,7 +1695,7 @@
    "end": 207.96,
    "en": "So the next time you see an octopus nap at the aquarium, take a good look at its skin. You might be watching someone else's dream!",
    "cn": "所以下次你在水族馆看到章鱼打盹，好好看看它的皮肤吧。你看到的，可能正是别人的梦境！",
-   "title": "",
+   "title": "章鱼做梦",
    "words": [
     {
      "w": "So",
@@ -1808,7 +1808,7 @@
    "end": 227.68,
    "en": "Here's today's joke: Why do bees have sticky hair? ... Because they use honeycombs! Get it? A comb is what you use for your hair, and a honeycomb is where bees keep their honey!",
    "cn": "今日笑话：为什么蜜蜂的头发黏糊糊的？……因为它们用 honeycomb（蜂巢）！get 到了吗？comb 是梳子，honeycomb 是蜜蜂存蜜的蜂巢！",
-   "title": "",
+   "title": "今日笑话",
    "words": [
     {
      "w": "Here's",
@@ -1953,7 +1953,7 @@
    "end": 248.9,
    "en": "That brings us to the end of today's show! Before you go, here's a question: If you could teach any animal to play any sport, which animal and which sport would you choose — and why?",
    "cn": "今天的节目就到这里！走之前留一个问题：如果你能教会任何一种动物玩任何一种运动，你会选什么动物、什么运动？为什么？",
-   "title": "",
+   "title": "结束语与互动问题",
    "words": [
     {
      "w": "That",
@@ -2106,7 +2106,7 @@
    "end": 266.08,
    "en": "Have a wonderful day, and see you tomorrow morning!",
    "cn": "祝你有美好的一天，明天早上见！",
-   "title": "",
+   "title": "告别",
    "words": [
     {
      "w": "Have",
@@ -2194,7 +2194,7 @@
      "Section 5 → ______",
      "Section 6 → ______"
     ],
-    "extra": "Headings:\nA. 今日笑话：honeycomb 的双关\nB. 开场：今天的两位小天才\nC. 告别：明天早上见\nD. 蜜蜂\"足球课\"：进球就有糖水喝\nE. 章鱼的梦：皮肤上放电影\nF. 互动时间：教动物玩运动"
+    "extra": "Headings:\nA. honeycomb 的双关\nB. 今天的两位小天才\nC. 明天早上见\nD. 蜜蜂\"足球课\"：进球就有糖水喝\nE. 章鱼的梦：皮肤上放电影\nF. 教动物玩运动"
    },
    {
     "title": "B. 单项选择（Multiple Choice）",
@@ -2573,7 +2573,7 @@
      },
      {
       "type": "text",
-      "text": "1 → B（开场：今天的两位小天才）"
+      "text": "1 → B（今天的两位小天才）"
      },
      {
       "name": "br",
@@ -2600,7 +2600,7 @@
      },
      {
       "type": "text",
-      "text": "4 → A（今日笑话：honeycomb 的双关）"
+      "text": "4 → A（honeycomb 的双关）"
      },
      {
       "name": "br",
@@ -2609,7 +2609,7 @@
      },
      {
       "type": "text",
-      "text": "5 → F（互动时间：教动物玩运动）"
+      "text": "5 → F（教动物玩运动）"
      },
      {
       "name": "br",
@@ -2618,7 +2618,7 @@
      },
      {
       "type": "text",
-      "text": "6 → C（告别：明天早上见）"
+      "text": "6 → C（明天早上见）"
      },
      {
       "name": "br",

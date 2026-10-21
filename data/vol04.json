@@ -5,8 +5,8 @@
  "duration": "5分50秒",
  "cover": "https://lcb0378.github.io/michael-english-podcast/vol04/cover.png",
  "audio": "https://lcb0378.github.io/michael-english-podcast/vol04/audio.mp3",
- "pdf": "https://lcb0378.github.io/michael-english-podcast/vol04/Vol04_晚读讲义_搜救犬Sgiath与火星取土_v3.pdf",
- "pdfName": "Vol04_晚读讲义_搜救犬Sgiath与火星取土_v3.pdf",
+ "pdf": "https://lcb0378.github.io/michael-english-podcast/vol04/Vol04_晚读讲义_搜救犬Sgiath与火星取土_v4.pdf",
+ "pdfName": "Vol04_晚读讲义_搜救犬Sgiath与火星取土_v4.pdf",
  "blocks": [
   {
    "start": 20.91,
@@ -2631,7 +2631,7 @@
      "Section 5 → ______",
      "Section 6 → ______"
     ],
-    "extra": "Headings:\nA. 火星取土：MMX 去 Phobos 挖土\nB. 告别：明天早上见\nC. 神鼻子搜救犬 Sgiath\nD. 开场：超级嗅探员和火星任务\nE. 今日俚语：have a nose for something\nF. 互动时间：训练狗狗闻出一样东西"
+    "extra": "Headings:\nA. 火星取土：MMX 去 Phobos 挖土\nB. 明天早上见\nC. 神鼻子搜救犬 Sgiath\nD. 超级嗅探员和火星任务\nE. have a nose for something\nF. 训练狗狗闻出一样东西"
    },
    {
     "title": "B. 单项选择（Multiple Choice）",
@@ -3052,7 +3052,7 @@
      },
      {
       "type": "text",
-      "text": "1 → D（开场：超级嗅探员和火星任务）"
+      "text": "1 → D（超级嗅探员和火星任务）"
      },
      {
       "name": "br",
@@ -3079,7 +3079,7 @@
      },
      {
       "type": "text",
-      "text": "4 → E（今日俚语：have a nose for something）"
+      "text": "4 → E（have a nose for something）"
      },
      {
       "name": "br",
@@ -3088,7 +3088,7 @@
      },
      {
       "type": "text",
-      "text": "5 → F（互动时间：训练狗狗闻出一样东西）"
+      "text": "5 → F（训练狗狗闻出一样东西）"
      },
      {
       "name": "br",
@@ -3097,7 +3097,7 @@
      },
      {
       "type": "text",
-      "text": "6 → B（告别：明天早上见）"
+      "text": "6 → B（明天早上见）"
      },
      {
       "name": "br",

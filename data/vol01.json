@@ -5,15 +5,15 @@
  "duration": "5分02秒",
  "cover": "https://lcb0378.github.io/michael-english-podcast/vol01/cover.png",
  "audio": "https://lcb0378.github.io/michael-english-podcast/vol01/audio_v8.mp3",
- "pdf": "https://lcb0378.github.io/michael-english-podcast/vol01/Vol01_晚读讲义_会飞的汽车与194岁的乌龟_v3.pdf",
- "pdfName": "Vol01_晚读讲义_会飞的汽车与194岁的乌龟_v3.pdf",
+ "pdf": "https://lcb0378.github.io/michael-english-podcast/vol01/Vol01_晚读讲义_会飞的汽车与194岁的乌龟_v4.pdf",
+ "pdfName": "Vol01_晚读讲义_会飞的汽车与194岁的乌龟_v4.pdf",
  "blocks": [
   {
    "start": 17.24,
    "end": 29.51,
    "en": "Welcome back to Michael's Morning Listening! Today we have two amazing stories: a car that can fly, and a tortoise that has lived for almost two hundred years. Let's dive in!",
    "cn": "欢迎回到 Michael 的早听晚读！今天有两个超棒的故事：一辆会飞的汽车，和一只活了将近两百年的乌龟。让我们开始吧！",
-   "title": "",
+   "title": "开场白",
    "words": [
     {
      "w": "Welcome",
@@ -146,7 +146,7 @@
    "end": 53.64,
    "en": "What if your family car could fly over a traffic jam? That sounds like science fiction, right? But it just happened in real life!",
    "cn": "如果有一天，你家的汽车能直接飞过堵成长龙的马路，那会怎样？听起来像科幻小说，对吧？但这刚刚在现实中发生了！",
-   "title": "",
+   "title": "会飞的汽车",
    "words": [
     {
      "w": "What",
@@ -251,7 +251,7 @@
    "end": 81.93,
    "en": "Engineers showed off a new electric sports car with ten small thrusters built into its body. These thrusters shoot out powerful bursts of compressed air — just like the ones on a spaceship. During a live show, the car drove up a huge curved ramp, kept driving while upside down, then flew into the air, did a complete barrel roll, and landed safely on its wheels. It even lifted itself over five other cars while moving!",
    "cn": "工程师们展示了一辆全新的电动跑车，车身里装着十个小型推进器。这些推进器喷出强劲的压缩空气——就像宇宙飞船上的一样。在一场现场演示中，这辆车开上了一个巨大的弧形坡道，倒挂着继续行驶，然后腾空而起，在空中完成了一个完整的横滚翻转，最后稳稳地用轮子着陆。它甚至在行驶中从另外五辆车的头顶上\"飞\"了过去！",
-   "title": "",
+   "title": "会飞的汽车",
    "words": [
     {
      "w": "Engineers",
@@ -564,7 +564,7 @@
    "end": 97.57,
    "en": "The fastest version can go from zero to sixty miles per hour in less than one second — faster than you can say \"flying car\"! And it can still drive three hundred miles on one charge, just like a normal electric car.",
    "cn": "最快的版本从静止加速到每小时六十英里不到一秒——比你说完\"飞车\"这个词还快！而且它充一次电还能跑三百英里，和普通电动车一样。",
-   "title": "",
+   "title": "会飞的汽车",
    "words": [
     {
      "w": "The",
@@ -741,7 +741,7 @@
    "end": 120.65,
    "en": "How does it work? The secret is simple physics. When the thrusters push air down, the air pushes the car up. It is the same idea that lifts a rocket off the ground. The car also has strong fans underneath that suck air out, pressing the car tightly onto the road — that is how it can drive upside down without falling!",
    "cn": "它是怎么做到的？秘密就是简单的物理学：当推进器把空气往下推，空气就把车往上托。这和把火箭送上天的原理一模一样。车底还装着强力风扇，把空气抽走，把车紧紧\"按\"在路面上——这就是它能倒挂行驶而不掉下来的原因！",
-   "title": "",
+   "title": "会飞的汽车",
    "words": [
     {
      "w": "How",
@@ -998,7 +998,7 @@
    "end": 142.61,
    "en": "This car cannot fly you to school yet — the air tanks only last a few seconds. But every big invention starts with a crazy first step. The Wright brothers' first flight lasted only twelve seconds, and look where we are now. Maybe the flying cars of the future are being born right now, in front of our eyes.",
    "cn": "这辆车暂时还不能送你上学——储气罐只够用几秒钟。但每一项伟大的发明，都始于一个疯狂的第一步。莱特兄弟的第一次飞行只持续了十二秒，再看看现在的我们。也许未来的飞车，此刻正在我们眼前诞生。",
-   "title": "",
+   "title": "会飞的汽车",
    "words": [
     {
      "w": "This",
@@ -1243,7 +1243,7 @@
    "end": 171.56,
    "en": "Let's meet Jonathan, a giant tortoise who is now one hundred and ninety-four years old. He was born around the time the first photographs were taken — long before cars, phones, or airplanes existed!",
    "cn": "来认识一下 Jonathan，一只已经一百九十四岁的巨龟。它出生在第一张照片诞生的年代——那时汽车、电话、飞机都还没有被发明出来！",
-   "title": "",
+   "title": "194 岁的乌龟爷爷",
    "words": [
     {
      "w": "Let's",
@@ -1388,7 +1388,7 @@
    "end": 192.55,
    "en": "Jonathan lives on a small island in the Atlantic Ocean called Saint Helena. He has met kings and queens, survived two world wars, and he is still slowly munching his vegetables every day, just like your grandpa — except your grandpa is probably not one hundred and ninety-four!",
    "cn": "Jonathan 住在大西洋上一个叫圣赫勒拿的小岛。它见过国王和王后，经历过两次世界大战，现在还每天慢悠悠地嚼着蔬菜，就跟你爷爷一样——只不过你爷爷大概没有一百九十四岁！",
-   "title": "",
+   "title": "194 岁的乌龟爷爷",
    "words": [
     {
      "w": "Jonathan",
@@ -1589,7 +1589,7 @@
    "end": 220.1,
    "en": "Scientists recently studied Jonathan's genes to learn the secrets of his super-long life. They found something amazing: the chemical patterns around his energy-making genes are unusually neat and orderly. Think of your genes as a huge library of instruction books. Over time, most people's books get messy and dog-eared. But Jonathan's books? They still look almost brand new, even after nearly two centuries!",
    "cn": "科学家最近研究了 Jonathan 的基因，想揭开它超级长寿的秘密。他们发现了一个惊人的现象：它负责制造能量的基因周围，化学标记排列得异常整齐有序。把你的基因想象成一座藏满说明书的大图书馆。随着时间流逝，大多数人的\"书\"会变乱、卷角。但 Jonathan 的\"书\"呢？将近两百年过去，看起来还几乎全新！",
-   "title": "",
+   "title": "194 岁的乌龟爷爷",
    "words": [
     {
      "w": "Scientists",
@@ -1850,7 +1850,7 @@
    "end": 235.84,
    "en": "Does this mean we can all live to two hundred? Not yet. But every clue brings scientists one step closer to understanding why some bodies age slowly — and how we might all stay healthier, longer.",
    "cn": "这是否意味着我们都能活到两百岁？还没到那一步。但每一条线索都让科学家离真相更近一步：为什么有些身体衰老得更慢——以及我们怎样才能更健康、更长寿。",
-   "title": "",
+   "title": "194 岁的乌龟爷爷",
    "words": [
     {
      "w": "Does",
@@ -2003,7 +2003,7 @@
    "end": 252.92,
    "en": "Here's today's joke: What do you call a tortoise that flies? ... A \"heli-tortoise\"! Get it? Helicopter plus tortoise!",
    "cn": "今日笑话时间：会飞的乌龟叫什么？……叫\"heli-tortoise\"（直升机龟）！get 到了吗？helicopter（直升机）加上 tortoise（乌龟）！",
-   "title": "",
+   "title": "今日笑话",
    "words": [
     {
      "w": "Here's",
@@ -2088,7 +2088,7 @@
    "end": 275.82,
    "en": "That brings us to the end of today's show! Before you go, here's a question: If you could invent one crazy feature for a car of the future, what would it be — and why?",
    "cn": "今天的节目就到这里！走之前留一个问题：如果能给未来的汽车发明一个疯狂的功能，你会发明什么？为什么？",
-   "title": "",
+   "title": "结束语与互动问题",
    "words": [
     {
      "w": "That",
@@ -2237,7 +2237,7 @@
    "end": 292.95,
    "en": "Have a wonderful day, and see you tomorrow morning!",
    "cn": "祝你有美好的一天，明天早上见！",
-   "title": "",
+   "title": "告别",
    "words": [
     {
      "w": "Have",
@@ -2326,7 +2326,7 @@
      "Section 5 → ______",
      "Section 6 → ______"
     ],
-    "extra": "Headings:\nA. 194 岁乌龟的长寿基因秘密\nB. 互动时间：给未来汽车发明一个功能\nC. 会飞的汽车：现场特技全记录\nD. 告别：明天早上见\nE. 开场：今天的两大看点\nF. 今日笑话：heli-tortoise"
+    "extra": "Headings:\nA. 194 岁乌龟的长寿基因秘密\nB. 给未来汽车发明一个功能\nC. 会飞的汽车：现场特技全记录\nD. 明天早上见\nE. 今天的两大看点\nF. heli-tortoise 的谐音梗"
    },
    {
     "title": "B. 单项选择（Multiple Choice）",
@@ -2663,7 +2663,7 @@
      },
      {
       "type": "text",
-      "text": "1 → E（开场：今天的两大看点）"
+      "text": "1 → E（今天的两大看点）"
      },
      {
       "name": "br",
@@ -2690,7 +2690,7 @@
      },
      {
       "type": "text",
-      "text": "4 → F（今日笑话：heli-tortoise）"
+      "text": "4 → F（heli-tortoise 的谐音梗）"
      },
      {
       "name": "br",
@@ -2699,7 +2699,7 @@
      },
      {
       "type": "text",
-      "text": "5 → B（互动时间：给未来汽车发明一个功能）"
+      "text": "5 → B（给未来汽车发明一个功能）"
      },
      {
       "name": "br",
@@ -2708,7 +2708,7 @@
      },
      {
       "type": "text",
-      "text": "6 → D（告别：明天早上见）"
+      "text": "6 → D（明天早上见）"
      },
      {
       "name": "br",

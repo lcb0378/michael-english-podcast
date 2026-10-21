@@ -5,15 +5,15 @@
  "duration": "5分28秒",
  "cover": "https://lcb0378.github.io/michael-english-podcast/vol03/cover.png",
  "audio": "https://lcb0378.github.io/michael-english-podcast/vol03/audio_v2.mp3",
- "pdf": "https://lcb0378.github.io/michael-english-podcast/vol03/Vol03_晚读讲义_伪装鱼与数学长颈鹿_v3.pdf",
- "pdfName": "Vol03_晚读讲义_伪装鱼与数学长颈鹿_v3.pdf",
+ "pdf": "https://lcb0378.github.io/michael-english-podcast/vol03/Vol03_晚读讲义_伪装鱼与数学长颈鹿_v4.pdf",
+ "pdfName": "Vol03_晚读讲义_伪装鱼与数学长颈鹿_v4.pdf",
  "blocks": [
   {
    "start": 17.07,
    "end": 30.13,
    "en": "Welcome back to Michael's Morning Listening! Today we have two animal superstars for you: a fish that dresses up like a Muppet, and a giraffe that might be better at math than you are. Let's dive in!",
    "cn": "欢迎回到 Michael 的早听晚读！今天有两位动物明星要介绍给你：一条打扮成布偶的小鱼，和一只数学可能比你还好的长颈鹿。让我们潜入今天的故事吧！",
-   "title": "",
+   "title": "开场白",
    "words": [
     {
      "w": "Welcome",
@@ -170,7 +170,7 @@
    "end": 58.41,
    "en": "Have you ever seen a fish that looks like a character from Sesame Street? Scientists have just given an official name to a very strange little fish — and they named it after Mr. Snuffleupagus, Big Bird's big, shaggy best friend!",
    "cn": "你见过长得像《芝麻街》角色的鱼吗？科学家刚刚给一条非常奇怪的小鱼起了正式名字——用的就是大鸟那个毛茸茸的好朋友、Snuffleupagus 先生的名字！",
-   "title": "",
+   "title": "伪装鱼 Snuffleupagus",
    "words": [
     {
      "w": "Have",
@@ -343,7 +343,7 @@
    "end": 86.64,
    "en": "The fish is called Solenostomus snuffleupagus. It is only about one and a half inches long — small enough to sit on your fingertip. It is a type of ghost pipefish, a cousin of seahorses. But this one is special: its whole body is covered in long, shaggy skin threads that look just like fur. Put it next to a picture of Snuffleupagus, and you cannot unsee the resemblance!",
    "cn": "这种鱼叫 Solenostomus snuffleupagus。它只有约一英寸半长——小到能停在你的指尖上。它是一种幽灵管鱼，是海马的亲戚。但这条很特别：全身覆盖着又长又乱的皮肤丝，看起来就像毛发。把它和 Snuffleupagus 的照片放一起，你就再也忘不掉这种相似了！",
-   "title": "",
+   "title": "伪装鱼 Snuffleupagus",
    "words": [
     {
      "w": "The",
@@ -628,7 +628,7 @@
    "end": 109.14,
    "en": "Here is the cool part: those shaggy threads are not for keeping warm. They are a disguise! The fish lives on coral reefs, where red, hair-like algae floats in the water. Its shaggy body looks exactly like that algae, so hungry hunters swim right past. It is like wearing an invisibility cloak made of seaweed!",
    "cn": "最酷的部分来了：那些毛茸茸的丝不是用来保暖的，而是伪装！这种鱼生活在珊瑚礁，那里的海水中漂浮着红色发丝般的海藻。它毛茸茸的身体看起来和海藻一模一样，饥饿的猎手就直接游过去了。这就像穿了一件海藻做的隐形斗篷！",
-   "title": "",
+   "title": "伪装鱼 Snuffleupagus",
    "words": [
     {
      "w": "Here",
@@ -857,7 +857,7 @@
    "end": 123.87,
    "en": "Scientists first photographed this fish more than twenty years ago. It took them two whole decades of searching to prove it was a brand-new species. Good things come to those who wait — even in science!",
    "cn": "科学家二十多年前就第一次拍到了这种鱼。但他们花了整整二十年寻找，才证明它是一个全新的物种。好事多磨——连科学研究也不例外！",
-   "title": "",
+   "title": "伪装鱼 Snuffleupagus",
    "words": [
     {
      "w": "Scientists",
@@ -1010,7 +1010,7 @@
    "end": 142.1,
    "en": "Now let's meet an animal famous for its long neck — but today we are going to talk about its brain instead.",
    "cn": "现在来认识一种以长脖子闻名的动物——但今天我们要聊的是它的大脑。",
-   "title": "",
+   "title": "长颈鹿的数学",
    "words": [
     {
      "w": "Now",
@@ -1107,7 +1107,7 @@
    "end": 176.54,
    "en": "At a zoo in Barcelona, Spain, scientists wanted to test whether giraffes can do math. They showed four giraffes some boxes with carrots inside — a giraffe's favorite snack. Here is how the game worked. The scientist put carrots into two boxes where the giraffes could see them, then closed the boxes. Next, he secretly moved more carrots into one of the closed boxes. The giraffes could not see inside anymore. Then he asked them to choose: which box has more carrots now?",
    "cn": "在西班牙巴塞罗那的一家动物园，科学家想测试长颈鹿会不会算数。他们给四只长颈鹿看了几个装着胡萝卜的盒子——胡萝卜是长颈鹿最爱的零食。游戏规则是这样的：科学家先把胡萝卜放进两个盒子，让长颈鹿看清楚，然后盖上盖子。接着，他偷偷把更多胡萝卜放进其中一个盖好的盒子。长颈鹿再也看不到里面了。然后他让它们选：现在哪个盒子里的胡萝卜更多？",
-   "title": "",
+   "title": "长颈鹿的数学",
    "words": [
     {
      "w": "At",
@@ -1448,7 +1448,7 @@
    "end": 200.2,
    "en": "To get it right, the giraffes had to remember the first amounts, then add the new carrots in their heads — without ever seeing the final pile. And guess what? They picked the right box about sixty-eight times out of a hundred — much better than random guessing! Two giraffes, Nuru and Njano, were the star students.",
    "cn": "要选对，长颈鹿得记住最初的数量，再在脑子里加上新放进去的胡萝卜——全程看不到最终的样子。猜猜结果？它们一百次里选对了约六十八次——比瞎猜强多了！其中两只叫 Nuru 和 Njano 的长颈鹿是班里的明星学生。",
-   "title": "",
+   "title": "长颈鹿的数学",
    "words": [
     {
      "w": "To",
@@ -1685,7 +1685,7 @@
    "end": 215.14,
    "en": "But here is the twist: the giraffes were good at addition, but terrible at subtraction — exactly like most human kids! So the next time math homework feels hard, remember: even a giraffe finds subtraction tricky.",
    "cn": "但转折来了：长颈鹿加法很在行，减法却一塌糊涂——和大多数人类小孩一模一样！所以下次觉得数学作业难，记住：连长颈鹿都觉得减法棘手。",
-   "title": "",
+   "title": "长颈鹿的数学",
    "words": [
     {
      "w": "But",
@@ -1838,7 +1838,7 @@
    "end": 225.93,
    "en": "This discovery is important because it shows that number skills are not just for humans, monkeys, and parrots. The animal kingdom is full of secret mathematicians!",
    "cn": "这个发现很重要，因为它说明数数本领不只是人类、猴子和鹦鹉的专利。动物王国里藏着好多秘密数学家！",
-   "title": "",
+   "title": "长颈鹿的数学",
    "words": [
     {
      "w": "This",
@@ -1951,7 +1951,7 @@
    "end": 261.43,
    "en": "Here's today's idiom: \"stick your neck out.\" It means to take a risk, or to be brave enough to do something difficult. For example: \"She stuck her neck out and shared her idea in front of the whole class.\" Just like a giraffe stretches its long neck to reach the highest leaves, when you stick your neck out, you reach for something that others are afraid to try!",
    "cn": "今日俚语：\"stick your neck out\"，意思是冒险、勇敢去做困难的事。比如：\"她鼓起勇气，在全班面前分享了自己的想法。\" 就像长颈鹿伸长脖子去够最高的树叶，当你 stick your neck out，你就在尝试别人不敢做的事！",
-   "title": "",
+   "title": "今日俚语",
    "words": [
     {
      "w": "Here's",
@@ -2232,7 +2232,7 @@
    "end": 297.3,
    "en": "That brings us to the end of today's show! Before you go, here's a question: If you could have one superpower from any animal — camouflage like the ghost pipefish, or a giraffe's long neck — which would you choose, and what would you do with it?",
    "cn": "今天的节目就到这里！走之前留一个问题：如果你能拥有一种动物的超能力——像幽灵管鱼一样隐身，或者像长颈鹿一样有长脖子——你会选哪个？用来做什么？",
-   "title": "",
+   "title": "结束语与互动问题",
    "words": [
     {
      "w": "That",
@@ -2429,7 +2429,7 @@
    "end": 318.72,
    "en": "Have a wonderful day, and see you tomorrow morning!",
    "cn": "祝你有美好的一天，明天早上见！",
-   "title": "",
+   "title": "告别",
    "words": [
     {
      "w": "Have",
@@ -2534,7 +2534,7 @@
      "Section 5 → ______",
      "Section 6 → ______"
     ],
-    "extra": "Headings:\nA. 伪装大师：穿海藻隐形斗篷的小鱼\nB. 今日俚语：stick your neck out\nC. 开场：今天的两位动物明星\nD. 互动时间：选一种动物超能力\nE. 告别：明天早上见\nF. 长颈鹿会算数：加法行，减法不行"
+    "extra": "Headings:\nA. 伪装大师：穿海藻隐形斗篷的小鱼\nB. stick your neck out\nC. 今天的两位动物明星\nD. 选一种动物超能力\nE. 明天早上见\nF. 长颈鹿会算数：加法行，减法不行"
    },
    {
     "title": "B. 单项选择（Multiple Choice）",
@@ -2983,7 +2983,7 @@
      },
      {
       "type": "text",
-      "text": "1 → C（开场：今天的两位动物明星）"
+      "text": "1 → C（今天的两位动物明星）"
      },
      {
       "name": "br",
@@ -3010,7 +3010,7 @@
      },
      {
       "type": "text",
-      "text": "4 → B（今日俚语：stick your neck out）"
+      "text": "4 → B（stick your neck out）"
      },
      {
       "name": "br",
@@ -3019,7 +3019,7 @@
      },
      {
       "type": "text",
-      "text": "5 → D（互动时间：选一种动物超能力）"
+      "text": "5 → D（选一种动物超能力）"
      },
      {
       "name": "br",
@@ -3028,7 +3028,7 @@
      },
      {
       "type": "text",
-      "text": "6 → E（告别：明天早上见）"
+      "text": "6 → E（明天早上见）"
      },
      {
       "name": "br",
