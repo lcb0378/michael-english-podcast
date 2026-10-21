@@ -2634,12 +2634,12 @@
     "extra": "Headings:\nA. Mars Mission: MMX Brings Home a Piece of Phobos\nB. See You Tomorrow Morning\nC. Sgiath, the Super-sniffer Dog\nD. A Super-sniffer and a Trip to Mars\nE. have a nose for something\nF. Train a Dog to Sniff Out One Thing"
    },
    {
-    "title": "B. 单项选择（Multiple Choice）",
+    "title": "B. 单项选择（Single Choice）",
     "questions": [
-     "Sgiath 以前是做什么的？\nA. 山地搜救犬\nB. 警犬\nC. 导盲犬\nD. 宠物犬",
-     "carpet sea squirt（地毯海鞘）为什么危险？\nA. 会咬人\nB. 有毒\nC. 覆盖牡蛎养殖场、闷死本土海洋生物\nD. 会吃掉船只",
-     "MMX 任务的目标是什么？\nA. 把宇航员送上火星\nB. 在火星上建基地\nC. 从 Phobos 取至少十克样品带回地球\nD. 给火星拍照",
-     "\"have a nose for something\" 是什么意思？\nA. 对某事特别有感觉、有天赋\nB. 鼻子很大\nC. 感冒鼻塞\nD. 闻不到气味"
+     "What was Sgiath's first job?\nA. A mountain rescue dog\nB. A police dog\nC. A guide dog\nD. A pet dog",
+     "Why is the carpet sea squirt dangerous?\nA. It bites people\nB. It is poisonous\nC. It covers oyster farms and smothers the native sea life underneath\nD. It eats boats",
+     "What is the goal of the MMX mission?\nA. To send astronauts to Mars\nB. To build a base on Mars\nC. To collect at least ten grams of samples from Phobos and bring them back to Earth\nD. To take photos of Mars",
+     "What does \"have a nose for something\" mean?\nA. To be very good at finding or understanding something\nB. To have a very big nose\nC. To have a cold and a blocked nose\nD. To be unable to smell anything"
     ]
    }
   ],
@@ -2977,288 +2977,6 @@
       "text": "\n"
      }
     ]
-   },
-   {
-    "name": "div",
-    "attrs": {
-     "class": "practice"
-    },
-    "children": [
-     {
-      "type": "text",
-      "text": "\n"
-     },
-     {
-      "name": "b",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "句型练习"
-       }
-      ]
-     },
-     {
-      "type": "text",
-      "text": "（练的就是上面拆解的三个知识点）"
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "\n"
-     },
-     {
-      "name": "b",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "A. 被动句型：用 is / are believed to be 改写"
-       }
-      ]
-     },
-     {
-      "type": "text",
-      "text": "\n"
-     },
-     {
-      "name": "ol",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "\n  "
-       },
-       {
-        "name": "li",
-        "attrs": {},
-        "children": [
-         {
-          "type": "text",
-          "text": "People believe Sgiath is the best sniffer dog in Britain."
-         },
-         {
-          "name": "br",
-          "attrs": {},
-          "children": []
-         },
-         {
-          "type": "text",
-          "text": "→ Sgiath ____________________ the best sniffer dog in Britain."
-         }
-        ]
-       },
-       {
-        "type": "text",
-        "text": "\n  "
-       },
-       {
-        "name": "li",
-        "attrs": {},
-        "children": [
-         {
-          "type": "text",
-          "text": "People believe the two moons of Mars are pieces of a broken planet."
-         },
-         {
-          "name": "br",
-          "attrs": {},
-          "children": []
-         },
-         {
-          "type": "text",
-          "text": "→ The two moons of Mars ____________________ pieces of a broken planet."
-         }
-        ]
-       },
-       {
-        "type": "text",
-        "text": "\n"
-       }
-      ]
-     },
-     {
-      "type": "text",
-      "text": "\n"
-     },
-     {
-      "name": "b",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "B. 过去分词后置定语：用括号里的短语补全"
-       }
-      ]
-     },
-     {
-      "type": "text",
-      "text": "\n"
-     },
-     {
-      "name": "ol",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "\n  "
-       },
-       {
-        "name": "li",
-        "attrs": {},
-        "children": [
-         {
-          "type": "text",
-          "text": "Sgiath is the first dog in the world ____________________ a dangerous sea creature. (trained to smell)"
-         }
-        ]
-       },
-       {
-        "type": "text",
-        "text": "\n  "
-       },
-       {
-        "name": "li",
-        "attrs": {},
-        "children": [
-         {
-          "type": "text",
-          "text": "The capsule is the first box ____________________ pieces of a moon back to Earth. (built to carry)"
-         }
-        ]
-       },
-       {
-        "type": "text",
-        "text": "\n"
-       }
-      ]
-     },
-     {
-      "type": "text",
-      "text": "\n"
-     },
-     {
-      "name": "b",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "C. 同位语：补全句子"
-       }
-      ]
-     },
-     {
-      "type": "text",
-      "text": "\n"
-     },
-     {
-      "name": "ol",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "\n  "
-       },
-       {
-        "name": "li",
-        "attrs": {},
-        "children": [
-         {
-          "type": "text",
-          "text": "Phobos, ____________________, is about twenty-two kilometers wide.（火星两颗卫星中较大的那颗）"
-         }
-        ]
-       },
-       {
-        "type": "text",
-        "text": "\n  "
-       },
-       {
-        "name": "li",
-        "attrs": {},
-        "children": [
-         {
-          "type": "text",
-          "text": "The carpet sea squirt, also known as \"____________________\", came from abroad."
-         }
-        ]
-       },
-       {
-        "type": "text",
-        "text": "\n"
-       }
-      ]
-     },
-     {
-      "type": "text",
-      "text": "\n"
-     },
-     {
-      "name": "b",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）"
-       }
-      ]
-     },
-     {
-      "type": "text",
-      "text": "\n"
-     },
-     {
-      "name": "ol",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "\n  "
-       },
-       {
-        "name": "li",
-        "attrs": {},
-        "children": [
-         {
-          "type": "text",
-          "text": "The little robot is believed to be the first machine in the world built to clean the deep sea — a quiet helper, also known as \"the Sea Sweeper\"."
-         }
-        ]
-       },
-       {
-        "type": "text",
-        "text": "\n  "
-       },
-       {
-        "name": "li",
-        "attrs": {},
-        "children": [
-         {
-          "type": "text",
-          "text": "My grandpa is believed to be the first man in our village trained to fix old radios — a kind man, also known as \"Doctor Radio\"."
-         }
-        ]
-       },
-       {
-        "type": "text",
-        "text": "\n"
-       }
-      ]
-     },
-     {
-      "type": "text",
-      "text": "\n"
-     }
-    ]
    }
   ],
   "answers_nodes": [
@@ -3352,7 +3070,7 @@
       "children": [
        {
         "type": "text",
-        "text": "B. Multiple Choice:"
+        "text": "B. Single Choice:"
        }
       ]
      },
@@ -3593,7 +3311,101 @@
      }
     ]
    }
-  ]
+  ],
+  "keys": {
+   "headings": [
+    "D",
+    "C",
+    "A",
+    "E",
+    "F",
+    "B"
+   ],
+   "choice": [
+    "A",
+    "C",
+    "C",
+    "A"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. 被动句型：用 is / are believed to be 改写",
+     "items": [
+      {
+       "prompt": "People believe Sgiath is the best sniffer dog in Britain.\n→ Sgiath ____ the best sniffer dog in Britain.",
+       "options": [
+        "is believed to be",
+        "are believed to be",
+        "believes to be"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "People believe the two moons of Mars are pieces of a broken planet.\n→ The two moons of Mars ____ pieces of a broken planet.",
+       "options": [
+        "is believed to be",
+        "are believed to be",
+        "believe to be"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. 过去分词后置定语：用括号里的短语补全",
+     "items": [
+      {
+       "prompt": "Sgiath is the first dog in the world ____ a dangerous sea creature.",
+       "options": [
+        "training to smell",
+        "train to smell",
+        "trained to smell"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "The capsule is the first box ____ pieces of a moon back to Earth.",
+       "options": [
+        "built to carry",
+        "building to carry",
+        "build to carry"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. 同位语：补全句子",
+     "items": [
+      {
+       "prompt": "Phobos, ____, is about twenty-two kilometers wide.（火星两颗卫星中较大的那颗）",
+       "options": [
+        "the smaller of Mars' two moons",
+        "the larger of Mars' two moons",
+        "the red planet Mars"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "The carpet sea squirt, also known as \"____\", came from abroad.",
+       "options": [
+        "sea cloud",
+        "sea carpet",
+        "sea vomit"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "The little robot is believed to be the first machine in the world built to clean the deep sea — a quiet helper, also known as \"the Sea Sweeper\".",
+    "My grandpa is believed to be the first man in our village trained to fix old radios — a kind man, also known as \"Doctor Radio\"."
+   ]
+  }
  },
  "video": "https://lcb0378.github.io/michael-english-podcast/vol04/video_v1.mp4"
 }

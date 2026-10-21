@@ -3249,7 +3249,23 @@
      }
     ]
    }
-  ]
+  ],
+  "keys": {
+   "headings": [
+    "C",
+    "A",
+    "F",
+    "B",
+    "D",
+    "E"
+   ],
+   "choice": [
+    "B",
+    "C",
+    "B",
+    "B"
+   ]
+  }
  },
  "video": "https://lcb0378.github.io/michael-english-podcast/vol03/video_v2.mp4"
 }
