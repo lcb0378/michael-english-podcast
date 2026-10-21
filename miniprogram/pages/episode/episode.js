@@ -182,7 +182,7 @@ bgm.play();
 _buildQuiz(ep) {
 const g = ep.guide || {};
 const keys = g.keys || {};
-const st = { quizVm: null, keysH: [], keyC: [], keyCL: [], selH: [], markH: [], selC: [], markC: [], selP: [], markP: [], score3: '', score4: '' };
+const st = { quizVm: null, keysH: [], keyC: [], keyCL: [], selH: [], markH: [], selC: [], markC: [], selP: [], markP: [], score3: '', score4: '', cwVm: null, cwSel: -1, cwFilled: [], cwMark: [], cwScore: '', cwGrid: [], cwUsed: [] };
 if (keys.headings && keys.headings.length && g.quiz && g.quiz.length >= 2) {
 const headingsOpts = [];
 (g.quiz[0].extra || '').split('\n').slice(1).forEach((ln) => {
@@ -198,15 +198,34 @@ if (m) options.push(m[1] + '. ' + m[2]);
 });
 return { stem: lines[0], options };
 });
-if (headingsOpts.length === keys.headings.length && choiceQs.length === keys.choice.length) {
+const hasCw = !!(g.crossword && g.crossword.words && g.crossword.words.length);
+const choiceOk = keys.choice && choiceQs.length === keys.choice.length;
+const headingsOk = !hasCw && keys.headings && headingsOpts.length === keys.headings.length;
+if (choiceOk && (headingsOk || hasCw)) {
 st.quizVm = { headingsOpts, choiceQs };
-st.keysH = keys.headings;
 st.keyC = keys.choice.map((L) => L.charCodeAt(0) - 65);
 st.keyCL = keys.choice;
-st.selH = keys.headings.map(() => -1);
-st.markH = keys.headings.map(() => null);
 st.selC = keys.choice.map(() => -1);
 st.markC = keys.choice.map(() => null);
+if (headingsOk) {
+st.keysH = keys.headings;
+st.selH = keys.headings.map(() => -1);
+st.markH = keys.headings.map(() => null);
+}
+}
+if (hasCw) {
+const ws = g.crossword.words;
+st.cwVm = {
+across: ws.map((w, i) => ({ w, i })).filter((x) => x.w.dir === 'A').sort((a, b) => a.w.num - b.w.num),
+down: ws.map((w, i) => ({ w, i })).filter((x) => x.w.dir === 'D').sort((a, b) => a.w.num - b.w.num),
+bank: ws.map((w, i) => i).sort(() => Math.random() - 0.5),
+};
+st.cwSel = -1;
+st.cwFilled = ws.map(() => '');
+st.cwUsed = ws.map(() => false);
+st.cwMark = ws.map(() => null);
+st.cwScore = '';
+st.cwGrid = this._cwGrid(g.crossword, st.cwFilled, -1, st.cwMark);
 }
 }
 if (g.practice && g.practice.groups) {
@@ -241,6 +260,94 @@ this.setData({ markH, markC, score3: right === total ? `🎉 ${right} / ${total}
 
 reset3() {
 this.setData({ selH: this.data.keysH.map(() => -1), markH: this.data.keysH.map(() => null), selC: this.data.keyC.map(() => -1), markC: this.data.keyC.map(() => null), score3: '' });
+},
+
+// ---- 填字游戏（2026-10-21 新增，替代 Part 3 标题配对）：点提示/格子选词条 → 点词库填入 → 核对判分 ----
+_cwCells(cw, i) {
+const w = cw.words[i];
+const dr = w.dir === 'D' ? 1 : 0, dc = w.dir === 'A' ? 1 : 0;
+const out = [];
+for (let k = 0; k < w.word.length; k++) out.push([w.row + dr * k, w.col + dc * k]);
+return out;
+},
+
+_cwGrid(cw, filled, sel, mark) {
+const rows = [];
+const letterAt = {}, stateAt = {}, selAt = {};
+cw.words.forEach((w, i) => {
+if (!filled[i]) return;
+this._cwCells(cw, i).forEach(([r, c], k) => {
+letterAt[r + ',' + c] = filled[i][k];
+if (mark[i] !== null) stateAt[r + ',' + c] = mark[i] ? 'ok' : 'bad';
+});
+});
+if (sel >= 0) this._cwCells(cw, sel).forEach(([r, c]) => { selAt[r + ',' + c] = 1; });
+const startNum = {};
+cw.words.forEach((w) => { startNum[w.row + ',' + w.col] = w.num; });
+const filledCells = {};
+cw.words.forEach((w, i) => this._cwCells(cw, i).forEach(([r, c]) => { filledCells[r + ',' + c] = 1; }));
+for (let r = 0; r < cw.nrows; r++) {
+const row = [];
+for (let c = 0; c < cw.ncols; c++) {
+const k = r + ',' + c;
+row.push(filledCells[k] ? { blank: false, num: startNum[k] || '', letter: letterAt[k] || '', sel: !!selAt[k], st: stateAt[k] || '' } : { blank: true });
+}
+rows.push(row);
+}
+return rows;
+},
+
+_cwRefresh(extra) {
+const cw = this.data.ep.guide.crossword;
+const cwUsed = cw.words.map((w) => this.data.cwFilled.includes(w.word));
+const d = Object.assign({ cwGrid: this._cwGrid(cw, this.data.cwFilled, this.data.cwSel, this.data.cwMark), cwUsed }, extra || {});
+this.setData(d);
+},
+
+cwTapClue(e) {
+const i = +e.currentTarget.dataset.i;
+if (this.data.cwFilled[i]) {
+this._set(`cwFilled[${i}]`, '');
+this._set(`cwMark[${i}]`, null);
+}
+this.setData({ cwSel: i }, () => this._cwRefresh());
+},
+
+cwTapCell(e) {
+const r = +e.currentTarget.dataset.r, c = +e.currentTarget.dataset.c;
+const cw = this.data.ep.guide.crossword;
+const hits = [];
+cw.words.forEach((w, i) => {
+if (this._cwCells(cw, i).some(([rr, cc]) => rr === r && cc === c)) hits.push(i);
+});
+if (!hits.length) return;
+let pick = hits[0];
+if (hits.length > 1 && hits.includes(this.data.cwSel)) pick = hits.find((h) => h !== this.data.cwSel);
+this.cwTapClue({ currentTarget: { dataset: { i: pick } } });
+},
+
+cwTapChip(e) {
+const wi = +e.currentTarget.dataset.wi;
+const cw = this.data.ep.guide.crossword;
+const sel = this.data.cwSel;
+if (sel < 0) { wx.showToast({ title: '先点一条提示，选中一个空位', icon: 'none' }); return; }
+if (cw.words[wi].word.length !== cw.words[sel].word.length) { wx.showToast({ title: '长度对不上，换一个词试试', icon: 'none' }); return; }
+const filled = this.data.cwFilled.slice();
+filled.forEach((f, i) => { if (f === cw.words[wi].word) filled[i] = ''; });
+filled[sel] = cw.words[wi].word;
+this.setData({ cwFilled: filled, cwMark: this.data.cwMark.map((m, i) => (i === sel || filled[i] !== this.data.cwFilled[i]) ? null : m) }, () => this._cwRefresh());
+},
+
+cwCheck() {
+const cw = this.data.ep.guide.crossword;
+let right = 0;
+const mark = cw.words.map((w, i) => { const ok = this.data.cwFilled[i] === w.word; if (ok) right++; return ok; });
+this.setData({ cwMark: mark, cwScore: right === cw.words.length ? `🎉 ${right} / ${cw.words.length}，全部答对，就是今日 MVP！` : `答对 ${right} / ${cw.words.length} 题，点错的词条可以清空重选，再核对一次。` }, () => this._cwRefresh());
+},
+
+cwReset() {
+const cw = this.data.ep.guide.crossword;
+this.setData({ cwFilled: cw.words.map(() => ''), cwMark: cw.words.map(() => null), cwSel: -1, cwScore: '' }, () => this._cwRefresh());
 },
 
 pickP(e) {

@@ -56,6 +56,40 @@
     <view class="g-sec">
       <view class="g-h2">✏️ Part 3：阅读理解自测</view>
       <block wx:if="{{quizVm}}">
+        <!-- 填字游戏（有 crossword 数据时替代标题配对） -->
+        <block wx:if="{{ep.guide.crossword}}">
+        <view class="g-h3">A. 填字游戏 Crossword</view>
+        <text class="q-note">点一条提示选中空位，再在词库里点一个词填进去（长度要对得上）。填错了再点那条词可以清空重选，最后点「核对答案」。</text>
+        <view class="cw-grid">
+          <view wx:for="{{cwGrid}}" wx:for-item="row" wx:for-index="r" wx:key="r" class="cw-row">
+            <view wx:for="{{row}}" wx:for-item="cell" wx:for-index="c" wx:key="c" class="cw-cell {{cell.blank ? 'blk' : ''}} {{cell.sel ? 'sel' : ''}} {{cell.st==='ok' ? 'ok' : ''}} {{cell.st==='bad' ? 'bad' : ''}}" data-r="{{r}}" data-c="{{c}}" bindtap="cwTapCell">
+              <text wx:if="{{cell.num}}" class="cw-num">{{cell.num}}</text>
+              <text class="cw-letter">{{cell.letter}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="cw-bank">
+          <view wx:for="{{cwVm.bank}}" wx:key="*this" class="cw-chip {{cwUsed[item] ? 'used' : ''}}" data-wi="{{item}}" bindtap="cwTapChip">{{ep.guide.crossword.words[item].word}} <text class="cw-cn">{{ep.guide.crossword.words[item].cn}}</text></view>
+        </view>
+        <view class="g-h3">Across 横</view>
+        <view wx:for="{{cwVm.across}}" wx:key="i" class="cw-clue {{cwSel===item.i ? 'sel' : ''}}" data-i="{{item.i}}" bindtap="cwTapClue">
+          <text><b>{{item.w.num}}.</b> {{item.w.clue}}</text>
+          <text wx:if="{{cwMark[item.i]===true}}" class="mark-ok">✓</text>
+          <text wx:if="{{cwMark[item.i]===false}}" class="mark-no">✗</text>
+        </view>
+        <view class="g-h3">Down 竖</view>
+        <view wx:for="{{cwVm.down}}" wx:key="i" class="cw-clue {{cwSel===item.i ? 'sel' : ''}}" data-i="{{item.i}}" bindtap="cwTapClue">
+          <text><b>{{item.w.num}}.</b> {{item.w.clue}}</text>
+          <text wx:if="{{cwMark[item.i]===true}}" class="mark-ok">✓</text>
+          <text wx:if="{{cwMark[item.i]===false}}" class="mark-no">✗</text>
+        </view>
+        <view class="check-row">
+          <view class="check-btn" bindtap="cwCheck">✔ 核对答案</view>
+          <view class="reset-btn" bindtap="cwReset">重做</view>
+        </view>
+        <text wx:if="{{cwScore}}" class="score">{{cwScore}}</text>
+        </block>
+        <block wx:if="{{!ep.guide.crossword}}">
         <view class="g-h3">{{ep.guide.quiz[0].title}}</view>
         <text class="q-note">Part 1 全文共分 6 节（Section 1–6），请为每一节选择最合适的标题。点字母选好后，点下方「核对答案」看对错。</text>
         <view wx:for="{{keysH}}" wx:for-index="ri" wx:key="ri" class="hq-row">
@@ -69,6 +103,7 @@
         <view class="hq-ref">
           <text wx:for="{{quizVm.headingsOpts}}" wx:key="letter" class="q-line">{{item.letter}}. {{item.text}}</text>
         </view>
+        </block>
         <view class="g-h3">{{ep.guide.quiz[1].title}}</view>
         <block wx:for="{{quizVm.choiceQs}}" wx:for-index="qi" wx:key="qi">
           <text class="q">{{qi+1}}. {{item.stem}}</text>

@@ -3382,6 +3382,102 @@
     "Buenos Aires, the capital of Argentina, is a city that loves football more than any other place I know.",
     "The old goalkeeper, my grandpa's best friend, left the field smiling, waving to the fans who came to say goodbye."
    ]
+  },
+  "crossword": {
+   "nrows": 12,
+   "ncols": 12,
+   "words": [
+    {
+     "word": "FAREWELL",
+     "row": 8,
+     "col": 1,
+     "dir": "A",
+     "num": 9,
+     "cn": "告别",
+     "clue": "A goodbye. Example: It was his ______ match — his last game for his country."
+    },
+    {
+     "word": "SHRIMP",
+     "row": 6,
+     "col": 3,
+     "dir": "D",
+     "num": 7,
+     "cn": "虾",
+     "clue": "A small sea animal. Example: The mantis ______ has the most amazing eyes."
+    },
+    {
+     "word": "RESPECT",
+     "row": 4,
+     "col": 6,
+     "dir": "D",
+     "num": 6,
+     "cn": "尊敬",
+     "clue": "A strong feeling of looking up to someone. Example: Ronaldo wrote to Messi: “You have all my ______.”"
+    },
+    {
+     "word": "INSPIRE",
+     "row": 4,
+     "col": 1,
+     "dir": "A",
+     "num": 5,
+     "cn": "激励",
+     "clue": "To make people feel they can do great things. Example: Their story will ______ young players for years to come."
+    },
+    {
+     "word": "PIGMENT",
+     "row": 10,
+     "col": 0,
+     "dir": "A",
+     "num": 10,
+     "cn": "色素",
+     "clue": "A tiny part inside the eye that catches light and makes colours. Example: One ______ in the shrimp's eye works like a tiny light switch."
+    },
+    {
+     "word": "SWITCH",
+     "row": 6,
+     "col": 6,
+     "dir": "A",
+     "num": 8,
+     "cn": "开关；转换",
+     "clue": "To turn something on or off. Example: Red light can ______ them on, and blue light can turn them back off."
+    },
+    {
+     "word": "BRAIN",
+     "row": 0,
+     "col": 2,
+     "dir": "D",
+     "num": 1,
+     "cn": "大脑",
+     "clue": "The part inside your head that thinks and makes pictures. Example: Pigments catch light and turn it into pictures for the ______."
+    },
+    {
+     "word": "RIVAL",
+     "row": 1,
+     "col": 2,
+     "dir": "A",
+     "num": 2,
+     "cn": "对手",
+     "clue": "A person or team you compete against. Example: Ronaldo was Messi's greatest ______ for twenty years."
+    },
+    {
+     "word": "ASSIST",
+     "row": 1,
+     "col": 9,
+     "dir": "D",
+     "num": 3,
+     "cn": "助攻",
+     "clue": "In football, helping a teammate to score a goal. Example: He made an ______, and his teammate put the ball in the net."
+    },
+    {
+     "word": "PUNCH",
+     "row": 2,
+     "col": 11,
+     "dir": "D",
+     "num": 4,
+     "cn": "重击",
+     "clue": "A hard hit with your fist. Example: The shrimp's ______ is faster than a speeding bullet."
+    }
+   ]
   }
  }
 }
