@@ -5,8 +5,8 @@
  "duration": "5分28秒",
  "cover": "https://lcb0378.github.io/michael-english-podcast/vol03/cover.png",
  "audio": "https://lcb0378.github.io/michael-english-podcast/vol03/audio_v2.mp3",
- "pdf": "https://lcb0378.github.io/michael-english-podcast/vol03/Vol03_晚读讲义_伪装鱼与数学长颈鹿_v5.pdf",
- "pdfName": "Vol03_晚读讲义_伪装鱼与数学长颈鹿_v5.pdf",
+ "pdf": "https://lcb0378.github.io/michael-english-podcast/vol03/Vol03_晚读讲义_伪装鱼与数学长颈鹿_v6.pdf",
+ "pdfName": "Vol03_晚读讲义_伪装鱼与数学长颈鹿_v6.pdf",
  "blocks": [
   {
    "start": 17.07,
@@ -2906,44 +2906,6 @@
      {
       "type": "text",
       "text": "\n"
-     },
-     {
-      "name": "b",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "句型仿写："
-       }
-      ]
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "\n"
-     },
-     {
-      "name": "i",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "To win the game, the players had to memorize the map, then find the hidden treasure in their minds — without ever opening their eyes."
-       }
-      ]
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "\n（为了赢得比赛，选手们得先记住地图，再在脑子里找到藏着的宝藏——全程不许睁眼。）\n"
      }
     ]
    },
@@ -3225,6 +3187,62 @@
      {
       "type": "text",
       "text": "（意思是冒险，或勇敢去做困难的事）。\n"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 句型练习："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. To choose  2. To start"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. add  2. swim"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. making  2. opening"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. 翻译练习不提供答案（自己试着译）。\n"
      }
     ]
    },
@@ -3264,6 +3282,84 @@
     "C",
     "B",
     "B"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. 不定式作目的状语：To do 放在句首表目的",
+     "items": [
+      {
+       "prompt": "____ the right shell, the crab had to look at each one carefully.",
+       "options": [
+        "To choose",
+        "To chose",
+        "To choosing"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "____ the race, the runners had to stand behind the line.",
+       "options": [
+        "To starts",
+        "To start",
+        "To starting"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. had to 后的并列动作：先做一件事，再做下一件",
+     "items": [
+      {
+       "prompt": "To finish the puzzle, Leo had to remember the picture, then ____ the last pieces in his head.",
+       "options": [
+        "adds",
+        "added",
+        "add"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "To cross the river, the ducklings had to follow their mother, then ____ in a line.",
+       "options": [
+        "swim",
+        "swims",
+        "swimming"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. without ever + doing：全程没有做某事",
+     "items": [
+      {
+       "prompt": "The owl hunted at night, without ever ____ a sound.",
+       "options": [
+        "make",
+        "making",
+        "made"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "Mia solved the riddle without ever ____ the answer book.",
+       "options": [
+        "open",
+        "opened",
+        "opening"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "To find the way home, the ants had to remember the smell, then follow it step by step — without ever seeing the nest.",
+    "To catch the ball, Tom had to watch it carefully, then move his hands at the right moment — without ever looking down."
    ]
   }
  },

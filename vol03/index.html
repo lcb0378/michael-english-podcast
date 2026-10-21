@@ -19,19 +19,13 @@ header .meta { color: #888; font-size: 0.9rem; }
 #playBtn:hover { background: #f07a2e; }
 .progress-wrap { flex: 1; }
 #progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
-/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
-body { cursor: default; }
-.guide { cursor: text; }
-.guide a, .guide button { cursor: pointer; }
-header video { cursor: pointer; }
 .time { font-size: 0.8rem; color: #888; white-space: nowrap; }
 .speeds { display: flex; gap: 8px; }
 .speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
 .speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
-.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
 .block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
 .block.active { border-color: #ff8c42; background: #fff8f2; }
-.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .sec-title { font-size: 0.8rem; color: #ff8c42; font-weight: bold; margin-bottom: 8px; }
 .block .en { font-size: 1.05rem; margin-bottom: 8px; }
 .block .en .w { border-radius: 3px; padding: 1px 0; }
 .block .en .w.hl { background: #ffe082; }
@@ -54,7 +48,9 @@ header video { cursor: pointer; }
 .guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
 .guide .example { font-style: italic; color: #555; margin-top: 6px; }
 .guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
-.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .practice { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8pt; padding: 10pt 14pt; margin: 8pt 0; }
+  .practice li { margin-bottom: 5pt; }
+  .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
 .guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
 .guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
 .guide .cn { color: #555; padding: 6px 14px 10px 18px; }
@@ -85,7 +81,6 @@ header video { cursor: pointer; }
 <img src="story-fish.png" alt="伪装鱼 Snuffleupagus">
 <img src="story-giraffe.png" alt="会算数的长颈鹿">
 </div>
-<h2 class="part-head">📖 Part 1：双语精读对照</h2>
 <div id="blocks"></div>
 <div class="guide">
 Part 2：核心词汇</h2>
@@ -125,28 +120,28 @@ Part 2：核心词汇</h2>
 <div class="pagebreak"></div>
 <h2>✏️ Part 3：阅读理解自测</h2>
 <h3>A. 标题配对（Match the headings）</h3>
-<p>Part 1 全文共分 6 节（Section 1–6），请为每一节选择最合适的标题：</p>
+<p>请为 Part 1 的六个段落选择最合适的标题：</p>
 <ol class="quiz">
-  <li>Section 1 → ______</li>
-  <li>Section 2 → ______</li>
-  <li>Section 3 → ______</li>
-  <li>Section 4 → ______</li>
-  <li>Section 5 → ______</li>
-  <li>Section 6 → ______</li>
+  <li>Paragraph 1 → ______</li>
+  <li>Paragraph 2 → ______</li>
+  <li>Paragraph 3 → ______</li>
+  <li>Paragraph 4 → ______</li>
+  <li>Paragraph 5 → ______</li>
+  <li>Paragraph 6 → ______</li>
 </ol>
-<p><b>Headings:</b><br>A. 伪装大师：穿海藻隐形斗篷的小鱼<br>B. stick your neck out<br>C. 今天的两位动物明星<br>D. 选一种动物超能力<br>E. 明天早上见<br>F. 长颈鹿会算数：加法行，减法不行</p>
+<p><b>Headings:</b> A. 开场：今天的两位动物明星 &nbsp;&nbsp; B. 伪装大师：穿海藻隐形斗篷的小鱼 &nbsp;&nbsp; C. 长颈鹿会算数：加法行，减法不行 &nbsp;&nbsp; D. 今日俚语：stick your neck out &nbsp;&nbsp; E. 互动时间：选一种动物超能力 &nbsp;&nbsp; F. 告别：明天早上见</p>
 
 <h3>B. 单项选择（Multiple Choice）</h3>
 <ol class="quiz">
-  <li>这种小鱼为什么叫 Snuffleupagus？<br>A. 它的叫声像 Snuffleupagus<br>B. 它长得像《芝麻街》的 Snuffleupagus<br>C. 它是 Snuffleupagus 发现的<br>D. 它住在芝麻街</li>
-  <li>小鱼身上毛茸茸的丝有什么用？<br>A. 保暖<br>B. 吸引配偶<br>C. 伪装成海藻躲避猎手<br>D. 帮助游泳</li>
-  <li>长颈鹿在实验中表现如何？<br>A. 加减法都很差<br>B. 加法好，减法差<br>C. 减法好，加法差<br>D. 完全靠瞎猜</li>
-  <li>"stick your neck out" 是什么意思？<br>A. 把脖子缩回去<br>B. 冒险、勇敢去做<br>C. 伸懒腰<br>D. 低头认错</li>
+  <li>这种小鱼为什么叫 Snuffleupagus？<br>A. 它的叫声像 Snuffleupagus &nbsp; B. 它长得像《芝麻街》的 Snuffleupagus &nbsp; C. 它是 Snuffleupagus 发现的 &nbsp; D. 它住在芝麻街</li>
+  <li>小鱼身上毛茸茸的丝有什么用？<br>A. 保暖 &nbsp; B. 吸引配偶 &nbsp; C. 伪装成海藻躲避猎手 &nbsp; D. 帮助游泳</li>
+  <li>长颈鹿在实验中表现如何？<br>A. 加减法都很差 &nbsp; B. 加法好，减法差 &nbsp; C. 减法好，加法差 &nbsp; D. 完全靠瞎猜</li>
+  <li>"stick your neck out" 是什么意思？<br>A. 把脖子缩回去 &nbsp; B. 冒险、勇敢去做 &nbsp; C. 伸懒腰 &nbsp; D. 低头认错</li>
 </ol>
 
 
 
-<h2 class="newpage">🔬 Part 4：长难句深度拆解与仿写</h2>
+<h2 class="newpage">🔬 Part 4：长难句深度拆解与练习</h2>
 <div class="breakdown">
 <b>经典原句：</b><br>
 <span class="en" style="border:none;background:none;padding:0;">To get it right, the giraffes <b class="kw">had to remember the first amounts</b>, <b class="kw">then add the new carrots in their heads</b> — without ever seeing the final pile.</span><br><br>
@@ -158,9 +153,29 @@ Part 2：核心词汇</h2>
   <li>破折号后的 <i>without ever seeing the final pile</i> 是<b>介词短语作伴随状语</b>，补充说明实验的难度：全程看不到最终结果。<i>ever</i> 在这里加强语气，相当于"一次都没见过"。</li>
   <li>整句逻辑链：<b>目的（为了选对）→ 步骤一（记住数量）→ 步骤二（心算相加）→ 难度（看不见结果）</b>。一句话把实验规则讲得明明白白，是说明文"讲规则"的万能句型。</li>
 </ul>
-<b>句型仿写：</b><br>
-<i>To win the game, the players had to memorize the map, then find the hidden treasure in their minds — without ever opening their eyes.</i><br>
-（为了赢得比赛，选手们得先记住地图，再在脑子里找到藏着的宝藏——全程不许睁眼。）
+</div>
+<div class="practice">
+<b>句型练习</b>（练的就是上面拆解的三个知识点）<br><br>
+<b>A. 不定式作目的状语：To do 放在句首表目的</b>
+<ol>
+  <li>____________________ the right shell, the crab had to look at each one carefully.</li>
+  <li>____________________ the race, the runners had to stand behind the line.</li>
+</ol>
+<b>B. had to 后的并列动作：先做一件事，再做下一件</b>
+<ol>
+  <li>To finish the puzzle, Leo had to remember the picture, then ____________________ the last pieces in his head.</li>
+  <li>To cross the river, the ducklings had to follow their mother, then ____________________ in a line.</li>
+</ol>
+<b>C. without ever + doing：全程没有做某事</b>
+<ol>
+  <li>The owl hunted at night, without ever ____________________ a sound.</li>
+  <li>Mia solved the riddle without ever ____________________ the answer book.</li>
+</ol>
+<b>D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</b>
+<ol>
+  <li>To find the way home, the ants had to remember the smell, then follow it step by step — without ever seeing the nest.</li>
+  <li>To catch the ball, Tom had to watch it carefully, then move his hands at the right moment — without ever looking down.</li>
+</ol>
 </div>
 
 
@@ -168,11 +183,17 @@ Part 2：核心词汇</h2>
 <div class="pagebreak"></div>
 <h2>✅ Part 5：答案与解析</h2>
 <div class="ans">
-<b>A. 标题配对：</b><br>1 → C（今天的两位动物明星）<br>2 → A（伪装大师：穿海藻隐形斗篷的小鱼）<br>3 → F（长颈鹿会算数：加法行，减法不行）<br>4 → B（stick your neck out）<br>5 → D（选一种动物超能力）<br>6 → E（明天早上见）<br><br><b>B. 单项选择：</b><br>
+<b>A. 标题配对：</b> 1 → A（开场介绍两位动物明星）&nbsp; 2 → B（伪装鱼：海藻隐形斗篷）&nbsp; 3 → C（长颈鹿：加法行减法不行）&nbsp; 4 → D（今日俚语 stick your neck out）&nbsp; 5 → E（结束语+互动问题）&nbsp; 6 → F（告别）<br><br>
+<b>B. 单项选择：</b><br>
 1 → <b>B</b>。原文：<i>they named it after Mr. Snuffleupagus</i>（以 Snuffleupagus 命名），原因是 <i>you cannot unsee the resemblance</i>（长得太像了）。<br>
 2 → <b>C</b>。原文：<i>They are a disguise! ... so hungry hunters swim right past</i>（是伪装！让猎手直接游过去）。注意迷惑项 A：原文明确说 <i>not for keeping warm</i>（不是为了保暖）。<br>
 3 → <b>B</b>。原文：<i>good at addition, but terrible at subtraction</i>（加法在行，减法一塌糊涂）。<br>
 4 → <b>B</b>。原文：<i>It means to take a risk, or to be brave enough to do something difficult</i>（意思是冒险，或勇敢去做困难的事）。
+<br><br><b>C. Part 4 句型练习：</b><br>
+A. 1. To choose&nbsp;&nbsp;2. To start<br>
+B. 1. add&nbsp;&nbsp;2. swim<br>
+C. 1. making&nbsp;&nbsp;2. opening<br>
+D. 翻译练习不提供答案（自己试着译）。
 </div>
 
 <p style="text-align:center; color:#888; margin-top: 30pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
@@ -181,7 +202,7 @@ Part 2：核心词汇</h2>
 
 </div>
 <div class="pdf-dl">
-<a href="Vol03_晚读讲义_伪装鱼与数学长颈鹿_v5.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<a href="Vol03_晚读讲义_伪装鱼与数学长颈鹿.pdf" download>📄 下载本期晚读讲义 PDF</a>
 <p>听完记得做精讲练习，巩固词汇和句型</p>
 </div>
 </div>
@@ -208,21 +229,12 @@ fetch('audio_v2.mp3').then(r => r.blob()).then(blob => {
   blobReady = true;
 });
 
-// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
-// section start so Part 3 heading-matching maps to visible labels in Part 1;
-// per-block section titles removed — they leaked the heading answers)
-let _lastTitle = null, _paraNo = 0;
+// Render blocks
 BLOCKS.forEach((b, i) => {
-  if (b.title !== _lastTitle) {
-    _paraNo++; _lastTitle = b.title;
-    const ph = document.createElement('div');
-    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
-    blocksEl.appendChild(ph);
-  }
   const div = document.createElement('div');
   div.className = 'block'; div.dataset.idx = i;
   const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
-  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.innerHTML = `<div class="sec-title">${escHtml(b.title)}</div><div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
   div.addEventListener('click', () => {
     const t = audio.currentTime;
     if (t >= b.start && t < b.end) {

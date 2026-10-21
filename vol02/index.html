@@ -19,19 +19,13 @@ header .meta { color: #888; font-size: 0.9rem; }
 #playBtn:hover { background: #f07a2e; }
 .progress-wrap { flex: 1; }
 #progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
-/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
-body { cursor: default; }
-.guide { cursor: text; }
-.guide a, .guide button { cursor: pointer; }
-header video { cursor: pointer; }
 .time { font-size: 0.8rem; color: #888; white-space: nowrap; }
 .speeds { display: flex; gap: 8px; }
 .speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
 .speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
-.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
 .block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
 .block.active { border-color: #ff8c42; background: #fff8f2; }
-.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .sec-title { font-size: 0.8rem; color: #ff8c42; font-weight: bold; margin-bottom: 8px; }
 .block .en { font-size: 1.05rem; margin-bottom: 8px; }
 .block .en .w { border-radius: 3px; padding: 1px 0; }
 .block .en .w.hl { background: #ffe082; }
@@ -54,7 +48,9 @@ header video { cursor: pointer; }
 .guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
 .guide .example { font-style: italic; color: #555; margin-top: 6px; }
 .guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
-.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .practice { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8pt; padding: 10pt 14pt; margin: 8pt 0; }
+  .practice li { margin-bottom: 5pt; }
+  .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
 .guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
 .guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
 .guide .cn { color: #555; padding: 6px 14px 10px 18px; }
@@ -85,7 +81,6 @@ header video { cursor: pointer; }
 <img src="story-bee.png" alt="蜜蜂踢足球">
 <img src="story-octopus.png" alt="做梦的章鱼">
 </div>
-<h2 class="part-head">📖 Part 1：双语精读对照</h2>
 <div id="blocks"></div>
 <div class="guide">
 Part 2：核心词汇</h2>
@@ -115,28 +110,28 @@ Part 2：核心词汇</h2>
 <div class="pagebreak"></div>
 <h2>✏️ Part 3：阅读理解自测</h2>
 <h3>A. 标题配对（Match the headings）</h3>
-<p>Part 1 全文共分 6 节（Section 1–6），请为每一节选择最合适的标题：</p>
+<p>请为 Part 1 的六个段落选择最合适的标题：</p>
 <ol class="quiz">
-  <li>Section 1 → ______</li>
-  <li>Section 2 → ______</li>
-  <li>Section 3 → ______</li>
-  <li>Section 4 → ______</li>
-  <li>Section 5 → ______</li>
-  <li>Section 6 → ______</li>
+  <li>Paragraph 1 → ______</li>
+  <li>Paragraph 2 → ______</li>
+  <li>Paragraph 3 → ______</li>
+  <li>Paragraph 4 → ______</li>
+  <li>Paragraph 5 → ______</li>
+  <li>Paragraph 6 → ______</li>
 </ol>
-<p><b>Headings:</b><br>A. honeycomb 的双关<br>B. 今天的两位小天才<br>C. 明天早上见<br>D. 蜜蜂"足球课"：进球就有糖水喝<br>E. 章鱼的梦：皮肤上放电影<br>F. 教动物玩运动</p>
+<p><b>Headings:</b> A. 蜜蜂"足球课"：进球就有糖水喝 &nbsp;&nbsp; B. 章鱼的梦：皮肤上放电影 &nbsp;&nbsp; C. 开场：今天的两位小天才 &nbsp;&nbsp; D. 今日笑话：honeycomb 的双关 &nbsp;&nbsp; E. 互动时间：教动物玩运动 &nbsp;&nbsp; F. 告别：明天早上见</p>
 
 <h3>B. 单项选择（Multiple Choice）</h3>
 <ol class="quiz">
-  <li>蜜蜂把球推进球门后，会得到什么奖励？<br>A. 花蜜<br>B. 糖水<br>C. 花粉<br>D. 什么都没有</li>
-  <li>蜜蜂主要是靠什么学会推球的？<br>A. 自己一次次试出来<br>B. 看"老师蜜蜂"示范<br>C. 科学家手把手教<br>D. 天生就会</li>
-  <li>章鱼深睡时皮肤变颜色，科学家认为最可能的原因是？<br>A. 它感到害怕<br>B. 它可能在做梦<br>C. 海水温度变了<br>D. 它生气了</li>
-  <li>关于章鱼，哪个说法是正确的？<br>A. 章鱼只有一颗心脏<br>B. 章鱼流的是红色的血<br>C. 章鱼有三颗心脏，流蓝色的血<br>D. 章鱼从不睡觉</li>
+  <li>蜜蜂把球推进球门后，会得到什么奖励？<br>A. 花蜜 &nbsp; B. 糖水 &nbsp; C. 花粉 &nbsp; D. 什么都没有</li>
+  <li>蜜蜂主要是靠什么学会推球的？<br>A. 自己一次次试出来 &nbsp; B. 看"老师蜜蜂"示范 &nbsp; C. 科学家手把手教 &nbsp; D. 天生就会</li>
+  <li>章鱼深睡时皮肤变颜色，科学家认为最可能的原因是？<br>A. 它感到害怕 &nbsp; B. 它可能在做梦 &nbsp; C. 海水温度变了 &nbsp; D. 它生气了</li>
+  <li>关于章鱼，哪个说法是正确的？<br>A. 章鱼只有一颗心脏 &nbsp; B. 章鱼流的是红色的血 &nbsp; C. 章鱼有三颗心脏，流蓝色的血 &nbsp; D. 章鱼从不睡觉</li>
 </ol>
 
 
 
-<h2 class="newpage">🔬 Part 4：长难句深度拆解与仿写</h2>
+<h2 class="newpage">🔬 Part 4：长难句深度拆解与练习</h2>
 <div class="breakdown">
 <b>经典原句：</b><br>
 <span class="en" style="border:none;background:none;padding:0;">During these colorful moments, the octopus's brain looks surprisingly awake <b class="kw">— almost as if it is reliving the day</b>, <b class="kw">maybe practicing how to catch a crab</b> or escape from danger, all inside a dream.</span><br><br>
@@ -147,9 +142,29 @@ Part 2：核心词汇</h2>
   <li><i>maybe practicing how to catch a crab</i> 中，<i>practicing...</i> 是<b>现在分词作伴随状语</b>，补充说明"重温"的内容；<i>how to catch</i> 是<b>疑问词 + 不定式</b>作 practicing 的宾语，相当于 how it can catch。</li>
   <li>整句逻辑链：<b>时间背景（在这些彩色时刻）→ 主句（大脑很清醒）→ 仿佛在干什么（重温白天）→ 具体练什么（抓螃蟹）</b>。一句话层层递进，是科普英语描写"科学家推测"的经典句型。</li>
 </ul>
-<b>句型仿写：</b><br>
-<i>During the quiet nights, the old lighthouse looks surprisingly alive — almost as if it is telling stories, maybe guiding the ships that pass by in the dark.</i><br>
-（在寂静的夜里，老灯塔看起来惊人地"活着"——仿佛在讲故事，也许在指引黑夜中经过的船只。）
+</div>
+<div class="practice">
+<b>句型练习</b>（练的就是上面拆解的三个知识点）<br><br>
+<b>A. 系动词 look + 形容词：选出作表语的形容词</b>
+<ol>
+  <li>After the long run, the little robot looks surprisingly ____________________.</li>
+  <li>In the moonlight, the quiet lake looks almost ____________________.</li>
+</ol>
+<b>B. as if 方式从句：说“很可能正在发生的事”用陈述语气</b>
+<ol>
+  <li>The fish moves its fins slowly, almost as if it ____________________ through clear water.</li>
+  <li>The old clock ticks loudly, almost as if it ____________________ to everyone in the room.</li>
+</ol>
+<b>C. 现在分词伴随状语 + how to...：补全句子</b>
+<ol>
+  <li>The young seal played in the water, ____________________ out of the waves.</li>
+  <li>The monkey watched the keeper, ____________________ the box.</li>
+</ol>
+<b>D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</b>
+<ol>
+  <li>In the soft light, the baby panda looks surprisingly calm — almost as if it is listening to a story, practicing how to roll over in the grass.</li>
+  <li>At night, the little owl looks wide awake — almost as if it is reading the moon, learning how to fly from tree to tree.</li>
+</ol>
 </div>
 
 
@@ -157,11 +172,17 @@ Part 2：核心词汇</h2>
 <div class="pagebreak"></div>
 <h2>✅ Part 5：答案与解析</h2>
 <div class="ans">
-<b>A. 标题配对：</b><br>1 → B（今天的两位小天才）<br>2 → D（蜜蜂"足球课"：进球就有糖水喝）<br>3 → E（章鱼的梦：皮肤上放电影）<br>4 → A（honeycomb 的双关）<br>5 → F（教动物玩运动）<br>6 → C（明天早上见）<br><br><b>B. 单项选择：</b><br>
+<b>A. 标题配对：</b> 1 → C（开场介绍今天的两位小天才）&nbsp; 2 → A（蜜蜂足球课：进球得糖水）&nbsp; 3 → B（章鱼的梦：皮肤放电影）&nbsp; 4 → D（今日笑话 honeycomb 双关）&nbsp; 5 → E（结束语+互动问题）&nbsp; 6 → F（告别）<br><br>
+<b>B. 单项选择：</b><br>
 1 → <b>B</b>。原文：<i>it got a sweet drink of sugar water as a prize</i>（得到一杯甜甜的糖水作为奖励）。<br>
 2 → <b>B</b>。原文：<i>They learned by watching! A "teacher bee" showed them how to push the ball</i>（靠看学会："老师蜜蜂"示范推球）。<br>
 3 → <b>B</b>。原文：<i>almost as if it is reliving the day... all inside a dream</i>（仿佛在重温白天……在梦里）。注意这是科学家的推测，用了 almost as if。<br>
 4 → <b>C</b>。原文：<i>octopuses have three hearts and blue blood</i>（章鱼有三颗心脏，蓝色的血）。
+<br><br><b>C. Part 4 句型练习：</b><br>
+A. 1. tired&nbsp;&nbsp;2. alive<br>
+B. 1. is flying&nbsp;&nbsp;2. is talking<br>
+C. 1. practicing how to jump&nbsp;&nbsp;2. learning how to open<br>
+D. 翻译练习不提供答案（自己试着译）。
 </div>
 
 <p style="text-align:center; color:#888; margin-top: 30pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
@@ -170,7 +191,7 @@ Part 2：核心词汇</h2>
 
 </div>
 <div class="pdf-dl">
-<a href="Vol02_晚读讲义_蜜蜂踢足球与会做梦的章鱼_v5.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<a href="Vol02_晚读讲义_蜜蜂踢足球与会做梦的章鱼.pdf" download>📄 下载本期晚读讲义 PDF</a>
 <p>听完记得做精讲练习，巩固词汇和句型</p>
 </div>
 </div>
@@ -197,21 +218,12 @@ fetch('audio.mp3').then(r => r.blob()).then(blob => {
   blobReady = true;
 });
 
-// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
-// section start so Part 3 heading-matching maps to visible labels in Part 1;
-// per-block section titles removed — they leaked the heading answers)
-let _lastTitle = null, _paraNo = 0;
+// Render blocks
 BLOCKS.forEach((b, i) => {
-  if (b.title !== _lastTitle) {
-    _paraNo++; _lastTitle = b.title;
-    const ph = document.createElement('div');
-    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
-    blocksEl.appendChild(ph);
-  }
   const div = document.createElement('div');
   div.className = 'block'; div.dataset.idx = i;
   const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
-  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.innerHTML = `<div class="sec-title">${escHtml(b.title)}</div><div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
   div.addEventListener('click', () => {
     const t = audio.currentTime;
     if (t >= b.start && t < b.end) {

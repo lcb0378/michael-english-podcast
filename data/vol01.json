@@ -5,8 +5,8 @@
  "duration": "5分02秒",
  "cover": "https://lcb0378.github.io/michael-english-podcast/vol01/cover.png",
  "audio": "https://lcb0378.github.io/michael-english-podcast/vol01/audio_v8.mp3",
- "pdf": "https://lcb0378.github.io/michael-english-podcast/vol01/Vol01_晚读讲义_会飞的汽车与194岁的乌龟_v5.pdf",
- "pdfName": "Vol01_晚读讲义_会飞的汽车与194岁的乌龟_v5.pdf",
+ "pdf": "https://lcb0378.github.io/michael-english-podcast/vol01/Vol01_晚读讲义_会飞的汽车与194岁的乌龟_v6.pdf",
+ "pdfName": "Vol01_晚读讲义_会飞的汽车与194岁的乌龟_v6.pdf",
  "blocks": [
   {
    "start": 17.24,
@@ -2586,44 +2586,6 @@
      {
       "type": "text",
       "text": "\n"
-     },
-     {
-      "name": "b",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "句型仿写："
-       }
-      ]
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "\n"
-     },
-     {
-      "name": "i",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "She opened the window that faced the garden, letting the fresh air flow into the room."
-       }
-      ]
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "\n（她打开了那扇朝向花园的窗，让新鲜空气涌进房间。）\n"
      }
     ]
    },
@@ -2877,6 +2839,62 @@
      {
       "type": "text",
       "text": "（储气罐只够用几秒钟）。\n"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 句型练习："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. that show  2. that rings"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. turning  2. keeping"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. that spin / keeping  2. that films / giving"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. 翻译练习不提供答案（自己试着译）。\n"
      }
     ]
    },
@@ -2916,6 +2934,84 @@
     "B",
     "C",
     "B"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. 定语从句：that 在从句中作主语",
+     "items": [
+      {
+       "prompt": "The robot has two bright lights ____ the road at night.",
+       "options": [
+        "that show",
+        "that shows",
+        "that it shows"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "My bike has a small bell ____ when I turn left.",
+       "options": [
+        "that ring",
+        "that rings",
+        "that it rings"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. 现在分词作结果状语：补全结果",
+     "items": [
+      {
+       "prompt": "The wings fold under the car, ____ it into a plane in two minutes.",
+       "options": [
+        "turned",
+        "turn",
+        "turning"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "The pump pushes water out of the boat, ____ it light and safe.",
+       "options": [
+        "keeping",
+        "kept",
+        "keep"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. 综合运用：定语从句 + 结果分词",
+     "items": [
+      {
+       "prompt": "The drone has four wings ____ fast, ____ it steady in the sky.",
+       "options": [
+        "that spins / keeping",
+        "that spin / keeping",
+        "that spin / kept"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "The submarine has a bright camera ____ deep-sea animals, ____ scientists clear pictures.",
+       "options": [
+        "that film / giving",
+        "that films / gave",
+        "that films / giving"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "The little car has a roof that opens by itself, letting the sun shine into the seats.",
+    "The boat has strong lights that work under water, showing the divers a safe way home."
    ]
   }
  },

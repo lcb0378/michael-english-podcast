@@ -5,8 +5,8 @@
  "duration": "4分35秒",
  "cover": "https://lcb0378.github.io/michael-english-podcast/vol02/cover.png",
  "audio": "https://lcb0378.github.io/michael-english-podcast/vol02/audio_v6.mp3",
- "pdf": "https://lcb0378.github.io/michael-english-podcast/vol02/Vol02_晚读讲义_蜜蜂踢足球与会做梦的章鱼_v5.pdf",
- "pdfName": "Vol02_晚读讲义_蜜蜂踢足球与会做梦的章鱼_v5.pdf",
+ "pdf": "https://lcb0378.github.io/michael-english-podcast/vol02/Vol02_晚读讲义_蜜蜂踢足球与会做梦的章鱼_v6.pdf",
+ "pdfName": "Vol02_晚读讲义_蜜蜂踢足球与会做梦的章鱼_v6.pdf",
  "blocks": [
   {
    "start": 18.52,
@@ -2496,44 +2496,6 @@
      {
       "type": "text",
       "text": "\n"
-     },
-     {
-      "name": "b",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "句型仿写："
-       }
-      ]
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "\n"
-     },
-     {
-      "name": "i",
-      "attrs": {},
-      "children": [
-       {
-        "type": "text",
-        "text": "During the quiet nights, the old lighthouse looks surprisingly alive — almost as if it is telling stories, maybe guiding the ships that pass by in the dark."
-       }
-      ]
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "\n（在寂静的夜里，老灯塔看起来惊人地\"活着\"——仿佛在讲故事，也许在指引黑夜中经过的船只。）\n"
      }
     ]
    },
@@ -2787,6 +2749,62 @@
      {
       "type": "text",
       "text": "（章鱼有三颗心脏，蓝色的血）。\n"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 句型练习："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. tired  2. alive"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. is flying  2. is talking"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. practicing how to jump  2. learning how to open"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. 翻译练习不提供答案（自己试着译）。\n"
      }
     ]
    },
@@ -2826,6 +2844,84 @@
     "B",
     "B",
     "C"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. 系动词 look + 形容词：选出作表语的形容词",
+     "items": [
+      {
+       "prompt": "After the long run, the little robot looks surprisingly ____.",
+       "options": [
+        "tired",
+        "tiredly",
+        "tire"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "In the moonlight, the quiet lake looks almost ____.",
+       "options": [
+        "alively",
+        "alive",
+        "live"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. as if 方式从句：说“很可能正在发生的事”用陈述语气",
+     "items": [
+      {
+       "prompt": "The fish moves its fins slowly, almost as if it ____ through clear water.",
+       "options": [
+        "were flying",
+        "fly",
+        "is flying"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "The old clock ticks loudly, almost as if it ____ to everyone in the room.",
+       "options": [
+        "is talking",
+        "were talking",
+        "talk"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. 现在分词伴随状语 + how to...：补全句子",
+     "items": [
+      {
+       "prompt": "The young seal played in the water, ____ out of the waves.",
+       "options": [
+        "practice how to jump",
+        "practicing how to jump",
+        "practicing how jump"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "The monkey watched the keeper, ____ the box.",
+       "options": [
+        "learns how to open",
+        "learning how open",
+        "learning how to open"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "In the soft light, the baby panda looks surprisingly calm — almost as if it is listening to a story, practicing how to roll over in the grass.",
+    "At night, the little owl looks wide awake — almost as if it is reading the moon, learning how to fly from tree to tree."
    ]
   }
  },
