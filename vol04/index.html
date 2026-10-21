@@ -19,6 +19,13 @@ header .meta { color: #888; font-size: 0.9rem; }
 #playBtn:hover { background: #f07a2e; }
 .progress-wrap { flex: 1; }
 #progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形；进度条滑钮做成小手 */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+#progress::-webkit-slider-thumb { -webkit-appearance: none; width: 26px; height: 26px; border-radius: 50%; border: 2px solid #ff8c42; background: #fff url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.78em' font-size='80'%3E%F0%9F%91%86%3C/text%3E%3C/svg%3E") center/16px no-repeat; box-shadow: 0 1px 4px rgba(0,0,0,.25); cursor: pointer; }
+#progress::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #ff8c42; background: #fff; cursor: pointer; }
 .time { font-size: 0.8rem; color: #888; white-space: nowrap; }
 .speeds { display: flex; gap: 8px; }
 .speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
@@ -120,12 +127,12 @@ Part 2：核心词汇</h2>
 </ol>
 <p><b>Headings:</b><br>A. Mars Mission: MMX Brings Home a Piece of Phobos<br>B. See You Tomorrow Morning<br>C. Sgiath, the Super-sniffer Dog<br>D. A Super-sniffer and a Trip to Mars<br>E. have a nose for something<br>F. Train a Dog to Sniff Out One Thing</p>
 
-<h3>B. 单项选择（Multiple Choice）</h3>
+<h3>B. 单项选择（Single Choice）</h3>
 <ol class="quiz">
-  <li>Sgiath 以前是做什么的？<br>A. 山地搜救犬<br>B. 警犬<br>C. 导盲犬<br>D. 宠物犬</li>
-  <li>carpet sea squirt（地毯海鞘）为什么危险？<br>A. 会咬人<br>B. 有毒<br>C. 覆盖牡蛎养殖场、闷死本土海洋生物<br>D. 会吃掉船只</li>
-  <li>MMX 任务的目标是什么？<br>A. 把宇航员送上火星<br>B. 在火星上建基地<br>C. 从 Phobos 取至少十克样品带回地球<br>D. 给火星拍照</li>
-  <li>"have a nose for something" 是什么意思？<br>A. 对某事特别有感觉、有天赋<br>B. 鼻子很大<br>C. 感冒鼻塞<br>D. 闻不到气味</li>
+  <li>What was Sgiath's first job?<br>A. A mountain rescue dog<br>B. A police dog<br>C. A guide dog<br>D. A pet dog</li>
+  <li>Why is the carpet sea squirt dangerous?<br>A. It bites people<br>B. It is poisonous<br>C. It covers oyster farms and smothers the native sea life underneath<br>D. It eats boats</li>
+  <li>What is the goal of the MMX mission?<br>A. To send astronauts to Mars<br>B. To build a base on Mars<br>C. To collect at least ten grams of samples from Phobos and bring them back to Earth<br>D. To take photos of Mars</li>
+  <li>What does "have a nose for something" mean?<br>A. To be very good at finding or understanding something<br>B. To have a very big nose<br>C. To have a cold and a blocked nose<br>D. To be unable to smell anything</li>
 </ol>
 
 
@@ -170,7 +177,7 @@ Part 2：核心词汇</h2>
 
 <h2>✅ Part 5：答案与解析</h2>
 <div class="ans">
-<b>A. Headings:</b><br>1 → D (A Super-sniffer and a Trip to Mars)<br>2 → C (Sgiath, the Super-sniffer Dog)<br>3 → A (Mars Mission: MMX Brings Home a Piece of Phobos)<br>4 → E (have a nose for something)<br>5 → F (Train a Dog to Sniff Out One Thing)<br>6 → B (See You Tomorrow Morning)<br><br><b>B. Multiple Choice:</b><br>
+<b>A. Headings:</b><br>1 → D (A Super-sniffer and a Trip to Mars)<br>2 → C (Sgiath, the Super-sniffer Dog)<br>3 → A (Mars Mission: MMX Brings Home a Piece of Phobos)<br>4 → E (have a nose for something)<br>5 → F (Train a Dog to Sniff Out One Thing)<br>6 → B (See You Tomorrow Morning)<br><br><b>B. Single Choice:</b><br>
 1 → <b>A</b>. The text says: <i>"She began as a mountain rescue dog."</i> Watch out — police dogs and guide dogs never appear in the text.<br>
 2 → <b>C</b>. The text says: <i>"It grows like a dark cloud over oyster farms and smothers the native sea life underneath."</i><br>
 3 → <b>C</b>. The text says the robot arm is <i>"collecting at least ten grams of dust and rocks"</i> for <i>"the long trip home"</i>.<br>
@@ -188,7 +195,7 @@ D. Your own translations — there is no key for this part. Read your Chinese al
 
 </div>
 <div class="pdf-dl">
-<a href="Vol04_晚读讲义_搜救犬Sgiath与火星取土_v5.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<a href="Vol04_晚读讲义_搜救犬Sgiath与火星取土_v6.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
 <p>听完记得做精讲练习，巩固词汇和句型</p>
 </div>
 </div>
