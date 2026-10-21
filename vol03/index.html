@@ -26,7 +26,7 @@ header .meta { color: #888; font-size: 0.9rem; }
 .part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
 .block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
 .block.active { border-color: #ff8c42; background: #fff8f2; }
-.block .sec-title { font-size: 0.8rem; color: #ff8c42; font-weight: bold; margin-bottom: 8px; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
 .block .en { font-size: 1.05rem; margin-bottom: 8px; }
 .block .en .w { border-radius: 3px; padding: 1px 0; }
 .block .en .w.hl { background: #ffe082; }
@@ -120,14 +120,14 @@ Part 2：核心词汇</h2>
 <div class="pagebreak"></div>
 <h2>✏️ Part 3：阅读理解自测</h2>
 <h3>A. 标题配对（Match the headings）</h3>
-<p>请为 Part 1 的六个段落选择最合适的标题：</p>
+<p>Part 1 全文共 6 节（Section 1–6），请为每一节选择最合适的标题：</p>
 <ol class="quiz">
-  <li>Paragraph 1 → ______</li>
-  <li>Paragraph 2 → ______</li>
-  <li>Paragraph 3 → ______</li>
-  <li>Paragraph 4 → ______</li>
-  <li>Paragraph 5 → ______</li>
-  <li>Paragraph 6 → ______</li>
+  <li>Section 1 → ______</li>
+  <li>Section 2 → ______</li>
+  <li>Section 3 → ______</li>
+  <li>Section 4 → ______</li>
+  <li>Section 5 → ______</li>
+  <li>Section 6 → ______</li>
 </ol>
 <p><b>Headings:</b><br>A. 伪装大师：穿海藻隐形斗篷的小鱼<br>B. 今日俚语：stick your neck out<br>C. 开场：今天的两位动物明星<br>D. 互动时间：选一种动物超能力<br>E. 告别：明天早上见<br>F. 长颈鹿会算数：加法行，减法不行</p>
 
@@ -176,7 +176,7 @@ Part 2：核心词汇</h2>
 
 </div>
 <div class="pdf-dl">
-<a href="Vol03_晚读讲义_伪装鱼与数学长颈鹿_v2.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<a href="Vol03_晚读讲义_伪装鱼与数学长颈鹿_v3.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
 <p>听完记得做精讲练习，巩固词汇和句型</p>
 </div>
 </div>
@@ -203,12 +203,21 @@ fetch('audio_v2.mp3').then(r => r.blob()).then(blob => {
   blobReady = true;
 });
 
-// Render blocks
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
 BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
   const div = document.createElement('div');
   div.className = 'block'; div.dataset.idx = i;
   const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
-  div.innerHTML = `<div class="sec-title">${escHtml(b.title)}</div><div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
   div.addEventListener('click', () => {
     const t = audio.currentTime;
     if (t >= b.start && t < b.end) {
