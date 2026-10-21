@@ -5,8 +5,8 @@
  "duration": "5分50秒",
  "cover": "https://lcb0378.github.io/michael-english-podcast/vol04/cover.png",
  "audio": "https://lcb0378.github.io/michael-english-podcast/vol04/audio.mp3",
- "pdf": "https://lcb0378.github.io/michael-english-podcast/vol04/Vol04_晚读讲义_搜救犬Sgiath与火星取土_v6.pdf",
- "pdfName": "Vol04_晚读讲义_搜救犬Sgiath与火星取土_v6.pdf",
+ "pdf": "https://lcb0378.github.io/michael-english-podcast/vol04/Vol04_晚读讲义_搜救犬Sgiath与火星取土_v7.pdf",
+ "pdfName": "Vol04_晚读讲义_搜救犬Sgiath与火星取土_v7.pdf",
  "blocks": [
   {
    "start": 20.91,
@@ -2634,12 +2634,12 @@
     "extra": "Headings:\nA. Mars Mission: MMX Brings Home a Piece of Phobos\nB. See You Tomorrow Morning\nC. Sgiath, the Super-sniffer Dog\nD. A Super-sniffer and a Trip to Mars\nE. have a nose for something\nF. Train a Dog to Sniff Out One Thing"
    },
    {
-    "title": "B. 单项选择（Single Choice）",
+    "title": "B. 单项选择（Multiple Choice）",
     "questions": [
-     "What was Sgiath's first job?\nA. A mountain rescue dog\nB. A police dog\nC. A guide dog\nD. A pet dog",
-     "Why is the carpet sea squirt dangerous?\nA. It bites people\nB. It is poisonous\nC. It covers oyster farms and smothers the native sea life underneath\nD. It eats boats",
-     "What is the goal of the MMX mission?\nA. To send astronauts to Mars\nB. To build a base on Mars\nC. To collect at least ten grams of samples from Phobos and bring them back to Earth\nD. To take photos of Mars",
-     "What does \"have a nose for something\" mean?\nA. To be very good at finding or understanding something\nB. To have a very big nose\nC. To have a cold and a blocked nose\nD. To be unable to smell anything"
+     "Sgiath 以前是做什么的？\nA. 山地搜救犬\nB. 警犬\nC. 导盲犬\nD. 宠物犬",
+     "carpet sea squirt（地毯海鞘）为什么危险？\nA. 会咬人\nB. 有毒\nC. 覆盖牡蛎养殖场、闷死本土海洋生物\nD. 会吃掉船只",
+     "MMX 任务的目标是什么？\nA. 把宇航员送上火星\nB. 在火星上建基地\nC. 从 Phobos 取至少十克样品带回地球\nD. 给火星拍照",
+     "\"have a nose for something\" 是什么意思？\nA. 对某事特别有感觉、有天赋\nB. 鼻子很大\nC. 感冒鼻塞\nD. 闻不到气味"
     ]
    }
   ],
@@ -3352,7 +3352,7 @@
       "children": [
        {
         "type": "text",
-        "text": "B. Single Choice:"
+        "text": "B. Multiple Choice:"
        }
       ]
      },
