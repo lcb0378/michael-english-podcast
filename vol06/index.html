@@ -272,12 +272,107 @@ const CW = {"nrows": 10, "ncols": 14, "words": [{"word": "BARREL", "row": 0, "co
 
 
 <h3>B. 单项选择（Single Choice）</h3>
-<ol class="quiz">
-  <li>How were the dinosaur footprints found?<br>A. A scientist dug them out of a mountain<br>B. A visitor took a photo of strange marks and asked about them online<br>C. Children found them inside a museum<br>D. Rangers found bones beside a river</li>
-  <li>What did the experts confirm about the marks?<br>A. They are footprints of a giant bird<br>B. They were made by people long ago<br>C. They are six footprints of a meat-eating dinosaur<br>D. They are only one hundred years old</li>
-  <li>How is Wyoteuthis different from most belemnites?<br>A. It is much longer than the others<br>B. It has no shell at all<br>C. It lived in a river, not the sea<br>D. It is fat and barrel-shaped, six centimetres wide</li>
-  <li>What does "follow in someone's footsteps" mean?<br>A. To walk behind someone very quietly<br>B. To buy the same shoes as someone<br>C. To do the same things as a person who came before you<br>D. To draw footprints on the ground</li>
-</ol>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. How were the dinosaur footprints found?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. A scientist dug them out of a mountain</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. A visitor took a photo of strange marks and asked about them online</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. Children found them inside a museum</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. Rangers found bones beside a river</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. What did the experts confirm about the marks?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. They are footprints of a giant bird</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. They were made by people long ago</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. They are six footprints of a meat-eating dinosaur</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. They are only one hundred years old</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. How is Wyoteuthis different from most belemnites?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. It is much longer than the others</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. It has no shell at all</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. It lived in a river, not the sea</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. It is fat and barrel-shaped, six centimetres wide</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：D</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does &quot;follow in someone&#x27;s footsteps&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. To walk behind someone very quietly</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. To buy the same shoes as someone</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. To do the same things as a person who came before you</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. To draw footprints on the ground</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：C</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [1, 2, 3, 2];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
 
 
 

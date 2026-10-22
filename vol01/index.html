@@ -250,12 +250,107 @@ const CW = {"nrows": 11, "ncols": 14, "words": [{"word": "SPACESHIP", "row": 9, 
 
 
 <h3>B. 单项选择（Single Choice）</h3>
-<ol class="quiz">
-  <li>How many thrusters does the new sports car have?<br>A. 5<br>B. 10<br>C. 60<br>D. 100</li>
-  <li>Why can the car drive upside down without falling?<br>A. It has wings<br>B. Strong fans underneath suck air out and press the car tightly onto the road<br>C. The car body is very light<br>D. Magic</li>
-  <li>What did scientists find in Jonathan's genes?<br>A. His genes are completely different from other tortoises'<br>B. His genes are messy like an old library<br>C. The chemical patterns around his energy-making genes are unusually neat and orderly<br>D. His genes can make him fly</li>
-  <li>Why can't this "flying car" take you to school yet?<br>A. It is too slow<br>B. The air tanks only last a few seconds<br>C. It cannot turn<br>D. It is too expensive</li>
-</ol>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. How many thrusters does the new sports car have?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. 5</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. 10</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. 60</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. 100</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. Why can the car drive upside down without falling?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. It has wings</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. Strong fans underneath suck air out and press the car tightly onto the road</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. The car body is very light</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. Magic</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. What did scientists find in Jonathan&#x27;s genes?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. His genes are completely different from other tortoises&#x27;</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. His genes are messy like an old library</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. The chemical patterns around his energy-making genes are unusually neat and orderly</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. His genes can make him fly</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. Why can&#x27;t this &quot;flying car&quot; take you to school yet?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. It is too slow</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. The air tanks only last a few seconds</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. It cannot turn</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. It is too expensive</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：B</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [1, 1, 2, 1];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
 
 <h2>🔬 Part 4：长难句深度拆解与练习</h2>
 <div class="breakdown">
