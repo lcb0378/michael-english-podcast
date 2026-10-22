@@ -2185,18 +2185,6 @@
   ],
   "quiz": [
    {
-    "title": "A. 标题配对（Match the headings）",
-    "questions": [
-     "Section 1 → ______",
-     "Section 2 → ______",
-     "Section 3 → ______",
-     "Section 4 → ______",
-     "Section 5 → ______",
-     "Section 6 → ______"
-    ],
-    "extra": "Headings:\nA. A Honeycomb Pun\nB. Two Little Geniuses Today\nC. See You Tomorrow Morning\nD. Bee Soccer School: Score a Goal, Get Sugar Water\nE. The Octopus's Dream: Movies on Its Skin\nF. Teach an Animal a Sport"
-   },
-   {
     "title": "B. 单项选择（Single Choice）",
     "questions": [
      "After a bee pushes the ball into the goal, what does it get as a prize?\nA. Nectar\nB. Sugar water\nC. Pollen\nD. Nothing",
@@ -2509,7 +2497,7 @@
     "children": [
      {
       "type": "text",
-      "text": "\n"
+      "text": "\n1 横 → "
      },
      {
       "name": "b",
@@ -2517,27 +2505,13 @@
       "children": [
        {
         "type": "text",
-        "text": "A. Headings:"
+        "text": "BRAIN"
        }
       ]
      },
      {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
       "type": "text",
-      "text": "1 → B (Two Little Geniuses Today)"
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "2 → D (Bee Soccer School: Score a Goal, Get Sugar Water)"
+      "text": "（大脑）"
      },
      {
       "name": "br",
@@ -2546,7 +2520,21 @@
      },
      {
       "type": "text",
-      "text": "3 → E (The Octopus's Dream: Movies on Its Skin)"
+      "text": "2 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "RELIVE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（重温；再经历）"
      },
      {
       "name": "br",
@@ -2555,7 +2543,21 @@
      },
      {
       "type": "text",
-      "text": "4 → A (A Honeycomb Pun)"
+      "text": "3 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "HONEYCOMB"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（蜂巢）"
      },
      {
       "name": "br",
@@ -2564,7 +2566,21 @@
      },
      {
       "type": "text",
-      "text": "5 → F (Teach an Animal a Sport)"
+      "text": "4 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "DREAM"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（梦）"
      },
      {
       "name": "br",
@@ -2573,7 +2589,136 @@
      },
      {
       "type": "text",
-      "text": "6 → C (See You Tomorrow Morning)"
+      "text": "5 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "GOAL"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（球门；进球）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "OCTOPUS"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（章鱼）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "STRIPE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（条纹）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SUGAR"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（糖）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "HEART"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（心脏）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "BUMBLEBEE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（大黄蜂）"
      },
      {
       "name": "br",
@@ -2824,14 +2969,6 @@
    }
   ],
   "keys": {
-   "headings": [
-    "B",
-    "D",
-    "E",
-    "A",
-    "F",
-    "C"
-   ],
    "choice": [
     "B",
     "B",

@@ -28,8 +28,8 @@ rate: 1,
 rates: [0.9, 1, 1.1, 1.5],
 seeking: false,
 // 互动答题（2026-10-21）：Part 3 点选 + Part 4 句型练习点选，核对判分
-quizVm: null, keysH: [], keyC: [], keyCL: [],
-selH: [], markH: [], selC: [], markC: [], selP: [], markP: [],
+quizVm: null, keyC: [], keyCL: [],
+selC: [], markC: [], selP: [], markP: [], cwAnsGrid: [],
 score3: '', score4: '',
 // 讲义富文本标签默认样式（排版标准 v1：正文 28/1.8，段距 16）
 tagStyle: {
@@ -179,17 +179,18 @@ bgm.play();
 },
 
 // ---- 互动答题（2026-10-21 定版）：点选 → 核对答案 → 对勾/叉号 + 正确答案，可改可重做 ----
+// Part 3 = A 填字（guide.crossword）+ B 单项选择（guide.quiz 里按标题定位）。
+// 标题配对（headings）已于 2026-10-22 被填字取代并彻底删除——数据、生成器、
+// 本文件三处都不再有 headings 逻辑，勿再引入。
 _buildQuiz(ep) {
 const g = ep.guide || {};
 const keys = g.keys || {};
-const st = { quizVm: null, keysH: [], keyC: [], keyCL: [], selH: [], markH: [], selC: [], markC: [], selP: [], markP: [], score3: '', score4: '', cwVm: null, cwSel: -1, cwFilled: [], cwMark: [], cwScore: '', cwGrid: [], cwUsed: [] };
-if (keys.headings && keys.headings.length && g.quiz && g.quiz.length >= 2) {
-const headingsOpts = [];
-(g.quiz[0].extra || '').split('\n').slice(1).forEach((ln) => {
-const m = ln.match(/^([A-F])[.、]\s*(.*)$/);
-if (m) headingsOpts.push({ letter: m[1], text: m[2], i: headingsOpts.length });
-});
-const choiceQs = (g.quiz[1].questions || []).map((q) => {
+const st = { quizVm: null, keyC: [], keyCL: [], selC: [], markC: [], selP: [], markP: [], score3: '', score4: '', cwVm: null, cwSel: -1, cwFilled: [], cwMark: [], cwScore: '', cwGrid: [], cwUsed: [], cwAnsGrid: [] };
+const hasCw = !!(g.crossword && g.crossword.words && g.crossword.words.length);
+const choiceSec = (g.quiz || []).find((q) => /单项选择|Single Choice/.test(q.title || ''));
+let choiceQs = [];
+if (choiceSec && keys.choice && keys.choice.length) {
+choiceQs = (choiceSec.questions || []).map((q) => {
 const lines = q.split('\n');
 const options = [];
 lines.slice(1).forEach((ln) => {
@@ -198,19 +199,15 @@ if (m) options.push(m[1] + '. ' + m[2]);
 });
 return { stem: lines[0], options };
 });
-const hasCw = !!(g.crossword && g.crossword.words && g.crossword.words.length);
-const choiceOk = keys.choice && choiceQs.length === keys.choice.length;
-const headingsOk = !hasCw && keys.headings && headingsOpts.length === keys.headings.length;
-if (choiceOk && (headingsOk || hasCw)) {
-st.quizVm = { headingsOpts, choiceQs };
+if (choiceQs.length !== keys.choice.length) choiceQs = [];
+}
+if (choiceQs.length || hasCw) {
+st.quizVm = { choiceTitle: choiceQs.length ? choiceSec.title : '', choiceQs };
+if (choiceQs.length) {
 st.keyC = keys.choice.map((L) => L.charCodeAt(0) - 65);
 st.keyCL = keys.choice;
 st.selC = keys.choice.map(() => -1);
 st.markC = keys.choice.map(() => null);
-if (headingsOk) {
-st.keysH = keys.headings;
-st.selH = keys.headings.map(() => -1);
-st.markH = keys.headings.map(() => null);
 }
 }
 if (hasCw) {
@@ -225,7 +222,8 @@ st.cwUsed = ws.map(() => false);
 st.cwMark = ws.map(() => null);
 st.cwScore = '';
 st.cwGrid = this._cwGrid(g.crossword, st.cwFilled, -1, st.cwMark);
-}
+// Part 5 答案格：用正解填满的静态格（与网页/PDF 的答案格同一副数据）
+st.cwAnsGrid = this._cwGrid(g.crossword, ws.map((w) => w.word), -1, ws.map(() => null));
 }
 if (g.practice && g.practice.groups) {
 st.selP = g.practice.groups.map((gr) => gr.items.map(() => -1));
@@ -236,11 +234,7 @@ return st;
 
 _set(path, val) { const d = {}; d[path] = val; this.setData(d); },
 
-pickH(e) {
-const i = +e.currentTarget.dataset.i, o = +e.currentTarget.dataset.o;
-this._set(`selH[${i}]`, o);
-if (this.data.markH[i] !== null) this._set(`markH[${i}]`, null);
-},
+
 
 pickC(e) {
 const q = +e.currentTarget.dataset.q, o = +e.currentTarget.dataset.o;
@@ -249,16 +243,16 @@ if (this.data.markC[q] !== null) this._set(`markC[${q}]`, null);
 },
 
 check3() {
-const { selH, keysH, selC, keyC, quizVm } = this.data;
+// Part 3 核对 = 只判 B 单项选择（A 填字有自己的 cwCheck）
+const { selC, keyC } = this.data;
 let right = 0;
-const total = keysH.length + keyC.length;
-const markH = selH.map((s, i) => { const ok = s >= 0 && quizVm.headingsOpts[s].letter === keysH[i]; if (ok) right++; return ok; });
+const total = keyC.length;
 const markC = selC.map((s, i) => { const ok = s === keyC[i]; if (ok) right++; return ok; });
-this.setData({ markH, markC, score3: right === total ? `🎉 ${right} / ${total}，全部答对，就是今日 MVP！` : `答对 ${right} / ${total} 题，改一改错题，再核对一次。` });
+this.setData({ markC, score3: right === total ? `🎉 ${right} / ${total}，全部答对，就是今日 MVP！` : `答对 ${right} / ${total} 题，改一改错题，再核对一次。` });
 },
 
 reset3() {
-this.setData({ selH: this.data.keysH.map(() => -1), markH: this.data.keysH.map(() => null), selC: this.data.keyC.map(() => -1), markC: this.data.keyC.map(() => null), score3: '' });
+this.setData({ selC: this.data.keyC.map(() => -1), markC: this.data.keyC.map(() => null), score3: '' });
 },
 
 // ---- 填字游戏（2026-10-21 新增，替代 Part 3 标题配对）：点提示/格子选词条 → 点词库填入 → 核对判分 ----

@@ -2622,18 +2622,6 @@
   ],
   "quiz": [
    {
-    "title": "A. 标题配对（Match the headings）",
-    "questions": [
-     "Section 1 → ______",
-     "Section 2 → ______",
-     "Section 3 → ______",
-     "Section 4 → ______",
-     "Section 5 → ______",
-     "Section 6 → ______"
-    ],
-    "extra": "Headings:\nA. Mars Mission: MMX Brings Home a Piece of Phobos\nB. See You Tomorrow Morning\nC. Sgiath, the Super-sniffer Dog\nD. A Super-sniffer and a Trip to Mars\nE. have a nose for something\nF. Train a Dog to Sniff Out One Thing"
-   },
-   {
     "title": "B. 单项选择（Single Choice）",
     "questions": [
      "What was Sgiath's first job?\nA. A mountain rescue dog\nB. A police dog\nC. A guide dog\nD. A pet dog",
@@ -2988,7 +2976,7 @@
     "children": [
      {
       "type": "text",
-      "text": "\n"
+      "text": "\n1 横 → "
      },
      {
       "name": "b",
@@ -2996,27 +2984,13 @@
       "children": [
        {
         "type": "text",
-        "text": "A. Headings:"
+        "text": "ABROAD"
        }
       ]
      },
      {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
       "type": "text",
-      "text": "1 → D (A Super-sniffer and a Trip to Mars)"
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "2 → C (Sgiath, the Super-sniffer Dog)"
+      "text": "（在国外；到国外）"
      },
      {
       "name": "br",
@@ -3025,7 +2999,21 @@
      },
      {
       "type": "text",
-      "text": "3 → A (Mars Mission: MMX Brings Home a Piece of Phobos)"
+      "text": "2 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ASTEROID"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（小行星）"
      },
      {
       "name": "br",
@@ -3034,7 +3022,21 @@
      },
      {
       "type": "text",
-      "text": "4 → E (have a nose for something)"
+      "text": "3 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "RESCUE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（搜救；救援）"
      },
      {
       "name": "br",
@@ -3043,7 +3045,21 @@
      },
      {
       "type": "text",
-      "text": "5 → F (Train a Dog to Sniff Out One Thing)"
+      "text": "4 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "HARBOUR"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（港口）"
      },
      {
       "name": "br",
@@ -3052,7 +3068,136 @@
      },
      {
       "type": "text",
-      "text": "6 → B (See You Tomorrow Morning)"
+      "text": "5 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "GRAVITY"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（重力）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SAMPLE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（样本）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SILK"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（丝绸）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "LABRADOR"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（拉布拉多犬）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "AWAKE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（醒着的）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "CAPSULE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（太空舱；密封舱）"
      },
      {
       "name": "br",
@@ -3313,14 +3458,6 @@
    }
   ],
   "keys": {
-   "headings": [
-    "D",
-    "C",
-    "A",
-    "E",
-    "F",
-    "B"
-   ],
    "choice": [
     "A",
     "C",

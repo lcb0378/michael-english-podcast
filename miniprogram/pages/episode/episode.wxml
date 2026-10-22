@@ -86,28 +86,13 @@
         </view>
         <text wx:if="{{cwScore}}" class="score">{{cwScore}}</text>
         </block>
-        <block wx:if="{{!ep.guide.crossword}}">
-        <view class="g-h3">{{ep.guide.quiz[0].title}}</view>
-        <text class="q-note">Part 1 全文共分 6 节（Section 1–6），请为每一节选择最合适的标题。点字母选好后，点下方「核对答案」看对错。</text>
-        <view wx:for="{{keysH}}" wx:for-index="ri" wx:key="ri" class="hq-row">
-          <view class="hq-label">Section {{ri+1}}</view>
-          <view class="chips">
-            <view wx:for="{{quizVm.headingsOpts}}" wx:for-item="ho" wx:key="letter" class="chip {{selH[ri]===ho.i ? 'sel ' : ''}}{{markH[ri]!==null && ho.letter===keysH[ri] ? 'right' : ''}} {{markH[ri]===false && selH[ri]===ho.i ? 'wrong' : ''}}" data-i="{{ri}}" data-o="{{ho.i}}" bindtap="pickH">{{ho.letter}}</view>
-          </view>
-          <text wx:if="{{markH[ri]===true}}" class="mark-ok">✓</text>
-          <text wx:if="{{markH[ri]===false}}" class="mark-no">✗</text>
-        </view>
-        <view class="hq-ref">
-          <text wx:for="{{quizVm.headingsOpts}}" wx:key="letter" class="q-line">{{item.letter}}. {{item.text}}</text>
-        </view>
-        </block>
-        <view class="g-h3">{{ep.guide.quiz[1].title}}</view>
+        <view wx:if="{{quizVm.choiceTitle}}" class="g-h3">{{quizVm.choiceTitle}}</view>
         <block wx:for="{{quizVm.choiceQs}}" wx:for-index="qi" wx:key="qi">
           <text class="q">{{qi+1}}. {{item.stem}}</text>
           <view wx:for="{{item.options}}" wx:for-item="op" wx:for-index="oi" wx:key="*this" class="opt {{selC[qi]===oi ? 'sel ' : ''}}{{markC[qi]!==null && oi===keyC[qi] ? 'right' : ''}} {{markC[qi]===false && selC[qi]===oi ? 'wrong' : ''}}" data-q="{{qi}}" data-o="{{oi}}" bindtap="pickC">{{op}}</view>
           <text wx:if="{{markC[qi]===false}}" class="ans-line">正确答案：{{keyCL[qi]}}</text>
         </block>
-        <view class="check-row">
+        <view wx:if="{{quizVm.choiceQs.length}}" class="check-row">
           <view class="check-btn" bindtap="check3">✔ 核对答案</view>
           <view class="reset-btn" bindtap="reset3">重做</view>
         </view>
@@ -116,7 +101,6 @@
       <block wx:else>
         <block wx:for="{{ep.guide.quiz}}" wx:for-index="si" wx:key="title">
           <view class="g-h3">{{item.title}}</view>
-          <text wx:if="{{si===0}}" class="q-note">Part 1 全文共分 6 节（Section 1–6），请为每一节选择最合适的标题。</text>
           <block wx:for="{{item.questions}}" wx:for-index="qi" wx:key="qi">
             <text class="q">{{qi+1}}. {{item}}</text>
           </block>
@@ -158,6 +142,18 @@
     <!-- Part 5 答案 -->
     <view wx:if="{{ep.guide.answers_nodes}}" class="g-sec">
       <view class="g-h2">✅ Part 5：答案与解析</view>
+      <!-- 填字答案格（正解填满的静态格，与网页版/PDF 同一副数据）；其后的富文本是逐词答案表 -->
+      <block wx:if="{{ep.guide.crossword}}">
+        <view class="g-h3">A. Crossword 填字答案</view>
+        <view class="cw-grid">
+          <view wx:for="{{cwAnsGrid}}" wx:for-item="row" wx:for-index="r" wx:key="r" class="cw-row">
+            <view wx:for="{{row}}" wx:for-item="cell" wx:for-index="c" wx:key="c" class="cw-cell {{cell.blank ? 'blk' : ''}}">
+              <text wx:if="{{cell.num}}" class="cw-num">{{cell.num}}</text>
+              <text class="cw-letter">{{cell.letter}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
       <rich-text class="rt" tag-style="{{tagStyle}}" nodes="{{ep.guide.answers_nodes}}"></rich-text>
     </view>
   </view>

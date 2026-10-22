@@ -2569,18 +2569,6 @@
   ],
   "quiz": [
    {
-    "title": "A. 标题配对（Match the headings）",
-    "questions": [
-     "Section 1 → ______",
-     "Section 2 → ______",
-     "Section 3 → ______",
-     "Section 4 → ______",
-     "Section 5 → ______",
-     "Section 6 → ______"
-    ],
-    "extra": "Headings:\nA. A Shrimp with Light-switch Eyes\nB. Two Kings and a Tiny Shrimp\nC. Hang Up Your Boots\nD. What Would You Say to Your Hero?\nE. See You Tomorrow Morning\nF. One Last Game for the King of Football"
-   },
-   {
     "title": "B. 单项选择（Single Choice）",
     "questions": [
      "How did Messi do in his farewell match?\nA. He did not play in the game\nB. He was the goalkeeper\nC. He scored one goal and made two assists\nD. He scored three goals",
@@ -2965,7 +2953,7 @@
     "children": [
      {
       "type": "text",
-      "text": "\n"
+      "text": "\n1 竖 → "
      },
      {
       "name": "b",
@@ -2973,27 +2961,13 @@
       "children": [
        {
         "type": "text",
-        "text": "A. Headings:"
+        "text": "BRAIN"
        }
       ]
      },
      {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
       "type": "text",
-      "text": "1 → B (Two Kings and a Tiny Shrimp)"
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "2 → F (One Last Game for the King of Football)"
+      "text": "（大脑）"
      },
      {
       "name": "br",
@@ -3002,7 +2976,21 @@
      },
      {
       "type": "text",
-      "text": "3 → A (A Shrimp with Light-switch Eyes)"
+      "text": "2 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "RIVAL"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（对手）"
      },
      {
       "name": "br",
@@ -3011,7 +2999,21 @@
      },
      {
       "type": "text",
-      "text": "4 → C (Hang Up Your Boots)"
+      "text": "3 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ASSIST"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（助攻）"
      },
      {
       "name": "br",
@@ -3020,7 +3022,21 @@
      },
      {
       "type": "text",
-      "text": "5 → D (What Would You Say to Your Hero?)"
+      "text": "4 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PUNCH"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（重击）"
      },
      {
       "name": "br",
@@ -3029,7 +3045,136 @@
      },
      {
       "type": "text",
-      "text": "6 → E (See You Tomorrow Morning)"
+      "text": "5 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "INSPIRE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（激励）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "RESPECT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（尊敬）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SHRIMP"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（虾）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SWITCH"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（开关；转换）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "FAREWELL"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（告别）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PIGMENT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（色素）"
      },
      {
       "name": "br",
@@ -3290,14 +3435,6 @@
    }
   ],
   "keys": {
-   "headings": [
-    "B",
-    "F",
-    "A",
-    "C",
-    "D",
-    "E"
-   ],
    "choice": [
     "C",
     "A",

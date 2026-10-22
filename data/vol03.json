@@ -2525,18 +2525,6 @@
   ],
   "quiz": [
    {
-    "title": "A. 标题配对（Match the headings）",
-    "questions": [
-     "Section 1 → ______",
-     "Section 2 → ______",
-     "Section 3 → ______",
-     "Section 4 → ______",
-     "Section 5 → ______",
-     "Section 6 → ______"
-    ],
-    "extra": "Headings:\nA. Master of Disguise: A Fish in a Seaweed Cloak\nB. stick your neck out\nC. Two Animal Stars Today\nD. Choose an Animal Superpower\nE. See You Tomorrow Morning\nF. Giraffes Can Count: Good at Adding, Bad at Taking Away"
-   },
-   {
     "title": "B. 单项选择（Single Choice）",
     "questions": [
      "Why is this little fish called Snuffleupagus?\nA. Its sound is like Snuffleupagus\nB. It looks like Snuffleupagus from Sesame Street\nC. Snuffleupagus discovered it\nD. It lives on Sesame Street",
@@ -2919,7 +2907,7 @@
     "children": [
      {
       "type": "text",
-      "text": "\n"
+      "text": "\n1 横 → "
      },
      {
       "name": "b",
@@ -2927,27 +2915,13 @@
       "children": [
        {
         "type": "text",
-        "text": "A. Headings:"
+        "text": "SPECIES"
        }
       ]
      },
      {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
       "type": "text",
-      "text": "1 → C (Two Animal Stars Today)"
-     },
-     {
-      "name": "br",
-      "attrs": {},
-      "children": []
-     },
-     {
-      "type": "text",
-      "text": "2 → A (Master of Disguise: A Fish in a Seaweed Cloak)"
+      "text": "（物种）"
      },
      {
       "name": "br",
@@ -2956,7 +2930,21 @@
      },
      {
       "type": "text",
-      "text": "3 → F (Giraffes Can Count: Good at Adding, Bad at Taking Away)"
+      "text": "2 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "CARROT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（胡萝卜）"
      },
      {
       "name": "br",
@@ -2965,7 +2953,21 @@
      },
      {
       "type": "text",
-      "text": "4 → B (stick your neck out)"
+      "text": "3 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SUBTRACTION"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（减法）"
      },
      {
       "name": "br",
@@ -2974,7 +2976,21 @@
      },
      {
       "type": "text",
-      "text": "5 → D (Choose an Animal Superpower)"
+      "text": "4 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "DISGUISE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（伪装；装扮）"
      },
      {
       "name": "br",
@@ -2983,7 +2999,136 @@
      },
      {
       "type": "text",
-      "text": "6 → E (See You Tomorrow Morning)"
+      "text": "5 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "CAMOUFLAGE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（伪装；保护色）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "GIRAFFE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（长颈鹿）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ADDITION"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（加法）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SEAHORSE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（海马）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ALGAE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（藻类）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "RESEMBLANCE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（相似；相像）"
      },
      {
       "name": "br",
@@ -3262,14 +3407,6 @@
    }
   ],
   "keys": {
-   "headings": [
-    "C",
-    "A",
-    "F",
-    "B",
-    "D",
-    "E"
-   ],
    "choice": [
     "B",
     "C",
