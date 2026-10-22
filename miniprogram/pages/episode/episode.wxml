@@ -163,8 +163,8 @@
   </view>
 
   <view class="pdf-dl">
-    <button class="pdf-btn" bindtap="downloadPdf">📄 下载本期晚读讲义 PDF</button>
-    <button class="pdf-btn ra-btn2" bindtap="openReadalong">🌐 网页跟读版（边听边看高亮）</button>
+    <view class="pdf-btn" bindtap="downloadPdf">📄 下载本期晚读讲义 PDF</view>
+    <view class="pdf-btn ra-btn2" bindtap="openReadalong">🌐 网页跟读版（边听边看高亮）</view>
     <view class="pdf-tip">想打印出来做？点第一个下载 PDF；想边听边跟读，点第二个复制链接、去浏览器打开</view>
   </view>
   </block>

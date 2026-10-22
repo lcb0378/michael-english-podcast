@@ -32,8 +32,8 @@
 .cn { color: #666; font-size: 30rpx; line-height: 1.8; }
 /* 下载区 */
 .pdf-dl { text-align: center; background: #fff; border-radius: 20rpx; padding: 36rpx 28rpx; margin-top: 24rpx; }
-/* 底部两钮等宽等高单行（2026-10-22 David 定版）：微信 button 默认宽仅 ~368rpx，长文案会折行把绿钮撑高；一律整行 100% 宽、不折行 */
-.pdf-btn { background: #ff8c42; color: #fff; font-size: 28rpx; border-radius: 40rpx; padding: 10rpx 0; width: 100%; box-sizing: border-box; white-space: nowrap; }
+/* 底部两钮（2026-10-22 David 两轮定版）：① 必须用 view 不用原生 button——原生 button 自带宽/行高会让长文案先折行撑高（v17 前）、改 nowrap 后又溢出背景切字（v17）；② 整行 100% 宽、字号 26、两侧内边距 24rpx 留边、单行不折行，两钮同类同尺寸 */
+.pdf-btn { background: #ff8c42; color: #fff; font-size: 26rpx; line-height: 1.6; text-align: center; border-radius: 40rpx; padding: 12rpx 24rpx; width: 100%; box-sizing: border-box; white-space: nowrap; }
 .pdf-tip { color: #999; font-size: 24rpx; line-height: 1.6; margin-top: 16rpx; }
 .loading { text-align: center; color: #999; padding: 100rpx 0; font-size: 28rpx; }
 /* 晚读讲义 */
