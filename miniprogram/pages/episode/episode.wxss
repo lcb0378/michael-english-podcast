@@ -1,6 +1,6 @@
 /* ===== 排版标准 v1（2026-10-20 定版，全期共用） =====
    字号阶梯：T1 主标题 36/700｜T2 区块标题 32/700｜T3 小节标题 30/700
-   正文：跟读英文 32/行高1.9｜通用正文 28/行高1.8｜辅助 26/行高1.7｜注释 24/行高1.6
+   正文：跟读英文 34/行高1.9｜通用正文 30/行高1.8｜辅助 26/行高1.7｜注释 24/行高1.6（2026-10-22 真机反馈上调一号；加粗一律同字号 700）
    间距：卡片内边距 28｜卡片间隔 20｜区块间隔 40｜段落间隔 16｜标题下 16
    颜色：标题 #222｜正文 #333｜次级 #666｜注释 #999｜橙 #ff8c42｜蓝 #1a56db
    圆角：卡片 20｜小框 12 ==================================== */
@@ -27,9 +27,9 @@
 .block.active { border-color: #ff8c42; background: #fff8f2; }
 .sec-head { font-size: 30rpx; line-height: 1.6; color: #1a56db; font-weight: 700; margin: 40rpx 0 16rpx; padding-bottom: 10rpx; border-bottom: 2rpx solid #dbeafe; }
 .q-note { display: block; font-size: 26rpx; line-height: 1.7; color: #666; margin-bottom: 16rpx; }
-.en { font-size: 32rpx; line-height: 1.9; color: #222; margin-bottom: 12rpx; }
+.en { font-size: 34rpx; line-height: 1.9; color: #222; margin-bottom: 12rpx; }
 .w.hl { background: #ffe082; border-radius: 6rpx; }
-.cn { color: #666; font-size: 28rpx; line-height: 1.8; }
+.cn { color: #666; font-size: 30rpx; line-height: 1.8; }
 /* 下载区 */
 .pdf-dl { text-align: center; background: #fff; border-radius: 20rpx; padding: 36rpx 28rpx; margin-top: 24rpx; }
 .pdf-btn { background: #ff8c42; color: #fff; font-size: 28rpx; border-radius: 40rpx; padding: 10rpx 0; }
@@ -46,13 +46,13 @@
 .vocab:last-child { margin-bottom: 0; }
 .v-word { font-size: 32rpx; font-weight: bold; line-height: 1.4; color: #222; margin-bottom: 8rpx; }
 .v-phon { color: #999; font-size: 26rpx; font-weight: normal; }
-.v-meaning { font-size: 28rpx; line-height: 1.8; color: #333; margin-bottom: 8rpx; }
+.v-meaning { font-size: 30rpx; line-height: 1.8; color: #333; margin-bottom: 8rpx; }
 .v-example { font-size: 26rpx; line-height: 1.7; color: #666; font-style: italic; }
-.q { display: block; font-size: 28rpx; line-height: 1.8; color: #333; margin-bottom: 16rpx; }
+.q { display: block; font-size: 30rpx; line-height: 1.8; color: #333; margin-bottom: 16rpx; }
 .q:last-child { margin-bottom: 0; }
 .q-extra { display: block; font-size: 26rpx; line-height: 1.75; color: #666; background: #f5f5f5; border-radius: 12rpx; padding: 20rpx; margin-top: 16rpx; }
 /* 讲义富文本（Part 4/5）：正文同级 28/1.8，段距由 tag-style 补齐 */
-.rt { font-size: 28rpx; line-height: 1.8; color: #333; }
+.rt { font-size: 30rpx; line-height: 1.8; color: #333; }
 
 /* 互动答题（2026-10-21）：点选/判分样式，数值按排版标准 v1 */
 .hq-row { display: flex; align-items: center; gap: 10rpx; margin: 12rpx 0; flex-wrap: nowrap; }
@@ -64,7 +64,7 @@
 .chip.wrong { border-color: #e5484d; background: #fdecec; color: #c62f35; font-weight: 700; }
 .hq-ref { background: #f5f5f5; border-radius: 12rpx; padding: 20rpx; margin: 16rpx 0 8rpx; }
 .q-line { display: block; font-size: 26rpx; line-height: 1.75; color: #666; }
-.opt { font-size: 28rpx; line-height: 1.6; color: #333; border: 2rpx solid #e2e8f0; border-radius: 12rpx; padding: 14rpx 18rpx; margin: 10rpx 0; background: #fff; }
+.opt { font-size: 30rpx; line-height: 1.6; color: #333; border: 2rpx solid #e2e8f0; border-radius: 12rpx; padding: 14rpx 18rpx; margin: 10rpx 0; background: #fff; }
 .opt.sel { border-color: #ff8c42; background: #fff3e8; }
 .opt.right { border-color: #22a06b; background: #e7f8f0; }
 .opt.wrong { border-color: #e5484d; background: #fdecec; }
