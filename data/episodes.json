@@ -4,10 +4,10 @@
   "title": "恐龙脚印与侏罗纪胖鱿鱼",
   "words": 589,
   "duration": "6分06秒",
-  "cover": "https://lcb0378.github.io/michael-english-podcast/vol06/cover.png",
-  "audio": "https://lcb0378.github.io/michael-english-podcast/vol06/audio.mp3",
-  "video": "https://lcb0378.github.io/michael-english-podcast/vol06/video_v1.mp4",
-  "pdf": "https://lcb0378.github.io/michael-english-podcast/vol06/Vol06_晚读讲义_恐龙脚印与侏罗纪胖鱿鱼_v1.pdf",
+  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol06/cover.png",
+  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol06/audio.mp3",
+  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol06/video_v1.mp4",
+  "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol06/Vol06_晚读讲义_恐龙脚印与侏罗纪胖鱿鱼_v1.pdf",
   "pdfName": "Vol06_晚读讲义_恐龙脚印与侏罗纪胖鱿鱼_v1.pdf"
  },
  {
@@ -41,7 +41,7 @@
   "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol03/audio_v2.mp3",
   "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol03/Vol03_晚读讲义_伪装鱼与数学长颈鹿_v9.pdf",
   "pdfName": "Vol03_晚读讲义_伪装鱼与数学长颈鹿_v8.pdf",
-  "video": "https://lcb0378.github.io/michael-english-podcast/vol03/video_v4.mp4"
+  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol03/video_v4.mp4"
  },
  {
   "id": "vol02",
