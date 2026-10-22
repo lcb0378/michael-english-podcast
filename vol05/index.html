@@ -123,17 +123,134 @@ Part 2：核心词汇</h2>
 
 
 <h2>✏️ Part 3：阅读理解自测</h2>
-<h3>A. 标题配对（Match the headings）</h3>
-<p>Part 1 全文共分 6 节（Section 1–6），请为每一节选择最合适的标题：</p>
-<ol class="quiz">
-  <li>Section 1 → ______</li>
-  <li>Section 2 → ______</li>
-  <li>Section 3 → ______</li>
-  <li>Section 4 → ______</li>
-  <li>Section 5 → ______</li>
-  <li>Section 6 → ______</li>
-</ol>
-<p><b>Headings:</b><br>A. A Shrimp with Light-switch Eyes<br>B. Two Kings and a Tiny Shrimp<br>C. Hang Up Your Boots<br>D. What Would You Say to Your Hero?<br>E. See You Tomorrow Morning<br>F. One Last Game for the King of Football</p>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 12, "ncols": 12, "words": [{"word": "FAREWELL", "row": 8, "col": 1, "dir": "A", "num": 9, "cn": "告别", "clue": "A goodbye. Example: It was his ______ match — his last game for his country."}, {"word": "SHRIMP", "row": 6, "col": 3, "dir": "D", "num": 7, "cn": "虾", "clue": "A small sea animal. Example: The mantis ______ has the most amazing eyes."}, {"word": "RESPECT", "row": 4, "col": 6, "dir": "D", "num": 6, "cn": "尊敬", "clue": "A strong feeling of looking up to someone. Example: Ronaldo wrote to Messi: “You have all my ______.”"}, {"word": "INSPIRE", "row": 4, "col": 1, "dir": "A", "num": 5, "cn": "激励", "clue": "To make people feel they can do great things. Example: Their story will ______ young players for years to come."}, {"word": "PIGMENT", "row": 10, "col": 0, "dir": "A", "num": 10, "cn": "色素", "clue": "A tiny part inside the eye that catches light and makes colours. Example: One ______ in the shrimp's eye works like a tiny light switch."}, {"word": "SWITCH", "row": 6, "col": 6, "dir": "A", "num": 8, "cn": "开关；转换", "clue": "To turn something on or off. Example: Red light can ______ them on, and blue light can turn them back off."}, {"word": "BRAIN", "row": 0, "col": 2, "dir": "D", "num": 1, "cn": "大脑", "clue": "The part inside your head that thinks and makes pictures. Example: Pigments catch light and turn it into pictures for the ______."}, {"word": "RIVAL", "row": 1, "col": 2, "dir": "A", "num": 2, "cn": "对手", "clue": "A person or team you compete against. Example: Ronaldo was Messi's greatest ______ for twenty years."}, {"word": "ASSIST", "row": 1, "col": 9, "dir": "D", "num": 3, "cn": "助攻", "clue": "In football, helping a teammate to score a goal. Example: He made an ______, and his teammate put the ball in the net."}, {"word": "PUNCH", "row": 2, "col": 11, "dir": "D", "num": 4, "cn": "重击", "clue": "A hard hit with your fist. Example: The shrimp's ______ is faster than a speeding bullet."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
 
 <h3>B. 单项选择（Single Choice）</h3>
 <ol class="quiz">
@@ -186,7 +303,7 @@ Part 2：核心词汇</h2>
 
 <h2>✅ Part 5：答案与解析</h2>
 <div class="ans">
-<b>A. Headings:</b><br>1 → B (Two Kings and a Tiny Shrimp)<br>2 → F (One Last Game for the King of Football)<br>3 → A (A Shrimp with Light-switch Eyes)<br>4 → C (Hang Up Your Boots)<br>5 → D (What Would You Say to Your Hero?)<br>6 → E (See You Tomorrow Morning)<br><br><b>B. Single Choice:</b><br>
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">1</span><span class="cwl">B</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">2</span><span class="cwl">R</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">V</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">3</span><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">P</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">5</span><span class="cwl">I</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwn">6</span><span class="cwl">R</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">7</span><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">8</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">W</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">H</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">P</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">9</span><span class="cwl">F</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">W</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">10</span><span class="cwl">P</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">G</span></td><td class="cwc"><span class="cwl">M</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">P</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr></table></div>1 竖 → <b>BRAIN</b>（大脑）<br>2 横 → <b>RIVAL</b>（对手）<br>3 竖 → <b>ASSIST</b>（助攻）<br>4 竖 → <b>PUNCH</b>（重击）<br>5 横 → <b>INSPIRE</b>（激励）<br>6 竖 → <b>RESPECT</b>（尊敬）<br>7 竖 → <b>SHRIMP</b>（虾）<br>8 横 → <b>SWITCH</b>（开关；转换）<br>9 横 → <b>FAREWELL</b>（告别）<br>10 横 → <b>PIGMENT</b>（色素）<br><br><b>B. Single Choice:</b><br>
 1 → <b>C</b>. The text says: <i>"he scored one goal and made two assists."</i> The goalkeeper and the three goals never appear in the text.<br>
 2 → <b>A</b>. The text says Ronaldo <i>"left a message under Messi's post"</i> and called Messi's career <i>"a story that will live on forever."</i><br>
 3 → <b>B</b>. The text says: <i>"four of the pigments work like tiny light switches."</i> Our eyes have three kinds of color sensors — the shrimp has many more.<br>
@@ -204,7 +321,7 @@ D. Your own translations — there is no key for this part. Read your Chinese al
 
 </div>
 <div class="pdf-dl">
-<a href="Vol05_晚读讲义_梅西告别阿根廷与皮皮虾的超级眼睛_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<a href="Vol05_晚读讲义_梅西告别阿根廷与皮皮虾的超级眼睛_v2.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
 <p>听完记得做精讲练习，巩固词汇和句型</p>
 </div>
 </div>
