@@ -125,7 +125,8 @@ const n = parseInt(String(e.id).replace(/\D/g, ''), 10) || 0;
 return n >= r.start && n <= r.end;
 });
 this.setData({ episodes: list, listIntoView: '' }, () => {
-this.setData({ listIntoView: 'ep-top' });
+if (list.length > 10) { this.setData({ listIntoView: 'ep-top' }); }
+else { setTimeout(() => { wx.pageScrollTo({ selector: '#ep-anchor', duration: 0 }); }, 50); }
 });
 },
 

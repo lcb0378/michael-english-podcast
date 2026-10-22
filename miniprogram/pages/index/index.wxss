@@ -1,11 +1,10 @@
 /* 主页样式 — 与播放页共用排版标准 v1（字号阶梯/间距/颜色见 episode.wxss 头注）
-   布局（2026-10-20 David 定版）：整页 100vh 固定不滚，只有节目单区域内部滚动——
-   做到几百期页面也不变长；迷你播放条 fixed 悬浮，永远在屏幕底部可见。 */
-page { height: 100vh; }
-.container { height: 100vh; box-sizing: border-box; display: flex; flex-direction: column; padding: 24rpx 28rpx 32rpx; }
-.banner, .title, .desc, .section-title, .how { flex-shrink: 0; }
-.ep-list { flex: 1; min-height: 0; }
-.range-bar { flex-shrink: 0; height: 76rpx; white-space: nowrap; margin-bottom: 16rpx; }
+   布局（2026-10-22 David 改版，取代 2026-10-20 的整页锁定版）：整页自然滚动；
+   节目单 ≤10 期平铺在页面里滑屏看，>10 期封顶 10 张卡高度（卡高 188＋间距 20，
+   10 张＝2060rpx）改为列表内部滚动并显示滚动条；迷你播放条 fixed 悬浮底部。 */
+.container { box-sizing: border-box; padding: 24rpx 28rpx 32rpx; }
+.ep-list { height: 2060rpx; }
+.range-bar { height: 76rpx; white-space: nowrap; margin-bottom: 16rpx; }
 .range-chip { display: inline-flex; align-items: center; height: 60rpx; padding: 0 28rpx; margin-right: 14rpx; background: #fff; color: #666; font-size: 26rpx; line-height: 1.5; border-radius: 999rpx; vertical-align: top; }
 .range-chip.active { background: #ff8c42; color: #fff; font-weight: bold; }
 .banner { width: 100%; height: 340rpx; border-radius: 20rpx; margin-bottom: 24rpx; }

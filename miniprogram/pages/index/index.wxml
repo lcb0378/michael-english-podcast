@@ -5,11 +5,12 @@
   <view class="title">🎧 Michael 的早听晚读</view>
   <view class="desc">每天一期双语播客：早上听故事磨耳朵，晚上读讲义练精读。献给每一个想学好英语的人。</view>
 
-  <view class="section-title">📻 节目单</view>
+  <view class="section-title" id="ep-anchor">📻 节目单</view>
   <scroll-view wx:if="{{ranges.length > 1}}" class="range-bar" scroll-x="true" show-scrollbar="false">
     <view wx:for="{{ranges}}" wx:key="start" class="range-chip {{activeRange === index ? 'active' : ''}}" bindtap="selectRange" data-idx="{{index}}">{{item.label}}</view>
   </scroll-view>
-  <scroll-view class="ep-list" scroll-y="true" scroll-into-view="{{listIntoView}}">
+  <!-- 节目单（2026-10-22 定版）：≤10 期整页平铺、手指滑屏看；>10 期封顶 10 张卡高度、列表内部滚动并显示滚动条 -->
+  <scroll-view wx:if="{{episodes.length > 10}}" class="ep-list" scroll-y="true" show-scrollbar="true" scroll-into-view="{{listIntoView}}">
     <block wx:for="{{episodes}}" wx:key="id">
       <view class="ep-card" id="{{index === 0 ? 'ep-top' : ''}}" bindtap="goEpisode" data-id="{{item.id}}">
         <image class="ep-cover" src="{{item.cover}}" mode="aspectFill"></image>
@@ -22,12 +23,25 @@
     </block>
     <view wx:if="{{nowPlaying}}" class="np-spacer"></view>
   </scroll-view>
+  <view wx:else class="ep-list-flow">
+    <block wx:for="{{episodes}}" wx:key="id">
+      <view class="ep-card" id="{{index === 0 ? 'ep-top' : ''}}" bindtap="goEpisode" data-id="{{item.id}}">
+        <image class="ep-cover" src="{{item.cover}}" mode="aspectFill"></image>
+        <view class="ep-info">
+          <view class="ep-title">{{item.id}} · {{item.title}}</view>
+          <view class="ep-meta">英文 {{item.words}} 词 ｜ 音频 {{item.duration}}</view>
+        </view>
+        <view class="ep-arrow">›</view>
+      </view>
+    </block>
+  </view>
 
   <view class="section-title">📖 怎么学</view>
   <view class="how">
     <view class="how-item"><text class="how-emoji">🎧</text><text>早听：跟读页点开即播，英文高亮跟到哪读到哪</text></view>
     <view class="how-item"><text class="how-emoji">📄</text><text>晚读：下载讲义 PDF，做词汇、阅读理解和句型练习</text></view>
   </view>
+  <view wx:if="{{nowPlaying}}" class="np-spacer"></view>
   </block>
 
   <!-- 底部迷你播放器：有节目在背景播放时出现 -->
