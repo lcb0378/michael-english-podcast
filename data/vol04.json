@@ -5,8 +5,8 @@
  "duration": "5分50秒",
  "cover": "https://lcb0378.github.io/michael-english-podcast/vol04/cover.png",
  "audio": "https://lcb0378.github.io/michael-english-podcast/vol04/audio.mp3",
- "pdf": "https://lcb0378.github.io/michael-english-podcast/vol04/Vol04_晚读讲义_搜救犬Sgiath与火星取土_v7.pdf",
- "pdfName": "Vol04_晚读讲义_搜救犬Sgiath与火星取土_v7.pdf",
+ "pdf": "https://lcb0378.github.io/michael-english-podcast/vol04/Vol04_晚读讲义_搜救犬Sgiath与火星取土_v8.pdf",
+ "pdfName": "Vol04_晚读讲义_搜救犬Sgiath与火星取土_v8.pdf",
  "blocks": [
   {
    "start": 20.91,
@@ -3404,6 +3404,102 @@
    "open": [
     "The little robot is believed to be the first machine in the world built to clean the deep sea — a quiet helper, also known as \"the Sea Sweeper\".",
     "My grandpa is believed to be the first man in our village trained to fix old radios — a kind man, also known as \"Doctor Radio\"."
+   ]
+  },
+  "crossword": {
+   "nrows": 16,
+   "ncols": 10,
+   "words": [
+    {
+     "word": "LABRADOR",
+     "row": 11,
+     "col": 0,
+     "dir": "A",
+     "num": 8,
+     "cn": "拉布拉多犬",
+     "clue": "A friendly, clever dog breed that loves people — and food. Example: Sgiath is a six-year-old black ______ from the Scottish Highlands."
+    },
+    {
+     "word": "SILK",
+     "row": 9,
+     "col": 0,
+     "dir": "D",
+     "num": 7,
+     "cn": "丝绸",
+     "clue": "A soft, smooth, expensive cloth. Example: The landing must be as gentle as ______."
+    },
+    {
+     "word": "HARBOUR",
+     "row": 5,
+     "col": 3,
+     "dir": "D",
+     "num": 4,
+     "cn": "港口",
+     "clue": "A place by the sea where boats and ships can stay safely. Example: The sea creature has spread across ______s in Britain."
+    },
+    {
+     "word": "GRAVITY",
+     "row": 6,
+     "col": 1,
+     "dir": "A",
+     "num": 5,
+     "cn": "重力",
+     "clue": "The force that pulls things down. Example: ______ on Phobos is very weak, so the landing must be as gentle as silk."
+    },
+    {
+     "word": "AWAKE",
+     "row": 11,
+     "col": 4,
+     "dir": "D",
+     "num": 9,
+     "cn": "醒着的",
+     "clue": "Not sleeping. Example: Back on Earth, the whole team will be wide ______ for an exciting activity."
+    },
+    {
+     "word": "CAPSULE",
+     "row": 13,
+     "col": 3,
+     "dir": "A",
+     "num": 10,
+     "cn": "太空舱；密封舱",
+     "clue": "A small closed container that carries something precious. Example: The whole team will be wide awake — opening the ______ and reading the story in the dust."
+    },
+    {
+     "word": "ASTEROID",
+     "row": 0,
+     "col": 5,
+     "dir": "D",
+     "num": 2,
+     "cn": "小行星",
+     "clue": "A rock that travels around the sun in space. Example: Was Phobos a passing ______ caught by Mars long ago?"
+    },
+    {
+     "word": "ABROAD",
+     "row": 0,
+     "col": 1,
+     "dir": "A",
+     "num": 1,
+     "cn": "在国外；到国外",
+     "clue": "In or from another country. Example: This creature came from ______, from waters near Japan."
+    },
+    {
+     "word": "RESCUE",
+     "row": 3,
+     "col": 0,
+     "dir": "A",
+     "num": 3,
+     "cn": "搜救；救援",
+     "clue": "Saving someone or something from danger. Example: Sgiath began as a mountain ______ dog."
+    },
+    {
+     "word": "SAMPLE",
+     "row": 8,
+     "col": 9,
+     "dir": "D",
+     "num": 6,
+     "cn": "样本",
+     "clue": "A small piece of something that scientists study carefully. Example: A small capsule will house the precious ______s for the long trip home."
+    }
    ]
   }
  },

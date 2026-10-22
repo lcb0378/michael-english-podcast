@@ -5,8 +5,8 @@
  "duration": "5分28秒",
  "cover": "https://lcb0378.github.io/michael-english-podcast/vol03/cover.png",
  "audio": "https://lcb0378.github.io/michael-english-podcast/vol03/audio_v2.mp3",
- "pdf": "https://lcb0378.github.io/michael-english-podcast/vol03/Vol03_晚读讲义_伪装鱼与数学长颈鹿_v8.pdf",
- "pdfName": "Vol03_晚读讲义_伪装鱼与数学长颈鹿_v8.pdf",
+ "pdf": "https://lcb0378.github.io/michael-english-podcast/vol03/Vol03_晚读讲义_伪装鱼与数学长颈鹿_v9.pdf",
+ "pdfName": "Vol03_晚读讲义_伪装鱼与数学长颈鹿_v9.pdf",
  "blocks": [
   {
    "start": 17.07,
@@ -3353,6 +3353,102 @@
    "open": [
     "To find the way home, the ants had to remember the smell, then follow it step by step — without ever seeing the nest.",
     "To catch the ball, Tom had to watch it carefully, then move his hands at the right moment — without ever looking down."
+   ]
+  },
+  "crossword": {
+   "nrows": 13,
+   "ncols": 16,
+   "words": [
+    {
+     "word": "RESEMBLANCE",
+     "row": 12,
+     "col": 3,
+     "dir": "A",
+     "num": 10,
+     "cn": "相似；相像",
+     "clue": "How much two things look like each other. Example: Put it next to a picture of Snuffleupagus, and you cannot unsee the ______!"
+    },
+    {
+     "word": "SEAHORSE",
+     "row": 5,
+     "col": 4,
+     "dir": "D",
+     "num": 8,
+     "cn": "海马",
+     "clue": "A small sea animal shaped like a tiny horse; the ghost pipefish is its cousin. Example: It is a type of ghost pipefish, a cousin of ______s."
+    },
+    {
+     "word": "CAMOUFLAGE",
+     "row": 3,
+     "col": 6,
+     "dir": "D",
+     "num": 5,
+     "cn": "伪装；保护色",
+     "clue": "The colors and shapes that hide an animal from hungry hunters. Example: Would you choose ______ like the ghost pipefish, or a giraffe's long neck?"
+    },
+    {
+     "word": "ADDITION",
+     "row": 4,
+     "col": 6,
+     "dir": "A",
+     "num": 7,
+     "cn": "加法",
+     "clue": "Putting numbers together, like 3 + 4. Example: The giraffes were good at ______, but terrible at taking numbers away."
+    },
+    {
+     "word": "GIRAFFE",
+     "row": 3,
+     "col": 9,
+     "dir": "D",
+     "num": 6,
+     "cn": "长颈鹿",
+     "clue": "The tall animal with the longest neck in the world. Example: A ______ might be better at math than you are."
+    },
+    {
+     "word": "ALGAE",
+     "row": 6,
+     "col": 0,
+     "dir": "A",
+     "num": 9,
+     "cn": "藻类",
+     "clue": "Simple plants that grow in water. Example: Red, hair-like ______ floats in the water on coral reefs."
+    },
+    {
+     "word": "CARROT",
+     "row": 0,
+     "col": 12,
+     "dir": "D",
+     "num": 2,
+     "cn": "胡萝卜",
+     "clue": "An orange vegetable that giraffes love to eat. Example: The scientist put ______s into two boxes where the giraffes could see them."
+    },
+    {
+     "word": "DISGUISE",
+     "row": 3,
+     "col": 2,
+     "dir": "D",
+     "num": 4,
+     "cn": "伪装；装扮",
+     "clue": "Something that makes you look like something else. Example: Those shaggy threads are not for keeping warm — they are a ______!"
+    },
+    {
+     "word": "SPECIES",
+     "row": 0,
+     "col": 9,
+     "dir": "A",
+     "num": 1,
+     "cn": "物种",
+     "clue": "A group of animals or plants of the same kind. Example: Scientists proved it was a brand-new ______."
+    },
+    {
+     "word": "SUBTRACTION",
+     "row": 0,
+     "col": 15,
+     "dir": "D",
+     "num": 3,
+     "cn": "减法",
+     "clue": "Taking numbers away, like 9 − 4. Example: The giraffes were good at addition, but terrible at ______."
+    }
    ]
   }
  },

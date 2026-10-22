@@ -5,8 +5,8 @@
  "duration": "4分35秒",
  "cover": "https://lcb0378.github.io/michael-english-podcast/vol02/cover.png",
  "audio": "https://lcb0378.github.io/michael-english-podcast/vol02/audio_v6.mp3",
- "pdf": "https://lcb0378.github.io/michael-english-podcast/vol02/Vol02_晚读讲义_蜜蜂踢足球与会做梦的章鱼_v8.pdf",
- "pdfName": "Vol02_晚读讲义_蜜蜂踢足球与会做梦的章鱼_v8.pdf",
+ "pdf": "https://lcb0378.github.io/michael-english-podcast/vol02/Vol02_晚读讲义_蜜蜂踢足球与会做梦的章鱼_v9.pdf",
+ "pdfName": "Vol02_晚读讲义_蜜蜂踢足球与会做梦的章鱼_v9.pdf",
  "blocks": [
   {
    "start": 18.52,
@@ -2915,6 +2915,102 @@
    "open": [
     "In the soft light, the baby panda looks surprisingly calm — almost as if it is listening to a story, practicing how to roll over in the grass.",
     "At night, the little owl looks wide awake — almost as if it is reading the moon, learning how to fly from tree to tree."
+   ]
+  },
+  "crossword": {
+   "nrows": 10,
+   "ncols": 13,
+   "words": [
+    {
+     "word": "BUMBLEBEE",
+     "row": 8,
+     "col": 3,
+     "dir": "A",
+     "num": 9,
+     "cn": "大黄蜂",
+     "clue": "A big, round, fuzzy bee. Example: Scientists actually trained ______s to push a tiny ball into a tiny goal!"
+    },
+    {
+     "word": "OCTOPUS",
+     "row": 3,
+     "col": 4,
+     "dir": "D",
+     "num": 6,
+     "cn": "章鱼",
+     "clue": "A sea animal with eight arms, three hearts and blue blood. Example: The ______ might be dreaming in color."
+    },
+    {
+     "word": "HONEYCOMB",
+     "row": 0,
+     "col": 6,
+     "dir": "D",
+     "num": 3,
+     "cn": "蜂巢",
+     "clue": "The wax house where bees keep their honey. Example: A comb is for your hair, and a ______ is where bees keep their honey."
+    },
+    {
+     "word": "STRIPE",
+     "row": 3,
+     "col": 8,
+     "dir": "D",
+     "num": 7,
+     "cn": "条纹",
+     "clue": "A long, thin band of color. Example: Its skin flashes with ______s, spots and waves of color while it sleeps."
+    },
+    {
+     "word": "GOAL",
+     "row": 1,
+     "col": 5,
+     "dir": "A",
+     "num": 5,
+     "cn": "球门；进球",
+     "clue": "In soccer, you score when the ball goes into it. Example: The bee pushed the ball into the tiny ______!"
+    },
+    {
+     "word": "SUGAR",
+     "row": 3,
+     "col": 8,
+     "dir": "A",
+     "num": 7,
+     "cn": "糖",
+     "clue": "The sweet white stuff that bees love. Example: The bee's prize was a sweet drink of ______ water."
+    },
+    {
+     "word": "DREAM",
+     "row": 0,
+     "col": 11,
+     "dir": "D",
+     "num": 4,
+     "cn": "梦",
+     "clue": "The pictures and stories in your mind while you sleep. Example: You might be watching someone else's ______!"
+    },
+    {
+     "word": "HEART",
+     "row": 5,
+     "col": 0,
+     "dir": "A",
+     "num": 8,
+     "cn": "心脏",
+     "clue": "The part of your body that pumps blood. Example: Octopuses have three ______s and blue blood."
+    },
+    {
+     "word": "RELIVE",
+     "row": 0,
+     "col": 1,
+     "dir": "D",
+     "num": 2,
+     "cn": "重温；再经历",
+     "clue": "To experience something again, as if it is happening once more. Example: In its dream, the octopus may ______ the day — practicing how to catch a crab."
+    },
+    {
+     "word": "BRAIN",
+     "row": 0,
+     "col": 0,
+     "dir": "A",
+     "num": 1,
+     "cn": "大脑",
+     "clue": "The thinking part inside your head. Example: For a ______ smaller than a grain of rice, that is amazing."
+    }
    ]
   }
  },

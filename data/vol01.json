@@ -5,8 +5,8 @@
  "duration": "5分02秒",
  "cover": "https://lcb0378.github.io/michael-english-podcast/vol01/cover.png",
  "audio": "https://lcb0378.github.io/michael-english-podcast/vol01/audio_v8.mp3",
- "pdf": "https://lcb0378.github.io/michael-english-podcast/vol01/Vol01_晚读讲义_会飞的汽车与194岁的乌龟_v8.pdf",
- "pdfName": "Vol01_晚读讲义_会飞的汽车与194岁的乌龟_v8.pdf",
+ "pdf": "https://lcb0378.github.io/michael-english-podcast/vol01/Vol01_晚读讲义_会飞的汽车与194岁的乌龟_v9.pdf",
+ "pdfName": "Vol01_晚读讲义_会飞的汽车与194岁的乌龟_v9.pdf",
  "blocks": [
   {
    "start": 17.24,
@@ -3005,6 +3005,102 @@
    "open": [
     "The little car has a roof that opens by itself, letting the sun shine into the seats.",
     "The boat has strong lights that work under water, showing the divers a safe way home."
+   ]
+  },
+  "crossword": {
+   "nrows": 11,
+   "ncols": 14,
+   "words": [
+    {
+     "word": "SPACESHIP",
+     "row": 9,
+     "col": 3,
+     "dir": "A",
+     "num": 10,
+     "cn": "宇宙飞船",
+     "clue": "A vehicle made for travelling in space. Example: The thrusters are just like the ones on a ______."
+    },
+    {
+     "word": "ROCKET",
+     "row": 5,
+     "col": 7,
+     "dir": "D",
+     "num": 7,
+     "cn": "火箭",
+     "clue": "A tall vehicle that flies into the sky with fire and power. Example: It is the same idea that lifts a ______ off the ground."
+    },
+    {
+     "word": "THRUSTER",
+     "row": 5,
+     "col": 0,
+     "dir": "A",
+     "num": 6,
+     "cn": "推进器",
+     "clue": "A small engine that pushes out powerful bursts of air. Example: The car has ten small ______s built into its body."
+    },
+    {
+     "word": "BARREL",
+     "row": 2,
+     "col": 2,
+     "dir": "D",
+     "num": 5,
+     "cn": "桶（barrel roll = 桶滚）",
+     "clue": "A big round container; in this story it names a flying trick. Example: The car did a complete ______ roll in the air and landed safely."
+    },
+    {
+     "word": "ORDERLY",
+     "row": 6,
+     "col": 7,
+     "dir": "A",
+     "num": 8,
+     "cn": "整齐有序的",
+     "clue": "Neat and well organized, not messy at all. Example: The patterns around his energy-making genes are unusually neat and ______."
+    },
+    {
+     "word": "GENES",
+     "row": 1,
+     "col": 4,
+     "dir": "D",
+     "num": 2,
+     "cn": "基因",
+     "clue": "The instruction books inside your body that carry the secrets of how you grow. Example: Scientists studied Jonathan's ______ to learn the secrets of his long life."
+    },
+    {
+     "word": "CHARGE",
+     "row": 0,
+     "col": 6,
+     "dir": "D",
+     "num": 1,
+     "cn": "电量；充电",
+     "clue": "The power stored in a battery. Example: The car can still drive three hundred miles on one ______."
+    },
+    {
+     "word": "ISLAND",
+     "row": 1,
+     "col": 9,
+     "dir": "D",
+     "num": 3,
+     "cn": "岛屿",
+     "clue": "Land with water all around it. Example: Jonathan lives on a small ______ in the Atlantic Ocean called Saint Helena."
+    },
+    {
+     "word": "RAMP",
+     "row": 6,
+     "col": 11,
+     "dir": "D",
+     "num": 9,
+     "cn": "斜坡；坡道",
+     "clue": "A slope that cars or people go up. Example: The car drove up a huge curved ______, then flew into the air."
+    },
+    {
+     "word": "TORTOISE",
+     "row": 2,
+     "col": 0,
+     "dir": "D",
+     "num": 4,
+     "cn": "乌龟；陆龟",
+     "clue": "A slow land animal with a hard shell that can live a very long time. Example: Jonathan is a giant ______ who is 194 years old."
+    }
    ]
   }
  },
