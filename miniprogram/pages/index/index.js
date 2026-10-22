@@ -116,8 +116,9 @@ this.setData({ ranges, activeRange: 0});
 this._applyRange(0);
 },
 
-// 列表只显示所选数字段内的节目（保持最新在前的顺序），并滚回段首
-_applyRange(idx) {
+// 列表只显示所选数字段内的节目（保持最新在前的顺序）。
+// 回滚定位只在用户点按数字段时做（scroll=true）；程序打开/初始加载绝不自动滚动，页面停在顶部（2026-10-22 David 反馈修正）
+_applyRange(idx, scroll) {
 const r = (this.data.ranges || [])[idx];
 if (!r) { this.setData({ episodes: this.data.allEpisodes || [] }); return; }
 const list = (this.data.allEpisodes || []).filter(e => {
@@ -125,6 +126,7 @@ const n = parseInt(String(e.id).replace(/\D/g, ''), 10) || 0;
 return n >= r.start && n <= r.end;
 });
 this.setData({ episodes: list, listIntoView: '' }, () => {
+if (!scroll) return;
 if (list.length > 10) { this.setData({ listIntoView: 'ep-top' }); }
 else { setTimeout(() => { wx.pageScrollTo({ selector: '#ep-anchor', duration: 0 }); }, 50); }
 });
@@ -134,7 +136,7 @@ selectRange(e) {
 const idx = Number(e.currentTarget.dataset.idx);
 if (idx === this.data.activeRange) return;
 this.setData({ activeRange: idx });
-this._applyRange(idx);
+this._applyRange(idx, true);
 },
 
 goEpisode(e) {
