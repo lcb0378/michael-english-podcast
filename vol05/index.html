@@ -64,7 +64,7 @@ header video { cursor: pointer; }
 <body>
 <div class="container">
 <header>
-<video id="epVideo" src="video_v3.mp4" poster="cover.png" controls playsinline preload="metadata"></video>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol05/video_v3.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol05/cover.png" controls playsinline preload="metadata"></video>
 <h1>⚽ Vol.05 · 梅西告别阿根廷与皮皮虾的超级眼睛</h1>
 <div class="meta">英文 596 词 ｜ 音频 5分46秒</div>
 </header>
@@ -82,8 +82,8 @@ header video { cursor: pointer; }
 </div>
 </div>
 <div class="story-strip">
-<img src="story-messi.png" alt="梅西的告别战">
-<img src="story-shrimp.png" alt="皮皮虾的超级眼睛">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol05/story-messi.png" alt="梅西的告别战">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol05/story-shrimp.png" alt="皮皮虾的超级眼睛">
 </div>
 <h2 class="part-head">📖 Part 1：双语精读对照</h2>
 <div id="blocks"></div>
@@ -321,7 +321,7 @@ D. Your own translations — there is no key for this part. Read your Chinese al
 
 </div>
 <div class="pdf-dl">
-<a href="Vol05_晚读讲义_梅西告别阿根廷与皮皮虾的超级眼睛_v2.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol05/Vol05_晚读讲义_梅西告别阿根廷与皮皮虾的超级眼睛_v2.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
 <p>听完记得做精讲练习，巩固词汇和句型</p>
 </div>
 </div>
@@ -343,7 +343,7 @@ const blocksEl = document.getElementById('blocks');
 let rafId = null, seeking = false, blobReady = false;
 
 // Load audio as blob for reliable seeking on Chromium
-fetch('audio.mp3').then(r => r.blob()).then(blob => {
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol05/audio.mp3').then(r => r.blob()).then(blob => {
   audio.src = URL.createObjectURL(blob);
   blobReady = true;
 });

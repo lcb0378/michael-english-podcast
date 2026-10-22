@@ -64,7 +64,7 @@ header video { cursor: pointer; }
 <body>
 <div class="container">
 <header>
-<video id="epVideo" src="video_v3.mp4" poster="cover.png" controls playsinline preload="metadata"></video>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol03/video_v3.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol03/cover.png" controls playsinline preload="metadata"></video>
 <h1>🐟 Vol.03 · 伪装鱼Snuffleupagus与会算数的长颈鹿</h1>
 <div class="meta">英文 586 词 ｜ 音频 5分28秒</div>
 </header>
@@ -82,8 +82,8 @@ header video { cursor: pointer; }
 </div>
 </div>
 <div class="story-strip">
-<img src="story-fish.png" alt="伪装鱼 Snuffleupagus">
-<img src="story-giraffe.png" alt="会算数的长颈鹿">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol03/story-fish.png" alt="伪装鱼 Snuffleupagus">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol03/story-giraffe.png" alt="会算数的长颈鹿">
 </div>
 <h2 class="part-head">📖 Part 1：双语精读对照</h2>
 <div id="blocks"></div>
@@ -321,7 +321,7 @@ D. Your own translations — there is no key for this part. Read your Chinese al
 
 </div>
 <div class="pdf-dl">
-<a href="Vol03_晚读讲义_伪装鱼与数学长颈鹿_v9.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol03/Vol03_晚读讲义_伪装鱼与数学长颈鹿_v9.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
 <p>听完记得做精讲练习，巩固词汇和句型</p>
 </div>
 </div>
@@ -343,7 +343,7 @@ const blocksEl = document.getElementById('blocks');
 let rafId = null, seeking = false, blobReady = false;
 
 // Load audio as blob for reliable seeking on Chromium
-fetch('audio_v2.mp3').then(r => r.blob()).then(blob => {
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol03/audio_v2.mp3').then(r => r.blob()).then(blob => {
   audio.src = URL.createObjectURL(blob);
   blobReady = true;
 });
