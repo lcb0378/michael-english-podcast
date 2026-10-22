@@ -73,7 +73,7 @@
         </view>
         <view class="g-h3">提示 Clues（按编号顺序）</view>
         <view wx:for="{{cwVm.list}}" wx:key="i" class="cw-clue {{cwSel===item.i ? 'sel' : ''}}" data-i="{{item.i}}" bindtap="cwTapClue">
-          <text><b>{{item.w.num}}.</b> <text class="cw-dir">{{item.w.dir==='A' ? '横' : '竖'}}</text> {{item.w.clue}}</text>
+          <text><b>{{item.w.num}} {{item.w.dir==='A' ? '横' : '竖'}}.</b> {{item.w.clue}}</text>
           <text wx:if="{{cwMark[item.i]===true}}" class="mark-ok">✓</text>
           <text wx:if="{{cwMark[item.i]===false}}" class="mark-no">✗</text>
         </view>
