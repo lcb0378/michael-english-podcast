@@ -9,7 +9,7 @@
       <view class="meta">英文 {{ep.words}} 词 ｜ 音频 {{ep.duration}}</view>
     </view>
     <view class="head-btns">
-      <view class="dl-btn" bindtap="downloadPdf">📄 下载讲义</view>
+      <view class="dl-btn" bindtap="downloadPdf">📄 下载 PDF 讲义</view>
       <view class="dl-btn ra-btn" bindtap="openReadalong">🌐 网页跟读版</view>
     </view>
   </view>
