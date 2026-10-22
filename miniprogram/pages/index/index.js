@@ -1,7 +1,7 @@
 // 首页：节目单从服务器动态加载，加新节目不用重新上传小程序
 // 底部迷你播放器：背景音频在别的期目页播放时，
 // 返回主页也能看到正在播哪一期，并能暂停/继续/停止（David 要求）。
-const DATA_BASE = 'https://lcb0378.github.io/michael-english-podcast/data';
+const DATA_BASE = 'https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/data';
 
 const bgm = wx.getBackgroundAudioManager();
 const RANGE_SIZE = 20; // 数字段大小：每 20 期一段（1–20、21–40、41–60…）

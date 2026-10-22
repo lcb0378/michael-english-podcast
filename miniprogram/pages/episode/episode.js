@@ -4,7 +4,7 @@
 // 旧代码只在 `!bgm.src` 时才赋值，导致切到任何一期都继续播第一次打开的那期。
 // 修订原则：用 app.globalData.bgmEpId 记录“当前 src 属于哪一期”，
 // 凡归属不是本期，播放/点段/拖动都先换源；页面卸载时解绑自己注册的监听。
-const DATA_BASE = 'https://lcb0378.github.io/michael-english-podcast/data';
+const DATA_BASE = 'https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/data';
 const CURSOR_LEAD = 0.9; // 高亮提前量（秒），与网页版一致
 
 const bgm = wx.getBackgroundAudioManager();
@@ -461,7 +461,7 @@ openReadalong() {
 const ep = this.data.ep;
 if (!ep) return;
 wx.setClipboardData({
-data: 'https://lcb0378.github.io/michael-english-podcast/' + ep.id + '/',
+data: 'https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/' + ep.id + '/',
 success() { wx.showToast({ title: '跟读页链接已复制，去浏览器粘贴打开', icon: 'none', duration: 2600 }); },
 fail() { wx.showToast({ title: '复制失败，请稍后再试', icon: 'none' }); },
 });
