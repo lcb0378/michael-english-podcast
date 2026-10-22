@@ -457,6 +457,15 @@ this.setData({ rate: r});
 bgm.playbackRate = r;
 },
 
+openReadalong() {
+const ep = this.data.ep;
+if (!ep) return;
+wx.setClipboardData({
+data: 'https://lcb0378.github.io/michael-english-podcast/' + ep.id + '/',
+success() { wx.showToast({ title: '跟读页链接已复制，去浏览器粘贴打开', icon: 'none', duration: 2600 }); },
+fail() { wx.showToast({ title: '复制失败，请稍后再试', icon: 'none' }); },
+});
+},
 downloadPdf() {
 const ep = this.data.ep;
 if (!ep) return;
