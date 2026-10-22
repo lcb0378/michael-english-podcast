@@ -18,7 +18,8 @@
 .ep-meta { color: #999; font-size: 24rpx; line-height: 1.6; }
 .ep-arrow { color: #ccc; font-size: 40rpx; }
 .how { background: #fff; border-radius: 20rpx; padding: 12rpx 28rpx; }
-.how-item { display: flex; padding: 18rpx 0; font-size: 28rpx; line-height: 1.75; color: #333; border-bottom: 1rpx solid #f0f0f0; }
+/* 怎么学两行各占一行（2026-10-22 David 真机反馈）：晚读行原本末字「习」掉行，字号小半号 28→27 并收字距 -1rpx，两行同参数保持一致 */
+.how-item { display: flex; padding: 18rpx 0; font-size: 27rpx; letter-spacing: -1rpx; line-height: 1.75; color: #333; border-bottom: 1rpx solid #f0f0f0; }
 .how-item:last-child { border-bottom: none; }
 .how-emoji { margin-right: 12rpx; }
 .loading { text-align: center; color: #999; padding: 100rpx 0; font-size: 28rpx; }
