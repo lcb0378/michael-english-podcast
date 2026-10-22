@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.06 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol06/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol06/cover.png" controls playsinline preload="metadata"></video>
+<h1>🦖 Vol.06 · 恐龙脚印与侏罗纪胖鱿鱼</h1>
+<div class="meta">英文 589 词 ｜ 音频 6分06秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol06/story-dino.png" alt="恐龙脚印">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol06/story-squid.png" alt="侏罗纪胖鱿鱼">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">follow in someone&#x27;s footsteps</span> <span class="phon">/ˈfɒləʊ ɪn ˈsʌmwʌnz ˈfʊtsteps/</span> (习语) 追随某人的脚步；步某人的后尘<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: The rangers <b>followed in the dinosaur's footsteps</b>, step by step.</div>
+</div>
+<div class="vocab">
+  <span class="word">footprint</span> <span class="phon">/ˈfʊtprɪnt/</span> (n.) 脚印；足迹<br>
+  
+  <div class="example">Example: The marks looked like giant <b>footprints</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">fossil</span> <span class="phon">/ˈfɒsl/</span> (n.) 化石<br>
+  
+  <div class="example">Example: Their hard inner shells turned into <b>fossils</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">extinct</span> <span class="phon">/ɪkˈstɪŋkt/</span> (adj.) 灭绝的；已绝种的<br>
+  
+  <div class="example">Example: Belemnites are <b>extinct</b> today.</div>
+</div>
+<div class="vocab">
+  <span class="word">skeleton</span> <span class="phon">/ˈskelɪtn/</span> (n.) 骨骼；骨架<br>
+  
+  <div class="example">Example: There is no <b>skeleton</b> and no bones in the rock.</div>
+</div>
+<div class="vocab">
+  <span class="word">preserve</span> <span class="phon">/prɪˈzɜːv/</span> (v.) 保存；保护<br>
+  
+  <div class="example">Example: The rock <b>preserved</b> them, and the stream hid them for ages.</div>
+</div>
+<div class="vocab">
+  <span class="word">sandstone</span> <span class="phon">/ˈsændstəʊn/</span> (n.) 砂岩<br>
+  
+  <div class="example">Example: He saw strange marks pressed into the <b>sandstone</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">confirm</span> <span class="phon">/kənˈfɜːm/</span> (v.) 确认；证实<br>
+  
+  <div class="example">Example: Experts studied them carefully — and <b>confirmed</b> the exciting news.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 10, "ncols": 14, "words": [{"word": "BARREL", "row": 0, "col": 0, "dir": "A", "num": 1, "cn": "（木）桶", "clue": "A round container that is wide in the middle. Example: Its shell was shaped like a little ______."}, {"word": "ANCIENT", "row": 0, "col": 1, "dir": "D", "num": 2, "cn": "古老的", "clue": "Very, very old. Example: Then we dive into an ______ sea to meet the fattest little squid."}, {"word": "PRESERVE", "row": 1, "col": 6, "dir": "A", "num": 3, "cn": "保存；保护", "clue": "To keep something safe and unchanged for a long time. Example: Museums ______ old things so that people can see them many years later."}, {"word": "SANDSTONE", "row": 1, "col": 9, "dir": "D", "num": 4, "cn": "砂岩", "clue": "A kind of rock made from sand pressed hard together. Example: He saw strange, deep marks pressed into the ______ beside the path."}, {"word": "EXTINCT", "row": 1, "col": 13, "dir": "D", "num": 5, "cn": "灭绝的", "clue": "No longer living anywhere on Earth. Example: Belemnites are ______ today, but their fossils are found all over the world."}, {"word": "SKELETON", "row": 2, "col": 3, "dir": "D", "num": 6, "cn": "骨骼；骨架", "clue": "All the bones inside a body, joined together. Example: There is no ______ and no bones in the rock — only footprints."}, {"word": "SCIENTIST", "row": 3, "col": 5, "dir": "A", "num": 7, "cn": "科学家", "clue": "A person who studies nature and asks big questions. Example: A ______ must study the marks carefully before saying the news is true."}, {"word": "FOSSIL", "row": 5, "col": 6, "dir": "A", "num": 8, "cn": "化石", "clue": "The hard remains of an animal or plant from long ago, kept inside rock. Example: Scientists find these ______ all over the world."}, {"word": "STREAM", "row": 6, "col": 0, "dir": "A", "num": 9, "cn": "小溪", "clue": "A small, narrow river. Example: A visitor named Pichai was walking along a small ______."}, {"word": "FOOTPRINT", "row": 8, "col": 2, "dir": "A", "num": 10, "cn": "脚印", "clue": "A mark made by a foot on the ground. Example: A dinosaur left this ______ in the soft ground long ago."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<ol class="quiz">
+  <li>How were the dinosaur footprints found?<br>A. A scientist dug them out of a mountain<br>B. A visitor took a photo of strange marks and asked about them online<br>C. Children found them inside a museum<br>D. Rangers found bones beside a river</li>
+  <li>What did the experts confirm about the marks?<br>A. They are footprints of a giant bird<br>B. They were made by people long ago<br>C. They are six footprints of a meat-eating dinosaur<br>D. They are only one hundred years old</li>
+  <li>How is Wyoteuthis different from most belemnites?<br>A. It is much longer than the others<br>B. It has no shell at all<br>C. It lived in a river, not the sea<br>D. It is fat and barrel-shaped, six centimetres wide</li>
+  <li>What does "follow in someone's footsteps" mean?<br>A. To walk behind someone very quietly<br>B. To buy the same shoes as someone<br>C. To do the same things as a person who came before you<br>D. To draw footprints on the ground</li>
+</ol>
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">Scientists <b class="kw">believe</b> the dinosaur <b class="kw">was walking</b> here long ago, <b class="kw">perhaps looking for food or water</b>.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li>主干是 <i>Scientists believe (that) ...</i>：<i>believe</i> 后面跟一个<b>宾语从句</b>，说明"相信的内容"；引导词 <i>that</i> 在口语和新闻里常常省略，所以原句里看不到它，但意思一点不少。</li>
+  <li>从句里的 <i>was walking</i> 是<b>过去进行时</b>（was + 动词-ing）：恐龙走路是"很久以前那段时间正在进行的动作"，不是一个瞬间。用它一下子就有了画面感——恐龙正迈着步子，慢慢走过小溪边。</li>
+  <li>句尾的 <i>perhaps looking for food or water</i> 是<b>现在分词短语</b>：<i>looking</i> 的动作发出者就是前面的恐龙（它在找食物或水）；前面加 <i>perhaps</i>（也许），说明这是科学家的推测，不是亲眼所见——新闻报道推测时，这个小词很常见、很严谨。</li>
+  <li>整句逻辑链：<b>科学家相信（主干）→ 恐龙当时正在行走（过去进行时，宾语从句）→ 也许在找吃的喝的（分词短语补推测）</b>。事实和推测分得清清楚楚，这正是科学新闻的说话方式。</li>
+</ul>
+</div>
+<div class="practice">
+<b>句型练习</b>（练的就是上面拆解的三个知识点）<br><br>
+<b>A. 宾语从句：补上省略的 that 也成立——选出可以填入空缺的词</b>
+<ol>
+  <li>Experts confirmed ______ the marks were real dinosaur footprints.</li>
+  <li>I believe ______ one day I will find a fossil too.</li>
+</ol>
+<b>B. 过去进行时：用动词的正确形式补全</b>
+<ol>
+  <li>The dinosaur ______ beside the stream long ago. (walk)</li>
+  <li>The little squid ______ in the Jurassic sea. (swim)</li>
+</ol>
+<b>C. 现在分词短语：用括号里的短语补全</b>
+<ol>
+  <li>He walked along the path, ____________________. (taking photos of the strange marks)</li>
+  <li>She sat beside the stream, ____________________. (looking for small fish)</li>
+</ol>
+<b>D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</b>
+<ol>
+  <li>The scientists believe the fat squid was swimming in this sea long ago, looking for small fish.</li>
+  <li>He walked slowly along the river, taking photos of every strange stone.</li>
+</ol>
+</div>
+
+
+
+<h2>✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwc"><span class="cwn">1</span><span class="cwl">B</span></td><td class="cwc"><span class="cwn">2</span><span class="cwl">A</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">3</span><span class="cwl">P</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwn">4</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">V</span></td><td class="cwc"><span class="cwn">5</span><span class="cwl">E</span></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">6</span><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">X</span></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">K</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">7</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">T</span></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">8</span><span class="cwl">F</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td></tr><tr><td class="cwc"><span class="cwn">9</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">10</span><span class="cwl">F</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr></table></div>1 横 → <b>BARREL</b>（（木）桶）<br>2 竖 → <b>ANCIENT</b>（古老的）<br>3 横 → <b>PRESERVE</b>（保存；保护）<br>4 竖 → <b>SANDSTONE</b>（砂岩）<br>5 竖 → <b>EXTINCT</b>（灭绝的）<br>6 竖 → <b>SKELETON</b>（骨骼；骨架）<br>7 横 → <b>SCIENTIST</b>（科学家）<br>8 横 → <b>FOSSIL</b>（化石）<br>9 横 → <b>STREAM</b>（小溪）<br>10 横 → <b>FOOTPRINT</b>（脚印）<br><br><b>B. Single Choice:</b><br>
+1 → <b>B</b>. The text says Pichai <i>"took a photo with his phone and posted it online"</i> with his question. Nobody dug anything out of a mountain.<br>
+2 → <b>C</b>. The text says: <i>"They are six footprints of a meat-eating dinosaur, made about one hundred and twenty million years ago."</i><br>
+3 → <b>D</b>. The text says its shell <i>"was shaped like a little barrel — and six centimetres wide"</i>, <i>"the fattest, chunkiest belemnite ever found."</i><br>
+4 → <b>C</b>. The text says: <i>"you do the same job or the same things as a person who came before you."</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. that&nbsp;&nbsp;2. that<br>
+(With <i>believe</i> and <i>confirm</i>, the word <i>that</i> can also be left out — the text does exactly that.)<br>
+B. 1. was walking&nbsp;&nbsp;2. was swimming<br>
+C. 1. taking photos of the strange marks&nbsp;&nbsp;2. looking for small fish<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol06/Vol06_晚读讲义_恐龙脚印与侏罗纪胖鱿鱼_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 25.87, "end": 48.26, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today our first story begins with one photo on a phone, and with footprints that waited one hundred and twenty million years to be found. Then we dive into an ancient sea to meet the fattest little squid of Jurassic times. Ready? Let's go!", "title": "开场白", "cn": "欢迎回来，小小探险家们，这里是 Michael 的早听晚读！今天的第一篇故事，始于手机里的一张照片，和一串等了整整一亿两千万年才被人发现的脚印。接着我们潜入一片古老的大海，去认识侏罗纪最胖的一只小鱿鱼。准备好了吗？出发！", "words": [{"w": "Hello,", "t": 25.87}, {"w": "young", "t": 26.28}, {"w": "explorers,", "t": 26.7}, {"w": "and", "t": 27.11}, {"w": "welcome", "t": 27.53}, {"w": "back", "t": 27.94}, {"w": "to", "t": 28.36}, {"w": "Michael's", "t": 28.77}, {"w": "Morning", "t": 29.19}, {"w": "Listening!", "t": 29.6}, {"w": "Today", "t": 30.02}, {"w": "our", "t": 30.43}, {"w": "first", "t": 30.85}, {"w": "story", "t": 31.26}, {"w": "begins", "t": 31.67}, {"w": "with", "t": 32.09}, {"w": "one", "t": 32.5}, {"w": "photo", "t": 32.92}, {"w": "on", "t": 33.33}, {"w": "a", "t": 33.75}, {"w": "phone,", "t": 34.16}, {"w": "and", "t": 34.58}, {"w": "with", "t": 34.99}, {"w": "footprints", "t": 35.41}, {"w": "that", "t": 35.82}, {"w": "waited", "t": 36.24}, {"w": "one", "t": 36.65}, {"w": "hundred", "t": 37.06}, {"w": "and", "t": 37.48}, {"w": "twenty", "t": 37.89}, {"w": "million", "t": 38.31}, {"w": "years", "t": 38.72}, {"w": "to", "t": 39.14}, {"w": "be", "t": 39.55}, {"w": "found.", "t": 39.97}, {"w": "Then", "t": 40.38}, {"w": "we", "t": 40.8}, {"w": "dive", "t": 41.21}, {"w": "into", "t": 41.63}, {"w": "an", "t": 42.04}, {"w": "ancient", "t": 42.46}, {"w": "sea", "t": 42.87}, {"w": "to", "t": 43.28}, {"w": "meet", "t": 43.7}, {"w": "the", "t": 44.11}, {"w": "fattest", "t": 44.53}, {"w": "little", "t": 44.94}, {"w": "squid", "t": 45.36}, {"w": "of", "t": 45.77}, {"w": "Jurassic", "t": 46.19}, {"w": "times.", "t": 46.6}, {"w": "Ready?", "t": 47.02}, {"w": "Let's", "t": 47.43}, {"w": "go!", "t": 47.85}]}, {"start": 68.4, "end": 93.79, "en": "Our story starts in Phu Phrabat National Park in Thailand. A visitor named Pichai was walking along a small stream when he saw strange, deep marks pressed into the sandstone beside the path. The marks looked like giant footprints. He took a photo with his phone and posted it online with a question: \"Do these look like dinosaur footprints to you?\"", "title": "恐龙脚印", "cn": "我们的故事发生在泰国的普帕巴国家公园。一位名叫 Pichai 的游客沿着一条小溪散步时，看见小路边的砂岩上压着几个奇怪的深印子。这些印子看起来就像巨大的脚印。他用手机拍下照片，发到网上问大家：“你们看，这像不像恐龙脚印？”", "words": [{"w": "Our", "t": 68.4}, {"w": "story", "t": 68.82}, {"w": "starts", "t": 69.23}, {"w": "in", "t": 69.65}, {"w": "Phu", "t": 70.06}, {"w": "Phrabat", "t": 70.48}, {"w": "National", "t": 70.9}, {"w": "Park", "t": 71.31}, {"w": "in", "t": 71.73}, {"w": "Thailand.", "t": 72.15}, {"w": "A", "t": 72.56}, {"w": "visitor", "t": 72.98}, {"w": "named", "t": 73.39}, {"w": "Pichai", "t": 73.81}, {"w": "was", "t": 74.23}, {"w": "walking", "t": 74.64}, {"w": "along", "t": 75.06}, {"w": "a", "t": 75.48}, {"w": "small", "t": 75.89}, {"w": "stream", "t": 76.31}, {"w": "when", "t": 76.72}, {"w": "he", "t": 77.14}, {"w": "saw", "t": 77.56}, {"w": "strange,", "t": 77.97}, {"w": "deep", "t": 78.39}, {"w": "marks", "t": 78.81}, {"w": "pressed", "t": 79.22}, {"w": "into", "t": 79.64}, {"w": "the", "t": 80.05}, {"w": "sandstone", "t": 80.47}, {"w": "beside", "t": 80.89}, {"w": "the", "t": 81.3}, {"w": "path.", "t": 81.72}, {"w": "The", "t": 82.14}, {"w": "marks", "t": 82.55}, {"w": "looked", "t": 82.97}, {"w": "like", "t": 83.38}, {"w": "giant", "t": 83.8}, {"w": "footprints.", "t": 84.22}, {"w": "He", "t": 84.63}, {"w": "took", "t": 85.05}, {"w": "a", "t": 85.47}, {"w": "photo", "t": 85.88}, {"w": "with", "t": 86.3}, {"w": "his", "t": 86.71}, {"w": "phone", "t": 87.13}, {"w": "and", "t": 87.55}, {"w": "posted", "t": 87.96}, {"w": "it", "t": 88.38}, {"w": "online", "t": 88.8}, {"w": "with", "t": 89.21}, {"w": "a", "t": 89.63}, {"w": "question:", "t": 90.04}, {"w": "\"Do", "t": 90.46}, {"w": "these", "t": 90.88}, {"w": "look", "t": 91.29}, {"w": "like", "t": 91.71}, {"w": "dinosaur", "t": 92.13}, {"w": "footprints", "t": 92.54}, {"w": "to", "t": 92.96}, {"w": "you?\"", "t": 93.37}]}, {"start": 93.79, "end": 112.1, "en": "Park rangers came the very next day to measure the marks. Then dinosaur experts studied them carefully — and confirmed the exciting news. The marks are real! They are six footprints of a meat-eating dinosaur, made about one hundred and twenty million years ago.", "title": "恐龙脚印", "cn": "公园的护林员第二天就赶来测量这些印子。随后，恐龙专家仔细研究了它们——并确认了这个令人兴奋的消息：这些印子是真的！它们是一只肉食恐龙留下的六个脚印，产生于大约一亿两千万年前。", "words": [{"w": "Park", "t": 93.79}, {"w": "rangers", "t": 94.21}, {"w": "came", "t": 94.62}, {"w": "the", "t": 95.04}, {"w": "very", "t": 95.45}, {"w": "next", "t": 95.87}, {"w": "day", "t": 96.29}, {"w": "to", "t": 96.7}, {"w": "measure", "t": 97.12}, {"w": "the", "t": 97.54}, {"w": "marks.", "t": 97.95}, {"w": "Then", "t": 98.37}, {"w": "dinosaur", "t": 98.78}, {"w": "experts", "t": 99.2}, {"w": "studied", "t": 99.62}, {"w": "them", "t": 100.03}, {"w": "carefully", "t": 100.45}, {"w": "—", "t": 100.86}, {"w": "and", "t": 101.28}, {"w": "confirmed", "t": 101.7}, {"w": "the", "t": 102.11}, {"w": "exciting", "t": 102.53}, {"w": "news.", "t": 102.94}, {"w": "The", "t": 103.36}, {"w": "marks", "t": 103.78}, {"w": "are", "t": 104.19}, {"w": "real!", "t": 104.61}, {"w": "They", "t": 105.03}, {"w": "are", "t": 105.44}, {"w": "six", "t": 105.86}, {"w": "footprints", "t": 106.27}, {"w": "of", "t": 106.69}, {"w": "a", "t": 107.11}, {"w": "meat-eating", "t": 107.52}, {"w": "dinosaur,", "t": 107.94}, {"w": "made", "t": 108.35}, {"w": "about", "t": 108.77}, {"w": "one", "t": 109.19}, {"w": "hundred", "t": 109.6}, {"w": "and", "t": 110.02}, {"w": "twenty", "t": 110.44}, {"w": "million", "t": 110.85}, {"w": "years", "t": 111.27}, {"w": "ago.", "t": 111.68}]}, {"start": 112.1, "end": 144.15, "en": "There is no skeleton and no bones in the rock — only footprints, like a short message the dinosaur left behind. The soft ground kept the prints, the rock preserved them, and the stream hid them for ages. Only when the water went down did the footprints appear again. Scientists believe the dinosaur was walking here long ago, perhaps looking for food or water. One walk, one photo — and a dinosaur stepped back into the world!", "title": "恐龙脚印", "cn": "岩石里没有骨架、没有骨头——只有脚印，就像恐龙留下的一条短短的消息。松软的地面留住了脚印，岩石把它们保存下来，小溪又把它们藏了很久很久。只有当溪水退下去，脚印才再次出现。科学家相信，这只恐龙很久以前曾在这里行走，也许是在寻找食物或者水。一次散步，一张照片——一只恐龙就这样重新回到了我们的世界！", "words": [{"w": "There", "t": 112.1}, {"w": "is", "t": 112.52}, {"w": "no", "t": 112.93}, {"w": "skeleton", "t": 113.35}, {"w": "and", "t": 113.76}, {"w": "no", "t": 114.18}, {"w": "bones", "t": 114.6}, {"w": "in", "t": 115.01}, {"w": "the", "t": 115.43}, {"w": "rock", "t": 115.85}, {"w": "—", "t": 116.26}, {"w": "only", "t": 116.68}, {"w": "footprints,", "t": 117.09}, {"w": "like", "t": 117.51}, {"w": "a", "t": 117.93}, {"w": "short", "t": 118.34}, {"w": "message", "t": 118.76}, {"w": "the", "t": 119.18}, {"w": "dinosaur", "t": 119.59}, {"w": "left", "t": 120.01}, {"w": "behind.", "t": 120.42}, {"w": "The", "t": 120.84}, {"w": "soft", "t": 121.26}, {"w": "ground", "t": 121.67}, {"w": "kept", "t": 122.09}, {"w": "the", "t": 122.51}, {"w": "prints,", "t": 122.92}, {"w": "the", "t": 123.34}, {"w": "rock", "t": 123.75}, {"w": "preserved", "t": 124.17}, {"w": "them,", "t": 124.59}, {"w": "and", "t": 125.0}, {"w": "the", "t": 125.42}, {"w": "stream", "t": 125.84}, {"w": "hid", "t": 126.25}, {"w": "them", "t": 126.67}, {"w": "for", "t": 127.08}, {"w": "ages.", "t": 127.5}, {"w": "Only", "t": 127.92}, {"w": "when", "t": 128.33}, {"w": "the", "t": 128.75}, {"w": "water", "t": 129.17}, {"w": "went", "t": 129.58}, {"w": "down", "t": 130.0}, {"w": "did", "t": 130.41}, {"w": "the", "t": 130.83}, {"w": "footprints", "t": 131.25}, {"w": "appear", "t": 131.66}, {"w": "again.", "t": 132.08}, {"w": "Scientists", "t": 132.5}, {"w": "believe", "t": 132.91}, {"w": "the", "t": 133.33}, {"w": "dinosaur", "t": 133.74}, {"w": "was", "t": 134.16}, {"w": "walking", "t": 134.58}, {"w": "here", "t": 134.99}, {"w": "long", "t": 135.41}, {"w": "ago,", "t": 135.83}, {"w": "perhaps", "t": 136.24}, {"w": "looking", "t": 136.66}, {"w": "for", "t": 137.07}, {"w": "food", "t": 137.49}, {"w": "or", "t": 137.91}, {"w": "water.", "t": 138.32}, {"w": "One", "t": 138.74}, {"w": "walk,", "t": 139.16}, {"w": "one", "t": 139.57}, {"w": "photo", "t": 139.99}, {"w": "—", "t": 140.4}, {"w": "and", "t": 140.82}, {"w": "a", "t": 141.24}, {"w": "dinosaur", "t": 141.65}, {"w": "stepped", "t": 142.07}, {"w": "back", "t": 142.49}, {"w": "into", "t": 142.9}, {"w": "the", "t": 143.32}, {"w": "world!", "t": 143.73}]}, {"start": 161.17, "end": 183.68, "en": "Now let's meet the belemnites — squid cousins from the time of the dinosaurs. They are extinct today, but their hard inner shells turned into fossils, and scientists find them all over the world. Most belemnite fossils are thin and pointed, like little bullets, only one or two centimetres wide.", "title": "侏罗纪胖鱿鱼", "cn": "现在来认识一下箭石——恐龙时代鱿鱼的亲戚。它们如今已经灭绝，但它们坚硬的内壳变成了化石，科学家在世界各地都能找到。大多数箭石化石又细又尖，像小子弹一样，只有一两厘米宽。", "words": [{"w": "Now", "t": 161.17}, {"w": "let's", "t": 161.62}, {"w": "meet", "t": 162.07}, {"w": "the", "t": 162.52}, {"w": "belemnites", "t": 162.97}, {"w": "—", "t": 163.42}, {"w": "squid", "t": 163.87}, {"w": "cousins", "t": 164.32}, {"w": "from", "t": 164.77}, {"w": "the", "t": 165.22}, {"w": "time", "t": 165.67}, {"w": "of", "t": 166.12}, {"w": "the", "t": 166.57}, {"w": "dinosaurs.", "t": 167.02}, {"w": "They", "t": 167.47}, {"w": "are", "t": 167.92}, {"w": "extinct", "t": 168.37}, {"w": "today,", "t": 168.82}, {"w": "but", "t": 169.27}, {"w": "their", "t": 169.72}, {"w": "hard", "t": 170.17}, {"w": "inner", "t": 170.62}, {"w": "shells", "t": 171.07}, {"w": "turned", "t": 171.52}, {"w": "into", "t": 171.97}, {"w": "fossils,", "t": 172.43}, {"w": "and", "t": 172.88}, {"w": "scientists", "t": 173.33}, {"w": "find", "t": 173.78}, {"w": "them", "t": 174.23}, {"w": "all", "t": 174.68}, {"w": "over", "t": 175.13}, {"w": "the", "t": 175.58}, {"w": "world.", "t": 176.03}, {"w": "Most", "t": 176.48}, {"w": "belemnite", "t": 176.93}, {"w": "fossils", "t": 177.38}, {"w": "are", "t": 177.83}, {"w": "thin", "t": 178.28}, {"w": "and", "t": 178.73}, {"w": "pointed,", "t": 179.18}, {"w": "like", "t": 179.63}, {"w": "little", "t": 180.08}, {"w": "bullets,", "t": 180.53}, {"w": "only", "t": 180.98}, {"w": "one", "t": 181.43}, {"w": "or", "t": 181.88}, {"w": "two", "t": 182.33}, {"w": "centimetres", "t": 182.78}, {"w": "wide.", "t": 183.23}]}, {"start": 183.68, "end": 212.05, "en": "But in Wyoming, in the United States, scientists found a very different one. Its name is Wyoteuthis, and it lived about one hundred and sixty million years ago, in Jurassic seas. Its shell was shaped like a little barrel — and six centimetres wide! That makes it the fattest, chunkiest belemnite ever found. In real life, the animal was about sixty centimetres long.", "title": "侏罗纪胖鱿鱼", "cn": "但在美国的怀俄明州，科学家发现了一只很不一样的。它的名字叫 Wyoteuthis，生活在大约一亿六千万年前的侏罗纪海洋里。它的壳形状像一个小木桶——而且有六厘米宽！这使它成为有史以来发现的最胖、最敦实的箭石。活着的时候，这只动物大约有六十厘米长。", "words": [{"w": "But", "t": 183.68}, {"w": "in", "t": 184.13}, {"w": "Wyoming,", "t": 184.58}, {"w": "in", "t": 185.03}, {"w": "the", "t": 185.48}, {"w": "United", "t": 185.93}, {"w": "States,", "t": 186.38}, {"w": "scientists", "t": 186.83}, {"w": "found", "t": 187.28}, {"w": "a", "t": 187.73}, {"w": "very", "t": 188.18}, {"w": "different", "t": 188.63}, {"w": "one.", "t": 189.08}, {"w": "Its", "t": 189.53}, {"w": "name", "t": 189.98}, {"w": "is", "t": 190.43}, {"w": "Wyoteuthis,", "t": 190.89}, {"w": "and", "t": 191.34}, {"w": "it", "t": 191.79}, {"w": "lived", "t": 192.24}, {"w": "about", "t": 192.69}, {"w": "one", "t": 193.14}, {"w": "hundred", "t": 193.59}, {"w": "and", "t": 194.04}, {"w": "sixty", "t": 194.49}, {"w": "million", "t": 194.94}, {"w": "years", "t": 195.39}, {"w": "ago,", "t": 195.84}, {"w": "in", "t": 196.29}, {"w": "Jurassic", "t": 196.74}, {"w": "seas.", "t": 197.19}, {"w": "Its", "t": 197.64}, {"w": "shell", "t": 198.09}, {"w": "was", "t": 198.54}, {"w": "shaped", "t": 198.99}, {"w": "like", "t": 199.44}, {"w": "a", "t": 199.89}, {"w": "little", "t": 200.34}, {"w": "barrel", "t": 200.79}, {"w": "—", "t": 201.24}, {"w": "and", "t": 201.69}, {"w": "six", "t": 202.14}, {"w": "centimetres", "t": 202.59}, {"w": "wide!", "t": 203.04}, {"w": "That", "t": 203.49}, {"w": "makes", "t": 203.94}, {"w": "it", "t": 204.39}, {"w": "the", "t": 204.84}, {"w": "fattest,", "t": 205.3}, {"w": "chunkiest", "t": 205.75}, {"w": "belemnite", "t": 206.2}, {"w": "ever", "t": 206.65}, {"w": "found.", "t": 207.1}, {"w": "In", "t": 207.55}, {"w": "real", "t": 208.0}, {"w": "life,", "t": 208.45}, {"w": "the", "t": 208.9}, {"w": "animal", "t": 209.35}, {"w": "was", "t": 209.8}, {"w": "about", "t": 210.25}, {"w": "sixty", "t": 210.7}, {"w": "centimetres", "t": 211.15}, {"w": "long.", "t": 211.6}]}, {"start": 212.05, "end": 234.56, "en": "A team from the University of Manchester studied the funny fossil. Some scientists even joke that fossils like this look like \"squid butts\". A fat little squid, a silly nickname — and a real puzzle for science: why did this one grow so wide, when all its cousins stayed slim?", "title": "侏罗纪胖鱿鱼", "cn": "曼彻斯特大学的一个团队研究了这块有趣的化石。有些科学家甚至开玩笑说，这样的化石看起来像“鱿鱼屁股”。一只胖乎乎的小鱿鱼，一个搞笑的外号——还有一个真正的科学谜题：它的同类都保持着苗条身材，为什么只有它长得这么宽呢？", "words": [{"w": "A", "t": 212.05}, {"w": "team", "t": 212.5}, {"w": "from", "t": 212.95}, {"w": "the", "t": 213.4}, {"w": "University", "t": 213.85}, {"w": "of", "t": 214.3}, {"w": "Manchester", "t": 214.75}, {"w": "studied", "t": 215.2}, {"w": "the", "t": 215.65}, {"w": "funny", "t": 216.1}, {"w": "fossil.", "t": 216.55}, {"w": "Some", "t": 217.0}, {"w": "scientists", "t": 217.45}, {"w": "even", "t": 217.9}, {"w": "joke", "t": 218.35}, {"w": "that", "t": 218.8}, {"w": "fossils", "t": 219.25}, {"w": "like", "t": 219.7}, {"w": "this", "t": 220.15}, {"w": "look", "t": 220.6}, {"w": "like", "t": 221.05}, {"w": "\"squid", "t": 221.5}, {"w": "butts\".", "t": 221.95}, {"w": "A", "t": 222.4}, {"w": "fat", "t": 222.85}, {"w": "little", "t": 223.31}, {"w": "squid,", "t": 223.76}, {"w": "a", "t": 224.21}, {"w": "silly", "t": 224.66}, {"w": "nickname", "t": 225.11}, {"w": "—", "t": 225.56}, {"w": "and", "t": 226.01}, {"w": "a", "t": 226.46}, {"w": "real", "t": 226.91}, {"w": "puzzle", "t": 227.36}, {"w": "for", "t": 227.81}, {"w": "science:", "t": 228.26}, {"w": "why", "t": 228.71}, {"w": "did", "t": 229.16}, {"w": "this", "t": 229.61}, {"w": "one", "t": 230.06}, {"w": "grow", "t": 230.51}, {"w": "so", "t": 230.96}, {"w": "wide,", "t": 231.41}, {"w": "when", "t": 231.86}, {"w": "all", "t": 232.31}, {"w": "its", "t": 232.76}, {"w": "cousins", "t": 233.21}, {"w": "stayed", "t": 233.66}, {"w": "slim?", "t": 234.11}]}, {"start": 254.86, "end": 270.17, "en": "Here's today's idiom: \"follow in someone's footsteps.\" If you follow in someone's footsteps, you do the same job or the same things as a person who came before you — just like walking in the footprints they left in the ground.", "title": "今日俚语", "cn": "今天的俚语是：“follow in someone's footsteps”（追随某人的脚步）。如果你 follow in someone's footsteps，你就是去做在你之前的人做过的同样的工作、同样的事情——就像踩着他们留在地上的脚印走一样。", "words": [{"w": "Here's", "t": 254.86}, {"w": "today's", "t": 255.23}, {"w": "idiom:", "t": 255.61}, {"w": "\"follow", "t": 255.98}, {"w": "in", "t": 256.35}, {"w": "someone's", "t": 256.73}, {"w": "footsteps.\"", "t": 257.1}, {"w": "If", "t": 257.47}, {"w": "you", "t": 257.85}, {"w": "follow", "t": 258.22}, {"w": "in", "t": 258.59}, {"w": "someone's", "t": 258.97}, {"w": "footsteps,", "t": 259.34}, {"w": "you", "t": 259.71}, {"w": "do", "t": 260.09}, {"w": "the", "t": 260.46}, {"w": "same", "t": 260.83}, {"w": "job", "t": 261.21}, {"w": "or", "t": 261.58}, {"w": "the", "t": 261.95}, {"w": "same", "t": 262.33}, {"w": "things", "t": 262.7}, {"w": "as", "t": 263.08}, {"w": "a", "t": 263.45}, {"w": "person", "t": 263.82}, {"w": "who", "t": 264.2}, {"w": "came", "t": 264.57}, {"w": "before", "t": 264.94}, {"w": "you", "t": 265.32}, {"w": "—", "t": 265.69}, {"w": "just", "t": 266.06}, {"w": "like", "t": 266.44}, {"w": "walking", "t": 266.81}, {"w": "in", "t": 267.18}, {"w": "the", "t": 267.56}, {"w": "footprints", "t": 267.93}, {"w": "they", "t": 268.3}, {"w": "left", "t": 268.68}, {"w": "in", "t": 269.05}, {"w": "the", "t": 269.42}, {"w": "ground.", "t": 269.8}]}, {"start": 270.17, "end": 286.61, "en": "The rangers in our story followed in the dinosaur's footsteps, step by step, footprint by footprint! Here is an example: \"Lucy's grandmother was a great scientist, and Lucy wants to follow in her footsteps one day.\" Whose footsteps would you like to follow in?", "title": "今日俚语", "cn": "我们故事里的护林员，正是踩着恐龙的脚印，一步一步、一个脚印一个脚印地追踪它！举个例子：“Lucy 的奶奶是一位了不起的科学家，Lucy 希望有一天能追随她的脚步。”你想追随谁的脚步呢？", "words": [{"w": "The", "t": 270.17}, {"w": "rangers", "t": 270.54}, {"w": "in", "t": 270.92}, {"w": "our", "t": 271.29}, {"w": "story", "t": 271.66}, {"w": "followed", "t": 272.04}, {"w": "in", "t": 272.41}, {"w": "the", "t": 272.79}, {"w": "dinosaur's", "t": 273.16}, {"w": "footsteps,", "t": 273.53}, {"w": "step", "t": 273.91}, {"w": "by", "t": 274.28}, {"w": "step,", "t": 274.65}, {"w": "footprint", "t": 275.03}, {"w": "by", "t": 275.4}, {"w": "footprint!", "t": 275.77}, {"w": "Here", "t": 276.15}, {"w": "is", "t": 276.52}, {"w": "an", "t": 276.9}, {"w": "example:", "t": 277.27}, {"w": "\"Lucy's", "t": 277.64}, {"w": "grandmother", "t": 278.02}, {"w": "was", "t": 278.39}, {"w": "a", "t": 278.76}, {"w": "great", "t": 279.14}, {"w": "scientist,", "t": 279.51}, {"w": "and", "t": 279.88}, {"w": "Lucy", "t": 280.26}, {"w": "wants", "t": 280.63}, {"w": "to", "t": 281.01}, {"w": "follow", "t": 281.38}, {"w": "in", "t": 281.75}, {"w": "her", "t": 282.13}, {"w": "footsteps", "t": 282.5}, {"w": "one", "t": 282.87}, {"w": "day.\"", "t": 283.25}, {"w": "Whose", "t": 283.62}, {"w": "footsteps", "t": 283.99}, {"w": "would", "t": 284.37}, {"w": "you", "t": 284.74}, {"w": "like", "t": 285.12}, {"w": "to", "t": 285.49}, {"w": "follow", "t": 285.86}, {"w": "in?", "t": 286.24}]}, {"start": 305.23, "end": 333.45, "en": "Let's think about today's stories. We followed a dinosaur's footprints in Thailand, and we met the fattest little squid of the Jurassic seas. Now here are two questions for you. First: if you found strange, giant footprints beside a stream, what would you do — run away, or take a photo and call a scientist? Second: when you grow up, whose footsteps would you like to follow in? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事。我们在泰国追踪了一只恐龙的脚印，又认识了侏罗纪最胖的小鱿鱼。现在轮到你回答两个问题。第一：如果你在小溪边发现奇怪的巨大脚印，你会怎么做——转身跑开，还是拍张照片、打电话给科学家？第二：等你长大以后，你想追随谁的脚步？和家人聊聊吧！", "words": [{"w": "Let's", "t": 305.23}, {"w": "think", "t": 305.61}, {"w": "about", "t": 305.99}, {"w": "today's", "t": 306.37}, {"w": "stories.", "t": 306.76}, {"w": "We", "t": 307.14}, {"w": "followed", "t": 307.52}, {"w": "a", "t": 307.9}, {"w": "dinosaur's", "t": 308.28}, {"w": "footprints", "t": 308.66}, {"w": "in", "t": 309.04}, {"w": "Thailand,", "t": 309.42}, {"w": "and", "t": 309.81}, {"w": "we", "t": 310.19}, {"w": "met", "t": 310.57}, {"w": "the", "t": 310.95}, {"w": "fattest", "t": 311.33}, {"w": "little", "t": 311.71}, {"w": "squid", "t": 312.09}, {"w": "of", "t": 312.48}, {"w": "the", "t": 312.86}, {"w": "Jurassic", "t": 313.24}, {"w": "seas.", "t": 313.62}, {"w": "Now", "t": 314.0}, {"w": "here", "t": 314.38}, {"w": "are", "t": 314.76}, {"w": "two", "t": 315.15}, {"w": "questions", "t": 315.53}, {"w": "for", "t": 315.91}, {"w": "you.", "t": 316.29}, {"w": "First:", "t": 316.67}, {"w": "if", "t": 317.05}, {"w": "you", "t": 317.43}, {"w": "found", "t": 317.81}, {"w": "strange,", "t": 318.2}, {"w": "giant", "t": 318.58}, {"w": "footprints", "t": 318.96}, {"w": "beside", "t": 319.34}, {"w": "a", "t": 319.72}, {"w": "stream,", "t": 320.1}, {"w": "what", "t": 320.48}, {"w": "would", "t": 320.87}, {"w": "you", "t": 321.25}, {"w": "do", "t": 321.63}, {"w": "—", "t": 322.01}, {"w": "run", "t": 322.39}, {"w": "away,", "t": 322.77}, {"w": "or", "t": 323.15}, {"w": "take", "t": 323.53}, {"w": "a", "t": 323.92}, {"w": "photo", "t": 324.3}, {"w": "and", "t": 324.68}, {"w": "call", "t": 325.06}, {"w": "a", "t": 325.44}, {"w": "scientist?", "t": 325.82}, {"w": "Second:", "t": 326.2}, {"w": "when", "t": 326.59}, {"w": "you", "t": 326.97}, {"w": "grow", "t": 327.35}, {"w": "up,", "t": 327.73}, {"w": "whose", "t": 328.11}, {"w": "footsteps", "t": 328.49}, {"w": "would", "t": 328.87}, {"w": "you", "t": 329.26}, {"w": "like", "t": 329.64}, {"w": "to", "t": 330.02}, {"w": "follow", "t": 330.4}, {"w": "in?", "t": 330.78}, {"w": "Talk", "t": 331.16}, {"w": "about", "t": 331.54}, {"w": "it", "t": 331.92}, {"w": "with", "t": 332.31}, {"w": "your", "t": 332.69}, {"w": "family!", "t": 333.07}]}, {"start": 346.95, "end": 357.59, "en": "That's all for today, young explorers. Keep your eyes open on every walk — you never know what is waiting quietly in the rocks under your feet. See you tomorrow morning!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。每次散步都睁大眼睛——你永远不知道，脚下的岩石里正静静地藏着什么。明天早上见！", "words": [{"w": "That's", "t": 346.95}, {"w": "all", "t": 347.29}, {"w": "for", "t": 347.64}, {"w": "today,", "t": 347.98}, {"w": "young", "t": 348.32}, {"w": "explorers.", "t": 348.67}, {"w": "Keep", "t": 349.01}, {"w": "your", "t": 349.35}, {"w": "eyes", "t": 349.7}, {"w": "open", "t": 350.04}, {"w": "on", "t": 350.38}, {"w": "every", "t": 350.73}, {"w": "walk", "t": 351.07}, {"w": "—", "t": 351.41}, {"w": "you", "t": 351.76}, {"w": "never", "t": 352.1}, {"w": "know", "t": 352.44}, {"w": "what", "t": 352.78}, {"w": "is", "t": 353.13}, {"w": "waiting", "t": 353.47}, {"w": "quietly", "t": 353.81}, {"w": "in", "t": 354.16}, {"w": "the", "t": 354.5}, {"w": "rocks", "t": 354.84}, {"w": "under", "t": 355.19}, {"w": "your", "t": 355.53}, {"w": "feet.", "t": 355.87}, {"w": "See", "t": 356.22}, {"w": "you", "t": 356.56}, {"w": "tomorrow", "t": 356.9}, {"w": "morning!", "t": 357.25}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol06/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
