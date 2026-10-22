@@ -216,8 +216,7 @@ st.markH = keys.headings.map(() => null);
 if (hasCw) {
 const ws = g.crossword.words;
 st.cwVm = {
-across: ws.map((w, i) => ({ w, i })).filter((x) => x.w.dir === 'A').sort((a, b) => a.w.num - b.w.num),
-down: ws.map((w, i) => ({ w, i })).filter((x) => x.w.dir === 'D').sort((a, b) => a.w.num - b.w.num),
+list: ws.map((w, i) => ({ w, i })).sort((a, b) => a.w.num - b.w.num),
 bank: ws.map((w, i) => i).sort(() => Math.random() - 0.5),
 };
 st.cwSel = -1;
