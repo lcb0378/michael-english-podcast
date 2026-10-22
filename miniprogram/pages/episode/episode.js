@@ -461,7 +461,7 @@ openReadalong() {
 const ep = this.data.ep;
 if (!ep) return;
 wx.setClipboardData({
-data: 'https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/' + ep.id + '/',
+data: 'https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/' + ep.id + '/index.html',
 success() { wx.showToast({ title: '跟读页链接已复制，去浏览器粘贴打开', icon: 'none', duration: 2600 }); },
 fail() { wx.showToast({ title: '复制失败，请稍后再试', icon: 'none' }); },
 });
