@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.08 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol08/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol08/cover.png" controls playsinline preload="metadata"></video>
+<h1>🔭 Vol.08 · 望远镜捡到的新彗星与琥珀里的断尾逃生</h1>
+<div class="meta">英文 600 词 ｜ 音频 5分53秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol08/story-comet.png" alt="望远镜捡到的新彗星">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol08/story-amber.png" alt="琥珀里的断尾逃生">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">out of the blue</span> <span class="phon">/aʊt ɒv ðə bluː/</span> (习语) 毫无征兆地；突然地<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: A bonus guest, <b>out of the blue</b>!</div>
+</div>
+<div class="vocab">
+  <span class="word">telescope</span> <span class="phon">/ˈtelɪskəʊp/</span> (n.) 望远镜<br>
+  
+  <div class="example">Example: Meet Euclid, a space <b>telescope</b> from Europe.</div>
+</div>
+<div class="vocab">
+  <span class="word">catalogue</span> <span class="phon">/ˈkætəlɒɡ/</span> (n.) 目录；册子<br>
+  
+  <div class="example">Example: Scientists checked every <b>catalogue</b> of comets and asteroids.</div>
+</div>
+<div class="vocab">
+  <span class="word">streak</span> <span class="phon">/striːk/</span> (n.) 条纹；一道光痕<br>
+  
+  <div class="example">Example: Then, out of the blue, a <b>streak</b> appeared!</div>
+</div>
+<div class="vocab">
+  <span class="word">amber</span> <span class="phon">/ˈæmbə/</span> (n.) 琥珀<br>
+  
+  <div class="example">Example: Its tail stayed in the golden <b>amber</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">muscle</span> <span class="phon">/ˈmʌsl/</span> (n.) 肌肉<br>
+  
+  <div class="example">Example: Scientists found a neat <b>muscle</b> pattern inside the tail.</div>
+</div>
+<div class="vocab">
+  <span class="word">predator</span> <span class="phon">/ˈpredətə/</span> (n.) 捕食者；肉食动物<br>
+  
+  <div class="example">Example: When a hungry <b>predator</b> grabs the tail, the tail breaks away.</div>
+</div>
+<div class="vocab">
+  <span class="word">distract</span> <span class="phon">/dɪˈstrækt/</span> (v.) 分散（注意力）；使分心<br>
+  
+  <div class="example">Example: The wiggling tail can <b>distract</b> the hunter.</div>
+</div>
+<div class="vocab">
+  <span class="word">determine</span> <span class="phon">/dɪˈtɜːmɪn/</span> (v.) 判定；确定<br>
+  
+  <div class="example">Example: Scientists checked every catalogue to <b>determine</b> the truth.</div>
+</div>
+<div class="vocab">
+  <span class="word">compromise</span> <span class="phon">/ˈkɒmprəmaɪz/</span> (n.) 妥协；折中<br>
+  
+  <div class="example">Example: Still, escape is a <b>compromise</b>.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 11, "ncols": 16, "words": [{"word": "CATALOGUE", "row": 0, "col": 2, "dir": "D", "num": 1, "cn": "目录；册子", "clue": "A book or list of things, kept in order. Example: Scientists checked every ______ of comets and asteroids."}, {"word": "DETERMINE", "row": 1, "col": 14, "dir": "D", "num": 2, "cn": "判定；确定", "clue": "To find out the truth for sure. Example: Scientists checked every catalogue to ______ the truth."}, {"word": "TELESCOPE", "row": 2, "col": 8, "dir": "D", "num": 3, "cn": "望远镜", "clue": "An instrument for looking at faraway things in space. Example: Meet Euclid, a space ______ from Europe."}, {"word": "AMBER", "row": 2, "col": 11, "dir": "A", "num": 4, "cn": "琥珀", "clue": "Tree resin that turned hard and golden like stone. Example: Its tail stayed in the golden ______."}, {"word": "MUSCLE", "row": 2, "col": 12, "dir": "D", "num": 5, "cn": "肌肉", "clue": "The soft body part that lets us move. Example: Scientists found a neat ______ pattern inside the tail."}, {"word": "DIGEST", "row": 3, "col": 0, "dir": "D", "num": 6, "cn": "消化", "clue": "To break food down inside the body. Example: A snack it can hardly ______."}, {"word": "DISTRACT", "row": 3, "col": 5, "dir": "D", "num": 7, "cn": "分散注意力；使分心", "clue": "To take someone's attention away from something. Example: The wiggling tail can ______ the hunter."}, {"word": "PREDATOR", "row": 3, "col": 10, "dir": "D", "num": 8, "cn": "捕食者", "clue": "An animal that hunts and eats other animals. Example: When a hungry ______ grabs the tail, the tail breaks away."}, {"word": "SAUCER", "row": 7, "col": 0, "dir": "A", "num": 9, "cn": "飞碟；小碟子", "clue": "A small round dish — or a flying one in cartoons! Example: No flying ______ from a cartoon."}, {"word": "COMPROMISE", "row": 9, "col": 5, "dir": "A", "num": 10, "cn": "妥协；折中", "clue": "A choice where you give up something to get something else. Example: Still, escape is a ______."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. What is Euclid&#x27;s main job?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. Taking photos of the Moon for calendars</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. Chasing fast comets around the Sun</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. Photographing faraway galaxies and studying dark matter and dark energy</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. Watching the weather on Earth</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. How was the new comet found?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. A smudge of light had moved between photos of the same patch of sky</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. It shone brighter than the Sun</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. It landed quietly in Finland</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. Pöntinen saw it from his garden</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：A</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. Why did the lizard in the amber lose its tail?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. A tree fell on it while it slept</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. It dropped the tail on purpose, so the predator would chase the tail, not the lizard</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. Scientists cut the tail off to study it</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. The tail was too long for the tree</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does &quot;out of the blue&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. Very slowly, step by step</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. Only on rainy days</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. Suddenly, with no warning</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. Deep under the sea</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：C</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [2, 0, 1, 2];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">When a hungry <b class="kw">predator</b> grabs the tail, <b class="kw">the tail breaks away and keeps wiggling</b>, <b class="kw">distracting the hunter</b> with a snack <b class="kw">it can hardly digest</b> — while <b class="kw">the lizard dashes free</b>!</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li>主干是 <i>the tail breaks away and keeps wiggling</i>：尾巴断开，并继续扭动——<i>breaks away</i> 和 <i>keeps wiggling</i> 是两个并列的谓语，共用主语 <i>the tail</i>。先抓主干，长句就倒下一半。</li>
+  <li>句首的 <i>When a hungry predator grabs the tail</i> 是 <b>when 引导的时间状语从句</b>：交代"当……的时候"这一背景，从句里有自己的主谓（predator grabs），但它不独立成句，只是给主干当"时间标签"。</li>
+  <li><i>distracting the hunter with a snack</i> 是<b>现在分词短语</b>：<i>distracting</i>（分散注意力）的动作发出者是主语 <i>the tail</i>——尾巴一边扭动、一边分散猎手的注意力，不用再写一个 and 句子，顺手就把"伴随发生的事"交代了。</li>
+  <li><i>a snack it can hardly digest</i> 里藏着一个<b>省略了关系词的定语从句</b>：完整的写法是 <i>a snack (that) it can hardly digest</i>（它几乎消化不了的一份点心）；<i>that</i> 作宾语时可以省略。另外注意 <i>hardly</i> 是"几乎不"，自带否定意味，整句并没有 not，却表达了否定。</li>
+  <li>破折号后的 <i>while the lizard dashes free</i> 又是一个从句：<i>while</i> 表示"与此同时"，把镜头一分为二——这边尾巴在扭动，那边蜥蜴已逃之夭夭，对比一目了然。</li>
+  <li>整句逻辑链：<b>当捕食者抓住尾巴（时间背景）→ 尾巴断开并继续扭动（主干）→ 分散猎手注意力（分词短语）→ 而蜥蜴趁机逃走（while 从句）</b>。一个逃生镜头，被装进了一句话里。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. 现在分词短语：用括号里的短语补全</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">The tail kept wiggling on the ground, ____.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">attracting the hunter&#x27;s eyes</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">attracted the hunter&#x27;s eyes</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">attract the hunter&#x27;s eyes</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：attracting the hunter&#x27;s eyes</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">Euclid sailed on through space, ____.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">took photos of faraway galaxies</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">taking photos of faraway galaxies</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">take photos of faraway galaxies</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：taking photos of faraway galaxies</p>
+</div>
+<p class="p4-gname">B. 时间状语从句：用括号里的短语补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">____, the lizard can drop its tail and run.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">when danger come near</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">danger comes near when</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">when danger comes near</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：when danger comes near</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">____, its ice turns into gas and dust.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">when a comet comes close to the Sun</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">when a comet come close to the Sun</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">a comet comes close to the Sun when</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：when a comet comes close to the Sun</p>
+</div>
+<p class="p4-gname">C. 省略关系词的定语从句：用括号里的短语补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">The tail is a snack ____.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">a hunter can hardly digests</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">a hunter can hardly digest</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">which a hunter can hardly digest it</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：a hunter can hardly digest</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">Here is the photo ____.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">Euclid took it of the comet</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">what Euclid took of the comet</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">Euclid took of the comet</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：Euclid took of the comet</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>When the soft rain began, the little lizard ran under a leaf, leaving wet marks on the stone.</li>
+<li>A comet is a gift a telescope can find when nobody is looking for one.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">1</span><span class="cwl">C</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">2</span><span class="cwl">D</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">3</span><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">A</span></td><td class="cwc"><span class="cwn">5</span><span class="cwl">M</span></td><td class="cwc"><span class="cwl">B</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">R</span></td></tr><tr><td class="cwc"><span class="cwn">6</span><span class="cwl">D</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">7</span><span class="cwl">D</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">8</span><span class="cwl">P</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">G</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">G</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">M</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">9</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">10</span><span class="cwl">C</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">M</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">M</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr></table></div>1 竖 → <b>CATALOGUE</b>（目录；册子）<br>2 竖 → <b>DETERMINE</b>（判定；确定）<br>3 竖 → <b>TELESCOPE</b>（望远镜）<br>4 横 → <b>AMBER</b>（琥珀）<br>5 竖 → <b>MUSCLE</b>（肌肉）<br>6 竖 → <b>DIGEST</b>（消化）<br>7 竖 → <b>DISTRACT</b>（分散注意力；使分心）<br>8 竖 → <b>PREDATOR</b>（捕食者）<br>9 横 → <b>SAUCER</b>（飞碟；小碟子）<br>10 横 → <b>COMPROMISE</b>（妥协；折中）<br><br><b>B. Single Choice:</b><br>
+1 → <b>C</b>. The text says Euclid's job is <i>"to take slow, steady photos of faraway galaxies, and to study two invisible mysteries: dark matter and dark energy."</i> Chasing comets is exactly what it was <i>not</i> built for.<br>
+2 → <b>A</b>. The text says: <i>"In photos of the same patch of sky, a small smudge had moved"</i> — and clever software flagged it.<br>
+3 → <b>B</b>. The text says the lizard <i>"dropped it — on purpose!"</i> The wiggling tail distracts the hunter <i>"while the lizard dashes free."</i><br>
+4 → <b>C</b>. The text says: <i>"it happens suddenly, with no warning at all."</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. attracting the hunter's eyes&nbsp;&nbsp;2. taking photos of faraway galaxies<br>
+B. 1. when danger comes near&nbsp;&nbsp;2. when a comet comes close to the Sun<br>
+C. 1. a hunter can hardly digest&nbsp;&nbsp;2. Euclid took of the comet<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol08/Vol08_晚读讲义_望远镜捡到的新彗星与琥珀里的断尾逃生_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 29.95, "end": 50.37, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we begin high above the Earth, with a space telescope that found something it never looked for. Then we visit an ancient forest, where a tiny lizard left its tail behind — on purpose! Ready? Let's go!", "title": "开场白", "cn": "欢迎回来，小小探险家们，这里是 Michael 的早听晚读！今天我们从地球的上空开始——一台太空望远镜，发现了它压根没在找的东西。接着，我们要去拜访一片远古森林，在那里，一只小蜥蜴故意把尾巴留在了身后——真的是故意的！准备好了吗？出发！", "words": [{"w": "Hello,", "t": 29.95}, {"w": "young", "t": 30.38}, {"w": "explorers,", "t": 30.8}, {"w": "and", "t": 31.23}, {"w": "welcome", "t": 31.65}, {"w": "back", "t": 32.08}, {"w": "to", "t": 32.5}, {"w": "Michael's", "t": 32.93}, {"w": "Morning", "t": 33.35}, {"w": "Listening!", "t": 33.78}, {"w": "Today", "t": 34.2}, {"w": "we", "t": 34.63}, {"w": "begin", "t": 35.05}, {"w": "high", "t": 35.48}, {"w": "above", "t": 35.91}, {"w": "the", "t": 36.33}, {"w": "Earth,", "t": 36.76}, {"w": "with", "t": 37.18}, {"w": "a", "t": 37.61}, {"w": "space", "t": 38.03}, {"w": "telescope", "t": 38.46}, {"w": "that", "t": 38.88}, {"w": "found", "t": 39.31}, {"w": "something", "t": 39.73}, {"w": "it", "t": 40.16}, {"w": "never", "t": 40.59}, {"w": "looked", "t": 41.01}, {"w": "for.", "t": 41.44}, {"w": "Then", "t": 41.86}, {"w": "we", "t": 42.29}, {"w": "visit", "t": 42.71}, {"w": "an", "t": 43.14}, {"w": "ancient", "t": 43.56}, {"w": "forest,", "t": 43.99}, {"w": "where", "t": 44.41}, {"w": "a", "t": 44.84}, {"w": "tiny", "t": 45.27}, {"w": "lizard", "t": 45.69}, {"w": "left", "t": 46.12}, {"w": "its", "t": 46.54}, {"w": "tail", "t": 46.97}, {"w": "behind", "t": 47.39}, {"w": "—", "t": 47.82}, {"w": "on", "t": 48.24}, {"w": "purpose!", "t": 48.67}, {"w": "Ready?", "t": 49.09}, {"w": "Let's", "t": 49.52}, {"w": "go!", "t": 49.94}]}, {"start": 64.27, "end": 84.2, "en": "Meet Euclid, a space telescope from Europe. Its job is to take slow, steady photos of faraway galaxies, and to study two invisible mysteries: dark matter and dark energy. Euclid is like a careful photographer of the deep sky. It was never built to chase fast little comets.", "title": "望远镜捡到新彗星", "cn": "来认识一下欧几里得，一台来自欧洲的太空望远镜。它的工作，是给遥远的星系拍下缓慢而稳定的照片，并研究两个看不见的谜团：暗物质和暗能量。欧几里得就像一位专注的深空摄影师。它从来就不是为了追逐飞快的小彗星而造的。", "words": [{"w": "Meet", "t": 64.27}, {"w": "Euclid,", "t": 64.69}, {"w": "a", "t": 65.1}, {"w": "space", "t": 65.52}, {"w": "telescope", "t": 65.93}, {"w": "from", "t": 66.35}, {"w": "Europe.", "t": 66.76}, {"w": "Its", "t": 67.18}, {"w": "job", "t": 67.59}, {"w": "is", "t": 68.01}, {"w": "to", "t": 68.42}, {"w": "take", "t": 68.84}, {"w": "slow,", "t": 69.25}, {"w": "steady", "t": 69.67}, {"w": "photos", "t": 70.08}, {"w": "of", "t": 70.5}, {"w": "faraway", "t": 70.91}, {"w": "galaxies,", "t": 71.33}, {"w": "and", "t": 71.74}, {"w": "to", "t": 72.16}, {"w": "study", "t": 72.57}, {"w": "two", "t": 72.99}, {"w": "invisible", "t": 73.4}, {"w": "mysteries:", "t": 73.82}, {"w": "dark", "t": 74.23}, {"w": "matter", "t": 74.65}, {"w": "and", "t": 75.07}, {"w": "dark", "t": 75.48}, {"w": "energy.", "t": 75.9}, {"w": "Euclid", "t": 76.31}, {"w": "is", "t": 76.73}, {"w": "like", "t": 77.14}, {"w": "a", "t": 77.56}, {"w": "careful", "t": 77.97}, {"w": "photographer", "t": 78.39}, {"w": "of", "t": 78.8}, {"w": "the", "t": 79.22}, {"w": "deep", "t": 79.63}, {"w": "sky.", "t": 80.05}, {"w": "It", "t": 80.46}, {"w": "was", "t": 80.88}, {"w": "never", "t": 81.29}, {"w": "built", "t": 81.71}, {"w": "to", "t": 82.12}, {"w": "chase", "t": 82.54}, {"w": "fast", "t": 82.95}, {"w": "little", "t": 83.37}, {"w": "comets.", "t": 83.78}]}, {"start": 84.2, "end": 118.66, "en": "Then, out of the blue, a streak appeared! In photos of the same patch of sky, a small smudge had moved. A young scientist in Finland, Mikko Pöntinen, had written clever software to catch moving objects — and it waved a little flag. In five sets of photos, the smudge had jumped to a new spot each time, circled by a fuzzy cloud of dust and gas. No flying saucer from a cartoon — a comet, a giant snowball of ice and rock.", "title": "望远镜捡到新彗星", "cn": "然后，毫无征兆地，一道光痕出现了！在同一片天空的照片里，有一小团光斑挪动了位置。芬兰的一位年轻科学家米科·彭蒂宁，编写了一个专门捕捉移动天体的巧妙软件——而他的软件举起了一面小旗。在五组照片里，那团光斑每次都跳到了新位置，周围环绕着一团毛茸茸的尘埃和气体云。这可不是卡通片里的飞碟——而是一颗彗星，一颗冰和岩石组成的巨大雪球。", "words": [{"w": "Then,", "t": 84.2}, {"w": "out", "t": 84.62}, {"w": "of", "t": 85.03}, {"w": "the", "t": 85.45}, {"w": "blue,", "t": 85.86}, {"w": "a", "t": 86.28}, {"w": "streak", "t": 86.69}, {"w": "appeared!", "t": 87.11}, {"w": "In", "t": 87.52}, {"w": "photos", "t": 87.94}, {"w": "of", "t": 88.35}, {"w": "the", "t": 88.77}, {"w": "same", "t": 89.18}, {"w": "patch", "t": 89.6}, {"w": "of", "t": 90.01}, {"w": "sky,", "t": 90.43}, {"w": "a", "t": 90.84}, {"w": "small", "t": 91.26}, {"w": "smudge", "t": 91.67}, {"w": "had", "t": 92.09}, {"w": "moved.", "t": 92.5}, {"w": "A", "t": 92.92}, {"w": "young", "t": 93.33}, {"w": "scientist", "t": 93.75}, {"w": "in", "t": 94.16}, {"w": "Finland,", "t": 94.58}, {"w": "Mikko", "t": 94.99}, {"w": "Pöntinen,", "t": 95.41}, {"w": "had", "t": 95.83}, {"w": "written", "t": 96.24}, {"w": "clever", "t": 96.66}, {"w": "software", "t": 97.07}, {"w": "to", "t": 97.49}, {"w": "catch", "t": 97.9}, {"w": "moving", "t": 98.32}, {"w": "objects", "t": 98.73}, {"w": "—", "t": 99.15}, {"w": "and", "t": 99.56}, {"w": "it", "t": 99.98}, {"w": "waved", "t": 100.39}, {"w": "a", "t": 100.81}, {"w": "little", "t": 101.22}, {"w": "flag.", "t": 101.64}, {"w": "In", "t": 102.05}, {"w": "five", "t": 102.47}, {"w": "sets", "t": 102.88}, {"w": "of", "t": 103.3}, {"w": "photos,", "t": 103.71}, {"w": "the", "t": 104.13}, {"w": "smudge", "t": 104.54}, {"w": "had", "t": 104.96}, {"w": "jumped", "t": 105.37}, {"w": "to", "t": 105.79}, {"w": "a", "t": 106.2}, {"w": "new", "t": 106.62}, {"w": "spot", "t": 107.03}, {"w": "each", "t": 107.45}, {"w": "time,", "t": 107.87}, {"w": "circled", "t": 108.28}, {"w": "by", "t": 108.7}, {"w": "a", "t": 109.11}, {"w": "fuzzy", "t": 109.53}, {"w": "cloud", "t": 109.94}, {"w": "of", "t": 110.36}, {"w": "dust", "t": 110.77}, {"w": "and", "t": 111.19}, {"w": "gas.", "t": 111.6}, {"w": "No", "t": 112.02}, {"w": "flying", "t": 112.43}, {"w": "saucer", "t": 112.85}, {"w": "from", "t": 113.26}, {"w": "a", "t": 113.68}, {"w": "cartoon", "t": 114.09}, {"w": "—", "t": 114.51}, {"w": "a", "t": 114.92}, {"w": "comet,", "t": 115.34}, {"w": "a", "t": 115.75}, {"w": "giant", "t": 116.17}, {"w": "snowball", "t": 116.58}, {"w": "of", "t": 117.0}, {"w": "ice", "t": 117.41}, {"w": "and", "t": 117.83}, {"w": "rock.", "t": 118.24}]}, {"start": 118.66, "end": 148.56, "en": "But was it really new? Scientists checked every catalogue of comets and asteroids to determine the truth — no match. The world centre for small space objects confirmed it: brand new — and it now carries the telescope's name. It sits about one point three billion kilometres away, between the paths of Jupiter and Saturn, and one trip around the Sun takes thousands of years. A bonus guest, out of the blue!", "title": "望远镜捡到新彗星", "cn": "但它真是新发现的吗？科学家查遍了彗星和小行星的每一个目录来判定真相——没有找到任何匹配。世界小天体中心确认了它：全新发现——而且它如今冠上了这台望远镜的名字。它位于大约十三亿公里之外，在木星和土星的轨道之间，绕太阳走完一圈要花上数千年时间。一位不请自来的客人，毫无征兆地出现了！", "words": [{"w": "But", "t": 118.66}, {"w": "was", "t": 119.08}, {"w": "it", "t": 119.49}, {"w": "really", "t": 119.91}, {"w": "new?", "t": 120.32}, {"w": "Scientists", "t": 120.74}, {"w": "checked", "t": 121.15}, {"w": "every", "t": 121.57}, {"w": "catalogue", "t": 121.98}, {"w": "of", "t": 122.4}, {"w": "comets", "t": 122.81}, {"w": "and", "t": 123.23}, {"w": "asteroids", "t": 123.64}, {"w": "to", "t": 124.06}, {"w": "determine", "t": 124.47}, {"w": "the", "t": 124.89}, {"w": "truth", "t": 125.3}, {"w": "—", "t": 125.72}, {"w": "no", "t": 126.13}, {"w": "match.", "t": 126.55}, {"w": "The", "t": 126.97}, {"w": "world", "t": 127.38}, {"w": "centre", "t": 127.8}, {"w": "for", "t": 128.21}, {"w": "small", "t": 128.63}, {"w": "space", "t": 129.04}, {"w": "objects", "t": 129.46}, {"w": "confirmed", "t": 129.87}, {"w": "it:", "t": 130.29}, {"w": "brand", "t": 130.7}, {"w": "new", "t": 131.12}, {"w": "—", "t": 131.53}, {"w": "and", "t": 131.95}, {"w": "it", "t": 132.36}, {"w": "now", "t": 132.78}, {"w": "carries", "t": 133.19}, {"w": "the", "t": 133.61}, {"w": "telescope's", "t": 134.03}, {"w": "name.", "t": 134.44}, {"w": "It", "t": 134.86}, {"w": "sits", "t": 135.27}, {"w": "about", "t": 135.69}, {"w": "one", "t": 136.1}, {"w": "point", "t": 136.52}, {"w": "three", "t": 136.93}, {"w": "billion", "t": 137.35}, {"w": "kilometres", "t": 137.76}, {"w": "away,", "t": 138.18}, {"w": "between", "t": 138.59}, {"w": "the", "t": 139.01}, {"w": "paths", "t": 139.42}, {"w": "of", "t": 139.84}, {"w": "Jupiter", "t": 140.25}, {"w": "and", "t": 140.67}, {"w": "Saturn,", "t": 141.09}, {"w": "and", "t": 141.5}, {"w": "one", "t": 141.92}, {"w": "trip", "t": 142.33}, {"w": "around", "t": 142.75}, {"w": "the", "t": 143.16}, {"w": "Sun", "t": 143.58}, {"w": "takes", "t": 143.99}, {"w": "thousands", "t": 144.41}, {"w": "of", "t": 144.82}, {"w": "years.", "t": 145.24}, {"w": "A", "t": 145.65}, {"w": "bonus", "t": 146.07}, {"w": "guest,", "t": 146.48}, {"w": "out", "t": 146.9}, {"w": "of", "t": 147.31}, {"w": "the", "t": 147.73}, {"w": "blue!", "t": 148.14}]}, {"start": 161.74, "end": 188.06, "en": "Now let's fly back to an ancient forest in Myanmar, where dinosaurs walked. Sticky resin flowed down a tree, and one golden drop of it trapped something amazing: the tail of a small lizard — skin, muscle and tiny bones, still there ninety-nine million years later. Today that drop is hard amber, and the tail waits inside it like a message in a bottle.", "title": "琥珀里的断尾逃生", "cn": "现在，让我们飞回缅甸的一片远古森林，那里曾有恐龙走过。黏黏的树脂顺着树干流下，其中一滴金色的树脂，封存了一件了不起的东西：一只小蜥蜴的尾巴——皮肤、肌肉和小骨头，九千九百万年后依然都在。如今，那一滴树脂已变成坚硬的琥珀，尾巴就在里面静静等待，像一封瓶中信。", "words": [{"w": "Now", "t": 161.74}, {"w": "let's", "t": 162.15}, {"w": "fly", "t": 162.56}, {"w": "back", "t": 162.97}, {"w": "to", "t": 163.39}, {"w": "an", "t": 163.8}, {"w": "ancient", "t": 164.21}, {"w": "forest", "t": 164.62}, {"w": "in", "t": 165.03}, {"w": "Myanmar,", "t": 165.44}, {"w": "where", "t": 165.85}, {"w": "dinosaurs", "t": 166.26}, {"w": "walked.", "t": 166.68}, {"w": "Sticky", "t": 167.09}, {"w": "resin", "t": 167.5}, {"w": "flowed", "t": 167.91}, {"w": "down", "t": 168.32}, {"w": "a", "t": 168.73}, {"w": "tree,", "t": 169.14}, {"w": "and", "t": 169.55}, {"w": "one", "t": 169.97}, {"w": "golden", "t": 170.38}, {"w": "drop", "t": 170.79}, {"w": "of", "t": 171.2}, {"w": "it", "t": 171.61}, {"w": "trapped", "t": 172.02}, {"w": "something", "t": 172.43}, {"w": "amazing:", "t": 172.84}, {"w": "the", "t": 173.25}, {"w": "tail", "t": 173.67}, {"w": "of", "t": 174.08}, {"w": "a", "t": 174.49}, {"w": "small", "t": 174.9}, {"w": "lizard", "t": 175.31}, {"w": "—", "t": 175.72}, {"w": "skin,", "t": 176.13}, {"w": "muscle", "t": 176.55}, {"w": "and", "t": 176.96}, {"w": "tiny", "t": 177.37}, {"w": "bones,", "t": 177.78}, {"w": "still", "t": 178.19}, {"w": "there", "t": 178.6}, {"w": "ninety-nine", "t": 179.01}, {"w": "million", "t": 179.42}, {"w": "years", "t": 179.84}, {"w": "later.", "t": 180.25}, {"w": "Today", "t": 180.66}, {"w": "that", "t": 181.07}, {"w": "drop", "t": 181.48}, {"w": "is", "t": 181.89}, {"w": "hard", "t": 182.3}, {"w": "amber,", "t": 182.71}, {"w": "and", "t": 183.12}, {"w": "the", "t": 183.54}, {"w": "tail", "t": 183.95}, {"w": "waits", "t": 184.36}, {"w": "inside", "t": 184.77}, {"w": "it", "t": 185.18}, {"w": "like", "t": 185.59}, {"w": "a", "t": 186.0}, {"w": "message", "t": 186.41}, {"w": "in", "t": 186.83}, {"w": "a", "t": 187.24}, {"w": "bottle.", "t": 187.65}]}, {"start": 188.06, "end": 221.37, "en": "But why was there only a tail? Because the lizard dropped it — on purpose! Many lizards still do this. When a hungry predator grabs the tail, the tail breaks away and keeps wiggling, distracting the hunter with a snack it can hardly digest — while the lizard dashes free! Scientists scanned the amber with special X-rays and found a neat muscle pattern inside — the same one modern lizards use to let go. Direct proof that the trick is ancient!", "title": "琥珀里的断尾逃生", "cn": "但为什么只剩下一条尾巴呢？因为那只蜥蜴是故意把它丢掉的——故意的！现在很多蜥蜴还会这一招。当饥饿的捕食者抓住尾巴时，尾巴会断开并不断扭动，用一份它几乎消化不了的“点心”分散猎手的注意力——而蜥蜴自己则趁机逃之夭夭！科学家用特殊的 X 光扫描了琥珀，在尾巴内部发现了一套整齐的肌肉纹路——和现代蜥蜴松开尾巴时用的那套一模一样。这正是这一招历史悠久的直接证据！", "words": [{"w": "But", "t": 188.06}, {"w": "why", "t": 188.47}, {"w": "was", "t": 188.88}, {"w": "there", "t": 189.29}, {"w": "only", "t": 189.7}, {"w": "a", "t": 190.12}, {"w": "tail?", "t": 190.53}, {"w": "Because", "t": 190.94}, {"w": "the", "t": 191.35}, {"w": "lizard", "t": 191.76}, {"w": "dropped", "t": 192.17}, {"w": "it", "t": 192.58}, {"w": "—", "t": 192.99}, {"w": "on", "t": 193.41}, {"w": "purpose!", "t": 193.82}, {"w": "Many", "t": 194.23}, {"w": "lizards", "t": 194.64}, {"w": "still", "t": 195.05}, {"w": "do", "t": 195.46}, {"w": "this.", "t": 195.87}, {"w": "When", "t": 196.28}, {"w": "a", "t": 196.7}, {"w": "hungry", "t": 197.11}, {"w": "predator", "t": 197.52}, {"w": "grabs", "t": 197.93}, {"w": "the", "t": 198.34}, {"w": "tail,", "t": 198.75}, {"w": "the", "t": 199.16}, {"w": "tail", "t": 199.57}, {"w": "breaks", "t": 199.99}, {"w": "away", "t": 200.4}, {"w": "and", "t": 200.81}, {"w": "keeps", "t": 201.22}, {"w": "wiggling,", "t": 201.63}, {"w": "distracting", "t": 202.04}, {"w": "the", "t": 202.45}, {"w": "hunter", "t": 202.86}, {"w": "with", "t": 203.28}, {"w": "a", "t": 203.69}, {"w": "snack", "t": 204.1}, {"w": "it", "t": 204.51}, {"w": "can", "t": 204.92}, {"w": "hardly", "t": 205.33}, {"w": "digest", "t": 205.74}, {"w": "—", "t": 206.15}, {"w": "while", "t": 206.57}, {"w": "the", "t": 206.98}, {"w": "lizard", "t": 207.39}, {"w": "dashes", "t": 207.8}, {"w": "free!", "t": 208.21}, {"w": "Scientists", "t": 208.62}, {"w": "scanned", "t": 209.03}, {"w": "the", "t": 209.44}, {"w": "amber", "t": 209.86}, {"w": "with", "t": 210.27}, {"w": "special", "t": 210.68}, {"w": "X-rays", "t": 211.09}, {"w": "and", "t": 211.5}, {"w": "found", "t": 211.91}, {"w": "a", "t": 212.32}, {"w": "neat", "t": 212.73}, {"w": "muscle", "t": 213.15}, {"w": "pattern", "t": 213.56}, {"w": "inside", "t": 213.97}, {"w": "—", "t": 214.38}, {"w": "the", "t": 214.79}, {"w": "same", "t": 215.2}, {"w": "one", "t": 215.61}, {"w": "modern", "t": 216.02}, {"w": "lizards", "t": 216.44}, {"w": "use", "t": 216.85}, {"w": "to", "t": 217.26}, {"w": "let", "t": 217.67}, {"w": "go.", "t": 218.08}, {"w": "Direct", "t": 218.49}, {"w": "proof", "t": 218.9}, {"w": "that", "t": 219.31}, {"w": "the", "t": 219.73}, {"w": "trick", "t": 220.14}, {"w": "is", "t": 220.55}, {"w": "ancient!", "t": 220.96}]}, {"start": 221.37, "end": 240.29, "en": "Still, escape is a compromise. Without a tail, a lizard climbs and balances more slowly, and a new one takes long to grow. But the maths was simple: lose a tail, keep a life! Its tail stayed in the golden amber, waiting to tell its story.", "title": "琥珀里的断尾逃生", "cn": "不过，逃生是一种妥协。没有了尾巴，蜥蜴爬行和保持平衡都会更慢，而新尾巴要很久才能长出来。但这笔账很简单：丢一条尾巴，保住一条命！它的尾巴就这样留在了金色的琥珀里，等着把自己的故事讲给我们听。", "words": [{"w": "Still,", "t": 221.37}, {"w": "escape", "t": 221.78}, {"w": "is", "t": 222.19}, {"w": "a", "t": 222.6}, {"w": "compromise.", "t": 223.02}, {"w": "Without", "t": 223.43}, {"w": "a", "t": 223.84}, {"w": "tail,", "t": 224.25}, {"w": "a", "t": 224.66}, {"w": "lizard", "t": 225.07}, {"w": "climbs", "t": 225.48}, {"w": "and", "t": 225.89}, {"w": "balances", "t": 226.31}, {"w": "more", "t": 226.72}, {"w": "slowly,", "t": 227.13}, {"w": "and", "t": 227.54}, {"w": "a", "t": 227.95}, {"w": "new", "t": 228.36}, {"w": "one", "t": 228.77}, {"w": "takes", "t": 229.18}, {"w": "long", "t": 229.6}, {"w": "to", "t": 230.01}, {"w": "grow.", "t": 230.42}, {"w": "But", "t": 230.83}, {"w": "the", "t": 231.24}, {"w": "maths", "t": 231.65}, {"w": "was", "t": 232.06}, {"w": "simple:", "t": 232.48}, {"w": "lose", "t": 232.89}, {"w": "a", "t": 233.3}, {"w": "tail,", "t": 233.71}, {"w": "keep", "t": 234.12}, {"w": "a", "t": 234.53}, {"w": "life!", "t": 234.94}, {"w": "Its", "t": 235.35}, {"w": "tail", "t": 235.77}, {"w": "stayed", "t": 236.18}, {"w": "in", "t": 236.59}, {"w": "the", "t": 237.0}, {"w": "golden", "t": 237.41}, {"w": "amber,", "t": 237.82}, {"w": "waiting", "t": 238.23}, {"w": "to", "t": 238.64}, {"w": "tell", "t": 239.06}, {"w": "its", "t": 239.47}, {"w": "story.", "t": 239.88}]}, {"start": 256.43, "end": 276.76, "en": "Here's today's idiom: \"out of the blue.\" If something happens out of the blue, it happens suddenly, with no warning at all — like a comet appearing in a quiet photo! Here's an example: \"We were walking home when, out of the blue, it began to rain.\" Can you remember a surprise from out of the blue?", "title": "今日俚语", "cn": "今天的俚语是：“out of the blue”（毫无征兆地、突然地）。如果一件事 out of the blue 地发生，它就是毫无预兆地突然降临——就像一颗彗星突然出现在安静的照片里！举个例子：“我们正走在回家的路上，突然间，天就下起雨来。”你能想起一件毫无征兆降临到你身上的惊喜吗？", "words": [{"w": "Here's", "t": 256.43}, {"w": "today's", "t": 256.79}, {"w": "idiom:", "t": 257.14}, {"w": "\"out", "t": 257.5}, {"w": "of", "t": 257.86}, {"w": "the", "t": 258.21}, {"w": "blue.\"", "t": 258.57}, {"w": "If", "t": 258.93}, {"w": "something", "t": 259.28}, {"w": "happens", "t": 259.64}, {"w": "out", "t": 260.0}, {"w": "of", "t": 260.35}, {"w": "the", "t": 260.71}, {"w": "blue,", "t": 261.07}, {"w": "it", "t": 261.42}, {"w": "happens", "t": 261.78}, {"w": "suddenly,", "t": 262.14}, {"w": "with", "t": 262.49}, {"w": "no", "t": 262.85}, {"w": "warning", "t": 263.21}, {"w": "at", "t": 263.56}, {"w": "all", "t": 263.92}, {"w": "—", "t": 264.28}, {"w": "like", "t": 264.63}, {"w": "a", "t": 264.99}, {"w": "comet", "t": 265.35}, {"w": "appearing", "t": 265.7}, {"w": "in", "t": 266.06}, {"w": "a", "t": 266.42}, {"w": "quiet", "t": 266.77}, {"w": "photo!", "t": 267.13}, {"w": "Here's", "t": 267.49}, {"w": "an", "t": 267.84}, {"w": "example:", "t": 268.2}, {"w": "\"We", "t": 268.56}, {"w": "were", "t": 268.91}, {"w": "walking", "t": 269.27}, {"w": "home", "t": 269.63}, {"w": "when,", "t": 269.98}, {"w": "out", "t": 270.34}, {"w": "of", "t": 270.7}, {"w": "the", "t": 271.05}, {"w": "blue,", "t": 271.41}, {"w": "it", "t": 271.77}, {"w": "began", "t": 272.12}, {"w": "to", "t": 272.48}, {"w": "rain.\"", "t": 272.84}, {"w": "Can", "t": 273.19}, {"w": "you", "t": 273.55}, {"w": "remember", "t": 273.91}, {"w": "a", "t": 274.26}, {"w": "surprise", "t": 274.62}, {"w": "from", "t": 274.98}, {"w": "out", "t": 275.33}, {"w": "of", "t": 275.69}, {"w": "the", "t": 276.05}, {"w": "blue?", "t": 276.4}]}, {"start": 293.38, "end": 321.99, "en": "Let's think about today's stories. A telescope found a new comet by accident, and a tail in amber proved lizards have used the same escape trick for millions of years. Now, two questions for you. First: what surprise would you love to find hiding in an old photo? Second: the lizard gave up its tail and saved its life — when is giving something up the smart thing to do? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事。一台望远镜意外发现了一颗新彗星，而琥珀里的一条尾巴证明，蜥蜴们几百万年来一直用着同一招逃生术。现在轮到你回答两个问题。第一：你最希望在一张老照片里找到什么惊喜？第二：蜥蜴舍弃尾巴、救了自己——什么时候，放弃一样东西反而是聪明的做法？和家人聊聊吧！", "words": [{"w": "Let's", "t": 293.38}, {"w": "think", "t": 293.76}, {"w": "about", "t": 294.13}, {"w": "today's", "t": 294.51}, {"w": "stories.", "t": 294.89}, {"w": "A", "t": 295.26}, {"w": "telescope", "t": 295.64}, {"w": "found", "t": 296.02}, {"w": "a", "t": 296.39}, {"w": "new", "t": 296.77}, {"w": "comet", "t": 297.14}, {"w": "by", "t": 297.52}, {"w": "accident,", "t": 297.9}, {"w": "and", "t": 298.27}, {"w": "a", "t": 298.65}, {"w": "tail", "t": 299.03}, {"w": "in", "t": 299.4}, {"w": "amber", "t": 299.78}, {"w": "proved", "t": 300.16}, {"w": "lizards", "t": 300.53}, {"w": "have", "t": 300.91}, {"w": "used", "t": 301.29}, {"w": "the", "t": 301.66}, {"w": "same", "t": 302.04}, {"w": "escape", "t": 302.41}, {"w": "trick", "t": 302.79}, {"w": "for", "t": 303.17}, {"w": "millions", "t": 303.54}, {"w": "of", "t": 303.92}, {"w": "years.", "t": 304.3}, {"w": "Now,", "t": 304.67}, {"w": "two", "t": 305.05}, {"w": "questions", "t": 305.43}, {"w": "for", "t": 305.8}, {"w": "you.", "t": 306.18}, {"w": "First:", "t": 306.56}, {"w": "what", "t": 306.93}, {"w": "surprise", "t": 307.31}, {"w": "would", "t": 307.69}, {"w": "you", "t": 308.06}, {"w": "love", "t": 308.44}, {"w": "to", "t": 308.81}, {"w": "find", "t": 309.19}, {"w": "hiding", "t": 309.57}, {"w": "in", "t": 309.94}, {"w": "an", "t": 310.32}, {"w": "old", "t": 310.7}, {"w": "photo?", "t": 311.07}, {"w": "Second:", "t": 311.45}, {"w": "the", "t": 311.83}, {"w": "lizard", "t": 312.2}, {"w": "gave", "t": 312.58}, {"w": "up", "t": 312.96}, {"w": "its", "t": 313.33}, {"w": "tail", "t": 313.71}, {"w": "and", "t": 314.08}, {"w": "saved", "t": 314.46}, {"w": "its", "t": 314.84}, {"w": "life", "t": 315.21}, {"w": "—", "t": 315.59}, {"w": "when", "t": 315.97}, {"w": "is", "t": 316.34}, {"w": "giving", "t": 316.72}, {"w": "something", "t": 317.1}, {"w": "up", "t": 317.47}, {"w": "the", "t": 317.85}, {"w": "smart", "t": 318.23}, {"w": "thing", "t": 318.6}, {"w": "to", "t": 318.98}, {"w": "do?", "t": 319.35}, {"w": "Talk", "t": 319.73}, {"w": "about", "t": 320.11}, {"w": "it", "t": 320.48}, {"w": "with", "t": 320.86}, {"w": "your", "t": 321.24}, {"w": "family!", "t": 321.61}]}, {"start": 334.77, "end": 344.06, "en": "That's all for today, young explorers. Keep your eyes open — the next big surprise might appear out of the blue! See you tomorrow morning!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。睁大眼睛——下一个大惊喜，可能毫无征兆地就冒出来啦！明天早上见！", "words": [{"w": "That's", "t": 334.77}, {"w": "all", "t": 335.14}, {"w": "for", "t": 335.51}, {"w": "today,", "t": 335.88}, {"w": "young", "t": 336.26}, {"w": "explorers.", "t": 336.63}, {"w": "Keep", "t": 337.0}, {"w": "your", "t": 337.37}, {"w": "eyes", "t": 337.74}, {"w": "open", "t": 338.11}, {"w": "—", "t": 338.49}, {"w": "the", "t": 338.86}, {"w": "next", "t": 339.23}, {"w": "big", "t": 339.6}, {"w": "surprise", "t": 339.97}, {"w": "might", "t": 340.34}, {"w": "appear", "t": 340.72}, {"w": "out", "t": 341.09}, {"w": "of", "t": 341.46}, {"w": "the", "t": 341.83}, {"w": "blue!", "t": 342.2}, {"w": "See", "t": 342.57}, {"w": "you", "t": 342.95}, {"w": "tomorrow", "t": 343.32}, {"w": "morning!", "t": 343.69}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol08/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>

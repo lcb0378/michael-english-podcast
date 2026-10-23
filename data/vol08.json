@@ -1,0 +1,3772 @@
+{
+ "id": "vol08",
+ "title": "望远镜捡到的新彗星与琥珀里的断尾逃生",
+ "words": 600,
+ "duration": "5分53秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol08/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol08/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol08/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol08/Vol08_晚读讲义_望远镜捡到的新彗星与琥珀里的断尾逃生_v1.pdf",
+ "pdfName": "Vol08_晚读讲义_望远镜捡到的新彗星与琥珀里的断尾逃生_v1.pdf",
+ "blocks": [
+  {
+   "start": 29.95,
+   "end": 50.37,
+   "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we begin high above the Earth, with a space telescope that found something it never looked for. Then we visit an ancient forest, where a tiny lizard left its tail behind — on purpose! Ready? Let's go!",
+   "title": "开场白",
+   "cn": "欢迎回来，小小探险家们，这里是 Michael 的早听晚读！今天我们从地球的上空开始——一台太空望远镜，发现了它压根没在找的东西。接着，我们要去拜访一片远古森林，在那里，一只小蜥蜴故意把尾巴留在了身后——真的是故意的！准备好了吗？出发！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 29.95
+    },
+    {
+     "w": "young",
+     "t": 30.38
+    },
+    {
+     "w": "explorers,",
+     "t": 30.8
+    },
+    {
+     "w": "and",
+     "t": 31.23
+    },
+    {
+     "w": "welcome",
+     "t": 31.65
+    },
+    {
+     "w": "back",
+     "t": 32.08
+    },
+    {
+     "w": "to",
+     "t": 32.5
+    },
+    {
+     "w": "Michael's",
+     "t": 32.93
+    },
+    {
+     "w": "Morning",
+     "t": 33.35
+    },
+    {
+     "w": "Listening!",
+     "t": 33.78
+    },
+    {
+     "w": "Today",
+     "t": 34.2
+    },
+    {
+     "w": "we",
+     "t": 34.63
+    },
+    {
+     "w": "begin",
+     "t": 35.05
+    },
+    {
+     "w": "high",
+     "t": 35.48
+    },
+    {
+     "w": "above",
+     "t": 35.91
+    },
+    {
+     "w": "the",
+     "t": 36.33
+    },
+    {
+     "w": "Earth,",
+     "t": 36.76
+    },
+    {
+     "w": "with",
+     "t": 37.18
+    },
+    {
+     "w": "a",
+     "t": 37.61
+    },
+    {
+     "w": "space",
+     "t": 38.03
+    },
+    {
+     "w": "telescope",
+     "t": 38.46
+    },
+    {
+     "w": "that",
+     "t": 38.88
+    },
+    {
+     "w": "found",
+     "t": 39.31
+    },
+    {
+     "w": "something",
+     "t": 39.73
+    },
+    {
+     "w": "it",
+     "t": 40.16
+    },
+    {
+     "w": "never",
+     "t": 40.59
+    },
+    {
+     "w": "looked",
+     "t": 41.01
+    },
+    {
+     "w": "for.",
+     "t": 41.44
+    },
+    {
+     "w": "Then",
+     "t": 41.86
+    },
+    {
+     "w": "we",
+     "t": 42.29
+    },
+    {
+     "w": "visit",
+     "t": 42.71
+    },
+    {
+     "w": "an",
+     "t": 43.14
+    },
+    {
+     "w": "ancient",
+     "t": 43.56
+    },
+    {
+     "w": "forest,",
+     "t": 43.99
+    },
+    {
+     "w": "where",
+     "t": 44.41
+    },
+    {
+     "w": "a",
+     "t": 44.84
+    },
+    {
+     "w": "tiny",
+     "t": 45.27
+    },
+    {
+     "w": "lizard",
+     "t": 45.69
+    },
+    {
+     "w": "left",
+     "t": 46.12
+    },
+    {
+     "w": "its",
+     "t": 46.54
+    },
+    {
+     "w": "tail",
+     "t": 46.97
+    },
+    {
+     "w": "behind",
+     "t": 47.39
+    },
+    {
+     "w": "—",
+     "t": 47.82
+    },
+    {
+     "w": "on",
+     "t": 48.24
+    },
+    {
+     "w": "purpose!",
+     "t": 48.67
+    },
+    {
+     "w": "Ready?",
+     "t": 49.09
+    },
+    {
+     "w": "Let's",
+     "t": 49.52
+    },
+    {
+     "w": "go!",
+     "t": 49.94
+    }
+   ]
+  },
+  {
+   "start": 64.27,
+   "end": 84.2,
+   "en": "Meet Euclid, a space telescope from Europe. Its job is to take slow, steady photos of faraway galaxies, and to study two invisible mysteries: dark matter and dark energy. Euclid is like a careful photographer of the deep sky. It was never built to chase fast little comets.",
+   "title": "望远镜捡到新彗星",
+   "cn": "来认识一下欧几里得，一台来自欧洲的太空望远镜。它的工作，是给遥远的星系拍下缓慢而稳定的照片，并研究两个看不见的谜团：暗物质和暗能量。欧几里得就像一位专注的深空摄影师。它从来就不是为了追逐飞快的小彗星而造的。",
+   "words": [
+    {
+     "w": "Meet",
+     "t": 64.27
+    },
+    {
+     "w": "Euclid,",
+     "t": 64.69
+    },
+    {
+     "w": "a",
+     "t": 65.1
+    },
+    {
+     "w": "space",
+     "t": 65.52
+    },
+    {
+     "w": "telescope",
+     "t": 65.93
+    },
+    {
+     "w": "from",
+     "t": 66.35
+    },
+    {
+     "w": "Europe.",
+     "t": 66.76
+    },
+    {
+     "w": "Its",
+     "t": 67.18
+    },
+    {
+     "w": "job",
+     "t": 67.59
+    },
+    {
+     "w": "is",
+     "t": 68.01
+    },
+    {
+     "w": "to",
+     "t": 68.42
+    },
+    {
+     "w": "take",
+     "t": 68.84
+    },
+    {
+     "w": "slow,",
+     "t": 69.25
+    },
+    {
+     "w": "steady",
+     "t": 69.67
+    },
+    {
+     "w": "photos",
+     "t": 70.08
+    },
+    {
+     "w": "of",
+     "t": 70.5
+    },
+    {
+     "w": "faraway",
+     "t": 70.91
+    },
+    {
+     "w": "galaxies,",
+     "t": 71.33
+    },
+    {
+     "w": "and",
+     "t": 71.74
+    },
+    {
+     "w": "to",
+     "t": 72.16
+    },
+    {
+     "w": "study",
+     "t": 72.57
+    },
+    {
+     "w": "two",
+     "t": 72.99
+    },
+    {
+     "w": "invisible",
+     "t": 73.4
+    },
+    {
+     "w": "mysteries:",
+     "t": 73.82
+    },
+    {
+     "w": "dark",
+     "t": 74.24
+    },
+    {
+     "w": "matter",
+     "t": 74.65
+    },
+    {
+     "w": "and",
+     "t": 75.07
+    },
+    {
+     "w": "dark",
+     "t": 75.48
+    },
+    {
+     "w": "energy.",
+     "t": 75.9
+    },
+    {
+     "w": "Euclid",
+     "t": 76.31
+    },
+    {
+     "w": "is",
+     "t": 76.73
+    },
+    {
+     "w": "like",
+     "t": 77.14
+    },
+    {
+     "w": "a",
+     "t": 77.56
+    },
+    {
+     "w": "careful",
+     "t": 77.97
+    },
+    {
+     "w": "photographer",
+     "t": 78.39
+    },
+    {
+     "w": "of",
+     "t": 78.8
+    },
+    {
+     "w": "the",
+     "t": 79.22
+    },
+    {
+     "w": "deep",
+     "t": 79.63
+    },
+    {
+     "w": "sky.",
+     "t": 80.05
+    },
+    {
+     "w": "It",
+     "t": 80.46
+    },
+    {
+     "w": "was",
+     "t": 80.88
+    },
+    {
+     "w": "never",
+     "t": 81.29
+    },
+    {
+     "w": "built",
+     "t": 81.71
+    },
+    {
+     "w": "to",
+     "t": 82.12
+    },
+    {
+     "w": "chase",
+     "t": 82.54
+    },
+    {
+     "w": "fast",
+     "t": 82.95
+    },
+    {
+     "w": "little",
+     "t": 83.37
+    },
+    {
+     "w": "comets.",
+     "t": 83.79
+    }
+   ]
+  },
+  {
+   "start": 84.2,
+   "end": 118.66,
+   "en": "Then, out of the blue, a streak appeared! In photos of the same patch of sky, a small smudge had moved. A young scientist in Finland, Mikko Pöntinen, had written clever software to catch moving objects — and it waved a little flag. In five sets of photos, the smudge had jumped to a new spot each time, circled by a fuzzy cloud of dust and gas. No flying saucer from a cartoon — a comet, a giant snowball of ice and rock.",
+   "title": "望远镜捡到新彗星",
+   "cn": "然后，毫无征兆地，一道光痕出现了！在同一片天空的照片里，有一小团光斑挪动了位置。芬兰的一位年轻科学家米科·彭蒂宁，编写了一个专门捕捉移动天体的巧妙软件——而他的软件举起了一面小旗。在五组照片里，那团光斑每次都跳到了新位置，周围环绕着一团毛茸茸的尘埃和气体云。这可不是卡通片里的飞碟——而是一颗彗星，一颗冰和岩石组成的巨大雪球。",
+   "words": [
+    {
+     "w": "Then,",
+     "t": 84.2
+    },
+    {
+     "w": "out",
+     "t": 84.62
+    },
+    {
+     "w": "of",
+     "t": 85.03
+    },
+    {
+     "w": "the",
+     "t": 85.45
+    },
+    {
+     "w": "blue,",
+     "t": 85.86
+    },
+    {
+     "w": "a",
+     "t": 86.28
+    },
+    {
+     "w": "streak",
+     "t": 86.69
+    },
+    {
+     "w": "appeared!",
+     "t": 87.11
+    },
+    {
+     "w": "In",
+     "t": 87.52
+    },
+    {
+     "w": "photos",
+     "t": 87.94
+    },
+    {
+     "w": "of",
+     "t": 88.35
+    },
+    {
+     "w": "the",
+     "t": 88.77
+    },
+    {
+     "w": "same",
+     "t": 89.18
+    },
+    {
+     "w": "patch",
+     "t": 89.6
+    },
+    {
+     "w": "of",
+     "t": 90.01
+    },
+    {
+     "w": "sky,",
+     "t": 90.43
+    },
+    {
+     "w": "a",
+     "t": 90.84
+    },
+    {
+     "w": "small",
+     "t": 91.26
+    },
+    {
+     "w": "smudge",
+     "t": 91.67
+    },
+    {
+     "w": "had",
+     "t": 92.09
+    },
+    {
+     "w": "moved.",
+     "t": 92.51
+    },
+    {
+     "w": "A",
+     "t": 92.92
+    },
+    {
+     "w": "young",
+     "t": 93.34
+    },
+    {
+     "w": "scientist",
+     "t": 93.75
+    },
+    {
+     "w": "in",
+     "t": 94.17
+    },
+    {
+     "w": "Finland,",
+     "t": 94.58
+    },
+    {
+     "w": "Mikko",
+     "t": 95.0
+    },
+    {
+     "w": "Pöntinen,",
+     "t": 95.41
+    },
+    {
+     "w": "had",
+     "t": 95.83
+    },
+    {
+     "w": "written",
+     "t": 96.24
+    },
+    {
+     "w": "clever",
+     "t": 96.66
+    },
+    {
+     "w": "software",
+     "t": 97.07
+    },
+    {
+     "w": "to",
+     "t": 97.49
+    },
+    {
+     "w": "catch",
+     "t": 97.9
+    },
+    {
+     "w": "moving",
+     "t": 98.32
+    },
+    {
+     "w": "objects",
+     "t": 98.73
+    },
+    {
+     "w": "—",
+     "t": 99.15
+    },
+    {
+     "w": "and",
+     "t": 99.56
+    },
+    {
+     "w": "it",
+     "t": 99.98
+    },
+    {
+     "w": "waved",
+     "t": 100.39
+    },
+    {
+     "w": "a",
+     "t": 100.81
+    },
+    {
+     "w": "little",
+     "t": 101.22
+    },
+    {
+     "w": "flag.",
+     "t": 101.64
+    },
+    {
+     "w": "In",
+     "t": 102.06
+    },
+    {
+     "w": "five",
+     "t": 102.47
+    },
+    {
+     "w": "sets",
+     "t": 102.89
+    },
+    {
+     "w": "of",
+     "t": 103.3
+    },
+    {
+     "w": "photos,",
+     "t": 103.72
+    },
+    {
+     "w": "the",
+     "t": 104.13
+    },
+    {
+     "w": "smudge",
+     "t": 104.55
+    },
+    {
+     "w": "had",
+     "t": 104.96
+    },
+    {
+     "w": "jumped",
+     "t": 105.38
+    },
+    {
+     "w": "to",
+     "t": 105.79
+    },
+    {
+     "w": "a",
+     "t": 106.21
+    },
+    {
+     "w": "new",
+     "t": 106.62
+    },
+    {
+     "w": "spot",
+     "t": 107.04
+    },
+    {
+     "w": "each",
+     "t": 107.45
+    },
+    {
+     "w": "time,",
+     "t": 107.87
+    },
+    {
+     "w": "circled",
+     "t": 108.28
+    },
+    {
+     "w": "by",
+     "t": 108.7
+    },
+    {
+     "w": "a",
+     "t": 109.11
+    },
+    {
+     "w": "fuzzy",
+     "t": 109.53
+    },
+    {
+     "w": "cloud",
+     "t": 109.94
+    },
+    {
+     "w": "of",
+     "t": 110.36
+    },
+    {
+     "w": "dust",
+     "t": 110.77
+    },
+    {
+     "w": "and",
+     "t": 111.19
+    },
+    {
+     "w": "gas.",
+     "t": 111.61
+    },
+    {
+     "w": "No",
+     "t": 112.02
+    },
+    {
+     "w": "flying",
+     "t": 112.44
+    },
+    {
+     "w": "saucer",
+     "t": 112.85
+    },
+    {
+     "w": "from",
+     "t": 113.27
+    },
+    {
+     "w": "a",
+     "t": 113.68
+    },
+    {
+     "w": "cartoon",
+     "t": 114.1
+    },
+    {
+     "w": "—",
+     "t": 114.51
+    },
+    {
+     "w": "a",
+     "t": 114.93
+    },
+    {
+     "w": "comet,",
+     "t": 115.34
+    },
+    {
+     "w": "a",
+     "t": 115.76
+    },
+    {
+     "w": "giant",
+     "t": 116.17
+    },
+    {
+     "w": "snowball",
+     "t": 116.59
+    },
+    {
+     "w": "of",
+     "t": 117.0
+    },
+    {
+     "w": "ice",
+     "t": 117.42
+    },
+    {
+     "w": "and",
+     "t": 117.83
+    },
+    {
+     "w": "rock.",
+     "t": 118.25
+    }
+   ]
+  },
+  {
+   "start": 118.66,
+   "end": 148.56,
+   "en": "But was it really new? Scientists checked every catalogue of comets and asteroids to determine the truth — no match. The world centre for small space objects confirmed it: brand new — and it now carries the telescope's name. It sits about one point three billion kilometres away, between the paths of Jupiter and Saturn, and one trip around the Sun takes thousands of years. A bonus guest, out of the blue!",
+   "title": "望远镜捡到新彗星",
+   "cn": "但它真是新发现的吗？科学家查遍了彗星和小行星的每一个目录来判定真相——没有找到任何匹配。世界小天体中心确认了它：全新发现——而且它如今冠上了这台望远镜的名字。它位于大约十三亿公里之外，在木星和土星的轨道之间，绕太阳走完一圈要花上数千年时间。一位不请自来的客人，毫无征兆地出现了！",
+   "words": [
+    {
+     "w": "But",
+     "t": 118.66
+    },
+    {
+     "w": "was",
+     "t": 119.08
+    },
+    {
+     "w": "it",
+     "t": 119.49
+    },
+    {
+     "w": "really",
+     "t": 119.91
+    },
+    {
+     "w": "new?",
+     "t": 120.32
+    },
+    {
+     "w": "Scientists",
+     "t": 120.74
+    },
+    {
+     "w": "checked",
+     "t": 121.16
+    },
+    {
+     "w": "every",
+     "t": 121.57
+    },
+    {
+     "w": "catalogue",
+     "t": 121.99
+    },
+    {
+     "w": "of",
+     "t": 122.4
+    },
+    {
+     "w": "comets",
+     "t": 122.82
+    },
+    {
+     "w": "and",
+     "t": 123.23
+    },
+    {
+     "w": "asteroids",
+     "t": 123.65
+    },
+    {
+     "w": "to",
+     "t": 124.06
+    },
+    {
+     "w": "determine",
+     "t": 124.48
+    },
+    {
+     "w": "the",
+     "t": 124.89
+    },
+    {
+     "w": "truth",
+     "t": 125.31
+    },
+    {
+     "w": "—",
+     "t": 125.72
+    },
+    {
+     "w": "no",
+     "t": 126.14
+    },
+    {
+     "w": "match.",
+     "t": 126.55
+    },
+    {
+     "w": "The",
+     "t": 126.97
+    },
+    {
+     "w": "world",
+     "t": 127.38
+    },
+    {
+     "w": "centre",
+     "t": 127.8
+    },
+    {
+     "w": "for",
+     "t": 128.21
+    },
+    {
+     "w": "small",
+     "t": 128.63
+    },
+    {
+     "w": "space",
+     "t": 129.04
+    },
+    {
+     "w": "objects",
+     "t": 129.46
+    },
+    {
+     "w": "confirmed",
+     "t": 129.88
+    },
+    {
+     "w": "it:",
+     "t": 130.29
+    },
+    {
+     "w": "brand",
+     "t": 130.71
+    },
+    {
+     "w": "new",
+     "t": 131.12
+    },
+    {
+     "w": "—",
+     "t": 131.54
+    },
+    {
+     "w": "and",
+     "t": 131.95
+    },
+    {
+     "w": "it",
+     "t": 132.37
+    },
+    {
+     "w": "now",
+     "t": 132.78
+    },
+    {
+     "w": "carries",
+     "t": 133.2
+    },
+    {
+     "w": "the",
+     "t": 133.61
+    },
+    {
+     "w": "telescope's",
+     "t": 134.03
+    },
+    {
+     "w": "name.",
+     "t": 134.44
+    },
+    {
+     "w": "It",
+     "t": 134.86
+    },
+    {
+     "w": "sits",
+     "t": 135.27
+    },
+    {
+     "w": "about",
+     "t": 135.69
+    },
+    {
+     "w": "one",
+     "t": 136.1
+    },
+    {
+     "w": "point",
+     "t": 136.52
+    },
+    {
+     "w": "three",
+     "t": 136.93
+    },
+    {
+     "w": "billion",
+     "t": 137.35
+    },
+    {
+     "w": "kilometres",
+     "t": 137.76
+    },
+    {
+     "w": "away,",
+     "t": 138.18
+    },
+    {
+     "w": "between",
+     "t": 138.59
+    },
+    {
+     "w": "the",
+     "t": 139.01
+    },
+    {
+     "w": "paths",
+     "t": 139.43
+    },
+    {
+     "w": "of",
+     "t": 139.84
+    },
+    {
+     "w": "Jupiter",
+     "t": 140.26
+    },
+    {
+     "w": "and",
+     "t": 140.67
+    },
+    {
+     "w": "Saturn,",
+     "t": 141.09
+    },
+    {
+     "w": "and",
+     "t": 141.5
+    },
+    {
+     "w": "one",
+     "t": 141.92
+    },
+    {
+     "w": "trip",
+     "t": 142.33
+    },
+    {
+     "w": "around",
+     "t": 142.75
+    },
+    {
+     "w": "the",
+     "t": 143.16
+    },
+    {
+     "w": "Sun",
+     "t": 143.58
+    },
+    {
+     "w": "takes",
+     "t": 143.99
+    },
+    {
+     "w": "thousands",
+     "t": 144.41
+    },
+    {
+     "w": "of",
+     "t": 144.82
+    },
+    {
+     "w": "years.",
+     "t": 145.24
+    },
+    {
+     "w": "A",
+     "t": 145.65
+    },
+    {
+     "w": "bonus",
+     "t": 146.07
+    },
+    {
+     "w": "guest,",
+     "t": 146.48
+    },
+    {
+     "w": "out",
+     "t": 146.9
+    },
+    {
+     "w": "of",
+     "t": 147.31
+    },
+    {
+     "w": "the",
+     "t": 147.73
+    },
+    {
+     "w": "blue!",
+     "t": 148.14
+    }
+   ]
+  },
+  {
+   "start": 161.74,
+   "end": 188.06,
+   "en": "Now let's fly back to an ancient forest in Myanmar, where dinosaurs walked. Sticky resin flowed down a tree, and one golden drop of it trapped something amazing: the tail of a small lizard — skin, muscle and tiny bones, still there ninety-nine million years later. Today that drop is hard amber, and the tail waits inside it like a message in a bottle.",
+   "title": "琥珀里的断尾逃生",
+   "cn": "现在，让我们飞回缅甸的一片远古森林，那里曾有恐龙走过。黏黏的树脂顺着树干流下，其中一滴金色的树脂，封存了一件了不起的东西：一只小蜥蜴的尾巴——皮肤、肌肉和小骨头，九千九百万年后依然都在。如今，那一滴树脂已变成坚硬的琥珀，尾巴就在里面静静等待，像一封瓶中信。",
+   "words": [
+    {
+     "w": "Now",
+     "t": 161.74
+    },
+    {
+     "w": "let's",
+     "t": 162.15
+    },
+    {
+     "w": "fly",
+     "t": 162.56
+    },
+    {
+     "w": "back",
+     "t": 162.97
+    },
+    {
+     "w": "to",
+     "t": 163.39
+    },
+    {
+     "w": "an",
+     "t": 163.8
+    },
+    {
+     "w": "ancient",
+     "t": 164.21
+    },
+    {
+     "w": "forest",
+     "t": 164.62
+    },
+    {
+     "w": "in",
+     "t": 165.03
+    },
+    {
+     "w": "Myanmar,",
+     "t": 165.44
+    },
+    {
+     "w": "where",
+     "t": 165.85
+    },
+    {
+     "w": "dinosaurs",
+     "t": 166.26
+    },
+    {
+     "w": "walked.",
+     "t": 166.68
+    },
+    {
+     "w": "Sticky",
+     "t": 167.09
+    },
+    {
+     "w": "resin",
+     "t": 167.5
+    },
+    {
+     "w": "flowed",
+     "t": 167.91
+    },
+    {
+     "w": "down",
+     "t": 168.32
+    },
+    {
+     "w": "a",
+     "t": 168.73
+    },
+    {
+     "w": "tree,",
+     "t": 169.14
+    },
+    {
+     "w": "and",
+     "t": 169.55
+    },
+    {
+     "w": "one",
+     "t": 169.97
+    },
+    {
+     "w": "golden",
+     "t": 170.38
+    },
+    {
+     "w": "drop",
+     "t": 170.79
+    },
+    {
+     "w": "of",
+     "t": 171.2
+    },
+    {
+     "w": "it",
+     "t": 171.61
+    },
+    {
+     "w": "trapped",
+     "t": 172.02
+    },
+    {
+     "w": "something",
+     "t": 172.43
+    },
+    {
+     "w": "amazing:",
+     "t": 172.84
+    },
+    {
+     "w": "the",
+     "t": 173.26
+    },
+    {
+     "w": "tail",
+     "t": 173.67
+    },
+    {
+     "w": "of",
+     "t": 174.08
+    },
+    {
+     "w": "a",
+     "t": 174.49
+    },
+    {
+     "w": "small",
+     "t": 174.9
+    },
+    {
+     "w": "lizard",
+     "t": 175.31
+    },
+    {
+     "w": "—",
+     "t": 175.72
+    },
+    {
+     "w": "skin,",
+     "t": 176.13
+    },
+    {
+     "w": "muscle",
+     "t": 176.55
+    },
+    {
+     "w": "and",
+     "t": 176.96
+    },
+    {
+     "w": "tiny",
+     "t": 177.37
+    },
+    {
+     "w": "bones,",
+     "t": 177.78
+    },
+    {
+     "w": "still",
+     "t": 178.19
+    },
+    {
+     "w": "there",
+     "t": 178.6
+    },
+    {
+     "w": "ninety-nine",
+     "t": 179.01
+    },
+    {
+     "w": "million",
+     "t": 179.42
+    },
+    {
+     "w": "years",
+     "t": 179.84
+    },
+    {
+     "w": "later.",
+     "t": 180.25
+    },
+    {
+     "w": "Today",
+     "t": 180.66
+    },
+    {
+     "w": "that",
+     "t": 181.07
+    },
+    {
+     "w": "drop",
+     "t": 181.48
+    },
+    {
+     "w": "is",
+     "t": 181.89
+    },
+    {
+     "w": "hard",
+     "t": 182.3
+    },
+    {
+     "w": "amber,",
+     "t": 182.71
+    },
+    {
+     "w": "and",
+     "t": 183.13
+    },
+    {
+     "w": "the",
+     "t": 183.54
+    },
+    {
+     "w": "tail",
+     "t": 183.95
+    },
+    {
+     "w": "waits",
+     "t": 184.36
+    },
+    {
+     "w": "inside",
+     "t": 184.77
+    },
+    {
+     "w": "it",
+     "t": 185.18
+    },
+    {
+     "w": "like",
+     "t": 185.59
+    },
+    {
+     "w": "a",
+     "t": 186.0
+    },
+    {
+     "w": "message",
+     "t": 186.42
+    },
+    {
+     "w": "in",
+     "t": 186.83
+    },
+    {
+     "w": "a",
+     "t": 187.24
+    },
+    {
+     "w": "bottle.",
+     "t": 187.65
+    }
+   ]
+  },
+  {
+   "start": 188.06,
+   "end": 221.37,
+   "en": "But why was there only a tail? Because the lizard dropped it — on purpose! Many lizards still do this. When a hungry predator grabs the tail, the tail breaks away and keeps wiggling, distracting the hunter with a snack it can hardly digest — while the lizard dashes free! Scientists scanned the amber with special X-rays and found a neat muscle pattern inside — the same one modern lizards use to let go. Direct proof that the trick is ancient!",
+   "title": "琥珀里的断尾逃生",
+   "cn": "但为什么只剩下一条尾巴呢？因为那只蜥蜴是故意把它丢掉的——故意的！现在很多蜥蜴还会这一招。当饥饿的捕食者抓住尾巴时，尾巴会断开并不断扭动，用一份它几乎消化不了的“点心”分散猎手的注意力——而蜥蜴自己则趁机逃之夭夭！科学家用特殊的 X 光扫描了琥珀，在尾巴内部发现了一套整齐的肌肉纹路——和现代蜥蜴松开尾巴时用的那套一模一样。这正是这一招历史悠久的直接证据！",
+   "words": [
+    {
+     "w": "But",
+     "t": 188.06
+    },
+    {
+     "w": "why",
+     "t": 188.47
+    },
+    {
+     "w": "was",
+     "t": 188.88
+    },
+    {
+     "w": "there",
+     "t": 189.29
+    },
+    {
+     "w": "only",
+     "t": 189.71
+    },
+    {
+     "w": "a",
+     "t": 190.12
+    },
+    {
+     "w": "tail?",
+     "t": 190.53
+    },
+    {
+     "w": "Because",
+     "t": 190.94
+    },
+    {
+     "w": "the",
+     "t": 191.35
+    },
+    {
+     "w": "lizard",
+     "t": 191.76
+    },
+    {
+     "w": "dropped",
+     "t": 192.17
+    },
+    {
+     "w": "it",
+     "t": 192.58
+    },
+    {
+     "w": "—",
+     "t": 193.0
+    },
+    {
+     "w": "on",
+     "t": 193.41
+    },
+    {
+     "w": "purpose!",
+     "t": 193.82
+    },
+    {
+     "w": "Many",
+     "t": 194.23
+    },
+    {
+     "w": "lizards",
+     "t": 194.64
+    },
+    {
+     "w": "still",
+     "t": 195.05
+    },
+    {
+     "w": "do",
+     "t": 195.46
+    },
+    {
+     "w": "this.",
+     "t": 195.87
+    },
+    {
+     "w": "When",
+     "t": 196.29
+    },
+    {
+     "w": "a",
+     "t": 196.7
+    },
+    {
+     "w": "hungry",
+     "t": 197.11
+    },
+    {
+     "w": "predator",
+     "t": 197.52
+    },
+    {
+     "w": "grabs",
+     "t": 197.93
+    },
+    {
+     "w": "the",
+     "t": 198.34
+    },
+    {
+     "w": "tail,",
+     "t": 198.75
+    },
+    {
+     "w": "the",
+     "t": 199.16
+    },
+    {
+     "w": "tail",
+     "t": 199.58
+    },
+    {
+     "w": "breaks",
+     "t": 199.99
+    },
+    {
+     "w": "away",
+     "t": 200.4
+    },
+    {
+     "w": "and",
+     "t": 200.81
+    },
+    {
+     "w": "keeps",
+     "t": 201.22
+    },
+    {
+     "w": "wiggling,",
+     "t": 201.63
+    },
+    {
+     "w": "distracting",
+     "t": 202.04
+    },
+    {
+     "w": "the",
+     "t": 202.45
+    },
+    {
+     "w": "hunter",
+     "t": 202.87
+    },
+    {
+     "w": "with",
+     "t": 203.28
+    },
+    {
+     "w": "a",
+     "t": 203.69
+    },
+    {
+     "w": "snack",
+     "t": 204.1
+    },
+    {
+     "w": "it",
+     "t": 204.51
+    },
+    {
+     "w": "can",
+     "t": 204.92
+    },
+    {
+     "w": "hardly",
+     "t": 205.33
+    },
+    {
+     "w": "digest",
+     "t": 205.74
+    },
+    {
+     "w": "—",
+     "t": 206.16
+    },
+    {
+     "w": "while",
+     "t": 206.57
+    },
+    {
+     "w": "the",
+     "t": 206.98
+    },
+    {
+     "w": "lizard",
+     "t": 207.39
+    },
+    {
+     "w": "dashes",
+     "t": 207.8
+    },
+    {
+     "w": "free!",
+     "t": 208.21
+    },
+    {
+     "w": "Scientists",
+     "t": 208.62
+    },
+    {
+     "w": "scanned",
+     "t": 209.03
+    },
+    {
+     "w": "the",
+     "t": 209.45
+    },
+    {
+     "w": "amber",
+     "t": 209.86
+    },
+    {
+     "w": "with",
+     "t": 210.27
+    },
+    {
+     "w": "special",
+     "t": 210.68
+    },
+    {
+     "w": "X-rays",
+     "t": 211.09
+    },
+    {
+     "w": "and",
+     "t": 211.5
+    },
+    {
+     "w": "found",
+     "t": 211.91
+    },
+    {
+     "w": "a",
+     "t": 212.32
+    },
+    {
+     "w": "neat",
+     "t": 212.74
+    },
+    {
+     "w": "muscle",
+     "t": 213.15
+    },
+    {
+     "w": "pattern",
+     "t": 213.56
+    },
+    {
+     "w": "inside",
+     "t": 213.97
+    },
+    {
+     "w": "—",
+     "t": 214.38
+    },
+    {
+     "w": "the",
+     "t": 214.79
+    },
+    {
+     "w": "same",
+     "t": 215.2
+    },
+    {
+     "w": "one",
+     "t": 215.61
+    },
+    {
+     "w": "modern",
+     "t": 216.03
+    },
+    {
+     "w": "lizards",
+     "t": 216.44
+    },
+    {
+     "w": "use",
+     "t": 216.85
+    },
+    {
+     "w": "to",
+     "t": 217.26
+    },
+    {
+     "w": "let",
+     "t": 217.67
+    },
+    {
+     "w": "go.",
+     "t": 218.08
+    },
+    {
+     "w": "Direct",
+     "t": 218.49
+    },
+    {
+     "w": "proof",
+     "t": 218.9
+    },
+    {
+     "w": "that",
+     "t": 219.32
+    },
+    {
+     "w": "the",
+     "t": 219.73
+    },
+    {
+     "w": "trick",
+     "t": 220.14
+    },
+    {
+     "w": "is",
+     "t": 220.55
+    },
+    {
+     "w": "ancient!",
+     "t": 220.96
+    }
+   ]
+  },
+  {
+   "start": 221.37,
+   "end": 240.29,
+   "en": "Still, escape is a compromise. Without a tail, a lizard climbs and balances more slowly, and a new one takes long to grow. But the maths was simple: lose a tail, keep a life! Its tail stayed in the golden amber, waiting to tell its story.",
+   "title": "琥珀里的断尾逃生",
+   "cn": "不过，逃生是一种妥协。没有了尾巴，蜥蜴爬行和保持平衡都会更慢，而新尾巴要很久才能长出来。但这笔账很简单：丢一条尾巴，保住一条命！它的尾巴就这样留在了金色的琥珀里，等着把自己的故事讲给我们听。",
+   "words": [
+    {
+     "w": "Still,",
+     "t": 221.37
+    },
+    {
+     "w": "escape",
+     "t": 221.78
+    },
+    {
+     "w": "is",
+     "t": 222.19
+    },
+    {
+     "w": "a",
+     "t": 222.61
+    },
+    {
+     "w": "compromise.",
+     "t": 223.02
+    },
+    {
+     "w": "Without",
+     "t": 223.43
+    },
+    {
+     "w": "a",
+     "t": 223.84
+    },
+    {
+     "w": "tail,",
+     "t": 224.25
+    },
+    {
+     "w": "a",
+     "t": 224.66
+    },
+    {
+     "w": "lizard",
+     "t": 225.07
+    },
+    {
+     "w": "climbs",
+     "t": 225.48
+    },
+    {
+     "w": "and",
+     "t": 225.9
+    },
+    {
+     "w": "balances",
+     "t": 226.31
+    },
+    {
+     "w": "more",
+     "t": 226.72
+    },
+    {
+     "w": "slowly,",
+     "t": 227.13
+    },
+    {
+     "w": "and",
+     "t": 227.54
+    },
+    {
+     "w": "a",
+     "t": 227.95
+    },
+    {
+     "w": "new",
+     "t": 228.36
+    },
+    {
+     "w": "one",
+     "t": 228.77
+    },
+    {
+     "w": "takes",
+     "t": 229.19
+    },
+    {
+     "w": "long",
+     "t": 229.6
+    },
+    {
+     "w": "to",
+     "t": 230.01
+    },
+    {
+     "w": "grow.",
+     "t": 230.42
+    },
+    {
+     "w": "But",
+     "t": 230.83
+    },
+    {
+     "w": "the",
+     "t": 231.24
+    },
+    {
+     "w": "maths",
+     "t": 231.65
+    },
+    {
+     "w": "was",
+     "t": 232.06
+    },
+    {
+     "w": "simple:",
+     "t": 232.48
+    },
+    {
+     "w": "lose",
+     "t": 232.89
+    },
+    {
+     "w": "a",
+     "t": 233.3
+    },
+    {
+     "w": "tail,",
+     "t": 233.71
+    },
+    {
+     "w": "keep",
+     "t": 234.12
+    },
+    {
+     "w": "a",
+     "t": 234.53
+    },
+    {
+     "w": "life!",
+     "t": 234.94
+    },
+    {
+     "w": "Its",
+     "t": 235.35
+    },
+    {
+     "w": "tail",
+     "t": 235.77
+    },
+    {
+     "w": "stayed",
+     "t": 236.18
+    },
+    {
+     "w": "in",
+     "t": 236.59
+    },
+    {
+     "w": "the",
+     "t": 237.0
+    },
+    {
+     "w": "golden",
+     "t": 237.41
+    },
+    {
+     "w": "amber,",
+     "t": 237.82
+    },
+    {
+     "w": "waiting",
+     "t": 238.23
+    },
+    {
+     "w": "to",
+     "t": 238.64
+    },
+    {
+     "w": "tell",
+     "t": 239.06
+    },
+    {
+     "w": "its",
+     "t": 239.47
+    },
+    {
+     "w": "story.",
+     "t": 239.88
+    }
+   ]
+  },
+  {
+   "start": 256.43,
+   "end": 276.76,
+   "en": "Here's today's idiom: \"out of the blue.\" If something happens out of the blue, it happens suddenly, with no warning at all — like a comet appearing in a quiet photo! Here's an example: \"We were walking home when, out of the blue, it began to rain.\" Can you remember a surprise from out of the blue?",
+   "title": "今日俚语",
+   "cn": "今天的俚语是：“out of the blue”（毫无征兆地、突然地）。如果一件事 out of the blue 地发生，它就是毫无预兆地突然降临——就像一颗彗星突然出现在安静的照片里！举个例子：“我们正走在回家的路上，突然间，天就下起雨来。”你能想起一件毫无征兆降临到你身上的惊喜吗？",
+   "words": [
+    {
+     "w": "Here's",
+     "t": 256.43
+    },
+    {
+     "w": "today's",
+     "t": 256.79
+    },
+    {
+     "w": "idiom:",
+     "t": 257.14
+    },
+    {
+     "w": "\"out",
+     "t": 257.5
+    },
+    {
+     "w": "of",
+     "t": 257.86
+    },
+    {
+     "w": "the",
+     "t": 258.21
+    },
+    {
+     "w": "blue.\"",
+     "t": 258.57
+    },
+    {
+     "w": "If",
+     "t": 258.93
+    },
+    {
+     "w": "something",
+     "t": 259.28
+    },
+    {
+     "w": "happens",
+     "t": 259.64
+    },
+    {
+     "w": "out",
+     "t": 260.0
+    },
+    {
+     "w": "of",
+     "t": 260.35
+    },
+    {
+     "w": "the",
+     "t": 260.71
+    },
+    {
+     "w": "blue,",
+     "t": 261.07
+    },
+    {
+     "w": "it",
+     "t": 261.42
+    },
+    {
+     "w": "happens",
+     "t": 261.78
+    },
+    {
+     "w": "suddenly,",
+     "t": 262.14
+    },
+    {
+     "w": "with",
+     "t": 262.49
+    },
+    {
+     "w": "no",
+     "t": 262.85
+    },
+    {
+     "w": "warning",
+     "t": 263.21
+    },
+    {
+     "w": "at",
+     "t": 263.56
+    },
+    {
+     "w": "all",
+     "t": 263.92
+    },
+    {
+     "w": "—",
+     "t": 264.28
+    },
+    {
+     "w": "like",
+     "t": 264.63
+    },
+    {
+     "w": "a",
+     "t": 264.99
+    },
+    {
+     "w": "comet",
+     "t": 265.35
+    },
+    {
+     "w": "appearing",
+     "t": 265.7
+    },
+    {
+     "w": "in",
+     "t": 266.06
+    },
+    {
+     "w": "a",
+     "t": 266.42
+    },
+    {
+     "w": "quiet",
+     "t": 266.77
+    },
+    {
+     "w": "photo!",
+     "t": 267.13
+    },
+    {
+     "w": "Here's",
+     "t": 267.49
+    },
+    {
+     "w": "an",
+     "t": 267.84
+    },
+    {
+     "w": "example:",
+     "t": 268.2
+    },
+    {
+     "w": "\"We",
+     "t": 268.56
+    },
+    {
+     "w": "were",
+     "t": 268.91
+    },
+    {
+     "w": "walking",
+     "t": 269.27
+    },
+    {
+     "w": "home",
+     "t": 269.63
+    },
+    {
+     "w": "when,",
+     "t": 269.98
+    },
+    {
+     "w": "out",
+     "t": 270.34
+    },
+    {
+     "w": "of",
+     "t": 270.7
+    },
+    {
+     "w": "the",
+     "t": 271.05
+    },
+    {
+     "w": "blue,",
+     "t": 271.41
+    },
+    {
+     "w": "it",
+     "t": 271.77
+    },
+    {
+     "w": "began",
+     "t": 272.12
+    },
+    {
+     "w": "to",
+     "t": 272.48
+    },
+    {
+     "w": "rain.\"",
+     "t": 272.84
+    },
+    {
+     "w": "Can",
+     "t": 273.19
+    },
+    {
+     "w": "you",
+     "t": 273.55
+    },
+    {
+     "w": "remember",
+     "t": 273.91
+    },
+    {
+     "w": "a",
+     "t": 274.26
+    },
+    {
+     "w": "surprise",
+     "t": 274.62
+    },
+    {
+     "w": "from",
+     "t": 274.98
+    },
+    {
+     "w": "out",
+     "t": 275.33
+    },
+    {
+     "w": "of",
+     "t": 275.69
+    },
+    {
+     "w": "the",
+     "t": 276.05
+    },
+    {
+     "w": "blue?",
+     "t": 276.4
+    }
+   ]
+  },
+  {
+   "start": 293.38,
+   "end": 321.99,
+   "en": "Let's think about today's stories. A telescope found a new comet by accident, and a tail in amber proved lizards have used the same escape trick for millions of years. Now, two questions for you. First: what surprise would you love to find hiding in an old photo? Second: the lizard gave up its tail and saved its life — when is giving something up the smart thing to do? Talk about it with your family!",
+   "title": "结束语与互动问题",
+   "cn": "我们来想想今天的故事。一台望远镜意外发现了一颗新彗星，而琥珀里的一条尾巴证明，蜥蜴们几百万年来一直用着同一招逃生术。现在轮到你回答两个问题。第一：你最希望在一张老照片里找到什么惊喜？第二：蜥蜴舍弃尾巴、救了自己——什么时候，放弃一样东西反而是聪明的做法？和家人聊聊吧！",
+   "words": [
+    {
+     "w": "Let's",
+     "t": 293.38
+    },
+    {
+     "w": "think",
+     "t": 293.76
+    },
+    {
+     "w": "about",
+     "t": 294.13
+    },
+    {
+     "w": "today's",
+     "t": 294.51
+    },
+    {
+     "w": "stories.",
+     "t": 294.89
+    },
+    {
+     "w": "A",
+     "t": 295.26
+    },
+    {
+     "w": "telescope",
+     "t": 295.64
+    },
+    {
+     "w": "found",
+     "t": 296.02
+    },
+    {
+     "w": "a",
+     "t": 296.39
+    },
+    {
+     "w": "new",
+     "t": 296.77
+    },
+    {
+     "w": "comet",
+     "t": 297.14
+    },
+    {
+     "w": "by",
+     "t": 297.52
+    },
+    {
+     "w": "accident,",
+     "t": 297.9
+    },
+    {
+     "w": "and",
+     "t": 298.27
+    },
+    {
+     "w": "a",
+     "t": 298.65
+    },
+    {
+     "w": "tail",
+     "t": 299.03
+    },
+    {
+     "w": "in",
+     "t": 299.4
+    },
+    {
+     "w": "amber",
+     "t": 299.78
+    },
+    {
+     "w": "proved",
+     "t": 300.16
+    },
+    {
+     "w": "lizards",
+     "t": 300.53
+    },
+    {
+     "w": "have",
+     "t": 300.91
+    },
+    {
+     "w": "used",
+     "t": 301.29
+    },
+    {
+     "w": "the",
+     "t": 301.66
+    },
+    {
+     "w": "same",
+     "t": 302.04
+    },
+    {
+     "w": "escape",
+     "t": 302.41
+    },
+    {
+     "w": "trick",
+     "t": 302.79
+    },
+    {
+     "w": "for",
+     "t": 303.17
+    },
+    {
+     "w": "millions",
+     "t": 303.54
+    },
+    {
+     "w": "of",
+     "t": 303.92
+    },
+    {
+     "w": "years.",
+     "t": 304.3
+    },
+    {
+     "w": "Now,",
+     "t": 304.67
+    },
+    {
+     "w": "two",
+     "t": 305.05
+    },
+    {
+     "w": "questions",
+     "t": 305.43
+    },
+    {
+     "w": "for",
+     "t": 305.8
+    },
+    {
+     "w": "you.",
+     "t": 306.18
+    },
+    {
+     "w": "First:",
+     "t": 306.56
+    },
+    {
+     "w": "what",
+     "t": 306.93
+    },
+    {
+     "w": "surprise",
+     "t": 307.31
+    },
+    {
+     "w": "would",
+     "t": 307.69
+    },
+    {
+     "w": "you",
+     "t": 308.06
+    },
+    {
+     "w": "love",
+     "t": 308.44
+    },
+    {
+     "w": "to",
+     "t": 308.81
+    },
+    {
+     "w": "find",
+     "t": 309.19
+    },
+    {
+     "w": "hiding",
+     "t": 309.57
+    },
+    {
+     "w": "in",
+     "t": 309.94
+    },
+    {
+     "w": "an",
+     "t": 310.32
+    },
+    {
+     "w": "old",
+     "t": 310.7
+    },
+    {
+     "w": "photo?",
+     "t": 311.07
+    },
+    {
+     "w": "Second:",
+     "t": 311.45
+    },
+    {
+     "w": "the",
+     "t": 311.83
+    },
+    {
+     "w": "lizard",
+     "t": 312.2
+    },
+    {
+     "w": "gave",
+     "t": 312.58
+    },
+    {
+     "w": "up",
+     "t": 312.96
+    },
+    {
+     "w": "its",
+     "t": 313.33
+    },
+    {
+     "w": "tail",
+     "t": 313.71
+    },
+    {
+     "w": "and",
+     "t": 314.08
+    },
+    {
+     "w": "saved",
+     "t": 314.46
+    },
+    {
+     "w": "its",
+     "t": 314.84
+    },
+    {
+     "w": "life",
+     "t": 315.21
+    },
+    {
+     "w": "—",
+     "t": 315.59
+    },
+    {
+     "w": "when",
+     "t": 315.97
+    },
+    {
+     "w": "is",
+     "t": 316.34
+    },
+    {
+     "w": "giving",
+     "t": 316.72
+    },
+    {
+     "w": "something",
+     "t": 317.1
+    },
+    {
+     "w": "up",
+     "t": 317.47
+    },
+    {
+     "w": "the",
+     "t": 317.85
+    },
+    {
+     "w": "smart",
+     "t": 318.23
+    },
+    {
+     "w": "thing",
+     "t": 318.6
+    },
+    {
+     "w": "to",
+     "t": 318.98
+    },
+    {
+     "w": "do?",
+     "t": 319.35
+    },
+    {
+     "w": "Talk",
+     "t": 319.73
+    },
+    {
+     "w": "about",
+     "t": 320.11
+    },
+    {
+     "w": "it",
+     "t": 320.48
+    },
+    {
+     "w": "with",
+     "t": 320.86
+    },
+    {
+     "w": "your",
+     "t": 321.24
+    },
+    {
+     "w": "family!",
+     "t": 321.61
+    }
+   ]
+  },
+  {
+   "start": 334.77,
+   "end": 344.06,
+   "en": "That's all for today, young explorers. Keep your eyes open — the next big surprise might appear out of the blue! See you tomorrow morning!",
+   "title": "告别",
+   "cn": "今天的节目就到这里啦，小小探险家们。睁大眼睛——下一个大惊喜，可能毫无征兆地就冒出来啦！明天早上见！",
+   "words": [
+    {
+     "w": "That's",
+     "t": 334.77
+    },
+    {
+     "w": "all",
+     "t": 335.14
+    },
+    {
+     "w": "for",
+     "t": 335.51
+    },
+    {
+     "w": "today,",
+     "t": 335.88
+    },
+    {
+     "w": "young",
+     "t": 336.26
+    },
+    {
+     "w": "explorers.",
+     "t": 336.63
+    },
+    {
+     "w": "Keep",
+     "t": 337.0
+    },
+    {
+     "w": "your",
+     "t": 337.37
+    },
+    {
+     "w": "eyes",
+     "t": 337.74
+    },
+    {
+     "w": "open",
+     "t": 338.11
+    },
+    {
+     "w": "—",
+     "t": 338.49
+    },
+    {
+     "w": "the",
+     "t": 338.86
+    },
+    {
+     "w": "next",
+     "t": 339.23
+    },
+    {
+     "w": "big",
+     "t": 339.6
+    },
+    {
+     "w": "surprise",
+     "t": 339.97
+    },
+    {
+     "w": "might",
+     "t": 340.34
+    },
+    {
+     "w": "appear",
+     "t": 340.72
+    },
+    {
+     "w": "out",
+     "t": 341.09
+    },
+    {
+     "w": "of",
+     "t": 341.46
+    },
+    {
+     "w": "the",
+     "t": 341.83
+    },
+    {
+     "w": "blue!",
+     "t": 342.2
+    },
+    {
+     "w": "See",
+     "t": 342.57
+    },
+    {
+     "w": "you",
+     "t": 342.95
+    },
+    {
+     "w": "tomorrow",
+     "t": 343.32
+    },
+    {
+     "w": "morning!",
+     "t": 343.69
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "out of the blue",
+    "phon": "/aʊt ɒv ðə bluː/",
+    "meaning": "(习语) 毫无征兆地；突然地",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: A bonus guest, out of the blue!"
+   },
+   {
+    "word": "telescope",
+    "phon": "/ˈtelɪskəʊp/",
+    "meaning": "(n.) 望远镜",
+    "tags": [],
+    "example": "Example: Meet Euclid, a space telescope from Europe."
+   },
+   {
+    "word": "catalogue",
+    "phon": "/ˈkætəlɒɡ/",
+    "meaning": "(n.) 目录；册子",
+    "tags": [],
+    "example": "Example: Scientists checked every catalogue of comets and asteroids."
+   },
+   {
+    "word": "streak",
+    "phon": "/striːk/",
+    "meaning": "(n.) 条纹；一道光痕",
+    "tags": [],
+    "example": "Example: Then, out of the blue, a streak appeared!"
+   },
+   {
+    "word": "amber",
+    "phon": "/ˈæmbə/",
+    "meaning": "(n.) 琥珀",
+    "tags": [],
+    "example": "Example: Its tail stayed in the golden amber."
+   },
+   {
+    "word": "muscle",
+    "phon": "/ˈmʌsl/",
+    "meaning": "(n.) 肌肉",
+    "tags": [],
+    "example": "Example: Scientists found a neat muscle pattern inside the tail."
+   },
+   {
+    "word": "predator",
+    "phon": "/ˈpredətə/",
+    "meaning": "(n.) 捕食者；肉食动物",
+    "tags": [],
+    "example": "Example: When a hungry predator grabs the tail, the tail breaks away."
+   },
+   {
+    "word": "distract",
+    "phon": "/dɪˈstrækt/",
+    "meaning": "(v.) 分散（注意力）；使分心",
+    "tags": [],
+    "example": "Example: The wiggling tail can distract the hunter."
+   },
+   {
+    "word": "determine",
+    "phon": "/dɪˈtɜːmɪn/",
+    "meaning": "(v.) 判定；确定",
+    "tags": [],
+    "example": "Example: Scientists checked every catalogue to determine the truth."
+   },
+   {
+    "word": "compromise",
+    "phon": "/ˈkɒmprəmaɪz/",
+    "meaning": "(n.) 妥协；折中",
+    "tags": [],
+    "example": "Example: Still, escape is a compromise."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "What is Euclid's main job?\nA. Taking photos of the Moon for calendars\nB. Chasing fast comets around the Sun\nC. Photographing faraway galaxies and studying dark matter and dark energy\nD. Watching the weather on Earth",
+     "How was the new comet found?\nA. A smudge of light had moved between photos of the same patch of sky\nB. It shone brighter than the Sun\nC. It landed quietly in Finland\nD. Pöntinen saw it from his garden",
+     "Why did the lizard in the amber lose its tail?\nA. A tree fell on it while it slept\nB. It dropped the tail on purpose, so the predator would chase the tail, not the lizard\nC. Scientists cut the tail off to study it\nD. The tail was too long for the tree",
+     "What does \"out of the blue\" mean?\nA. Very slowly, step by step\nB. Only on rainy days\nC. Suddenly, with no warning\nD. Deep under the sea"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "type": "text",
+        "text": "When a hungry "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "predator"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " grabs the tail, "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "the tail breaks away and keeps wiggling"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": ", "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "distracting the hunter"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " with a snack "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "it can hardly digest"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " — while "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "the lizard dashes free"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "!"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "主干是 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "the tail breaks away and keeps wiggling"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：尾巴断开，并继续扭动——"
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "breaks away"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 和 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "keeps wiggling"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是两个并列的谓语，共用主语 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "the tail"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。先抓主干，长句就倒下一半。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "句首的 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "When a hungry predator grabs the tail"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是 "
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "when 引导的时间状语从句"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：交代\"当……的时候\"这一背景，从句里有自己的主谓（predator grabs），但它不独立成句，只是给主干当\"时间标签\"。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "distracting the hunter with a snack"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "现在分词短语"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "distracting"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（分散注意力）的动作发出者是主语 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "the tail"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "——尾巴一边扭动、一边分散猎手的注意力，不用再写一个 and 句子，顺手就把\"伴随发生的事\"交代了。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "a snack it can hardly digest"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 里藏着一个"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "省略了关系词的定语从句"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：完整的写法是 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "a snack (that) it can hardly digest"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（它几乎消化不了的一份点心）；"
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "that"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 作宾语时可以省略。另外注意 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "hardly"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是\"几乎不\"，自带否定意味，整句并没有 not，却表达了否定。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "破折号后的 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "while the lizard dashes free"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 又是一个从句："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "while"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 表示\"与此同时\"，把镜头一分为二——这边尾巴在扭动，那边蜥蜴已逃之夭夭，对比一目了然。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句逻辑链："
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "当捕食者抓住尾巴（时间背景）→ 尾巴断开并继续扭动（主干）→ 分散猎手注意力（分词短语）→ 而蜥蜴趁机逃走（while 从句）"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。一个逃生镜头，被装进了一句话里。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "CATALOGUE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（目录；册子）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "DETERMINE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（判定；确定）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "TELESCOPE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（望远镜）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "AMBER"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（琥珀）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "MUSCLE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（肌肉）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "DIGEST"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（消化）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "DISTRACT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（分散注意力；使分心）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PREDATOR"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（捕食者）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SAUCER"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（飞碟；小碟子）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "COMPROMISE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（妥协；折中）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says Euclid's job is "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"to take slow, steady photos of faraway galaxies, and to study two invisible mysteries: dark matter and dark energy.\""
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": " Chasing comets is exactly what it was "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "not"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": " built for."
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "A"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"In photos of the same patch of sky, a small smudge had moved\""
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": " — and clever software flagged it."
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says the lizard "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"dropped it — on purpose!\""
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": " The wiggling tail distracts the hunter "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"while the lizard dashes free.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"it happens suddenly, with no warning at all.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. attracting the hunter's eyes  2. taking photos of faraway galaxies"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. when danger comes near  2. when a comet comes close to the Sun"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. a hunter can hardly digest  2. Euclid took of the comet"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "C",
+    "A",
+    "B",
+    "C"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. 现在分词短语：用括号里的短语补全",
+     "items": [
+      {
+       "prompt": "The tail kept wiggling on the ground, ____.",
+       "options": [
+        "attracting the hunter's eyes",
+        "attracted the hunter's eyes",
+        "attract the hunter's eyes"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "Euclid sailed on through space, ____.",
+       "options": [
+        "took photos of faraway galaxies",
+        "taking photos of faraway galaxies",
+        "take photos of faraway galaxies"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. 时间状语从句：用括号里的短语补全",
+     "items": [
+      {
+       "prompt": "____, the lizard can drop its tail and run.",
+       "options": [
+        "when danger come near",
+        "danger comes near when",
+        "when danger comes near"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "____, its ice turns into gas and dust.",
+       "options": [
+        "when a comet comes close to the Sun",
+        "when a comet come close to the Sun",
+        "a comet comes close to the Sun when"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. 省略关系词的定语从句：用括号里的短语补全",
+     "items": [
+      {
+       "prompt": "The tail is a snack ____.",
+       "options": [
+        "a hunter can hardly digests",
+        "a hunter can hardly digest",
+        "which a hunter can hardly digest it"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "Here is the photo ____.",
+       "options": [
+        "Euclid took it of the comet",
+        "what Euclid took of the comet",
+        "Euclid took of the comet"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "When the soft rain began, the little lizard ran under a leaf, leaving wet marks on the stone.",
+    "A comet is a gift a telescope can find when nobody is looking for one."
+   ]
+  },
+  "crossword": {
+   "nrows": 11,
+   "ncols": 16,
+   "words": [
+    {
+     "word": "CATALOGUE",
+     "row": 0,
+     "col": 2,
+     "dir": "D",
+     "num": 1,
+     "cn": "目录；册子",
+     "clue": "A book or list of things, kept in order. Example: Scientists checked every ______ of comets and asteroids."
+    },
+    {
+     "word": "DETERMINE",
+     "row": 1,
+     "col": 14,
+     "dir": "D",
+     "num": 2,
+     "cn": "判定；确定",
+     "clue": "To find out the truth for sure. Example: Scientists checked every catalogue to ______ the truth."
+    },
+    {
+     "word": "TELESCOPE",
+     "row": 2,
+     "col": 8,
+     "dir": "D",
+     "num": 3,
+     "cn": "望远镜",
+     "clue": "An instrument for looking at faraway things in space. Example: Meet Euclid, a space ______ from Europe."
+    },
+    {
+     "word": "AMBER",
+     "row": 2,
+     "col": 11,
+     "dir": "A",
+     "num": 4,
+     "cn": "琥珀",
+     "clue": "Tree resin that turned hard and golden like stone. Example: Its tail stayed in the golden ______."
+    },
+    {
+     "word": "MUSCLE",
+     "row": 2,
+     "col": 12,
+     "dir": "D",
+     "num": 5,
+     "cn": "肌肉",
+     "clue": "The soft body part that lets us move. Example: Scientists found a neat ______ pattern inside the tail."
+    },
+    {
+     "word": "DIGEST",
+     "row": 3,
+     "col": 0,
+     "dir": "D",
+     "num": 6,
+     "cn": "消化",
+     "clue": "To break food down inside the body. Example: A snack it can hardly ______."
+    },
+    {
+     "word": "DISTRACT",
+     "row": 3,
+     "col": 5,
+     "dir": "D",
+     "num": 7,
+     "cn": "分散注意力；使分心",
+     "clue": "To take someone's attention away from something. Example: The wiggling tail can ______ the hunter."
+    },
+    {
+     "word": "PREDATOR",
+     "row": 3,
+     "col": 10,
+     "dir": "D",
+     "num": 8,
+     "cn": "捕食者",
+     "clue": "An animal that hunts and eats other animals. Example: When a hungry ______ grabs the tail, the tail breaks away."
+    },
+    {
+     "word": "SAUCER",
+     "row": 7,
+     "col": 0,
+     "dir": "A",
+     "num": 9,
+     "cn": "飞碟；小碟子",
+     "clue": "A small round dish — or a flying one in cartoons! Example: No flying ______ from a cartoon."
+    },
+    {
+     "word": "COMPROMISE",
+     "row": 9,
+     "col": 5,
+     "dir": "A",
+     "num": 10,
+     "cn": "妥协；折中",
+     "clue": "A choice where you give up something to get something else. Example: Still, escape is a ______."
+    }
+   ]
+  }
+ }
+}
