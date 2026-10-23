@@ -1,0 +1,3637 @@
+{
+ "id": "vol07",
+ "title": "十六岁少年三项纪录与猫咪的心情密码",
+ "words": 599,
+ "duration": "6分03秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol07/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol07/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol07/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol07/Vol07_晚读讲义_十六岁少年三项纪录与猫咪的心情密码_v1.pdf",
+ "pdfName": "Vol07_晚读讲义_十六岁少年三项纪录与猫咪的心情密码_v1.pdf",
+ "blocks": [
+  {
+   "start": 27.39,
+   "end": 48.53,
+   "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we start on a football pitch in London, with a sixteen-year-old who collected three world records in one season. Then we tiptoe into quiet homes in Japan, where scientists watched cats — and their owners' moods. Ready? Let's go!",
+   "title": "开场白",
+   "cn": "欢迎回来，小小探险家们，这里是 Michael 的早听晚读！今天我们先来到伦敦的一块足球场，认识一位一个赛季就集齐三项世界纪录的十六岁少年。接着我们踮起脚尖，走进日本一户户安静的家，科学家们在那里观察猫咪——和它们主人的心情。准备好了吗？出发！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 27.39
+    },
+    {
+     "w": "young",
+     "t": 27.81
+    },
+    {
+     "w": "explorers,",
+     "t": 28.24
+    },
+    {
+     "w": "and",
+     "t": 28.66
+    },
+    {
+     "w": "welcome",
+     "t": 29.08
+    },
+    {
+     "w": "back",
+     "t": 29.5
+    },
+    {
+     "w": "to",
+     "t": 29.93
+    },
+    {
+     "w": "Michael's",
+     "t": 30.35
+    },
+    {
+     "w": "Morning",
+     "t": 30.77
+    },
+    {
+     "w": "Listening!",
+     "t": 31.2
+    },
+    {
+     "w": "Today",
+     "t": 31.62
+    },
+    {
+     "w": "we",
+     "t": 32.04
+    },
+    {
+     "w": "start",
+     "t": 32.46
+    },
+    {
+     "w": "on",
+     "t": 32.89
+    },
+    {
+     "w": "a",
+     "t": 33.31
+    },
+    {
+     "w": "football",
+     "t": 33.73
+    },
+    {
+     "w": "pitch",
+     "t": 34.15
+    },
+    {
+     "w": "in",
+     "t": 34.58
+    },
+    {
+     "w": "London,",
+     "t": 35.0
+    },
+    {
+     "w": "with",
+     "t": 35.42
+    },
+    {
+     "w": "a",
+     "t": 35.85
+    },
+    {
+     "w": "sixteen-year-old",
+     "t": 36.27
+    },
+    {
+     "w": "who",
+     "t": 36.69
+    },
+    {
+     "w": "collected",
+     "t": 37.11
+    },
+    {
+     "w": "three",
+     "t": 37.54
+    },
+    {
+     "w": "world",
+     "t": 37.96
+    },
+    {
+     "w": "records",
+     "t": 38.38
+    },
+    {
+     "w": "in",
+     "t": 38.81
+    },
+    {
+     "w": "one",
+     "t": 39.23
+    },
+    {
+     "w": "season.",
+     "t": 39.65
+    },
+    {
+     "w": "Then",
+     "t": 40.07
+    },
+    {
+     "w": "we",
+     "t": 40.5
+    },
+    {
+     "w": "tiptoe",
+     "t": 40.92
+    },
+    {
+     "w": "into",
+     "t": 41.34
+    },
+    {
+     "w": "quiet",
+     "t": 41.77
+    },
+    {
+     "w": "homes",
+     "t": 42.19
+    },
+    {
+     "w": "in",
+     "t": 42.61
+    },
+    {
+     "w": "Japan,",
+     "t": 43.03
+    },
+    {
+     "w": "where",
+     "t": 43.46
+    },
+    {
+     "w": "scientists",
+     "t": 43.88
+    },
+    {
+     "w": "watched",
+     "t": 44.3
+    },
+    {
+     "w": "cats",
+     "t": 44.72
+    },
+    {
+     "w": "—",
+     "t": 45.15
+    },
+    {
+     "w": "and",
+     "t": 45.57
+    },
+    {
+     "w": "their",
+     "t": 45.99
+    },
+    {
+     "w": "owners'",
+     "t": 46.42
+    },
+    {
+     "w": "moods.",
+     "t": 46.84
+    },
+    {
+     "w": "Ready?",
+     "t": 47.26
+    },
+    {
+     "w": "Let's",
+     "t": 47.68
+    },
+    {
+     "w": "go!",
+     "t": 48.11
+    }
+   ]
+  },
+  {
+   "start": 65.87,
+   "end": 87.48,
+   "en": "Meet Max Dowman, a young winger at Arsenal, a famous football club in England. At fifteen years and three hundred and eight days old, he stepped onto the pitch in the Champions League, the biggest club competition in Europe. No player that young had ever done it. It sounds absurd — but it really happened!",
+   "title": "十六岁少年三项纪录",
+   "cn": "来认识一下 Max Dowman，阿森纳的一名年轻边锋——阿森纳是英格兰一家著名的足球俱乐部。在他十五岁零三百零八天大的时候，他踏上了欧冠联赛的赛场，那是欧洲最高水平的俱乐部赛事。此前，从没有这么年轻的球员做到过这件事。听起来很荒谬——但它真的发生了！",
+   "words": [
+    {
+     "w": "Meet",
+     "t": 65.87
+    },
+    {
+     "w": "Max",
+     "t": 66.26
+    },
+    {
+     "w": "Dowman,",
+     "t": 66.66
+    },
+    {
+     "w": "a",
+     "t": 67.05
+    },
+    {
+     "w": "young",
+     "t": 67.44
+    },
+    {
+     "w": "winger",
+     "t": 67.84
+    },
+    {
+     "w": "at",
+     "t": 68.23
+    },
+    {
+     "w": "Arsenal,",
+     "t": 68.62
+    },
+    {
+     "w": "a",
+     "t": 69.01
+    },
+    {
+     "w": "famous",
+     "t": 69.41
+    },
+    {
+     "w": "football",
+     "t": 69.8
+    },
+    {
+     "w": "club",
+     "t": 70.19
+    },
+    {
+     "w": "in",
+     "t": 70.59
+    },
+    {
+     "w": "England.",
+     "t": 70.98
+    },
+    {
+     "w": "At",
+     "t": 71.37
+    },
+    {
+     "w": "fifteen",
+     "t": 71.77
+    },
+    {
+     "w": "years",
+     "t": 72.16
+    },
+    {
+     "w": "and",
+     "t": 72.55
+    },
+    {
+     "w": "three",
+     "t": 72.94
+    },
+    {
+     "w": "hundred",
+     "t": 73.34
+    },
+    {
+     "w": "and",
+     "t": 73.73
+    },
+    {
+     "w": "eight",
+     "t": 74.12
+    },
+    {
+     "w": "days",
+     "t": 74.52
+    },
+    {
+     "w": "old,",
+     "t": 74.91
+    },
+    {
+     "w": "he",
+     "t": 75.3
+    },
+    {
+     "w": "stepped",
+     "t": 75.7
+    },
+    {
+     "w": "onto",
+     "t": 76.09
+    },
+    {
+     "w": "the",
+     "t": 76.48
+    },
+    {
+     "w": "pitch",
+     "t": 76.87
+    },
+    {
+     "w": "in",
+     "t": 77.27
+    },
+    {
+     "w": "the",
+     "t": 77.66
+    },
+    {
+     "w": "Champions",
+     "t": 78.05
+    },
+    {
+     "w": "League,",
+     "t": 78.45
+    },
+    {
+     "w": "the",
+     "t": 78.84
+    },
+    {
+     "w": "biggest",
+     "t": 79.23
+    },
+    {
+     "w": "club",
+     "t": 79.62
+    },
+    {
+     "w": "competition",
+     "t": 80.02
+    },
+    {
+     "w": "in",
+     "t": 80.41
+    },
+    {
+     "w": "Europe.",
+     "t": 80.8
+    },
+    {
+     "w": "No",
+     "t": 81.2
+    },
+    {
+     "w": "player",
+     "t": 81.59
+    },
+    {
+     "w": "that",
+     "t": 81.98
+    },
+    {
+     "w": "young",
+     "t": 82.38
+    },
+    {
+     "w": "had",
+     "t": 82.77
+    },
+    {
+     "w": "ever",
+     "t": 83.16
+    },
+    {
+     "w": "done",
+     "t": 83.56
+    },
+    {
+     "w": "it.",
+     "t": 83.95
+    },
+    {
+     "w": "It",
+     "t": 84.34
+    },
+    {
+     "w": "sounds",
+     "t": 84.73
+    },
+    {
+     "w": "absurd",
+     "t": 85.13
+    },
+    {
+     "w": "—",
+     "t": 85.52
+    },
+    {
+     "w": "but",
+     "t": 85.91
+    },
+    {
+     "w": "it",
+     "t": 86.31
+    },
+    {
+     "w": "really",
+     "t": 86.7
+    },
+    {
+     "w": "happened!",
+     "t": 87.09
+    }
+   ]
+  },
+  {
+   "start": 87.48,
+   "end": 113.82,
+   "en": "His second record was pure magic. In a league match against Everton, the goalkeeper had run up the field, leaving his goal empty. Dowman got the ball in his own half and ran — past one player, past another, sixty metres — then rolled it into the empty net. The crowd erupted! At sixteen years and seventy-three days, he was the youngest goalscorer in Premier League history.",
+   "title": "十六岁少年三项纪录",
+   "cn": "他的第二项纪录堪称魔法。在一场对阵埃弗顿的联赛中，对方守门员跑到了前场，把自家球门晾成了空门。Dowman 在本方半场拿到球就开始奔跑——过掉一名球员，又过掉一名，带球跑了六十米——然后把球推进了空门。全场爆发了！在他十六岁零七十三天的时候，他成为了英超历史上最年轻的进球者。",
+   "words": [
+    {
+     "w": "His",
+     "t": 87.48
+    },
+    {
+     "w": "second",
+     "t": 87.88
+    },
+    {
+     "w": "record",
+     "t": 88.27
+    },
+    {
+     "w": "was",
+     "t": 88.66
+    },
+    {
+     "w": "pure",
+     "t": 89.06
+    },
+    {
+     "w": "magic.",
+     "t": 89.45
+    },
+    {
+     "w": "In",
+     "t": 89.84
+    },
+    {
+     "w": "a",
+     "t": 90.24
+    },
+    {
+     "w": "league",
+     "t": 90.63
+    },
+    {
+     "w": "match",
+     "t": 91.02
+    },
+    {
+     "w": "against",
+     "t": 91.42
+    },
+    {
+     "w": "Everton,",
+     "t": 91.81
+    },
+    {
+     "w": "the",
+     "t": 92.2
+    },
+    {
+     "w": "goalkeeper",
+     "t": 92.59
+    },
+    {
+     "w": "had",
+     "t": 92.99
+    },
+    {
+     "w": "run",
+     "t": 93.38
+    },
+    {
+     "w": "up",
+     "t": 93.77
+    },
+    {
+     "w": "the",
+     "t": 94.17
+    },
+    {
+     "w": "field,",
+     "t": 94.56
+    },
+    {
+     "w": "leaving",
+     "t": 94.95
+    },
+    {
+     "w": "his",
+     "t": 95.34
+    },
+    {
+     "w": "goal",
+     "t": 95.74
+    },
+    {
+     "w": "empty.",
+     "t": 96.13
+    },
+    {
+     "w": "Dowman",
+     "t": 96.52
+    },
+    {
+     "w": "got",
+     "t": 96.92
+    },
+    {
+     "w": "the",
+     "t": 97.31
+    },
+    {
+     "w": "ball",
+     "t": 97.7
+    },
+    {
+     "w": "in",
+     "t": 98.1
+    },
+    {
+     "w": "his",
+     "t": 98.49
+    },
+    {
+     "w": "own",
+     "t": 98.88
+    },
+    {
+     "w": "half",
+     "t": 99.28
+    },
+    {
+     "w": "and",
+     "t": 99.67
+    },
+    {
+     "w": "ran",
+     "t": 100.06
+    },
+    {
+     "w": "—",
+     "t": 100.45
+    },
+    {
+     "w": "past",
+     "t": 100.85
+    },
+    {
+     "w": "one",
+     "t": 101.24
+    },
+    {
+     "w": "player,",
+     "t": 101.63
+    },
+    {
+     "w": "past",
+     "t": 102.03
+    },
+    {
+     "w": "another,",
+     "t": 102.42
+    },
+    {
+     "w": "sixty",
+     "t": 102.81
+    },
+    {
+     "w": "metres",
+     "t": 103.2
+    },
+    {
+     "w": "—",
+     "t": 103.6
+    },
+    {
+     "w": "then",
+     "t": 103.99
+    },
+    {
+     "w": "rolled",
+     "t": 104.38
+    },
+    {
+     "w": "it",
+     "t": 104.78
+    },
+    {
+     "w": "into",
+     "t": 105.17
+    },
+    {
+     "w": "the",
+     "t": 105.56
+    },
+    {
+     "w": "empty",
+     "t": 105.96
+    },
+    {
+     "w": "net.",
+     "t": 106.35
+    },
+    {
+     "w": "The",
+     "t": 106.74
+    },
+    {
+     "w": "crowd",
+     "t": 107.14
+    },
+    {
+     "w": "erupted!",
+     "t": 107.53
+    },
+    {
+     "w": "At",
+     "t": 107.92
+    },
+    {
+     "w": "sixteen",
+     "t": 108.31
+    },
+    {
+     "w": "years",
+     "t": 108.71
+    },
+    {
+     "w": "and",
+     "t": 109.1
+    },
+    {
+     "w": "seventy-three",
+     "t": 109.49
+    },
+    {
+     "w": "days,",
+     "t": 109.89
+    },
+    {
+     "w": "he",
+     "t": 110.28
+    },
+    {
+     "w": "was",
+     "t": 110.67
+    },
+    {
+     "w": "the",
+     "t": 111.06
+    },
+    {
+     "w": "youngest",
+     "t": 111.46
+    },
+    {
+     "w": "goalscorer",
+     "t": 111.85
+    },
+    {
+     "w": "in",
+     "t": 112.24
+    },
+    {
+     "w": "Premier",
+     "t": 112.64
+    },
+    {
+     "w": "League",
+     "t": 113.03
+    },
+    {
+     "w": "history.",
+     "t": 113.42
+    }
+   ]
+  },
+  {
+   "start": 113.82,
+   "end": 144.47,
+   "en": "In a cup match, he scored twice in one game — and on his first league match, he won a penalty to assist his team. Then, when Arsenal won the Premier League title, he lifted the trophy at sixteen years and one hundred and forty-four days: the youngest champion ever. Coaches say he is determined and careful — he trains hard and never stops learning. A rising star for his club, and one day for his country too.",
+   "title": "十六岁少年三项纪录",
+   "cn": "在杯赛中，他曾在一场比赛里打进两球；而在他参加的第一场联赛里，他制造了一粒点球，帮助了球队。随后，当阿森纳赢得英超冠军时，他在十六岁零一百四十四天举起了奖杯：有史以来最年轻的冠军。教练们说，他坚定又细心——刻苦训练，永不停止学习。一颗冉冉升起的新星属于他的俱乐部，有一天，也会属于他的国家。",
+   "words": [
+    {
+     "w": "In",
+     "t": 113.82
+    },
+    {
+     "w": "a",
+     "t": 114.21
+    },
+    {
+     "w": "cup",
+     "t": 114.6
+    },
+    {
+     "w": "match,",
+     "t": 115.0
+    },
+    {
+     "w": "he",
+     "t": 115.39
+    },
+    {
+     "w": "scored",
+     "t": 115.78
+    },
+    {
+     "w": "twice",
+     "t": 116.17
+    },
+    {
+     "w": "in",
+     "t": 116.57
+    },
+    {
+     "w": "one",
+     "t": 116.96
+    },
+    {
+     "w": "game",
+     "t": 117.35
+    },
+    {
+     "w": "—",
+     "t": 117.75
+    },
+    {
+     "w": "and",
+     "t": 118.14
+    },
+    {
+     "w": "on",
+     "t": 118.53
+    },
+    {
+     "w": "his",
+     "t": 118.92
+    },
+    {
+     "w": "first",
+     "t": 119.32
+    },
+    {
+     "w": "league",
+     "t": 119.71
+    },
+    {
+     "w": "match,",
+     "t": 120.1
+    },
+    {
+     "w": "he",
+     "t": 120.5
+    },
+    {
+     "w": "won",
+     "t": 120.89
+    },
+    {
+     "w": "a",
+     "t": 121.28
+    },
+    {
+     "w": "penalty",
+     "t": 121.68
+    },
+    {
+     "w": "to",
+     "t": 122.07
+    },
+    {
+     "w": "assist",
+     "t": 122.46
+    },
+    {
+     "w": "his",
+     "t": 122.86
+    },
+    {
+     "w": "team.",
+     "t": 123.25
+    },
+    {
+     "w": "Then,",
+     "t": 123.64
+    },
+    {
+     "w": "when",
+     "t": 124.03
+    },
+    {
+     "w": "Arsenal",
+     "t": 124.43
+    },
+    {
+     "w": "won",
+     "t": 124.82
+    },
+    {
+     "w": "the",
+     "t": 125.21
+    },
+    {
+     "w": "Premier",
+     "t": 125.61
+    },
+    {
+     "w": "League",
+     "t": 126.0
+    },
+    {
+     "w": "title,",
+     "t": 126.39
+    },
+    {
+     "w": "he",
+     "t": 126.78
+    },
+    {
+     "w": "lifted",
+     "t": 127.18
+    },
+    {
+     "w": "the",
+     "t": 127.57
+    },
+    {
+     "w": "trophy",
+     "t": 127.96
+    },
+    {
+     "w": "at",
+     "t": 128.36
+    },
+    {
+     "w": "sixteen",
+     "t": 128.75
+    },
+    {
+     "w": "years",
+     "t": 129.14
+    },
+    {
+     "w": "and",
+     "t": 129.54
+    },
+    {
+     "w": "one",
+     "t": 129.93
+    },
+    {
+     "w": "hundred",
+     "t": 130.32
+    },
+    {
+     "w": "and",
+     "t": 130.72
+    },
+    {
+     "w": "forty-four",
+     "t": 131.11
+    },
+    {
+     "w": "days:",
+     "t": 131.5
+    },
+    {
+     "w": "the",
+     "t": 131.89
+    },
+    {
+     "w": "youngest",
+     "t": 132.29
+    },
+    {
+     "w": "champion",
+     "t": 132.68
+    },
+    {
+     "w": "ever.",
+     "t": 133.07
+    },
+    {
+     "w": "Coaches",
+     "t": 133.47
+    },
+    {
+     "w": "say",
+     "t": 133.86
+    },
+    {
+     "w": "he",
+     "t": 134.25
+    },
+    {
+     "w": "is",
+     "t": 134.65
+    },
+    {
+     "w": "determined",
+     "t": 135.04
+    },
+    {
+     "w": "and",
+     "t": 135.43
+    },
+    {
+     "w": "careful",
+     "t": 135.82
+    },
+    {
+     "w": "—",
+     "t": 136.22
+    },
+    {
+     "w": "he",
+     "t": 136.61
+    },
+    {
+     "w": "trains",
+     "t": 137.0
+    },
+    {
+     "w": "hard",
+     "t": 137.4
+    },
+    {
+     "w": "and",
+     "t": 137.79
+    },
+    {
+     "w": "never",
+     "t": 138.18
+    },
+    {
+     "w": "stops",
+     "t": 138.57
+    },
+    {
+     "w": "learning.",
+     "t": 138.97
+    },
+    {
+     "w": "A",
+     "t": 139.36
+    },
+    {
+     "w": "rising",
+     "t": 139.75
+    },
+    {
+     "w": "star",
+     "t": 140.15
+    },
+    {
+     "w": "for",
+     "t": 140.54
+    },
+    {
+     "w": "his",
+     "t": 140.93
+    },
+    {
+     "w": "club,",
+     "t": 141.33
+    },
+    {
+     "w": "and",
+     "t": 141.72
+    },
+    {
+     "w": "one",
+     "t": 142.11
+    },
+    {
+     "w": "day",
+     "t": 142.5
+    },
+    {
+     "w": "for",
+     "t": 142.9
+    },
+    {
+     "w": "his",
+     "t": 143.29
+    },
+    {
+     "w": "country",
+     "t": 143.68
+    },
+    {
+     "w": "too.",
+     "t": 144.08
+    }
+   ]
+  },
+  {
+   "start": 163.97,
+   "end": 190.37,
+   "en": "Now let's leave the noisy stadium and visit quiet homes in Japan. Many cat owners say their cat makes them feel happy and calm. But is that just a feeling — or can science measure it? Scientists at Kyoto University followed twenty-nine cats and nineteen owners for a whole month. No cages, no laboratories — just sofas, saucers of milk, and sleepy afternoons.",
+   "title": "猫咪的心情密码",
+   "cn": "现在我们离开喧闹的体育场，去探访日本一户户安静的家。很多猫主人说，猫咪让他们感到快乐和平静。但这只是一种感觉——还是科学可以测量的东西？京都大学的科学家追踪了二十九只猫和十九位主人，整整一个月。没有笼子，没有实验室——只有沙发、小碟子里的牛奶，和一个个懒洋洋的午后。",
+   "words": [
+    {
+     "w": "Now",
+     "t": 163.97
+    },
+    {
+     "w": "let's",
+     "t": 164.39
+    },
+    {
+     "w": "leave",
+     "t": 164.81
+    },
+    {
+     "w": "the",
+     "t": 165.23
+    },
+    {
+     "w": "noisy",
+     "t": 165.65
+    },
+    {
+     "w": "stadium",
+     "t": 166.07
+    },
+    {
+     "w": "and",
+     "t": 166.48
+    },
+    {
+     "w": "visit",
+     "t": 166.9
+    },
+    {
+     "w": "quiet",
+     "t": 167.32
+    },
+    {
+     "w": "homes",
+     "t": 167.74
+    },
+    {
+     "w": "in",
+     "t": 168.16
+    },
+    {
+     "w": "Japan.",
+     "t": 168.58
+    },
+    {
+     "w": "Many",
+     "t": 169.0
+    },
+    {
+     "w": "cat",
+     "t": 169.42
+    },
+    {
+     "w": "owners",
+     "t": 169.84
+    },
+    {
+     "w": "say",
+     "t": 170.26
+    },
+    {
+     "w": "their",
+     "t": 170.67
+    },
+    {
+     "w": "cat",
+     "t": 171.09
+    },
+    {
+     "w": "makes",
+     "t": 171.51
+    },
+    {
+     "w": "them",
+     "t": 171.93
+    },
+    {
+     "w": "feel",
+     "t": 172.35
+    },
+    {
+     "w": "happy",
+     "t": 172.77
+    },
+    {
+     "w": "and",
+     "t": 173.19
+    },
+    {
+     "w": "calm.",
+     "t": 173.61
+    },
+    {
+     "w": "But",
+     "t": 174.03
+    },
+    {
+     "w": "is",
+     "t": 174.45
+    },
+    {
+     "w": "that",
+     "t": 174.86
+    },
+    {
+     "w": "just",
+     "t": 175.28
+    },
+    {
+     "w": "a",
+     "t": 175.7
+    },
+    {
+     "w": "feeling",
+     "t": 176.12
+    },
+    {
+     "w": "—",
+     "t": 176.54
+    },
+    {
+     "w": "or",
+     "t": 176.96
+    },
+    {
+     "w": "can",
+     "t": 177.38
+    },
+    {
+     "w": "science",
+     "t": 177.8
+    },
+    {
+     "w": "measure",
+     "t": 178.22
+    },
+    {
+     "w": "it?",
+     "t": 178.64
+    },
+    {
+     "w": "Scientists",
+     "t": 179.05
+    },
+    {
+     "w": "at",
+     "t": 179.47
+    },
+    {
+     "w": "Kyoto",
+     "t": 179.89
+    },
+    {
+     "w": "University",
+     "t": 180.31
+    },
+    {
+     "w": "followed",
+     "t": 180.73
+    },
+    {
+     "w": "twenty-nine",
+     "t": 181.15
+    },
+    {
+     "w": "cats",
+     "t": 181.57
+    },
+    {
+     "w": "and",
+     "t": 181.99
+    },
+    {
+     "w": "nineteen",
+     "t": 182.41
+    },
+    {
+     "w": "owners",
+     "t": 182.83
+    },
+    {
+     "w": "for",
+     "t": 183.24
+    },
+    {
+     "w": "a",
+     "t": 183.66
+    },
+    {
+     "w": "whole",
+     "t": 184.08
+    },
+    {
+     "w": "month.",
+     "t": 184.5
+    },
+    {
+     "w": "No",
+     "t": 184.92
+    },
+    {
+     "w": "cages,",
+     "t": 185.34
+    },
+    {
+     "w": "no",
+     "t": 185.76
+    },
+    {
+     "w": "laboratories",
+     "t": 186.18
+    },
+    {
+     "w": "—",
+     "t": 186.6
+    },
+    {
+     "w": "just",
+     "t": 187.02
+    },
+    {
+     "w": "sofas,",
+     "t": 187.43
+    },
+    {
+     "w": "saucers",
+     "t": 187.85
+    },
+    {
+     "w": "of",
+     "t": 188.27
+    },
+    {
+     "w": "milk,",
+     "t": 188.69
+    },
+    {
+     "w": "and",
+     "t": 189.11
+    },
+    {
+     "w": "sleepy",
+     "t": 189.53
+    },
+    {
+     "w": "afternoons.",
+     "t": 189.95
+    }
+   ]
+  },
+  {
+   "start": 190.37,
+   "end": 215.51,
+   "en": "Each cat wore a tiny Bluetooth beacon on its collar, like a mini name tag that talks to the owner's phone, quietly measuring how close the cat stayed to its owner. Scientists also tested samples from cats and owners, hunting for two body chemicals: oxytocin, the \"love hormone\" that grows when we hug and play, and cortisol, the stress hormone.",
+   "title": "猫咪的心情密码",
+   "cn": "每只猫的项圈上都戴着一个小小的蓝牙信标，像一枚会和主人手机说话的迷你名牌，悄悄测量猫离主人有多近。科学家还检测了猫和主人的样本，寻找两种身体化学物质：催产素——我们在拥抱和玩耍时上升的“爱心荷尔蒙”，以及皮质醇——压力荷尔蒙。",
+   "words": [
+    {
+     "w": "Each",
+     "t": 190.37
+    },
+    {
+     "w": "cat",
+     "t": 190.79
+    },
+    {
+     "w": "wore",
+     "t": 191.21
+    },
+    {
+     "w": "a",
+     "t": 191.62
+    },
+    {
+     "w": "tiny",
+     "t": 192.04
+    },
+    {
+     "w": "Bluetooth",
+     "t": 192.46
+    },
+    {
+     "w": "beacon",
+     "t": 192.88
+    },
+    {
+     "w": "on",
+     "t": 193.3
+    },
+    {
+     "w": "its",
+     "t": 193.72
+    },
+    {
+     "w": "collar,",
+     "t": 194.14
+    },
+    {
+     "w": "like",
+     "t": 194.56
+    },
+    {
+     "w": "a",
+     "t": 194.98
+    },
+    {
+     "w": "mini",
+     "t": 195.4
+    },
+    {
+     "w": "name",
+     "t": 195.82
+    },
+    {
+     "w": "tag",
+     "t": 196.23
+    },
+    {
+     "w": "that",
+     "t": 196.65
+    },
+    {
+     "w": "talks",
+     "t": 197.07
+    },
+    {
+     "w": "to",
+     "t": 197.49
+    },
+    {
+     "w": "the",
+     "t": 197.91
+    },
+    {
+     "w": "owner's",
+     "t": 198.33
+    },
+    {
+     "w": "phone,",
+     "t": 198.75
+    },
+    {
+     "w": "quietly",
+     "t": 199.17
+    },
+    {
+     "w": "measuring",
+     "t": 199.59
+    },
+    {
+     "w": "how",
+     "t": 200.01
+    },
+    {
+     "w": "close",
+     "t": 200.42
+    },
+    {
+     "w": "the",
+     "t": 200.84
+    },
+    {
+     "w": "cat",
+     "t": 201.26
+    },
+    {
+     "w": "stayed",
+     "t": 201.68
+    },
+    {
+     "w": "to",
+     "t": 202.1
+    },
+    {
+     "w": "its",
+     "t": 202.52
+    },
+    {
+     "w": "owner.",
+     "t": 202.94
+    },
+    {
+     "w": "Scientists",
+     "t": 203.36
+    },
+    {
+     "w": "also",
+     "t": 203.78
+    },
+    {
+     "w": "tested",
+     "t": 204.2
+    },
+    {
+     "w": "samples",
+     "t": 204.61
+    },
+    {
+     "w": "from",
+     "t": 205.03
+    },
+    {
+     "w": "cats",
+     "t": 205.45
+    },
+    {
+     "w": "and",
+     "t": 205.87
+    },
+    {
+     "w": "owners,",
+     "t": 206.29
+    },
+    {
+     "w": "hunting",
+     "t": 206.71
+    },
+    {
+     "w": "for",
+     "t": 207.13
+    },
+    {
+     "w": "two",
+     "t": 207.55
+    },
+    {
+     "w": "body",
+     "t": 207.97
+    },
+    {
+     "w": "chemicals:",
+     "t": 208.39
+    },
+    {
+     "w": "oxytocin,",
+     "t": 208.8
+    },
+    {
+     "w": "the",
+     "t": 209.22
+    },
+    {
+     "w": "\"love",
+     "t": 209.64
+    },
+    {
+     "w": "hormone\"",
+     "t": 210.06
+    },
+    {
+     "w": "that",
+     "t": 210.48
+    },
+    {
+     "w": "grows",
+     "t": 210.9
+    },
+    {
+     "w": "when",
+     "t": 211.32
+    },
+    {
+     "w": "we",
+     "t": 211.74
+    },
+    {
+     "w": "hug",
+     "t": 212.16
+    },
+    {
+     "w": "and",
+     "t": 212.58
+    },
+    {
+     "w": "play,",
+     "t": 212.99
+    },
+    {
+     "w": "and",
+     "t": 213.41
+    },
+    {
+     "w": "cortisol,",
+     "t": 213.83
+    },
+    {
+     "w": "the",
+     "t": 214.25
+    },
+    {
+     "w": "stress",
+     "t": 214.67
+    },
+    {
+     "w": "hormone.",
+     "t": 215.09
+    }
+   ]
+  },
+  {
+   "start": 215.51,
+   "end": 249.03,
+   "en": "And what did they find? When a cat's oxytocin was high, its owner's was high too — their bodies rose and fell together, like dancers following the same music. Cats with more oxytocin had owners with less stress and fewer bad moods, and owners who stayed close to their cats felt brighter and full of energy. Who cheers up whom — the cat, or the owner? Nobody knows yet. Maybe it is a circle of purrs, going round and round.",
+   "title": "猫咪的心情密码",
+   "cn": "他们发现了什么？当一只猫的催产素高时，它主人的催产素也高——他们的身体像跟着同一支音乐跳舞的舞者一样，一起起伏。催产素更多的猫，其主人压力更小、坏情绪更少；和猫待得更近的主人，则感觉更明朗、充满活力。到底是谁让谁开心——猫，还是主人？还没人知道。也许这是一个呼噜呼噜的循环，转呀转呀。",
+   "words": [
+    {
+     "w": "And",
+     "t": 215.51
+    },
+    {
+     "w": "what",
+     "t": 215.93
+    },
+    {
+     "w": "did",
+     "t": 216.35
+    },
+    {
+     "w": "they",
+     "t": 216.77
+    },
+    {
+     "w": "find?",
+     "t": 217.18
+    },
+    {
+     "w": "When",
+     "t": 217.6
+    },
+    {
+     "w": "a",
+     "t": 218.02
+    },
+    {
+     "w": "cat's",
+     "t": 218.44
+    },
+    {
+     "w": "oxytocin",
+     "t": 218.86
+    },
+    {
+     "w": "was",
+     "t": 219.28
+    },
+    {
+     "w": "high,",
+     "t": 219.7
+    },
+    {
+     "w": "its",
+     "t": 220.12
+    },
+    {
+     "w": "owner's",
+     "t": 220.54
+    },
+    {
+     "w": "was",
+     "t": 220.96
+    },
+    {
+     "w": "high",
+     "t": 221.38
+    },
+    {
+     "w": "too",
+     "t": 221.79
+    },
+    {
+     "w": "—",
+     "t": 222.21
+    },
+    {
+     "w": "their",
+     "t": 222.63
+    },
+    {
+     "w": "bodies",
+     "t": 223.05
+    },
+    {
+     "w": "rose",
+     "t": 223.47
+    },
+    {
+     "w": "and",
+     "t": 223.89
+    },
+    {
+     "w": "fell",
+     "t": 224.31
+    },
+    {
+     "w": "together,",
+     "t": 224.73
+    },
+    {
+     "w": "like",
+     "t": 225.15
+    },
+    {
+     "w": "dancers",
+     "t": 225.57
+    },
+    {
+     "w": "following",
+     "t": 225.98
+    },
+    {
+     "w": "the",
+     "t": 226.4
+    },
+    {
+     "w": "same",
+     "t": 226.82
+    },
+    {
+     "w": "music.",
+     "t": 227.24
+    },
+    {
+     "w": "Cats",
+     "t": 227.66
+    },
+    {
+     "w": "with",
+     "t": 228.08
+    },
+    {
+     "w": "more",
+     "t": 228.5
+    },
+    {
+     "w": "oxytocin",
+     "t": 228.92
+    },
+    {
+     "w": "had",
+     "t": 229.34
+    },
+    {
+     "w": "owners",
+     "t": 229.76
+    },
+    {
+     "w": "with",
+     "t": 230.17
+    },
+    {
+     "w": "less",
+     "t": 230.59
+    },
+    {
+     "w": "stress",
+     "t": 231.01
+    },
+    {
+     "w": "and",
+     "t": 231.43
+    },
+    {
+     "w": "fewer",
+     "t": 231.85
+    },
+    {
+     "w": "bad",
+     "t": 232.27
+    },
+    {
+     "w": "moods,",
+     "t": 232.69
+    },
+    {
+     "w": "and",
+     "t": 233.11
+    },
+    {
+     "w": "owners",
+     "t": 233.53
+    },
+    {
+     "w": "who",
+     "t": 233.95
+    },
+    {
+     "w": "stayed",
+     "t": 234.36
+    },
+    {
+     "w": "close",
+     "t": 234.78
+    },
+    {
+     "w": "to",
+     "t": 235.2
+    },
+    {
+     "w": "their",
+     "t": 235.62
+    },
+    {
+     "w": "cats",
+     "t": 236.04
+    },
+    {
+     "w": "felt",
+     "t": 236.46
+    },
+    {
+     "w": "brighter",
+     "t": 236.88
+    },
+    {
+     "w": "and",
+     "t": 237.3
+    },
+    {
+     "w": "full",
+     "t": 237.72
+    },
+    {
+     "w": "of",
+     "t": 238.14
+    },
+    {
+     "w": "energy.",
+     "t": 238.55
+    },
+    {
+     "w": "Who",
+     "t": 238.97
+    },
+    {
+     "w": "cheers",
+     "t": 239.39
+    },
+    {
+     "w": "up",
+     "t": 239.81
+    },
+    {
+     "w": "whom",
+     "t": 240.23
+    },
+    {
+     "w": "—",
+     "t": 240.65
+    },
+    {
+     "w": "the",
+     "t": 241.07
+    },
+    {
+     "w": "cat,",
+     "t": 241.49
+    },
+    {
+     "w": "or",
+     "t": 241.91
+    },
+    {
+     "w": "the",
+     "t": 242.33
+    },
+    {
+     "w": "owner?",
+     "t": 242.74
+    },
+    {
+     "w": "Nobody",
+     "t": 243.16
+    },
+    {
+     "w": "knows",
+     "t": 243.58
+    },
+    {
+     "w": "yet.",
+     "t": 244.0
+    },
+    {
+     "w": "Maybe",
+     "t": 244.42
+    },
+    {
+     "w": "it",
+     "t": 244.84
+    },
+    {
+     "w": "is",
+     "t": 245.26
+    },
+    {
+     "w": "a",
+     "t": 245.68
+    },
+    {
+     "w": "circle",
+     "t": 246.1
+    },
+    {
+     "w": "of",
+     "t": 246.52
+    },
+    {
+     "w": "purrs,",
+     "t": 246.93
+    },
+    {
+     "w": "going",
+     "t": 247.35
+    },
+    {
+     "w": "round",
+     "t": 247.77
+    },
+    {
+     "w": "and",
+     "t": 248.19
+    },
+    {
+     "w": "round.",
+     "t": 248.61
+    }
+   ]
+  },
+  {
+   "start": 265.49,
+   "end": 290.21,
+   "en": "Here's today's idiom: \"shoot for the stars.\" If you shoot for the stars, you set a big goal and try your best to reach it, even if it looks far away. Max Dowman shot for the stars, and he caught three world records! Here's an example: \"Mia loves drawing, so she shoots for the stars and practises every day.\" What stars are you shooting for?",
+   "title": "今日俚语",
+   "cn": "今天的俚语是：“shoot for the stars”（朝着星星瞄准、立下远大目标）。如果你 shoot for the stars，你就是给自己定一个很大的目标，并全力以赴去实现它，哪怕它看起来遥不可及。Max Dowman 朝着星星瞄准，结果抓住了三项世界纪录！举个例子：“Mia 热爱画画，所以她立下远大目标，每天练习。”你在朝着哪颗星星努力呢？",
+   "words": [
+    {
+     "w": "Here's",
+     "t": 265.49
+    },
+    {
+     "w": "today's",
+     "t": 265.87
+    },
+    {
+     "w": "idiom:",
+     "t": 266.25
+    },
+    {
+     "w": "\"shoot",
+     "t": 266.63
+    },
+    {
+     "w": "for",
+     "t": 267.01
+    },
+    {
+     "w": "the",
+     "t": 267.39
+    },
+    {
+     "w": "stars.\"",
+     "t": 267.77
+    },
+    {
+     "w": "If",
+     "t": 268.15
+    },
+    {
+     "w": "you",
+     "t": 268.53
+    },
+    {
+     "w": "shoot",
+     "t": 268.91
+    },
+    {
+     "w": "for",
+     "t": 269.29
+    },
+    {
+     "w": "the",
+     "t": 269.67
+    },
+    {
+     "w": "stars,",
+     "t": 270.05
+    },
+    {
+     "w": "you",
+     "t": 270.43
+    },
+    {
+     "w": "set",
+     "t": 270.81
+    },
+    {
+     "w": "a",
+     "t": 271.19
+    },
+    {
+     "w": "big",
+     "t": 271.57
+    },
+    {
+     "w": "goal",
+     "t": 271.96
+    },
+    {
+     "w": "and",
+     "t": 272.34
+    },
+    {
+     "w": "try",
+     "t": 272.72
+    },
+    {
+     "w": "your",
+     "t": 273.1
+    },
+    {
+     "w": "best",
+     "t": 273.48
+    },
+    {
+     "w": "to",
+     "t": 273.86
+    },
+    {
+     "w": "reach",
+     "t": 274.24
+    },
+    {
+     "w": "it,",
+     "t": 274.62
+    },
+    {
+     "w": "even",
+     "t": 275.0
+    },
+    {
+     "w": "if",
+     "t": 275.38
+    },
+    {
+     "w": "it",
+     "t": 275.76
+    },
+    {
+     "w": "looks",
+     "t": 276.14
+    },
+    {
+     "w": "far",
+     "t": 276.52
+    },
+    {
+     "w": "away.",
+     "t": 276.9
+    },
+    {
+     "w": "Max",
+     "t": 277.28
+    },
+    {
+     "w": "Dowman",
+     "t": 277.66
+    },
+    {
+     "w": "shot",
+     "t": 278.04
+    },
+    {
+     "w": "for",
+     "t": 278.42
+    },
+    {
+     "w": "the",
+     "t": 278.8
+    },
+    {
+     "w": "stars,",
+     "t": 279.18
+    },
+    {
+     "w": "and",
+     "t": 279.56
+    },
+    {
+     "w": "he",
+     "t": 279.94
+    },
+    {
+     "w": "caught",
+     "t": 280.32
+    },
+    {
+     "w": "three",
+     "t": 280.7
+    },
+    {
+     "w": "world",
+     "t": 281.08
+    },
+    {
+     "w": "records!",
+     "t": 281.46
+    },
+    {
+     "w": "Here's",
+     "t": 281.84
+    },
+    {
+     "w": "an",
+     "t": 282.22
+    },
+    {
+     "w": "example:",
+     "t": 282.6
+    },
+    {
+     "w": "\"Mia",
+     "t": 282.98
+    },
+    {
+     "w": "loves",
+     "t": 283.36
+    },
+    {
+     "w": "drawing,",
+     "t": 283.74
+    },
+    {
+     "w": "so",
+     "t": 284.13
+    },
+    {
+     "w": "she",
+     "t": 284.51
+    },
+    {
+     "w": "shoots",
+     "t": 284.89
+    },
+    {
+     "w": "for",
+     "t": 285.27
+    },
+    {
+     "w": "the",
+     "t": 285.65
+    },
+    {
+     "w": "stars",
+     "t": 286.03
+    },
+    {
+     "w": "and",
+     "t": 286.41
+    },
+    {
+     "w": "practises",
+     "t": 286.79
+    },
+    {
+     "w": "every",
+     "t": 287.17
+    },
+    {
+     "w": "day.\"",
+     "t": 287.55
+    },
+    {
+     "w": "What",
+     "t": 287.93
+    },
+    {
+     "w": "stars",
+     "t": 288.31
+    },
+    {
+     "w": "are",
+     "t": 288.69
+    },
+    {
+     "w": "you",
+     "t": 289.07
+    },
+    {
+     "w": "shooting",
+     "t": 289.45
+    },
+    {
+     "w": "for?",
+     "t": 289.83
+    }
+   ]
+  },
+  {
+   "start": 310.35,
+   "end": 332.02,
+   "en": "Let's think about today's stories. We met a sixteen-year-old with three world records, and learned that cats and owners share happy chemicals. Now, two questions for you. First: which world record would you like to break one day? Second: do you think your pet knows when you are happy or sad? Talk about it with your family!",
+   "title": "结束语与互动问题",
+   "cn": "我们来想想今天的故事。我们认识了一位手握三项世界纪录的十六岁少年，又了解到猫和主人会共享快乐的化学物质。现在轮到你回答两个问题。第一：你将来想打破哪一项世界纪录？第二：你觉得你的宠物知道你开心还是难过吗？和家人聊聊吧！",
+   "words": [
+    {
+     "w": "Let's",
+     "t": 310.35
+    },
+    {
+     "w": "think",
+     "t": 310.73
+    },
+    {
+     "w": "about",
+     "t": 311.11
+    },
+    {
+     "w": "today's",
+     "t": 311.49
+    },
+    {
+     "w": "stories.",
+     "t": 311.87
+    },
+    {
+     "w": "We",
+     "t": 312.25
+    },
+    {
+     "w": "met",
+     "t": 312.63
+    },
+    {
+     "w": "a",
+     "t": 313.01
+    },
+    {
+     "w": "sixteen-year-old",
+     "t": 313.39
+    },
+    {
+     "w": "with",
+     "t": 313.77
+    },
+    {
+     "w": "three",
+     "t": 314.15
+    },
+    {
+     "w": "world",
+     "t": 314.53
+    },
+    {
+     "w": "records,",
+     "t": 314.91
+    },
+    {
+     "w": "and",
+     "t": 315.29
+    },
+    {
+     "w": "learned",
+     "t": 315.67
+    },
+    {
+     "w": "that",
+     "t": 316.05
+    },
+    {
+     "w": "cats",
+     "t": 316.43
+    },
+    {
+     "w": "and",
+     "t": 316.81
+    },
+    {
+     "w": "owners",
+     "t": 317.19
+    },
+    {
+     "w": "share",
+     "t": 317.57
+    },
+    {
+     "w": "happy",
+     "t": 317.95
+    },
+    {
+     "w": "chemicals.",
+     "t": 318.33
+    },
+    {
+     "w": "Now,",
+     "t": 318.71
+    },
+    {
+     "w": "two",
+     "t": 319.09
+    },
+    {
+     "w": "questions",
+     "t": 319.47
+    },
+    {
+     "w": "for",
+     "t": 319.85
+    },
+    {
+     "w": "you.",
+     "t": 320.23
+    },
+    {
+     "w": "First:",
+     "t": 320.61
+    },
+    {
+     "w": "which",
+     "t": 320.99
+    },
+    {
+     "w": "world",
+     "t": 321.38
+    },
+    {
+     "w": "record",
+     "t": 321.76
+    },
+    {
+     "w": "would",
+     "t": 322.14
+    },
+    {
+     "w": "you",
+     "t": 322.52
+    },
+    {
+     "w": "like",
+     "t": 322.9
+    },
+    {
+     "w": "to",
+     "t": 323.28
+    },
+    {
+     "w": "break",
+     "t": 323.66
+    },
+    {
+     "w": "one",
+     "t": 324.04
+    },
+    {
+     "w": "day?",
+     "t": 324.42
+    },
+    {
+     "w": "Second:",
+     "t": 324.8
+    },
+    {
+     "w": "do",
+     "t": 325.18
+    },
+    {
+     "w": "you",
+     "t": 325.56
+    },
+    {
+     "w": "think",
+     "t": 325.94
+    },
+    {
+     "w": "your",
+     "t": 326.32
+    },
+    {
+     "w": "pet",
+     "t": 326.7
+    },
+    {
+     "w": "knows",
+     "t": 327.08
+    },
+    {
+     "w": "when",
+     "t": 327.46
+    },
+    {
+     "w": "you",
+     "t": 327.84
+    },
+    {
+     "w": "are",
+     "t": 328.22
+    },
+    {
+     "w": "happy",
+     "t": 328.6
+    },
+    {
+     "w": "or",
+     "t": 328.98
+    },
+    {
+     "w": "sad?",
+     "t": 329.36
+    },
+    {
+     "w": "Talk",
+     "t": 329.74
+    },
+    {
+     "w": "about",
+     "t": 330.12
+    },
+    {
+     "w": "it",
+     "t": 330.5
+    },
+    {
+     "w": "with",
+     "t": 330.88
+    },
+    {
+     "w": "your",
+     "t": 331.26
+    },
+    {
+     "w": "family!",
+     "t": 331.64
+    }
+   ]
+  },
+  {
+   "start": 344.72,
+   "end": 354.3,
+   "en": "That's all for today, young explorers. Keep practising like Max, keep cuddling your cats, and always shoot for the stars. See you tomorrow morning!",
+   "title": "告别",
+   "cn": "今天的节目就到这里啦，小小探险家们。像 Max 一样坚持练习，抱抱你的猫咪，永远朝着星星瞄准。明天早上见！",
+   "words": [
+    {
+     "w": "That's",
+     "t": 344.72
+    },
+    {
+     "w": "all",
+     "t": 345.12
+    },
+    {
+     "w": "for",
+     "t": 345.52
+    },
+    {
+     "w": "today,",
+     "t": 345.92
+    },
+    {
+     "w": "young",
+     "t": 346.32
+    },
+    {
+     "w": "explorers.",
+     "t": 346.72
+    },
+    {
+     "w": "Keep",
+     "t": 347.12
+    },
+    {
+     "w": "practising",
+     "t": 347.51
+    },
+    {
+     "w": "like",
+     "t": 347.91
+    },
+    {
+     "w": "Max,",
+     "t": 348.31
+    },
+    {
+     "w": "keep",
+     "t": 348.71
+    },
+    {
+     "w": "cuddling",
+     "t": 349.11
+    },
+    {
+     "w": "your",
+     "t": 349.51
+    },
+    {
+     "w": "cats,",
+     "t": 349.91
+    },
+    {
+     "w": "and",
+     "t": 350.31
+    },
+    {
+     "w": "always",
+     "t": 350.71
+    },
+    {
+     "w": "shoot",
+     "t": 351.11
+    },
+    {
+     "w": "for",
+     "t": 351.51
+    },
+    {
+     "w": "the",
+     "t": 351.91
+    },
+    {
+     "w": "stars.",
+     "t": 352.3
+    },
+    {
+     "w": "See",
+     "t": 352.7
+    },
+    {
+     "w": "you",
+     "t": 353.1
+    },
+    {
+     "w": "tomorrow",
+     "t": 353.5
+    },
+    {
+     "w": "morning!",
+     "t": 353.9
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "shoot for the stars",
+    "phon": "/ʃuːt fɔː ðə stɑːz/",
+    "meaning": "(习语) 朝着星星瞄准；立下远大目标，全力以赴",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: Max Dowman shot for the stars, and he caught three world records!"
+   },
+   {
+    "word": "winger",
+    "phon": "/ˈwɪŋə/",
+    "meaning": "(n.) （足球）边锋",
+    "tags": [],
+    "example": "Example: Meet Max Dowman, a young winger at Arsenal."
+   },
+   {
+    "word": "absurd",
+    "phon": "/əbˈsɜːd/",
+    "meaning": "(adj.) 荒谬的；不可思议的",
+    "tags": [],
+    "example": "Example: It sounds absurd — but it really happened!"
+   },
+   {
+    "word": "erupt",
+    "phon": "/ɪˈrʌpt/",
+    "meaning": "(v.) 爆发；突然（欢呼、发作）起来",
+    "tags": [],
+    "example": "Example: The crowd erupted!"
+   },
+   {
+    "word": "trophy",
+    "phon": "/ˈtrəʊfi/",
+    "meaning": "(n.) 奖杯；战利品",
+    "tags": [],
+    "example": "Example: He lifted the trophy at sixteen years and one hundred and forty-four days."
+   },
+   {
+    "word": "determined",
+    "phon": "/dɪˈtɜːmɪnd/",
+    "meaning": "(adj.) 坚定的；下定决心的",
+    "tags": [],
+    "example": "Example: Coaches say he is determined and careful."
+   },
+   {
+    "word": "beacon",
+    "phon": "/ˈbiːkən/",
+    "meaning": "(n.) 信标；信号器",
+    "tags": [],
+    "example": "Example: Each cat wore a tiny Bluetooth beacon on its collar."
+   },
+   {
+    "word": "oxytocin",
+    "phon": "/ˌɒksɪˈtəʊsɪn/",
+    "meaning": "(n.) 催产素（与亲近感有关的荷尔蒙）",
+    "tags": [],
+    "example": "Example: When a cat's oxytocin was high, its owner's was high too."
+   },
+   {
+    "word": "cortisol",
+    "phon": "/ˈkɔːtɪsɒl/",
+    "meaning": "(n.) 皮质醇（与压力有关的荷尔蒙）",
+    "tags": [],
+    "example": "Example: Oxytocin is the love hormone, and cortisol is the stress hormone."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "How old was Max Dowman when he first played in the Champions League?\nA. Sixteen years and seventy-three days\nB. Fifteen years and three hundred and eight days\nC. Sixteen years and one hundred and forty-four days\nD. Seventeen years and one day",
+     "How did Dowman score his record-breaking goal against Everton?\nA. With a header from a corner kick\nB. From a free kick near the box\nC. He ran with the ball from his own half and rolled it into the empty net\nD. The goalkeeper kicked the ball into his own net",
+     "What did the tiny Bluetooth beacon on each cat's collar measure?\nA. How fast the cat could run\nB. How close the cat stayed to its owner\nC. How much the cat ate every day\nD. How loudly the cat purred",
+     "What does \"shoot for the stars\" mean?\nA. To watch the stars on a clear night\nB. To travel into space one day\nC. To draw pictures of stars\nD. To set a big goal and try your best to reach it"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "type": "text",
+        "text": "Scientists also "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "tested"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " samples from cats and owners, "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "hunting for two body chemicals"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": ": oxytocin, "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "the \"love hormone\" that grows when we hug and play"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": ", and cortisol, "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "the stress hormone"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "."
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "主干是 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "Scientists also tested samples from cats and owners"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：科学家检测了猫和主人的样本——主语 Scientists、谓语 tested、宾语 samples，一句话的骨架先立住。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "紧接着的 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "hunting for two body chemicals"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "现在分词短语"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "hunting"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（寻找）的动作发出者就是主语 scientists，它跟在主干后面补充说明\"检测样本是为了找什么\"，相当于把目的顺手交代了，不必再起一个句子。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "冒号后面是两个并列的"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "同位语"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "oxytocin, the \"love hormone\""
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "——逗号后的短语是给前面的名词\"换个说法再解释一遍\"（催产素 = 爱心荷尔蒙）；"
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "cortisol, the stress hormone"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 同理（皮质醇 = 压力荷尔蒙）。遇到生词别怕，英语常这样自己给自己下定义。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "同位语里还藏着一个 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "that grows when we hug and play"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "that"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 引导"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "定语从句"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "修饰 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "hormone"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（哪种荷尔蒙？在我们拥抱和玩耍时上升的那种）；从句里又嵌了 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "when"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 引导的时间状语。一层套一层，但每层只做一件事。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句逻辑链："
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "科学家检测样本（主干）→ 为的是寻找两种化学物质（分词短语交代目的）→ 催产素（同位语解释 + 定语从句补充）与皮质醇（同位语解释）"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。信息很多，却一点不乱——秘诀就是每个成分各就各位。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "STADIUM"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（体育场）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "CORTISOL"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（皮质醇（压力荷尔蒙））"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "COLLAR"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（项圈）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ABSURD"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（荒谬的；不可思议的）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ERUPTED"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（爆发；（人群）欢呼起来）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SAUCERS"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（小碟子；茶托）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "CHAMPION"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（冠军）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "TROPHY"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（奖杯）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "BEACON"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（信标；信号器）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "OXYTOCIN"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（催产素（“爱心”荷尔蒙））"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says he stepped onto the Champions League pitch "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"at fifteen years and three hundred and eight days old.\""
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": " The other two ages belong to his other records."
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says he "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"got the ball in his own half and ran — past one player, past another, sixty metres — then rolled it into the empty net.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The beacon worked "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"like a mini name tag that talks to the owner's phone, quietly measuring how close the cat stayed to its owner.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "D"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"you set a big goal and try your best to reach it, even if it looks far away.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. watching the birds outside  2. smiling at her cat"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. a young winger at Arsenal  2. the stress hormone"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. that talks to the owner's phone  2. that wakes me up"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "B",
+    "C",
+    "B",
+    "D"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. 现在分词短语：用括号里的短语补全",
+     "items": [
+      {
+       "prompt": "The cat sat by the window, ____.",
+       "options": [
+        "watching the birds outside",
+        "watched the birds outside",
+        "watch the birds outside"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "She read her book on the sofa, ____.",
+       "options": [
+        "smiled at her cat",
+        "smiling at her cat",
+        "smile at her cat"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. 同位语：用括号里的短语补全",
+     "items": [
+      {
+       "prompt": "Dowman, ____, stepped onto the Champions League pitch at fifteen.",
+       "options": [
+        "which is a young winger at Arsenal",
+        "is a young winger at Arsenal",
+        "a young winger at Arsenal"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "Cortisol, ____, rises when we feel stressed.",
+       "options": [
+        "the stress hormone",
+        "which the stress hormone",
+        "it is the stress hormone"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. 定语从句：用括号里的从句补全",
+     "items": [
+      {
+       "prompt": "This is the beacon ____.",
+       "options": [
+        "who talks to the owner's phone",
+        "that talks to the owner's phone",
+        "that talk to the owner's phone"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "I love the song ____ every morning.",
+       "options": [
+        "that wake me up",
+        "who wakes me up",
+        "that wakes me up"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "The scientists watched the cats at home, looking for small changes in their days.",
+    "Oxytocin, the love hormone that grows when we play, makes cats and owners feel close."
+   ]
+  },
+  "crossword": {
+   "nrows": 14,
+   "ncols": 11,
+   "words": [
+    {
+     "word": "STADIUM",
+     "row": 0,
+     "col": 0,
+     "dir": "D",
+     "num": 1,
+     "cn": "体育场",
+     "clue": "A big building where people watch sports. Example: Now let's leave the noisy ______ and visit quiet homes."
+    },
+    {
+     "word": "CORTISOL",
+     "row": 0,
+     "col": 4,
+     "dir": "D",
+     "num": 2,
+     "cn": "皮质醇（压力荷尔蒙）",
+     "clue": "The stress hormone. Example: Oxytocin is the love hormone, and ______ is the stress hormone."
+    },
+    {
+     "word": "COLLAR",
+     "row": 0,
+     "col": 4,
+     "dir": "A",
+     "num": 2,
+     "cn": "项圈",
+     "clue": "A band worn around the neck. Example: Each cat wore a tiny Bluetooth beacon on its ______."
+    },
+    {
+     "word": "ABSURD",
+     "row": 2,
+     "col": 0,
+     "dir": "A",
+     "num": 3,
+     "cn": "荒谬的；不可思议的",
+     "clue": "So strange that it is hard to believe. Example: It sounds ______ — but it really happened!"
+    },
+    {
+     "word": "ERUPTED",
+     "row": 4,
+     "col": 9,
+     "dir": "D",
+     "num": 4,
+     "cn": "爆发；（人群）欢呼起来",
+     "clue": "To suddenly burst out — in our story, with cheers! Example: The crowd ______!"
+    },
+    {
+     "word": "SAUCERS",
+     "row": 5,
+     "col": 4,
+     "dir": "A",
+     "num": 5,
+     "cn": "小碟子；茶托",
+     "clue": "Small plates — in our story, for a cat's milk. Example: Just sofas, ______ of milk, and sleepy afternoons."
+    },
+    {
+     "word": "CHAMPION",
+     "row": 5,
+     "col": 7,
+     "dir": "D",
+     "num": 6,
+     "cn": "冠军",
+     "clue": "The winner of a big competition. Example: He was the youngest ______ ever."
+    },
+    {
+     "word": "TROPHY",
+     "row": 7,
+     "col": 2,
+     "dir": "D",
+     "num": 7,
+     "cn": "奖杯",
+     "clue": "A prize cup for the winner. Example: He lifted the ______ in front of all the fans."
+    },
+    {
+     "word": "BEACON",
+     "row": 8,
+     "col": 0,
+     "dir": "D",
+     "num": 8,
+     "cn": "信标；信号器",
+     "clue": "A small device that sends out signals. Example: Each cat wore a tiny Bluetooth ______ on its collar."
+    },
+    {
+     "word": "OXYTOCIN",
+     "row": 12,
+     "col": 0,
+     "dir": "A",
+     "num": 9,
+     "cn": "催产素（“爱心”荷尔蒙）",
+     "clue": "The 'love hormone' that grows when we hug and play. Example: When a cat's ______ was high, its owner's was high too."
+    }
+   ]
+  }
+ }
+}

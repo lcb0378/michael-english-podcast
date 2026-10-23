@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.07 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol07/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol07/cover.png" controls playsinline preload="metadata"></video>
+<h1>⚽ Vol.07 · 十六岁少年三项纪录与猫咪的心情密码</h1>
+<div class="meta">英文 599 词 ｜ 音频 6分03秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol07/story-football.png" alt="十六岁少年三项纪录">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol07/story-cat.png" alt="猫咪的心情密码">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">shoot for the stars</span> <span class="phon">/ʃuːt fɔː ðə stɑːz/</span> (习语) 朝着星星瞄准；立下远大目标，全力以赴<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: Max Dowman <b>shot for the stars</b>, and he caught three world records!</div>
+</div>
+<div class="vocab">
+  <span class="word">winger</span> <span class="phon">/ˈwɪŋə/</span> (n.) （足球）边锋<br>
+  
+  <div class="example">Example: Meet Max Dowman, a young <b>winger</b> at Arsenal.</div>
+</div>
+<div class="vocab">
+  <span class="word">absurd</span> <span class="phon">/əbˈsɜːd/</span> (adj.) 荒谬的；不可思议的<br>
+  
+  <div class="example">Example: It sounds <b>absurd</b> — but it really happened!</div>
+</div>
+<div class="vocab">
+  <span class="word">erupt</span> <span class="phon">/ɪˈrʌpt/</span> (v.) 爆发；突然（欢呼、发作）起来<br>
+  
+  <div class="example">Example: The crowd <b>erupted</b>!</div>
+</div>
+<div class="vocab">
+  <span class="word">trophy</span> <span class="phon">/ˈtrəʊfi/</span> (n.) 奖杯；战利品<br>
+  
+  <div class="example">Example: He lifted the <b>trophy</b> at sixteen years and one hundred and forty-four days.</div>
+</div>
+<div class="vocab">
+  <span class="word">determined</span> <span class="phon">/dɪˈtɜːmɪnd/</span> (adj.) 坚定的；下定决心的<br>
+  
+  <div class="example">Example: Coaches say he is <b>determined</b> and careful.</div>
+</div>
+<div class="vocab">
+  <span class="word">beacon</span> <span class="phon">/ˈbiːkən/</span> (n.) 信标；信号器<br>
+  
+  <div class="example">Example: Each cat wore a tiny Bluetooth <b>beacon</b> on its collar.</div>
+</div>
+<div class="vocab">
+  <span class="word">oxytocin</span> <span class="phon">/ˌɒksɪˈtəʊsɪn/</span> (n.) 催产素（与亲近感有关的荷尔蒙）<br>
+  
+  <div class="example">Example: When a cat's <b>oxytocin</b> was high, its owner's was high too.</div>
+</div>
+<div class="vocab">
+  <span class="word">cortisol</span> <span class="phon">/ˈkɔːtɪsɒl/</span> (n.) 皮质醇（与压力有关的荷尔蒙）<br>
+  
+  <div class="example">Example: Oxytocin is the love hormone, and <b>cortisol</b> is the stress hormone.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 14, "ncols": 11, "words": [{"word": "STADIUM", "row": 0, "col": 0, "dir": "D", "num": 1, "cn": "体育场", "clue": "A big building where people watch sports. Example: Now let's leave the noisy ______ and visit quiet homes."}, {"word": "CORTISOL", "row": 0, "col": 4, "dir": "D", "num": 2, "cn": "皮质醇（压力荷尔蒙）", "clue": "The stress hormone. Example: Oxytocin is the love hormone, and ______ is the stress hormone."}, {"word": "COLLAR", "row": 0, "col": 4, "dir": "A", "num": 2, "cn": "项圈", "clue": "A band worn around the neck. Example: Each cat wore a tiny Bluetooth beacon on its ______."}, {"word": "ABSURD", "row": 2, "col": 0, "dir": "A", "num": 3, "cn": "荒谬的；不可思议的", "clue": "So strange that it is hard to believe. Example: It sounds ______ — but it really happened!"}, {"word": "ERUPTED", "row": 4, "col": 9, "dir": "D", "num": 4, "cn": "爆发；（人群）欢呼起来", "clue": "To suddenly burst out — in our story, with cheers! Example: The crowd ______!"}, {"word": "SAUCERS", "row": 5, "col": 4, "dir": "A", "num": 5, "cn": "小碟子；茶托", "clue": "Small plates — in our story, for a cat's milk. Example: Just sofas, ______ of milk, and sleepy afternoons."}, {"word": "CHAMPION", "row": 5, "col": 7, "dir": "D", "num": 6, "cn": "冠军", "clue": "The winner of a big competition. Example: He was the youngest ______ ever."}, {"word": "TROPHY", "row": 7, "col": 2, "dir": "D", "num": 7, "cn": "奖杯", "clue": "A prize cup for the winner. Example: He lifted the ______ in front of all the fans."}, {"word": "BEACON", "row": 8, "col": 0, "dir": "D", "num": 8, "cn": "信标；信号器", "clue": "A small device that sends out signals. Example: Each cat wore a tiny Bluetooth ______ on its collar."}, {"word": "OXYTOCIN", "row": 12, "col": 0, "dir": "A", "num": 9, "cn": "催产素（“爱心”荷尔蒙）", "clue": "The 'love hormone' that grows when we hug and play. Example: When a cat's ______ was high, its owner's was high too."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. How old was Max Dowman when he first played in the Champions League?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. Sixteen years and seventy-three days</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. Fifteen years and three hundred and eight days</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. Sixteen years and one hundred and forty-four days</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. Seventeen years and one day</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. How did Dowman score his record-breaking goal against Everton?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. With a header from a corner kick</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. From a free kick near the box</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. He ran with the ball from his own half and rolled it into the empty net</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. The goalkeeper kicked the ball into his own net</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. What did the tiny Bluetooth beacon on each cat&#x27;s collar measure?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. How fast the cat could run</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. How close the cat stayed to its owner</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. How much the cat ate every day</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. How loudly the cat purred</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does &quot;shoot for the stars&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. To watch the stars on a clear night</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. To travel into space one day</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. To draw pictures of stars</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. To set a big goal and try your best to reach it</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：D</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [1, 2, 1, 3];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">Scientists also <b class="kw">tested</b> samples from cats and owners, <b class="kw">hunting for two body chemicals</b>: oxytocin, <b class="kw">the "love hormone" that grows when we hug and play</b>, and cortisol, <b class="kw">the stress hormone</b>.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li>主干是 <i>Scientists also tested samples from cats and owners</i>：科学家检测了猫和主人的样本——主语 Scientists、谓语 tested、宾语 samples，一句话的骨架先立住。</li>
+  <li>紧接着的 <i>hunting for two body chemicals</i> 是<b>现在分词短语</b>：<i>hunting</i>（寻找）的动作发出者就是主语 scientists，它跟在主干后面补充说明"检测样本是为了找什么"，相当于把目的顺手交代了，不必再起一个句子。</li>
+  <li>冒号后面是两个并列的<b>同位语</b>：<i>oxytocin, the "love hormone"</i>——逗号后的短语是给前面的名词"换个说法再解释一遍"（催产素 = 爱心荷尔蒙）；<i>cortisol, the stress hormone</i> 同理（皮质醇 = 压力荷尔蒙）。遇到生词别怕，英语常这样自己给自己下定义。</li>
+  <li>同位语里还藏着一个 <i>that grows when we hug and play</i>：<i>that</i> 引导<b>定语从句</b>修饰 <i>hormone</i>（哪种荷尔蒙？在我们拥抱和玩耍时上升的那种）；从句里又嵌了 <i>when</i> 引导的时间状语。一层套一层，但每层只做一件事。</li>
+  <li>整句逻辑链：<b>科学家检测样本（主干）→ 为的是寻找两种化学物质（分词短语交代目的）→ 催产素（同位语解释 + 定语从句补充）与皮质醇（同位语解释）</b>。信息很多，却一点不乱——秘诀就是每个成分各就各位。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. 现在分词短语：用括号里的短语补全</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">The cat sat by the window, ____.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">watching the birds outside</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">watched the birds outside</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">watch the birds outside</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：watching the birds outside</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">She read her book on the sofa, ____.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">smiled at her cat</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">smiling at her cat</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">smile at her cat</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：smiling at her cat</p>
+</div>
+<p class="p4-gname">B. 同位语：用括号里的短语补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">Dowman, ____, stepped onto the Champions League pitch at fifteen.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">which is a young winger at Arsenal</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">is a young winger at Arsenal</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">a young winger at Arsenal</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：a young winger at Arsenal</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">Cortisol, ____, rises when we feel stressed.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">the stress hormone</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">which the stress hormone</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">it is the stress hormone</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：the stress hormone</p>
+</div>
+<p class="p4-gname">C. 定语从句：用括号里的从句补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">This is the beacon ____.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">who talks to the owner&#x27;s phone</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">that talks to the owner&#x27;s phone</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">that talk to the owner&#x27;s phone</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：that talks to the owner&#x27;s phone</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">I love the song ____ every morning.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">that wake me up</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">who wakes me up</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">that wakes me up</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：that wakes me up</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>The scientists watched the cats at home, looking for small changes in their days.</li>
+<li>Oxytocin, the love hormone that grows when we play, makes cats and owners feel close.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwc"><span class="cwn">1</span><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">2</span><span class="cwl">C</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">3</span><span class="cwl">A</span></td><td class="cwc"><span class="cwl">B</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">E</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">5</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwn">6</span><span class="cwl">C</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">S</span></td></tr><tr><td class="cwc"><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">7</span><span class="cwl">T</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">P</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">8</span><span class="cwl">B</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">M</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">P</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">P</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">C</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">9</span><span class="cwl">O</span></td><td class="cwc"><span class="cwl">X</span></td><td class="cwc"><span class="cwl">Y</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr></table></div>1 竖 → <b>STADIUM</b>（体育场）<br>2 竖 → <b>CORTISOL</b>（皮质醇（压力荷尔蒙））<br>2 横 → <b>COLLAR</b>（项圈）<br>3 横 → <b>ABSURD</b>（荒谬的；不可思议的）<br>4 竖 → <b>ERUPTED</b>（爆发；（人群）欢呼起来）<br>5 横 → <b>SAUCERS</b>（小碟子；茶托）<br>6 竖 → <b>CHAMPION</b>（冠军）<br>7 竖 → <b>TROPHY</b>（奖杯）<br>8 竖 → <b>BEACON</b>（信标；信号器）<br>9 横 → <b>OXYTOCIN</b>（催产素（“爱心”荷尔蒙））<br><br><b>B. Single Choice:</b><br>
+1 → <b>B</b>. The text says he stepped onto the Champions League pitch <i>"at fifteen years and three hundred and eight days old."</i> The other two ages belong to his other records.<br>
+2 → <b>C</b>. The text says he <i>"got the ball in his own half and ran — past one player, past another, sixty metres — then rolled it into the empty net."</i><br>
+3 → <b>B</b>. The beacon worked <i>"like a mini name tag that talks to the owner's phone, quietly measuring how close the cat stayed to its owner."</i><br>
+4 → <b>D</b>. The text says: <i>"you set a big goal and try your best to reach it, even if it looks far away."</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. watching the birds outside&nbsp;&nbsp;2. smiling at her cat<br>
+B. 1. a young winger at Arsenal&nbsp;&nbsp;2. the stress hormone<br>
+C. 1. that talks to the owner's phone&nbsp;&nbsp;2. that wakes me up<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol07/Vol07_晚读讲义_十六岁少年三项纪录与猫咪的心情密码_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 27.39, "end": 48.53, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we start on a football pitch in London, with a sixteen-year-old who collected three world records in one season. Then we tiptoe into quiet homes in Japan, where scientists watched cats — and their owners' moods. Ready? Let's go!", "title": "开场白", "cn": "欢迎回来，小小探险家们，这里是 Michael 的早听晚读！今天我们先来到伦敦的一块足球场，认识一位一个赛季就集齐三项世界纪录的十六岁少年。接着我们踮起脚尖，走进日本一户户安静的家，科学家们在那里观察猫咪——和它们主人的心情。准备好了吗？出发！", "words": [{"w": "Hello,", "t": 27.39}, {"w": "young", "t": 27.81}, {"w": "explorers,", "t": 28.24}, {"w": "and", "t": 28.66}, {"w": "welcome", "t": 29.08}, {"w": "back", "t": 29.5}, {"w": "to", "t": 29.93}, {"w": "Michael's", "t": 30.35}, {"w": "Morning", "t": 30.77}, {"w": "Listening!", "t": 31.2}, {"w": "Today", "t": 31.62}, {"w": "we", "t": 32.04}, {"w": "start", "t": 32.46}, {"w": "on", "t": 32.89}, {"w": "a", "t": 33.31}, {"w": "football", "t": 33.73}, {"w": "pitch", "t": 34.15}, {"w": "in", "t": 34.58}, {"w": "London,", "t": 35.0}, {"w": "with", "t": 35.42}, {"w": "a", "t": 35.85}, {"w": "sixteen-year-old", "t": 36.27}, {"w": "who", "t": 36.69}, {"w": "collected", "t": 37.11}, {"w": "three", "t": 37.54}, {"w": "world", "t": 37.96}, {"w": "records", "t": 38.38}, {"w": "in", "t": 38.81}, {"w": "one", "t": 39.23}, {"w": "season.", "t": 39.65}, {"w": "Then", "t": 40.07}, {"w": "we", "t": 40.5}, {"w": "tiptoe", "t": 40.92}, {"w": "into", "t": 41.34}, {"w": "quiet", "t": 41.77}, {"w": "homes", "t": 42.19}, {"w": "in", "t": 42.61}, {"w": "Japan,", "t": 43.03}, {"w": "where", "t": 43.46}, {"w": "scientists", "t": 43.88}, {"w": "watched", "t": 44.3}, {"w": "cats", "t": 44.72}, {"w": "—", "t": 45.15}, {"w": "and", "t": 45.57}, {"w": "their", "t": 45.99}, {"w": "owners'", "t": 46.42}, {"w": "moods.", "t": 46.84}, {"w": "Ready?", "t": 47.26}, {"w": "Let's", "t": 47.68}, {"w": "go!", "t": 48.11}]}, {"start": 65.87, "end": 87.49, "en": "Meet Max Dowman, a young winger at Arsenal, a famous football club in England. At fifteen years and three hundred and eight days old, he stepped onto the pitch in the Champions League, the biggest club competition in Europe. No player that young had ever done it. It sounds absurd — but it really happened!", "title": "十六岁少年三项纪录", "cn": "来认识一下 Max Dowman，阿森纳的一名年轻边锋——阿森纳是英格兰一家著名的足球俱乐部。在他十五岁零三百零八天大的时候，他踏上了欧冠联赛的赛场，那是欧洲最高水平的俱乐部赛事。此前，从没有这么年轻的球员做到过这件事。听起来很荒谬——但它真的发生了！", "words": [{"w": "Meet", "t": 65.87}, {"w": "Max", "t": 66.26}, {"w": "Dowman,", "t": 66.66}, {"w": "a", "t": 67.05}, {"w": "young", "t": 67.44}, {"w": "winger", "t": 67.84}, {"w": "at", "t": 68.23}, {"w": "Arsenal,", "t": 68.62}, {"w": "a", "t": 69.01}, {"w": "famous", "t": 69.41}, {"w": "football", "t": 69.8}, {"w": "club", "t": 70.19}, {"w": "in", "t": 70.59}, {"w": "England.", "t": 70.98}, {"w": "At", "t": 71.37}, {"w": "fifteen", "t": 71.77}, {"w": "years", "t": 72.16}, {"w": "and", "t": 72.55}, {"w": "three", "t": 72.95}, {"w": "hundred", "t": 73.34}, {"w": "and", "t": 73.73}, {"w": "eight", "t": 74.12}, {"w": "days", "t": 74.52}, {"w": "old,", "t": 74.91}, {"w": "he", "t": 75.3}, {"w": "stepped", "t": 75.7}, {"w": "onto", "t": 76.09}, {"w": "the", "t": 76.48}, {"w": "pitch", "t": 76.88}, {"w": "in", "t": 77.27}, {"w": "the", "t": 77.66}, {"w": "Champions", "t": 78.06}, {"w": "League,", "t": 78.45}, {"w": "the", "t": 78.84}, {"w": "biggest", "t": 79.24}, {"w": "club", "t": 79.63}, {"w": "competition", "t": 80.02}, {"w": "in", "t": 80.41}, {"w": "Europe.", "t": 80.81}, {"w": "No", "t": 81.2}, {"w": "player", "t": 81.59}, {"w": "that", "t": 81.99}, {"w": "young", "t": 82.38}, {"w": "had", "t": 82.77}, {"w": "ever", "t": 83.17}, {"w": "done", "t": 83.56}, {"w": "it.", "t": 83.95}, {"w": "It", "t": 84.35}, {"w": "sounds", "t": 84.74}, {"w": "absurd", "t": 85.13}, {"w": "—", "t": 85.52}, {"w": "but", "t": 85.92}, {"w": "it", "t": 86.31}, {"w": "really", "t": 86.7}, {"w": "happened!", "t": 87.1}]}, {"start": 87.48, "end": 113.82, "en": "His second record was pure magic. In a league match against Everton, the goalkeeper had run up the field, leaving his goal empty. Dowman got the ball in his own half and ran — past one player, past another, sixty metres — then rolled it into the empty net. The crowd erupted! At sixteen years and seventy-three days, he was the youngest goalscorer in Premier League history.", "title": "十六岁少年三项纪录", "cn": "他的第二项纪录堪称魔法。在一场对阵埃弗顿的联赛中，对方守门员跑到了前场，把自家球门晾成了空门。Dowman 在本方半场拿到球就开始奔跑——过掉一名球员，又过掉一名，带球跑了六十米——然后把球推进了空门。全场爆发了！在他十六岁零七十三天的时候，他成为了英超历史上最年轻的进球者。", "words": [{"w": "His", "t": 87.48}, {"w": "second", "t": 87.87}, {"w": "record", "t": 88.27}, {"w": "was", "t": 88.66}, {"w": "pure", "t": 89.05}, {"w": "magic.", "t": 89.45}, {"w": "In", "t": 89.84}, {"w": "a", "t": 90.23}, {"w": "league", "t": 90.63}, {"w": "match", "t": 91.02}, {"w": "against", "t": 91.41}, {"w": "Everton,", "t": 91.8}, {"w": "the", "t": 92.2}, {"w": "goalkeeper", "t": 92.59}, {"w": "had", "t": 92.98}, {"w": "run", "t": 93.38}, {"w": "up", "t": 93.77}, {"w": "the", "t": 94.16}, {"w": "field,", "t": 94.56}, {"w": "leaving", "t": 94.95}, {"w": "his", "t": 95.34}, {"w": "goal", "t": 95.74}, {"w": "empty.", "t": 96.13}, {"w": "Dowman", "t": 96.52}, {"w": "got", "t": 96.92}, {"w": "the", "t": 97.31}, {"w": "ball", "t": 97.7}, {"w": "in", "t": 98.09}, {"w": "his", "t": 98.49}, {"w": "own", "t": 98.88}, {"w": "half", "t": 99.27}, {"w": "and", "t": 99.67}, {"w": "ran", "t": 100.06}, {"w": "—", "t": 100.45}, {"w": "past", "t": 100.85}, {"w": "one", "t": 101.24}, {"w": "player,", "t": 101.63}, {"w": "past", "t": 102.03}, {"w": "another,", "t": 102.42}, {"w": "sixty", "t": 102.81}, {"w": "metres", "t": 103.21}, {"w": "—", "t": 103.6}, {"w": "then", "t": 103.99}, {"w": "rolled", "t": 104.38}, {"w": "it", "t": 104.78}, {"w": "into", "t": 105.17}, {"w": "the", "t": 105.56}, {"w": "empty", "t": 105.96}, {"w": "net.", "t": 106.35}, {"w": "The", "t": 106.74}, {"w": "crowd", "t": 107.14}, {"w": "erupted!", "t": 107.53}, {"w": "At", "t": 107.92}, {"w": "sixteen", "t": 108.32}, {"w": "years", "t": 108.71}, {"w": "and", "t": 109.1}, {"w": "seventy-three", "t": 109.5}, {"w": "days,", "t": 109.89}, {"w": "he", "t": 110.28}, {"w": "was", "t": 110.67}, {"w": "the", "t": 111.07}, {"w": "youngest", "t": 111.46}, {"w": "goalscorer", "t": 111.85}, {"w": "in", "t": 112.25}, {"w": "Premier", "t": 112.64}, {"w": "League", "t": 113.03}, {"w": "history.", "t": 113.43}]}, {"start": 113.82, "end": 144.47, "en": "In a cup match, he scored twice in one game — and on his first league match, he won a penalty to assist his team. Then, when Arsenal won the Premier League title, he lifted the trophy at sixteen years and one hundred and forty-four days: the youngest champion ever. Coaches say he is determined and careful — he trains hard and never stops learning. A rising star for his club, and one day for his country too.", "title": "十六岁少年三项纪录", "cn": "在杯赛中，他曾在一场比赛里打进两球；而在他参加的第一场联赛里，他制造了一粒点球，帮助了球队。随后，当阿森纳赢得英超冠军时，他在十六岁零一百四十四天举起了奖杯：有史以来最年轻的冠军。教练们说，他坚定又细心——刻苦训练，永不停止学习。一颗冉冉升起的新星属于他的俱乐部，有一天，也会属于他的国家。", "words": [{"w": "In", "t": 113.82}, {"w": "a", "t": 114.21}, {"w": "cup", "t": 114.61}, {"w": "match,", "t": 115.0}, {"w": "he", "t": 115.39}, {"w": "scored", "t": 115.78}, {"w": "twice", "t": 116.18}, {"w": "in", "t": 116.57}, {"w": "one", "t": 116.96}, {"w": "game", "t": 117.36}, {"w": "—", "t": 117.75}, {"w": "and", "t": 118.14}, {"w": "on", "t": 118.54}, {"w": "his", "t": 118.93}, {"w": "first", "t": 119.32}, {"w": "league", "t": 119.71}, {"w": "match,", "t": 120.11}, {"w": "he", "t": 120.5}, {"w": "won", "t": 120.89}, {"w": "a", "t": 121.29}, {"w": "penalty", "t": 121.68}, {"w": "to", "t": 122.07}, {"w": "assist", "t": 122.46}, {"w": "his", "t": 122.86}, {"w": "team.", "t": 123.25}, {"w": "Then,", "t": 123.64}, {"w": "when", "t": 124.04}, {"w": "Arsenal", "t": 124.43}, {"w": "won", "t": 124.82}, {"w": "the", "t": 125.22}, {"w": "Premier", "t": 125.61}, {"w": "League", "t": 126.0}, {"w": "title,", "t": 126.39}, {"w": "he", "t": 126.79}, {"w": "lifted", "t": 127.18}, {"w": "the", "t": 127.57}, {"w": "trophy", "t": 127.97}, {"w": "at", "t": 128.36}, {"w": "sixteen", "t": 128.75}, {"w": "years", "t": 129.14}, {"w": "and", "t": 129.54}, {"w": "one", "t": 129.93}, {"w": "hundred", "t": 130.32}, {"w": "and", "t": 130.72}, {"w": "forty-four", "t": 131.11}, {"w": "days:", "t": 131.5}, {"w": "the", "t": 131.9}, {"w": "youngest", "t": 132.29}, {"w": "champion", "t": 132.68}, {"w": "ever.", "t": 133.07}, {"w": "Coaches", "t": 133.47}, {"w": "say", "t": 133.86}, {"w": "he", "t": 134.25}, {"w": "is", "t": 134.65}, {"w": "determined", "t": 135.04}, {"w": "and", "t": 135.43}, {"w": "careful", "t": 135.83}, {"w": "—", "t": 136.22}, {"w": "he", "t": 136.61}, {"w": "trains", "t": 137.0}, {"w": "hard", "t": 137.4}, {"w": "and", "t": 137.79}, {"w": "never", "t": 138.18}, {"w": "stops", "t": 138.58}, {"w": "learning.", "t": 138.97}, {"w": "A", "t": 139.36}, {"w": "rising", "t": 139.75}, {"w": "star", "t": 140.15}, {"w": "for", "t": 140.54}, {"w": "his", "t": 140.93}, {"w": "club,", "t": 141.33}, {"w": "and", "t": 141.72}, {"w": "one", "t": 142.11}, {"w": "day", "t": 142.51}, {"w": "for", "t": 142.9}, {"w": "his", "t": 143.29}, {"w": "country", "t": 143.68}, {"w": "too.", "t": 144.08}]}, {"start": 163.97, "end": 190.37, "en": "Now let's leave the noisy stadium and visit quiet homes in Japan. Many cat owners say their cat makes them feel happy and calm. But is that just a feeling — or can science measure it? Scientists at Kyoto University followed twenty-nine cats and nineteen owners for a whole month. No cages, no laboratories — just sofas, saucers of milk, and sleepy afternoons.", "title": "猫咪的心情密码", "cn": "现在我们离开喧闹的体育场，去探访日本一户户安静的家。很多猫主人说，猫咪让他们感到快乐和平静。但这只是一种感觉——还是科学可以测量的东西？京都大学的科学家追踪了二十九只猫和十九位主人，整整一个月。没有笼子，没有实验室——只有沙发、小碟子里的牛奶，和一个个懒洋洋的午后。", "words": [{"w": "Now", "t": 163.97}, {"w": "let's", "t": 164.39}, {"w": "leave", "t": 164.81}, {"w": "the", "t": 165.23}, {"w": "noisy", "t": 165.65}, {"w": "stadium", "t": 166.07}, {"w": "and", "t": 166.48}, {"w": "visit", "t": 166.9}, {"w": "quiet", "t": 167.32}, {"w": "homes", "t": 167.74}, {"w": "in", "t": 168.16}, {"w": "Japan.", "t": 168.58}, {"w": "Many", "t": 169.0}, {"w": "cat", "t": 169.42}, {"w": "owners", "t": 169.84}, {"w": "say", "t": 170.26}, {"w": "their", "t": 170.67}, {"w": "cat", "t": 171.09}, {"w": "makes", "t": 171.51}, {"w": "them", "t": 171.93}, {"w": "feel", "t": 172.35}, {"w": "happy", "t": 172.77}, {"w": "and", "t": 173.19}, {"w": "calm.", "t": 173.61}, {"w": "But", "t": 174.03}, {"w": "is", "t": 174.45}, {"w": "that", "t": 174.87}, {"w": "just", "t": 175.28}, {"w": "a", "t": 175.7}, {"w": "feeling", "t": 176.12}, {"w": "—", "t": 176.54}, {"w": "or", "t": 176.96}, {"w": "can", "t": 177.38}, {"w": "science", "t": 177.8}, {"w": "measure", "t": 178.22}, {"w": "it?", "t": 178.64}, {"w": "Scientists", "t": 179.06}, {"w": "at", "t": 179.47}, {"w": "Kyoto", "t": 179.89}, {"w": "University", "t": 180.31}, {"w": "followed", "t": 180.73}, {"w": "twenty-nine", "t": 181.15}, {"w": "cats", "t": 181.57}, {"w": "and", "t": 181.99}, {"w": "nineteen", "t": 182.41}, {"w": "owners", "t": 182.83}, {"w": "for", "t": 183.25}, {"w": "a", "t": 183.67}, {"w": "whole", "t": 184.08}, {"w": "month.", "t": 184.5}, {"w": "No", "t": 184.92}, {"w": "cages,", "t": 185.34}, {"w": "no", "t": 185.76}, {"w": "laboratories", "t": 186.18}, {"w": "—", "t": 186.6}, {"w": "just", "t": 187.02}, {"w": "sofas,", "t": 187.44}, {"w": "saucers", "t": 187.86}, {"w": "of", "t": 188.27}, {"w": "milk,", "t": 188.69}, {"w": "and", "t": 189.11}, {"w": "sleepy", "t": 189.53}, {"w": "afternoons.", "t": 189.95}]}, {"start": 190.37, "end": 215.51, "en": "Each cat wore a tiny Bluetooth beacon on its collar, like a mini name tag that talks to the owner's phone, quietly measuring how close the cat stayed to its owner. Scientists also tested samples from cats and owners, hunting for two body chemicals: oxytocin, the \"love hormone\" that grows when we hug and play, and cortisol, the stress hormone.", "title": "猫咪的心情密码", "cn": "每只猫的项圈上都戴着一个小小的蓝牙信标，像一枚会和主人手机说话的迷你名牌，悄悄测量猫离主人有多近。科学家还检测了猫和主人的样本，寻找两种身体化学物质：催产素——我们在拥抱和玩耍时上升的“爱心荷尔蒙”，以及皮质醇——压力荷尔蒙。", "words": [{"w": "Each", "t": 190.37}, {"w": "cat", "t": 190.79}, {"w": "wore", "t": 191.21}, {"w": "a", "t": 191.63}, {"w": "tiny", "t": 192.05}, {"w": "Bluetooth", "t": 192.47}, {"w": "beacon", "t": 192.88}, {"w": "on", "t": 193.3}, {"w": "its", "t": 193.72}, {"w": "collar,", "t": 194.14}, {"w": "like", "t": 194.56}, {"w": "a", "t": 194.98}, {"w": "mini", "t": 195.4}, {"w": "name", "t": 195.82}, {"w": "tag", "t": 196.24}, {"w": "that", "t": 196.66}, {"w": "talks", "t": 197.07}, {"w": "to", "t": 197.49}, {"w": "the", "t": 197.91}, {"w": "owner's", "t": 198.33}, {"w": "phone,", "t": 198.75}, {"w": "quietly", "t": 199.17}, {"w": "measuring", "t": 199.59}, {"w": "how", "t": 200.01}, {"w": "close", "t": 200.43}, {"w": "the", "t": 200.84}, {"w": "cat", "t": 201.26}, {"w": "stayed", "t": 201.68}, {"w": "to", "t": 202.1}, {"w": "its", "t": 202.52}, {"w": "owner.", "t": 202.94}, {"w": "Scientists", "t": 203.36}, {"w": "also", "t": 203.78}, {"w": "tested", "t": 204.2}, {"w": "samples", "t": 204.62}, {"w": "from", "t": 205.03}, {"w": "cats", "t": 205.45}, {"w": "and", "t": 205.87}, {"w": "owners,", "t": 206.29}, {"w": "hunting", "t": 206.71}, {"w": "for", "t": 207.13}, {"w": "two", "t": 207.55}, {"w": "body", "t": 207.97}, {"w": "chemicals:", "t": 208.39}, {"w": "oxytocin,", "t": 208.81}, {"w": "the", "t": 209.22}, {"w": "\"love", "t": 209.64}, {"w": "hormone\"", "t": 210.06}, {"w": "that", "t": 210.48}, {"w": "grows", "t": 210.9}, {"w": "when", "t": 211.32}, {"w": "we", "t": 211.74}, {"w": "hug", "t": 212.16}, {"w": "and", "t": 212.58}, {"w": "play,", "t": 213.0}, {"w": "and", "t": 213.41}, {"w": "cortisol,", "t": 213.83}, {"w": "the", "t": 214.25}, {"w": "stress", "t": 214.67}, {"w": "hormone.", "t": 215.09}]}, {"start": 215.51, "end": 249.03, "en": "And what did they find? When a cat's oxytocin was high, its owner's was high too — their bodies rose and fell together, like dancers following the same music. Cats with more oxytocin had owners with less stress and fewer bad moods, and owners who stayed close to their cats felt brighter and full of energy. Who cheers up whom — the cat, or the owner? Nobody knows yet. Maybe it is a circle of purrs, going round and round.", "title": "猫咪的心情密码", "cn": "他们发现了什么？当一只猫的催产素高时，它主人的催产素也高——他们的身体像跟着同一支音乐跳舞的舞者一样，一起起伏。催产素更多的猫，其主人压力更小、坏情绪更少；和猫待得更近的主人，则感觉更明朗、充满活力。到底是谁让谁开心——猫，还是主人？还没人知道。也许这是一个呼噜呼噜的循环，转呀转呀。", "words": [{"w": "And", "t": 215.51}, {"w": "what", "t": 215.93}, {"w": "did", "t": 216.35}, {"w": "they", "t": 216.77}, {"w": "find?", "t": 217.19}, {"w": "When", "t": 217.6}, {"w": "a", "t": 218.02}, {"w": "cat's", "t": 218.44}, {"w": "oxytocin", "t": 218.86}, {"w": "was", "t": 219.28}, {"w": "high,", "t": 219.7}, {"w": "its", "t": 220.12}, {"w": "owner's", "t": 220.54}, {"w": "was", "t": 220.96}, {"w": "high", "t": 221.38}, {"w": "too", "t": 221.79}, {"w": "—", "t": 222.21}, {"w": "their", "t": 222.63}, {"w": "bodies", "t": 223.05}, {"w": "rose", "t": 223.47}, {"w": "and", "t": 223.89}, {"w": "fell", "t": 224.31}, {"w": "together,", "t": 224.73}, {"w": "like", "t": 225.15}, {"w": "dancers", "t": 225.57}, {"w": "following", "t": 225.98}, {"w": "the", "t": 226.4}, {"w": "same", "t": 226.82}, {"w": "music.", "t": 227.24}, {"w": "Cats", "t": 227.66}, {"w": "with", "t": 228.08}, {"w": "more", "t": 228.5}, {"w": "oxytocin", "t": 228.92}, {"w": "had", "t": 229.34}, {"w": "owners", "t": 229.76}, {"w": "with", "t": 230.17}, {"w": "less", "t": 230.59}, {"w": "stress", "t": 231.01}, {"w": "and", "t": 231.43}, {"w": "fewer", "t": 231.85}, {"w": "bad", "t": 232.27}, {"w": "moods,", "t": 232.69}, {"w": "and", "t": 233.11}, {"w": "owners", "t": 233.53}, {"w": "who", "t": 233.95}, {"w": "stayed", "t": 234.37}, {"w": "close", "t": 234.78}, {"w": "to", "t": 235.2}, {"w": "their", "t": 235.62}, {"w": "cats", "t": 236.04}, {"w": "felt", "t": 236.46}, {"w": "brighter", "t": 236.88}, {"w": "and", "t": 237.3}, {"w": "full", "t": 237.72}, {"w": "of", "t": 238.14}, {"w": "energy.", "t": 238.56}, {"w": "Who", "t": 238.97}, {"w": "cheers", "t": 239.39}, {"w": "up", "t": 239.81}, {"w": "whom", "t": 240.23}, {"w": "—", "t": 240.65}, {"w": "the", "t": 241.07}, {"w": "cat,", "t": 241.49}, {"w": "or", "t": 241.91}, {"w": "the", "t": 242.33}, {"w": "owner?", "t": 242.75}, {"w": "Nobody", "t": 243.16}, {"w": "knows", "t": 243.58}, {"w": "yet.", "t": 244.0}, {"w": "Maybe", "t": 244.42}, {"w": "it", "t": 244.84}, {"w": "is", "t": 245.26}, {"w": "a", "t": 245.68}, {"w": "circle", "t": 246.1}, {"w": "of", "t": 246.52}, {"w": "purrs,", "t": 246.94}, {"w": "going", "t": 247.35}, {"w": "round", "t": 247.77}, {"w": "and", "t": 248.19}, {"w": "round.", "t": 248.61}]}, {"start": 265.49, "end": 290.21, "en": "Here's today's idiom: \"shoot for the stars.\" If you shoot for the stars, you set a big goal and try your best to reach it, even if it looks far away. Max Dowman shot for the stars, and he caught three world records! Here's an example: \"Mia loves drawing, so she shoots for the stars and practises every day.\" What stars are you shooting for?", "title": "今日俚语", "cn": "今天的俚语是：“shoot for the stars”（朝着星星瞄准、立下远大目标）。如果你 shoot for the stars，你就是给自己定一个很大的目标，并全力以赴去实现它，哪怕它看起来遥不可及。Max Dowman 朝着星星瞄准，结果抓住了三项世界纪录！举个例子：“Mia 热爱画画，所以她立下远大目标，每天练习。”你在朝着哪颗星星努力呢？", "words": [{"w": "Here's", "t": 265.49}, {"w": "today's", "t": 265.87}, {"w": "idiom:", "t": 266.25}, {"w": "\"shoot", "t": 266.63}, {"w": "for", "t": 267.01}, {"w": "the", "t": 267.39}, {"w": "stars.\"", "t": 267.77}, {"w": "If", "t": 268.15}, {"w": "you", "t": 268.53}, {"w": "shoot", "t": 268.91}, {"w": "for", "t": 269.29}, {"w": "the", "t": 269.67}, {"w": "stars,", "t": 270.05}, {"w": "you", "t": 270.43}, {"w": "set", "t": 270.81}, {"w": "a", "t": 271.19}, {"w": "big", "t": 271.57}, {"w": "goal", "t": 271.96}, {"w": "and", "t": 272.34}, {"w": "try", "t": 272.72}, {"w": "your", "t": 273.1}, {"w": "best", "t": 273.48}, {"w": "to", "t": 273.86}, {"w": "reach", "t": 274.24}, {"w": "it,", "t": 274.62}, {"w": "even", "t": 275.0}, {"w": "if", "t": 275.38}, {"w": "it", "t": 275.76}, {"w": "looks", "t": 276.14}, {"w": "far", "t": 276.52}, {"w": "away.", "t": 276.9}, {"w": "Max", "t": 277.28}, {"w": "Dowman", "t": 277.66}, {"w": "shot", "t": 278.04}, {"w": "for", "t": 278.42}, {"w": "the", "t": 278.8}, {"w": "stars,", "t": 279.18}, {"w": "and", "t": 279.56}, {"w": "he", "t": 279.94}, {"w": "caught", "t": 280.32}, {"w": "three", "t": 280.7}, {"w": "world", "t": 281.08}, {"w": "records!", "t": 281.46}, {"w": "Here's", "t": 281.84}, {"w": "an", "t": 282.22}, {"w": "example:", "t": 282.6}, {"w": "\"Mia", "t": 282.98}, {"w": "loves", "t": 283.36}, {"w": "drawing,", "t": 283.74}, {"w": "so", "t": 284.13}, {"w": "she", "t": 284.51}, {"w": "shoots", "t": 284.89}, {"w": "for", "t": 285.27}, {"w": "the", "t": 285.65}, {"w": "stars", "t": 286.03}, {"w": "and", "t": 286.41}, {"w": "practises", "t": 286.79}, {"w": "every", "t": 287.17}, {"w": "day.\"", "t": 287.55}, {"w": "What", "t": 287.93}, {"w": "stars", "t": 288.31}, {"w": "are", "t": 288.69}, {"w": "you", "t": 289.07}, {"w": "shooting", "t": 289.45}, {"w": "for?", "t": 289.83}]}, {"start": 310.35, "end": 332.02, "en": "Let's think about today's stories. We met a sixteen-year-old with three world records, and learned that cats and owners share happy chemicals. Now, two questions for you. First: which world record would you like to break one day? Second: do you think your pet knows when you are happy or sad? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事。我们认识了一位手握三项世界纪录的十六岁少年，又了解到猫和主人会共享快乐的化学物质。现在轮到你回答两个问题。第一：你将来想打破哪一项世界纪录？第二：你觉得你的宠物知道你开心还是难过吗？和家人聊聊吧！", "words": [{"w": "Let's", "t": 310.35}, {"w": "think", "t": 310.73}, {"w": "about", "t": 311.11}, {"w": "today's", "t": 311.49}, {"w": "stories.", "t": 311.87}, {"w": "We", "t": 312.25}, {"w": "met", "t": 312.63}, {"w": "a", "t": 313.01}, {"w": "sixteen-year-old", "t": 313.39}, {"w": "with", "t": 313.77}, {"w": "three", "t": 314.15}, {"w": "world", "t": 314.53}, {"w": "records,", "t": 314.91}, {"w": "and", "t": 315.29}, {"w": "learned", "t": 315.67}, {"w": "that", "t": 316.05}, {"w": "cats", "t": 316.43}, {"w": "and", "t": 316.81}, {"w": "owners", "t": 317.19}, {"w": "share", "t": 317.57}, {"w": "happy", "t": 317.95}, {"w": "chemicals.", "t": 318.33}, {"w": "Now,", "t": 318.71}, {"w": "two", "t": 319.09}, {"w": "questions", "t": 319.47}, {"w": "for", "t": 319.85}, {"w": "you.", "t": 320.23}, {"w": "First:", "t": 320.61}, {"w": "which", "t": 320.99}, {"w": "world", "t": 321.38}, {"w": "record", "t": 321.76}, {"w": "would", "t": 322.14}, {"w": "you", "t": 322.52}, {"w": "like", "t": 322.9}, {"w": "to", "t": 323.28}, {"w": "break", "t": 323.66}, {"w": "one", "t": 324.04}, {"w": "day?", "t": 324.42}, {"w": "Second:", "t": 324.8}, {"w": "do", "t": 325.18}, {"w": "you", "t": 325.56}, {"w": "think", "t": 325.94}, {"w": "your", "t": 326.32}, {"w": "pet", "t": 326.7}, {"w": "knows", "t": 327.08}, {"w": "when", "t": 327.46}, {"w": "you", "t": 327.84}, {"w": "are", "t": 328.22}, {"w": "happy", "t": 328.6}, {"w": "or", "t": 328.98}, {"w": "sad?", "t": 329.36}, {"w": "Talk", "t": 329.74}, {"w": "about", "t": 330.12}, {"w": "it", "t": 330.5}, {"w": "with", "t": 330.88}, {"w": "your", "t": 331.26}, {"w": "family!", "t": 331.64}]}, {"start": 344.72, "end": 354.3, "en": "That's all for today, young explorers. Keep practising like Max, keep cuddling your cats, and always shoot for the stars. See you tomorrow morning!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。像 Max 一样坚持练习，抱抱你的猫咪，永远朝着星星瞄准。明天早上见！", "words": [{"w": "That's", "t": 344.72}, {"w": "all", "t": 345.12}, {"w": "for", "t": 345.52}, {"w": "today,", "t": 345.92}, {"w": "young", "t": 346.32}, {"w": "explorers.", "t": 346.72}, {"w": "Keep", "t": 347.12}, {"w": "practising", "t": 347.51}, {"w": "like", "t": 347.91}, {"w": "Max,", "t": 348.31}, {"w": "keep", "t": 348.71}, {"w": "cuddling", "t": 349.11}, {"w": "your", "t": 349.51}, {"w": "cats,", "t": 349.91}, {"w": "and", "t": 350.31}, {"w": "always", "t": 350.71}, {"w": "shoot", "t": 351.11}, {"w": "for", "t": 351.51}, {"w": "the", "t": 351.91}, {"w": "stars.", "t": 352.3}, {"w": "See", "t": 352.7}, {"w": "you", "t": 353.1}, {"w": "tomorrow", "t": 353.5}, {"w": "morning!", "t": 353.9}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol07/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>

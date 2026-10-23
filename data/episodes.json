@@ -1,5 +1,16 @@
 [
  {
+  "id": "vol07",
+  "title": "十六岁少年三项纪录与猫咪的心情密码",
+  "words": 599,
+  "duration": "6分03秒",
+  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol07/cover.png",
+  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol07/audio.mp3",
+  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol07/video_v1.mp4",
+  "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol07/Vol07_晚读讲义_十六岁少年三项纪录与猫咪的心情密码_v1.pdf",
+  "pdfName": "Vol07_晚读讲义_十六岁少年三项纪录与猫咪的心情密码_v1.pdf"
+ },
+ {
   "id": "vol06",
   "title": "恐龙脚印与侏罗纪胖鱿鱼",
   "words": 589,
