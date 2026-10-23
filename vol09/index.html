@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.09 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol09/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol09/cover.png" controls playsinline preload="metadata"></video>
+<h1>🐊 Vol.09 · 狮身人面像的鳄鱼邻居与柜子里的深海巨怪</h1>
+<div class="meta">英文 597 词 ｜ 音频 6分41秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol09/story-sphinx.png" alt="狮身人面像的鳄鱼邻居">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol09/story-isopod.png" alt="柜子里的深海巨怪">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">hiding in plain sight</span> <span class="phon">/ˈhaɪdɪŋ ɪn pleɪn saɪt/</span> (习语) 藏在眼皮底下；明明看得见却没人注意<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: The new species was <b>hiding in plain sight</b> on a museum shelf.</div>
+</div>
+<div class="vocab">
+  <span class="word">limestone</span> <span class="phon">/ˈlaɪmstəʊn/</span> (n.) 石灰岩<br>
+  
+  <div class="example">Example: The Sphinx was carved from a ridge of <b>limestone</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">gavial</span> <span class="phon">/ˈɡeɪviəl/</span> (n.) 长吻鳄<br>
+  
+  <div class="example">Example: It was a <b>gavial</b>, a crocodile with a long, thin snout.</div>
+</div>
+<div class="vocab">
+  <span class="word">snout</span> <span class="phon">/snaʊt/</span> (n.) （动物的）口鼻部<br>
+  
+  <div class="example">Example: It is missing the tip of its <b>snout</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">ridge</span> <span class="phon">/rɪdʒ/</span> (n.) 隆起的脊；山脊<br>
+  
+  <div class="example">Example: A curved <b>ridge</b> circled each of its eyes.</div>
+</div>
+<div class="vocab">
+  <span class="word">genus</span> <span class="phon">/ˈdʒiːnəs/</span> (n.) （生物分类的）属<br>
+  
+  <div class="example">Example: It was a new <b>genus</b>, a branch that science had missed.</div>
+</div>
+<div class="vocab">
+  <span class="word">scanner</span> <span class="phon">/ˈskænə/</span> (n.) 扫描仪<br>
+  
+  <div class="example">Example: They slid the skull into a CT <b>scanner</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">isopod</span> <span class="phon">/ˈaɪsəpɒd/</span> (n.) 等足虫（类）<br>
+  
+  <div class="example">Example: It is a giant <b>isopod</b>, a deep-sea cousin of the pill bugs.</div>
+</div>
+<div class="vocab">
+  <span class="word">seabed</span> <span class="phon">/ˈsiːbed/</span> (n.) 海床；海底<br>
+  
+  <div class="example">Example: It was caught in a <b>seabed</b> trap five hundred metres down.</div>
+</div>
+<div class="vocab">
+  <span class="word">curator</span> <span class="phon">/kjʊəˈreɪtə/</span> (n.) （博物馆）收藏负责人；策展人<br>
+  
+  <div class="example">Example: A researcher and the <b>curator</b> wheeled it into a scanner.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 13, "ncols": 10, "words": [{"word": "SPHINX", "row": 0, "col": 4, "dir": "A", "num": 1, "cn": "狮身人面像", "clue": "The famous statue with a lion's body and a king's face."}, {"word": "ISOPOD", "row": 0, "col": 7, "dir": "D", "num": 2, "cn": "等足虫", "clue": "A deep-sea creature that looks like a giant woodlouse."}, {"word": "CURATOR", "row": 2, "col": 2, "dir": "A", "num": 3, "cn": "收藏负责人", "clue": "The person who looks after a museum collection."}, {"word": "SEABED", "row": 3, "col": 9, "dir": "D", "num": 4, "cn": "海床", "clue": "The floor of the sea, deep below the waves."}, {"word": "LIMESTONE", "row": 4, "col": 1, "dir": "A", "num": 5, "cn": "石灰岩", "clue": "The rock that the Great Sphinx was carved from."}, {"word": "SCANNER", "row": 4, "col": 5, "dir": "D", "num": 6, "cn": "扫描仪", "clue": "A machine that lets scientists peek inside solid objects."}, {"word": "GAVIAL", "row": 6, "col": 1, "dir": "A", "num": 7, "cn": "长吻鳄", "clue": "A crocodile with a long, thin snout for snapping up fish."}, {"word": "MUSEUM", "row": 7, "col": 0, "dir": "D", "num": 8, "cn": "博物馆", "clue": "A place where old treasures are kept and shown."}, {"word": "STATUE", "row": 9, "col": 0, "dir": "A", "num": 9, "cn": "雕像", "clue": "A figure of a person or an animal made from stone or metal."}, {"word": "RIDGE", "row": 10, "col": 5, "dir": "A", "num": 10, "cn": "隆脊", "clue": "A long raised line, like the one around the crocodile’s eyes."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. Where did the crocodile skull sleep for almost a hundred years?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. In a pyramid in Egypt</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. In a museum in Germany</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. In a university in Mexico</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. Inside the Great Sphinx</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. What did both teams use to look inside their specimens?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. A CT scanner or an X-ray scanner</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. A submarine camera</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. A time machine</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. A magnifying glass</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：A</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. How deep under the sea was the giant isopod caught?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. Five thousand metres</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. Fifty metres</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. Five hundred metres</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. Twenty-five metres</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does &quot;hiding in plain sight&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. Hidden in a place nobody can reach</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. In a place everyone can see, but nobody notices</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. Deep under the sea</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. Locked inside a dark box</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：B</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [1, 0, 2, 1];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">They slid the skull into <b class="kw">a CT scanner</b>, <b class="kw">a machine</b> <b class="kw">that lets doctors and scientists peek</b> inside objects <b class="kw">without breaking them open</b>.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li>主干很短：<i>They slid the skull into a CT scanner.</i>（他们把头骨滑进了一台 CT 扫描仪）主语 <i>They</i>、谓语 <i>slid</i>、宾语 <i>the skull</i>、<i>into a CT scanner</i> 交代方向。先抓住主干，后面再长也不怕。</li>
+  <li>紧跟其后的 <i>a machine</i> 是<b>同位语</b>：它和前面的 <i>a CT scanner</i> 指的是同一个东西，换个说法再解释一遍——“一台机器”。同位语就像给名词配的一张小名片，读到它，陌生名词立刻变亲切。</li>
+  <li><i>that lets doctors and scientists peek inside objects</i> 是<b>定语从句</b>，修饰 <i>a machine</i>：<i>that</i> 在从句里作主语（指机器），所以<b>不能省略</b>——这一点和作宾语时可以省略正好相反，要分清。</li>
+  <li>从句的核心结构是 <i>let + 宾语 + 动词原形</i>：<i>lets doctors and scientists peek</i>——<i>let</i>（让）后面跟人，再跟动词原形 <i>peek</i>，中间<b>没有 to</b>。这是 <i>let</i> 的固定用法：let somebody do something。</li>
+  <li>句尾的 <i>without breaking them open</i> 是 <i>without + 动词-ing</i> 结构，表示“在不……的情况下”：不用把物体打破，就能看清内部。它的动作发出者，就是前面的 <i>doctors and scientists</i>。</li>
+  <li>整句逻辑链：<b>放进扫描仪（动作）→ 它是一台机器（同位语解释）→ 能让人看进内部（定语从句说功能）→ 而且不用打破（without 短语说方式）</b>。一句话，把一台神奇机器讲得明明白白。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. 同位语：用括号里的短语补全</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">The Sphinx, ____, watches over the pyramids.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">a statue with a lion&#x27;s body</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">it is a statue with a lion</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">the statue of a lion&#x27;s body</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：a statue with a lion&#x27;s body</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">Herugavialis, ____, lived in a warm shallow sea.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">a crocodile it has a long thin snout</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">a crocodile with a long thin snout</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">the long thin snout of a crocodile</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：a crocodile with a long thin snout</p>
+</div>
+<p class="p4-gname">B. let + 宾语 + 动词原形：用括号里的短语补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">The scanner let the team ____.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">peeks inside the skull</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">to peek inside the skull</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">peek inside the skull</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：peek inside the skull</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">A closer look let scientists ____.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">see the hidden truth</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">sees the hidden truth</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">seeing the hidden truth</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：see the hidden truth</p>
+</div>
+<p class="p4-gname">C. without + 动词-ing：用括号里的短语补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">They studied the bone ____.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">without break it open</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">without breaking it open</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">without broke it open</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：without breaking it open</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">The isopod waited for forty years ____.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">without tell its secret</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">without told its secret</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">without telling its secret</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：without telling its secret</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>The machine lets us look inside the old skull without opening the box.</li>
+<li>The Sphinx, a statue from the same stone, kept the crocodile&#x27;s secret for millions of years.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">1</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">H</span></td><td class="cwc"><span class="cwn">2</span><span class="cwl">I</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">X</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">3</span><span class="cwl">C</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">P</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">S</span></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">5</span><span class="cwl">L</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">M</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwn">6</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">E</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">7</span><span class="cwl">G</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">V</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">B</span></td></tr><tr><td class="cwc"><span class="cwn">8</span><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td></tr><tr><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">D</span></td></tr><tr><td class="cwc"><span class="cwn">9</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">10</span><span class="cwl">R</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">D</span></td><td class="cwc"><span class="cwl">G</span></td><td class="cwc"><span class="cwl">E</span></td></tr><tr><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr></table></div>1 横 → <b>SPHINX</b>（狮身人面像）<br>2 竖 → <b>ISOPOD</b>（等足虫）<br>3 横 → <b>CURATOR</b>（收藏负责人）<br>4 竖 → <b>SEABED</b>（海床）<br>5 横 → <b>LIMESTONE</b>（石灰岩）<br>6 竖 → <b>SCANNER</b>（扫描仪）<br>7 横 → <b>GAVIAL</b>（长吻鳄）<br>8 竖 → <b>MUSEUM</b>（博物馆）<br>9 横 → <b>STATUE</b>（雕像）<br>10 横 → <b>RIDGE</b>（隆脊）<br><br><b>B. Single Choice:</b><br>
+1 → <b>B</b>. The text says the skull <i>"travelled to a German museum and slept for almost a hundred years."</i><br>
+2 → <b>A</b>. The skull went into <i>"a CT scanner"</i>, and the isopod was wheeled into <i>"an X-ray scanner"</i> — both teams peeked inside with scanners.<br>
+3 → <b>C</b>. The text says it was <i>"caught in a seabed trap five hundred metres down."</i> (The deepest isopods patrol down to two thousand five hundred metres — a different number!)<br>
+4 → <b>B</b>. The text says: <i>"everyone can see it, but nobody notices it."</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. a statue with a lion's body&nbsp;&nbsp;2. a crocodile with a long thin snout<br>
+B. 1. peek inside the skull&nbsp;&nbsp;2. see the hidden truth<br>
+C. 1. without breaking it open&nbsp;&nbsp;2. without telling its secret<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol09/Vol09_晚读讲义_狮身人面像的鳄鱼邻居与柜子里的深海巨怪_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 23.63, "end": 46.02, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today, both of our stars are champions of hide-and-seek. One hid in a museum for almost a hundred years. The other hid in front of everybody's eyes for forty years. Nobody had to find them in the wild. Somebody just had to look at them.", "title": "开场白", "cn": "欢迎回来，小小探险家们，这里是 Michael 的早听晚读！今天的两位主角都是捉迷藏冠军：一位在博物馆里躲了近一百年，另一位在所有人的眼皮底下躲了四十年。没人需要去野外寻找它们——只要有人仔仔细细地看它们一眼就好。", "words": [{"w": "Hello,", "t": 23.63}, {"w": "young", "t": 24.04}, {"w": "explorers,", "t": 24.44}, {"w": "and", "t": 24.85}, {"w": "welcome", "t": 25.26}, {"w": "back", "t": 25.67}, {"w": "to", "t": 26.07}, {"w": "Michael's", "t": 26.48}, {"w": "Morning", "t": 26.89}, {"w": "Listening!", "t": 27.29}, {"w": "Today,", "t": 27.7}, {"w": "both", "t": 28.11}, {"w": "of", "t": 28.52}, {"w": "our", "t": 28.92}, {"w": "stars", "t": 29.33}, {"w": "are", "t": 29.74}, {"w": "champions", "t": 30.14}, {"w": "of", "t": 30.55}, {"w": "hide-and-seek.", "t": 30.96}, {"w": "One", "t": 31.36}, {"w": "hid", "t": 31.77}, {"w": "in", "t": 32.18}, {"w": "a", "t": 32.59}, {"w": "museum", "t": 32.99}, {"w": "for", "t": 33.4}, {"w": "almost", "t": 33.81}, {"w": "a", "t": 34.21}, {"w": "hundred", "t": 34.62}, {"w": "years.", "t": 35.03}, {"w": "The", "t": 35.44}, {"w": "other", "t": 35.84}, {"w": "hid", "t": 36.25}, {"w": "in", "t": 36.66}, {"w": "front", "t": 37.06}, {"w": "of", "t": 37.47}, {"w": "everybody's", "t": 37.88}, {"w": "eyes", "t": 38.29}, {"w": "for", "t": 38.69}, {"w": "forty", "t": 39.1}, {"w": "years.", "t": 39.51}, {"w": "Nobody", "t": 39.91}, {"w": "had", "t": 40.32}, {"w": "to", "t": 40.73}, {"w": "find", "t": 41.13}, {"w": "them", "t": 41.54}, {"w": "in", "t": 41.95}, {"w": "the", "t": 42.36}, {"w": "wild.", "t": 42.76}, {"w": "Somebody", "t": 43.17}, {"w": "just", "t": 43.58}, {"w": "had", "t": 43.98}, {"w": "to", "t": 44.39}, {"w": "look", "t": 44.8}, {"w": "at", "t": 45.21}, {"w": "them.", "t": 45.61}]}, {"start": 85.6, "end": 105.1, "en": "Our first story begins in Egypt, beside the famous Sphinx. The Great Sphinx of Giza, lion-bodied and king-faced, was carved from a ridge of limestone, rock that was once a warm sea floor. Inside those rocks, scientists have recognised a crocodile never named before.", "title": "狮身人面像的鳄鱼邻居", "cn": "我们的第一个故事发生在埃及，就在著名的狮身人面像身旁。吉萨的大狮身人面像，狮子的身体、国王的面孔，是从一整片石灰岩山脊上雕刻出来的——而这片岩石，曾经是一片温暖浅海的海底。就在这片岩石里，科学家认出了一只从未被命名过的鳄鱼。", "words": [{"w": "Our", "t": 85.6}, {"w": "first", "t": 86.04}, {"w": "story", "t": 86.49}, {"w": "begins", "t": 86.93}, {"w": "in", "t": 87.37}, {"w": "Egypt,", "t": 87.82}, {"w": "beside", "t": 88.26}, {"w": "the", "t": 88.7}, {"w": "famous", "t": 89.15}, {"w": "Sphinx.", "t": 89.59}, {"w": "The", "t": 90.03}, {"w": "Great", "t": 90.47}, {"w": "Sphinx", "t": 90.92}, {"w": "of", "t": 91.36}, {"w": "Giza,", "t": 91.8}, {"w": "lion-bodied", "t": 92.25}, {"w": "and", "t": 92.69}, {"w": "king-faced,", "t": 93.13}, {"w": "was", "t": 93.58}, {"w": "carved", "t": 94.02}, {"w": "from", "t": 94.46}, {"w": "a", "t": 94.91}, {"w": "ridge", "t": 95.35}, {"w": "of", "t": 95.79}, {"w": "limestone,", "t": 96.24}, {"w": "rock", "t": 96.68}, {"w": "that", "t": 97.12}, {"w": "was", "t": 97.57}, {"w": "once", "t": 98.01}, {"w": "a", "t": 98.45}, {"w": "warm", "t": 98.9}, {"w": "sea", "t": 99.34}, {"w": "floor.", "t": 99.78}, {"w": "Inside", "t": 100.22}, {"w": "those", "t": 100.67}, {"w": "rocks,", "t": 101.11}, {"w": "scientists", "t": 101.55}, {"w": "have", "t": 102.0}, {"w": "recognised", "t": 102.44}, {"w": "a", "t": 102.88}, {"w": "crocodile", "t": 103.33}, {"w": "never", "t": 103.77}, {"w": "named", "t": 104.21}, {"w": "before.", "t": 104.66}]}, {"start": 105.1, "end": 119.72, "en": "The animal, Herugavialis cairensis, lived forty-five million years ago. It was a gavial, a crocodile with a long, thin snout for snapping up fish, and a curved ridge circled each of its eyes.", "title": "狮身人面像的鳄鱼邻居", "cn": "这只动物名叫 Herugavialis cairensis（赫鲁长吻鳄），生活在四千五百万年前。它是一种长吻鳄，有着又长又细的嘴，专门用来抓鱼；它的每只眼睛周围，都环绕着一圈弯弯的隆起。", "words": [{"w": "The", "t": 105.1}, {"w": "animal,", "t": 105.54}, {"w": "Herugavialis", "t": 105.99}, {"w": "cairensis,", "t": 106.43}, {"w": "lived", "t": 106.87}, {"w": "forty-five", "t": 107.32}, {"w": "million", "t": 107.76}, {"w": "years", "t": 108.2}, {"w": "ago.", "t": 108.64}, {"w": "It", "t": 109.09}, {"w": "was", "t": 109.53}, {"w": "a", "t": 109.97}, {"w": "gavial,", "t": 110.42}, {"w": "a", "t": 110.86}, {"w": "crocodile", "t": 111.3}, {"w": "with", "t": 111.75}, {"w": "a", "t": 112.19}, {"w": "long,", "t": 112.63}, {"w": "thin", "t": 113.07}, {"w": "snout", "t": 113.52}, {"w": "for", "t": 113.96}, {"w": "snapping", "t": 114.4}, {"w": "up", "t": 114.85}, {"w": "fish,", "t": 115.29}, {"w": "and", "t": 115.73}, {"w": "a", "t": 116.18}, {"w": "curved", "t": 116.62}, {"w": "ridge", "t": 117.06}, {"w": "circled", "t": 117.5}, {"w": "each", "t": 117.95}, {"w": "of", "t": 118.39}, {"w": "its", "t": 118.83}, {"w": "eyes.", "t": 119.28}]}, {"start": 119.72, "end": 138.33, "en": "Our hero is a skull. Collectors dug it out of the Mokattam rocks in the nineteen twenties. It travelled to a German museum and slept for almost a hundred years. Its label named a known crocodile, and nobody questioned it for decades.", "title": "狮身人面像的鳄鱼邻居", "cn": "我们的主角是一颗头骨。二十世纪二十年代，收藏家们从莫卡塔姆岩石群里把它挖了出来。它被送到德国的一家博物馆，一睡就是近一百年。它的标签上写着一种已知鳄鱼的名字，几十年来，从没有人怀疑过。", "words": [{"w": "Our", "t": 119.72}, {"w": "hero", "t": 120.16}, {"w": "is", "t": 120.61}, {"w": "a", "t": 121.05}, {"w": "skull.", "t": 121.49}, {"w": "Collectors", "t": 121.94}, {"w": "dug", "t": 122.38}, {"w": "it", "t": 122.82}, {"w": "out", "t": 123.26}, {"w": "of", "t": 123.71}, {"w": "the", "t": 124.15}, {"w": "Mokattam", "t": 124.59}, {"w": "rocks", "t": 125.04}, {"w": "in", "t": 125.48}, {"w": "the", "t": 125.92}, {"w": "nineteen", "t": 126.37}, {"w": "twenties.", "t": 126.81}, {"w": "It", "t": 127.25}, {"w": "travelled", "t": 127.7}, {"w": "to", "t": 128.14}, {"w": "a", "t": 128.58}, {"w": "German", "t": 129.03}, {"w": "museum", "t": 129.47}, {"w": "and", "t": 129.91}, {"w": "slept", "t": 130.35}, {"w": "for", "t": 130.8}, {"w": "almost", "t": 131.24}, {"w": "a", "t": 131.68}, {"w": "hundred", "t": 132.13}, {"w": "years.", "t": 132.57}, {"w": "Its", "t": 133.01}, {"w": "label", "t": 133.46}, {"w": "named", "t": 133.9}, {"w": "a", "t": 134.34}, {"w": "known", "t": 134.79}, {"w": "crocodile,", "t": 135.23}, {"w": "and", "t": 135.67}, {"w": "nobody", "t": 136.11}, {"w": "questioned", "t": 136.56}, {"w": "it", "t": 137.0}, {"w": "for", "t": 137.44}, {"w": "decades.", "t": 137.89}]}, {"start": 138.33, "end": 163.59, "en": "Then an international team took a closer look. They slid the skull into a CT scanner, a machine that lets doctors and scientists peek inside objects without breaking them open. After comparing three hundred details, the team concluded: this was not the crocodile on the label. It was a new genus, a branch that science had missed.", "title": "狮身人面像的鳄鱼邻居", "cn": "后来，一个国际团队决定认真看一看。他们把头骨滑进一台 CT 扫描仪——这种机器能让医生和科学家在不打破物体的情况下看清它的内部。在比较了三百处细节之后，团队得出结论：这根本不是标签上的那种鳄鱼。这是一个全新的“属”，是鳄鱼家族树上一条被科学漏掉的枝杈。", "words": [{"w": "Then", "t": 138.33}, {"w": "an", "t": 138.77}, {"w": "international", "t": 139.22}, {"w": "team", "t": 139.66}, {"w": "took", "t": 140.1}, {"w": "a", "t": 140.55}, {"w": "closer", "t": 140.99}, {"w": "look.", "t": 141.43}, {"w": "They", "t": 141.88}, {"w": "slid", "t": 142.32}, {"w": "the", "t": 142.76}, {"w": "skull", "t": 143.2}, {"w": "into", "t": 143.65}, {"w": "a", "t": 144.09}, {"w": "CT", "t": 144.53}, {"w": "scanner,", "t": 144.98}, {"w": "a", "t": 145.42}, {"w": "machine", "t": 145.86}, {"w": "that", "t": 146.31}, {"w": "lets", "t": 146.75}, {"w": "doctors", "t": 147.19}, {"w": "and", "t": 147.64}, {"w": "scientists", "t": 148.08}, {"w": "peek", "t": 148.52}, {"w": "inside", "t": 148.97}, {"w": "objects", "t": 149.41}, {"w": "without", "t": 149.85}, {"w": "breaking", "t": 150.3}, {"w": "them", "t": 150.74}, {"w": "open.", "t": 151.18}, {"w": "After", "t": 151.62}, {"w": "comparing", "t": 152.07}, {"w": "three", "t": 152.51}, {"w": "hundred", "t": 152.95}, {"w": "details,", "t": 153.4}, {"w": "the", "t": 153.84}, {"w": "team", "t": 154.28}, {"w": "concluded:", "t": 154.73}, {"w": "this", "t": 155.17}, {"w": "was", "t": 155.61}, {"w": "not", "t": 156.06}, {"w": "the", "t": 156.5}, {"w": "crocodile", "t": 156.94}, {"w": "on", "t": 157.39}, {"w": "the", "t": 157.83}, {"w": "label.", "t": 158.27}, {"w": "It", "t": 158.72}, {"w": "was", "t": 159.16}, {"w": "a", "t": 159.6}, {"w": "new", "t": 160.04}, {"w": "genus,", "t": 160.49}, {"w": "a", "t": 160.93}, {"w": "branch", "t": 161.37}, {"w": "that", "t": 161.82}, {"w": "science", "t": 162.26}, {"w": "had", "t": 162.7}, {"w": "missed.", "t": 163.15}]}, {"start": 163.59, "end": 173.78, "en": "They named it after Heru, a god linked with the Sphinx. And like the Sphinx, it is missing the tip of its snout.", "title": "狮身人面像的鳄鱼邻居", "cn": "团队用 Heru 为它命名，那是一位与狮身人面像有关的古埃及神。而且和狮身人面像一样，它也缺了鼻尖。", "words": [{"w": "They", "t": 163.59}, {"w": "named", "t": 164.03}, {"w": "it", "t": 164.48}, {"w": "after", "t": 164.92}, {"w": "Heru,", "t": 165.36}, {"w": "a", "t": 165.81}, {"w": "god", "t": 166.25}, {"w": "linked", "t": 166.69}, {"w": "with", "t": 167.13}, {"w": "the", "t": 167.58}, {"w": "Sphinx.", "t": 168.02}, {"w": "And", "t": 168.46}, {"w": "like", "t": 168.91}, {"w": "the", "t": 169.35}, {"w": "Sphinx,", "t": 169.79}, {"w": "it", "t": 170.24}, {"w": "is", "t": 170.68}, {"w": "missing", "t": 171.12}, {"w": "the", "t": 171.56}, {"w": "tip", "t": 172.01}, {"w": "of", "t": 172.45}, {"w": "its", "t": 172.89}, {"w": "snout.", "t": 173.34}]}, {"start": 191.92, "end": 217.72, "en": "Our second treasure was hiding in plain sight in a university collection in Germany. It looks like a woodlouse that swallowed a growth potion: hard scaly shell, many legs. It is a giant isopod, a deep-sea cousin of the tiny pill bugs, only this one is thirty-two centimetres long. Scientists call monsters this size colossogiants.", "title": "柜子里的深海巨怪", "cn": "我们的第二件宝贝同样藏在眼皮底下，这次是在德国一所大学的收藏室里。它看起来像一只吞了长大药水的潮虫：硬硬的鳞片壳、许多条腿。它是一只巨型等足虫，是小小潮虫的深海亲戚，只不过这一只长达三十二厘米。科学家把这个尺寸的怪兽叫作 colossogiants（巨无霸级）。", "words": [{"w": "Our", "t": 191.92}, {"w": "second", "t": 192.39}, {"w": "treasure", "t": 192.86}, {"w": "was", "t": 193.33}, {"w": "hiding", "t": 193.8}, {"w": "in", "t": 194.27}, {"w": "plain", "t": 194.73}, {"w": "sight", "t": 195.2}, {"w": "in", "t": 195.67}, {"w": "a", "t": 196.14}, {"w": "university", "t": 196.61}, {"w": "collection", "t": 197.08}, {"w": "in", "t": 197.55}, {"w": "Germany.", "t": 198.02}, {"w": "It", "t": 198.49}, {"w": "looks", "t": 198.96}, {"w": "like", "t": 199.43}, {"w": "a", "t": 199.89}, {"w": "woodlouse", "t": 200.36}, {"w": "that", "t": 200.83}, {"w": "swallowed", "t": 201.3}, {"w": "a", "t": 201.77}, {"w": "growth", "t": 202.24}, {"w": "potion:", "t": 202.71}, {"w": "hard", "t": 203.18}, {"w": "scaly", "t": 203.65}, {"w": "shell,", "t": 204.12}, {"w": "many", "t": 204.59}, {"w": "legs.", "t": 205.05}, {"w": "It", "t": 205.52}, {"w": "is", "t": 205.99}, {"w": "a", "t": 206.46}, {"w": "giant", "t": 206.93}, {"w": "isopod,", "t": 207.4}, {"w": "a", "t": 207.87}, {"w": "deep-sea", "t": 208.34}, {"w": "cousin", "t": 208.81}, {"w": "of", "t": 209.28}, {"w": "the", "t": 209.75}, {"w": "tiny", "t": 210.21}, {"w": "pill", "t": 210.68}, {"w": "bugs,", "t": 211.15}, {"w": "only", "t": 211.62}, {"w": "this", "t": 212.09}, {"w": "one", "t": 212.56}, {"w": "is", "t": 213.03}, {"w": "thirty-two", "t": 213.5}, {"w": "centimetres", "t": 213.97}, {"w": "long.", "t": 214.44}, {"w": "Scientists", "t": 214.91}, {"w": "call", "t": 215.37}, {"w": "monsters", "t": 215.84}, {"w": "this", "t": 216.31}, {"w": "size", "t": 216.78}, {"w": "colossogiants.", "t": 217.25}]}, {"start": 217.72, "end": 239.77, "en": "It came from the Caribbean Sea, near Puerto Rico, caught in a seabed trap five hundred metres down. Giant isopods patrol the dark ocean floor, down to two thousand five hundred metres, eating whatever sinks: fish, squid, even whales. These armoured cleaners help digest the ocean’s leftovers.", "title": "柜子里的深海巨怪", "cn": "它来自波多黎各附近的加勒比海，在五百米深的海床陷阱里被捕获。巨型等足虫在黑暗的深海海底巡逻，最深可达两千五百米，吃一切沉下来的东西：鱼、乌贼，甚至鲸鱼。这些身披铠甲的清洁工，帮忙消化海洋的剩饭剩菜。", "words": [{"w": "It", "t": 217.72}, {"w": "came", "t": 218.19}, {"w": "from", "t": 218.66}, {"w": "the", "t": 219.13}, {"w": "Caribbean", "t": 219.6}, {"w": "Sea,", "t": 220.07}, {"w": "near", "t": 220.53}, {"w": "Puerto", "t": 221.0}, {"w": "Rico,", "t": 221.47}, {"w": "caught", "t": 221.94}, {"w": "in", "t": 222.41}, {"w": "a", "t": 222.88}, {"w": "seabed", "t": 223.35}, {"w": "trap", "t": 223.82}, {"w": "five", "t": 224.29}, {"w": "hundred", "t": 224.76}, {"w": "metres", "t": 225.23}, {"w": "down.", "t": 225.7}, {"w": "Giant", "t": 226.16}, {"w": "isopods", "t": 226.63}, {"w": "patrol", "t": 227.1}, {"w": "the", "t": 227.57}, {"w": "dark", "t": 228.04}, {"w": "ocean", "t": 228.51}, {"w": "floor,", "t": 228.98}, {"w": "down", "t": 229.45}, {"w": "to", "t": 229.92}, {"w": "two", "t": 230.39}, {"w": "thousand", "t": 230.86}, {"w": "five", "t": 231.33}, {"w": "hundred", "t": 231.79}, {"w": "metres,", "t": 232.26}, {"w": "eating", "t": 232.73}, {"w": "whatever", "t": 233.2}, {"w": "sinks:", "t": 233.67}, {"w": "fish,", "t": 234.14}, {"w": "squid,", "t": 234.61}, {"w": "even", "t": 235.08}, {"w": "whales.", "t": 235.55}, {"w": "These", "t": 236.02}, {"w": "armoured", "t": 236.49}, {"w": "cleaners", "t": 236.96}, {"w": "help", "t": 237.42}, {"w": "digest", "t": 237.89}, {"w": "the", "t": 238.36}, {"w": "ocean’s", "t": 238.83}, {"w": "leftovers.", "t": 239.3}]}, {"start": 239.77, "end": 250.09, "en": "For forty years, its label used a cousin’s name. It even starred in a sea-giants exhibition. Everyone saw it; nobody saw it.", "title": "柜子里的深海巨怪", "cn": "四十年来，它的标签一直用着一个亲戚的名字。它甚至还在一场“海洋巨兽”展览里当过明星。所有人都看见了它，却没有人真正看见它。", "words": [{"w": "For", "t": 239.77}, {"w": "forty", "t": 240.24}, {"w": "years,", "t": 240.71}, {"w": "its", "t": 241.18}, {"w": "label", "t": 241.65}, {"w": "used", "t": 242.12}, {"w": "a", "t": 242.58}, {"w": "cousin’s", "t": 243.05}, {"w": "name.", "t": 243.52}, {"w": "It", "t": 243.99}, {"w": "even", "t": 244.46}, {"w": "starred", "t": 244.93}, {"w": "in", "t": 245.4}, {"w": "a", "t": 245.87}, {"w": "sea-giants", "t": 246.34}, {"w": "exhibition.", "t": 246.81}, {"w": "Everyone", "t": 247.28}, {"w": "saw", "t": 247.74}, {"w": "it;", "t": 248.21}, {"w": "nobody", "t": 248.68}, {"w": "saw", "t": 249.15}, {"w": "it.", "t": 249.62}]}, {"start": 250.09, "end": 273.54, "en": "Then a researcher and the curator wheeled it into an X-ray scanner. The scans, with tiny details of mouth and shell, proved it was a new species. Its closest relative lives near Mexico’s Yucatán coast. Its name joins its two homes: its birth island, and the town of its recognition.", "title": "柜子里的深海巨怪", "cn": "后来，一位研究者和收藏负责人把它推进了一台 X 光扫描仪。扫描结果，再加上它嘴巴和外壳上的细微之处，证明了这是一个新物种。它最近的亲戚生活在墨西哥尤卡坦海岸附近。它的名字把它的两个“家”连在一起：它出生的岛，和它最终被认出的小镇。", "words": [{"w": "Then", "t": 250.09}, {"w": "a", "t": 250.56}, {"w": "researcher", "t": 251.03}, {"w": "and", "t": 251.5}, {"w": "the", "t": 251.97}, {"w": "curator", "t": 252.44}, {"w": "wheeled", "t": 252.9}, {"w": "it", "t": 253.37}, {"w": "into", "t": 253.84}, {"w": "an", "t": 254.31}, {"w": "X-ray", "t": 254.78}, {"w": "scanner.", "t": 255.25}, {"w": "The", "t": 255.72}, {"w": "scans,", "t": 256.19}, {"w": "with", "t": 256.66}, {"w": "tiny", "t": 257.12}, {"w": "details", "t": 257.59}, {"w": "of", "t": 258.06}, {"w": "mouth", "t": 258.53}, {"w": "and", "t": 259.0}, {"w": "shell,", "t": 259.47}, {"w": "proved", "t": 259.94}, {"w": "it", "t": 260.41}, {"w": "was", "t": 260.88}, {"w": "a", "t": 261.35}, {"w": "new", "t": 261.81}, {"w": "species.", "t": 262.28}, {"w": "Its", "t": 262.75}, {"w": "closest", "t": 263.22}, {"w": "relative", "t": 263.69}, {"w": "lives", "t": 264.16}, {"w": "near", "t": 264.63}, {"w": "Mexico’s", "t": 265.1}, {"w": "Yucatán", "t": 265.57}, {"w": "coast.", "t": 266.04}, {"w": "Its", "t": 266.5}, {"w": "name", "t": 266.97}, {"w": "joins", "t": 267.44}, {"w": "its", "t": 267.91}, {"w": "two", "t": 268.38}, {"w": "homes:", "t": 268.85}, {"w": "its", "t": 269.32}, {"w": "birth", "t": 269.79}, {"w": "island,", "t": 270.26}, {"w": "and", "t": 270.73}, {"w": "the", "t": 271.19}, {"w": "town", "t": 271.66}, {"w": "of", "t": 272.13}, {"w": "its", "t": 272.6}, {"w": "recognition.", "t": 273.07}]}, {"start": 273.54, "end": 286.21, "en": "You need no ship or submarine to find a new species. Sometimes it sits on a shelf, hiding in plain sight, waiting for someone to look twice.", "title": "柜子里的深海巨怪", "cn": "寻找新物种，不需要轮船，也不需要潜水艇。有时它就坐在一只架子上，藏在眼皮底下，等着有人愿意多看它一眼。", "words": [{"w": "You", "t": 273.54}, {"w": "need", "t": 274.01}, {"w": "no", "t": 274.48}, {"w": "ship", "t": 274.95}, {"w": "or", "t": 275.42}, {"w": "submarine", "t": 275.89}, {"w": "to", "t": 276.36}, {"w": "find", "t": 276.82}, {"w": "a", "t": 277.29}, {"w": "new", "t": 277.76}, {"w": "species.", "t": 278.23}, {"w": "Sometimes", "t": 278.7}, {"w": "it", "t": 279.17}, {"w": "sits", "t": 279.64}, {"w": "on", "t": 280.11}, {"w": "a", "t": 280.58}, {"w": "shelf,", "t": 281.05}, {"w": "hiding", "t": 281.52}, {"w": "in", "t": 281.99}, {"w": "plain", "t": 282.46}, {"w": "sight,", "t": 282.93}, {"w": "waiting", "t": 283.39}, {"w": "for", "t": 283.86}, {"w": "someone", "t": 284.33}, {"w": "to", "t": 284.8}, {"w": "look", "t": 285.27}, {"w": "twice.", "t": 285.74}]}, {"start": 306.43, "end": 329.21, "en": "Here’s today’s idiom: \"hiding in plain sight.\" If something is hiding in plain sight, everyone can see it, but nobody notices it — like a new species sitting on a museum shelf for forty years! Here’s an example: \"The keys were hiding in plain sight, on the kitchen table.\" What treasure might be hiding in plain sight in your home?", "title": "今日俚语", "cn": "今天的俚语是：“hiding in plain sight”（藏在眼皮底下）。如果一样东西 hiding in plain sight，那就是所有人都能看见它，却偏偏没人注意到它——就像一个新物种在博物馆的架子上坐了四十年！举个例子：“钥匙就藏在眼皮底下，在厨房的桌子上。”你家里会有什么宝贝，正藏在眼皮底下呢？", "words": [{"w": "Here’s", "t": 306.43}, {"w": "today’s", "t": 306.81}, {"w": "idiom:", "t": 307.19}, {"w": "\"hiding", "t": 307.57}, {"w": "in", "t": 307.95}, {"w": "plain", "t": 308.33}, {"w": "sight.\"", "t": 308.71}, {"w": "If", "t": 309.09}, {"w": "something", "t": 309.47}, {"w": "is", "t": 309.85}, {"w": "hiding", "t": 310.23}, {"w": "in", "t": 310.61}, {"w": "plain", "t": 310.99}, {"w": "sight,", "t": 311.37}, {"w": "everyone", "t": 311.75}, {"w": "can", "t": 312.12}, {"w": "see", "t": 312.5}, {"w": "it,", "t": 312.88}, {"w": "but", "t": 313.26}, {"w": "nobody", "t": 313.64}, {"w": "notices", "t": 314.02}, {"w": "it", "t": 314.4}, {"w": "—", "t": 314.78}, {"w": "like", "t": 315.16}, {"w": "a", "t": 315.54}, {"w": "new", "t": 315.92}, {"w": "species", "t": 316.3}, {"w": "sitting", "t": 316.68}, {"w": "on", "t": 317.06}, {"w": "a", "t": 317.44}, {"w": "museum", "t": 317.82}, {"w": "shelf", "t": 318.2}, {"w": "for", "t": 318.58}, {"w": "forty", "t": 318.96}, {"w": "years!", "t": 319.34}, {"w": "Here’s", "t": 319.72}, {"w": "an", "t": 320.1}, {"w": "example:", "t": 320.48}, {"w": "\"The", "t": 320.86}, {"w": "keys", "t": 321.24}, {"w": "were", "t": 321.62}, {"w": "hiding", "t": 322.0}, {"w": "in", "t": 322.38}, {"w": "plain", "t": 322.76}, {"w": "sight,", "t": 323.14}, {"w": "on", "t": 323.51}, {"w": "the", "t": 323.89}, {"w": "kitchen", "t": 324.27}, {"w": "table.\"", "t": 324.65}, {"w": "What", "t": 325.03}, {"w": "treasure", "t": 325.41}, {"w": "might", "t": 325.79}, {"w": "be", "t": 326.17}, {"w": "hiding", "t": 326.55}, {"w": "in", "t": 326.93}, {"w": "plain", "t": 327.31}, {"w": "sight", "t": 327.69}, {"w": "in", "t": 328.07}, {"w": "your", "t": 328.45}, {"w": "home?", "t": 328.83}]}, {"start": 345.83, "end": 368.8, "en": "Let's think about today's stories. A crocodile hid in a museum for a hundred years, and a sea giant for forty. Now, two questions for you. First: if you could peek inside one museum drawer, what would you hope to find? Second: what thing in your home deserves a second look? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事。一只鳄鱼在博物馆里躲了一百年，一只深海巨兽躲了四十年。现在轮到你回答两个问题。第一：如果你能偷看一眼博物馆的某个抽屉，你希望在里面找到什么？第二：你家里有哪件东西，值得你再仔细看上一眼？和家人聊聊吧！", "words": [{"w": "Let's", "t": 345.83}, {"w": "think", "t": 346.23}, {"w": "about", "t": 346.64}, {"w": "today's", "t": 347.04}, {"w": "stories.", "t": 347.44}, {"w": "A", "t": 347.84}, {"w": "crocodile", "t": 348.25}, {"w": "hid", "t": 348.65}, {"w": "in", "t": 349.05}, {"w": "a", "t": 349.46}, {"w": "museum", "t": 349.86}, {"w": "for", "t": 350.26}, {"w": "a", "t": 350.67}, {"w": "hundred", "t": 351.07}, {"w": "years,", "t": 351.47}, {"w": "and", "t": 351.87}, {"w": "a", "t": 352.28}, {"w": "sea", "t": 352.68}, {"w": "giant", "t": 353.08}, {"w": "for", "t": 353.49}, {"w": "forty.", "t": 353.89}, {"w": "Now,", "t": 354.29}, {"w": "two", "t": 354.7}, {"w": "questions", "t": 355.1}, {"w": "for", "t": 355.5}, {"w": "you.", "t": 355.9}, {"w": "First:", "t": 356.31}, {"w": "if", "t": 356.71}, {"w": "you", "t": 357.11}, {"w": "could", "t": 357.52}, {"w": "peek", "t": 357.92}, {"w": "inside", "t": 358.32}, {"w": "one", "t": 358.73}, {"w": "museum", "t": 359.13}, {"w": "drawer,", "t": 359.53}, {"w": "what", "t": 359.93}, {"w": "would", "t": 360.34}, {"w": "you", "t": 360.74}, {"w": "hope", "t": 361.14}, {"w": "to", "t": 361.55}, {"w": "find?", "t": 361.95}, {"w": "Second:", "t": 362.35}, {"w": "what", "t": 362.76}, {"w": "thing", "t": 363.16}, {"w": "in", "t": 363.56}, {"w": "your", "t": 363.96}, {"w": "home", "t": 364.37}, {"w": "deserves", "t": 364.77}, {"w": "a", "t": 365.17}, {"w": "second", "t": 365.58}, {"w": "look?", "t": 365.98}, {"w": "Talk", "t": 366.38}, {"w": "about", "t": 366.79}, {"w": "it", "t": 367.19}, {"w": "with", "t": 367.59}, {"w": "your", "t": 367.99}, {"w": "family!", "t": 368.4}]}, {"start": 382.46, "end": 391.94, "en": "That's all for today, young explorers. Keep your eyes open, look twice — a treasure may be hiding in plain sight! See you tomorrow morning!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。睁大眼睛，多看两眼——说不定一件宝贝就藏在你的眼皮底下！明天早上见！", "words": [{"w": "That's", "t": 382.46}, {"w": "all", "t": 382.84}, {"w": "for", "t": 383.22}, {"w": "today,", "t": 383.6}, {"w": "young", "t": 383.98}, {"w": "explorers.", "t": 384.36}, {"w": "Keep", "t": 384.74}, {"w": "your", "t": 385.11}, {"w": "eyes", "t": 385.49}, {"w": "open,", "t": 385.87}, {"w": "look", "t": 386.25}, {"w": "twice", "t": 386.63}, {"w": "—", "t": 387.01}, {"w": "a", "t": 387.39}, {"w": "treasure", "t": 387.77}, {"w": "may", "t": 388.15}, {"w": "be", "t": 388.53}, {"w": "hiding", "t": 388.91}, {"w": "in", "t": 389.29}, {"w": "plain", "t": 389.66}, {"w": "sight!", "t": 390.04}, {"w": "See", "t": 390.42}, {"w": "you", "t": 390.8}, {"w": "tomorrow", "t": 391.18}, {"w": "morning!", "t": 391.56}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol09/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
