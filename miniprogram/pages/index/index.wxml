@@ -15,7 +15,7 @@
       <view class="ep-card" id="{{index === 0 ? 'ep-top' : ''}}" bindtap="goEpisode" data-id="{{item.id}}">
         <image class="ep-cover" src="{{item.cover}}" mode="aspectFill"></image>
         <view class="ep-info">
-          <view class="ep-title">{{item.id}} · {{item.title}}</view>
+          <view class="ep-title">{{item.label}} · {{item.title}}</view>
           <view class="ep-meta">英文 {{item.words}} 词 ｜ 音频 {{item.duration}}</view>
         </view>
         <view class="ep-arrow">›</view>
@@ -28,7 +28,7 @@
       <view class="ep-card" id="{{index === 0 ? 'ep-top' : ''}}" bindtap="goEpisode" data-id="{{item.id}}">
         <image class="ep-cover" src="{{item.cover}}" mode="aspectFill"></image>
         <view class="ep-info">
-          <view class="ep-title">{{item.id}} · {{item.title}}</view>
+          <view class="ep-title">{{item.label}} · {{item.title}}</view>
           <view class="ep-meta">英文 {{item.words}} 词 ｜ 音频 {{item.duration}}</view>
         </view>
         <view class="ep-arrow">›</view>
@@ -48,7 +48,7 @@
   <view wx:if="{{nowPlaying}}" class="np-bar" bindtap="npGo">
     <image wx:if="{{nowPlaying.cover}}" class="np-cover" src="{{nowPlaying.cover}}" mode="aspectFill"></image>
     <view class="np-info">
-      <view class="np-title">{{npPlaying ? '正在播放' : '已暂停'}} · {{nowPlaying.id}}</view>
+      <view class="np-title">{{npPlaying ? '正在播放' : '已暂停'}} · {{nowPlaying.label}}</view>
       <view class="np-sub">{{nowPlaying.title}} · 点按回到这一期</view>
     </view>
     <view class="np-btn" catchtap="npToggle">{{npPlaying ? '⏸' : '▶'}}</view>

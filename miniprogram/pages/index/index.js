@@ -5,6 +5,9 @@ const DATA_BASE = 'https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.co
 
 const bgm = wx.getBackgroundAudioManager();
 const RANGE_SIZE = 20; // 数字段大小：每 20 期一段（1–20、21–40、41–60…）
+// 显示名定版（2026-10-23 David）：期号一律「Vol.NN」（首字母大写），
+// 内部 id（vol06）只用于数据与路径，绝不直接显示给用户。
+const fmtVol = (id) => 'Vol.' + String(id || '').replace(/\D/g, '').padStart(2, '0');
 
 Page({
 data: {
@@ -24,7 +27,8 @@ url: `${DATA_BASE}/episodes.json`,
 success: (res) => {
 // 排序定版（2026-10-21）：一律最新在前 volN 大到小，不依赖服务器数据顺序
 const all = (res.data || []).slice().sort((a, b) =>
-(parseInt(String(b.id).replace(/\D/g, ''), 10) || 0) - (parseInt(String(a.id).replace(/\D/g, ''), 10) || 0));
+(parseInt(String(b.id).replace(/\D/g, ''), 10) || 0) - (parseInt(String(a.id).replace(/\D/g, ''), 10) || 0))
+.map(e => ({ ...e, label: fmtVol(e.id) }));
 this.setData({ allEpisodes: all, loading: false});
 this._buildRanges();
 this._syncNp();
@@ -66,9 +70,10 @@ return;
 let info = app.globalData.bgmEpInfo;
 if (!info || info.id!== id) {
 const found = (this.data.allEpisodes || []).find(e => e.id === id);
-info = found? { id: found.id, title: found.title, cover: found.cover}: { id, title: id.toUpperCase(), cover: ''};
+info = found? { id: found.id, title: found.title, cover: found.cover, label: fmtVol(found.id)}: { id, title: fmtVol(id), cover: '', label: fmtVol(id)};
 app.globalData.bgmEpInfo = info;
 }
+if (info && !info.label) info = { ...info, label: fmtVol(info.id) };
 this.setData({ nowPlaying: info, npPlaying:!bgm.paused});
 },
 

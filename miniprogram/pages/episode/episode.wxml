@@ -5,7 +5,7 @@
   <image wx:else class="cover" src="{{ep.cover}}" mode="aspectFill"></image>
   <view class="head-row">
     <view class="head-left">
-      <view class="title">{{ep.id}} · {{ep.title}}</view>
+      <view class="title">{{ep.label}} · {{ep.title}}</view>
       <view class="meta">英文 {{ep.words}} 词 ｜ 音频 {{ep.duration}}</view>
     </view>
     <view class="head-btns">

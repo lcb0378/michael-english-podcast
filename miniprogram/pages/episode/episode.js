@@ -6,6 +6,8 @@
 // 凡归属不是本期，播放/点段/拖动都先换源；页面卸载时解绑自己注册的监听。
 const DATA_BASE = 'https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/data';
 const CURSOR_LEAD = 0.9; // 高亮提前量（秒），与网页版一致
+// 显示名定版（2026-10-23 David）：期号一律「Vol.NN」，内部 id 不直接显示。
+const fmtVol = (id) => 'Vol.' + String(id || '').replace(/\D/g, '').padStart(2, '0');
 
 const bgm = wx.getBackgroundAudioManager();
 
@@ -52,13 +54,13 @@ return!!this._epId && getApp().globalData.bgmEpId === this._epId;
 _loadSrc(seekTo) {
 const ep = this.data.ep;
 if (!ep) return;
-bgm.title = `Michael的早听晚读 ${ep.id.toUpperCase()}`;
+bgm.title = `Michael的早听晚读 ${ep.label || fmtVol(ep.id)}`;
 bgm.epname = ep.title;
 bgm.singer = 'Michael的早听晚读';
 bgm.coverImgUrl = ep.cover;
 bgm.src = ep.audio; // 换源点：赋值后自动播放新的一期
 getApp().globalData.bgmEpId = this._epId;
-getApp().globalData.bgmEpInfo = { id: ep.id, title: ep.title, cover: ep.cover };
+getApp().globalData.bgmEpInfo = { id: ep.id, title: ep.title, cover: ep.cover, label: ep.label || fmtVol(ep.id) };
 bgm.playbackRate = this.data.rate;
 this._pendingSeek = (typeof seekTo === 'number')? seekTo: null;
 this.setData({ progress: 0, curTime: '0:00', durTime: '0:00', curBlock: -1, curWord: -1});
@@ -116,6 +118,7 @@ wx.request({
 url: `${DATA_BASE}/${id}.json`,
 success: (res) => {
 const ep = res.data;
+ep.label = fmtVol(ep.id);
 // Section 编号（2026-10-21 定版）：按小节名变化给每节第一块打 sec 号，
 // Part 1 显示「Section N」分节标题，与 Part 3 标题配对的 Section 1–6 对应。
 let _secNo = 0, _lastTitle = null;
@@ -123,7 +126,7 @@ let _secNo = 0, _lastTitle = null;
 if (b.title !== _lastTitle) { _secNo++; _lastTitle = b.title; b.sec = _secNo; } else { b.sec = 0; }
 });
 this.setData(Object.assign({ ep, loading: false }, this._buildQuiz(ep)));
-wx.setNavigationBarTitle({ title: `${ep.id.toUpperCase()} · ${ep.title}`});
+wx.setNavigationBarTitle({ title: `${ep.label} · ${ep.title}`});
 // 若背景里装的就是本期，同步一次按钮与时长显示（状态原样不动）
 // 是别期的话 onLoad 里已停掉清掉，本页静静等用户点播放，不自动开播
 if (this._isMine()) {
