@@ -1,0 +1,3746 @@
+{
+ "id": "vol10",
+ "title": "宇航员回家与蝴蝶的障眼法",
+ "words": 600,
+ "duration": "6分08秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol10/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol10/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol10/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol10/Vol10_晚读讲义_宇航员回家与蝴蝶的障眼法_v1.pdf",
+ "pdfName": "Vol10_晚读讲义_宇航员回家与蝴蝶的障眼法_v1.pdf",
+ "blocks": [
+  {
+   "start": 26.51,
+   "end": 49.09,
+   "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! This is our tenth show together! Today we start among the stars, with four astronauts fresh home from space. Then we shrink down to a garden, to meet a tiny flying magician. Big or small, all are explorers. Let's go!",
+   "title": "开场白",
+   "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！这是我们在一起的第十期节目啦！今天我们先来到星星之间，迎接四位刚刚从太空回家的宇航员。然后我们缩小身体，钻进一座花园，去认识一位小小的飞行魔术师。不管个头大还是小，他们都是探险家。出发吧！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 26.51
+    },
+    {
+     "w": "young",
+     "t": 26.96
+    },
+    {
+     "w": "explorers,",
+     "t": 27.41
+    },
+    {
+     "w": "and",
+     "t": 27.86
+    },
+    {
+     "w": "welcome",
+     "t": 28.32
+    },
+    {
+     "w": "back",
+     "t": 28.77
+    },
+    {
+     "w": "to",
+     "t": 29.22
+    },
+    {
+     "w": "Michael's",
+     "t": 29.67
+    },
+    {
+     "w": "Morning",
+     "t": 30.12
+    },
+    {
+     "w": "Listening!",
+     "t": 30.57
+    },
+    {
+     "w": "This",
+     "t": 31.03
+    },
+    {
+     "w": "is",
+     "t": 31.48
+    },
+    {
+     "w": "our",
+     "t": 31.93
+    },
+    {
+     "w": "tenth",
+     "t": 32.38
+    },
+    {
+     "w": "show",
+     "t": 32.83
+    },
+    {
+     "w": "together!",
+     "t": 33.28
+    },
+    {
+     "w": "Today",
+     "t": 33.74
+    },
+    {
+     "w": "we",
+     "t": 34.19
+    },
+    {
+     "w": "start",
+     "t": 34.64
+    },
+    {
+     "w": "among",
+     "t": 35.09
+    },
+    {
+     "w": "the",
+     "t": 35.54
+    },
+    {
+     "w": "stars,",
+     "t": 35.99
+    },
+    {
+     "w": "with",
+     "t": 36.45
+    },
+    {
+     "w": "four",
+     "t": 36.9
+    },
+    {
+     "w": "astronauts",
+     "t": 37.35
+    },
+    {
+     "w": "fresh",
+     "t": 37.8
+    },
+    {
+     "w": "home",
+     "t": 38.25
+    },
+    {
+     "w": "from",
+     "t": 38.7
+    },
+    {
+     "w": "space.",
+     "t": 39.15
+    },
+    {
+     "w": "Then",
+     "t": 39.61
+    },
+    {
+     "w": "we",
+     "t": 40.06
+    },
+    {
+     "w": "shrink",
+     "t": 40.51
+    },
+    {
+     "w": "down",
+     "t": 40.96
+    },
+    {
+     "w": "to",
+     "t": 41.41
+    },
+    {
+     "w": "a",
+     "t": 41.86
+    },
+    {
+     "w": "garden,",
+     "t": 42.32
+    },
+    {
+     "w": "to",
+     "t": 42.77
+    },
+    {
+     "w": "meet",
+     "t": 43.22
+    },
+    {
+     "w": "a",
+     "t": 43.67
+    },
+    {
+     "w": "tiny",
+     "t": 44.12
+    },
+    {
+     "w": "flying",
+     "t": 44.57
+    },
+    {
+     "w": "magician.",
+     "t": 45.03
+    },
+    {
+     "w": "Big",
+     "t": 45.48
+    },
+    {
+     "w": "or",
+     "t": 45.93
+    },
+    {
+     "w": "small,",
+     "t": 46.38
+    },
+    {
+     "w": "all",
+     "t": 46.83
+    },
+    {
+     "w": "are",
+     "t": 47.28
+    },
+    {
+     "w": "explorers.",
+     "t": 47.74
+    },
+    {
+     "w": "Let's",
+     "t": 48.19
+    },
+    {
+     "w": "go!",
+     "t": 48.64
+    }
+   ]
+  },
+  {
+   "start": 68.35,
+   "end": 90.32,
+   "en": "Splashdown! Four astronauts are home after two hundred and thirty-seven days in orbit. Their capsule, a Crew Dragon named Freedom, dropped through the sky under four parachutes and splashed into the Pacific Ocean, near California. Out came Jessica, Jack, Sophie, and Andrey — friends from three space agencies, home at last.",
+   "title": "宇航员回家",
+   "cn": "溅落成功！四位宇航员在轨道上飞了两百三十七天后，终于回家了。他们的太空舱是一艘名叫“自由号”的龙飞船，在四顶降落伞下穿过天空，溅落进加利福尼亚附近的太平洋。杰西卡、杰克、索菲和安德烈走了出来——他们是来自三家航天机构的朋友，终于到家了。",
+   "words": [
+    {
+     "w": "Splashdown!",
+     "t": 68.35
+    },
+    {
+     "w": "Four",
+     "t": 68.78
+    },
+    {
+     "w": "astronauts",
+     "t": 69.21
+    },
+    {
+     "w": "are",
+     "t": 69.64
+    },
+    {
+     "w": "home",
+     "t": 70.07
+    },
+    {
+     "w": "after",
+     "t": 70.5
+    },
+    {
+     "w": "two",
+     "t": 70.93
+    },
+    {
+     "w": "hundred",
+     "t": 71.37
+    },
+    {
+     "w": "and",
+     "t": 71.8
+    },
+    {
+     "w": "thirty-seven",
+     "t": 72.23
+    },
+    {
+     "w": "days",
+     "t": 72.66
+    },
+    {
+     "w": "in",
+     "t": 73.09
+    },
+    {
+     "w": "orbit.",
+     "t": 73.52
+    },
+    {
+     "w": "Their",
+     "t": 73.95
+    },
+    {
+     "w": "capsule,",
+     "t": 74.38
+    },
+    {
+     "w": "a",
+     "t": 74.81
+    },
+    {
+     "w": "Crew",
+     "t": 75.24
+    },
+    {
+     "w": "Dragon",
+     "t": 75.67
+    },
+    {
+     "w": "named",
+     "t": 76.1
+    },
+    {
+     "w": "Freedom,",
+     "t": 76.54
+    },
+    {
+     "w": "dropped",
+     "t": 76.97
+    },
+    {
+     "w": "through",
+     "t": 77.4
+    },
+    {
+     "w": "the",
+     "t": 77.83
+    },
+    {
+     "w": "sky",
+     "t": 78.26
+    },
+    {
+     "w": "under",
+     "t": 78.69
+    },
+    {
+     "w": "four",
+     "t": 79.12
+    },
+    {
+     "w": "parachutes",
+     "t": 79.55
+    },
+    {
+     "w": "and",
+     "t": 79.98
+    },
+    {
+     "w": "splashed",
+     "t": 80.41
+    },
+    {
+     "w": "into",
+     "t": 80.84
+    },
+    {
+     "w": "the",
+     "t": 81.27
+    },
+    {
+     "w": "Pacific",
+     "t": 81.71
+    },
+    {
+     "w": "Ocean,",
+     "t": 82.14
+    },
+    {
+     "w": "near",
+     "t": 82.57
+    },
+    {
+     "w": "California.",
+     "t": 83.0
+    },
+    {
+     "w": "Out",
+     "t": 83.43
+    },
+    {
+     "w": "came",
+     "t": 83.86
+    },
+    {
+     "w": "Jessica,",
+     "t": 84.29
+    },
+    {
+     "w": "Jack,",
+     "t": 84.72
+    },
+    {
+     "w": "Sophie,",
+     "t": 85.15
+    },
+    {
+     "w": "and",
+     "t": 85.58
+    },
+    {
+     "w": "Andrey",
+     "t": 86.01
+    },
+    {
+     "w": "—",
+     "t": 86.44
+    },
+    {
+     "w": "friends",
+     "t": 86.87
+    },
+    {
+     "w": "from",
+     "t": 87.31
+    },
+    {
+     "w": "three",
+     "t": 87.74
+    },
+    {
+     "w": "space",
+     "t": 88.17
+    },
+    {
+     "w": "agencies,",
+     "t": 88.6
+    },
+    {
+     "w": "home",
+     "t": 89.03
+    },
+    {
+     "w": "at",
+     "t": 89.46
+    },
+    {
+     "w": "last.",
+     "t": 89.89
+    }
+   ]
+  },
+  {
+   "start": 90.32,
+   "end": 112.29,
+   "en": "How far did they fly? Around and around our planet: three thousand, seven hundred and ninety-two orbits, over one hundred million miles — like flying to the Moon and back two hundred times! Up there, the crew ran experiments, fixed equipment, and stepped outside on spacewalks, floating above the blue Earth.",
+   "title": "宇航员回家",
+   "cn": "他们飞了多远呢？他们绕着我们的星球一圈又一圈：三千七百九十二圈，超过一亿英里——相当于往返月球两百趟！在太空里，宇航员们做实验、修设备，还走出舱外进行太空行走，漂浮在蓝色的地球上方。",
+   "words": [
+    {
+     "w": "How",
+     "t": 90.32
+    },
+    {
+     "w": "far",
+     "t": 90.75
+    },
+    {
+     "w": "did",
+     "t": 91.18
+    },
+    {
+     "w": "they",
+     "t": 91.61
+    },
+    {
+     "w": "fly?",
+     "t": 92.04
+    },
+    {
+     "w": "Around",
+     "t": 92.48
+    },
+    {
+     "w": "and",
+     "t": 92.91
+    },
+    {
+     "w": "around",
+     "t": 93.34
+    },
+    {
+     "w": "our",
+     "t": 93.77
+    },
+    {
+     "w": "planet:",
+     "t": 94.2
+    },
+    {
+     "w": "three",
+     "t": 94.63
+    },
+    {
+     "w": "thousand,",
+     "t": 95.06
+    },
+    {
+     "w": "seven",
+     "t": 95.49
+    },
+    {
+     "w": "hundred",
+     "t": 95.92
+    },
+    {
+     "w": "and",
+     "t": 96.35
+    },
+    {
+     "w": "ninety-two",
+     "t": 96.78
+    },
+    {
+     "w": "orbits,",
+     "t": 97.21
+    },
+    {
+     "w": "over",
+     "t": 97.65
+    },
+    {
+     "w": "one",
+     "t": 98.08
+    },
+    {
+     "w": "hundred",
+     "t": 98.51
+    },
+    {
+     "w": "million",
+     "t": 98.94
+    },
+    {
+     "w": "miles",
+     "t": 99.37
+    },
+    {
+     "w": "—",
+     "t": 99.8
+    },
+    {
+     "w": "like",
+     "t": 100.23
+    },
+    {
+     "w": "flying",
+     "t": 100.66
+    },
+    {
+     "w": "to",
+     "t": 101.09
+    },
+    {
+     "w": "the",
+     "t": 101.52
+    },
+    {
+     "w": "Moon",
+     "t": 101.95
+    },
+    {
+     "w": "and",
+     "t": 102.38
+    },
+    {
+     "w": "back",
+     "t": 102.81
+    },
+    {
+     "w": "two",
+     "t": 103.25
+    },
+    {
+     "w": "hundred",
+     "t": 103.68
+    },
+    {
+     "w": "times!",
+     "t": 104.11
+    },
+    {
+     "w": "Up",
+     "t": 104.54
+    },
+    {
+     "w": "there,",
+     "t": 104.97
+    },
+    {
+     "w": "the",
+     "t": 105.4
+    },
+    {
+     "w": "crew",
+     "t": 105.83
+    },
+    {
+     "w": "ran",
+     "t": 106.26
+    },
+    {
+     "w": "experiments,",
+     "t": 106.69
+    },
+    {
+     "w": "fixed",
+     "t": 107.12
+    },
+    {
+     "w": "equipment,",
+     "t": 107.55
+    },
+    {
+     "w": "and",
+     "t": 107.98
+    },
+    {
+     "w": "stepped",
+     "t": 108.42
+    },
+    {
+     "w": "outside",
+     "t": 108.85
+    },
+    {
+     "w": "on",
+     "t": 109.28
+    },
+    {
+     "w": "spacewalks,",
+     "t": 109.71
+    },
+    {
+     "w": "floating",
+     "t": 110.14
+    },
+    {
+     "w": "above",
+     "t": 110.57
+    },
+    {
+     "w": "the",
+     "t": 111.0
+    },
+    {
+     "w": "blue",
+     "t": 111.43
+    },
+    {
+     "w": "Earth.",
+     "t": 111.86
+    }
+   ]
+  },
+  {
+   "start": 112.29,
+   "end": 130.82,
+   "en": "One crewmate set a record. Sophie, from France, stayed in orbit two hundred and thirty-seven days without a break, longer than any European astronaut before her. She also became the first French woman to walk in space, working outside while Earth turned below.",
+   "title": "宇航员回家",
+   "cn": "有一位队员创下了纪录。来自法国的索菲在轨道上一口气待了两百三十七天，比她之前的任何一位欧洲宇航员都久。她还成为第一位进行太空行走的法国女性，在舱外工作时，地球就在她脚下转动。",
+   "words": [
+    {
+     "w": "One",
+     "t": 112.29
+    },
+    {
+     "w": "crewmate",
+     "t": 112.72
+    },
+    {
+     "w": "set",
+     "t": 113.15
+    },
+    {
+     "w": "a",
+     "t": 113.59
+    },
+    {
+     "w": "record.",
+     "t": 114.02
+    },
+    {
+     "w": "Sophie,",
+     "t": 114.45
+    },
+    {
+     "w": "from",
+     "t": 114.88
+    },
+    {
+     "w": "France,",
+     "t": 115.31
+    },
+    {
+     "w": "stayed",
+     "t": 115.74
+    },
+    {
+     "w": "in",
+     "t": 116.17
+    },
+    {
+     "w": "orbit",
+     "t": 116.6
+    },
+    {
+     "w": "two",
+     "t": 117.03
+    },
+    {
+     "w": "hundred",
+     "t": 117.46
+    },
+    {
+     "w": "and",
+     "t": 117.89
+    },
+    {
+     "w": "thirty-seven",
+     "t": 118.32
+    },
+    {
+     "w": "days",
+     "t": 118.76
+    },
+    {
+     "w": "without",
+     "t": 119.19
+    },
+    {
+     "w": "a",
+     "t": 119.62
+    },
+    {
+     "w": "break,",
+     "t": 120.05
+    },
+    {
+     "w": "longer",
+     "t": 120.48
+    },
+    {
+     "w": "than",
+     "t": 120.91
+    },
+    {
+     "w": "any",
+     "t": 121.34
+    },
+    {
+     "w": "European",
+     "t": 121.77
+    },
+    {
+     "w": "astronaut",
+     "t": 122.2
+    },
+    {
+     "w": "before",
+     "t": 122.63
+    },
+    {
+     "w": "her.",
+     "t": 123.06
+    },
+    {
+     "w": "She",
+     "t": 123.49
+    },
+    {
+     "w": "also",
+     "t": 123.92
+    },
+    {
+     "w": "became",
+     "t": 124.36
+    },
+    {
+     "w": "the",
+     "t": 124.79
+    },
+    {
+     "w": "first",
+     "t": 125.22
+    },
+    {
+     "w": "French",
+     "t": 125.65
+    },
+    {
+     "w": "woman",
+     "t": 126.08
+    },
+    {
+     "w": "to",
+     "t": 126.51
+    },
+    {
+     "w": "walk",
+     "t": 126.94
+    },
+    {
+     "w": "in",
+     "t": 127.37
+    },
+    {
+     "w": "space,",
+     "t": 127.8
+    },
+    {
+     "w": "working",
+     "t": 128.23
+    },
+    {
+     "w": "outside",
+     "t": 128.66
+    },
+    {
+     "w": "while",
+     "t": 129.09
+    },
+    {
+     "w": "Earth",
+     "t": 129.53
+    },
+    {
+     "w": "turned",
+     "t": 129.96
+    },
+    {
+     "w": "below.",
+     "t": 130.39
+    }
+   ]
+  },
+  {
+   "start": 130.82,
+   "end": 153.22,
+   "en": "Why stay up so long? Long missions teach doctors how bodies change without gravity: muscles, bones and eyes. Those lessons will help future explorers reach the Moon and Mars. But best of all: after two hundred and thirty-seven days, four friends are home, safe and sound, under the same sky as you.",
+   "title": "宇航员回家",
+   "cn": "为什么要在上面待这么久呢？长时间的太空任务能教医生们：没有重力时，身体的肌肉、骨骼和眼睛会怎样变化。这些经验将帮助未来的探险家抵达月球和火星。但最棒的是：两百三十七天之后，四位朋友平安回到了家，和你头顶同一片天空。",
+   "words": [
+    {
+     "w": "Why",
+     "t": 130.82
+    },
+    {
+     "w": "stay",
+     "t": 131.25
+    },
+    {
+     "w": "up",
+     "t": 131.68
+    },
+    {
+     "w": "so",
+     "t": 132.11
+    },
+    {
+     "w": "long?",
+     "t": 132.54
+    },
+    {
+     "w": "Long",
+     "t": 132.97
+    },
+    {
+     "w": "missions",
+     "t": 133.4
+    },
+    {
+     "w": "teach",
+     "t": 133.83
+    },
+    {
+     "w": "doctors",
+     "t": 134.26
+    },
+    {
+     "w": "how",
+     "t": 134.7
+    },
+    {
+     "w": "bodies",
+     "t": 135.13
+    },
+    {
+     "w": "change",
+     "t": 135.56
+    },
+    {
+     "w": "without",
+     "t": 135.99
+    },
+    {
+     "w": "gravity:",
+     "t": 136.42
+    },
+    {
+     "w": "muscles,",
+     "t": 136.85
+    },
+    {
+     "w": "bones",
+     "t": 137.28
+    },
+    {
+     "w": "and",
+     "t": 137.71
+    },
+    {
+     "w": "eyes.",
+     "t": 138.14
+    },
+    {
+     "w": "Those",
+     "t": 138.57
+    },
+    {
+     "w": "lessons",
+     "t": 139.0
+    },
+    {
+     "w": "will",
+     "t": 139.43
+    },
+    {
+     "w": "help",
+     "t": 139.86
+    },
+    {
+     "w": "future",
+     "t": 140.3
+    },
+    {
+     "w": "explorers",
+     "t": 140.73
+    },
+    {
+     "w": "reach",
+     "t": 141.16
+    },
+    {
+     "w": "the",
+     "t": 141.59
+    },
+    {
+     "w": "Moon",
+     "t": 142.02
+    },
+    {
+     "w": "and",
+     "t": 142.45
+    },
+    {
+     "w": "Mars.",
+     "t": 142.88
+    },
+    {
+     "w": "But",
+     "t": 143.31
+    },
+    {
+     "w": "best",
+     "t": 143.74
+    },
+    {
+     "w": "of",
+     "t": 144.17
+    },
+    {
+     "w": "all:",
+     "t": 144.6
+    },
+    {
+     "w": "after",
+     "t": 145.03
+    },
+    {
+     "w": "two",
+     "t": 145.47
+    },
+    {
+     "w": "hundred",
+     "t": 145.9
+    },
+    {
+     "w": "and",
+     "t": 146.33
+    },
+    {
+     "w": "thirty-seven",
+     "t": 146.76
+    },
+    {
+     "w": "days,",
+     "t": 147.19
+    },
+    {
+     "w": "four",
+     "t": 147.62
+    },
+    {
+     "w": "friends",
+     "t": 148.05
+    },
+    {
+     "w": "are",
+     "t": 148.48
+    },
+    {
+     "w": "home,",
+     "t": 148.91
+    },
+    {
+     "w": "safe",
+     "t": 149.34
+    },
+    {
+     "w": "and",
+     "t": 149.77
+    },
+    {
+     "w": "sound,",
+     "t": 150.2
+    },
+    {
+     "w": "under",
+     "t": 150.64
+    },
+    {
+     "w": "the",
+     "t": 151.07
+    },
+    {
+     "w": "same",
+     "t": 151.5
+    },
+    {
+     "w": "sky",
+     "t": 151.93
+    },
+    {
+     "w": "as",
+     "t": 152.36
+    },
+    {
+     "w": "you.",
+     "t": 152.79
+    }
+   ]
+  },
+  {
+   "start": 167.92,
+   "end": 191.99,
+   "en": "Now shrink down to the garden, where a butterfly plays a magic trick. Its wings carry stripes and bands, and when it flaps them, something strange happens to a bird's eyes. The stripes seem to slide the wrong way, so the bird misjudges where the butterfly is going, and how fast. Snap! The beak closes on empty air.",
+   "title": "蝴蝶的障眼法",
+   "cn": "现在我们缩小身体，来到花园里，一只蝴蝶正在表演魔术。它的翅膀上带着条纹和色带，当它扇动翅膀时，小鸟的眼睛里会发生奇怪的事情。条纹好像朝着错误的方向滑动，于是小鸟判断错了蝴蝶要往哪儿飞、飞得有多快。咔嚓！鸟嘴只咬到了一口空气。",
+   "words": [
+    {
+     "w": "Now",
+     "t": 167.92
+    },
+    {
+     "w": "shrink",
+     "t": 168.34
+    },
+    {
+     "w": "down",
+     "t": 168.75
+    },
+    {
+     "w": "to",
+     "t": 169.17
+    },
+    {
+     "w": "the",
+     "t": 169.58
+    },
+    {
+     "w": "garden,",
+     "t": 170.0
+    },
+    {
+     "w": "where",
+     "t": 170.41
+    },
+    {
+     "w": "a",
+     "t": 170.83
+    },
+    {
+     "w": "butterfly",
+     "t": 171.24
+    },
+    {
+     "w": "plays",
+     "t": 171.66
+    },
+    {
+     "w": "a",
+     "t": 172.07
+    },
+    {
+     "w": "magic",
+     "t": 172.49
+    },
+    {
+     "w": "trick.",
+     "t": 172.9
+    },
+    {
+     "w": "Its",
+     "t": 173.32
+    },
+    {
+     "w": "wings",
+     "t": 173.73
+    },
+    {
+     "w": "carry",
+     "t": 174.15
+    },
+    {
+     "w": "stripes",
+     "t": 174.56
+    },
+    {
+     "w": "and",
+     "t": 174.98
+    },
+    {
+     "w": "bands,",
+     "t": 175.39
+    },
+    {
+     "w": "and",
+     "t": 175.81
+    },
+    {
+     "w": "when",
+     "t": 176.22
+    },
+    {
+     "w": "it",
+     "t": 176.64
+    },
+    {
+     "w": "flaps",
+     "t": 177.05
+    },
+    {
+     "w": "them,",
+     "t": 177.47
+    },
+    {
+     "w": "something",
+     "t": 177.88
+    },
+    {
+     "w": "strange",
+     "t": 178.3
+    },
+    {
+     "w": "happens",
+     "t": 178.71
+    },
+    {
+     "w": "to",
+     "t": 179.13
+    },
+    {
+     "w": "a",
+     "t": 179.54
+    },
+    {
+     "w": "bird's",
+     "t": 179.96
+    },
+    {
+     "w": "eyes.",
+     "t": 180.37
+    },
+    {
+     "w": "The",
+     "t": 180.79
+    },
+    {
+     "w": "stripes",
+     "t": 181.2
+    },
+    {
+     "w": "seem",
+     "t": 181.62
+    },
+    {
+     "w": "to",
+     "t": 182.03
+    },
+    {
+     "w": "slide",
+     "t": 182.45
+    },
+    {
+     "w": "the",
+     "t": 182.86
+    },
+    {
+     "w": "wrong",
+     "t": 183.28
+    },
+    {
+     "w": "way,",
+     "t": 183.69
+    },
+    {
+     "w": "so",
+     "t": 184.11
+    },
+    {
+     "w": "the",
+     "t": 184.52
+    },
+    {
+     "w": "bird",
+     "t": 184.94
+    },
+    {
+     "w": "misjudges",
+     "t": 185.35
+    },
+    {
+     "w": "where",
+     "t": 185.77
+    },
+    {
+     "w": "the",
+     "t": 186.18
+    },
+    {
+     "w": "butterfly",
+     "t": 186.6
+    },
+    {
+     "w": "is",
+     "t": 187.01
+    },
+    {
+     "w": "going,",
+     "t": 187.43
+    },
+    {
+     "w": "and",
+     "t": 187.84
+    },
+    {
+     "w": "how",
+     "t": 188.26
+    },
+    {
+     "w": "fast.",
+     "t": 188.67
+    },
+    {
+     "w": "Snap!",
+     "t": 189.09
+    },
+    {
+     "w": "The",
+     "t": 189.5
+    },
+    {
+     "w": "beak",
+     "t": 189.92
+    },
+    {
+     "w": "closes",
+     "t": 190.33
+    },
+    {
+     "w": "on",
+     "t": 190.75
+    },
+    {
+     "w": "empty",
+     "t": 191.16
+    },
+    {
+     "w": "air.",
+     "t": 191.58
+    }
+   ]
+  },
+  {
+   "start": 191.99,
+   "end": 214.4,
+   "en": "Scientists in England filmed butterflies taking off with a camera a thousand times faster than a blink. They fed the films into a computer model of a bird's eyes — and saw motion that was not there. When they painted the wings plain inside the computer, the illusion vanished: the patterns were the magic.",
+   "title": "蝴蝶的障眼法",
+   "cn": "英国的科学家用一台比眨眼快一千倍的相机，拍下了蝴蝶起飞的画面。他们把影片喂给一个模拟鸟类眼睛的电脑模型——结果看到了根本不存在的运动。当他们在电脑里把翅膀涂成素色时，错觉就消失了：原来花纹才是魔法本身。",
+   "words": [
+    {
+     "w": "Scientists",
+     "t": 191.99
+    },
+    {
+     "w": "in",
+     "t": 192.41
+    },
+    {
+     "w": "England",
+     "t": 192.82
+    },
+    {
+     "w": "filmed",
+     "t": 193.24
+    },
+    {
+     "w": "butterflies",
+     "t": 193.65
+    },
+    {
+     "w": "taking",
+     "t": 194.07
+    },
+    {
+     "w": "off",
+     "t": 194.48
+    },
+    {
+     "w": "with",
+     "t": 194.9
+    },
+    {
+     "w": "a",
+     "t": 195.31
+    },
+    {
+     "w": "camera",
+     "t": 195.73
+    },
+    {
+     "w": "a",
+     "t": 196.14
+    },
+    {
+     "w": "thousand",
+     "t": 196.56
+    },
+    {
+     "w": "times",
+     "t": 196.97
+    },
+    {
+     "w": "faster",
+     "t": 197.39
+    },
+    {
+     "w": "than",
+     "t": 197.8
+    },
+    {
+     "w": "a",
+     "t": 198.22
+    },
+    {
+     "w": "blink.",
+     "t": 198.63
+    },
+    {
+     "w": "They",
+     "t": 199.05
+    },
+    {
+     "w": "fed",
+     "t": 199.46
+    },
+    {
+     "w": "the",
+     "t": 199.88
+    },
+    {
+     "w": "films",
+     "t": 200.29
+    },
+    {
+     "w": "into",
+     "t": 200.71
+    },
+    {
+     "w": "a",
+     "t": 201.12
+    },
+    {
+     "w": "computer",
+     "t": 201.54
+    },
+    {
+     "w": "model",
+     "t": 201.95
+    },
+    {
+     "w": "of",
+     "t": 202.37
+    },
+    {
+     "w": "a",
+     "t": 202.78
+    },
+    {
+     "w": "bird's",
+     "t": 203.2
+    },
+    {
+     "w": "eyes",
+     "t": 203.61
+    },
+    {
+     "w": "—",
+     "t": 204.03
+    },
+    {
+     "w": "and",
+     "t": 204.44
+    },
+    {
+     "w": "saw",
+     "t": 204.86
+    },
+    {
+     "w": "motion",
+     "t": 205.27
+    },
+    {
+     "w": "that",
+     "t": 205.69
+    },
+    {
+     "w": "was",
+     "t": 206.1
+    },
+    {
+     "w": "not",
+     "t": 206.52
+    },
+    {
+     "w": "there.",
+     "t": 206.93
+    },
+    {
+     "w": "When",
+     "t": 207.35
+    },
+    {
+     "w": "they",
+     "t": 207.76
+    },
+    {
+     "w": "painted",
+     "t": 208.18
+    },
+    {
+     "w": "the",
+     "t": 208.59
+    },
+    {
+     "w": "wings",
+     "t": 209.01
+    },
+    {
+     "w": "plain",
+     "t": 209.42
+    },
+    {
+     "w": "inside",
+     "t": 209.84
+    },
+    {
+     "w": "the",
+     "t": 210.25
+    },
+    {
+     "w": "computer,",
+     "t": 210.67
+    },
+    {
+     "w": "the",
+     "t": 211.08
+    },
+    {
+     "w": "illusion",
+     "t": 211.5
+    },
+    {
+     "w": "vanished:",
+     "t": 211.91
+    },
+    {
+     "w": "the",
+     "t": 212.33
+    },
+    {
+     "w": "patterns",
+     "t": 212.74
+    },
+    {
+     "w": "were",
+     "t": 213.16
+    },
+    {
+     "w": "the",
+     "t": 213.57
+    },
+    {
+     "w": "magic.",
+     "t": 213.99
+    }
+   ]
+  },
+  {
+   "start": 214.4,
+   "end": 236.81,
+   "en": "Next came three-dimensional computer butterflies — seven hundred and fifty-seven designs from nearly four hundred species — and a game: a hundred volunteers played predator, tapping at butterflies. Against the most confusing patterns, people kept striking behind the butterfly. Vertical stripes, single bands, and tails on the back wings confused the eye the most.",
+   "title": "蝴蝶的障眼法",
+   "cn": "接下来登场的是三维电脑蝴蝶——来自近四百个物种的七百五十七种设计——还有一个游戏：一百名志愿者扮演捕食者，用手指点捉蝴蝶。面对最让人眼花的花纹，人们总是点在蝴蝶身后的位置。竖条纹、单条色带和后翅上的小尾巴，最能迷惑眼睛。",
+   "words": [
+    {
+     "w": "Next",
+     "t": 214.4
+    },
+    {
+     "w": "came",
+     "t": 214.82
+    },
+    {
+     "w": "three-dimensional",
+     "t": 215.23
+    },
+    {
+     "w": "computer",
+     "t": 215.65
+    },
+    {
+     "w": "butterflies",
+     "t": 216.06
+    },
+    {
+     "w": "—",
+     "t": 216.48
+    },
+    {
+     "w": "seven",
+     "t": 216.89
+    },
+    {
+     "w": "hundred",
+     "t": 217.31
+    },
+    {
+     "w": "and",
+     "t": 217.72
+    },
+    {
+     "w": "fifty-seven",
+     "t": 218.14
+    },
+    {
+     "w": "designs",
+     "t": 218.55
+    },
+    {
+     "w": "from",
+     "t": 218.97
+    },
+    {
+     "w": "nearly",
+     "t": 219.38
+    },
+    {
+     "w": "four",
+     "t": 219.8
+    },
+    {
+     "w": "hundred",
+     "t": 220.21
+    },
+    {
+     "w": "species",
+     "t": 220.63
+    },
+    {
+     "w": "—",
+     "t": 221.04
+    },
+    {
+     "w": "and",
+     "t": 221.46
+    },
+    {
+     "w": "a",
+     "t": 221.87
+    },
+    {
+     "w": "game:",
+     "t": 222.29
+    },
+    {
+     "w": "a",
+     "t": 222.7
+    },
+    {
+     "w": "hundred",
+     "t": 223.12
+    },
+    {
+     "w": "volunteers",
+     "t": 223.53
+    },
+    {
+     "w": "played",
+     "t": 223.95
+    },
+    {
+     "w": "predator,",
+     "t": 224.36
+    },
+    {
+     "w": "tapping",
+     "t": 224.78
+    },
+    {
+     "w": "at",
+     "t": 225.19
+    },
+    {
+     "w": "butterflies.",
+     "t": 225.61
+    },
+    {
+     "w": "Against",
+     "t": 226.02
+    },
+    {
+     "w": "the",
+     "t": 226.44
+    },
+    {
+     "w": "most",
+     "t": 226.85
+    },
+    {
+     "w": "confusing",
+     "t": 227.27
+    },
+    {
+     "w": "patterns,",
+     "t": 227.68
+    },
+    {
+     "w": "people",
+     "t": 228.1
+    },
+    {
+     "w": "kept",
+     "t": 228.51
+    },
+    {
+     "w": "striking",
+     "t": 228.93
+    },
+    {
+     "w": "behind",
+     "t": 229.34
+    },
+    {
+     "w": "the",
+     "t": 229.76
+    },
+    {
+     "w": "butterfly.",
+     "t": 230.17
+    },
+    {
+     "w": "Vertical",
+     "t": 230.59
+    },
+    {
+     "w": "stripes,",
+     "t": 231.0
+    },
+    {
+     "w": "single",
+     "t": 231.42
+    },
+    {
+     "w": "bands,",
+     "t": 231.83
+    },
+    {
+     "w": "and",
+     "t": 232.25
+    },
+    {
+     "w": "tails",
+     "t": 232.66
+    },
+    {
+     "w": "on",
+     "t": 233.08
+    },
+    {
+     "w": "the",
+     "t": 233.49
+    },
+    {
+     "w": "back",
+     "t": 233.91
+    },
+    {
+     "w": "wings",
+     "t": 234.32
+    },
+    {
+     "w": "confused",
+     "t": 234.74
+    },
+    {
+     "w": "the",
+     "t": 235.15
+    },
+    {
+     "w": "eye",
+     "t": 235.57
+    },
+    {
+     "w": "the",
+     "t": 235.98
+    },
+    {
+     "w": "most.",
+     "t": 236.4
+    }
+   ]
+  },
+  {
+   "start": 236.81,
+   "end": 257.15,
+   "en": "The wings help the trick: they clap together, peel apart, and twist, so a stripe can drift down while the butterfly flies up — like the stripes on a barber's pole, climbing forever. No poison, no sting — just clever paint, perfectly timed. Few defences in nature work better.",
+   "title": "蝴蝶的障眼法",
+   "cn": "翅膀本身也在帮魔术的忙：它们合拢、剥开、扭转，于是蝴蝶向上飞时，一条条纹却可以向下漂移——就像理发店门口的旋转彩柱，永远向上爬。没有毒液，没有尖刺——只有聪明的颜料，和分秒不差的时机。大自然里很少有比这更管用的防御了。",
+   "words": [
+    {
+     "w": "The",
+     "t": 236.81
+    },
+    {
+     "w": "wings",
+     "t": 237.23
+    },
+    {
+     "w": "help",
+     "t": 237.64
+    },
+    {
+     "w": "the",
+     "t": 238.06
+    },
+    {
+     "w": "trick:",
+     "t": 238.47
+    },
+    {
+     "w": "they",
+     "t": 238.89
+    },
+    {
+     "w": "clap",
+     "t": 239.3
+    },
+    {
+     "w": "together,",
+     "t": 239.72
+    },
+    {
+     "w": "peel",
+     "t": 240.13
+    },
+    {
+     "w": "apart,",
+     "t": 240.55
+    },
+    {
+     "w": "and",
+     "t": 240.96
+    },
+    {
+     "w": "twist,",
+     "t": 241.38
+    },
+    {
+     "w": "so",
+     "t": 241.79
+    },
+    {
+     "w": "a",
+     "t": 242.21
+    },
+    {
+     "w": "stripe",
+     "t": 242.62
+    },
+    {
+     "w": "can",
+     "t": 243.04
+    },
+    {
+     "w": "drift",
+     "t": 243.45
+    },
+    {
+     "w": "down",
+     "t": 243.87
+    },
+    {
+     "w": "while",
+     "t": 244.28
+    },
+    {
+     "w": "the",
+     "t": 244.7
+    },
+    {
+     "w": "butterfly",
+     "t": 245.11
+    },
+    {
+     "w": "flies",
+     "t": 245.53
+    },
+    {
+     "w": "up",
+     "t": 245.94
+    },
+    {
+     "w": "—",
+     "t": 246.36
+    },
+    {
+     "w": "like",
+     "t": 246.77
+    },
+    {
+     "w": "the",
+     "t": 247.19
+    },
+    {
+     "w": "stripes",
+     "t": 247.6
+    },
+    {
+     "w": "on",
+     "t": 248.02
+    },
+    {
+     "w": "a",
+     "t": 248.43
+    },
+    {
+     "w": "barber's",
+     "t": 248.85
+    },
+    {
+     "w": "pole,",
+     "t": 249.26
+    },
+    {
+     "w": "climbing",
+     "t": 249.68
+    },
+    {
+     "w": "forever.",
+     "t": 250.09
+    },
+    {
+     "w": "No",
+     "t": 250.51
+    },
+    {
+     "w": "poison,",
+     "t": 250.92
+    },
+    {
+     "w": "no",
+     "t": 251.34
+    },
+    {
+     "w": "sting",
+     "t": 251.75
+    },
+    {
+     "w": "—",
+     "t": 252.17
+    },
+    {
+     "w": "just",
+     "t": 252.58
+    },
+    {
+     "w": "clever",
+     "t": 253.0
+    },
+    {
+     "w": "paint,",
+     "t": 253.41
+    },
+    {
+     "w": "perfectly",
+     "t": 253.83
+    },
+    {
+     "w": "timed.",
+     "t": 254.24
+    },
+    {
+     "w": "Few",
+     "t": 254.66
+    },
+    {
+     "w": "defences",
+     "t": 255.07
+    },
+    {
+     "w": "in",
+     "t": 255.49
+    },
+    {
+     "w": "nature",
+     "t": 255.9
+    },
+    {
+     "w": "work",
+     "t": 256.32
+    },
+    {
+     "w": "better.",
+     "t": 256.73
+    }
+   ]
+  },
+  {
+   "start": 273.69,
+   "end": 298.12,
+   "en": "Here's today's idiom: \"spread your wings.\" A young bird spreads its wings when ready to fly away. If you spread your wings, you try new things and explore what you can do — like astronauts leaving Earth, or a butterfly on its first flight. Here's an example: \"This year, I joined a new club to spread my wings.\" Where will your wings take you?",
+   "title": "今日俚语",
+   "cn": "今天的俚语是“spread your wings”（展开翅膀）：一只小鸟准备好远走高飞时，就会展开自己的翅膀。如果你 spread your wings，就是去尝试新事物、探索自己能做到什么——就像离开地球的宇航员，或者第一次飞行的蝴蝶。举个例子：“今年，我加入了一个新社团，去展开翅膀。”你的翅膀会带你飞到哪里呢？",
+   "words": [
+    {
+     "w": "Here's",
+     "t": 273.69
+    },
+    {
+     "w": "today's",
+     "t": 274.07
+    },
+    {
+     "w": "idiom:",
+     "t": 274.45
+    },
+    {
+     "w": "\"spread",
+     "t": 274.84
+    },
+    {
+     "w": "your",
+     "t": 275.22
+    },
+    {
+     "w": "wings.\"",
+     "t": 275.6
+    },
+    {
+     "w": "A",
+     "t": 275.98
+    },
+    {
+     "w": "young",
+     "t": 276.36
+    },
+    {
+     "w": "bird",
+     "t": 276.74
+    },
+    {
+     "w": "spreads",
+     "t": 277.13
+    },
+    {
+     "w": "its",
+     "t": 277.51
+    },
+    {
+     "w": "wings",
+     "t": 277.89
+    },
+    {
+     "w": "when",
+     "t": 278.27
+    },
+    {
+     "w": "ready",
+     "t": 278.65
+    },
+    {
+     "w": "to",
+     "t": 279.03
+    },
+    {
+     "w": "fly",
+     "t": 279.42
+    },
+    {
+     "w": "away.",
+     "t": 279.8
+    },
+    {
+     "w": "If",
+     "t": 280.18
+    },
+    {
+     "w": "you",
+     "t": 280.56
+    },
+    {
+     "w": "spread",
+     "t": 280.94
+    },
+    {
+     "w": "your",
+     "t": 281.32
+    },
+    {
+     "w": "wings,",
+     "t": 281.71
+    },
+    {
+     "w": "you",
+     "t": 282.09
+    },
+    {
+     "w": "try",
+     "t": 282.47
+    },
+    {
+     "w": "new",
+     "t": 282.85
+    },
+    {
+     "w": "things",
+     "t": 283.23
+    },
+    {
+     "w": "and",
+     "t": 283.61
+    },
+    {
+     "w": "explore",
+     "t": 284.0
+    },
+    {
+     "w": "what",
+     "t": 284.38
+    },
+    {
+     "w": "you",
+     "t": 284.76
+    },
+    {
+     "w": "can",
+     "t": 285.14
+    },
+    {
+     "w": "do",
+     "t": 285.52
+    },
+    {
+     "w": "—",
+     "t": 285.9
+    },
+    {
+     "w": "like",
+     "t": 286.29
+    },
+    {
+     "w": "astronauts",
+     "t": 286.67
+    },
+    {
+     "w": "leaving",
+     "t": 287.05
+    },
+    {
+     "w": "Earth,",
+     "t": 287.43
+    },
+    {
+     "w": "or",
+     "t": 287.81
+    },
+    {
+     "w": "a",
+     "t": 288.2
+    },
+    {
+     "w": "butterfly",
+     "t": 288.58
+    },
+    {
+     "w": "on",
+     "t": 288.96
+    },
+    {
+     "w": "its",
+     "t": 289.34
+    },
+    {
+     "w": "first",
+     "t": 289.72
+    },
+    {
+     "w": "flight.",
+     "t": 290.1
+    },
+    {
+     "w": "Here's",
+     "t": 290.49
+    },
+    {
+     "w": "an",
+     "t": 290.87
+    },
+    {
+     "w": "example:",
+     "t": 291.25
+    },
+    {
+     "w": "\"This",
+     "t": 291.63
+    },
+    {
+     "w": "year,",
+     "t": 292.01
+    },
+    {
+     "w": "I",
+     "t": 292.39
+    },
+    {
+     "w": "joined",
+     "t": 292.78
+    },
+    {
+     "w": "a",
+     "t": 293.16
+    },
+    {
+     "w": "new",
+     "t": 293.54
+    },
+    {
+     "w": "club",
+     "t": 293.92
+    },
+    {
+     "w": "to",
+     "t": 294.3
+    },
+    {
+     "w": "spread",
+     "t": 294.68
+    },
+    {
+     "w": "my",
+     "t": 295.07
+    },
+    {
+     "w": "wings.\"",
+     "t": 295.45
+    },
+    {
+     "w": "Where",
+     "t": 295.83
+    },
+    {
+     "w": "will",
+     "t": 296.21
+    },
+    {
+     "w": "your",
+     "t": 296.59
+    },
+    {
+     "w": "wings",
+     "t": 296.97
+    },
+    {
+     "w": "take",
+     "t": 297.36
+    },
+    {
+     "w": "you?",
+     "t": 297.74
+    }
+   ]
+  },
+  {
+   "start": 312.98,
+   "end": 335.23,
+   "en": "Let's think about our stories. Four astronauts came home from space, and a butterfly fooled a bird with painted wings. Now, two questions for you. First: spend one week in space, what would you do first? Second: if you designed butterfly wings, what patterns would you paint? Talk about it with your family!",
+   "title": "结束语与互动问题",
+   "cn": "我们来想想今天的故事。四位宇航员从太空回了家，一只蝴蝶用画出来的翅膀骗过了一只小鸟。现在，轮到回答两个问题。第一：如果你在太空待一个星期，你最先想做的事是什么？第二：如果你来设计蝴蝶的翅膀，你会画上什么花纹？和家人聊聊吧！",
+   "words": [
+    {
+     "w": "Let's",
+     "t": 312.98
+    },
+    {
+     "w": "think",
+     "t": 313.4
+    },
+    {
+     "w": "about",
+     "t": 313.82
+    },
+    {
+     "w": "our",
+     "t": 314.24
+    },
+    {
+     "w": "stories.",
+     "t": 314.66
+    },
+    {
+     "w": "Four",
+     "t": 315.08
+    },
+    {
+     "w": "astronauts",
+     "t": 315.5
+    },
+    {
+     "w": "came",
+     "t": 315.92
+    },
+    {
+     "w": "home",
+     "t": 316.34
+    },
+    {
+     "w": "from",
+     "t": 316.76
+    },
+    {
+     "w": "space,",
+     "t": 317.18
+    },
+    {
+     "w": "and",
+     "t": 317.6
+    },
+    {
+     "w": "a",
+     "t": 318.02
+    },
+    {
+     "w": "butterfly",
+     "t": 318.44
+    },
+    {
+     "w": "fooled",
+     "t": 318.86
+    },
+    {
+     "w": "a",
+     "t": 319.28
+    },
+    {
+     "w": "bird",
+     "t": 319.7
+    },
+    {
+     "w": "with",
+     "t": 320.12
+    },
+    {
+     "w": "painted",
+     "t": 320.54
+    },
+    {
+     "w": "wings.",
+     "t": 320.96
+    },
+    {
+     "w": "Now,",
+     "t": 321.38
+    },
+    {
+     "w": "two",
+     "t": 321.8
+    },
+    {
+     "w": "questions",
+     "t": 322.22
+    },
+    {
+     "w": "for",
+     "t": 322.64
+    },
+    {
+     "w": "you.",
+     "t": 323.06
+    },
+    {
+     "w": "First:",
+     "t": 323.48
+    },
+    {
+     "w": "spend",
+     "t": 323.9
+    },
+    {
+     "w": "one",
+     "t": 324.31
+    },
+    {
+     "w": "week",
+     "t": 324.73
+    },
+    {
+     "w": "in",
+     "t": 325.15
+    },
+    {
+     "w": "space,",
+     "t": 325.57
+    },
+    {
+     "w": "what",
+     "t": 325.99
+    },
+    {
+     "w": "would",
+     "t": 326.41
+    },
+    {
+     "w": "you",
+     "t": 326.83
+    },
+    {
+     "w": "do",
+     "t": 327.25
+    },
+    {
+     "w": "first?",
+     "t": 327.67
+    },
+    {
+     "w": "Second:",
+     "t": 328.09
+    },
+    {
+     "w": "if",
+     "t": 328.51
+    },
+    {
+     "w": "you",
+     "t": 328.93
+    },
+    {
+     "w": "designed",
+     "t": 329.35
+    },
+    {
+     "w": "butterfly",
+     "t": 329.77
+    },
+    {
+     "w": "wings,",
+     "t": 330.19
+    },
+    {
+     "w": "what",
+     "t": 330.61
+    },
+    {
+     "w": "patterns",
+     "t": 331.03
+    },
+    {
+     "w": "would",
+     "t": 331.45
+    },
+    {
+     "w": "you",
+     "t": 331.87
+    },
+    {
+     "w": "paint?",
+     "t": 332.29
+    },
+    {
+     "w": "Talk",
+     "t": 332.71
+    },
+    {
+     "w": "about",
+     "t": 333.13
+    },
+    {
+     "w": "it",
+     "t": 333.55
+    },
+    {
+     "w": "with",
+     "t": 333.97
+    },
+    {
+     "w": "your",
+     "t": 334.39
+    },
+    {
+     "w": "family!",
+     "t": 334.81
+    }
+   ]
+  },
+  {
+   "start": 351.05,
+   "end": 359.19,
+   "en": "That's all for today, young explorers. Like the astronauts and the butterfly, spread your wings and explore. See you tomorrow morning!",
+   "title": "告别",
+   "cn": "今天的节目就到这里啦，小小探险家们。像宇航员和蝴蝶一样，展开你的翅膀，去探索吧。明天早上见！",
+   "words": [
+    {
+     "w": "That's",
+     "t": 351.05
+    },
+    {
+     "w": "all",
+     "t": 351.44
+    },
+    {
+     "w": "for",
+     "t": 351.83
+    },
+    {
+     "w": "today,",
+     "t": 352.21
+    },
+    {
+     "w": "young",
+     "t": 352.6
+    },
+    {
+     "w": "explorers.",
+     "t": 352.99
+    },
+    {
+     "w": "Like",
+     "t": 353.38
+    },
+    {
+     "w": "the",
+     "t": 353.76
+    },
+    {
+     "w": "astronauts",
+     "t": 354.15
+    },
+    {
+     "w": "and",
+     "t": 354.54
+    },
+    {
+     "w": "the",
+     "t": 354.93
+    },
+    {
+     "w": "butterfly,",
+     "t": 355.31
+    },
+    {
+     "w": "spread",
+     "t": 355.7
+    },
+    {
+     "w": "your",
+     "t": 356.09
+    },
+    {
+     "w": "wings",
+     "t": 356.48
+    },
+    {
+     "w": "and",
+     "t": 356.86
+    },
+    {
+     "w": "explore.",
+     "t": 357.25
+    },
+    {
+     "w": "See",
+     "t": 357.64
+    },
+    {
+     "w": "you",
+     "t": 358.03
+    },
+    {
+     "w": "tomorrow",
+     "t": 358.41
+    },
+    {
+     "w": "morning!",
+     "t": 358.8
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "spread your wings",
+    "phon": "/spred jɔː wɪŋz/",
+    "meaning": "(习语) 展开翅膀；去尝试新事物、探索自己的能力",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: Like the astronauts and the butterfly, spread your wings and explore."
+   },
+   {
+    "word": "capsule",
+    "phon": "/ˈkæpsjuːl/",
+    "meaning": "(n.) 太空舱",
+    "tags": [],
+    "example": "Example: Their capsule, a Crew Dragon named Freedom, splashed into the Pacific Ocean."
+   },
+   {
+    "word": "parachute",
+    "phon": "/ˈpærəʃuːt/",
+    "meaning": "(n.) 降落伞",
+    "tags": [],
+    "example": "Example: The capsule dropped through the sky under four parachutes."
+   },
+   {
+    "word": "orbit",
+    "phon": "/ˈɔːbɪt/",
+    "meaning": "(n.) 轨道；(绕行)圈数",
+    "tags": [],
+    "example": "Example: Four astronauts are home after two hundred and thirty-seven days in orbit."
+   },
+   {
+    "word": "gravity",
+    "phon": "/ˈɡrævəti/",
+    "meaning": "(n.) 重力",
+    "tags": [],
+    "example": "Example: Long missions teach doctors how bodies change without gravity."
+   },
+   {
+    "word": "spacewalk",
+    "phon": "/ˈspeɪswɔːk/",
+    "meaning": "(n.) 太空行走",
+    "tags": [],
+    "example": "Example: She became the first French woman to spacewalk — the crew stepped outside on spacewalks."
+   },
+   {
+    "word": "misjudge",
+    "phon": "/ˌmɪsˈdʒʌdʒ/",
+    "meaning": "(v.) 判断错误",
+    "tags": [],
+    "example": "Example: The bird misjudges where the butterfly is going."
+   },
+   {
+    "word": "illusion",
+    "phon": "/ɪˈluːʒn/",
+    "meaning": "(n.) 错觉",
+    "tags": [],
+    "example": "Example: When they painted the wings plain, the illusion vanished."
+   },
+   {
+    "word": "predator",
+    "phon": "/ˈpredətə/",
+    "meaning": "(n.) 捕食者；天敌",
+    "tags": [],
+    "example": "Example: A hundred volunteers played predator, tapping at butterflies."
+   },
+   {
+    "word": "volunteer",
+    "phon": "/ˌvɒlənˈtɪə/",
+    "meaning": "(n.) 志愿者",
+    "tags": [],
+    "example": "Example: A hundred volunteers played a tapping game."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "How many days did the four astronauts spend in orbit?\nA. One hundred days\nB. Two hundred and thirty-seven days\nC. Three hundred and sixty-five days\nD. Twenty-seven days",
+     "What did Sophie do that no French woman had done before?\nA. Fly to the Moon\nB. Stay awake for a week\nC. Walk in space\nD. Pilot the capsule",
+     "What makes the butterfly's trick work?\nA. Poison in its wings\nB. The stripes and bands on its wings\nC. A very loud sound\nD. A bright light",
+     "What does \"spread your wings\" mean?\nA. Try new things and explore what you can do\nB. Sleep all day\nC. Hide from hungry birds\nD. Build a warm nest"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "type": "text",
+        "text": "The wings "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "help"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " the trick: they "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "clap"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " together, "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "peel"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " apart, and "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "twist"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": ", "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "so"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " a stripe can drift down "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "while"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " the butterfly flies up."
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "冒号前是主干："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "The wings help the trick."
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（翅膀帮了魔术的忙）主语 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "The wings"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "、谓语 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "help"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "、宾语 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "the trick"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。冒号的作用，就是把这句话展开细说——冒号后面全都是在解释这个“帮忙”是怎么帮的。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "they clap together, peel apart, and twist"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "动词并列"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：三个动词 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "clap / peel / twist"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 共用同一个主语 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "they"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，前两个用逗号隔开，最后一个前面加 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "and"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "——这是英语列举三样东西的标准写法。注意三个动词都是原形（一般现在时、无词尾变化），形式整齐。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "so a stripe can drift down"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 里的 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "so"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "结果连词"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（因此、所以）：前面是原因（翅膀这样扇动），后面是结果（条纹可以向下漂移）。"
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "so"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 前面的逗号不要丢。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "句尾的 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "while the butterfly flies up"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 里，"
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "while"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 表示“与此同时；却”：条纹向下、蝴蝶向上，两个方向同时发生、正好相反——这正是错觉的来源。读到 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "while"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，要立刻在脑子里摆出“两个画面同时进行”的对比。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句逻辑链："
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "翅膀帮忙（主干）→ 合拢、剥开、扭转（并列动作说清怎么帮）→ 所以条纹能下漂（so 引出结果）→ 而蝴蝶同时在上飞（while 摆出对比）"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。一句话里藏着一整套魔术机关。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "STRIPES"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（条纹）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "GRAVITY"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（重力）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "BUTTERFLY"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（蝴蝶）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ORBIT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（轨道；绕行圈数）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PARACHUTE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（降落伞）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PREDATOR"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（捕食者；天敌）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ILLUSION"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（错觉）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "CAPSULE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（太空舱）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "WINGS"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（翅膀）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ASTRONAUT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（宇航员）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"Four astronauts are home after two hundred and thirty-seven days in orbit.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". Sophie "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"became the first French woman to walk in space\""
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": " — and she also set the European record for the longest stay in orbit."
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". When scientists painted the wings plain in the computer, "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"the illusion vanished: the patterns were the magic.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "A"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"If you spread your wings, you try new things and explore what you can do.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. twist  2. stepped"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. so  2. so"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. while  2. while"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "B",
+    "C",
+    "B",
+    "A"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. 动词并列：用括号里的词补全（保持原形，和前面的动词对齐）",
+     "items": [
+      {
+       "prompt": "The wings clap together, peel apart, and ____.",
+       "options": [
+        "twist",
+        "twists",
+        "twisted"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "Up in space, the crew ran experiments, fixed equipment, and ____ outside.",
+       "options": [
+        "steps",
+        "stepped",
+        "stepping"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. so（结果连词）：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "The stripes slide the wrong way, ____ the bird bites empty air.",
+       "options": [
+        "because",
+        "but",
+        "so"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "Four parachutes opened above the capsule, ____ the astronauts splashed down safely.",
+       "options": [
+        "so",
+        "although",
+        "because"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. while（与此同时；却）：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "A stripe can drift down ____ the butterfly flies up.",
+       "options": [
+        "until",
+        "while",
+        "because"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "Sophie worked outside the station ____ Earth turned below.",
+       "options": [
+        "until",
+        "so",
+        "while"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "The wings open and close, so the colours flash while the butterfly climbs.",
+    "The capsule fell slowly, so the astronauts waved while the ship came closer."
+   ]
+  },
+  "crossword": {
+   "nrows": 16,
+   "ncols": 11,
+   "words": [
+    {
+     "word": "STRIPES",
+     "row": 0,
+     "col": 4,
+     "dir": "D",
+     "num": 1,
+     "cn": "条纹",
+     "clue": "Long, thin lines of colour on the wings."
+    },
+    {
+     "word": "GRAVITY",
+     "row": 0,
+     "col": 7,
+     "dir": "D",
+     "num": 2,
+     "cn": "重力",
+     "clue": "The force that pulls everything towards the Earth."
+    },
+    {
+     "word": "BUTTERFLY",
+     "row": 0,
+     "col": 9,
+     "dir": "D",
+     "num": 3,
+     "cn": "蝴蝶",
+     "clue": "A garden insect with big, colourful wings."
+    },
+    {
+     "word": "ORBIT",
+     "row": 1,
+     "col": 0,
+     "dir": "A",
+     "num": 4,
+     "cn": "轨道；绕行圈数",
+     "clue": "One full trip around a planet."
+    },
+    {
+     "word": "PARACHUTE",
+     "row": 5,
+     "col": 2,
+     "dir": "D",
+     "num": 5,
+     "cn": "降落伞",
+     "clue": "It opens in the sky and helps a capsule fall slowly and safely."
+    },
+    {
+     "word": "PREDATOR",
+     "row": 5,
+     "col": 2,
+     "dir": "A",
+     "num": 6,
+     "cn": "捕食者；天敌",
+     "clue": "An animal that hunts other animals for food."
+    },
+    {
+     "word": "ILLUSION",
+     "row": 8,
+     "col": 7,
+     "dir": "D",
+     "num": 7,
+     "cn": "错觉",
+     "clue": "Something that looks real but is not really there."
+    },
+    {
+     "word": "CAPSULE",
+     "row": 9,
+     "col": 2,
+     "dir": "A",
+     "num": 8,
+     "cn": "太空舱",
+     "clue": "The small spacecraft room that carries astronauts home."
+    },
+    {
+     "word": "WINGS",
+     "row": 13,
+     "col": 6,
+     "dir": "A",
+     "num": 9,
+     "cn": "翅膀",
+     "clue": "A butterfly flaps these to fly — spread yours and explore!"
+    },
+    {
+     "word": "ASTRONAUT",
+     "row": 15,
+     "col": 2,
+     "dir": "A",
+     "num": 10,
+     "cn": "宇航员",
+     "clue": "A person who travels and works in space."
+    }
+   ]
+  }
+ }
+}
