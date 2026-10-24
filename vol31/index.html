@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.31 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol31/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol31/cover.png" controls playsinline preload="metadata"></video>
+<h1>🤖 Vol.31 · 送货机器人与皮皮虾的超级眼睛</h1>
+<div class="meta">英文 599 词 ｜ 音频 5分36秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol31/story-robot.png" alt="送货机器人">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol31/story-shrimp.png" alt="皮皮虾的超级眼睛">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">hit the books</span> <span class="phon">/hɪt ðə bʊks/</span> (习语) 埋头苦读；认真学习<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: The big test is tomorrow, so tonight Mia will <b>hit the books</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">awesome</span> <span class="phon">/ˈɔːsəm/</span> (adj.) 棒极了的；令人惊叹的<br>
+  
+  <div class="example">Example: Its eyes are the most <b>awesome</b> in the animal world.</div>
+</div>
+<div class="vocab">
+  <span class="word">expose</span> <span class="phon">/ɪkˈspoʊz/</span> (v.) 展现；揭示<br>
+  
+  <div class="example">Example: Those super eyes <b>expose</b> a hidden world of colors.</div>
+</div>
+<div class="vocab">
+  <span class="word">delicate</span> <span class="phon">/ˈdelɪkət/</span> (adj.) 精致的；脆弱的<br>
+  
+  <div class="example">Example: The mantis shrimp uses its <b>delicate</b>-looking eyes to hunt.</div>
+</div>
+<div class="vocab">
+  <span class="word">instruct</span> <span class="phon">/ɪnˈstrʌkt/</span> (v.) 指示；指导<br>
+  
+  <div class="example">Example: A human helper far away can <b>instruct</b> it what to do.</div>
+</div>
+<div class="vocab">
+  <span class="word">recover</span> <span class="phon">/rɪˈkʌvər/</span> (v.) 恢复；找回<br>
+  
+  <div class="example">Example: It <b>recovers</b> its route in seconds.</div>
+</div>
+<div class="vocab">
+  <span class="word">valid</span> <span class="phon">/ˈvælɪd/</span> (adj.) 有效的<br>
+  
+  <div class="example">Example: You type in the <b>valid</b> code on your phone.</div>
+</div>
+<div class="vocab">
+  <span class="word">silent</span> <span class="phon">/ˈsaɪlənt/</span> (adj.) 安静的；无声的<br>
+  
+  <div class="example">Example: These little robots move <b>silently</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">sidewalk</span> <span class="phon">/ˈsaɪdwɔːk/</span> (n.) 人行道<br>
+  
+  <div class="example">Example: On a quiet <b>sidewalk</b>, a small white box rolls along.</div>
+</div>
+<div class="vocab">
+  <span class="word">radar</span> <span class="phon">/ˈreɪdɑːr/</span> (n.) 雷达<br>
+  
+  <div class="example">Example: Cameras, <b>radar</b>, and GPS are its eyes and map.</div>
+</div>
+<div class="vocab">
+  <span class="word">bubble</span> <span class="phon">/ˈbʌbl/</span> (n.) 气泡<br>
+  
+  <div class="example">Example: The punch makes tiny <b>bubbles</b> in the water.</div>
+</div>
+<div class="vocab">
+  <span class="word">route</span> <span class="phon">/ruːt/</span> (n.) 路线<br>
+  
+  <div class="example">Example: It recovers its <b>route</b> in seconds.</div>
+</div>
+<div class="vocab">
+  <span class="word">lid</span> <span class="phon">/lɪd/</span> (n.) 盖子<br>
+  
+  <div class="example">Example: The <b>lid</b> opens, and there is your lunch!</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 14, "ncols": 12, "words": [{"word": "SIDEWALK", "row": 0, "col": 4, "dir": "A", "num": 1, "cn": "人行道", "clue": "On a quiet ___, a small white box on six wheels rolls along."}, {"word": "AWESOME", "row": 0, "col": 9, "dir": "D", "num": 2, "cn": "棒极了的", "clue": "Its eyes are the most ___ in the animal world."}, {"word": "RADAR", "row": 2, "col": 6, "dir": "D", "num": 3, "cn": "雷达", "clue": "Cameras, ___, and GPS are its eyes and map."}, {"word": "POLARIZED", "row": 6, "col": 2, "dir": "A", "num": 4, "cn": "偏振的", "clue": "A secret kind of light called ___ light."}, {"word": "DELICATE", "row": 6, "col": 10, "dir": "D", "num": 5, "cn": "精致的", "clue": "The mantis shrimp uses its ___-looking eyes to hunt."}, {"word": "SHRIMP", "row": 9, "col": 1, "dir": "A", "num": 6, "cn": "虾", "clue": "Now dive under the sea and meet the mantis ___."}, {"word": "ROBOT", "row": 9, "col": 3, "dir": "D", "num": 7, "cn": "机器人", "clue": "It is a delivery ___."}, {"word": "PUNCH", "row": 10, "col": 7, "dir": "A", "num": 8, "cn": "拳头；重击", "clue": "But watch out for its ___!"}, {"word": "BUBBLES", "row": 11, "col": 0, "dir": "A", "num": 9, "cn": "气泡", "clue": "The punch is so strong that it makes tiny ___ in the water."}, {"word": "ULTRAVIOLET", "row": 13, "col": 1, "dir": "A", "num": 10, "cn": "紫外线的", "clue": "They can also see ___ light."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. How does the delivery robot know where to go?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. It asks people on the street.</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. It uses cameras, radar, and GPS.</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. It follows a dog.</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. It guesses the way.</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. How many kinds of color sensors do humans have in their eyes?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. Twelve to sixteen.</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. Three.</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. Two.</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. One hundred.</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. What does &quot;hit the books&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. To hit a book with your hand.</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. To study hard.</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. To read a map.</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. To throw books away.</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What happens when the mantis shrimp punches?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. It makes tiny bubbles in the water.</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. It sings a song.</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. It falls asleep.</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. It changes color.</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：A</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [1, 1, 1, 0];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">If it gets lost, a human helper <b class="kw">far away</b> can instruct it what to do, <b class="kw">and</b> it recovers its route in seconds.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li><i>If it gets lost</i> 是<b>If 引导的条件状语从句</b>：If（如果）+ 现在时的句子，放在句首，先说出条件——“如果它迷路了”。英语里谈论将来可能发生的事，条件从句用现在时，主句再用 can / will，顺序不能反。</li>
+  <li><i>a human helper far away</i> 是<b>后置修饰语</b>：far away（远方的）放在名词 helper 后面，告诉你是哪一位帮手——远方的那一位。相当于 "a helper who is far away" 的缩写，英语里常用这种短语直接跟在名词后面，省掉 who is。</li>
+  <li><i>and it recovers its route in seconds</i> 是<b>and 并列句</b>：and（并且）把两个动作连起来——前面是“帮手告诉它怎么做”，后面是“它几秒钟找回路线”。两个分句主语不同（helper / it），and 让它们合成一句话，事情的先后顺序一目了然。</li>
+  <li>整句逻辑链：<b>条件（迷路了）→ 帮手（远方的人）→ 动作一（告诉它怎么做）→ 动作二（几秒钟找回路线）</b>。一句话里藏着条件从句、后置修饰和并列句三个机关。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. If 条件状语从句：用括号里的词补全</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">____ it gets lost, a human helper far away can instruct it what to do.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">If</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">When</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">Because</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：If</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">____ you study hard, you will do well on the test.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">When</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">If</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">Because</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：If</p>
+</div>
+<p class="p4-gname">B. 后置修饰语：用括号里的词补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">A human helper ____ can instruct it what to do.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">very far</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">far behind</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">far away</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：far away</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">A small white box ____ rolls along all by itself.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">on six wheels</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">with six wheels</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">on six legs</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：on six wheels</p>
+</div>
+<p class="p4-gname">C. and 并列句：用括号里的词补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">It stops and ____.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">wait</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">waits</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">waiting</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：waits</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">A human helper can instruct it what to do, and it ____ its route in seconds.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">recover</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">recovered</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">recovers</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：recovers</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>If it gets lost, a human helper far away can instruct it what to do, and it recovers its route in seconds.</li>
+<li>Those super eyes expose a hidden world of colors all around it.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">1</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">D</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">W</span></td><td class="cwc"><span class="cwn">2</span><span class="cwl">A</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">K</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">W</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">3</span><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">P</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">Z</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwn">5</span><span class="cwl">D</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">6</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">H</span></td><td class="cwc"><span class="cwn">7</span><span class="cwl">R</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">M</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">8</span><span class="cwl">P</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">H</span></td></tr><tr><td class="cwc"><span class="cwn">9</span><span class="cwl">B</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">B</span></td><td class="cwc"><span class="cwl">B</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">10</span><span class="cwl">U</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">V</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">T</span></td></tr></table></div>1 横 → <b>SIDEWALK</b>（人行道）<br>2 竖 → <b>AWESOME</b>（棒极了的）<br>3 竖 → <b>RADAR</b>（雷达）<br>4 横 → <b>POLARIZED</b>（偏振的）<br>5 竖 → <b>DELICATE</b>（精致的）<br>6 横 → <b>SHRIMP</b>（虾）<br>7 竖 → <b>ROBOT</b>（机器人）<br>8 横 → <b>PUNCH</b>（拳头；重击）<br>9 横 → <b>BUBBLES</b>（气泡）<br>10 横 → <b>ULTRAVIOLET</b>（紫外线的）<br><br><b>B. Single Choice:</b><br>
+1 → <b>B</b>. The text says: <i>"Cameras, radar, and GPS are its eyes and map."</i><br>
+2 → <b>B</b>. <i>"We have three kinds of color sensors in our eyes."</i><br>
+3 → <b>B</b>. The text says: <i>"It means to study hard, with your nose in your books!"</i><br>
+4 → <b>A</b>. <i>"The punch is so strong that it makes tiny bubbles in the water."</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. If&nbsp;&nbsp;2. If<br>
+B. 1. far away&nbsp;&nbsp;2. on six wheels<br>
+C. 1. waits&nbsp;&nbsp;2. recovers<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol31/Vol31_晚读讲义_送货机器人与皮皮虾的超级眼睛_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 22.19, "end": 39.09, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we meet two amazing helpers: a little robot that knows every street, and a tiny sea animal with the most awesome eyes on Earth. Ready? Let's go!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天我们要认识两位特别的“小帮手”：一位是会自己认路的送货机器人，另一位是住在海底、眼睛超级厉害的皮皮虾。准备好了吗？出发吧！", "words": [{"w": "Hello,", "t": 22.19}, {"w": "young", "t": 22.63}, {"w": "explorers,", "t": 23.08}, {"w": "and", "t": 23.52}, {"w": "welcome", "t": 23.97}, {"w": "back", "t": 24.41}, {"w": "to", "t": 24.86}, {"w": "Michael's", "t": 25.3}, {"w": "Morning", "t": 25.75}, {"w": "Listening!", "t": 26.19}, {"w": "Today", "t": 26.64}, {"w": "we", "t": 27.08}, {"w": "meet", "t": 27.53}, {"w": "two", "t": 27.97}, {"w": "amazing", "t": 28.42}, {"w": "helpers:", "t": 28.86}, {"w": "a", "t": 29.31}, {"w": "little", "t": 29.75}, {"w": "robot", "t": 30.2}, {"w": "that", "t": 30.64}, {"w": "knows", "t": 31.08}, {"w": "every", "t": 31.53}, {"w": "street,", "t": 31.97}, {"w": "and", "t": 32.42}, {"w": "a", "t": 32.86}, {"w": "tiny", "t": 33.31}, {"w": "sea", "t": 33.75}, {"w": "animal", "t": 34.2}, {"w": "with", "t": 34.64}, {"w": "the", "t": 35.09}, {"w": "most", "t": 35.53}, {"w": "awesome", "t": 35.98}, {"w": "eyes", "t": 36.42}, {"w": "on", "t": 36.87}, {"w": "Earth.", "t": 37.31}, {"w": "Ready?", "t": 37.76}, {"w": "Let's", "t": 38.2}, {"w": "go!", "t": 38.65}]}, {"start": 56.27, "end": 105.85, "en": "On a quiet sidewalk, a small white box on six wheels rolls along all by itself. It is a delivery robot, and it is carrying lunch to someone's home. It does not need a driver, because it drives itself! Cameras, radar, and GPS are its eyes and map. It moves at walking speed. When a dog runs in front of it, it stops and waits. When the road is clear, it rolls on again. If it gets lost, a human helper far away can instruct it what to do, and it recovers its route in seconds. At your door, you type in the valid code on your phone, the lid opens, and there is your lunch! These little robots move silently, and they never get tired.", "title": "送货机器人", "cn": "在一条安静的人行道上，一个长着六个轮子的小白盒子自己慢慢往前走。它是送货机器人，正要把午饭送到别人家门口。它不需要司机，因为它会自己开！摄像头、雷达和 GPS 就是它的眼睛和地图。它以步行的速度前进。当一只狗跑到它前面时，它会停下来等一等。路通了，它又继续往前走。如果它迷路了，远方的人类帮手可以告诉它该怎么做，它几秒钟就能找回路线。到了你家门口，你在手机上输入有效的取货码，盖子打开，午饭就在里面！这些小机器人走起路来悄无声息，而且从不觉得累。", "words": [{"w": "On", "t": 56.27}, {"w": "a", "t": 56.66}, {"w": "quiet", "t": 57.06}, {"w": "sidewalk,", "t": 57.45}, {"w": "a", "t": 57.84}, {"w": "small", "t": 58.24}, {"w": "white", "t": 58.63}, {"w": "box", "t": 59.02}, {"w": "on", "t": 59.42}, {"w": "six", "t": 59.81}, {"w": "wheels", "t": 60.2}, {"w": "rolls", "t": 60.6}, {"w": "along", "t": 60.99}, {"w": "all", "t": 61.39}, {"w": "by", "t": 61.78}, {"w": "itself.", "t": 62.17}, {"w": "It", "t": 62.57}, {"w": "is", "t": 62.96}, {"w": "a", "t": 63.35}, {"w": "delivery", "t": 63.75}, {"w": "robot,", "t": 64.14}, {"w": "and", "t": 64.53}, {"w": "it", "t": 64.93}, {"w": "is", "t": 65.32}, {"w": "carrying", "t": 65.71}, {"w": "lunch", "t": 66.11}, {"w": "to", "t": 66.5}, {"w": "someone's", "t": 66.89}, {"w": "home.", "t": 67.29}, {"w": "It", "t": 67.68}, {"w": "does", "t": 68.07}, {"w": "not", "t": 68.47}, {"w": "need", "t": 68.86}, {"w": "a", "t": 69.26}, {"w": "driver,", "t": 69.65}, {"w": "because", "t": 70.04}, {"w": "it", "t": 70.44}, {"w": "drives", "t": 70.83}, {"w": "itself!", "t": 71.22}, {"w": "Cameras,", "t": 71.62}, {"w": "radar,", "t": 72.01}, {"w": "and", "t": 72.4}, {"w": "GPS", "t": 72.8}, {"w": "are", "t": 73.19}, {"w": "its", "t": 73.58}, {"w": "eyes", "t": 73.98}, {"w": "and", "t": 74.37}, {"w": "map.", "t": 74.76}, {"w": "It", "t": 75.16}, {"w": "moves", "t": 75.55}, {"w": "at", "t": 75.94}, {"w": "walking", "t": 76.34}, {"w": "speed.", "t": 76.73}, {"w": "When", "t": 77.13}, {"w": "a", "t": 77.52}, {"w": "dog", "t": 77.91}, {"w": "runs", "t": 78.31}, {"w": "in", "t": 78.7}, {"w": "front", "t": 79.09}, {"w": "of", "t": 79.49}, {"w": "it,", "t": 79.88}, {"w": "it", "t": 80.27}, {"w": "stops", "t": 80.67}, {"w": "and", "t": 81.06}, {"w": "waits.", "t": 81.45}, {"w": "When", "t": 81.85}, {"w": "the", "t": 82.24}, {"w": "road", "t": 82.63}, {"w": "is", "t": 83.03}, {"w": "clear,", "t": 83.42}, {"w": "it", "t": 83.81}, {"w": "rolls", "t": 84.21}, {"w": "on", "t": 84.6}, {"w": "again.", "t": 84.99}, {"w": "If", "t": 85.39}, {"w": "it", "t": 85.78}, {"w": "gets", "t": 86.18}, {"w": "lost,", "t": 86.57}, {"w": "a", "t": 86.96}, {"w": "human", "t": 87.36}, {"w": "helper", "t": 87.75}, {"w": "far", "t": 88.14}, {"w": "away", "t": 88.54}, {"w": "can", "t": 88.93}, {"w": "instruct", "t": 89.32}, {"w": "it", "t": 89.72}, {"w": "what", "t": 90.11}, {"w": "to", "t": 90.5}, {"w": "do,", "t": 90.9}, {"w": "and", "t": 91.29}, {"w": "it", "t": 91.68}, {"w": "recovers", "t": 92.08}, {"w": "its", "t": 92.47}, {"w": "route", "t": 92.86}, {"w": "in", "t": 93.26}, {"w": "seconds.", "t": 93.65}, {"w": "At", "t": 94.05}, {"w": "your", "t": 94.44}, {"w": "door,", "t": 94.83}, {"w": "you", "t": 95.23}, {"w": "type", "t": 95.62}, {"w": "in", "t": 96.01}, {"w": "the", "t": 96.41}, {"w": "valid", "t": 96.8}, {"w": "code", "t": 97.19}, {"w": "on", "t": 97.59}, {"w": "your", "t": 97.98}, {"w": "phone,", "t": 98.37}, {"w": "the", "t": 98.77}, {"w": "lid", "t": 99.16}, {"w": "opens,", "t": 99.55}, {"w": "and", "t": 99.95}, {"w": "there", "t": 100.34}, {"w": "is", "t": 100.73}, {"w": "your", "t": 101.13}, {"w": "lunch!", "t": 101.52}, {"w": "These", "t": 101.92}, {"w": "little", "t": 102.31}, {"w": "robots", "t": 102.7}, {"w": "move", "t": 103.1}, {"w": "silently,", "t": 103.49}, {"w": "and", "t": 103.88}, {"w": "they", "t": 104.28}, {"w": "never", "t": 104.67}, {"w": "get", "t": 105.06}, {"w": "tired.", "t": 105.46}]}, {"start": 105.85, "end": 131.82, "en": "Before its first trip, the robot studies a map of every street, every corner, and every crossing. It knows where to turn and where to wait. At a crossing, it looks at the traffic lights, like you do. People on the sidewalk smile at it, and children wave. Some people give it a name, like a pet! It is small, but it does an awesome job.", "title": "送货机器人", "cn": "在第一次出门之前，机器人会研究一张地图，上面有每一条街、每一个拐角和每一个路口。它知道哪里该转弯、哪里该等待。到了路口，它会看红绿灯，就像你一样。人行道上的人们朝它微笑，孩子们向它挥手。有些人还会给它起个名字，就像给宠物起名一样！它个头不大，干活却棒极了。", "words": [{"w": "Before", "t": 105.85}, {"w": "its", "t": 106.24}, {"w": "first", "t": 106.64}, {"w": "trip,", "t": 107.03}, {"w": "the", "t": 107.42}, {"w": "robot", "t": 107.82}, {"w": "studies", "t": 108.21}, {"w": "a", "t": 108.6}, {"w": "map", "t": 109.0}, {"w": "of", "t": 109.39}, {"w": "every", "t": 109.78}, {"w": "street,", "t": 110.18}, {"w": "every", "t": 110.57}, {"w": "corner,", "t": 110.97}, {"w": "and", "t": 111.36}, {"w": "every", "t": 111.75}, {"w": "crossing.", "t": 112.15}, {"w": "It", "t": 112.54}, {"w": "knows", "t": 112.93}, {"w": "where", "t": 113.33}, {"w": "to", "t": 113.72}, {"w": "turn", "t": 114.11}, {"w": "and", "t": 114.51}, {"w": "where", "t": 114.9}, {"w": "to", "t": 115.29}, {"w": "wait.", "t": 115.69}, {"w": "At", "t": 116.08}, {"w": "a", "t": 116.47}, {"w": "crossing,", "t": 116.87}, {"w": "it", "t": 117.26}, {"w": "looks", "t": 117.65}, {"w": "at", "t": 118.05}, {"w": "the", "t": 118.44}, {"w": "traffic", "t": 118.83}, {"w": "lights,", "t": 119.23}, {"w": "like", "t": 119.62}, {"w": "you", "t": 120.02}, {"w": "do.", "t": 120.41}, {"w": "People", "t": 120.8}, {"w": "on", "t": 121.2}, {"w": "the", "t": 121.59}, {"w": "sidewalk", "t": 121.98}, {"w": "smile", "t": 122.38}, {"w": "at", "t": 122.77}, {"w": "it,", "t": 123.16}, {"w": "and", "t": 123.56}, {"w": "children", "t": 123.95}, {"w": "wave.", "t": 124.34}, {"w": "Some", "t": 124.74}, {"w": "people", "t": 125.13}, {"w": "give", "t": 125.52}, {"w": "it", "t": 125.92}, {"w": "a", "t": 126.31}, {"w": "name,", "t": 126.7}, {"w": "like", "t": 127.1}, {"w": "a", "t": 127.49}, {"w": "pet!", "t": 127.89}, {"w": "It", "t": 128.28}, {"w": "is", "t": 128.67}, {"w": "small,", "t": 129.07}, {"w": "but", "t": 129.46}, {"w": "it", "t": 129.85}, {"w": "does", "t": 130.25}, {"w": "an", "t": 130.64}, {"w": "awesome", "t": 131.03}, {"w": "job.", "t": 131.43}]}, {"start": 148.36, "end": 203.5, "en": "Now dive under the sea and meet the mantis shrimp, a small animal with a big punch. Its eyes are the most awesome in the animal world. We have three kinds of color sensors in our eyes. The mantis shrimp has twelve to sixteen! Its eyes can see colors we cannot imagine. They can also see ultraviolet light, and a secret kind of light called polarized light. Those super eyes expose a hidden world of colors all around it. But watch out for its punch! Its club-like arms strike at twenty-three meters per second, faster than you can blink, faster than you can hear a clap. The punch is so strong that it makes tiny bubbles in the water, and when the bubbles burst, they help crack open shells. The mantis shrimp uses its delicate-looking eyes and its punch to hunt, to fight, and to guard its home.", "title": "皮皮虾的超级眼睛", "cn": "现在潜入海底，认识一下皮皮虾——一种个头不大、拳头却很厉害的小动物。它的眼睛是动物世界里最厉害的。我们的眼睛里有三种颜色感应器，而皮皮虾有十二到十六种！它的眼睛能看到我们想象不到的颜色，还能看到紫外光，以及一种叫偏振光的神秘光线。这些超级眼睛展现出一个藏在它周围的彩色世界。不过要小心它的拳头！它棒子一样的臂以每秒二十三米的速度出击，比你眨眼还快，比你听到一次拍手声还快。这一拳力量很大，能在水里打出小气泡，气泡爆开时能帮它敲碎贝壳。皮皮虾就用它那双看起来精致的眼睛和它的拳头来捕猎、打斗和保卫自己的家。", "words": [{"w": "Now", "t": 148.36}, {"w": "dive", "t": 148.73}, {"w": "under", "t": 149.11}, {"w": "the", "t": 149.48}, {"w": "sea", "t": 149.85}, {"w": "and", "t": 150.22}, {"w": "meet", "t": 150.6}, {"w": "the", "t": 150.97}, {"w": "mantis", "t": 151.34}, {"w": "shrimp,", "t": 151.71}, {"w": "a", "t": 152.09}, {"w": "small", "t": 152.46}, {"w": "animal", "t": 152.83}, {"w": "with", "t": 153.2}, {"w": "a", "t": 153.58}, {"w": "big", "t": 153.95}, {"w": "punch.", "t": 154.32}, {"w": "Its", "t": 154.69}, {"w": "eyes", "t": 155.07}, {"w": "are", "t": 155.44}, {"w": "the", "t": 155.81}, {"w": "most", "t": 156.18}, {"w": "awesome", "t": 156.56}, {"w": "in", "t": 156.93}, {"w": "the", "t": 157.3}, {"w": "animal", "t": 157.67}, {"w": "world.", "t": 158.05}, {"w": "We", "t": 158.42}, {"w": "have", "t": 158.79}, {"w": "three", "t": 159.16}, {"w": "kinds", "t": 159.54}, {"w": "of", "t": 159.91}, {"w": "color", "t": 160.28}, {"w": "sensors", "t": 160.65}, {"w": "in", "t": 161.03}, {"w": "our", "t": 161.4}, {"w": "eyes.", "t": 161.77}, {"w": "The", "t": 162.15}, {"w": "mantis", "t": 162.52}, {"w": "shrimp", "t": 162.89}, {"w": "has", "t": 163.26}, {"w": "twelve", "t": 163.64}, {"w": "to", "t": 164.01}, {"w": "sixteen!", "t": 164.38}, {"w": "Its", "t": 164.75}, {"w": "eyes", "t": 165.13}, {"w": "can", "t": 165.5}, {"w": "see", "t": 165.87}, {"w": "colors", "t": 166.24}, {"w": "we", "t": 166.62}, {"w": "cannot", "t": 166.99}, {"w": "imagine.", "t": 167.36}, {"w": "They", "t": 167.73}, {"w": "can", "t": 168.11}, {"w": "also", "t": 168.48}, {"w": "see", "t": 168.85}, {"w": "ultraviolet", "t": 169.22}, {"w": "light,", "t": 169.6}, {"w": "and", "t": 169.97}, {"w": "a", "t": 170.34}, {"w": "secret", "t": 170.71}, {"w": "kind", "t": 171.09}, {"w": "of", "t": 171.46}, {"w": "light", "t": 171.83}, {"w": "called", "t": 172.2}, {"w": "polarized", "t": 172.58}, {"w": "light.", "t": 172.95}, {"w": "Those", "t": 173.32}, {"w": "super", "t": 173.69}, {"w": "eyes", "t": 174.07}, {"w": "expose", "t": 174.44}, {"w": "a", "t": 174.81}, {"w": "hidden", "t": 175.18}, {"w": "world", "t": 175.56}, {"w": "of", "t": 175.93}, {"w": "colors", "t": 176.3}, {"w": "all", "t": 176.68}, {"w": "around", "t": 177.05}, {"w": "it.", "t": 177.42}, {"w": "But", "t": 177.79}, {"w": "watch", "t": 178.17}, {"w": "out", "t": 178.54}, {"w": "for", "t": 178.91}, {"w": "its", "t": 179.28}, {"w": "punch!", "t": 179.66}, {"w": "Its", "t": 180.03}, {"w": "club-like", "t": 180.4}, {"w": "arms", "t": 180.77}, {"w": "strike", "t": 181.15}, {"w": "at", "t": 181.52}, {"w": "twenty-three", "t": 181.89}, {"w": "meters", "t": 182.26}, {"w": "per", "t": 182.64}, {"w": "second,", "t": 183.01}, {"w": "faster", "t": 183.38}, {"w": "than", "t": 183.75}, {"w": "you", "t": 184.13}, {"w": "can", "t": 184.5}, {"w": "blink,", "t": 184.87}, {"w": "faster", "t": 185.24}, {"w": "than", "t": 185.62}, {"w": "you", "t": 185.99}, {"w": "can", "t": 186.36}, {"w": "hear", "t": 186.73}, {"w": "a", "t": 187.11}, {"w": "clap.", "t": 187.48}, {"w": "The", "t": 187.85}, {"w": "punch", "t": 188.22}, {"w": "is", "t": 188.6}, {"w": "so", "t": 188.97}, {"w": "strong", "t": 189.34}, {"w": "that", "t": 189.72}, {"w": "it", "t": 190.09}, {"w": "makes", "t": 190.46}, {"w": "tiny", "t": 190.83}, {"w": "bubbles", "t": 191.21}, {"w": "in", "t": 191.58}, {"w": "the", "t": 191.95}, {"w": "water,", "t": 192.32}, {"w": "and", "t": 192.7}, {"w": "when", "t": 193.07}, {"w": "the", "t": 193.44}, {"w": "bubbles", "t": 193.81}, {"w": "burst,", "t": 194.19}, {"w": "they", "t": 194.56}, {"w": "help", "t": 194.93}, {"w": "crack", "t": 195.3}, {"w": "open", "t": 195.68}, {"w": "shells.", "t": 196.05}, {"w": "The", "t": 196.42}, {"w": "mantis", "t": 196.79}, {"w": "shrimp", "t": 197.17}, {"w": "uses", "t": 197.54}, {"w": "its", "t": 197.91}, {"w": "delicate-looking", "t": 198.28}, {"w": "eyes", "t": 198.66}, {"w": "and", "t": 199.03}, {"w": "its", "t": 199.4}, {"w": "punch", "t": 199.77}, {"w": "to", "t": 200.15}, {"w": "hunt,", "t": 200.52}, {"w": "to", "t": 200.89}, {"w": "fight,", "t": 201.26}, {"w": "and", "t": 201.64}, {"w": "to", "t": 202.01}, {"w": "guard", "t": 202.38}, {"w": "its", "t": 202.75}, {"w": "home.", "t": 203.13}]}, {"start": 203.5, "end": 223.62, "en": "Each eye sits on a little stalk and can move on its own, so the shrimp can look two ways at once. Scientists study these awesome eyes because they want to build better cameras and robots. The mantis shrimp is small, but its eyes are a big lesson in how nature solves hard problems.", "title": "皮皮虾的超级眼睛", "cn": "每只眼睛都长在一个小柄上，可以自己转动，所以皮皮虾能同时看两个方向。科学家们研究这些厉害的眼睛，因为他们想造出更好的相机和机器人。皮皮虾个头虽小，它的眼睛却是大自然如何解决难题的一堂大课。", "words": [{"w": "Each", "t": 203.5}, {"w": "eye", "t": 203.87}, {"w": "sits", "t": 204.25}, {"w": "on", "t": 204.62}, {"w": "a", "t": 204.99}, {"w": "little", "t": 205.36}, {"w": "stalk", "t": 205.74}, {"w": "and", "t": 206.11}, {"w": "can", "t": 206.48}, {"w": "move", "t": 206.85}, {"w": "on", "t": 207.23}, {"w": "its", "t": 207.6}, {"w": "own,", "t": 207.97}, {"w": "so", "t": 208.34}, {"w": "the", "t": 208.72}, {"w": "shrimp", "t": 209.09}, {"w": "can", "t": 209.46}, {"w": "look", "t": 209.83}, {"w": "two", "t": 210.21}, {"w": "ways", "t": 210.58}, {"w": "at", "t": 210.95}, {"w": "once.", "t": 211.32}, {"w": "Scientists", "t": 211.7}, {"w": "study", "t": 212.07}, {"w": "these", "t": 212.44}, {"w": "awesome", "t": 212.81}, {"w": "eyes", "t": 213.19}, {"w": "because", "t": 213.56}, {"w": "they", "t": 213.93}, {"w": "want", "t": 214.31}, {"w": "to", "t": 214.68}, {"w": "build", "t": 215.05}, {"w": "better", "t": 215.42}, {"w": "cameras", "t": 215.8}, {"w": "and", "t": 216.17}, {"w": "robots.", "t": 216.54}, {"w": "The", "t": 216.91}, {"w": "mantis", "t": 217.29}, {"w": "shrimp", "t": 217.66}, {"w": "is", "t": 218.03}, {"w": "small,", "t": 218.4}, {"w": "but", "t": 218.78}, {"w": "its", "t": 219.15}, {"w": "eyes", "t": 219.52}, {"w": "are", "t": 219.89}, {"w": "a", "t": 220.27}, {"w": "big", "t": 220.64}, {"w": "lesson", "t": 221.01}, {"w": "in", "t": 221.38}, {"w": "how", "t": 221.76}, {"w": "nature", "t": 222.13}, {"w": "solves", "t": 222.5}, {"w": "hard", "t": 222.87}, {"w": "problems.", "t": 223.25}]}, {"start": 240.16, "end": 261.26, "en": "Here's today's idiom: 'hit the books.' It means to study hard, with your nose in your books! Just like the little robot studies its map before every trip, we hit the books before a big test. Here's an example: 'The big test is tomorrow, so tonight Mia will hit the books.' When do you hit the books?", "title": "今日俚语", "cn": "今天的俚语是“hit the books”（埋头苦读）。意思是认真学习，鼻子都快贴到书上了！就像小机器人每次出门前都要研究地图一样，大考之前我们也要埋头苦读。举个例子：“明天就要大考了，所以今晚米娅要埋头苦读。”你什么时候会埋头苦读呢？", "words": [{"w": "Here's", "t": 240.16}, {"w": "today's", "t": 240.53}, {"w": "idiom:", "t": 240.9}, {"w": "'hit", "t": 241.27}, {"w": "the", "t": 241.64}, {"w": "books.'", "t": 242.01}, {"w": "It", "t": 242.38}, {"w": "means", "t": 242.75}, {"w": "to", "t": 243.12}, {"w": "study", "t": 243.49}, {"w": "hard,", "t": 243.86}, {"w": "with", "t": 244.23}, {"w": "your", "t": 244.6}, {"w": "nose", "t": 244.97}, {"w": "in", "t": 245.34}, {"w": "your", "t": 245.71}, {"w": "books!", "t": 246.08}, {"w": "Just", "t": 246.45}, {"w": "like", "t": 246.82}, {"w": "the", "t": 247.19}, {"w": "little", "t": 247.56}, {"w": "robot", "t": 247.93}, {"w": "studies", "t": 248.3}, {"w": "its", "t": 248.67}, {"w": "map", "t": 249.04}, {"w": "before", "t": 249.41}, {"w": "every", "t": 249.78}, {"w": "trip,", "t": 250.15}, {"w": "we", "t": 250.52}, {"w": "hit", "t": 250.9}, {"w": "the", "t": 251.27}, {"w": "books", "t": 251.64}, {"w": "before", "t": 252.01}, {"w": "a", "t": 252.38}, {"w": "big", "t": 252.75}, {"w": "test.", "t": 253.12}, {"w": "Here's", "t": 253.49}, {"w": "an", "t": 253.86}, {"w": "example:", "t": 254.23}, {"w": "'The", "t": 254.6}, {"w": "big", "t": 254.97}, {"w": "test", "t": 255.34}, {"w": "is", "t": 255.71}, {"w": "tomorrow,", "t": 256.08}, {"w": "so", "t": 256.45}, {"w": "tonight", "t": 256.82}, {"w": "Mia", "t": 257.19}, {"w": "will", "t": 257.56}, {"w": "hit", "t": 257.93}, {"w": "the", "t": 258.3}, {"w": "books.'", "t": 258.67}, {"w": "When", "t": 259.04}, {"w": "do", "t": 259.41}, {"w": "you", "t": 259.78}, {"w": "hit", "t": 260.15}, {"w": "the", "t": 260.52}, {"w": "books?", "t": 260.89}]}, {"start": 276.28, "end": 302.73, "en": "Let's think about our stories. A robot drives itself to your door, and a mantis shrimp sees colors we cannot see. Two questions for you. First: if a delivery robot came to your home, what would you ask it to bring — lunch, books, or something funny? Second: if you could see one secret color that no one else can see, what would you do with it? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事。机器人自己开到你家门口，皮皮虾能看到我们看不见的颜色。问你们两个问题。第一：如果送货机器人来到你家，你会请它带来什么——午饭、书，还是什么好玩的东西？第二：如果你能看到一种别人都看不见的神秘颜色，你会用它来做什么？和家人聊聊吧！", "words": [{"w": "Let's", "t": 276.28}, {"w": "think", "t": 276.64}, {"w": "about", "t": 277.0}, {"w": "our", "t": 277.37}, {"w": "stories.", "t": 277.73}, {"w": "A", "t": 278.09}, {"w": "robot", "t": 278.45}, {"w": "drives", "t": 278.82}, {"w": "itself", "t": 279.18}, {"w": "to", "t": 279.54}, {"w": "your", "t": 279.9}, {"w": "door,", "t": 280.27}, {"w": "and", "t": 280.63}, {"w": "a", "t": 280.99}, {"w": "mantis", "t": 281.35}, {"w": "shrimp", "t": 281.71}, {"w": "sees", "t": 282.08}, {"w": "colors", "t": 282.44}, {"w": "we", "t": 282.8}, {"w": "cannot", "t": 283.16}, {"w": "see.", "t": 283.53}, {"w": "Two", "t": 283.89}, {"w": "questions", "t": 284.25}, {"w": "for", "t": 284.61}, {"w": "you.", "t": 284.98}, {"w": "First:", "t": 285.34}, {"w": "if", "t": 285.7}, {"w": "a", "t": 286.06}, {"w": "delivery", "t": 286.43}, {"w": "robot", "t": 286.79}, {"w": "came", "t": 287.15}, {"w": "to", "t": 287.51}, {"w": "your", "t": 287.87}, {"w": "home,", "t": 288.24}, {"w": "what", "t": 288.6}, {"w": "would", "t": 288.96}, {"w": "you", "t": 289.32}, {"w": "ask", "t": 289.69}, {"w": "it", "t": 290.05}, {"w": "to", "t": 290.41}, {"w": "bring", "t": 290.77}, {"w": "—", "t": 291.14}, {"w": "lunch,", "t": 291.5}, {"w": "books,", "t": 291.86}, {"w": "or", "t": 292.22}, {"w": "something", "t": 292.58}, {"w": "funny?", "t": 292.95}, {"w": "Second:", "t": 293.31}, {"w": "if", "t": 293.67}, {"w": "you", "t": 294.03}, {"w": "could", "t": 294.4}, {"w": "see", "t": 294.76}, {"w": "one", "t": 295.12}, {"w": "secret", "t": 295.48}, {"w": "color", "t": 295.85}, {"w": "that", "t": 296.21}, {"w": "no", "t": 296.57}, {"w": "one", "t": 296.93}, {"w": "else", "t": 297.3}, {"w": "can", "t": 297.66}, {"w": "see,", "t": 298.02}, {"w": "what", "t": 298.38}, {"w": "would", "t": 298.74}, {"w": "you", "t": 299.11}, {"w": "do", "t": 299.47}, {"w": "with", "t": 299.83}, {"w": "it?", "t": 300.19}, {"w": "Talk", "t": 300.56}, {"w": "about", "t": 300.92}, {"w": "it", "t": 301.28}, {"w": "with", "t": 301.64}, {"w": "your", "t": 302.01}, {"w": "family!", "t": 302.37}]}, {"start": 313.35, "end": 327.31, "en": "That's all for today, young explorers. Be smart like a delivery robot, and curious like a mantis shrimp. And remember: when a big test comes, hit the books — and you will do great! See you tomorrow!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。像送货机器人一样聪明，像皮皮虾一样充满好奇。还要记住：大考来的时候，埋头苦读——你一定会表现得很棒！明天见！", "words": [{"w": "That's", "t": 313.35}, {"w": "all", "t": 313.73}, {"w": "for", "t": 314.1}, {"w": "today,", "t": 314.48}, {"w": "young", "t": 314.86}, {"w": "explorers.", "t": 315.24}, {"w": "Be", "t": 315.61}, {"w": "smart", "t": 315.99}, {"w": "like", "t": 316.37}, {"w": "a", "t": 316.75}, {"w": "delivery", "t": 317.12}, {"w": "robot,", "t": 317.5}, {"w": "and", "t": 317.88}, {"w": "curious", "t": 318.25}, {"w": "like", "t": 318.63}, {"w": "a", "t": 319.01}, {"w": "mantis", "t": 319.39}, {"w": "shrimp.", "t": 319.76}, {"w": "And", "t": 320.14}, {"w": "remember:", "t": 320.52}, {"w": "when", "t": 320.9}, {"w": "a", "t": 321.27}, {"w": "big", "t": 321.65}, {"w": "test", "t": 322.03}, {"w": "comes,", "t": 322.41}, {"w": "hit", "t": 322.78}, {"w": "the", "t": 323.16}, {"w": "books", "t": 323.54}, {"w": "—", "t": 323.91}, {"w": "and", "t": 324.29}, {"w": "you", "t": 324.67}, {"w": "will", "t": 325.05}, {"w": "do", "t": 325.42}, {"w": "great!", "t": 325.8}, {"w": "See", "t": 326.18}, {"w": "you", "t": 326.56}, {"w": "tomorrow!", "t": 326.93}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol31/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
