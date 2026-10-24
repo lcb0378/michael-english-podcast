@@ -1,0 +1,308 @@
+[
+ {
+  "id": 1,
+  "title": "开场白",
+  "blocks": [
+   {
+    "start": 25.31,
+    "end": 29.71,
+    "en": "Hello, young explorers, and welcome back to Michael's Morning Listening!"
+   },
+   {
+    "start": 29.71,
+    "end": 31.9,
+    "en": "This is our twenty-fourth show!"
+   },
+   {
+    "start": 31.9,
+    "end": 40.26,
+    "en": "Today we meet a penguin that proposes with a pebble, and a koala whose fingerprints look exactly like yours."
+   },
+   {
+    "start": 40.26,
+    "end": 45.09,
+    "en": "A builder from Antarctica, and a fingerprint star from the treetops."
+   },
+   {
+    "start": 45.09,
+    "end": 45.97,
+    "en": "Let's go!"
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "title": "企鹅的鹅卵石求婚",
+  "blocks": [
+   {
+    "start": 56.59,
+    "end": 60.69,
+    "en": "Our first hero lives in Antarctica, the coldest place on Earth."
+   },
+   {
+    "start": 60.69,
+    "end": 66.65,
+    "en": "It is the Adélie penguin, a bird in a black-and-white garment that looks like a suit."
+   },
+   {
+    "start": 66.65,
+    "end": 68.89,
+    "en": "In spring, the males arrive first."
+   },
+   {
+    "start": 68.89,
+    "end": 70.75,
+    "en": "They do not bring flowers."
+   },
+   {
+    "start": 70.75,
+    "end": 71.87,
+    "en": "They bring pebbles!"
+   },
+   {
+    "start": 71.87,
+    "end": 78.2,
+    "en": "A male picks up a smooth stone in his beak and walks to a female, with courage."
+   },
+   {
+    "start": 78.2,
+    "end": 82.68,
+    "en": "If she likes his stone, she may place it in her nest."
+   },
+   {
+    "start": 82.68,
+    "end": 84.54,
+    "en": "It looks like a proposal!"
+   },
+   {
+    "start": 84.54,
+    "end": 87.89,
+    "en": "Scientists watch from a boat, its engine humming softly."
+   },
+   {
+    "start": 87.89,
+    "end": 91.25,
+    "en": "But the pebble is not just a pretty gift."
+   },
+   {
+    "start": 91.25,
+    "end": 94.6,
+    "en": "It is the primary building material of the nest."
+   },
+   {
+    "start": 94.6,
+    "end": 100.94,
+    "en": "The pair builds a round nest of stones, and the nest keeps the eggs safe and dry."
+   },
+   {
+    "start": 100.94,
+    "end": 106.15,
+    "en": "When snow melts, the water runs between the stones instead of flooding the nest."
+   },
+   {
+    "start": 106.15,
+    "end": 111.0,
+    "en": "Sharp ice could wound a chick's soft feet, so a dry nest matters."
+   },
+   {
+    "start": 111.0,
+    "end": 121.06,
+    "en": "So the male is really saying, \"Look, I can build a safe home!\" Sometimes a male steals a stone from a neighbour's nest, and a fight erupts!"
+   },
+   {
+    "start": 121.06,
+    "end": 127.02,
+    "en": "To everyone's delight, the pair works together, taking turns on the eggs and fetching more stones."
+   },
+   {
+    "start": 127.02,
+    "end": 131.49,
+    "en": "Their footprints fade in the snow, but their little stone nest stays."
+   },
+   {
+    "start": 131.49,
+    "end": 134.85,
+    "en": "A penguin's proposal is not about a diamond ring."
+   },
+   {
+    "start": 134.85,
+    "end": 139.32,
+    "en": "It is about teamwork and a safe place for babies to grow."
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "title": "考拉的指纹",
+  "blocks": [
+   {
+    "start": 154.9,
+    "end": 159.62,
+    "en": "Our second hero is the koala, a grey furry animal from Australia."
+   },
+   {
+    "start": 159.62,
+    "end": 164.74,
+    "en": "It sleeps most of the day in a eucalyptus tree, holding on tight."
+   },
+   {
+    "start": 164.74,
+    "end": 172.61,
+    "en": "By coincidence, a scientist who was holding a koala looked closely at its fingers — and got a big surprise."
+   },
+   {
+    "start": 172.61,
+    "end": 177.73,
+    "en": "Under the soft flesh of its fingertips were tiny ridges, loops, and whorls."
+   },
+   {
+    "start": 177.73,
+    "end": 180.09,
+    "en": "They looked just like human fingerprints!"
+   },
+   {
+    "start": 180.09,
+    "end": 185.21,
+    "en": "The scientist studied the prints under a microscope, and the surprise grew bigger."
+   },
+   {
+    "start": 185.21,
+    "end": 189.54,
+    "en": "Even experts could hardly tell a koala's print from a human's!"
+   },
+   {
+    "start": 189.54,
+    "end": 191.11,
+    "en": "How can this be?"
+   },
+   {
+    "start": 191.11,
+    "end": 194.66,
+    "en": "Humans and koalas are not close cousins at all."
+   },
+   {
+    "start": 194.66,
+    "end": 198.99,
+    "en": "Yet both grew the same kind of skin on their fingers."
+   },
+   {
+    "start": 198.99,
+    "end": 205.28,
+    "en": "Scientists call this convergent evolution: two different animals solving the same problem in the same way."
+   },
+   {
+    "start": 205.28,
+    "end": 208.04,
+    "en": "For the koala, the grip is everything."
+   },
+   {
+    "start": 208.04,
+    "end": 215.52,
+    "en": "Its ridges help it hold smooth branches and pick soft leaves, like your fingerprints help you hold a pencil."
+   },
+   {
+    "start": 215.52,
+    "end": 222.6,
+    "en": "So when you press your finger on a window, imagine a koala doing the same in a tree."
+   },
+   {
+    "start": 222.6,
+    "end": 226.54,
+    "en": "Two hands, two worlds — and almost the same print!"
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "title": "今日俚语",
+  "blocks": [
+   {
+    "start": 243.0,
+    "end": 249.32,
+    "en": "Here's today's idiom: \"like two peas in a pod.\" Peas in one pod look the same!"
+   },
+   {
+    "start": 249.32,
+    "end": 256.03,
+    "en": "So when two people are always together, we say they are like two peas in a pod."
+   },
+   {
+    "start": 256.03,
+    "end": 259.19,
+    "en": "Listen: Pip and Pop are two penguin chicks."
+   },
+   {
+    "start": 259.19,
+    "end": 264.33,
+    "en": "They waddle together, nap together, and lose their feathers on the same day."
+   },
+   {
+    "start": 264.33,
+    "end": 269.07,
+    "en": "\"You two are like two peas in a pod!\" laughs their mother."
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "title": "结束语与互动问题",
+  "blocks": [
+   {
+    "start": 282.81,
+    "end": 284.76,
+    "en": "Let's think about our stories."
+   },
+   {
+    "start": 284.76,
+    "end": 291.0,
+    "en": "A penguin builds a nest stone by stone, and a koala's fingers carry prints like ours."
+   },
+   {
+    "start": 291.0,
+    "end": 291.78,
+    "en": "Two questions."
+   },
+   {
+    "start": 291.78,
+    "end": 297.24,
+    "en": "First: what gift would you bring to ask a friend to build with you?"
+   },
+   {
+    "start": 297.24,
+    "end": 300.36,
+    "en": "Second: what do your fingerprints help you do?"
+   },
+   {
+    "start": 300.36,
+    "end": 302.7,
+    "en": "Talk about it with your family!"
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "title": "告别",
+  "blocks": [
+   {
+    "start": 315.96,
+    "end": 318.39,
+    "en": "That's all for today, young explorers."
+   },
+   {
+    "start": 318.39,
+    "end": 325.27,
+    "en": "Remember: a small stone can start a family, and your fingers carry a wonder like a koala's."
+   },
+   {
+    "start": 325.27,
+    "end": 327.3,
+    "en": "Stay curious, and keep exploring."
+   },
+   {
+    "start": 327.3,
+    "end": 328.92,
+    "en": "See you tomorrow morning!"
+   }
+  ]
+ }
+]

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.24 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol24/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol24/cover.png" controls playsinline preload="metadata"></video>
+<h1>🐧 Vol.24 · 企鹅的鹅卵石求婚与考拉的指纹</h1>
+<div class="meta">英文 600 词 ｜ 音频 5分38秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol24/story-penguin.png" alt="企鹅的鹅卵石求婚">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol24/story-koala.png" alt="考拉的指纹">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">like two peas in a pod</span> <span class="phon">/laɪk tuː piːz ɪn ə pɒd/</span> (习语) 像豌豆荚里的两颗豌豆；形影不离<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: Pip and Pop are <b>like two peas in a pod</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">erupt</span> <span class="phon">/ɪˈrʌpt/</span> (v.) 爆发；打起来<br>
+  
+  <div class="example">Example: A fight <b>erupts</b> over the best pebble.</div>
+</div>
+<div class="vocab">
+  <span class="word">wound</span> <span class="phon">/wuːnd/</span> (v.) 伤害；划伤<br>
+  
+  <div class="example">Example: Sharp ice could <b>wound</b> a chick's soft feet.</div>
+</div>
+<div class="vocab">
+  <span class="word">garment</span> <span class="phon">/ˈɡɑːrmənt/</span> (n.) 衣服；外衣<br>
+  
+  <div class="example">Example: The penguin wears a black-and-white <b>garment</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">courage</span> <span class="phon">/ˈkʌrɪdʒ/</span> (n.) 勇气；胆量<br>
+  
+  <div class="example">Example: He walks to a female, with <b>courage</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">delight</span> <span class="phon">/dɪˈlaɪt/</span> (n.) 高兴；喜悦<br>
+  
+  <div class="example">Example: To everyone's <b>delight</b>, the pair works together.</div>
+</div>
+<div class="vocab">
+  <span class="word">fade</span> <span class="phon">/feɪd/</span> (v.) 消失；褪去<br>
+  
+  <div class="example">Example: Their footprints <b>fade</b> in the snow.</div>
+</div>
+<div class="vocab">
+  <span class="word">flesh</span> <span class="phon">/fleʃ/</span> (n.) 肉；皮肉<br>
+  
+  <div class="example">Example: Under the soft <b>flesh</b> of its fingertips.</div>
+</div>
+<div class="vocab">
+  <span class="word">engine</span> <span class="phon">/ˈendʒɪn/</span> (n.) 发动机；引擎<br>
+  
+  <div class="example">Example: Scientists watch from a boat, its <b>engine</b> humming softly.</div>
+</div>
+<div class="vocab">
+  <span class="word">coincidence</span> <span class="phon">/kəʊˈɪnsɪdəns/</span> (n.) 巧合；碰巧<br>
+  
+  <div class="example">Example: By <b>coincidence</b>, a scientist looked at its fingers.</div>
+</div>
+<div class="vocab">
+  <span class="word">primary</span> <span class="phon">/ˈpraɪməri/</span> (adj.) 主要的<br>
+  
+  <div class="example">Example: The pebble is the <b>primary</b> building material of the nest.</div>
+</div>
+<div class="vocab">
+  <span class="word">fingerprint</span> <span class="phon">/ˈfɪŋɡərprɪnt/</span> (n.) 指纹<br>
+  
+  <div class="example">Example: The koala's <b>fingerprint</b> looks like a human's.</div>
+</div>
+<div class="vocab">
+  <span class="word">ridge</span> <span class="phon">/rɪdʒ/</span> (n.) 纹路；隆起的线<br>
+  
+  <div class="example">Example: Its fingertips have tiny <b>ridges</b>, loops, and whorls.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 10, "ncols": 13, "words": [{"word": "COURAGE", "row": 0, "col": 10, "dir": "D", "num": 1, "cn": "勇气", "clue": "Being brave. The male walks to a female, with ___."}, {"word": "FEATHER", "row": 1, "col": 1, "dir": "D", "num": 2, "cn": "羽毛", "clue": "One soft covering on a bird. Pip lost a soft ___ on the same day as Pop."}, {"word": "POD", "row": 1, "col": 9, "dir": "A", "num": 3, "cn": "豆荚", "clue": "A case that holds peas. Peas in one ___ look the same."}, {"word": "NEST", "row": 2, "col": 0, "dir": "A", "num": 4, "cn": "巢", "clue": "A bird's home. She may place the stone in her ___."}, {"word": "PENGUIN", "row": 3, "col": 4, "dir": "D", "num": 5, "cn": "企鹅", "clue": "A black-and-white bird. The ___ lives in Antarctica."}, {"word": "GARMENT", "row": 3, "col": 12, "dir": "D", "num": 6, "cn": "衣服", "clue": "A piece of clothing. The penguin wears a black-and-white ___."}, {"word": "STONE", "row": 4, "col": 0, "dir": "A", "num": 7, "cn": "石头", "clue": "A small rock. A male picks up a smooth ___ in his beak."}, {"word": "PEBBLE", "row": 4, "col": 6, "dir": "D", "num": 8, "cn": "小石头", "clue": "A small smooth stone. The penguin proposes with a ___."}, {"word": "KOALA", "row": 4, "col": 8, "dir": "A", "num": 9, "cn": "考拉", "clue": "A grey furry animal from Australia. The ___ sleeps in a eucalyptus tree."}, {"word": "FINGERPRINT", "row": 9, "col": 2, "dir": "A", "num": 10, "cn": "指纹", "clue": "The tiny lines on a finger. The koala's ___ looks like a human's."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. What does the male penguin bring to the female?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. Flowers</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. A smooth stone</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. A fish</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. A feather</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. Why is the pebble nest important?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. It looks beautiful</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. It keeps the eggs safe and dry</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. It keeps the penguins warm</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. It stops other birds from coming</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. What surprised the scientist about the koala?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. It sleeps all day</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. Its fingerprints look like human fingerprints</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. It can swim very fast</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. It eats only leaves</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does &quot;like two peas in a pod&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. Two people who are always together and look alike</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. Two peas in a garden</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. Very small</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. Very hungry</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：A</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [1, 1, 1, 0];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">Its ridges <b class="kw">help</b> it <b class="kw">hold</b> smooth branches and <b class="kw">pick</b> soft leaves, <b class="kw">like</b> your fingerprints <b class="kw">help</b> you <b class="kw">hold</b> a pencil.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li><i>help + 宾语 + 动词原形</i>：<i>help it hold</i> 里，<i>help</i> 后面跟宾语 <i>it</i>（指考拉），再跟一个不带 <i>to</i> 的动词原形 <i>hold</i>，意思是"帮助它握住"。记住：<i>help</i> 后面的第二个动词不加 <i>to</i>，这是固定搭配，读到 <i>help</i> 就要往后找"帮谁 + 做什么"。</li>
+  <li><i>并列动词 hold and pick</i>：一个 <i>help</i> 可以管两个动作——<i>hold smooth branches and pick soft leaves</i>，第二个动词 <i>pick</i> 同样不加 <i>to</i>，因为它和 <i>hold</i> 一起被 <i>help</i> 管着。<i>and</i> 前后两个动词形式要一致，都是原形。</li>
+  <li><i>like + 句子表比较</i>：句尾 <i>like your fingerprints help you hold a pencil</i>，<i>like</i> 后面跟一个完整的句子，意思是"就像你的指纹帮你握住铅笔一样"。拿你熟悉的东西作比较，一下子就明白了考拉纹路的用处。</li>
+  <li>整句逻辑链：<b>纹路有什么用（help…hold and pick）→ 拿你熟悉的东西作比较（like…）</b>。一句话讲清了考拉指纹的本领。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. help + 宾语 + 动词原形：选出正确的词填入空格</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">Mom ____ me carry the bag.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">helps</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">help</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">helping</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：helps</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">The teacher ____ us read the story.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">help</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">helps</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">helped</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：helps</p>
+</div>
+<p class="p4-gname">B. like + 名词表比较：选出正确的词填入空格</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">He swims ____ a fish.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">as</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">look</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">like</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：like</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">She sings ____ a bird.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">like</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">as</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">with</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：like</p>
+</div>
+<p class="p4-gname">C. 并列动词 and：选出正确的词填入空格</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">We sing ____ dance together.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">but</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">and</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">or</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：and</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">The koala sleeps ____ eats all day.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">but</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">or</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">and</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：and</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>The ridges help the koala hold branches and pick leaves.</li>
+<li>The penguin builds its nest stone by stone, like a builder builds a house.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">1</span><span class="cwl">C</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">2</span><span class="cwl">F</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">3</span><span class="cwl">P</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">4</span><span class="cwl">N</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">5</span><span class="cwl">P</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">6</span><span class="cwl">G</span></td></tr><tr><td class="cwc"><span class="cwn">7</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">8</span><span class="cwl">P</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">9</span><span class="cwl">K</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">A</span></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">G</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">G</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">B</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">M</span></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">B</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">10</span><span class="cwl">F</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">G</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">T</span></td></tr></table></div>1 竖 → <b>COURAGE</b>（勇气）<br>2 竖 → <b>FEATHER</b>（羽毛）<br>3 横 → <b>POD</b>（豆荚）<br>4 横 → <b>NEST</b>（巢）<br>5 竖 → <b>PENGUIN</b>（企鹅）<br>6 竖 → <b>GARMENT</b>（衣服）<br>7 横 → <b>STONE</b>（石头）<br>8 竖 → <b>PEBBLE</b>（小石头）<br>9 横 → <b>KOALA</b>（考拉）<br>10 横 → <b>FINGERPRINT</b>（指纹）<br><br><b>B. Single Choice:</b><br>
+1 → <b>B</b>. The text says: <i>"A male picks up a smooth stone in his beak and walks to a female."</i><br>
+2 → <b>B</b>. The text says: <i>"The nest keeps the eggs safe and dry."</i><br>
+3 → <b>B</b>. The text says: <i>"They looked just like human fingerprints!"</i><br>
+4 → <b>A</b>. Peas in one pod look the same, so the idiom describes two people who are always together and look alike.<br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. helps&nbsp;&nbsp;2. helps<br>
+B. 1. like&nbsp;&nbsp;2. like<br>
+C. 1. and&nbsp;&nbsp;2. and<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol24/Vol24_晚读讲义_企鹅的鹅卵石求婚与考拉的指纹_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 25.31, "end": 45.97, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! This is our twenty-fourth show! Today we meet a penguin that proposes with a pebble, and a koala whose fingerprints look exactly like yours. A builder from Antarctica, and a fingerprint star from the treetops. Let's go!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！这是我们的第二十四期节目啦！今天我们要认识一只用小石头\"求婚\"的企鹅，还有一只指纹和你的几乎一模一样的考拉。一位是来自南极的建筑师，一位是树梢上的指纹明星。出发吧！", "words": [{"w": "Hello,", "t": 25.31}, {"w": "young", "t": 25.75}, {"w": "explorers,", "t": 26.19}, {"w": "and", "t": 26.63}, {"w": "welcome", "t": 27.07}, {"w": "back", "t": 27.51}, {"w": "to", "t": 27.95}, {"w": "Michael's", "t": 28.39}, {"w": "Morning", "t": 28.83}, {"w": "Listening!", "t": 29.27}, {"w": "This", "t": 29.71}, {"w": "is", "t": 30.15}, {"w": "our", "t": 30.58}, {"w": "twenty-fourth", "t": 31.02}, {"w": "show!", "t": 31.46}, {"w": "Today", "t": 31.9}, {"w": "we", "t": 32.34}, {"w": "meet", "t": 32.78}, {"w": "a", "t": 33.22}, {"w": "penguin", "t": 33.66}, {"w": "that", "t": 34.1}, {"w": "proposes", "t": 34.54}, {"w": "with", "t": 34.98}, {"w": "a", "t": 35.42}, {"w": "pebble,", "t": 35.86}, {"w": "and", "t": 36.3}, {"w": "a", "t": 36.74}, {"w": "koala", "t": 37.18}, {"w": "whose", "t": 37.62}, {"w": "fingerprints", "t": 38.06}, {"w": "look", "t": 38.5}, {"w": "exactly", "t": 38.94}, {"w": "like", "t": 39.38}, {"w": "yours.", "t": 39.82}, {"w": "A", "t": 40.26}, {"w": "builder", "t": 40.7}, {"w": "from", "t": 41.13}, {"w": "Antarctica,", "t": 41.57}, {"w": "and", "t": 42.01}, {"w": "a", "t": 42.45}, {"w": "fingerprint", "t": 42.89}, {"w": "star", "t": 43.33}, {"w": "from", "t": 43.77}, {"w": "the", "t": 44.21}, {"w": "treetops.", "t": 44.65}, {"w": "Let's", "t": 45.09}, {"w": "go!", "t": 45.53}]}, {"start": 56.59, "end": 87.89, "en": "Our first hero lives in Antarctica, the coldest place on Earth. It is the Adélie penguin, a bird in a black-and-white garment that looks like a suit. In spring, the males arrive first. They do not bring flowers. They bring pebbles! A male picks up a smooth stone in his beak and walks to a female, with courage. If she likes his stone, she may place it in her nest. It looks like a proposal! Scientists watch from a boat, its engine humming softly.", "title": "企鹅的鹅卵石求婚", "cn": "我们的第一位主角生活在南极——地球上最冷的地方。它就是阿德利企鹅，一种穿着黑白\"礼服\"、看起来像西装的鸟。春天一到，雄企鹅最先到达。它们不带花。它们带小石头！一只雄企鹅用喙叼起一块光滑的石头，鼓起勇气走向一只雌企鹅。如果她喜欢他的石头，就可能把它放进自己的巢里。这看起来就像求婚！科学家们坐在一艘小船上静静观看，小船的发动机发出轻柔的轰鸣声。", "words": [{"w": "Our", "t": 56.59}, {"w": "first", "t": 56.96}, {"w": "hero", "t": 57.34}, {"w": "lives", "t": 57.71}, {"w": "in", "t": 58.08}, {"w": "Antarctica,", "t": 58.45}, {"w": "the", "t": 58.83}, {"w": "coldest", "t": 59.2}, {"w": "place", "t": 59.57}, {"w": "on", "t": 59.94}, {"w": "Earth.", "t": 60.32}, {"w": "It", "t": 60.69}, {"w": "is", "t": 61.06}, {"w": "the", "t": 61.43}, {"w": "Adélie", "t": 61.81}, {"w": "penguin,", "t": 62.18}, {"w": "a", "t": 62.55}, {"w": "bird", "t": 62.92}, {"w": "in", "t": 63.3}, {"w": "a", "t": 63.67}, {"w": "black-and-white", "t": 64.04}, {"w": "garment", "t": 64.42}, {"w": "that", "t": 64.79}, {"w": "looks", "t": 65.16}, {"w": "like", "t": 65.53}, {"w": "a", "t": 65.91}, {"w": "suit.", "t": 66.28}, {"w": "In", "t": 66.65}, {"w": "spring,", "t": 67.02}, {"w": "the", "t": 67.4}, {"w": "males", "t": 67.77}, {"w": "arrive", "t": 68.14}, {"w": "first.", "t": 68.51}, {"w": "They", "t": 68.89}, {"w": "do", "t": 69.26}, {"w": "not", "t": 69.63}, {"w": "bring", "t": 70.0}, {"w": "flowers.", "t": 70.38}, {"w": "They", "t": 70.75}, {"w": "bring", "t": 71.12}, {"w": "pebbles!", "t": 71.49}, {"w": "A", "t": 71.87}, {"w": "male", "t": 72.24}, {"w": "picks", "t": 72.61}, {"w": "up", "t": 72.99}, {"w": "a", "t": 73.36}, {"w": "smooth", "t": 73.73}, {"w": "stone", "t": 74.1}, {"w": "in", "t": 74.48}, {"w": "his", "t": 74.85}, {"w": "beak", "t": 75.22}, {"w": "and", "t": 75.59}, {"w": "walks", "t": 75.97}, {"w": "to", "t": 76.34}, {"w": "a", "t": 76.71}, {"w": "female,", "t": 77.08}, {"w": "with", "t": 77.46}, {"w": "courage.", "t": 77.83}, {"w": "If", "t": 78.2}, {"w": "she", "t": 78.57}, {"w": "likes", "t": 78.95}, {"w": "his", "t": 79.32}, {"w": "stone,", "t": 79.69}, {"w": "she", "t": 80.06}, {"w": "may", "t": 80.44}, {"w": "place", "t": 80.81}, {"w": "it", "t": 81.18}, {"w": "in", "t": 81.56}, {"w": "her", "t": 81.93}, {"w": "nest.", "t": 82.3}, {"w": "It", "t": 82.67}, {"w": "looks", "t": 83.05}, {"w": "like", "t": 83.42}, {"w": "a", "t": 83.79}, {"w": "proposal!", "t": 84.16}, {"w": "Scientists", "t": 84.54}, {"w": "watch", "t": 84.91}, {"w": "from", "t": 85.28}, {"w": "a", "t": 85.65}, {"w": "boat,", "t": 86.03}, {"w": "its", "t": 86.4}, {"w": "engine", "t": 86.77}, {"w": "humming", "t": 87.14}, {"w": "softly.", "t": 87.52}]}, {"start": 87.89, "end": 121.06, "en": "But the pebble is not just a pretty gift. It is the primary building material of the nest. The pair builds a round nest of stones, and the nest keeps the eggs safe and dry. When snow melts, the water runs between the stones instead of flooding the nest. Sharp ice could wound a chick's soft feet, so a dry nest matters. So the male is really saying, \"Look, I can build a safe home!\" Sometimes a male steals a stone from a neighbour's nest, and a fight erupts!", "title": "企鹅的鹅卵石求婚", "cn": "但这块小石头可不只是一件漂亮的礼物。它是筑巢的主要建筑材料。这对企鹅用石头筑起一个圆圆的巢，巢能让蛋保持安全和干燥。积雪融化时，水会从石头缝里流走，而不是淹进巢里。锋利的冰面可能会划伤雏鸟柔软的小脚，所以一个干燥的巢非常重要。于是雄企鹅其实是在说：\"看，我能建一个安全的家！\"有时候，一只雄企鹅会从邻居的巢里偷一块石头，于是就打起来了！", "words": [{"w": "But", "t": 87.89}, {"w": "the", "t": 88.26}, {"w": "pebble", "t": 88.64}, {"w": "is", "t": 89.01}, {"w": "not", "t": 89.38}, {"w": "just", "t": 89.75}, {"w": "a", "t": 90.13}, {"w": "pretty", "t": 90.5}, {"w": "gift.", "t": 90.87}, {"w": "It", "t": 91.24}, {"w": "is", "t": 91.62}, {"w": "the", "t": 91.99}, {"w": "primary", "t": 92.36}, {"w": "building", "t": 92.74}, {"w": "material", "t": 93.11}, {"w": "of", "t": 93.48}, {"w": "the", "t": 93.85}, {"w": "nest.", "t": 94.23}, {"w": "The", "t": 94.6}, {"w": "pair", "t": 94.97}, {"w": "builds", "t": 95.34}, {"w": "a", "t": 95.72}, {"w": "round", "t": 96.09}, {"w": "nest", "t": 96.46}, {"w": "of", "t": 96.83}, {"w": "stones,", "t": 97.21}, {"w": "and", "t": 97.58}, {"w": "the", "t": 97.95}, {"w": "nest", "t": 98.33}, {"w": "keeps", "t": 98.7}, {"w": "the", "t": 99.07}, {"w": "eggs", "t": 99.44}, {"w": "safe", "t": 99.82}, {"w": "and", "t": 100.19}, {"w": "dry.", "t": 100.56}, {"w": "When", "t": 100.93}, {"w": "snow", "t": 101.31}, {"w": "melts,", "t": 101.68}, {"w": "the", "t": 102.05}, {"w": "water", "t": 102.43}, {"w": "runs", "t": 102.8}, {"w": "between", "t": 103.17}, {"w": "the", "t": 103.54}, {"w": "stones", "t": 103.92}, {"w": "instead", "t": 104.29}, {"w": "of", "t": 104.66}, {"w": "flooding", "t": 105.03}, {"w": "the", "t": 105.41}, {"w": "nest.", "t": 105.78}, {"w": "Sharp", "t": 106.15}, {"w": "ice", "t": 106.52}, {"w": "could", "t": 106.9}, {"w": "wound", "t": 107.27}, {"w": "a", "t": 107.64}, {"w": "chick's", "t": 108.02}, {"w": "soft", "t": 108.39}, {"w": "feet,", "t": 108.76}, {"w": "so", "t": 109.13}, {"w": "a", "t": 109.51}, {"w": "dry", "t": 109.88}, {"w": "nest", "t": 110.25}, {"w": "matters.", "t": 110.62}, {"w": "So", "t": 111.0}, {"w": "the", "t": 111.37}, {"w": "male", "t": 111.74}, {"w": "is", "t": 112.12}, {"w": "really", "t": 112.49}, {"w": "saying,", "t": 112.86}, {"w": "\"Look,", "t": 113.23}, {"w": "I", "t": 113.61}, {"w": "can", "t": 113.98}, {"w": "build", "t": 114.35}, {"w": "a", "t": 114.72}, {"w": "safe", "t": 115.1}, {"w": "home!\"", "t": 115.47}, {"w": "Sometimes", "t": 115.84}, {"w": "a", "t": 116.21}, {"w": "male", "t": 116.59}, {"w": "steals", "t": 116.96}, {"w": "a", "t": 117.33}, {"w": "stone", "t": 117.71}, {"w": "from", "t": 118.08}, {"w": "a", "t": 118.45}, {"w": "neighbour's", "t": 118.82}, {"w": "nest,", "t": 119.2}, {"w": "and", "t": 119.57}, {"w": "a", "t": 119.94}, {"w": "fight", "t": 120.31}, {"w": "erupts!", "t": 120.69}]}, {"start": 121.06, "end": 139.32, "en": "To everyone's delight, the pair works together, taking turns on the eggs and fetching more stones. Their footprints fade in the snow, but their little stone nest stays. A penguin's proposal is not about a diamond ring. It is about teamwork and a safe place for babies to grow.", "title": "企鹅的鹅卵石求婚", "cn": "让所有人高兴的是，这对企鹅随后一起合作，轮流孵蛋、轮流找石头。它们的脚印消失在雪地里，但它们的小石头巢留了下来。企鹅的\"求婚\"与钻石戒指无关。它关乎合作，以及一个能让宝宝们安全长大的地方。", "words": [{"w": "To", "t": 121.06}, {"w": "everyone's", "t": 121.43}, {"w": "delight,", "t": 121.81}, {"w": "the", "t": 122.18}, {"w": "pair", "t": 122.55}, {"w": "works", "t": 122.92}, {"w": "together,", "t": 123.3}, {"w": "taking", "t": 123.67}, {"w": "turns", "t": 124.04}, {"w": "on", "t": 124.41}, {"w": "the", "t": 124.79}, {"w": "eggs", "t": 125.16}, {"w": "and", "t": 125.53}, {"w": "fetching", "t": 125.9}, {"w": "more", "t": 126.28}, {"w": "stones.", "t": 126.65}, {"w": "Their", "t": 127.02}, {"w": "footprints", "t": 127.4}, {"w": "fade", "t": 127.77}, {"w": "in", "t": 128.14}, {"w": "the", "t": 128.51}, {"w": "snow,", "t": 128.89}, {"w": "but", "t": 129.26}, {"w": "their", "t": 129.63}, {"w": "little", "t": 130.0}, {"w": "stone", "t": 130.38}, {"w": "nest", "t": 130.75}, {"w": "stays.", "t": 131.12}, {"w": "A", "t": 131.49}, {"w": "penguin's", "t": 131.87}, {"w": "proposal", "t": 132.24}, {"w": "is", "t": 132.61}, {"w": "not", "t": 132.98}, {"w": "about", "t": 133.36}, {"w": "a", "t": 133.73}, {"w": "diamond", "t": 134.1}, {"w": "ring.", "t": 134.48}, {"w": "It", "t": 134.85}, {"w": "is", "t": 135.22}, {"w": "about", "t": 135.59}, {"w": "teamwork", "t": 135.97}, {"w": "and", "t": 136.34}, {"w": "a", "t": 136.71}, {"w": "safe", "t": 137.08}, {"w": "place", "t": 137.46}, {"w": "for", "t": 137.83}, {"w": "babies", "t": 138.2}, {"w": "to", "t": 138.57}, {"w": "grow.", "t": 138.95}]}, {"start": 154.9, "end": 180.09, "en": "Our second hero is the koala, a grey furry animal from Australia. It sleeps most of the day in a eucalyptus tree, holding on tight. By coincidence, a scientist who was holding a koala looked closely at its fingers — and got a big surprise. Under the soft flesh of its fingertips were tiny ridges, loops, and whorls. They looked just like human fingerprints!", "title": "考拉的指纹", "cn": "我们的第二位主角是考拉，一种来自澳大利亚的灰色毛茸茸的动物。它一天中的大部分时间都在桉树上睡觉，紧紧抱住树干。巧合的是，一位抱着考拉的科学家仔细看了看它的手指——结果大吃一惊。在它指尖柔软的肉里，有细小的纹路、箕形纹和斗形纹。它们看起来简直和人类的指纹一模一样！", "words": [{"w": "Our", "t": 154.9}, {"w": "second", "t": 155.29}, {"w": "hero", "t": 155.69}, {"w": "is", "t": 156.08}, {"w": "the", "t": 156.47}, {"w": "koala,", "t": 156.87}, {"w": "a", "t": 157.26}, {"w": "grey", "t": 157.66}, {"w": "furry", "t": 158.05}, {"w": "animal", "t": 158.44}, {"w": "from", "t": 158.84}, {"w": "Australia.", "t": 159.23}, {"w": "It", "t": 159.62}, {"w": "sleeps", "t": 160.02}, {"w": "most", "t": 160.41}, {"w": "of", "t": 160.8}, {"w": "the", "t": 161.2}, {"w": "day", "t": 161.59}, {"w": "in", "t": 161.98}, {"w": "a", "t": 162.38}, {"w": "eucalyptus", "t": 162.77}, {"w": "tree,", "t": 163.17}, {"w": "holding", "t": 163.56}, {"w": "on", "t": 163.95}, {"w": "tight.", "t": 164.35}, {"w": "By", "t": 164.74}, {"w": "coincidence,", "t": 165.13}, {"w": "a", "t": 165.53}, {"w": "scientist", "t": 165.92}, {"w": "who", "t": 166.31}, {"w": "was", "t": 166.71}, {"w": "holding", "t": 167.1}, {"w": "a", "t": 167.5}, {"w": "koala", "t": 167.89}, {"w": "looked", "t": 168.28}, {"w": "closely", "t": 168.68}, {"w": "at", "t": 169.07}, {"w": "its", "t": 169.46}, {"w": "fingers", "t": 169.86}, {"w": "—", "t": 170.25}, {"w": "and", "t": 170.64}, {"w": "got", "t": 171.04}, {"w": "a", "t": 171.43}, {"w": "big", "t": 171.82}, {"w": "surprise.", "t": 172.22}, {"w": "Under", "t": 172.61}, {"w": "the", "t": 173.01}, {"w": "soft", "t": 173.4}, {"w": "flesh", "t": 173.79}, {"w": "of", "t": 174.19}, {"w": "its", "t": 174.58}, {"w": "fingertips", "t": 174.97}, {"w": "were", "t": 175.37}, {"w": "tiny", "t": 175.76}, {"w": "ridges,", "t": 176.15}, {"w": "loops,", "t": 176.55}, {"w": "and", "t": 176.94}, {"w": "whorls.", "t": 177.33}, {"w": "They", "t": 177.73}, {"w": "looked", "t": 178.12}, {"w": "just", "t": 178.52}, {"w": "like", "t": 178.91}, {"w": "human", "t": 179.3}, {"w": "fingerprints!", "t": 179.7}]}, {"start": 180.09, "end": 205.28, "en": "The scientist studied the prints under a microscope, and the surprise grew bigger. Even experts could hardly tell a koala's print from a human's! How can this be? Humans and koalas are not close cousins at all. Yet both grew the same kind of skin on their fingers. Scientists call this convergent evolution: two different animals solving the same problem in the same way.", "title": "考拉的指纹", "cn": "科学家在显微镜下研究这些纹路，惊讶更甚。连专家都几乎分不清考拉的指纹和人类的指纹！这怎么可能呢？人类和考拉根本不是近亲。然而，它们的手指上却长出了同一种皮肤。科学家把这叫做趋同进化：两种不同的动物，用同样的方式解决同一个问题。", "words": [{"w": "The", "t": 180.09}, {"w": "scientist", "t": 180.48}, {"w": "studied", "t": 180.88}, {"w": "the", "t": 181.27}, {"w": "prints", "t": 181.66}, {"w": "under", "t": 182.06}, {"w": "a", "t": 182.45}, {"w": "microscope,", "t": 182.85}, {"w": "and", "t": 183.24}, {"w": "the", "t": 183.63}, {"w": "surprise", "t": 184.03}, {"w": "grew", "t": 184.42}, {"w": "bigger.", "t": 184.81}, {"w": "Even", "t": 185.21}, {"w": "experts", "t": 185.6}, {"w": "could", "t": 185.99}, {"w": "hardly", "t": 186.39}, {"w": "tell", "t": 186.78}, {"w": "a", "t": 187.17}, {"w": "koala's", "t": 187.57}, {"w": "print", "t": 187.96}, {"w": "from", "t": 188.36}, {"w": "a", "t": 188.75}, {"w": "human's!", "t": 189.14}, {"w": "How", "t": 189.54}, {"w": "can", "t": 189.93}, {"w": "this", "t": 190.32}, {"w": "be?", "t": 190.72}, {"w": "Humans", "t": 191.11}, {"w": "and", "t": 191.5}, {"w": "koalas", "t": 191.9}, {"w": "are", "t": 192.29}, {"w": "not", "t": 192.69}, {"w": "close", "t": 193.08}, {"w": "cousins", "t": 193.47}, {"w": "at", "t": 193.87}, {"w": "all.", "t": 194.26}, {"w": "Yet", "t": 194.65}, {"w": "both", "t": 195.05}, {"w": "grew", "t": 195.44}, {"w": "the", "t": 195.83}, {"w": "same", "t": 196.23}, {"w": "kind", "t": 196.62}, {"w": "of", "t": 197.01}, {"w": "skin", "t": 197.41}, {"w": "on", "t": 197.8}, {"w": "their", "t": 198.2}, {"w": "fingers.", "t": 198.59}, {"w": "Scientists", "t": 198.98}, {"w": "call", "t": 199.38}, {"w": "this", "t": 199.77}, {"w": "convergent", "t": 200.16}, {"w": "evolution:", "t": 200.56}, {"w": "two", "t": 200.95}, {"w": "different", "t": 201.34}, {"w": "animals", "t": 201.74}, {"w": "solving", "t": 202.13}, {"w": "the", "t": 202.52}, {"w": "same", "t": 202.92}, {"w": "problem", "t": 203.31}, {"w": "in", "t": 203.71}, {"w": "the", "t": 204.1}, {"w": "same", "t": 204.49}, {"w": "way.", "t": 204.89}]}, {"start": 205.28, "end": 226.54, "en": "For the koala, the grip is everything. Its ridges help it hold smooth branches and pick soft leaves, like your fingerprints help you hold a pencil. So when you press your finger on a window, imagine a koala doing the same in a tree. Two hands, two worlds — and almost the same print!", "title": "考拉的指纹", "cn": "对考拉来说，抓握就是一切。它的纹路帮助它抓住光滑的树枝、摘取柔软的树叶，就像你的指纹帮助你握住铅笔一样。所以当你把手指按在窗户上时，想象一下，一只考拉正在树上做着同样的事。两双手，两个世界——指纹却几乎相同！", "words": [{"w": "For", "t": 205.28}, {"w": "the", "t": 205.67}, {"w": "koala,", "t": 206.07}, {"w": "the", "t": 206.46}, {"w": "grip", "t": 206.85}, {"w": "is", "t": 207.25}, {"w": "everything.", "t": 207.64}, {"w": "Its", "t": 208.04}, {"w": "ridges", "t": 208.43}, {"w": "help", "t": 208.82}, {"w": "it", "t": 209.22}, {"w": "hold", "t": 209.61}, {"w": "smooth", "t": 210.0}, {"w": "branches", "t": 210.4}, {"w": "and", "t": 210.79}, {"w": "pick", "t": 211.19}, {"w": "soft", "t": 211.58}, {"w": "leaves,", "t": 211.97}, {"w": "like", "t": 212.37}, {"w": "your", "t": 212.76}, {"w": "fingerprints", "t": 213.15}, {"w": "help", "t": 213.55}, {"w": "you", "t": 213.94}, {"w": "hold", "t": 214.34}, {"w": "a", "t": 214.73}, {"w": "pencil.", "t": 215.12}, {"w": "So", "t": 215.52}, {"w": "when", "t": 215.91}, {"w": "you", "t": 216.3}, {"w": "press", "t": 216.7}, {"w": "your", "t": 217.09}, {"w": "finger", "t": 217.48}, {"w": "on", "t": 217.88}, {"w": "a", "t": 218.27}, {"w": "window,", "t": 218.67}, {"w": "imagine", "t": 219.06}, {"w": "a", "t": 219.45}, {"w": "koala", "t": 219.85}, {"w": "doing", "t": 220.24}, {"w": "the", "t": 220.63}, {"w": "same", "t": 221.03}, {"w": "in", "t": 221.42}, {"w": "a", "t": 221.82}, {"w": "tree.", "t": 222.21}, {"w": "Two", "t": 222.6}, {"w": "hands,", "t": 223.0}, {"w": "two", "t": 223.39}, {"w": "worlds", "t": 223.78}, {"w": "—", "t": 224.18}, {"w": "and", "t": 224.57}, {"w": "almost", "t": 224.97}, {"w": "the", "t": 225.36}, {"w": "same", "t": 225.75}, {"w": "print!", "t": 226.15}]}, {"start": 243.0, "end": 269.07, "en": "Here's today's idiom: \"like two peas in a pod.\" Peas in one pod look the same! So when two people are always together, we say they are like two peas in a pod. Listen: Pip and Pop are two penguin chicks. They waddle together, nap together, and lose their feathers on the same day. \"You two are like two peas in a pod!\" laughs their mother.", "title": "今日俚语", "cn": "今天的俚语是\"like two peas in a pod\"（像豌豆荚里的两颗豌豆）。同一个豆荚里的豌豆看起来一模一样！所以当两个人总是在一起时，我们就说他们像豌豆荚里的两颗豌豆。听这个小故事：Pip 和 Pop 是两只企鹅宝宝。它们一起摇摇摆摆地走路，一起打盹，还在同一天换掉羽毛。\"你们俩真像豌豆荚里的两颗豌豆！\"它们的妈妈笑着说。", "words": [{"w": "Here's", "t": 243.0}, {"w": "today's", "t": 243.4}, {"w": "idiom:", "t": 243.79}, {"w": "\"like", "t": 244.19}, {"w": "two", "t": 244.58}, {"w": "peas", "t": 244.97}, {"w": "in", "t": 245.37}, {"w": "a", "t": 245.76}, {"w": "pod.\"", "t": 246.16}, {"w": "Peas", "t": 246.56}, {"w": "in", "t": 246.95}, {"w": "one", "t": 247.34}, {"w": "pod", "t": 247.74}, {"w": "look", "t": 248.13}, {"w": "the", "t": 248.53}, {"w": "same!", "t": 248.93}, {"w": "So", "t": 249.32}, {"w": "when", "t": 249.72}, {"w": "two", "t": 250.11}, {"w": "people", "t": 250.5}, {"w": "are", "t": 250.9}, {"w": "always", "t": 251.29}, {"w": "together,", "t": 251.69}, {"w": "we", "t": 252.09}, {"w": "say", "t": 252.48}, {"w": "they", "t": 252.88}, {"w": "are", "t": 253.27}, {"w": "like", "t": 253.66}, {"w": "two", "t": 254.06}, {"w": "peas", "t": 254.45}, {"w": "in", "t": 254.85}, {"w": "a", "t": 255.25}, {"w": "pod.", "t": 255.64}, {"w": "Listen:", "t": 256.03}, {"w": "Pip", "t": 256.43}, {"w": "and", "t": 256.82}, {"w": "Pop", "t": 257.22}, {"w": "are", "t": 257.62}, {"w": "two", "t": 258.01}, {"w": "penguin", "t": 258.4}, {"w": "chicks.", "t": 258.8}, {"w": "They", "t": 259.19}, {"w": "waddle", "t": 259.59}, {"w": "together,", "t": 259.99}, {"w": "nap", "t": 260.38}, {"w": "together,", "t": 260.77}, {"w": "and", "t": 261.17}, {"w": "lose", "t": 261.56}, {"w": "their", "t": 261.96}, {"w": "feathers", "t": 262.36}, {"w": "on", "t": 262.75}, {"w": "the", "t": 263.14}, {"w": "same", "t": 263.54}, {"w": "day.", "t": 263.94}, {"w": "\"You", "t": 264.33}, {"w": "two", "t": 264.73}, {"w": "are", "t": 265.12}, {"w": "like", "t": 265.51}, {"w": "two", "t": 265.91}, {"w": "peas", "t": 266.31}, {"w": "in", "t": 266.7}, {"w": "a", "t": 267.09}, {"w": "pod!\"", "t": 267.49}, {"w": "laughs", "t": 267.88}, {"w": "their", "t": 268.28}, {"w": "mother.", "t": 268.68}]}, {"start": 282.81, "end": 302.7, "en": "Let's think about our stories. A penguin builds a nest stone by stone, and a koala's fingers carry prints like ours. Two questions. First: what gift would you bring to ask a friend to build with you? Second: what do your fingerprints help you do? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事。企鹅一块石头一块石头地筑巢，考拉的手指上带着和我们一样的纹路。两个问题。第一：如果你想请一位朋友和你一起搭建东西，你会带什么礼物去？第二：你的指纹能帮你做什么？和家人聊聊吧！", "words": [{"w": "Let's", "t": 282.81}, {"w": "think", "t": 283.2}, {"w": "about", "t": 283.59}, {"w": "our", "t": 283.98}, {"w": "stories.", "t": 284.37}, {"w": "A", "t": 284.76}, {"w": "penguin", "t": 285.15}, {"w": "builds", "t": 285.54}, {"w": "a", "t": 285.93}, {"w": "nest", "t": 286.32}, {"w": "stone", "t": 286.71}, {"w": "by", "t": 287.1}, {"w": "stone,", "t": 287.49}, {"w": "and", "t": 287.88}, {"w": "a", "t": 288.27}, {"w": "koala's", "t": 288.66}, {"w": "fingers", "t": 289.05}, {"w": "carry", "t": 289.44}, {"w": "prints", "t": 289.83}, {"w": "like", "t": 290.22}, {"w": "ours.", "t": 290.61}, {"w": "Two", "t": 291.0}, {"w": "questions.", "t": 291.39}, {"w": "First:", "t": 291.78}, {"w": "what", "t": 292.17}, {"w": "gift", "t": 292.56}, {"w": "would", "t": 292.95}, {"w": "you", "t": 293.34}, {"w": "bring", "t": 293.73}, {"w": "to", "t": 294.12}, {"w": "ask", "t": 294.51}, {"w": "a", "t": 294.9}, {"w": "friend", "t": 295.29}, {"w": "to", "t": 295.68}, {"w": "build", "t": 296.07}, {"w": "with", "t": 296.46}, {"w": "you?", "t": 296.85}, {"w": "Second:", "t": 297.24}, {"w": "what", "t": 297.63}, {"w": "do", "t": 298.02}, {"w": "your", "t": 298.41}, {"w": "fingerprints", "t": 298.8}, {"w": "help", "t": 299.19}, {"w": "you", "t": 299.58}, {"w": "do?", "t": 299.97}, {"w": "Talk", "t": 300.36}, {"w": "about", "t": 300.75}, {"w": "it", "t": 301.14}, {"w": "with", "t": 301.53}, {"w": "your", "t": 301.92}, {"w": "family!", "t": 302.31}]}, {"start": 315.96, "end": 328.92, "en": "That's all for today, young explorers. Remember: a small stone can start a family, and your fingers carry a wonder like a koala's. Stay curious, and keep exploring. See you tomorrow morning!", "title": "告别", "cn": "今天的节目就到这里，小小探险家们。记住：一颗小石头可以开启一个家庭，你的手指上也藏着一个像考拉一样的奇迹。保持好奇心，继续探索吧。明天早上见！", "words": [{"w": "That's", "t": 315.96}, {"w": "all", "t": 316.37}, {"w": "for", "t": 316.77}, {"w": "today,", "t": 317.17}, {"w": "young", "t": 317.58}, {"w": "explorers.", "t": 317.99}, {"w": "Remember:", "t": 318.39}, {"w": "a", "t": 318.79}, {"w": "small", "t": 319.2}, {"w": "stone", "t": 319.61}, {"w": "can", "t": 320.01}, {"w": "start", "t": 320.41}, {"w": "a", "t": 320.82}, {"w": "family,", "t": 321.23}, {"w": "and", "t": 321.63}, {"w": "your", "t": 322.03}, {"w": "fingers", "t": 322.44}, {"w": "carry", "t": 322.85}, {"w": "a", "t": 323.25}, {"w": "wonder", "t": 323.65}, {"w": "like", "t": 324.06}, {"w": "a", "t": 324.47}, {"w": "koala's.", "t": 324.87}, {"w": "Stay", "t": 325.27}, {"w": "curious,", "t": 325.68}, {"w": "and", "t": 326.09}, {"w": "keep", "t": 326.49}, {"w": "exploring.", "t": 326.89}, {"w": "See", "t": 327.3}, {"w": "you", "t": 327.71}, {"w": "tomorrow", "t": 328.11}, {"w": "morning!", "t": 328.51}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol24/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
