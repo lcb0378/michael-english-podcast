@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.20 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol20/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol20/cover.png" controls playsinline preload="metadata"></video>
+<h1>🦛 Vol.20 · 团宠小河马与冻成冰块的青蛙</h1>
+<div class="meta">英文 599 词 ｜ 音频 6分12秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol20/story-hippo.png" alt="团宠小河马">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol20/story-frog.png" alt="冻成冰块的青蛙">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">a blessing in disguise</span> <span class="phon">/ə ˈblesɪŋ ɪn dɪsˈɡaɪz/</span> (习语) 藏在坏事里的好事；塞翁失马，焉知非福<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: The terrible haircut was <b>a blessing in disguise</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">erupt</span> <span class="phon">/ɪˈrʌpt/</span> (v.) 爆发；喷发<br>
+  
+  <div class="example">Example: Crowds <b>erupted</b> with laughter when she yawned.</div>
+</div>
+<div class="vocab">
+  <span class="word">astonish</span> <span class="phon">/əˈstɒnɪʃ/</span> (v.) 使惊讶<br>
+  
+  <div class="example">Example: Everyone seemed <b>astonished</b> by the tiny star.</div>
+</div>
+<div class="vocab">
+  <span class="word">awkward</span> <span class="phon">/ˈɔːkwəd/</span> (adj.) 笨拙的；尴尬的<br>
+  
+  <div class="example">Example: The baby hippo takes <b>awkward</b> little steps.</div>
+</div>
+<div class="vocab">
+  <span class="word">appeal</span> <span class="phon">/əˈpiːl/</span> (n.) 吸引力；魅力<br>
+  
+  <div class="example">Example: How could one small hippo hold so much <b>appeal</b>?</div>
+</div>
+<div class="vocab">
+  <span class="word">dynasty</span> <span class="phon">/ˈdɪnəsti/</span> (n.) 王朝；世家<br>
+  
+  <div class="example">Example: She comes from a pork <b>dynasty</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">media</span> <span class="phon">/ˈmiːdiə/</span> (n.) 媒体<br>
+  
+  <div class="example">Example: Her keeper posted videos on social <b>media</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">damage</span> <span class="phon">/ˈdæmɪdʒ/</span> (n./v.) 损害；损伤<br>
+  
+  <div class="example">Example: The sugar protects each cell from <b>damage</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">glucose</span> <span class="phon">/ˈɡluːkəʊs/</span> (n.) 葡萄糖<br>
+  
+  <div class="example">Example: Its liver fills its cells with <b>glucose</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">hibernate</span> <span class="phon">/ˈhaɪbəneɪt/</span> (v.) 冬眠<br>
+  
+  <div class="example">Example: Most frogs <b>hibernate</b> deep under the ground.</div>
+</div>
+<div class="vocab">
+  <span class="word">significance</span> <span class="phon">/sɪɡˈnɪfɪkəns/</span> (n.) 意义；重要性<br>
+  
+  <div class="example">Example: This trick has real <b>significance</b> for us.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 10, "ncols": 14, "words": [{"word": "MEDIA", "row": 0, "col": 1, "dir": "D", "num": 1, "cn": "媒体", "clue": "Social ___ is where her keeper posted the videos."}, {"word": "GLUCOSE", "row": 2, "col": 4, "dir": "D", "num": 2, "cn": "葡萄糖", "clue": "A sweet sugar the frog's liver makes; it works like antifreeze in its cells. Example: \"Its liver fills its cells with ___.\""}, {"word": "AWKWARD", "row": 2, "col": 12, "dir": "D", "num": 3, "cn": "笨拙的", "clue": "Clumsy and funny to watch. The baby hippo takes ___ little steps."}, {"word": "VIRAL", "row": 3, "col": 0, "dir": "A", "num": 4, "cn": "（在网上）疯传的", "clue": "Spread all over the internet very fast. Her videos went ___."}, {"word": "FROZEN", "row": 3, "col": 6, "dir": "D", "num": 5, "cn": "冻住的；结冰的", "clue": "Turned into ice. The frog stays ___ solid for months."}, {"word": "DYNASTY", "row": 3, "col": 8, "dir": "D", "num": 6, "cn": "王朝；家族世系", "clue": "A family line that keeps the same name or job. Moo Deng comes from a pork ___ of hippos."}, {"word": "ERUPT", "row": 3, "col": 10, "dir": "D", "num": 7, "cn": "爆发（出欢笑声）", "clue": "To burst out suddenly. The crowds ___ed with laughter. (past form in the text)"}, {"word": "HIPPO", "row": 6, "col": 0, "dir": "A", "num": 8, "cn": "河马", "clue": "A big round water animal; Moo Deng is a pygmy one."}, {"word": "APPEAL", "row": 6, "col": 8, "dir": "A", "num": 9, "cn": "吸引力", "clue": "The charm that makes people love something. One small hippo holds so much ___."}, {"word": "HIBERNATE", "row": 8, "col": 1, "dir": "A", "num": 10, "cn": "（动物）冬眠", "clue": "To sleep through the whole winter, the way the wood frog does."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. How did Moo Deng get her name?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. Her keeper named her after his mother</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. Fans chose it in a vote</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. She was named after a famous song</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. The zoo director picked it from a book</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. What happened after the keeper posted her videos on social media?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. The zoo closed for a month</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. Visitor numbers fell</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. Visitor numbers jumped to three times their old size</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. She moved to another zoo</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. What happens to the wood frog in winter?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. It digs a deep hole and sleeps</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. Its body freezes and its heart stops beating</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. It swims under the ice</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. It travels south to warm forests</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does &quot;a blessing in disguise&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. A gift wrapped in pretty paper</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. A costume for a party</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. A good thing hiding inside a bad thing</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. A blessing you must hide from friends</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：C</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [1, 2, 1, 2];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;"><b class="kw">Frozen</b> solid for months, the wood frog <b class="kw">does not</b> breathe or move, <b class="kw">yet</b> when spring warms the pond, its heart starts again, <b class="kw">as if</b> nothing had happened.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li>句首 <i>Frozen solid for months</i> 是<b>过去分词短语作状语</b>：它省略了主语和 be 动词，完整意思是 <i>(After it is) frozen solid for months</i>（被冻得硬邦邦的，达数月之久）。分词短语的逻辑主语必须和主句主语是同一个——这里都是 <i>the wood frog</i>，所以可以放心省略。读到句首的分词短语，先在心里把它补全。</li>
+  <li>主干是 <i>the wood frog does not breathe or move</i>：否定句里两个并列动作 <i>breathe / move</i> 用 <i>or</i> 连接（否定句中并列成分用 or，不用 and），意思是"既不呼吸，也不动弹"。</li>
+  <li><i>yet</i> 是<b>转折连词</b>（可是、然而）：前面说青蛙冻得像死了，后面却说春天一来心脏又跳了——<i>yet</i> 一出场，就预告"反转来了"。</li>
+  <li>句尾 <i>as if nothing had happened</i> 里，<i>as if</i> 意为"仿佛、好像"，引导<b>方式状语从句</b>；从句用了过去完成时 <i>had happened</i>，表示"仿佛（在那之前）什么都没发生过"——其实明明冻了几个月，<i>as if</i> + 过去完成时把这种"装作没事"的语气拉满。</li>
+  <li>整句逻辑链：<b>冻了数月（分词短语交代状态）→ 不呼吸不动弹（主干）→ 然而春天一暖，心脏重启（yet 引出反转）→ 仿佛什么都没发生过（as if 收尾点睛）</b>。一句话讲完一只青蛙的"假死与重生"。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. 过去分词短语作状语：选出正确的词填入空格</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">____ under dead leaves, the wood frog waits for the cold.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">Hidden</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">Hiding</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">Hides</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：Hidden</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">____ with glucose, its cells stay safe all winter.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">Filling</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">Filled</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">Fills</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：Filled</p>
+</div>
+<p class="p4-gname">B. yet（转折连词）：选出正确的词填入空格</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">The frog looks quite dead, ____ its heart will start again in spring.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">because</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">so</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">yet</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：yet</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">The winter is long and bitter, ____ the little frog sleeps on safely.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">yet</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">because</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">so</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：yet</p>
+</div>
+<p class="p4-gname">C. as if（仿佛）：选出正确的词填入空格</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">In spring the frog hops away ____ nothing had happened.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">even if</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">as if</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">as well</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：as if</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">The baby hippo splashed happily, ____ she owned the whole pool.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">even if</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">as well</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">as if</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：as if</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>Tired after the long race, the swimmer smiled, as if the water had carried him home.</li>
+<li>The hippo slept all afternoon, yet her fans waited quietly, as if she were a queen.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwc"><span class="cwn">1</span><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">2</span><span class="cwl">G</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">3</span><span class="cwl">A</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">4</span><span class="cwl">V</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">5</span><span class="cwl">F</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">6</span><span class="cwl">D</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">7</span><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">W</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">Y</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">K</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">W</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">8</span><span class="cwl">H</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">Z</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">9</span><span class="cwl">A</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">L</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">10</span><span class="cwl">H</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">B</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">Y</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr></table></div>1 竖 → <b>MEDIA</b>（媒体）<br>2 竖 → <b>GLUCOSE</b>（葡萄糖）<br>3 竖 → <b>AWKWARD</b>（笨拙的）<br>4 横 → <b>VIRAL</b>（（在网上）疯传的）<br>5 竖 → <b>FROZEN</b>（冻住的；结冰的）<br>6 竖 → <b>DYNASTY</b>（王朝；家族世系）<br>7 竖 → <b>ERUPT</b>（爆发（出欢笑声））<br>8 横 → <b>HIPPO</b>（河马）<br>9 横 → <b>APPEAL</b>（吸引力）<br>10 横 → <b>HIBERNATE</b>（（动物）冬眠）<br><br><b>B. Single Choice:</b><br>
+1 → <b>B</b>. The text says her name <i>"means 'bouncy pork' in Thai, and fans chose it in a vote."</i><br>
+2 → <b>C</b>. After the videos went viral, <i>"zoo visitor numbers jumped to three times their old size."</i><br>
+3 → <b>B</b>. The text says: <i>"Its blood freezes, its breathing stops, and its heart stops beating."</i><br>
+4 → <b>C</b>. The idiom means <i>"a good thing hiding inside a bad thing."</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. Hidden&nbsp;&nbsp;2. Filled<br>
+B. 1. yet&nbsp;&nbsp;2. yet<br>
+C. 1. as if&nbsp;&nbsp;2. as if<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol20/Vol20_晚读讲义_团宠小河马与冻成冰块的青蛙_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 28.91, "end": 54.4, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! This is our twentieth show together! Today we meet a baby hippo who became a superstar, and a frog that turns into ice every winter — and wakes up in spring! Two animals, two superpowers. One loves the camera. One loves the cold. Let's go!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！这是我们在一起的第二十期节目啦！今天我们要认识一只成了大明星的河马宝宝，还有一只每年冬天都把自己冻成冰、春天又醒过来的青蛙！两只动物，两种超能力。一个爱镜头，一个爱严寒。出发吧！", "words": [{"w": "Hello,", "t": 28.91}, {"w": "young", "t": 29.37}, {"w": "explorers,", "t": 29.84}, {"w": "and", "t": 30.3}, {"w": "welcome", "t": 30.76}, {"w": "back", "t": 31.23}, {"w": "to", "t": 31.69}, {"w": "Michael's", "t": 32.15}, {"w": "Morning", "t": 32.62}, {"w": "Listening!", "t": 33.08}, {"w": "This", "t": 33.54}, {"w": "is", "t": 34.01}, {"w": "our", "t": 34.47}, {"w": "twentieth", "t": 34.93}, {"w": "show", "t": 35.4}, {"w": "together!", "t": 35.86}, {"w": "Today", "t": 36.33}, {"w": "we", "t": 36.79}, {"w": "meet", "t": 37.25}, {"w": "a", "t": 37.72}, {"w": "baby", "t": 38.18}, {"w": "hippo", "t": 38.64}, {"w": "who", "t": 39.11}, {"w": "became", "t": 39.57}, {"w": "a", "t": 40.03}, {"w": "superstar,", "t": 40.5}, {"w": "and", "t": 40.96}, {"w": "a", "t": 41.42}, {"w": "frog", "t": 41.89}, {"w": "that", "t": 42.35}, {"w": "turns", "t": 42.81}, {"w": "into", "t": 43.28}, {"w": "ice", "t": 43.74}, {"w": "every", "t": 44.2}, {"w": "winter", "t": 44.67}, {"w": "—", "t": 45.13}, {"w": "and", "t": 45.59}, {"w": "wakes", "t": 46.06}, {"w": "up", "t": 46.52}, {"w": "in", "t": 46.98}, {"w": "spring!", "t": 47.45}, {"w": "Two", "t": 47.91}, {"w": "animals,", "t": 48.38}, {"w": "two", "t": 48.84}, {"w": "superpowers.", "t": 49.3}, {"w": "One", "t": 49.77}, {"w": "loves", "t": 50.23}, {"w": "the", "t": 50.69}, {"w": "camera.", "t": 51.16}, {"w": "One", "t": 51.62}, {"w": "loves", "t": 52.08}, {"w": "the", "t": 52.55}, {"w": "cold.", "t": 53.01}, {"w": "Let's", "t": 53.47}, {"w": "go!", "t": 53.94}]}, {"start": 74.14, "end": 99.11, "en": "Say hello to Moo Deng, a pygmy hippo at Khao Kheow Open Zoo in Thailand. She is much smaller than her big cousins, and rounder than a beach ball. Her name means \"bouncy pork\" in Thai, and fans chose it in a vote. She comes from a pork dynasty: Mother Jona, Father Tony, and all her brothers and sisters carry porky names.", "title": "团宠小河马", "cn": "来认识一下弹跳猪（Moo Deng）吧，它是泰国绿山野生动物园里的一只倭河马。它比它的大个子亲戚们小得多，圆得像个沙滩球。它的名字在泰语里意思是“弹跳的猪肉”，是粉丝们投票选出来的。它出身于一个“猪肉世家”：妈妈 Jona、爸爸 Tony，还有它的哥哥姐姐们，个个都带着和猪肉有关的名字。", "words": [{"w": "Say", "t": 74.14}, {"w": "hello", "t": 74.54}, {"w": "to", "t": 74.95}, {"w": "Moo", "t": 75.35}, {"w": "Deng,", "t": 75.75}, {"w": "a", "t": 76.15}, {"w": "pygmy", "t": 76.56}, {"w": "hippo", "t": 76.96}, {"w": "at", "t": 77.36}, {"w": "Khao", "t": 77.76}, {"w": "Kheow", "t": 78.17}, {"w": "Open", "t": 78.57}, {"w": "Zoo", "t": 78.97}, {"w": "in", "t": 79.38}, {"w": "Thailand.", "t": 79.78}, {"w": "She", "t": 80.18}, {"w": "is", "t": 80.58}, {"w": "much", "t": 80.99}, {"w": "smaller", "t": 81.39}, {"w": "than", "t": 81.79}, {"w": "her", "t": 82.19}, {"w": "big", "t": 82.6}, {"w": "cousins,", "t": 83.0}, {"w": "and", "t": 83.4}, {"w": "rounder", "t": 83.81}, {"w": "than", "t": 84.21}, {"w": "a", "t": 84.61}, {"w": "beach", "t": 85.01}, {"w": "ball.", "t": 85.42}, {"w": "Her", "t": 85.82}, {"w": "name", "t": 86.22}, {"w": "means", "t": 86.62}, {"w": "\"bouncy", "t": 87.03}, {"w": "pork\"", "t": 87.43}, {"w": "in", "t": 87.83}, {"w": "Thai,", "t": 88.24}, {"w": "and", "t": 88.64}, {"w": "fans", "t": 89.04}, {"w": "chose", "t": 89.44}, {"w": "it", "t": 89.85}, {"w": "in", "t": 90.25}, {"w": "a", "t": 90.65}, {"w": "vote.", "t": 91.06}, {"w": "She", "t": 91.46}, {"w": "comes", "t": 91.86}, {"w": "from", "t": 92.26}, {"w": "a", "t": 92.67}, {"w": "pork", "t": 93.07}, {"w": "dynasty:", "t": 93.47}, {"w": "Mother", "t": 93.87}, {"w": "Jona,", "t": 94.28}, {"w": "Father", "t": 94.68}, {"w": "Tony,", "t": 95.08}, {"w": "and", "t": 95.49}, {"w": "all", "t": 95.89}, {"w": "her", "t": 96.29}, {"w": "brothers", "t": 96.69}, {"w": "and", "t": 97.1}, {"w": "sisters", "t": 97.5}, {"w": "carry", "t": 97.9}, {"w": "porky", "t": 98.3}, {"w": "names.", "t": 98.71}]}, {"start": 99.11, "end": 116.02, "en": "Her keeper, Atthapon, began posting videos of her on social media — splashing in her pool, opening her mouth wide, taking awkward little steps. The videos went viral worldwide. Soon everyone seemed astonished: how could one small hippo hold so much appeal?", "title": "团宠小河马", "cn": "它的饲养员 Atthapon 开始把它的短视频发到社交媒体上——它在水池里扑腾，张大嘴巴，迈着笨拙的小步子。这些视频在全世界疯传。很快，所有人都惊讶不已：一只小小的河马，怎么会有这么大的吸引力？", "words": [{"w": "Her", "t": 99.11}, {"w": "keeper,", "t": 99.51}, {"w": "Atthapon,", "t": 99.92}, {"w": "began", "t": 100.32}, {"w": "posting", "t": 100.72}, {"w": "videos", "t": 101.12}, {"w": "of", "t": 101.53}, {"w": "her", "t": 101.93}, {"w": "on", "t": 102.33}, {"w": "social", "t": 102.73}, {"w": "media", "t": 103.14}, {"w": "—", "t": 103.54}, {"w": "splashing", "t": 103.94}, {"w": "in", "t": 104.34}, {"w": "her", "t": 104.75}, {"w": "pool,", "t": 105.15}, {"w": "opening", "t": 105.55}, {"w": "her", "t": 105.95}, {"w": "mouth", "t": 106.36}, {"w": "wide,", "t": 106.76}, {"w": "taking", "t": 107.16}, {"w": "awkward", "t": 107.56}, {"w": "little", "t": 107.97}, {"w": "steps.", "t": 108.37}, {"w": "The", "t": 108.77}, {"w": "videos", "t": 109.18}, {"w": "went", "t": 109.58}, {"w": "viral", "t": 109.98}, {"w": "worldwide.", "t": 110.38}, {"w": "Soon", "t": 110.79}, {"w": "everyone", "t": 111.19}, {"w": "seemed", "t": 111.59}, {"w": "astonished:", "t": 111.99}, {"w": "how", "t": 112.4}, {"w": "could", "t": 112.8}, {"w": "one", "t": 113.2}, {"w": "small", "t": 113.6}, {"w": "hippo", "t": 114.01}, {"w": "hold", "t": 114.41}, {"w": "so", "t": 114.81}, {"w": "much", "t": 115.21}, {"w": "appeal?", "t": 115.62}]}, {"start": 116.02, "end": 135.35, "en": "When she yawned or bounced across her pen, crowds erupted with laughter. Fans travelled far to see her, and zoo visitor numbers jumped to three times their old size. The zoo set up a live camera service, so fans on far continents could watch her splash and sleep.", "title": "团宠小河马", "cn": "当它打哈欠、或者在围栏里蹦来蹦去时，人群会爆发出一阵大笑。粉丝们从很远的地方赶来看它，动物园的游客量涨到了原来的三倍。动物园还开设了实时摄像服务，让远在其他大陆的粉丝也能看着它玩水和睡觉。", "words": [{"w": "When", "t": 116.02}, {"w": "she", "t": 116.42}, {"w": "yawned", "t": 116.83}, {"w": "or", "t": 117.23}, {"w": "bounced", "t": 117.63}, {"w": "across", "t": 118.03}, {"w": "her", "t": 118.44}, {"w": "pen,", "t": 118.84}, {"w": "crowds", "t": 119.24}, {"w": "erupted", "t": 119.64}, {"w": "with", "t": 120.05}, {"w": "laughter.", "t": 120.45}, {"w": "Fans", "t": 120.85}, {"w": "travelled", "t": 121.26}, {"w": "far", "t": 121.66}, {"w": "to", "t": 122.06}, {"w": "see", "t": 122.46}, {"w": "her,", "t": 122.87}, {"w": "and", "t": 123.27}, {"w": "zoo", "t": 123.67}, {"w": "visitor", "t": 124.07}, {"w": "numbers", "t": 124.48}, {"w": "jumped", "t": 124.88}, {"w": "to", "t": 125.28}, {"w": "three", "t": 125.69}, {"w": "times", "t": 126.09}, {"w": "their", "t": 126.49}, {"w": "old", "t": 126.89}, {"w": "size.", "t": 127.3}, {"w": "The", "t": 127.7}, {"w": "zoo", "t": 128.1}, {"w": "set", "t": 128.5}, {"w": "up", "t": 128.91}, {"w": "a", "t": 129.31}, {"w": "live", "t": 129.71}, {"w": "camera", "t": 130.11}, {"w": "service,", "t": 130.52}, {"w": "so", "t": 130.92}, {"w": "fans", "t": 131.32}, {"w": "on", "t": 131.73}, {"w": "far", "t": 132.13}, {"w": "continents", "t": 132.53}, {"w": "could", "t": 132.93}, {"w": "watch", "t": 133.34}, {"w": "her", "t": 133.74}, {"w": "splash", "t": 134.14}, {"w": "and", "t": 134.54}, {"w": "sleep.", "t": 134.95}]}, {"start": 135.35, "end": 150.65, "en": "She got her own song, appeared in a comedy show, and even picked the winner of an election by choosing between two cakes! Best of all, her fame helps every pygmy hippo, an endangered species that needs protection.", "title": "团宠小河马", "cn": "它有了自己的专属歌曲，上过喜剧节目，甚至在两块蛋糕之间做选择，挑中了一场选举的赢家！最棒的是，它的走红帮助了所有的倭河马——这是一个需要保护的濒危物种。", "words": [{"w": "She", "t": 135.35}, {"w": "got", "t": 135.75}, {"w": "her", "t": 136.16}, {"w": "own", "t": 136.56}, {"w": "song,", "t": 136.96}, {"w": "appeared", "t": 137.36}, {"w": "in", "t": 137.77}, {"w": "a", "t": 138.17}, {"w": "comedy", "t": 138.57}, {"w": "show,", "t": 138.97}, {"w": "and", "t": 139.38}, {"w": "even", "t": 139.78}, {"w": "picked", "t": 140.18}, {"w": "the", "t": 140.58}, {"w": "winner", "t": 140.99}, {"w": "of", "t": 141.39}, {"w": "an", "t": 141.79}, {"w": "election", "t": 142.19}, {"w": "by", "t": 142.6}, {"w": "choosing", "t": 143.0}, {"w": "between", "t": 143.4}, {"w": "two", "t": 143.81}, {"w": "cakes!", "t": 144.21}, {"w": "Best", "t": 144.61}, {"w": "of", "t": 145.01}, {"w": "all,", "t": 145.42}, {"w": "her", "t": 145.82}, {"w": "fame", "t": 146.22}, {"w": "helps", "t": 146.62}, {"w": "every", "t": 147.03}, {"w": "pygmy", "t": 147.43}, {"w": "hippo,", "t": 147.83}, {"w": "an", "t": 148.23}, {"w": "endangered", "t": 148.64}, {"w": "species", "t": 149.04}, {"w": "that", "t": 149.44}, {"w": "needs", "t": 149.84}, {"w": "protection.", "t": 150.25}]}, {"start": 172.23, "end": 187.97, "en": "Now meet the wood frog of Alaska, the northernmost frog in the world. Most frogs hibernate deep under the ground. This one does not. When the cold comes, it climbs under dead leaves — and lets itself freeze.", "title": "冻成冰块的青蛙", "cn": "现在来认识一下阿拉斯加的木蛙，它是世界上分布最靠北的青蛙。大多数青蛙会在地底深处冬眠。这一只不会。寒冷到来时，它爬到枯叶下面——让自己冻起来。", "words": [{"w": "Now", "t": 172.23}, {"w": "meet", "t": 172.64}, {"w": "the", "t": 173.06}, {"w": "wood", "t": 173.47}, {"w": "frog", "t": 173.89}, {"w": "of", "t": 174.3}, {"w": "Alaska,", "t": 174.72}, {"w": "the", "t": 175.13}, {"w": "northernmost", "t": 175.54}, {"w": "frog", "t": 175.96}, {"w": "in", "t": 176.37}, {"w": "the", "t": 176.79}, {"w": "world.", "t": 177.2}, {"w": "Most", "t": 177.61}, {"w": "frogs", "t": 178.03}, {"w": "hibernate", "t": 178.44}, {"w": "deep", "t": 178.86}, {"w": "under", "t": 179.27}, {"w": "the", "t": 179.69}, {"w": "ground.", "t": 180.1}, {"w": "This", "t": 180.51}, {"w": "one", "t": 180.93}, {"w": "does", "t": 181.34}, {"w": "not.", "t": 181.76}, {"w": "When", "t": 182.17}, {"w": "the", "t": 182.59}, {"w": "cold", "t": 183.0}, {"w": "comes,", "t": 183.41}, {"w": "it", "t": 183.83}, {"w": "climbs", "t": 184.24}, {"w": "under", "t": 184.66}, {"w": "dead", "t": 185.07}, {"w": "leaves", "t": 185.48}, {"w": "—", "t": 185.9}, {"w": "and", "t": 186.31}, {"w": "lets", "t": 186.73}, {"w": "itself", "t": 187.14}, {"w": "freeze.", "t": 187.56}]}, {"start": 187.97, "end": 207.03, "en": "Ice grows inside its body, between its skin and muscles, and even inside its eyes. Soon almost seventy percent of the water in its body is ice. Its blood freezes, its breathing stops, and its heart stops beating. To any eye, the frog looks quite dead.", "title": "冻成冰块的青蛙", "cn": "冰在它体内生长，在皮肤和肌肉之间，甚至钻进它的眼睛里。很快，它体内将近百分之七十的水都变成了冰。它的血液冻住了，呼吸停止了，心脏也不跳了。在任何人眼里，这只青蛙都已经死透了。", "words": [{"w": "Ice", "t": 187.97}, {"w": "grows", "t": 188.38}, {"w": "inside", "t": 188.8}, {"w": "its", "t": 189.21}, {"w": "body,", "t": 189.63}, {"w": "between", "t": 190.04}, {"w": "its", "t": 190.46}, {"w": "skin", "t": 190.87}, {"w": "and", "t": 191.28}, {"w": "muscles,", "t": 191.7}, {"w": "and", "t": 192.11}, {"w": "even", "t": 192.53}, {"w": "inside", "t": 192.94}, {"w": "its", "t": 193.36}, {"w": "eyes.", "t": 193.77}, {"w": "Soon", "t": 194.19}, {"w": "almost", "t": 194.6}, {"w": "seventy", "t": 195.01}, {"w": "percent", "t": 195.43}, {"w": "of", "t": 195.84}, {"w": "the", "t": 196.26}, {"w": "water", "t": 196.67}, {"w": "in", "t": 197.09}, {"w": "its", "t": 197.5}, {"w": "body", "t": 197.91}, {"w": "is", "t": 198.33}, {"w": "ice.", "t": 198.74}, {"w": "Its", "t": 199.16}, {"w": "blood", "t": 199.57}, {"w": "freezes,", "t": 199.99}, {"w": "its", "t": 200.4}, {"w": "breathing", "t": 200.81}, {"w": "stops,", "t": 201.23}, {"w": "and", "t": 201.64}, {"w": "its", "t": 202.06}, {"w": "heart", "t": 202.47}, {"w": "stops", "t": 202.89}, {"w": "beating.", "t": 203.3}, {"w": "To", "t": 203.72}, {"w": "any", "t": 204.13}, {"w": "eye,", "t": 204.54}, {"w": "the", "t": 204.96}, {"w": "frog", "t": 205.37}, {"w": "looks", "t": 205.79}, {"w": "quite", "t": 206.2}, {"w": "dead.", "t": 206.62}]}, {"start": 207.03, "end": 233.95, "en": "But the frog has a sweet secret. Before the freeze, its liver fills its cells with glucose — a sugar that works like antifreeze. The sugar protects each cell from damage, so no ice can grow inside them. Frozen solid for months, the wood frog does not breathe or move, yet when spring warms the pond, its heart starts again, as if nothing had happened.", "title": "冻成冰块的青蛙", "cn": "但是这只青蛙藏着一个甜蜜的秘密。在结冰之前，它的肝脏会把葡萄糖灌满它的细胞——这种糖的作用就像防冻剂。糖保护每个细胞不受损伤，所以冰不会在细胞里面生长。木蛙冻得硬邦邦的，好几个月不呼吸、不动弹，可是当春水暖起来时，它的心脏又跳了起来，仿佛什么都没发生过。", "words": [{"w": "But", "t": 207.03}, {"w": "the", "t": 207.44}, {"w": "frog", "t": 207.86}, {"w": "has", "t": 208.27}, {"w": "a", "t": 208.69}, {"w": "sweet", "t": 209.1}, {"w": "secret.", "t": 209.51}, {"w": "Before", "t": 209.93}, {"w": "the", "t": 210.34}, {"w": "freeze,", "t": 210.76}, {"w": "its", "t": 211.17}, {"w": "liver", "t": 211.59}, {"w": "fills", "t": 212.0}, {"w": "its", "t": 212.41}, {"w": "cells", "t": 212.83}, {"w": "with", "t": 213.24}, {"w": "glucose", "t": 213.66}, {"w": "—", "t": 214.07}, {"w": "a", "t": 214.48}, {"w": "sugar", "t": 214.9}, {"w": "that", "t": 215.31}, {"w": "works", "t": 215.73}, {"w": "like", "t": 216.14}, {"w": "antifreeze.", "t": 216.56}, {"w": "The", "t": 216.97}, {"w": "sugar", "t": 217.38}, {"w": "protects", "t": 217.8}, {"w": "each", "t": 218.21}, {"w": "cell", "t": 218.63}, {"w": "from", "t": 219.04}, {"w": "damage,", "t": 219.45}, {"w": "so", "t": 219.87}, {"w": "no", "t": 220.28}, {"w": "ice", "t": 220.7}, {"w": "can", "t": 221.11}, {"w": "grow", "t": 221.53}, {"w": "inside", "t": 221.94}, {"w": "them.", "t": 222.35}, {"w": "Frozen", "t": 222.77}, {"w": "solid", "t": 223.18}, {"w": "for", "t": 223.6}, {"w": "months,", "t": 224.01}, {"w": "the", "t": 224.42}, {"w": "wood", "t": 224.84}, {"w": "frog", "t": 225.25}, {"w": "does", "t": 225.67}, {"w": "not", "t": 226.08}, {"w": "breathe", "t": 226.5}, {"w": "or", "t": 226.91}, {"w": "move,", "t": 227.32}, {"w": "yet", "t": 227.74}, {"w": "when", "t": 228.15}, {"w": "spring", "t": 228.57}, {"w": "warms", "t": 228.98}, {"w": "the", "t": 229.39}, {"w": "pond,", "t": 229.81}, {"w": "its", "t": 230.22}, {"w": "heart", "t": 230.64}, {"w": "starts", "t": 231.05}, {"w": "again,", "t": 231.47}, {"w": "as", "t": 231.88}, {"w": "if", "t": 232.29}, {"w": "nothing", "t": 232.71}, {"w": "had", "t": 233.12}, {"w": "happened.", "t": 233.54}]}, {"start": 233.95, "end": 247.21, "en": "And this trick has real significance for us. Scientists hope it may one day help doctors keep donated organs alive for longer. All that from one small frog, sleeping under the leaves!", "title": "冻成冰块的青蛙", "cn": "而且，这个本领对我们人类也有真正的意义。科学家们希望，有一天它能帮助医生让捐赠的器官存活更久。这一切，都来自一只睡在落叶下的小青蛙！", "words": [{"w": "And", "t": 233.95}, {"w": "this", "t": 234.36}, {"w": "trick", "t": 234.78}, {"w": "has", "t": 235.19}, {"w": "real", "t": 235.61}, {"w": "significance", "t": 236.02}, {"w": "for", "t": 236.44}, {"w": "us.", "t": 236.85}, {"w": "Scientists", "t": 237.26}, {"w": "hope", "t": 237.68}, {"w": "it", "t": 238.09}, {"w": "may", "t": 238.51}, {"w": "one", "t": 238.92}, {"w": "day", "t": 239.34}, {"w": "help", "t": 239.75}, {"w": "doctors", "t": 240.17}, {"w": "keep", "t": 240.58}, {"w": "donated", "t": 240.99}, {"w": "organs", "t": 241.41}, {"w": "alive", "t": 241.82}, {"w": "for", "t": 242.24}, {"w": "longer.", "t": 242.65}, {"w": "All", "t": 243.07}, {"w": "that", "t": 243.48}, {"w": "from", "t": 243.9}, {"w": "one", "t": 244.31}, {"w": "small", "t": 244.72}, {"w": "frog,", "t": 245.14}, {"w": "sleeping", "t": 245.55}, {"w": "under", "t": 245.97}, {"w": "the", "t": 246.38}, {"w": "leaves!", "t": 246.8}]}, {"start": 260.95, "end": 295.53, "en": "Here's today's idiom: \"a blessing in disguise.\" A blessing is a lucky thing. A disguise is a costume that hides you. So a blessing in disguise is a good thing hiding inside a bad thing. Listen to this: Max hated his haircut — the barber shaved it too short, and he hid under a hat. But at swimming class, with almost no hair, Max swam faster than ever — and won his race! The terrible haircut was a blessing in disguise.", "title": "今日俚语", "cn": "今天的俚语是“a blessing in disguise”（藏在伪装里的祝福）。blessing 是一件幸运的好事；disguise 是把你藏起来的伪装服装。所以 a blessing in disguise 就是一件藏在坏事里面的好事。听这个小故事：Max 讨厌他的发型——理发师把他的头发剪得太短了，他只好戴着帽子把自己藏起来。可是在游泳课上，头发几乎没有了，Max 游得比以往都快——还赢得了比赛！那个糟糕的发型，原来是一份伪装起来的祝福。", "words": [{"w": "Here's", "t": 260.95}, {"w": "today's", "t": 261.38}, {"w": "idiom:", "t": 261.8}, {"w": "\"a", "t": 262.23}, {"w": "blessing", "t": 262.66}, {"w": "in", "t": 263.08}, {"w": "disguise.\"", "t": 263.51}, {"w": "A", "t": 263.94}, {"w": "blessing", "t": 264.37}, {"w": "is", "t": 264.79}, {"w": "a", "t": 265.22}, {"w": "lucky", "t": 265.65}, {"w": "thing.", "t": 266.07}, {"w": "A", "t": 266.5}, {"w": "disguise", "t": 266.93}, {"w": "is", "t": 267.35}, {"w": "a", "t": 267.78}, {"w": "costume", "t": 268.21}, {"w": "that", "t": 268.63}, {"w": "hides", "t": 269.06}, {"w": "you.", "t": 269.49}, {"w": "So", "t": 269.92}, {"w": "a", "t": 270.34}, {"w": "blessing", "t": 270.77}, {"w": "in", "t": 271.2}, {"w": "disguise", "t": 271.62}, {"w": "is", "t": 272.05}, {"w": "a", "t": 272.48}, {"w": "good", "t": 272.9}, {"w": "thing", "t": 273.33}, {"w": "hiding", "t": 273.76}, {"w": "inside", "t": 274.18}, {"w": "a", "t": 274.61}, {"w": "bad", "t": 275.04}, {"w": "thing.", "t": 275.47}, {"w": "Listen", "t": 275.89}, {"w": "to", "t": 276.32}, {"w": "this:", "t": 276.75}, {"w": "Max", "t": 277.17}, {"w": "hated", "t": 277.6}, {"w": "his", "t": 278.03}, {"w": "haircut", "t": 278.45}, {"w": "—", "t": 278.88}, {"w": "the", "t": 279.31}, {"w": "barber", "t": 279.73}, {"w": "shaved", "t": 280.16}, {"w": "it", "t": 280.59}, {"w": "too", "t": 281.01}, {"w": "short,", "t": 281.44}, {"w": "and", "t": 281.87}, {"w": "he", "t": 282.3}, {"w": "hid", "t": 282.72}, {"w": "under", "t": 283.15}, {"w": "a", "t": 283.58}, {"w": "hat.", "t": 284.0}, {"w": "But", "t": 284.43}, {"w": "at", "t": 284.86}, {"w": "swimming", "t": 285.28}, {"w": "class,", "t": 285.71}, {"w": "with", "t": 286.14}, {"w": "almost", "t": 286.56}, {"w": "no", "t": 286.99}, {"w": "hair,", "t": 287.42}, {"w": "Max", "t": 287.85}, {"w": "swam", "t": 288.27}, {"w": "faster", "t": 288.7}, {"w": "than", "t": 289.13}, {"w": "ever", "t": 289.55}, {"w": "—", "t": 289.98}, {"w": "and", "t": 290.41}, {"w": "won", "t": 290.83}, {"w": "his", "t": 291.26}, {"w": "race!", "t": 291.69}, {"w": "The", "t": 292.11}, {"w": "terrible", "t": 292.54}, {"w": "haircut", "t": 292.97}, {"w": "was", "t": 293.4}, {"w": "a", "t": 293.82}, {"w": "blessing", "t": 294.25}, {"w": "in", "t": 294.68}, {"w": "disguise.", "t": 295.1}]}, {"start": 309.99, "end": 335.57, "en": "Let's think about our stories. A baby hippo became a star, and a frozen frog woke up to spring. Two questions for you. First: if your pet became world-famous on social media, what would it be famous for? Second: the wood frog sleeps through winter. If you could sleep through one whole season, which would you choose? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事。一只河马宝宝成了明星，一只冻僵的青蛙迎来了春天。轮到回答两个问题。第一：如果你的宠物在社交媒体上红遍全世界，它会因为什么出名？第二：木蛙会睡过整个冬天。如果你能睡过一整个季节，你会选哪一个？和家人聊聊吧！", "words": [{"w": "Let's", "t": 309.99}, {"w": "think", "t": 310.4}, {"w": "about", "t": 310.8}, {"w": "our", "t": 311.21}, {"w": "stories.", "t": 311.61}, {"w": "A", "t": 312.02}, {"w": "baby", "t": 312.43}, {"w": "hippo", "t": 312.83}, {"w": "became", "t": 313.24}, {"w": "a", "t": 313.64}, {"w": "star,", "t": 314.05}, {"w": "and", "t": 314.46}, {"w": "a", "t": 314.86}, {"w": "frozen", "t": 315.27}, {"w": "frog", "t": 315.67}, {"w": "woke", "t": 316.08}, {"w": "up", "t": 316.49}, {"w": "to", "t": 316.89}, {"w": "spring.", "t": 317.3}, {"w": "Two", "t": 317.7}, {"w": "questions", "t": 318.11}, {"w": "for", "t": 318.52}, {"w": "you.", "t": 318.92}, {"w": "First:", "t": 319.33}, {"w": "if", "t": 319.73}, {"w": "your", "t": 320.14}, {"w": "pet", "t": 320.55}, {"w": "became", "t": 320.95}, {"w": "world-famous", "t": 321.36}, {"w": "on", "t": 321.76}, {"w": "social", "t": 322.17}, {"w": "media,", "t": 322.58}, {"w": "what", "t": 322.98}, {"w": "would", "t": 323.39}, {"w": "it", "t": 323.8}, {"w": "be", "t": 324.2}, {"w": "famous", "t": 324.61}, {"w": "for?", "t": 325.01}, {"w": "Second:", "t": 325.42}, {"w": "the", "t": 325.83}, {"w": "wood", "t": 326.23}, {"w": "frog", "t": 326.64}, {"w": "sleeps", "t": 327.04}, {"w": "through", "t": 327.45}, {"w": "winter.", "t": 327.86}, {"w": "If", "t": 328.26}, {"w": "you", "t": 328.67}, {"w": "could", "t": 329.07}, {"w": "sleep", "t": 329.48}, {"w": "through", "t": 329.89}, {"w": "one", "t": 330.29}, {"w": "whole", "t": 330.7}, {"w": "season,", "t": 331.1}, {"w": "which", "t": 331.51}, {"w": "would", "t": 331.92}, {"w": "you", "t": 332.32}, {"w": "choose?", "t": 332.73}, {"w": "Talk", "t": 333.13}, {"w": "about", "t": 333.54}, {"w": "it", "t": 333.95}, {"w": "with", "t": 334.35}, {"w": "your", "t": 334.76}, {"w": "family!", "t": 335.16}]}, {"start": 349.63, "end": 362.88, "en": "That's all for today, young explorers. Remember: a bad haircut, a ruined plan — sometimes they are blessings in disguise. Stay curious, and keep exploring. See you tomorrow morning!", "title": "告别", "cn": "今天的节目就到这里，小小探险家们。记住：一个糟糕的发型、一个被打乱的计划——它们有时候就是伪装起来的祝福。保持好奇心，继续探索吧。明天早上见！", "words": [{"w": "That's", "t": 349.63}, {"w": "all", "t": 350.09}, {"w": "for", "t": 350.54}, {"w": "today,", "t": 351.0}, {"w": "young", "t": 351.46}, {"w": "explorers.", "t": 351.91}, {"w": "Remember:", "t": 352.37}, {"w": "a", "t": 352.83}, {"w": "bad", "t": 353.29}, {"w": "haircut,", "t": 353.74}, {"w": "a", "t": 354.2}, {"w": "ruined", "t": 354.66}, {"w": "plan", "t": 355.11}, {"w": "—", "t": 355.57}, {"w": "sometimes", "t": 356.03}, {"w": "they", "t": 356.48}, {"w": "are", "t": 356.94}, {"w": "blessings", "t": 357.4}, {"w": "in", "t": 357.85}, {"w": "disguise.", "t": 358.31}, {"w": "Stay", "t": 358.77}, {"w": "curious,", "t": 359.22}, {"w": "and", "t": 359.68}, {"w": "keep", "t": 360.14}, {"w": "exploring.", "t": 360.6}, {"w": "See", "t": 361.05}, {"w": "you", "t": 361.51}, {"w": "tomorrow", "t": 361.97}, {"w": "morning!", "t": 362.42}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol20/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>

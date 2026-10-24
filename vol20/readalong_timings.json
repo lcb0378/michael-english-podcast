@@ -1,0 +1,293 @@
+[
+ {
+  "id": 1,
+  "title": "开场白",
+  "blocks": [
+   {
+    "start": 28.91,
+    "end": 33.54,
+    "en": "Hello, young explorers, and welcome back to Michael's Morning Listening!"
+   },
+   {
+    "start": 33.54,
+    "end": 36.33,
+    "en": "This is our twentieth show together!"
+   },
+   {
+    "start": 36.33,
+    "end": 47.91,
+    "en": "Today we meet a baby hippo who became a superstar, and a frog that turns into ice every winter — and wakes up in spring!"
+   },
+   {
+    "start": 47.91,
+    "end": 49.77,
+    "en": "Two animals, two superpowers."
+   },
+   {
+    "start": 49.77,
+    "end": 51.62,
+    "en": "One loves the camera."
+   },
+   {
+    "start": 51.62,
+    "end": 53.47,
+    "en": "One loves the cold."
+   },
+   {
+    "start": 53.47,
+    "end": 54.4,
+    "en": "Let's go!"
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "title": "团宠小河马",
+  "blocks": [
+   {
+    "start": 74.14,
+    "end": 80.18,
+    "en": "Say hello to Moo Deng, a pygmy hippo at Khao Kheow Open Zoo in Thailand."
+   },
+   {
+    "start": 80.18,
+    "end": 85.82,
+    "en": "She is much smaller than her big cousins, and rounder than a beach ball."
+   },
+   {
+    "start": 85.82,
+    "end": 91.46,
+    "en": "Her name means \"bouncy pork\" in Thai, and fans chose it in a vote."
+   },
+   {
+    "start": 91.46,
+    "end": 99.11,
+    "en": "She comes from a pork dynasty: Mother Jona, Father Tony, and all her brothers and sisters carry porky names."
+   },
+   {
+    "start": 99.11,
+    "end": 108.77,
+    "en": "Her keeper, Atthapon, began posting videos of her on social media — splashing in her pool, opening her mouth wide, taking awkward little steps."
+   },
+   {
+    "start": 108.77,
+    "end": 110.78,
+    "en": "The videos went viral worldwide."
+   },
+   {
+    "start": 110.78,
+    "end": 116.02,
+    "en": "Soon everyone seemed astonished: how could one small hippo hold so much appeal?"
+   },
+   {
+    "start": 116.02,
+    "end": 120.85,
+    "en": "When she yawned or bounced across her pen, crowds erupted with laughter."
+   },
+   {
+    "start": 120.85,
+    "end": 127.7,
+    "en": "Fans travelled far to see her, and zoo visitor numbers jumped to three times their old size."
+   },
+   {
+    "start": 127.7,
+    "end": 135.35,
+    "en": "The zoo set up a live camera service, so fans on far continents could watch her splash and sleep."
+   },
+   {
+    "start": 135.35,
+    "end": 144.61,
+    "en": "She got her own song, appeared in a comedy show, and even picked the winner of an election by choosing between two cakes!"
+   },
+   {
+    "start": 144.61,
+    "end": 150.65,
+    "en": "Best of all, her fame helps every pygmy hippo, an endangered species that needs protection."
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "title": "冻成冰块的青蛙",
+  "blocks": [
+   {
+    "start": 172.23,
+    "end": 177.62,
+    "en": "Now meet the wood frog of Alaska, the northernmost frog in the world."
+   },
+   {
+    "start": 177.62,
+    "end": 180.52,
+    "en": "Most frogs hibernate deep under the ground."
+   },
+   {
+    "start": 180.52,
+    "end": 182.17,
+    "en": "This one does not."
+   },
+   {
+    "start": 182.17,
+    "end": 187.97,
+    "en": "When the cold comes, it climbs under dead leaves — and lets itself freeze."
+   },
+   {
+    "start": 187.97,
+    "end": 194.19,
+    "en": "Ice grows inside its body, between its skin and muscles, and even inside its eyes."
+   },
+   {
+    "start": 194.19,
+    "end": 199.16,
+    "en": "Soon almost seventy percent of the water in its body is ice."
+   },
+   {
+    "start": 199.16,
+    "end": 203.71,
+    "en": "Its blood freezes, its breathing stops, and its heart stops beating."
+   },
+   {
+    "start": 203.71,
+    "end": 207.03,
+    "en": "To any eye, the frog looks quite dead."
+   },
+   {
+    "start": 207.03,
+    "end": 209.93,
+    "en": "But the frog has a sweet secret."
+   },
+   {
+    "start": 209.93,
+    "end": 216.97,
+    "en": "Before the freeze, its liver fills its cells with glucose — a sugar that works like antifreeze."
+   },
+   {
+    "start": 216.97,
+    "end": 222.77,
+    "en": "The sugar protects each cell from damage, so no ice can grow inside them."
+   },
+   {
+    "start": 222.77,
+    "end": 233.95,
+    "en": "Frozen solid for months, the wood frog does not breathe or move, yet when spring warms the pond, its heart starts again, as if nothing had happened."
+   },
+   {
+    "start": 233.95,
+    "end": 237.27,
+    "en": "And this trick has real significance for us."
+   },
+   {
+    "start": 237.27,
+    "end": 243.07,
+    "en": "Scientists hope it may one day help doctors keep donated organs alive for longer."
+   },
+   {
+    "start": 243.07,
+    "end": 247.21,
+    "en": "All that from one small frog, sleeping under the leaves!"
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "title": "今日俚语",
+  "blocks": [
+   {
+    "start": 260.95,
+    "end": 266.5,
+    "en": "Here's today's idiom: \"a blessing in disguise.\" A blessing is a lucky thing."
+   },
+   {
+    "start": 266.5,
+    "end": 269.92,
+    "en": "A disguise is a costume that hides you."
+   },
+   {
+    "start": 269.92,
+    "end": 275.89,
+    "en": "So a blessing in disguise is a good thing hiding inside a bad thing."
+   },
+   {
+    "start": 275.89,
+    "end": 284.43,
+    "en": "Listen to this: Max hated his haircut — the barber shaved it too short, and he hid under a hat."
+   },
+   {
+    "start": 284.43,
+    "end": 292.11,
+    "en": "But at swimming class, with almost no hair, Max swam faster than ever — and won his race!"
+   },
+   {
+    "start": 292.11,
+    "end": 295.53,
+    "en": "The terrible haircut was a blessing in disguise."
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "title": "结束语与互动问题",
+  "blocks": [
+   {
+    "start": 309.99,
+    "end": 312.02,
+    "en": "Let's think about our stories."
+   },
+   {
+    "start": 312.02,
+    "end": 317.7,
+    "en": "A baby hippo became a star, and a frozen frog woke up to spring."
+   },
+   {
+    "start": 317.7,
+    "end": 319.33,
+    "en": "Two questions for you."
+   },
+   {
+    "start": 319.33,
+    "end": 325.42,
+    "en": "First: if your pet became world-famous on social media, what would it be famous for?"
+   },
+   {
+    "start": 325.42,
+    "end": 328.26,
+    "en": "Second: the wood frog sleeps through winter."
+   },
+   {
+    "start": 328.26,
+    "end": 333.13,
+    "en": "If you could sleep through one whole season, which would you choose?"
+   },
+   {
+    "start": 333.13,
+    "end": 335.57,
+    "en": "Talk about it with your family!"
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "title": "告别",
+  "blocks": [
+   {
+    "start": 349.63,
+    "end": 352.37,
+    "en": "That's all for today, young explorers."
+   },
+   {
+    "start": 352.37,
+    "end": 358.77,
+    "en": "Remember: a bad haircut, a ruined plan — sometimes they are blessings in disguise."
+   },
+   {
+    "start": 358.77,
+    "end": 361.05,
+    "en": "Stay curious, and keep exploring."
+   },
+   {
+    "start": 361.05,
+    "end": 362.88,
+    "en": "See you tomorrow morning!"
+   }
+  ]
+ }
+]
