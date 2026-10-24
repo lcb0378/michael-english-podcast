@@ -1,0 +1,288 @@
+[
+ {
+  "id": 1,
+  "title": "开场白",
+  "blocks": [
+   {
+    "start": 26.51,
+    "end": 30.58,
+    "en": "Hello, young explorers, and welcome back to Michael's Morning Listening!"
+   },
+   {
+    "start": 30.58,
+    "end": 33.02,
+    "en": "This is our twenty-third show together!"
+   },
+   {
+    "start": 33.02,
+    "end": 42.78,
+    "en": "Today we meet a brave young inventor who taught dirty water to tell the truth, and a tiny jellyfish that can turn back time."
+   },
+   {
+    "start": 42.78,
+    "end": 48.48,
+    "en": "A girl with a big idea, and a sea animal with a magic trick."
+   },
+   {
+    "start": 48.48,
+    "end": 49.29,
+    "en": "Let's go!"
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "title": "测水的小发明家",
+  "blocks": [
+   {
+    "start": 65.43,
+    "end": 70.62,
+    "en": "Our first hero is Gitanjali Rao, an eleven-year-old primary school girl from Colorado."
+   },
+   {
+    "start": 70.62,
+    "end": 77.8,
+    "en": "When she was ten, she watched the news when a water crisis erupted in a city called Flint."
+   },
+   {
+    "start": 77.8,
+    "end": 86.17,
+    "en": "The water there was not safe: it had lead in it, a poison that can wound the brains of young children."
+   },
+   {
+    "start": 86.17,
+    "end": 89.37,
+    "en": "Gitanjali was sad, and she was brave too."
+   },
+   {
+    "start": 89.37,
+    "end": 94.95,
+    "en": "It takes courage to look at a big problem and say, \"I can help!\""
+   },
+   {
+    "start": 94.95,
+    "end": 97.74,
+    "en": "She began to learn everything about water."
+   },
+   {
+    "start": 97.74,
+    "end": 102.93,
+    "en": "She used a search engine to read about tiny tubes called carbon nanotubes."
+   },
+   {
+    "start": 102.93,
+    "end": 110.91,
+    "en": "Then she built a small device and gave it a beautiful name: Tethys, after the Greek goddess of fresh water."
+   },
+   {
+    "start": 110.91,
+    "end": 118.89,
+    "en": "You dip a small stick into the water, and the device sends the answer to a phone app in seconds."
+   },
+   {
+    "start": 118.89,
+    "end": 120.88,
+    "en": "To everyone's delight, it worked!"
+   },
+   {
+    "start": 120.88,
+    "end": 131.65,
+    "en": "She took her invention to a big contest for young scientists, and she won the top prize — America's Top Young Scientist — and twenty-five thousand dollars."
+   },
+   {
+    "start": 131.65,
+    "end": 135.24,
+    "en": "One girl, one idea, and cleaner water for everyone."
+   },
+   {
+    "start": 135.24,
+    "end": 136.44,
+    "en": "Isn't that wonderful?"
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "title": "返老还童的水母",
+  "blocks": [
+   {
+    "start": 153.86,
+    "end": 160.03,
+    "en": "Now dive into the sea for our second hero: a jellyfish smaller than your little finger."
+   },
+   {
+    "start": 160.03,
+    "end": 164.66,
+    "en": "Its name is Turritopsis dohrnii, but scientists call it the immortal jellyfish."
+   },
+   {
+    "start": 164.66,
+    "end": 168.13,
+    "en": "Do not worry — it is not really immortal."
+   },
+   {
+    "start": 168.13,
+    "end": 173.14,
+    "en": "It can still be eaten by a bigger fish, or die of hunger."
+   },
+   {
+    "start": 173.14,
+    "end": 177.0,
+    "en": "But it has one magic trick no other animal has."
+   },
+   {
+    "start": 177.0,
+    "end": 181.63,
+    "en": "When this jellyfish gets old, sick, or hurt, it does something amazing."
+   },
+   {
+    "start": 181.63,
+    "end": 187.03,
+    "en": "Its soft flesh sinks to the sea floor, and its cells change their jobs."
+   },
+   {
+    "start": 187.03,
+    "end": 192.82,
+    "en": "The cells of its bell and arms turn back into young cells, called a polyp."
+   },
+   {
+    "start": 192.82,
+    "end": 198.22,
+    "en": "The polyp is like a baby jellyfish, and it grows up all over again."
+   },
+   {
+    "start": 198.22,
+    "end": 202.07,
+    "en": "Its old body fades away, and a new life begins."
+   },
+   {
+    "start": 202.07,
+    "end": 209.79,
+    "en": "By coincidence, scientists found this little animal in the warm sea near Italy, and they could not believe their eyes."
+   },
+   {
+    "start": 209.79,
+    "end": 212.49,
+    "en": "A creature that can be young again!"
+   },
+   {
+    "start": 212.49,
+    "end": 216.73,
+    "en": "It is not dead and alive again like a ghost story."
+   },
+   {
+    "start": 216.73,
+    "end": 219.81,
+    "en": "It turns back time, with its own cells."
+   },
+   {
+    "start": 219.81,
+    "end": 225.6,
+    "en": "So remember: this jellyfish is no superhero — it just knows how to start again."
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "title": "今日俚语",
+  "blocks": [
+   {
+    "start": 237.98,
+    "end": 241.73,
+    "en": "Here's today's idiom: \"when pigs fly.\" Pigs cannot fly!"
+   },
+   {
+    "start": 241.73,
+    "end": 249.24,
+    "en": "So when someone says \"when pigs fly,\" they mean \"never!\" Listen to this: Lily wanted a pet pig."
+   },
+   {
+    "start": 249.24,
+    "end": 258.84,
+    "en": "Her father laughed and said, \"You can have a pig when pigs fly!\" Lily wrote the words in her notebook with her pen."
+   },
+   {
+    "start": 258.84,
+    "end": 264.26,
+    "en": "Then she put on her father's big hat and danced around the room."
+   },
+   {
+    "start": 264.26,
+    "end": 265.93,
+    "en": "\"Look, Dad!\" she shouted."
+   },
+   {
+    "start": 265.93,
+    "end": 269.68,
+    "en": "\"The pig can wait — but I can fly!\""
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "title": "结束语与互动问题",
+  "blocks": [
+   {
+    "start": 283.5,
+    "end": 285.56,
+    "en": "Let's think about our stories."
+   },
+   {
+    "start": 285.56,
+    "end": 292.15,
+    "en": "A young inventor helped people test their water, and a tiny jellyfish learned to start again."
+   },
+   {
+    "start": 292.15,
+    "end": 292.97,
+    "en": "Two questions."
+   },
+   {
+    "start": 292.97,
+    "end": 299.15,
+    "en": "First: if you could invent one thing to help your school, what would it be?"
+   },
+   {
+    "start": 299.15,
+    "end": 301.62,
+    "en": "Second: the jellyfish turns young again."
+   },
+   {
+    "start": 301.62,
+    "end": 307.38,
+    "en": "If you could turn back time for one day, which day would you choose?"
+   },
+   {
+    "start": 307.38,
+    "end": 309.85,
+    "en": "Talk about it with your family!"
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "title": "告别",
+  "blocks": [
+   {
+    "start": 322.23,
+    "end": 324.75,
+    "en": "That's all for today, young explorers."
+   },
+   {
+    "start": 324.75,
+    "end": 333.14,
+    "en": "Remember: big ideas can come from young minds — and when someone says \"when pigs fly,\" smile and keep dreaming."
+   },
+   {
+    "start": 333.14,
+    "end": 335.24,
+    "en": "Stay curious, and keep exploring."
+   },
+   {
+    "start": 335.24,
+    "end": 336.92,
+    "en": "See you tomorrow morning!"
+   }
+  ]
+ }
+]

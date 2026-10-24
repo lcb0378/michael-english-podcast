@@ -1,0 +1,3655 @@
+{
+ "id": "vol23",
+ "title": "测水的小发明家与返老还童的水母",
+ "words": 595,
+ "duration": "5分46秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol23/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol23/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol23/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol23/Vol23_晚读讲义_测水的小发明家与返老还童的水母_v1.pdf",
+ "pdfName": "Vol23_晚读讲义_测水的小发明家与返老还童的水母_v1.pdf",
+ "blocks": [
+  {
+   "start": 26.51,
+   "end": 49.29,
+   "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! This is our twenty-third show together! Today we meet a brave young inventor who taught dirty water to tell the truth, and a tiny jellyfish that can turn back time. A girl with a big idea, and a sea animal with a magic trick. Let's go!",
+   "title": "开场白",
+   "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！这是我们在一起的第二十三期节目啦！今天我们要认识一位勇敢的年轻发明家，她教会脏水说真话；还有一只能够让时光倒流的小水母。一个是怀揣大点子的女孩，一个是拥有魔术本领的海洋动物。出发吧！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 26.51
+    },
+    {
+     "w": "young",
+     "t": 26.92
+    },
+    {
+     "w": "explorers,",
+     "t": 27.32
+    },
+    {
+     "w": "and",
+     "t": 27.73
+    },
+    {
+     "w": "welcome",
+     "t": 28.14
+    },
+    {
+     "w": "back",
+     "t": 28.54
+    },
+    {
+     "w": "to",
+     "t": 28.95
+    },
+    {
+     "w": "Michael's",
+     "t": 29.36
+    },
+    {
+     "w": "Morning",
+     "t": 29.76
+    },
+    {
+     "w": "Listening!",
+     "t": 30.17
+    },
+    {
+     "w": "This",
+     "t": 30.58
+    },
+    {
+     "w": "is",
+     "t": 30.98
+    },
+    {
+     "w": "our",
+     "t": 31.39
+    },
+    {
+     "w": "twenty-third",
+     "t": 31.8
+    },
+    {
+     "w": "show",
+     "t": 32.2
+    },
+    {
+     "w": "together!",
+     "t": 32.61
+    },
+    {
+     "w": "Today",
+     "t": 33.02
+    },
+    {
+     "w": "we",
+     "t": 33.43
+    },
+    {
+     "w": "meet",
+     "t": 33.83
+    },
+    {
+     "w": "a",
+     "t": 34.24
+    },
+    {
+     "w": "brave",
+     "t": 34.65
+    },
+    {
+     "w": "young",
+     "t": 35.05
+    },
+    {
+     "w": "inventor",
+     "t": 35.46
+    },
+    {
+     "w": "who",
+     "t": 35.87
+    },
+    {
+     "w": "taught",
+     "t": 36.27
+    },
+    {
+     "w": "dirty",
+     "t": 36.68
+    },
+    {
+     "w": "water",
+     "t": 37.09
+    },
+    {
+     "w": "to",
+     "t": 37.49
+    },
+    {
+     "w": "tell",
+     "t": 37.9
+    },
+    {
+     "w": "the",
+     "t": 38.31
+    },
+    {
+     "w": "truth,",
+     "t": 38.71
+    },
+    {
+     "w": "and",
+     "t": 39.12
+    },
+    {
+     "w": "a",
+     "t": 39.53
+    },
+    {
+     "w": "tiny",
+     "t": 39.93
+    },
+    {
+     "w": "jellyfish",
+     "t": 40.34
+    },
+    {
+     "w": "that",
+     "t": 40.75
+    },
+    {
+     "w": "can",
+     "t": 41.15
+    },
+    {
+     "w": "turn",
+     "t": 41.56
+    },
+    {
+     "w": "back",
+     "t": 41.97
+    },
+    {
+     "w": "time.",
+     "t": 42.37
+    },
+    {
+     "w": "A",
+     "t": 42.78
+    },
+    {
+     "w": "girl",
+     "t": 43.19
+    },
+    {
+     "w": "with",
+     "t": 43.59
+    },
+    {
+     "w": "a",
+     "t": 44.0
+    },
+    {
+     "w": "big",
+     "t": 44.41
+    },
+    {
+     "w": "idea,",
+     "t": 44.82
+    },
+    {
+     "w": "and",
+     "t": 45.22
+    },
+    {
+     "w": "a",
+     "t": 45.63
+    },
+    {
+     "w": "sea",
+     "t": 46.04
+    },
+    {
+     "w": "animal",
+     "t": 46.44
+    },
+    {
+     "w": "with",
+     "t": 46.85
+    },
+    {
+     "w": "a",
+     "t": 47.26
+    },
+    {
+     "w": "magic",
+     "t": 47.66
+    },
+    {
+     "w": "trick.",
+     "t": 48.07
+    },
+    {
+     "w": "Let's",
+     "t": 48.48
+    },
+    {
+     "w": "go!",
+     "t": 48.88
+    }
+   ]
+  },
+  {
+   "start": 65.43,
+   "end": 94.95,
+   "en": "Our first hero is Gitanjali Rao, an eleven-year-old primary school girl from Colorado. When she was ten, she watched the news when a water crisis erupted in a city called Flint. The water there was not safe: it had lead in it, a poison that can wound the brains of young children. Gitanjali was sad, and she was brave too. It takes courage to look at a big problem and say, \"I can help!\"",
+   "title": "测水的小发明家",
+   "cn": "我们的第一位主角是 Gitanjali Rao，一位来自科罗拉多州的十一岁小学生。她十岁那年，在新闻里看到一座叫弗林特的城市爆发了水危机。那里的水不安全：水中含有铅，这种毒物会伤害小孩子的脑部。Gitanjali 很难过，但她也很勇敢。面对一个大难题，说出\"我能帮忙\"，是需要勇气的！",
+   "words": [
+    {
+     "w": "Our",
+     "t": 65.43
+    },
+    {
+     "w": "first",
+     "t": 65.83
+    },
+    {
+     "w": "hero",
+     "t": 66.23
+    },
+    {
+     "w": "is",
+     "t": 66.63
+    },
+    {
+     "w": "Gitanjali",
+     "t": 67.03
+    },
+    {
+     "w": "Rao,",
+     "t": 67.42
+    },
+    {
+     "w": "an",
+     "t": 67.82
+    },
+    {
+     "w": "eleven-year-old",
+     "t": 68.22
+    },
+    {
+     "w": "primary",
+     "t": 68.62
+    },
+    {
+     "w": "school",
+     "t": 69.02
+    },
+    {
+     "w": "girl",
+     "t": 69.42
+    },
+    {
+     "w": "from",
+     "t": 69.82
+    },
+    {
+     "w": "Colorado.",
+     "t": 70.22
+    },
+    {
+     "w": "When",
+     "t": 70.62
+    },
+    {
+     "w": "she",
+     "t": 71.02
+    },
+    {
+     "w": "was",
+     "t": 71.41
+    },
+    {
+     "w": "ten,",
+     "t": 71.81
+    },
+    {
+     "w": "she",
+     "t": 72.21
+    },
+    {
+     "w": "watched",
+     "t": 72.61
+    },
+    {
+     "w": "the",
+     "t": 73.01
+    },
+    {
+     "w": "news",
+     "t": 73.41
+    },
+    {
+     "w": "when",
+     "t": 73.81
+    },
+    {
+     "w": "a",
+     "t": 74.21
+    },
+    {
+     "w": "water",
+     "t": 74.61
+    },
+    {
+     "w": "crisis",
+     "t": 75.0
+    },
+    {
+     "w": "erupted",
+     "t": 75.4
+    },
+    {
+     "w": "in",
+     "t": 75.8
+    },
+    {
+     "w": "a",
+     "t": 76.2
+    },
+    {
+     "w": "city",
+     "t": 76.6
+    },
+    {
+     "w": "called",
+     "t": 77.0
+    },
+    {
+     "w": "Flint.",
+     "t": 77.4
+    },
+    {
+     "w": "The",
+     "t": 77.8
+    },
+    {
+     "w": "water",
+     "t": 78.2
+    },
+    {
+     "w": "there",
+     "t": 78.59
+    },
+    {
+     "w": "was",
+     "t": 78.99
+    },
+    {
+     "w": "not",
+     "t": 79.39
+    },
+    {
+     "w": "safe:",
+     "t": 79.79
+    },
+    {
+     "w": "it",
+     "t": 80.19
+    },
+    {
+     "w": "had",
+     "t": 80.59
+    },
+    {
+     "w": "lead",
+     "t": 80.99
+    },
+    {
+     "w": "in",
+     "t": 81.39
+    },
+    {
+     "w": "it,",
+     "t": 81.79
+    },
+    {
+     "w": "a",
+     "t": 82.19
+    },
+    {
+     "w": "poison",
+     "t": 82.58
+    },
+    {
+     "w": "that",
+     "t": 82.98
+    },
+    {
+     "w": "can",
+     "t": 83.38
+    },
+    {
+     "w": "wound",
+     "t": 83.78
+    },
+    {
+     "w": "the",
+     "t": 84.18
+    },
+    {
+     "w": "brains",
+     "t": 84.58
+    },
+    {
+     "w": "of",
+     "t": 84.98
+    },
+    {
+     "w": "young",
+     "t": 85.38
+    },
+    {
+     "w": "children.",
+     "t": 85.78
+    },
+    {
+     "w": "Gitanjali",
+     "t": 86.17
+    },
+    {
+     "w": "was",
+     "t": 86.57
+    },
+    {
+     "w": "sad,",
+     "t": 86.97
+    },
+    {
+     "w": "and",
+     "t": 87.37
+    },
+    {
+     "w": "she",
+     "t": 87.77
+    },
+    {
+     "w": "was",
+     "t": 88.17
+    },
+    {
+     "w": "brave",
+     "t": 88.57
+    },
+    {
+     "w": "too.",
+     "t": 88.97
+    },
+    {
+     "w": "It",
+     "t": 89.37
+    },
+    {
+     "w": "takes",
+     "t": 89.76
+    },
+    {
+     "w": "courage",
+     "t": 90.16
+    },
+    {
+     "w": "to",
+     "t": 90.56
+    },
+    {
+     "w": "look",
+     "t": 90.96
+    },
+    {
+     "w": "at",
+     "t": 91.36
+    },
+    {
+     "w": "a",
+     "t": 91.76
+    },
+    {
+     "w": "big",
+     "t": 92.16
+    },
+    {
+     "w": "problem",
+     "t": 92.56
+    },
+    {
+     "w": "and",
+     "t": 92.96
+    },
+    {
+     "w": "say,",
+     "t": 93.36
+    },
+    {
+     "w": "\"I",
+     "t": 93.75
+    },
+    {
+     "w": "can",
+     "t": 94.15
+    },
+    {
+     "w": "help!\"",
+     "t": 94.55
+    }
+   ]
+  },
+  {
+   "start": 94.95,
+   "end": 120.88,
+   "en": "She began to learn everything about water. She used a search engine to read about tiny tubes called carbon nanotubes. Then she built a small device and gave it a beautiful name: Tethys, after the Greek goddess of fresh water. You dip a small stick into the water, and the device sends the answer to a phone app in seconds. To everyone's delight, it worked!",
+   "title": "测水的小发明家",
+   "cn": "她开始学习关于水的一切知识。她用搜索引擎查阅一种叫碳纳米管的微小管子。然后她做出了一个小装置，还给它取了一个美丽的名字：Tethys——希腊神话中淡水女神的名字。把一根小棒浸入水中，装置会在几秒钟内把结果发送到手机应用上。让所有人高兴的是，它成功了！",
+   "words": [
+    {
+     "w": "She",
+     "t": 94.95
+    },
+    {
+     "w": "began",
+     "t": 95.35
+    },
+    {
+     "w": "to",
+     "t": 95.75
+    },
+    {
+     "w": "learn",
+     "t": 96.15
+    },
+    {
+     "w": "everything",
+     "t": 96.55
+    },
+    {
+     "w": "about",
+     "t": 96.95
+    },
+    {
+     "w": "water.",
+     "t": 97.34
+    },
+    {
+     "w": "She",
+     "t": 97.74
+    },
+    {
+     "w": "used",
+     "t": 98.14
+    },
+    {
+     "w": "a",
+     "t": 98.54
+    },
+    {
+     "w": "search",
+     "t": 98.94
+    },
+    {
+     "w": "engine",
+     "t": 99.34
+    },
+    {
+     "w": "to",
+     "t": 99.74
+    },
+    {
+     "w": "read",
+     "t": 100.14
+    },
+    {
+     "w": "about",
+     "t": 100.54
+    },
+    {
+     "w": "tiny",
+     "t": 100.94
+    },
+    {
+     "w": "tubes",
+     "t": 101.33
+    },
+    {
+     "w": "called",
+     "t": 101.73
+    },
+    {
+     "w": "carbon",
+     "t": 102.13
+    },
+    {
+     "w": "nanotubes.",
+     "t": 102.53
+    },
+    {
+     "w": "Then",
+     "t": 102.93
+    },
+    {
+     "w": "she",
+     "t": 103.33
+    },
+    {
+     "w": "built",
+     "t": 103.73
+    },
+    {
+     "w": "a",
+     "t": 104.13
+    },
+    {
+     "w": "small",
+     "t": 104.53
+    },
+    {
+     "w": "device",
+     "t": 104.92
+    },
+    {
+     "w": "and",
+     "t": 105.32
+    },
+    {
+     "w": "gave",
+     "t": 105.72
+    },
+    {
+     "w": "it",
+     "t": 106.12
+    },
+    {
+     "w": "a",
+     "t": 106.52
+    },
+    {
+     "w": "beautiful",
+     "t": 106.92
+    },
+    {
+     "w": "name:",
+     "t": 107.32
+    },
+    {
+     "w": "Tethys,",
+     "t": 107.72
+    },
+    {
+     "w": "after",
+     "t": 108.12
+    },
+    {
+     "w": "the",
+     "t": 108.51
+    },
+    {
+     "w": "Greek",
+     "t": 108.91
+    },
+    {
+     "w": "goddess",
+     "t": 109.31
+    },
+    {
+     "w": "of",
+     "t": 109.71
+    },
+    {
+     "w": "fresh",
+     "t": 110.11
+    },
+    {
+     "w": "water.",
+     "t": 110.51
+    },
+    {
+     "w": "You",
+     "t": 110.91
+    },
+    {
+     "w": "dip",
+     "t": 111.31
+    },
+    {
+     "w": "a",
+     "t": 111.71
+    },
+    {
+     "w": "small",
+     "t": 112.11
+    },
+    {
+     "w": "stick",
+     "t": 112.5
+    },
+    {
+     "w": "into",
+     "t": 112.9
+    },
+    {
+     "w": "the",
+     "t": 113.3
+    },
+    {
+     "w": "water,",
+     "t": 113.7
+    },
+    {
+     "w": "and",
+     "t": 114.1
+    },
+    {
+     "w": "the",
+     "t": 114.5
+    },
+    {
+     "w": "device",
+     "t": 114.9
+    },
+    {
+     "w": "sends",
+     "t": 115.3
+    },
+    {
+     "w": "the",
+     "t": 115.7
+    },
+    {
+     "w": "answer",
+     "t": 116.09
+    },
+    {
+     "w": "to",
+     "t": 116.49
+    },
+    {
+     "w": "a",
+     "t": 116.89
+    },
+    {
+     "w": "phone",
+     "t": 117.29
+    },
+    {
+     "w": "app",
+     "t": 117.69
+    },
+    {
+     "w": "in",
+     "t": 118.09
+    },
+    {
+     "w": "seconds.",
+     "t": 118.49
+    },
+    {
+     "w": "To",
+     "t": 118.89
+    },
+    {
+     "w": "everyone's",
+     "t": 119.29
+    },
+    {
+     "w": "delight,",
+     "t": 119.68
+    },
+    {
+     "w": "it",
+     "t": 120.08
+    },
+    {
+     "w": "worked!",
+     "t": 120.48
+    }
+   ]
+  },
+  {
+   "start": 120.88,
+   "end": 136.44,
+   "en": "She took her invention to a big contest for young scientists, and she won the top prize — America's Top Young Scientist — and twenty-five thousand dollars. One girl, one idea, and cleaner water for everyone. Isn't that wonderful?",
+   "title": "测水的小发明家",
+   "cn": "她带着自己的发明参加了一个青少年科学家大赛，赢得了最高奖项——\"美国顶尖青少年科学家\"——以及两万五千美元奖金。一个女孩，一个点子，就能让所有人的水更干净。这难道不美妙吗？",
+   "words": [
+    {
+     "w": "She",
+     "t": 120.88
+    },
+    {
+     "w": "took",
+     "t": 121.28
+    },
+    {
+     "w": "her",
+     "t": 121.68
+    },
+    {
+     "w": "invention",
+     "t": 122.08
+    },
+    {
+     "w": "to",
+     "t": 122.48
+    },
+    {
+     "w": "a",
+     "t": 122.88
+    },
+    {
+     "w": "big",
+     "t": 123.28
+    },
+    {
+     "w": "contest",
+     "t": 123.67
+    },
+    {
+     "w": "for",
+     "t": 124.07
+    },
+    {
+     "w": "young",
+     "t": 124.47
+    },
+    {
+     "w": "scientists,",
+     "t": 124.87
+    },
+    {
+     "w": "and",
+     "t": 125.27
+    },
+    {
+     "w": "she",
+     "t": 125.67
+    },
+    {
+     "w": "won",
+     "t": 126.07
+    },
+    {
+     "w": "the",
+     "t": 126.47
+    },
+    {
+     "w": "top",
+     "t": 126.87
+    },
+    {
+     "w": "prize",
+     "t": 127.26
+    },
+    {
+     "w": "—",
+     "t": 127.66
+    },
+    {
+     "w": "America's",
+     "t": 128.06
+    },
+    {
+     "w": "Top",
+     "t": 128.46
+    },
+    {
+     "w": "Young",
+     "t": 128.86
+    },
+    {
+     "w": "Scientist",
+     "t": 129.26
+    },
+    {
+     "w": "—",
+     "t": 129.66
+    },
+    {
+     "w": "and",
+     "t": 130.06
+    },
+    {
+     "w": "twenty-five",
+     "t": 130.46
+    },
+    {
+     "w": "thousand",
+     "t": 130.85
+    },
+    {
+     "w": "dollars.",
+     "t": 131.25
+    },
+    {
+     "w": "One",
+     "t": 131.65
+    },
+    {
+     "w": "girl,",
+     "t": 132.05
+    },
+    {
+     "w": "one",
+     "t": 132.45
+    },
+    {
+     "w": "idea,",
+     "t": 132.85
+    },
+    {
+     "w": "and",
+     "t": 133.25
+    },
+    {
+     "w": "cleaner",
+     "t": 133.65
+    },
+    {
+     "w": "water",
+     "t": 134.05
+    },
+    {
+     "w": "for",
+     "t": 134.45
+    },
+    {
+     "w": "everyone.",
+     "t": 134.84
+    },
+    {
+     "w": "Isn't",
+     "t": 135.24
+    },
+    {
+     "w": "that",
+     "t": 135.64
+    },
+    {
+     "w": "wonderful?",
+     "t": 136.04
+    }
+   ]
+  },
+  {
+   "start": 153.86,
+   "end": 177.0,
+   "en": "Now dive into the sea for our second hero: a jellyfish smaller than your little finger. Its name is Turritopsis dohrnii, but scientists call it the immortal jellyfish. Do not worry — it is not really immortal. It can still be eaten by a bigger fish, or die of hunger. But it has one magic trick no other animal has.",
+   "title": "返老还童的水母",
+   "cn": "现在潜入大海，认识我们的第二位主角：一种比你的小指头还小的水母。它的名字是 Turritopsis dohrnii，不过科学家们叫它\"不死水母\"。别担心——它并不是真的不死。它还是可能被更大的鱼吃掉，或者饿死。不过，它拥有一种其他动物都没有的魔术本领。",
+   "words": [
+    {
+     "w": "Now",
+     "t": 153.86
+    },
+    {
+     "w": "dive",
+     "t": 154.25
+    },
+    {
+     "w": "into",
+     "t": 154.63
+    },
+    {
+     "w": "the",
+     "t": 155.02
+    },
+    {
+     "w": "sea",
+     "t": 155.4
+    },
+    {
+     "w": "for",
+     "t": 155.79
+    },
+    {
+     "w": "our",
+     "t": 156.17
+    },
+    {
+     "w": "second",
+     "t": 156.56
+    },
+    {
+     "w": "hero:",
+     "t": 156.95
+    },
+    {
+     "w": "a",
+     "t": 157.33
+    },
+    {
+     "w": "jellyfish",
+     "t": 157.72
+    },
+    {
+     "w": "smaller",
+     "t": 158.1
+    },
+    {
+     "w": "than",
+     "t": 158.49
+    },
+    {
+     "w": "your",
+     "t": 158.87
+    },
+    {
+     "w": "little",
+     "t": 159.26
+    },
+    {
+     "w": "finger.",
+     "t": 159.65
+    },
+    {
+     "w": "Its",
+     "t": 160.03
+    },
+    {
+     "w": "name",
+     "t": 160.42
+    },
+    {
+     "w": "is",
+     "t": 160.8
+    },
+    {
+     "w": "Turritopsis",
+     "t": 161.19
+    },
+    {
+     "w": "dohrnii,",
+     "t": 161.57
+    },
+    {
+     "w": "but",
+     "t": 161.96
+    },
+    {
+     "w": "scientists",
+     "t": 162.35
+    },
+    {
+     "w": "call",
+     "t": 162.73
+    },
+    {
+     "w": "it",
+     "t": 163.12
+    },
+    {
+     "w": "the",
+     "t": 163.5
+    },
+    {
+     "w": "immortal",
+     "t": 163.89
+    },
+    {
+     "w": "jellyfish.",
+     "t": 164.27
+    },
+    {
+     "w": "Do",
+     "t": 164.66
+    },
+    {
+     "w": "not",
+     "t": 165.05
+    },
+    {
+     "w": "worry",
+     "t": 165.43
+    },
+    {
+     "w": "—",
+     "t": 165.82
+    },
+    {
+     "w": "it",
+     "t": 166.2
+    },
+    {
+     "w": "is",
+     "t": 166.59
+    },
+    {
+     "w": "not",
+     "t": 166.97
+    },
+    {
+     "w": "really",
+     "t": 167.36
+    },
+    {
+     "w": "immortal.",
+     "t": 167.75
+    },
+    {
+     "w": "It",
+     "t": 168.13
+    },
+    {
+     "w": "can",
+     "t": 168.52
+    },
+    {
+     "w": "still",
+     "t": 168.9
+    },
+    {
+     "w": "be",
+     "t": 169.29
+    },
+    {
+     "w": "eaten",
+     "t": 169.67
+    },
+    {
+     "w": "by",
+     "t": 170.06
+    },
+    {
+     "w": "a",
+     "t": 170.45
+    },
+    {
+     "w": "bigger",
+     "t": 170.83
+    },
+    {
+     "w": "fish,",
+     "t": 171.22
+    },
+    {
+     "w": "or",
+     "t": 171.6
+    },
+    {
+     "w": "die",
+     "t": 171.99
+    },
+    {
+     "w": "of",
+     "t": 172.37
+    },
+    {
+     "w": "hunger.",
+     "t": 172.76
+    },
+    {
+     "w": "But",
+     "t": 173.14
+    },
+    {
+     "w": "it",
+     "t": 173.53
+    },
+    {
+     "w": "has",
+     "t": 173.92
+    },
+    {
+     "w": "one",
+     "t": 174.3
+    },
+    {
+     "w": "magic",
+     "t": 174.69
+    },
+    {
+     "w": "trick",
+     "t": 175.07
+    },
+    {
+     "w": "no",
+     "t": 175.46
+    },
+    {
+     "w": "other",
+     "t": 175.84
+    },
+    {
+     "w": "animal",
+     "t": 176.23
+    },
+    {
+     "w": "has.",
+     "t": 176.62
+    }
+   ]
+  },
+  {
+   "start": 177.0,
+   "end": 202.07,
+   "en": "When this jellyfish gets old, sick, or hurt, it does something amazing. Its soft flesh sinks to the sea floor, and its cells change their jobs. The cells of its bell and arms turn back into young cells, called a polyp. The polyp is like a baby jellyfish, and it grows up all over again. Its old body fades away, and a new life begins.",
+   "title": "返老还童的水母",
+   "cn": "当这只水母变老、生病或受伤时，它会做出一件神奇的事。它柔软的身体沉到海底，它的细胞开始转换工作。钟形身体和触手的细胞变回年轻的细胞，也就是水螅体。水螅体就像水母宝宝，它会重新长大。旧身体渐渐消失，新的生命开始了。",
+   "words": [
+    {
+     "w": "When",
+     "t": 177.0
+    },
+    {
+     "w": "this",
+     "t": 177.39
+    },
+    {
+     "w": "jellyfish",
+     "t": 177.77
+    },
+    {
+     "w": "gets",
+     "t": 178.16
+    },
+    {
+     "w": "old,",
+     "t": 178.54
+    },
+    {
+     "w": "sick,",
+     "t": 178.93
+    },
+    {
+     "w": "or",
+     "t": 179.32
+    },
+    {
+     "w": "hurt,",
+     "t": 179.7
+    },
+    {
+     "w": "it",
+     "t": 180.09
+    },
+    {
+     "w": "does",
+     "t": 180.47
+    },
+    {
+     "w": "something",
+     "t": 180.86
+    },
+    {
+     "w": "amazing.",
+     "t": 181.24
+    },
+    {
+     "w": "Its",
+     "t": 181.63
+    },
+    {
+     "w": "soft",
+     "t": 182.02
+    },
+    {
+     "w": "flesh",
+     "t": 182.4
+    },
+    {
+     "w": "sinks",
+     "t": 182.79
+    },
+    {
+     "w": "to",
+     "t": 183.17
+    },
+    {
+     "w": "the",
+     "t": 183.56
+    },
+    {
+     "w": "sea",
+     "t": 183.94
+    },
+    {
+     "w": "floor,",
+     "t": 184.33
+    },
+    {
+     "w": "and",
+     "t": 184.72
+    },
+    {
+     "w": "its",
+     "t": 185.1
+    },
+    {
+     "w": "cells",
+     "t": 185.49
+    },
+    {
+     "w": "change",
+     "t": 185.87
+    },
+    {
+     "w": "their",
+     "t": 186.26
+    },
+    {
+     "w": "jobs.",
+     "t": 186.64
+    },
+    {
+     "w": "The",
+     "t": 187.03
+    },
+    {
+     "w": "cells",
+     "t": 187.42
+    },
+    {
+     "w": "of",
+     "t": 187.8
+    },
+    {
+     "w": "its",
+     "t": 188.19
+    },
+    {
+     "w": "bell",
+     "t": 188.57
+    },
+    {
+     "w": "and",
+     "t": 188.96
+    },
+    {
+     "w": "arms",
+     "t": 189.34
+    },
+    {
+     "w": "turn",
+     "t": 189.73
+    },
+    {
+     "w": "back",
+     "t": 190.12
+    },
+    {
+     "w": "into",
+     "t": 190.5
+    },
+    {
+     "w": "young",
+     "t": 190.89
+    },
+    {
+     "w": "cells,",
+     "t": 191.27
+    },
+    {
+     "w": "called",
+     "t": 191.66
+    },
+    {
+     "w": "a",
+     "t": 192.04
+    },
+    {
+     "w": "polyp.",
+     "t": 192.43
+    },
+    {
+     "w": "The",
+     "t": 192.82
+    },
+    {
+     "w": "polyp",
+     "t": 193.2
+    },
+    {
+     "w": "is",
+     "t": 193.59
+    },
+    {
+     "w": "like",
+     "t": 193.97
+    },
+    {
+     "w": "a",
+     "t": 194.36
+    },
+    {
+     "w": "baby",
+     "t": 194.74
+    },
+    {
+     "w": "jellyfish,",
+     "t": 195.13
+    },
+    {
+     "w": "and",
+     "t": 195.52
+    },
+    {
+     "w": "it",
+     "t": 195.9
+    },
+    {
+     "w": "grows",
+     "t": 196.29
+    },
+    {
+     "w": "up",
+     "t": 196.67
+    },
+    {
+     "w": "all",
+     "t": 197.06
+    },
+    {
+     "w": "over",
+     "t": 197.44
+    },
+    {
+     "w": "again.",
+     "t": 197.83
+    },
+    {
+     "w": "Its",
+     "t": 198.22
+    },
+    {
+     "w": "old",
+     "t": 198.6
+    },
+    {
+     "w": "body",
+     "t": 198.99
+    },
+    {
+     "w": "fades",
+     "t": 199.37
+    },
+    {
+     "w": "away,",
+     "t": 199.76
+    },
+    {
+     "w": "and",
+     "t": 200.14
+    },
+    {
+     "w": "a",
+     "t": 200.53
+    },
+    {
+     "w": "new",
+     "t": 200.92
+    },
+    {
+     "w": "life",
+     "t": 201.3
+    },
+    {
+     "w": "begins.",
+     "t": 201.69
+    }
+   ]
+  },
+  {
+   "start": 202.07,
+   "end": 219.81,
+   "en": "By coincidence, scientists found this little animal in the warm sea near Italy, and they could not believe their eyes. A creature that can be young again! It is not dead and alive again like a ghost story. It turns back time, with its own cells.",
+   "title": "返老还童的水母",
+   "cn": "巧合的是，科学家们在意大利附近的温暖海域发现了这种小动物，简直不敢相信自己的眼睛。一种能够一次次返老还童的生物！它不是像鬼故事里那样死了又活过来。它只是用自己的细胞，让时光倒流。",
+   "words": [
+    {
+     "w": "By",
+     "t": 202.07
+    },
+    {
+     "w": "coincidence,",
+     "t": 202.46
+    },
+    {
+     "w": "scientists",
+     "t": 202.84
+    },
+    {
+     "w": "found",
+     "t": 203.23
+    },
+    {
+     "w": "this",
+     "t": 203.62
+    },
+    {
+     "w": "little",
+     "t": 204.0
+    },
+    {
+     "w": "animal",
+     "t": 204.39
+    },
+    {
+     "w": "in",
+     "t": 204.77
+    },
+    {
+     "w": "the",
+     "t": 205.16
+    },
+    {
+     "w": "warm",
+     "t": 205.54
+    },
+    {
+     "w": "sea",
+     "t": 205.93
+    },
+    {
+     "w": "near",
+     "t": 206.32
+    },
+    {
+     "w": "Italy,",
+     "t": 206.7
+    },
+    {
+     "w": "and",
+     "t": 207.09
+    },
+    {
+     "w": "they",
+     "t": 207.47
+    },
+    {
+     "w": "could",
+     "t": 207.86
+    },
+    {
+     "w": "not",
+     "t": 208.24
+    },
+    {
+     "w": "believe",
+     "t": 208.63
+    },
+    {
+     "w": "their",
+     "t": 209.01
+    },
+    {
+     "w": "eyes.",
+     "t": 209.4
+    },
+    {
+     "w": "A",
+     "t": 209.79
+    },
+    {
+     "w": "creature",
+     "t": 210.17
+    },
+    {
+     "w": "that",
+     "t": 210.56
+    },
+    {
+     "w": "can",
+     "t": 210.94
+    },
+    {
+     "w": "be",
+     "t": 211.33
+    },
+    {
+     "w": "young",
+     "t": 211.71
+    },
+    {
+     "w": "again!",
+     "t": 212.1
+    },
+    {
+     "w": "It",
+     "t": 212.49
+    },
+    {
+     "w": "is",
+     "t": 212.87
+    },
+    {
+     "w": "not",
+     "t": 213.26
+    },
+    {
+     "w": "dead",
+     "t": 213.64
+    },
+    {
+     "w": "and",
+     "t": 214.03
+    },
+    {
+     "w": "alive",
+     "t": 214.41
+    },
+    {
+     "w": "again",
+     "t": 214.8
+    },
+    {
+     "w": "like",
+     "t": 215.19
+    },
+    {
+     "w": "a",
+     "t": 215.57
+    },
+    {
+     "w": "ghost",
+     "t": 215.96
+    },
+    {
+     "w": "story.",
+     "t": 216.34
+    },
+    {
+     "w": "It",
+     "t": 216.73
+    },
+    {
+     "w": "turns",
+     "t": 217.11
+    },
+    {
+     "w": "back",
+     "t": 217.5
+    },
+    {
+     "w": "time,",
+     "t": 217.89
+    },
+    {
+     "w": "with",
+     "t": 218.27
+    },
+    {
+     "w": "its",
+     "t": 218.66
+    },
+    {
+     "w": "own",
+     "t": 219.04
+    },
+    {
+     "w": "cells.",
+     "t": 219.43
+    }
+   ]
+  },
+  {
+   "start": 219.81,
+   "end": 225.6,
+   "en": "So remember: this jellyfish is no superhero — it just knows how to start again.",
+   "title": "返老还童的水母",
+   "cn": "所以请记住：这只水母不是超级英雄——它只是懂得如何重新开始。",
+   "words": [
+    {
+     "w": "So",
+     "t": 219.81
+    },
+    {
+     "w": "remember:",
+     "t": 220.2
+    },
+    {
+     "w": "this",
+     "t": 220.59
+    },
+    {
+     "w": "jellyfish",
+     "t": 220.97
+    },
+    {
+     "w": "is",
+     "t": 221.36
+    },
+    {
+     "w": "no",
+     "t": 221.74
+    },
+    {
+     "w": "superhero",
+     "t": 222.13
+    },
+    {
+     "w": "—",
+     "t": 222.51
+    },
+    {
+     "w": "it",
+     "t": 222.9
+    },
+    {
+     "w": "just",
+     "t": 223.29
+    },
+    {
+     "w": "knows",
+     "t": 223.67
+    },
+    {
+     "w": "how",
+     "t": 224.06
+    },
+    {
+     "w": "to",
+     "t": 224.44
+    },
+    {
+     "w": "start",
+     "t": 224.83
+    },
+    {
+     "w": "again.",
+     "t": 225.21
+    }
+   ]
+  },
+  {
+   "start": 237.98,
+   "end": 269.68,
+   "en": "Here's today's idiom: \"when pigs fly.\" Pigs cannot fly! So when someone says \"when pigs fly,\" they mean \"never!\" Listen to this: Lily wanted a pet pig. Her father laughed and said, \"You can have a pig when pigs fly!\" Lily wrote the words in her notebook with her pen. Then she put on her father's big hat and danced around the room. \"Look, Dad!\" she shouted. \"The pig can wait — but I can fly!\"",
+   "title": "今日俚语",
+   "cn": "今天的俚语是\"when pigs fly\"（等猪会飞的时候）。猪当然不会飞！所以当有人说\"when pigs fly\"时，他们的意思是\"永远不可能！\"听这个小故事：Lily 想要一只宠物猪。她的爸爸笑着说：等猪会飞的时候，你就可以养猪了！Lily 用她的钢笔把这句话写在笔记本上。然后她戴上爸爸的大帽子，在房间里跳起舞来。她喊道：看，爸爸！猪可以等——但我会飞！",
+   "words": [
+    {
+     "w": "Here's",
+     "t": 237.98
+    },
+    {
+     "w": "today's",
+     "t": 238.4
+    },
+    {
+     "w": "idiom:",
+     "t": 238.81
+    },
+    {
+     "w": "\"when",
+     "t": 239.23
+    },
+    {
+     "w": "pigs",
+     "t": 239.65
+    },
+    {
+     "w": "fly.\"",
+     "t": 240.07
+    },
+    {
+     "w": "Pigs",
+     "t": 240.48
+    },
+    {
+     "w": "cannot",
+     "t": 240.9
+    },
+    {
+     "w": "fly!",
+     "t": 241.32
+    },
+    {
+     "w": "So",
+     "t": 241.73
+    },
+    {
+     "w": "when",
+     "t": 242.15
+    },
+    {
+     "w": "someone",
+     "t": 242.57
+    },
+    {
+     "w": "says",
+     "t": 242.99
+    },
+    {
+     "w": "\"when",
+     "t": 243.4
+    },
+    {
+     "w": "pigs",
+     "t": 243.82
+    },
+    {
+     "w": "fly,\"",
+     "t": 244.24
+    },
+    {
+     "w": "they",
+     "t": 244.65
+    },
+    {
+     "w": "mean",
+     "t": 245.07
+    },
+    {
+     "w": "\"never!\"",
+     "t": 245.49
+    },
+    {
+     "w": "Listen",
+     "t": 245.91
+    },
+    {
+     "w": "to",
+     "t": 246.32
+    },
+    {
+     "w": "this:",
+     "t": 246.74
+    },
+    {
+     "w": "Lily",
+     "t": 247.16
+    },
+    {
+     "w": "wanted",
+     "t": 247.57
+    },
+    {
+     "w": "a",
+     "t": 247.99
+    },
+    {
+     "w": "pet",
+     "t": 248.41
+    },
+    {
+     "w": "pig.",
+     "t": 248.82
+    },
+    {
+     "w": "Her",
+     "t": 249.24
+    },
+    {
+     "w": "father",
+     "t": 249.66
+    },
+    {
+     "w": "laughed",
+     "t": 250.08
+    },
+    {
+     "w": "and",
+     "t": 250.49
+    },
+    {
+     "w": "said,",
+     "t": 250.91
+    },
+    {
+     "w": "\"You",
+     "t": 251.33
+    },
+    {
+     "w": "can",
+     "t": 251.74
+    },
+    {
+     "w": "have",
+     "t": 252.16
+    },
+    {
+     "w": "a",
+     "t": 252.58
+    },
+    {
+     "w": "pig",
+     "t": 253.0
+    },
+    {
+     "w": "when",
+     "t": 253.41
+    },
+    {
+     "w": "pigs",
+     "t": 253.83
+    },
+    {
+     "w": "fly!\"",
+     "t": 254.25
+    },
+    {
+     "w": "Lily",
+     "t": 254.66
+    },
+    {
+     "w": "wrote",
+     "t": 255.08
+    },
+    {
+     "w": "the",
+     "t": 255.5
+    },
+    {
+     "w": "words",
+     "t": 255.92
+    },
+    {
+     "w": "in",
+     "t": 256.33
+    },
+    {
+     "w": "her",
+     "t": 256.75
+    },
+    {
+     "w": "notebook",
+     "t": 257.17
+    },
+    {
+     "w": "with",
+     "t": 257.58
+    },
+    {
+     "w": "her",
+     "t": 258.0
+    },
+    {
+     "w": "pen.",
+     "t": 258.42
+    },
+    {
+     "w": "Then",
+     "t": 258.84
+    },
+    {
+     "w": "she",
+     "t": 259.25
+    },
+    {
+     "w": "put",
+     "t": 259.67
+    },
+    {
+     "w": "on",
+     "t": 260.09
+    },
+    {
+     "w": "her",
+     "t": 260.5
+    },
+    {
+     "w": "father's",
+     "t": 260.92
+    },
+    {
+     "w": "big",
+     "t": 261.34
+    },
+    {
+     "w": "hat",
+     "t": 261.75
+    },
+    {
+     "w": "and",
+     "t": 262.17
+    },
+    {
+     "w": "danced",
+     "t": 262.59
+    },
+    {
+     "w": "around",
+     "t": 263.01
+    },
+    {
+     "w": "the",
+     "t": 263.42
+    },
+    {
+     "w": "room.",
+     "t": 263.84
+    },
+    {
+     "w": "\"Look,",
+     "t": 264.26
+    },
+    {
+     "w": "Dad!\"",
+     "t": 264.67
+    },
+    {
+     "w": "she",
+     "t": 265.09
+    },
+    {
+     "w": "shouted.",
+     "t": 265.51
+    },
+    {
+     "w": "\"The",
+     "t": 265.93
+    },
+    {
+     "w": "pig",
+     "t": 266.34
+    },
+    {
+     "w": "can",
+     "t": 266.76
+    },
+    {
+     "w": "wait",
+     "t": 267.18
+    },
+    {
+     "w": "—",
+     "t": 267.59
+    },
+    {
+     "w": "but",
+     "t": 268.01
+    },
+    {
+     "w": "I",
+     "t": 268.43
+    },
+    {
+     "w": "can",
+     "t": 268.85
+    },
+    {
+     "w": "fly!\"",
+     "t": 269.26
+    }
+   ]
+  },
+  {
+   "start": 283.5,
+   "end": 309.85,
+   "en": "Let's think about our stories. A young inventor helped people test their water, and a tiny jellyfish learned to start again. Two questions. First: if you could invent one thing to help your school, what would it be? Second: the jellyfish turns young again. If you could turn back time for one day, which day would you choose? Talk about it with your family!",
+   "title": "结束语与互动问题",
+   "cn": "我们来想想今天的故事。一位年轻的发明家帮助人们检测水质，一只小水母学会了重新开始。两个问题。第一：如果你能发明一样东西来帮助你的学校，那会是什么？第二：水母能够返老还童。如果你能让时光倒流一天，你会选择哪一天？和家人聊聊吧！",
+   "words": [
+    {
+     "w": "Let's",
+     "t": 283.5
+    },
+    {
+     "w": "think",
+     "t": 283.91
+    },
+    {
+     "w": "about",
+     "t": 284.32
+    },
+    {
+     "w": "our",
+     "t": 284.74
+    },
+    {
+     "w": "stories.",
+     "t": 285.15
+    },
+    {
+     "w": "A",
+     "t": 285.56
+    },
+    {
+     "w": "young",
+     "t": 285.97
+    },
+    {
+     "w": "inventor",
+     "t": 286.38
+    },
+    {
+     "w": "helped",
+     "t": 286.79
+    },
+    {
+     "w": "people",
+     "t": 287.21
+    },
+    {
+     "w": "test",
+     "t": 287.62
+    },
+    {
+     "w": "their",
+     "t": 288.03
+    },
+    {
+     "w": "water,",
+     "t": 288.44
+    },
+    {
+     "w": "and",
+     "t": 288.85
+    },
+    {
+     "w": "a",
+     "t": 289.26
+    },
+    {
+     "w": "tiny",
+     "t": 289.68
+    },
+    {
+     "w": "jellyfish",
+     "t": 290.09
+    },
+    {
+     "w": "learned",
+     "t": 290.5
+    },
+    {
+     "w": "to",
+     "t": 290.91
+    },
+    {
+     "w": "start",
+     "t": 291.32
+    },
+    {
+     "w": "again.",
+     "t": 291.73
+    },
+    {
+     "w": "Two",
+     "t": 292.15
+    },
+    {
+     "w": "questions.",
+     "t": 292.56
+    },
+    {
+     "w": "First:",
+     "t": 292.97
+    },
+    {
+     "w": "if",
+     "t": 293.38
+    },
+    {
+     "w": "you",
+     "t": 293.79
+    },
+    {
+     "w": "could",
+     "t": 294.2
+    },
+    {
+     "w": "invent",
+     "t": 294.62
+    },
+    {
+     "w": "one",
+     "t": 295.03
+    },
+    {
+     "w": "thing",
+     "t": 295.44
+    },
+    {
+     "w": "to",
+     "t": 295.85
+    },
+    {
+     "w": "help",
+     "t": 296.26
+    },
+    {
+     "w": "your",
+     "t": 296.68
+    },
+    {
+     "w": "school,",
+     "t": 297.09
+    },
+    {
+     "w": "what",
+     "t": 297.5
+    },
+    {
+     "w": "would",
+     "t": 297.91
+    },
+    {
+     "w": "it",
+     "t": 298.32
+    },
+    {
+     "w": "be?",
+     "t": 298.73
+    },
+    {
+     "w": "Second:",
+     "t": 299.15
+    },
+    {
+     "w": "the",
+     "t": 299.56
+    },
+    {
+     "w": "jellyfish",
+     "t": 299.97
+    },
+    {
+     "w": "turns",
+     "t": 300.38
+    },
+    {
+     "w": "young",
+     "t": 300.79
+    },
+    {
+     "w": "again.",
+     "t": 301.2
+    },
+    {
+     "w": "If",
+     "t": 301.62
+    },
+    {
+     "w": "you",
+     "t": 302.03
+    },
+    {
+     "w": "could",
+     "t": 302.44
+    },
+    {
+     "w": "turn",
+     "t": 302.85
+    },
+    {
+     "w": "back",
+     "t": 303.26
+    },
+    {
+     "w": "time",
+     "t": 303.67
+    },
+    {
+     "w": "for",
+     "t": 304.09
+    },
+    {
+     "w": "one",
+     "t": 304.5
+    },
+    {
+     "w": "day,",
+     "t": 304.91
+    },
+    {
+     "w": "which",
+     "t": 305.32
+    },
+    {
+     "w": "day",
+     "t": 305.73
+    },
+    {
+     "w": "would",
+     "t": 306.14
+    },
+    {
+     "w": "you",
+     "t": 306.56
+    },
+    {
+     "w": "choose?",
+     "t": 306.97
+    },
+    {
+     "w": "Talk",
+     "t": 307.38
+    },
+    {
+     "w": "about",
+     "t": 307.79
+    },
+    {
+     "w": "it",
+     "t": 308.2
+    },
+    {
+     "w": "with",
+     "t": 308.61
+    },
+    {
+     "w": "your",
+     "t": 309.03
+    },
+    {
+     "w": "family!",
+     "t": 309.44
+    }
+   ]
+  },
+  {
+   "start": 322.23,
+   "end": 336.92,
+   "en": "That's all for today, young explorers. Remember: big ideas can come from young minds — and when someone says \"when pigs fly,\" smile and keep dreaming. Stay curious, and keep exploring. See you tomorrow morning!",
+   "title": "告别",
+   "cn": "今天的节目就到这里，小小探险家们。记住：大点子可以来自年轻的头脑——当有人说\"等猪会飞吧\"，就笑笑，继续做梦吧。保持好奇心，继续探索吧。明天早上见！",
+   "words": [
+    {
+     "w": "That's",
+     "t": 322.23
+    },
+    {
+     "w": "all",
+     "t": 322.65
+    },
+    {
+     "w": "for",
+     "t": 323.07
+    },
+    {
+     "w": "today,",
+     "t": 323.49
+    },
+    {
+     "w": "young",
+     "t": 323.91
+    },
+    {
+     "w": "explorers.",
+     "t": 324.33
+    },
+    {
+     "w": "Remember:",
+     "t": 324.75
+    },
+    {
+     "w": "big",
+     "t": 325.17
+    },
+    {
+     "w": "ideas",
+     "t": 325.59
+    },
+    {
+     "w": "can",
+     "t": 326.01
+    },
+    {
+     "w": "come",
+     "t": 326.43
+    },
+    {
+     "w": "from",
+     "t": 326.85
+    },
+    {
+     "w": "young",
+     "t": 327.27
+    },
+    {
+     "w": "minds",
+     "t": 327.69
+    },
+    {
+     "w": "—",
+     "t": 328.11
+    },
+    {
+     "w": "and",
+     "t": 328.53
+    },
+    {
+     "w": "when",
+     "t": 328.95
+    },
+    {
+     "w": "someone",
+     "t": 329.37
+    },
+    {
+     "w": "says",
+     "t": 329.78
+    },
+    {
+     "w": "\"when",
+     "t": 330.2
+    },
+    {
+     "w": "pigs",
+     "t": 330.62
+    },
+    {
+     "w": "fly,\"",
+     "t": 331.04
+    },
+    {
+     "w": "smile",
+     "t": 331.46
+    },
+    {
+     "w": "and",
+     "t": 331.88
+    },
+    {
+     "w": "keep",
+     "t": 332.3
+    },
+    {
+     "w": "dreaming.",
+     "t": 332.72
+    },
+    {
+     "w": "Stay",
+     "t": 333.14
+    },
+    {
+     "w": "curious,",
+     "t": 333.56
+    },
+    {
+     "w": "and",
+     "t": 333.98
+    },
+    {
+     "w": "keep",
+     "t": 334.4
+    },
+    {
+     "w": "exploring.",
+     "t": 334.82
+    },
+    {
+     "w": "See",
+     "t": 335.24
+    },
+    {
+     "w": "you",
+     "t": 335.66
+    },
+    {
+     "w": "tomorrow",
+     "t": 336.08
+    },
+    {
+     "w": "morning!",
+     "t": 336.5
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "when pigs fly",
+    "phon": "/wɛn pɪɡz flaɪ/",
+    "meaning": "(习语) 等猪会飞的时候；永远不可能",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: She can have a pet pig when pigs fly."
+   },
+   {
+    "word": "erupt",
+    "phon": "/ɪˈrʌpt/",
+    "meaning": "(v.) 爆发；突然发生",
+    "tags": [],
+    "example": "Example: A water crisis erupted in the city of Flint."
+   },
+   {
+    "word": "wound",
+    "phon": "/wuːnd/",
+    "meaning": "(v.) 伤害；损伤",
+    "tags": [],
+    "example": "Example: Lead can wound the brains of young children."
+   },
+   {
+    "word": "courage",
+    "phon": "/ˈkʌrɪdʒ/",
+    "meaning": "(n.) 勇气；胆量",
+    "tags": [],
+    "example": "Example: It takes courage to say, \"I can help!\""
+   },
+   {
+    "word": "delight",
+    "phon": "/dɪˈlaɪt/",
+    "meaning": "(n.) 高兴；喜悦",
+    "tags": [],
+    "example": "Example: To everyone's delight, her device worked!"
+   },
+   {
+    "word": "flesh",
+    "phon": "/fleʃ/",
+    "meaning": "(n.) 肉；肉质",
+    "tags": [],
+    "example": "Example: Its soft flesh sinks to the sea floor."
+   },
+   {
+    "word": "engine",
+    "phon": "/ˈendʒɪn/",
+    "meaning": "(n.) 引擎；(search engine) 搜索引擎",
+    "tags": [],
+    "example": "Example: She used a search engine to learn about nanotubes."
+   },
+   {
+    "word": "coincidence",
+    "phon": "/kəʊˈɪnsɪdəns/",
+    "meaning": "(n.) 巧合；碰巧",
+    "tags": [],
+    "example": "Example: By coincidence, scientists found it near Italy."
+   },
+   {
+    "word": "primary",
+    "phon": "/ˈpraɪməri/",
+    "meaning": "(adj.) 主要的；初级的",
+    "tags": [],
+    "example": "Example: She is an eleven-year-old primary school girl."
+   },
+   {
+    "word": "cell",
+    "phon": "/sel/",
+    "meaning": "(n.) 细胞",
+    "tags": [],
+    "example": "Example: Its cells change their jobs."
+   },
+   {
+    "word": "immortal",
+    "phon": "/ɪˈmɔːtl/",
+    "meaning": "(adj.) 不死的；永生的",
+    "tags": [],
+    "example": "Example: Scientists call it the immortal jellyfish."
+   },
+   {
+    "word": "polyp",
+    "phon": "/ˈpɒlɪp/",
+    "meaning": "(n.) 水螅体（水母的幼年形态）",
+    "tags": [],
+    "example": "Example: Its cells turn back into a young polyp."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "Why did Gitanjali want to invent a device?\nA. She wanted to win a lot of money\nB. She learned the water in Flint was not safe\nC. She loved swimming\nD. Her teacher asked her to do it",
+     "How does Tethys work?\nA. You dip a stick in the water, and a phone app shows the answer in seconds\nB. You must boil the water first\nC. You send the water to a laboratory\nD. You look at the color of the water",
+     "What happens when the immortal jellyfish gets old?\nA. It grows much bigger\nB. Its cells turn back into a young polyp\nC. It sleeps for a whole year\nD. It moves to colder water",
+     "What does \"when pigs fly\" mean?\nA. Very soon\nB. Never\nC. On a farm\nD. Very fast"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "type": "text",
+        "text": "The cells "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "of"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " its bell and arms "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "turn back into"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " young cells, "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "called"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " a polyp."
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "of"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 短语作定语："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "The cells of its bell and arms"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 里，"
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "of its bell and arms"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 修饰 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "cells"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，说明\"是哪部分的细胞\"——钟形身体和触手的细胞。"
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "of"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 短语放在名词后面，相当于中文的\"……的\"，语序正好相反：英文是\"细胞 of 钟和触手\"，中文是\"钟和触手的细胞\"。读到 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "of"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，先往后看它管到哪，再往前配名词。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "turn back into"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "短语动词"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "turn into"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " = \"变成\"，"
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "back"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 插在中间表示\"变回去\"。所以 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "turn back into young cells"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " = \"变回年轻的细胞\"。短语动词要当一个整体记，拆开查单个词的意思会走偏。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "句尾 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "called a polyp"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "过去分词短语作后置定语"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：它修饰前面的 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "young cells"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，完整意思是 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "(which are) called a polyp"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（被称为水螅体）。分词短语放在名词后面补充说明，相当于给名词贴了一张小标签。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句逻辑链："
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "哪部分细胞（of 定语）→ 变回什么（turn back into）→ 这种年轻细胞叫什么（called 后置定语）"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。一句话讲清了水母\"返老还童\"的关键一步。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "DEVICE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（装置；设备）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "JELLYFISH"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（水母）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "LEAD"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（铅）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ENGINE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（引擎（搜索引擎））"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "INVENTOR"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（发明家）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "DELIGHT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（高兴；喜悦）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "COURAGE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（勇气）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "COINCIDENCE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（巧合）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "FLESH"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（肉；肉质）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "POLYP"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（水螅体）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". Gitanjali learned that "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"the water in Flint was not safe: it had lead in it.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "A"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"You dip a small stick into the water, and the device sends the answer to a phone app in seconds.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"The cells of its bell and arms turn back into young cells, called a polyp.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The idiom means "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"never!\""
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": " — pigs cannot fly, so it will never happen."
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. of  2. of"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. into  2. into"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. called  2. called"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "B",
+    "A",
+    "B",
+    "B"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. of 短语作定语：选出正确的词填入空格",
+     "items": [
+      {
+       "prompt": "The pages ____ the book are full of pictures.",
+       "options": [
+        "of",
+        "for",
+        "with"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "The color ____ her dress is blue.",
+       "options": [
+        "for",
+        "of",
+        "with"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. turn into（短语动词）：选出正确的词填入空格",
+     "items": [
+      {
+       "prompt": "The caterpillar will turn ____ a butterfly.",
+       "options": [
+        "to",
+        "on",
+        "into"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "Water can turn ____ ice in winter.",
+       "options": [
+        "into",
+        "to",
+        "on"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. called + 名词（过去分词作后置定语）：选出正确的词填入空格",
+     "items": [
+      {
+       "prompt": "A small animal, ____ a polyp, grows up again.",
+       "options": [
+        "call",
+        "called",
+        "calls"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "The device, ____ Tethys, tests water in seconds.",
+       "options": [
+        "call",
+        "calls",
+        "called"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "The students of our class built a small robot, called Little Helper.",
+    "Her kind words turned a sad day into a happy one."
+   ]
+  },
+  "crossword": {
+   "nrows": 10,
+   "ncols": 16,
+   "words": [
+    {
+     "word": "DEVICE",
+     "row": 0,
+     "col": 0,
+     "dir": "D",
+     "num": 1,
+     "cn": "装置；设备",
+     "clue": "A small machine made for a special job. She built a small ___ to test water."
+    },
+    {
+     "word": "JELLYFISH",
+     "row": 0,
+     "col": 9,
+     "dir": "D",
+     "num": 2,
+     "cn": "水母",
+     "clue": "A soft sea animal with a bell and arms. The ___ can turn young again."
+    },
+    {
+     "word": "LEAD",
+     "row": 1,
+     "col": 8,
+     "dir": "A",
+     "num": 3,
+     "cn": "铅",
+     "clue": "A poison metal in dirty water. The water had ___ in it."
+    },
+    {
+     "word": "ENGINE",
+     "row": 1,
+     "col": 14,
+     "dir": "D",
+     "num": 4,
+     "cn": "引擎（搜索引擎）",
+     "clue": "She used a search ___ to read about carbon nanotubes."
+    },
+    {
+     "word": "INVENTOR",
+     "row": 2,
+     "col": 12,
+     "dir": "D",
+     "num": 5,
+     "cn": "发明家",
+     "clue": "A person who makes something new for the first time. Gitanjali is a young ___."
+    },
+    {
+     "word": "DELIGHT",
+     "row": 3,
+     "col": 6,
+     "dir": "D",
+     "num": 6,
+     "cn": "高兴；喜悦",
+     "clue": "Great happiness. To everyone's ___, her device worked!"
+    },
+    {
+     "word": "COURAGE",
+     "row": 4,
+     "col": 0,
+     "dir": "A",
+     "num": 7,
+     "cn": "勇气",
+     "clue": "The brave heart to face a big problem. It takes ___ to say, 'I can help!'"
+    },
+    {
+     "word": "COINCIDENCE",
+     "row": 6,
+     "col": 4,
+     "dir": "A",
+     "num": 8,
+     "cn": "巧合",
+     "clue": "A lucky surprise that is not planned. By ___, scientists found the jellyfish near Italy."
+    },
+    {
+     "word": "FLESH",
+     "row": 8,
+     "col": 2,
+     "dir": "A",
+     "num": 9,
+     "cn": "肉；肉质",
+     "clue": "The soft part of a body. Its soft ___ sinks to the sea floor."
+    },
+    {
+     "word": "POLYP",
+     "row": 8,
+     "col": 11,
+     "dir": "A",
+     "num": 10,
+     "cn": "水螅体",
+     "clue": "The baby form of the jellyfish. Its cells turn back into a young ___."
+    }
+   ]
+  }
+ }
+}

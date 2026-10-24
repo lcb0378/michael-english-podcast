@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.23 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol23/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol23/cover.png" controls playsinline preload="metadata"></video>
+<h1>💧 Vol.23 · 测水的小发明家与返老还童的水母</h1>
+<div class="meta">英文 595 词 ｜ 音频 5分46秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol23/story-inventor.png" alt="测水的小发明家">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol23/story-jellyfish.png" alt="返老还童的水母">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">when pigs fly</span> <span class="phon">/wɛn pɪɡz flaɪ/</span> (习语) 等猪会飞的时候；永远不可能<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: She can have a pet pig <b>when pigs fly</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">erupt</span> <span class="phon">/ɪˈrʌpt/</span> (v.) 爆发；突然发生<br>
+  
+  <div class="example">Example: A water crisis <b>erupted</b> in the city of Flint.</div>
+</div>
+<div class="vocab">
+  <span class="word">wound</span> <span class="phon">/wuːnd/</span> (v.) 伤害；损伤<br>
+  
+  <div class="example">Example: Lead can <b>wound</b> the brains of young children.</div>
+</div>
+<div class="vocab">
+  <span class="word">courage</span> <span class="phon">/ˈkʌrɪdʒ/</span> (n.) 勇气；胆量<br>
+  
+  <div class="example">Example: It takes <b>courage</b> to say, "I can help!"</div>
+</div>
+<div class="vocab">
+  <span class="word">delight</span> <span class="phon">/dɪˈlaɪt/</span> (n.) 高兴；喜悦<br>
+  
+  <div class="example">Example: To everyone's <b>delight</b>, her device worked!</div>
+</div>
+<div class="vocab">
+  <span class="word">flesh</span> <span class="phon">/fleʃ/</span> (n.) 肉；肉质<br>
+  
+  <div class="example">Example: Its soft <b>flesh</b> sinks to the sea floor.</div>
+</div>
+<div class="vocab">
+  <span class="word">engine</span> <span class="phon">/ˈendʒɪn/</span> (n.) 引擎；(search engine) 搜索引擎<br>
+  
+  <div class="example">Example: She used a search <b>engine</b> to learn about nanotubes.</div>
+</div>
+<div class="vocab">
+  <span class="word">coincidence</span> <span class="phon">/kəʊˈɪnsɪdəns/</span> (n.) 巧合；碰巧<br>
+  
+  <div class="example">Example: By <b>coincidence</b>, scientists found it near Italy.</div>
+</div>
+<div class="vocab">
+  <span class="word">primary</span> <span class="phon">/ˈpraɪməri/</span> (adj.) 主要的；初级的<br>
+  
+  <div class="example">Example: She is an eleven-year-old <b>primary</b> school girl.</div>
+</div>
+<div class="vocab">
+  <span class="word">cell</span> <span class="phon">/sel/</span> (n.) 细胞<br>
+  
+  <div class="example">Example: Its <b>cells</b> change their jobs.</div>
+</div>
+<div class="vocab">
+  <span class="word">immortal</span> <span class="phon">/ɪˈmɔːtl/</span> (adj.) 不死的；永生的<br>
+  
+  <div class="example">Example: Scientists call it the <b>immortal</b> jellyfish.</div>
+</div>
+<div class="vocab">
+  <span class="word">polyp</span> <span class="phon">/ˈpɒlɪp/</span> (n.) 水螅体（水母的幼年形态）<br>
+  
+  <div class="example">Example: Its cells turn back into a young <b>polyp</b>.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 10, "ncols": 16, "words": [{"word": "DEVICE", "row": 0, "col": 0, "dir": "D", "num": 1, "cn": "装置；设备", "clue": "A small machine made for a special job. She built a small ___ to test water."}, {"word": "JELLYFISH", "row": 0, "col": 9, "dir": "D", "num": 2, "cn": "水母", "clue": "A soft sea animal with a bell and arms. The ___ can turn young again."}, {"word": "LEAD", "row": 1, "col": 8, "dir": "A", "num": 3, "cn": "铅", "clue": "A poison metal in dirty water. The water had ___ in it."}, {"word": "ENGINE", "row": 1, "col": 14, "dir": "D", "num": 4, "cn": "引擎（搜索引擎）", "clue": "She used a search ___ to read about carbon nanotubes."}, {"word": "INVENTOR", "row": 2, "col": 12, "dir": "D", "num": 5, "cn": "发明家", "clue": "A person who makes something new for the first time. Gitanjali is a young ___."}, {"word": "DELIGHT", "row": 3, "col": 6, "dir": "D", "num": 6, "cn": "高兴；喜悦", "clue": "Great happiness. To everyone's ___, her device worked!"}, {"word": "COURAGE", "row": 4, "col": 0, "dir": "A", "num": 7, "cn": "勇气", "clue": "The brave heart to face a big problem. It takes ___ to say, 'I can help!'"}, {"word": "COINCIDENCE", "row": 6, "col": 4, "dir": "A", "num": 8, "cn": "巧合", "clue": "A lucky surprise that is not planned. By ___, scientists found the jellyfish near Italy."}, {"word": "FLESH", "row": 8, "col": 2, "dir": "A", "num": 9, "cn": "肉；肉质", "clue": "The soft part of a body. Its soft ___ sinks to the sea floor."}, {"word": "POLYP", "row": 8, "col": 11, "dir": "A", "num": 10, "cn": "水螅体", "clue": "The baby form of the jellyfish. Its cells turn back into a young ___."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. Why did Gitanjali want to invent a device?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. She wanted to win a lot of money</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. She learned the water in Flint was not safe</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. She loved swimming</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. Her teacher asked her to do it</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. How does Tethys work?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. You dip a stick in the water, and a phone app shows the answer in seconds</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. You must boil the water first</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. You send the water to a laboratory</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. You look at the color of the water</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：A</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. What happens when the immortal jellyfish gets old?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. It grows much bigger</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. Its cells turn back into a young polyp</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. It sleeps for a whole year</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. It moves to colder water</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does &quot;when pigs fly&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. Very soon</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. Never</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. On a farm</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. Very fast</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：B</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [1, 0, 1, 1];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">The cells <b class="kw">of</b> its bell and arms <b class="kw">turn back into</b> young cells, <b class="kw">called</b> a polyp.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li><i>of</i> 短语作定语：<i>The cells of its bell and arms</i> 里，<i>of its bell and arms</i> 修饰 <i>cells</i>，说明"是哪部分的细胞"——钟形身体和触手的细胞。<i>of</i> 短语放在名词后面，相当于中文的"……的"，语序正好相反：英文是"细胞 of 钟和触手"，中文是"钟和触手的细胞"。读到 <i>of</i>，先往后看它管到哪，再往前配名词。</li>
+  <li><i>turn back into</i> 是<b>短语动词</b>：<i>turn into</i> = "变成"，<i>back</i> 插在中间表示"变回去"。所以 <i>turn back into young cells</i> = "变回年轻的细胞"。短语动词要当一个整体记，拆开查单个词的意思会走偏。</li>
+  <li>句尾 <i>called a polyp</i> 是<b>过去分词短语作后置定语</b>：它修饰前面的 <i>young cells</i>，完整意思是 <i>(which are) called a polyp</i>（被称为水螅体）。分词短语放在名词后面补充说明，相当于给名词贴了一张小标签。</li>
+  <li>整句逻辑链：<b>哪部分细胞（of 定语）→ 变回什么（turn back into）→ 这种年轻细胞叫什么（called 后置定语）</b>。一句话讲清了水母"返老还童"的关键一步。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. of 短语作定语：选出正确的词填入空格</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">The pages ____ the book are full of pictures.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">of</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">for</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">with</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：of</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">The color ____ her dress is blue.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">for</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">of</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">with</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：of</p>
+</div>
+<p class="p4-gname">B. turn into（短语动词）：选出正确的词填入空格</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">The caterpillar will turn ____ a butterfly.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">to</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">on</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">into</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：into</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">Water can turn ____ ice in winter.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">into</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">to</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">on</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：into</p>
+</div>
+<p class="p4-gname">C. called + 名词（过去分词作后置定语）：选出正确的词填入空格</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">A small animal, ____ a polyp, grows up again.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">call</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">called</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">calls</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：called</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">The device, ____ Tethys, tests water in seconds.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">call</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">calls</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">called</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：called</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>The students of our class built a small robot, called Little Helper.</li>
+<li>Her kind words turned a sad day into a happy one.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwc"><span class="cwn">1</span><span class="cwl">D</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">2</span><span class="cwl">J</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">3</span><span class="cwl">L</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">E</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">V</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">5</span><span class="cwl">I</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">6</span><span class="cwl">D</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">G</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">7</span><span class="cwl">C</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">G</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">Y</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">V</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">F</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">8</span><span class="cwl">C</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">D</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">G</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">9</span><span class="cwl">F</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">10</span><span class="cwl">P</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">Y</span></td><td class="cwc"><span class="cwl">P</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr></table></div>1 竖 → <b>DEVICE</b>（装置；设备）<br>2 竖 → <b>JELLYFISH</b>（水母）<br>3 横 → <b>LEAD</b>（铅）<br>4 竖 → <b>ENGINE</b>（引擎（搜索引擎））<br>5 竖 → <b>INVENTOR</b>（发明家）<br>6 竖 → <b>DELIGHT</b>（高兴；喜悦）<br>7 横 → <b>COURAGE</b>（勇气）<br>8 横 → <b>COINCIDENCE</b>（巧合）<br>9 横 → <b>FLESH</b>（肉；肉质）<br>10 横 → <b>POLYP</b>（水螅体）<br><br><b>B. Single Choice:</b><br>
+1 → <b>B</b>. Gitanjali learned that <i>"the water in Flint was not safe: it had lead in it."</i><br>
+2 → <b>A</b>. The text says: <i>"You dip a small stick into the water, and the device sends the answer to a phone app in seconds."</i><br>
+3 → <b>B</b>. The text says: <i>"The cells of its bell and arms turn back into young cells, called a polyp."</i><br>
+4 → <b>B</b>. The idiom means <i>"never!"</i> — pigs cannot fly, so it will never happen.<br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. of&nbsp;&nbsp;2. of<br>
+B. 1. into&nbsp;&nbsp;2. into<br>
+C. 1. called&nbsp;&nbsp;2. called<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol23/Vol23_晚读讲义_测水的小发明家与返老还童的水母_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 26.51, "end": 49.29, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! This is our twenty-third show together! Today we meet a brave young inventor who taught dirty water to tell the truth, and a tiny jellyfish that can turn back time. A girl with a big idea, and a sea animal with a magic trick. Let's go!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！这是我们在一起的第二十三期节目啦！今天我们要认识一位勇敢的年轻发明家，她教会脏水说真话；还有一只能够让时光倒流的小水母。一个是怀揣大点子的女孩，一个是拥有魔术本领的海洋动物。出发吧！", "words": [{"w": "Hello,", "t": 26.51}, {"w": "young", "t": 26.92}, {"w": "explorers,", "t": 27.32}, {"w": "and", "t": 27.73}, {"w": "welcome", "t": 28.14}, {"w": "back", "t": 28.54}, {"w": "to", "t": 28.95}, {"w": "Michael's", "t": 29.36}, {"w": "Morning", "t": 29.76}, {"w": "Listening!", "t": 30.17}, {"w": "This", "t": 30.58}, {"w": "is", "t": 30.98}, {"w": "our", "t": 31.39}, {"w": "twenty-third", "t": 31.8}, {"w": "show", "t": 32.2}, {"w": "together!", "t": 32.61}, {"w": "Today", "t": 33.02}, {"w": "we", "t": 33.43}, {"w": "meet", "t": 33.83}, {"w": "a", "t": 34.24}, {"w": "brave", "t": 34.65}, {"w": "young", "t": 35.05}, {"w": "inventor", "t": 35.46}, {"w": "who", "t": 35.87}, {"w": "taught", "t": 36.27}, {"w": "dirty", "t": 36.68}, {"w": "water", "t": 37.09}, {"w": "to", "t": 37.49}, {"w": "tell", "t": 37.9}, {"w": "the", "t": 38.31}, {"w": "truth,", "t": 38.71}, {"w": "and", "t": 39.12}, {"w": "a", "t": 39.53}, {"w": "tiny", "t": 39.93}, {"w": "jellyfish", "t": 40.34}, {"w": "that", "t": 40.75}, {"w": "can", "t": 41.15}, {"w": "turn", "t": 41.56}, {"w": "back", "t": 41.97}, {"w": "time.", "t": 42.37}, {"w": "A", "t": 42.78}, {"w": "girl", "t": 43.19}, {"w": "with", "t": 43.59}, {"w": "a", "t": 44.0}, {"w": "big", "t": 44.41}, {"w": "idea,", "t": 44.82}, {"w": "and", "t": 45.22}, {"w": "a", "t": 45.63}, {"w": "sea", "t": 46.04}, {"w": "animal", "t": 46.44}, {"w": "with", "t": 46.85}, {"w": "a", "t": 47.26}, {"w": "magic", "t": 47.66}, {"w": "trick.", "t": 48.07}, {"w": "Let's", "t": 48.48}, {"w": "go!", "t": 48.88}]}, {"start": 65.43, "end": 94.95, "en": "Our first hero is Gitanjali Rao, an eleven-year-old primary school girl from Colorado. When she was ten, she watched the news when a water crisis erupted in a city called Flint. The water there was not safe: it had lead in it, a poison that can wound the brains of young children. Gitanjali was sad, and she was brave too. It takes courage to look at a big problem and say, \"I can help!\"", "title": "测水的小发明家", "cn": "我们的第一位主角是 Gitanjali Rao，一位来自科罗拉多州的十一岁小学生。她十岁那年，在新闻里看到一座叫弗林特的城市爆发了水危机。那里的水不安全：水中含有铅，这种毒物会伤害小孩子的脑部。Gitanjali 很难过，但她也很勇敢。面对一个大难题，说出\"我能帮忙\"，是需要勇气的！", "words": [{"w": "Our", "t": 65.43}, {"w": "first", "t": 65.83}, {"w": "hero", "t": 66.23}, {"w": "is", "t": 66.63}, {"w": "Gitanjali", "t": 67.03}, {"w": "Rao,", "t": 67.42}, {"w": "an", "t": 67.82}, {"w": "eleven-year-old", "t": 68.22}, {"w": "primary", "t": 68.62}, {"w": "school", "t": 69.02}, {"w": "girl", "t": 69.42}, {"w": "from", "t": 69.82}, {"w": "Colorado.", "t": 70.22}, {"w": "When", "t": 70.62}, {"w": "she", "t": 71.01}, {"w": "was", "t": 71.41}, {"w": "ten,", "t": 71.81}, {"w": "she", "t": 72.21}, {"w": "watched", "t": 72.61}, {"w": "the", "t": 73.01}, {"w": "news", "t": 73.41}, {"w": "when", "t": 73.81}, {"w": "a", "t": 74.21}, {"w": "water", "t": 74.61}, {"w": "crisis", "t": 75.0}, {"w": "erupted", "t": 75.4}, {"w": "in", "t": 75.8}, {"w": "a", "t": 76.2}, {"w": "city", "t": 76.6}, {"w": "called", "t": 77.0}, {"w": "Flint.", "t": 77.4}, {"w": "The", "t": 77.8}, {"w": "water", "t": 78.2}, {"w": "there", "t": 78.59}, {"w": "was", "t": 78.99}, {"w": "not", "t": 79.39}, {"w": "safe:", "t": 79.79}, {"w": "it", "t": 80.19}, {"w": "had", "t": 80.59}, {"w": "lead", "t": 80.99}, {"w": "in", "t": 81.39}, {"w": "it,", "t": 81.79}, {"w": "a", "t": 82.18}, {"w": "poison", "t": 82.58}, {"w": "that", "t": 82.98}, {"w": "can", "t": 83.38}, {"w": "wound", "t": 83.78}, {"w": "the", "t": 84.18}, {"w": "brains", "t": 84.58}, {"w": "of", "t": 84.98}, {"w": "young", "t": 85.38}, {"w": "children.", "t": 85.77}, {"w": "Gitanjali", "t": 86.17}, {"w": "was", "t": 86.57}, {"w": "sad,", "t": 86.97}, {"w": "and", "t": 87.37}, {"w": "she", "t": 87.77}, {"w": "was", "t": 88.17}, {"w": "brave", "t": 88.57}, {"w": "too.", "t": 88.97}, {"w": "It", "t": 89.37}, {"w": "takes", "t": 89.76}, {"w": "courage", "t": 90.16}, {"w": "to", "t": 90.56}, {"w": "look", "t": 90.96}, {"w": "at", "t": 91.36}, {"w": "a", "t": 91.76}, {"w": "big", "t": 92.16}, {"w": "problem", "t": 92.56}, {"w": "and", "t": 92.96}, {"w": "say,", "t": 93.35}, {"w": "\"I", "t": 93.75}, {"w": "can", "t": 94.15}, {"w": "help!\"", "t": 94.55}]}, {"start": 94.95, "end": 120.88, "en": "She began to learn everything about water. She used a search engine to read about tiny tubes called carbon nanotubes. Then she built a small device and gave it a beautiful name: Tethys, after the Greek goddess of fresh water. You dip a small stick into the water, and the device sends the answer to a phone app in seconds. To everyone's delight, it worked!", "title": "测水的小发明家", "cn": "她开始学习关于水的一切知识。她用搜索引擎查阅一种叫碳纳米管的微小管子。然后她做出了一个小装置，还给它取了一个美丽的名字：Tethys——希腊神话中淡水女神的名字。把一根小棒浸入水中，装置会在几秒钟内把结果发送到手机应用上。让所有人高兴的是，它成功了！", "words": [{"w": "She", "t": 94.95}, {"w": "began", "t": 95.35}, {"w": "to", "t": 95.75}, {"w": "learn", "t": 96.15}, {"w": "everything", "t": 96.55}, {"w": "about", "t": 96.94}, {"w": "water.", "t": 97.34}, {"w": "She", "t": 97.74}, {"w": "used", "t": 98.14}, {"w": "a", "t": 98.54}, {"w": "search", "t": 98.94}, {"w": "engine", "t": 99.34}, {"w": "to", "t": 99.74}, {"w": "read", "t": 100.14}, {"w": "about", "t": 100.53}, {"w": "tiny", "t": 100.93}, {"w": "tubes", "t": 101.33}, {"w": "called", "t": 101.73}, {"w": "carbon", "t": 102.13}, {"w": "nanotubes.", "t": 102.53}, {"w": "Then", "t": 102.93}, {"w": "she", "t": 103.33}, {"w": "built", "t": 103.73}, {"w": "a", "t": 104.13}, {"w": "small", "t": 104.52}, {"w": "device", "t": 104.92}, {"w": "and", "t": 105.32}, {"w": "gave", "t": 105.72}, {"w": "it", "t": 106.12}, {"w": "a", "t": 106.52}, {"w": "beautiful", "t": 106.92}, {"w": "name:", "t": 107.32}, {"w": "Tethys,", "t": 107.72}, {"w": "after", "t": 108.11}, {"w": "the", "t": 108.51}, {"w": "Greek", "t": 108.91}, {"w": "goddess", "t": 109.31}, {"w": "of", "t": 109.71}, {"w": "fresh", "t": 110.11}, {"w": "water.", "t": 110.51}, {"w": "You", "t": 110.91}, {"w": "dip", "t": 111.31}, {"w": "a", "t": 111.7}, {"w": "small", "t": 112.1}, {"w": "stick", "t": 112.5}, {"w": "into", "t": 112.9}, {"w": "the", "t": 113.3}, {"w": "water,", "t": 113.7}, {"w": "and", "t": 114.1}, {"w": "the", "t": 114.5}, {"w": "device", "t": 114.9}, {"w": "sends", "t": 115.3}, {"w": "the", "t": 115.69}, {"w": "answer", "t": 116.09}, {"w": "to", "t": 116.49}, {"w": "a", "t": 116.89}, {"w": "phone", "t": 117.29}, {"w": "app", "t": 117.69}, {"w": "in", "t": 118.09}, {"w": "seconds.", "t": 118.49}, {"w": "To", "t": 118.89}, {"w": "everyone's", "t": 119.28}, {"w": "delight,", "t": 119.68}, {"w": "it", "t": 120.08}, {"w": "worked!", "t": 120.48}]}, {"start": 120.88, "end": 136.44, "en": "She took her invention to a big contest for young scientists, and she won the top prize — America's Top Young Scientist — and twenty-five thousand dollars. One girl, one idea, and cleaner water for everyone. Isn't that wonderful?", "title": "测水的小发明家", "cn": "她带着自己的发明参加了一个青少年科学家大赛，赢得了最高奖项——\"美国顶尖青少年科学家\"——以及两万五千美元奖金。一个女孩，一个点子，就能让所有人的水更干净。这难道不美妙吗？", "words": [{"w": "She", "t": 120.88}, {"w": "took", "t": 121.28}, {"w": "her", "t": 121.68}, {"w": "invention", "t": 122.08}, {"w": "to", "t": 122.48}, {"w": "a", "t": 122.87}, {"w": "big", "t": 123.27}, {"w": "contest", "t": 123.67}, {"w": "for", "t": 124.07}, {"w": "young", "t": 124.47}, {"w": "scientists,", "t": 124.87}, {"w": "and", "t": 125.27}, {"w": "she", "t": 125.67}, {"w": "won", "t": 126.07}, {"w": "the", "t": 126.47}, {"w": "top", "t": 126.86}, {"w": "prize", "t": 127.26}, {"w": "—", "t": 127.66}, {"w": "America's", "t": 128.06}, {"w": "Top", "t": 128.46}, {"w": "Young", "t": 128.86}, {"w": "Scientist", "t": 129.26}, {"w": "—", "t": 129.66}, {"w": "and", "t": 130.06}, {"w": "twenty-five", "t": 130.46}, {"w": "thousand", "t": 130.85}, {"w": "dollars.", "t": 131.25}, {"w": "One", "t": 131.65}, {"w": "girl,", "t": 132.05}, {"w": "one", "t": 132.45}, {"w": "idea,", "t": 132.85}, {"w": "and", "t": 133.25}, {"w": "cleaner", "t": 133.65}, {"w": "water", "t": 134.05}, {"w": "for", "t": 134.45}, {"w": "everyone.", "t": 134.84}, {"w": "Isn't", "t": 135.24}, {"w": "that", "t": 135.64}, {"w": "wonderful?", "t": 136.04}]}, {"start": 153.86, "end": 177.0, "en": "Now dive into the sea for our second hero: a jellyfish smaller than your little finger. Its name is Turritopsis dohrnii, but scientists call it the immortal jellyfish. Do not worry — it is not really immortal. It can still be eaten by a bigger fish, or die of hunger. But it has one magic trick no other animal has.", "title": "返老还童的水母", "cn": "现在潜入大海，认识我们的第二位主角：一种比你的小指头还小的水母。它的名字是 Turritopsis dohrnii，不过科学家们叫它\"不死水母\"。别担心——它并不是真的不死。它还是可能被更大的鱼吃掉，或者饿死。不过，它拥有一种其他动物都没有的魔术本领。", "words": [{"w": "Now", "t": 153.86}, {"w": "dive", "t": 154.25}, {"w": "into", "t": 154.63}, {"w": "the", "t": 155.02}, {"w": "sea", "t": 155.4}, {"w": "for", "t": 155.79}, {"w": "our", "t": 156.17}, {"w": "second", "t": 156.56}, {"w": "hero:", "t": 156.95}, {"w": "a", "t": 157.33}, {"w": "jellyfish", "t": 157.72}, {"w": "smaller", "t": 158.1}, {"w": "than", "t": 158.49}, {"w": "your", "t": 158.87}, {"w": "little", "t": 159.26}, {"w": "finger.", "t": 159.65}, {"w": "Its", "t": 160.03}, {"w": "name", "t": 160.42}, {"w": "is", "t": 160.8}, {"w": "Turritopsis", "t": 161.19}, {"w": "dohrnii,", "t": 161.57}, {"w": "but", "t": 161.96}, {"w": "scientists", "t": 162.34}, {"w": "call", "t": 162.73}, {"w": "it", "t": 163.12}, {"w": "the", "t": 163.5}, {"w": "immortal", "t": 163.89}, {"w": "jellyfish.", "t": 164.27}, {"w": "Do", "t": 164.66}, {"w": "not", "t": 165.04}, {"w": "worry", "t": 165.43}, {"w": "—", "t": 165.82}, {"w": "it", "t": 166.2}, {"w": "is", "t": 166.59}, {"w": "not", "t": 166.97}, {"w": "really", "t": 167.36}, {"w": "immortal.", "t": 167.74}, {"w": "It", "t": 168.13}, {"w": "can", "t": 168.52}, {"w": "still", "t": 168.9}, {"w": "be", "t": 169.29}, {"w": "eaten", "t": 169.67}, {"w": "by", "t": 170.06}, {"w": "a", "t": 170.44}, {"w": "bigger", "t": 170.83}, {"w": "fish,", "t": 171.22}, {"w": "or", "t": 171.6}, {"w": "die", "t": 171.99}, {"w": "of", "t": 172.37}, {"w": "hunger.", "t": 172.76}, {"w": "But", "t": 173.14}, {"w": "it", "t": 173.53}, {"w": "has", "t": 173.91}, {"w": "one", "t": 174.3}, {"w": "magic", "t": 174.69}, {"w": "trick", "t": 175.07}, {"w": "no", "t": 175.46}, {"w": "other", "t": 175.84}, {"w": "animal", "t": 176.23}, {"w": "has.", "t": 176.61}]}, {"start": 177.0, "end": 202.07, "en": "When this jellyfish gets old, sick, or hurt, it does something amazing. Its soft flesh sinks to the sea floor, and its cells change their jobs. The cells of its bell and arms turn back into young cells, called a polyp. The polyp is like a baby jellyfish, and it grows up all over again. Its old body fades away, and a new life begins.", "title": "返老还童的水母", "cn": "当这只水母变老、生病或受伤时，它会做出一件神奇的事。它柔软的身体沉到海底，它的细胞开始转换工作。钟形身体和触手的细胞变回年轻的细胞，也就是水螅体。水螅体就像水母宝宝，它会重新长大。旧身体渐渐消失，新的生命开始了。", "words": [{"w": "When", "t": 177.0}, {"w": "this", "t": 177.39}, {"w": "jellyfish", "t": 177.77}, {"w": "gets", "t": 178.16}, {"w": "old,", "t": 178.54}, {"w": "sick,", "t": 178.93}, {"w": "or", "t": 179.31}, {"w": "hurt,", "t": 179.7}, {"w": "it", "t": 180.09}, {"w": "does", "t": 180.47}, {"w": "something", "t": 180.86}, {"w": "amazing.", "t": 181.24}, {"w": "Its", "t": 181.63}, {"w": "soft", "t": 182.01}, {"w": "flesh", "t": 182.4}, {"w": "sinks", "t": 182.79}, {"w": "to", "t": 183.17}, {"w": "the", "t": 183.56}, {"w": "sea", "t": 183.94}, {"w": "floor,", "t": 184.33}, {"w": "and", "t": 184.71}, {"w": "its", "t": 185.1}, {"w": "cells", "t": 185.49}, {"w": "change", "t": 185.87}, {"w": "their", "t": 186.26}, {"w": "jobs.", "t": 186.64}, {"w": "The", "t": 187.03}, {"w": "cells", "t": 187.41}, {"w": "of", "t": 187.8}, {"w": "its", "t": 188.19}, {"w": "bell", "t": 188.57}, {"w": "and", "t": 188.96}, {"w": "arms", "t": 189.34}, {"w": "turn", "t": 189.73}, {"w": "back", "t": 190.11}, {"w": "into", "t": 190.5}, {"w": "young", "t": 190.88}, {"w": "cells,", "t": 191.27}, {"w": "called", "t": 191.66}, {"w": "a", "t": 192.04}, {"w": "polyp.", "t": 192.43}, {"w": "The", "t": 192.81}, {"w": "polyp", "t": 193.2}, {"w": "is", "t": 193.58}, {"w": "like", "t": 193.97}, {"w": "a", "t": 194.36}, {"w": "baby", "t": 194.74}, {"w": "jellyfish,", "t": 195.13}, {"w": "and", "t": 195.51}, {"w": "it", "t": 195.9}, {"w": "grows", "t": 196.28}, {"w": "up", "t": 196.67}, {"w": "all", "t": 197.06}, {"w": "over", "t": 197.44}, {"w": "again.", "t": 197.83}, {"w": "Its", "t": 198.21}, {"w": "old", "t": 198.6}, {"w": "body", "t": 198.98}, {"w": "fades", "t": 199.37}, {"w": "away,", "t": 199.76}, {"w": "and", "t": 200.14}, {"w": "a", "t": 200.53}, {"w": "new", "t": 200.91}, {"w": "life", "t": 201.3}, {"w": "begins.", "t": 201.68}]}, {"start": 202.07, "end": 219.81, "en": "By coincidence, scientists found this little animal in the warm sea near Italy, and they could not believe their eyes. A creature that can be young again! It is not dead and alive again like a ghost story. It turns back time, with its own cells.", "title": "返老还童的水母", "cn": "巧合的是，科学家们在意大利附近的温暖海域发现了这种小动物，简直不敢相信自己的眼睛。一种能够一次次返老还童的生物！它不是像鬼故事里那样死了又活过来。它只是用自己的细胞，让时光倒流。", "words": [{"w": "By", "t": 202.07}, {"w": "coincidence,", "t": 202.46}, {"w": "scientists", "t": 202.84}, {"w": "found", "t": 203.23}, {"w": "this", "t": 203.61}, {"w": "little", "t": 204.0}, {"w": "animal", "t": 204.38}, {"w": "in", "t": 204.77}, {"w": "the", "t": 205.16}, {"w": "warm", "t": 205.54}, {"w": "sea", "t": 205.93}, {"w": "near", "t": 206.31}, {"w": "Italy,", "t": 206.7}, {"w": "and", "t": 207.08}, {"w": "they", "t": 207.47}, {"w": "could", "t": 207.85}, {"w": "not", "t": 208.24}, {"w": "believe", "t": 208.63}, {"w": "their", "t": 209.01}, {"w": "eyes.", "t": 209.4}, {"w": "A", "t": 209.78}, {"w": "creature", "t": 210.17}, {"w": "that", "t": 210.55}, {"w": "can", "t": 210.94}, {"w": "be", "t": 211.33}, {"w": "young", "t": 211.71}, {"w": "again!", "t": 212.1}, {"w": "It", "t": 212.48}, {"w": "is", "t": 212.87}, {"w": "not", "t": 213.25}, {"w": "dead", "t": 213.64}, {"w": "and", "t": 214.03}, {"w": "alive", "t": 214.41}, {"w": "again", "t": 214.8}, {"w": "like", "t": 215.18}, {"w": "a", "t": 215.57}, {"w": "ghost", "t": 215.95}, {"w": "story.", "t": 216.34}, {"w": "It", "t": 216.72}, {"w": "turns", "t": 217.11}, {"w": "back", "t": 217.5}, {"w": "time,", "t": 217.88}, {"w": "with", "t": 218.27}, {"w": "its", "t": 218.65}, {"w": "own", "t": 219.04}, {"w": "cells.", "t": 219.42}]}, {"start": 219.81, "end": 225.6, "en": "So remember: this jellyfish is no superhero — it just knows how to start again.", "title": "返老还童的水母", "cn": "所以请记住：这只水母不是超级英雄——它只是懂得如何重新开始。", "words": [{"w": "So", "t": 219.81}, {"w": "remember:", "t": 220.2}, {"w": "this", "t": 220.58}, {"w": "jellyfish", "t": 220.97}, {"w": "is", "t": 221.35}, {"w": "no", "t": 221.74}, {"w": "superhero", "t": 222.13}, {"w": "—", "t": 222.51}, {"w": "it", "t": 222.9}, {"w": "just", "t": 223.28}, {"w": "knows", "t": 223.67}, {"w": "how", "t": 224.06}, {"w": "to", "t": 224.44}, {"w": "start", "t": 224.83}, {"w": "again.", "t": 225.21}]}, {"start": 237.98, "end": 269.68, "en": "Here's today's idiom: \"when pigs fly.\" Pigs cannot fly! So when someone says \"when pigs fly,\" they mean \"never!\" Listen to this: Lily wanted a pet pig. Her father laughed and said, \"You can have a pig when pigs fly!\" Lily wrote the words in her notebook with her pen. Then she put on her father's big hat and danced around the room. \"Look, Dad!\" she shouted. \"The pig can wait — but I can fly!\"", "title": "今日俚语", "cn": "今天的俚语是\"when pigs fly\"（等猪会飞的时候）。猪当然不会飞！所以当有人说\"when pigs fly\"时，他们的意思是\"永远不可能！\"听这个小故事：Lily 想要一只宠物猪。她的爸爸笑着说：等猪会飞的时候，你就可以养猪了！Lily 用她的钢笔把这句话写在笔记本上。然后她戴上爸爸的大帽子，在房间里跳起舞来。她喊道：看，爸爸！猪可以等——但我会飞！", "words": [{"w": "Here's", "t": 237.98}, {"w": "today's", "t": 238.4}, {"w": "idiom:", "t": 238.81}, {"w": "\"when", "t": 239.23}, {"w": "pigs", "t": 239.65}, {"w": "fly.\"", "t": 240.07}, {"w": "Pigs", "t": 240.48}, {"w": "cannot", "t": 240.9}, {"w": "fly!", "t": 241.32}, {"w": "So", "t": 241.73}, {"w": "when", "t": 242.15}, {"w": "someone", "t": 242.57}, {"w": "says", "t": 242.99}, {"w": "\"when", "t": 243.4}, {"w": "pigs", "t": 243.82}, {"w": "fly,\"", "t": 244.24}, {"w": "they", "t": 244.65}, {"w": "mean", "t": 245.07}, {"w": "\"never!\"", "t": 245.49}, {"w": "Listen", "t": 245.91}, {"w": "to", "t": 246.32}, {"w": "this:", "t": 246.74}, {"w": "Lily", "t": 247.16}, {"w": "wanted", "t": 247.57}, {"w": "a", "t": 247.99}, {"w": "pet", "t": 248.41}, {"w": "pig.", "t": 248.82}, {"w": "Her", "t": 249.24}, {"w": "father", "t": 249.66}, {"w": "laughed", "t": 250.08}, {"w": "and", "t": 250.49}, {"w": "said,", "t": 250.91}, {"w": "\"You", "t": 251.33}, {"w": "can", "t": 251.74}, {"w": "have", "t": 252.16}, {"w": "a", "t": 252.58}, {"w": "pig", "t": 253.0}, {"w": "when", "t": 253.41}, {"w": "pigs", "t": 253.83}, {"w": "fly!\"", "t": 254.25}, {"w": "Lily", "t": 254.66}, {"w": "wrote", "t": 255.08}, {"w": "the", "t": 255.5}, {"w": "words", "t": 255.92}, {"w": "in", "t": 256.33}, {"w": "her", "t": 256.75}, {"w": "notebook", "t": 257.17}, {"w": "with", "t": 257.58}, {"w": "her", "t": 258.0}, {"w": "pen.", "t": 258.42}, {"w": "Then", "t": 258.84}, {"w": "she", "t": 259.25}, {"w": "put", "t": 259.67}, {"w": "on", "t": 260.09}, {"w": "her", "t": 260.5}, {"w": "father's", "t": 260.92}, {"w": "big", "t": 261.34}, {"w": "hat", "t": 261.75}, {"w": "and", "t": 262.17}, {"w": "danced", "t": 262.59}, {"w": "around", "t": 263.01}, {"w": "the", "t": 263.42}, {"w": "room.", "t": 263.84}, {"w": "\"Look,", "t": 264.26}, {"w": "Dad!\"", "t": 264.67}, {"w": "she", "t": 265.09}, {"w": "shouted.", "t": 265.51}, {"w": "\"The", "t": 265.93}, {"w": "pig", "t": 266.34}, {"w": "can", "t": 266.76}, {"w": "wait", "t": 267.18}, {"w": "—", "t": 267.59}, {"w": "but", "t": 268.01}, {"w": "I", "t": 268.43}, {"w": "can", "t": 268.85}, {"w": "fly!\"", "t": 269.26}]}, {"start": 283.5, "end": 309.85, "en": "Let's think about our stories. A young inventor helped people test their water, and a tiny jellyfish learned to start again. Two questions. First: if you could invent one thing to help your school, what would it be? Second: the jellyfish turns young again. If you could turn back time for one day, which day would you choose? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事。一位年轻的发明家帮助人们检测水质，一只小水母学会了重新开始。两个问题。第一：如果你能发明一样东西来帮助你的学校，那会是什么？第二：水母能够返老还童。如果你能让时光倒流一天，你会选择哪一天？和家人聊聊吧！", "words": [{"w": "Let's", "t": 283.5}, {"w": "think", "t": 283.91}, {"w": "about", "t": 284.32}, {"w": "our", "t": 284.74}, {"w": "stories.", "t": 285.15}, {"w": "A", "t": 285.56}, {"w": "young", "t": 285.97}, {"w": "inventor", "t": 286.38}, {"w": "helped", "t": 286.79}, {"w": "people", "t": 287.21}, {"w": "test", "t": 287.62}, {"w": "their", "t": 288.03}, {"w": "water,", "t": 288.44}, {"w": "and", "t": 288.85}, {"w": "a", "t": 289.26}, {"w": "tiny", "t": 289.68}, {"w": "jellyfish", "t": 290.09}, {"w": "learned", "t": 290.5}, {"w": "to", "t": 290.91}, {"w": "start", "t": 291.32}, {"w": "again.", "t": 291.73}, {"w": "Two", "t": 292.15}, {"w": "questions.", "t": 292.56}, {"w": "First:", "t": 292.97}, {"w": "if", "t": 293.38}, {"w": "you", "t": 293.79}, {"w": "could", "t": 294.2}, {"w": "invent", "t": 294.62}, {"w": "one", "t": 295.03}, {"w": "thing", "t": 295.44}, {"w": "to", "t": 295.85}, {"w": "help", "t": 296.26}, {"w": "your", "t": 296.68}, {"w": "school,", "t": 297.09}, {"w": "what", "t": 297.5}, {"w": "would", "t": 297.91}, {"w": "it", "t": 298.32}, {"w": "be?", "t": 298.73}, {"w": "Second:", "t": 299.15}, {"w": "the", "t": 299.56}, {"w": "jellyfish", "t": 299.97}, {"w": "turns", "t": 300.38}, {"w": "young", "t": 300.79}, {"w": "again.", "t": 301.2}, {"w": "If", "t": 301.62}, {"w": "you", "t": 302.03}, {"w": "could", "t": 302.44}, {"w": "turn", "t": 302.85}, {"w": "back", "t": 303.26}, {"w": "time", "t": 303.67}, {"w": "for", "t": 304.09}, {"w": "one", "t": 304.5}, {"w": "day,", "t": 304.91}, {"w": "which", "t": 305.32}, {"w": "day", "t": 305.73}, {"w": "would", "t": 306.14}, {"w": "you", "t": 306.56}, {"w": "choose?", "t": 306.97}, {"w": "Talk", "t": 307.38}, {"w": "about", "t": 307.79}, {"w": "it", "t": 308.2}, {"w": "with", "t": 308.61}, {"w": "your", "t": 309.03}, {"w": "family!", "t": 309.44}]}, {"start": 322.23, "end": 336.92, "en": "That's all for today, young explorers. Remember: big ideas can come from young minds — and when someone says \"when pigs fly,\" smile and keep dreaming. Stay curious, and keep exploring. See you tomorrow morning!", "title": "告别", "cn": "今天的节目就到这里，小小探险家们。记住：大点子可以来自年轻的头脑——当有人说\"等猪会飞吧\"，就笑笑，继续做梦吧。保持好奇心，继续探索吧。明天早上见！", "words": [{"w": "That's", "t": 322.23}, {"w": "all", "t": 322.65}, {"w": "for", "t": 323.07}, {"w": "today,", "t": 323.49}, {"w": "young", "t": 323.91}, {"w": "explorers.", "t": 324.33}, {"w": "Remember:", "t": 324.75}, {"w": "big", "t": 325.17}, {"w": "ideas", "t": 325.59}, {"w": "can", "t": 326.01}, {"w": "come", "t": 326.43}, {"w": "from", "t": 326.85}, {"w": "young", "t": 327.27}, {"w": "minds", "t": 327.69}, {"w": "—", "t": 328.11}, {"w": "and", "t": 328.53}, {"w": "when", "t": 328.95}, {"w": "someone", "t": 329.37}, {"w": "says", "t": 329.78}, {"w": "\"when", "t": 330.2}, {"w": "pigs", "t": 330.62}, {"w": "fly,\"", "t": 331.04}, {"w": "smile", "t": 331.46}, {"w": "and", "t": 331.88}, {"w": "keep", "t": 332.3}, {"w": "dreaming.", "t": 332.72}, {"w": "Stay", "t": 333.14}, {"w": "curious,", "t": 333.56}, {"w": "and", "t": 333.98}, {"w": "keep", "t": 334.4}, {"w": "exploring.", "t": 334.82}, {"w": "See", "t": 335.24}, {"w": "you", "t": 335.66}, {"w": "tomorrow", "t": 336.08}, {"w": "morning!", "t": 336.5}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol23/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
