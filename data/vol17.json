@@ -1,0 +1,3740 @@
+{
+ "id": "vol17",
+ "title": "飞上长城的外卖与蜜蜂的舞蹈",
+ "words": 599,
+ "duration": "5分59秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol17/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol17/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol17/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol17/Vol17_晚读讲义_飞上长城的外卖与蜜蜂的舞蹈_v1.pdf",
+ "pdfName": "Vol17_晚读讲义_飞上长城的外卖与蜜蜂的舞蹈_v1.pdf",
+ "blocks": [
+  {
+   "start": 31.95,
+   "end": 52.85,
+   "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! This is our seventeenth show together! Today both of our heroes can fly. One is a delivery drone, carrying lunch up the Great Wall of China. The other is a tiny honeybee — and she talks by dancing! Let's go!",
+   "title": "开场白",
+   "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！这是我们在一起的第十七期节目啦！今天的两位主角都会飞。一位是送餐无人机，它把午餐送上中国的长城。另一位是一只小小的蜜蜂——她还会“说话”，用的方式是跳舞！出发吧！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 31.95
+    },
+    {
+     "w": "young",
+     "t": 32.37
+    },
+    {
+     "w": "explorers,",
+     "t": 32.79
+    },
+    {
+     "w": "and",
+     "t": 33.2
+    },
+    {
+     "w": "welcome",
+     "t": 33.62
+    },
+    {
+     "w": "back",
+     "t": 34.04
+    },
+    {
+     "w": "to",
+     "t": 34.46
+    },
+    {
+     "w": "Michael's",
+     "t": 34.88
+    },
+    {
+     "w": "Morning",
+     "t": 35.29
+    },
+    {
+     "w": "Listening!",
+     "t": 35.71
+    },
+    {
+     "w": "This",
+     "t": 36.13
+    },
+    {
+     "w": "is",
+     "t": 36.55
+    },
+    {
+     "w": "our",
+     "t": 36.97
+    },
+    {
+     "w": "seventeenth",
+     "t": 37.38
+    },
+    {
+     "w": "show",
+     "t": 37.8
+    },
+    {
+     "w": "together!",
+     "t": 38.22
+    },
+    {
+     "w": "Today",
+     "t": 38.64
+    },
+    {
+     "w": "both",
+     "t": 39.06
+    },
+    {
+     "w": "of",
+     "t": 39.47
+    },
+    {
+     "w": "our",
+     "t": 39.89
+    },
+    {
+     "w": "heroes",
+     "t": 40.31
+    },
+    {
+     "w": "can",
+     "t": 40.73
+    },
+    {
+     "w": "fly.",
+     "t": 41.15
+    },
+    {
+     "w": "One",
+     "t": 41.56
+    },
+    {
+     "w": "is",
+     "t": 41.98
+    },
+    {
+     "w": "a",
+     "t": 42.4
+    },
+    {
+     "w": "delivery",
+     "t": 42.82
+    },
+    {
+     "w": "drone,",
+     "t": 43.24
+    },
+    {
+     "w": "carrying",
+     "t": 43.65
+    },
+    {
+     "w": "lunch",
+     "t": 44.07
+    },
+    {
+     "w": "up",
+     "t": 44.49
+    },
+    {
+     "w": "the",
+     "t": 44.91
+    },
+    {
+     "w": "Great",
+     "t": 45.33
+    },
+    {
+     "w": "Wall",
+     "t": 45.74
+    },
+    {
+     "w": "of",
+     "t": 46.16
+    },
+    {
+     "w": "China.",
+     "t": 46.58
+    },
+    {
+     "w": "The",
+     "t": 47.0
+    },
+    {
+     "w": "other",
+     "t": 47.42
+    },
+    {
+     "w": "is",
+     "t": 47.83
+    },
+    {
+     "w": "a",
+     "t": 48.25
+    },
+    {
+     "w": "tiny",
+     "t": 48.67
+    },
+    {
+     "w": "honeybee",
+     "t": 49.09
+    },
+    {
+     "w": "—",
+     "t": 49.51
+    },
+    {
+     "w": "and",
+     "t": 49.92
+    },
+    {
+     "w": "she",
+     "t": 50.34
+    },
+    {
+     "w": "talks",
+     "t": 50.76
+    },
+    {
+     "w": "by",
+     "t": 51.18
+    },
+    {
+     "w": "dancing!",
+     "t": 51.6
+    },
+    {
+     "w": "Let's",
+     "t": 52.01
+    },
+    {
+     "w": "go!",
+     "t": 52.43
+    }
+   ]
+  },
+  {
+   "start": 68.51,
+   "end": 91.06,
+   "en": "Lunch is served — by drone! On the Badaling Great Wall near Beijing, hungry climbers order on their phones, and a drone brings lunch through the sky. This part of the wall has no shops at all. Walking down for a drink takes about fifty minutes. The drone shaves that long walk down to five.",
+   "title": "飞上长城的外卖",
+   "cn": "午餐来了——由无人机送达！在北京附近的八达岭长城上，饥饿的登山者们用手机下单，一架无人机就把午餐送上天空。这一段长城上根本没有商店。走下山买一杯饮料，大约要五十分钟。而无人机把这段长路“削”到了五分钟。",
+   "words": [
+    {
+     "w": "Lunch",
+     "t": 68.51
+    },
+    {
+     "w": "is",
+     "t": 68.92
+    },
+    {
+     "w": "served",
+     "t": 69.33
+    },
+    {
+     "w": "—",
+     "t": 69.74
+    },
+    {
+     "w": "by",
+     "t": 70.15
+    },
+    {
+     "w": "drone!",
+     "t": 70.56
+    },
+    {
+     "w": "On",
+     "t": 70.97
+    },
+    {
+     "w": "the",
+     "t": 71.38
+    },
+    {
+     "w": "Badaling",
+     "t": 71.79
+    },
+    {
+     "w": "Great",
+     "t": 72.2
+    },
+    {
+     "w": "Wall",
+     "t": 72.61
+    },
+    {
+     "w": "near",
+     "t": 73.02
+    },
+    {
+     "w": "Beijing,",
+     "t": 73.43
+    },
+    {
+     "w": "hungry",
+     "t": 73.84
+    },
+    {
+     "w": "climbers",
+     "t": 74.25
+    },
+    {
+     "w": "order",
+     "t": 74.66
+    },
+    {
+     "w": "on",
+     "t": 75.07
+    },
+    {
+     "w": "their",
+     "t": 75.48
+    },
+    {
+     "w": "phones,",
+     "t": 75.89
+    },
+    {
+     "w": "and",
+     "t": 76.3
+    },
+    {
+     "w": "a",
+     "t": 76.71
+    },
+    {
+     "w": "drone",
+     "t": 77.12
+    },
+    {
+     "w": "brings",
+     "t": 77.53
+    },
+    {
+     "w": "lunch",
+     "t": 77.94
+    },
+    {
+     "w": "through",
+     "t": 78.35
+    },
+    {
+     "w": "the",
+     "t": 78.76
+    },
+    {
+     "w": "sky.",
+     "t": 79.17
+    },
+    {
+     "w": "This",
+     "t": 79.58
+    },
+    {
+     "w": "part",
+     "t": 79.99
+    },
+    {
+     "w": "of",
+     "t": 80.4
+    },
+    {
+     "w": "the",
+     "t": 80.81
+    },
+    {
+     "w": "wall",
+     "t": 81.22
+    },
+    {
+     "w": "has",
+     "t": 81.63
+    },
+    {
+     "w": "no",
+     "t": 82.04
+    },
+    {
+     "w": "shops",
+     "t": 82.45
+    },
+    {
+     "w": "at",
+     "t": 82.86
+    },
+    {
+     "w": "all.",
+     "t": 83.27
+    },
+    {
+     "w": "Walking",
+     "t": 83.68
+    },
+    {
+     "w": "down",
+     "t": 84.09
+    },
+    {
+     "w": "for",
+     "t": 84.5
+    },
+    {
+     "w": "a",
+     "t": 84.91
+    },
+    {
+     "w": "drink",
+     "t": 85.32
+    },
+    {
+     "w": "takes",
+     "t": 85.73
+    },
+    {
+     "w": "about",
+     "t": 86.14
+    },
+    {
+     "w": "fifty",
+     "t": 86.55
+    },
+    {
+     "w": "minutes.",
+     "t": 86.96
+    },
+    {
+     "w": "The",
+     "t": 87.37
+    },
+    {
+     "w": "drone",
+     "t": 87.78
+    },
+    {
+     "w": "shaves",
+     "t": 88.19
+    },
+    {
+     "w": "that",
+     "t": 88.6
+    },
+    {
+     "w": "long",
+     "t": 89.01
+    },
+    {
+     "w": "walk",
+     "t": 89.42
+    },
+    {
+     "w": "down",
+     "t": 89.83
+    },
+    {
+     "w": "to",
+     "t": 90.24
+    },
+    {
+     "w": "five.",
+     "t": 90.65
+    }
+   ]
+  },
+  {
+   "start": 91.06,
+   "end": 110.75,
+   "en": "Here is how it works. At the South Ninth Tower, visitors scan a code and order drinks, snacks, or a sandwich on the Meituan app. Workers pack the food, the drone lifts off, and minutes later it lands softly by the tower. It can carry about two kilograms.",
+   "title": "飞上长城的外卖",
+   "cn": "它是这样工作的。在南九楼，游客扫一扫码，就能在美团 App 上下单饮料、小吃或者一个三明治。工作人员把食物打包好，无人机随即起飞，几分钟后轻轻降落在烽火台旁。它大约能载两公斤。",
+   "words": [
+    {
+     "w": "Here",
+     "t": 91.06
+    },
+    {
+     "w": "is",
+     "t": 91.47
+    },
+    {
+     "w": "how",
+     "t": 91.88
+    },
+    {
+     "w": "it",
+     "t": 92.29
+    },
+    {
+     "w": "works.",
+     "t": 92.7
+    },
+    {
+     "w": "At",
+     "t": 93.11
+    },
+    {
+     "w": "the",
+     "t": 93.52
+    },
+    {
+     "w": "South",
+     "t": 93.93
+    },
+    {
+     "w": "Ninth",
+     "t": 94.34
+    },
+    {
+     "w": "Tower,",
+     "t": 94.75
+    },
+    {
+     "w": "visitors",
+     "t": 95.16
+    },
+    {
+     "w": "scan",
+     "t": 95.57
+    },
+    {
+     "w": "a",
+     "t": 95.98
+    },
+    {
+     "w": "code",
+     "t": 96.39
+    },
+    {
+     "w": "and",
+     "t": 96.8
+    },
+    {
+     "w": "order",
+     "t": 97.21
+    },
+    {
+     "w": "drinks,",
+     "t": 97.62
+    },
+    {
+     "w": "snacks,",
+     "t": 98.03
+    },
+    {
+     "w": "or",
+     "t": 98.44
+    },
+    {
+     "w": "a",
+     "t": 98.85
+    },
+    {
+     "w": "sandwich",
+     "t": 99.26
+    },
+    {
+     "w": "on",
+     "t": 99.67
+    },
+    {
+     "w": "the",
+     "t": 100.08
+    },
+    {
+     "w": "Meituan",
+     "t": 100.49
+    },
+    {
+     "w": "app.",
+     "t": 100.9
+    },
+    {
+     "w": "Workers",
+     "t": 101.31
+    },
+    {
+     "w": "pack",
+     "t": 101.72
+    },
+    {
+     "w": "the",
+     "t": 102.13
+    },
+    {
+     "w": "food,",
+     "t": 102.54
+    },
+    {
+     "w": "the",
+     "t": 102.95
+    },
+    {
+     "w": "drone",
+     "t": 103.36
+    },
+    {
+     "w": "lifts",
+     "t": 103.77
+    },
+    {
+     "w": "off,",
+     "t": 104.18
+    },
+    {
+     "w": "and",
+     "t": 104.59
+    },
+    {
+     "w": "minutes",
+     "t": 105.0
+    },
+    {
+     "w": "later",
+     "t": 105.41
+    },
+    {
+     "w": "it",
+     "t": 105.82
+    },
+    {
+     "w": "lands",
+     "t": 106.23
+    },
+    {
+     "w": "softly",
+     "t": 106.64
+    },
+    {
+     "w": "by",
+     "t": 107.05
+    },
+    {
+     "w": "the",
+     "t": 107.46
+    },
+    {
+     "w": "tower.",
+     "t": 107.87
+    },
+    {
+     "w": "It",
+     "t": 108.28
+    },
+    {
+     "w": "can",
+     "t": 108.69
+    },
+    {
+     "w": "carry",
+     "t": 109.1
+    },
+    {
+     "w": "about",
+     "t": 109.52
+    },
+    {
+     "w": "two",
+     "t": 109.93
+    },
+    {
+     "w": "kilograms.",
+     "t": 110.34
+    }
+   ]
+  },
+  {
+   "start": 110.75,
+   "end": 128.38,
+   "en": "The wall is truly ancient: dynasty after dynasty of builders worked on it for two thousand years, and nobody wants the crowds to damage it. On the way back, the drones carry the visitors' rubbish down. No new shops, no mess left behind.",
+   "title": "飞上长城的外卖",
+   "cn": "长城真的非常古老：一个朝代接一个朝代的建造者为它工作了两千多年，没有人希望游客大军损坏它。返程时，无人机还会把游客的垃圾带下山。不开新商店，不留下垃圾。",
+   "words": [
+    {
+     "w": "The",
+     "t": 110.75
+    },
+    {
+     "w": "wall",
+     "t": 111.16
+    },
+    {
+     "w": "is",
+     "t": 111.57
+    },
+    {
+     "w": "truly",
+     "t": 111.98
+    },
+    {
+     "w": "ancient:",
+     "t": 112.39
+    },
+    {
+     "w": "dynasty",
+     "t": 112.8
+    },
+    {
+     "w": "after",
+     "t": 113.21
+    },
+    {
+     "w": "dynasty",
+     "t": 113.62
+    },
+    {
+     "w": "of",
+     "t": 114.03
+    },
+    {
+     "w": "builders",
+     "t": 114.44
+    },
+    {
+     "w": "worked",
+     "t": 114.85
+    },
+    {
+     "w": "on",
+     "t": 115.26
+    },
+    {
+     "w": "it",
+     "t": 115.67
+    },
+    {
+     "w": "for",
+     "t": 116.08
+    },
+    {
+     "w": "two",
+     "t": 116.49
+    },
+    {
+     "w": "thousand",
+     "t": 116.9
+    },
+    {
+     "w": "years,",
+     "t": 117.31
+    },
+    {
+     "w": "and",
+     "t": 117.72
+    },
+    {
+     "w": "nobody",
+     "t": 118.13
+    },
+    {
+     "w": "wants",
+     "t": 118.54
+    },
+    {
+     "w": "the",
+     "t": 118.95
+    },
+    {
+     "w": "crowds",
+     "t": 119.36
+    },
+    {
+     "w": "to",
+     "t": 119.77
+    },
+    {
+     "w": "damage",
+     "t": 120.18
+    },
+    {
+     "w": "it.",
+     "t": 120.59
+    },
+    {
+     "w": "On",
+     "t": 121.0
+    },
+    {
+     "w": "the",
+     "t": 121.41
+    },
+    {
+     "w": "way",
+     "t": 121.82
+    },
+    {
+     "w": "back,",
+     "t": 122.23
+    },
+    {
+     "w": "the",
+     "t": 122.64
+    },
+    {
+     "w": "drones",
+     "t": 123.05
+    },
+    {
+     "w": "carry",
+     "t": 123.46
+    },
+    {
+     "w": "the",
+     "t": 123.87
+    },
+    {
+     "w": "visitors'",
+     "t": 124.28
+    },
+    {
+     "w": "rubbish",
+     "t": 124.69
+    },
+    {
+     "w": "down.",
+     "t": 125.1
+    },
+    {
+     "w": "No",
+     "t": 125.51
+    },
+    {
+     "w": "new",
+     "t": 125.92
+    },
+    {
+     "w": "shops,",
+     "t": 126.33
+    },
+    {
+     "w": "no",
+     "t": 126.74
+    },
+    {
+     "w": "mess",
+     "t": 127.15
+    },
+    {
+     "w": "left",
+     "t": 127.56
+    },
+    {
+     "w": "behind.",
+     "t": 127.97
+    }
+   ]
+  },
+  {
+   "start": 128.38,
+   "end": 150.52,
+   "en": "Drones can rush medicine to a sick climber, faster than legs on those steep, awkward steps. The idea has a simple appeal: lunch without the long climb. When the first lunches flew in, climbers were astonished, and the crowd erupted in cheers. Videos spread quickly on social media. A small service, with real significance.",
+   "title": "飞上长城的外卖",
+   "cn": "无人机还能把药品火速送给身体不舒服的登山者，比双腿爬上那些又陡又难走的台阶快得多。这个点子有个朴素的吸引力：不用长途攀爬就能吃午饭。当第一批午餐飞来时，登山者们惊呆了，人群爆发出欢呼。视频很快在社交媒体上传开。一个小小的服务，却有真正的意义。",
+   "words": [
+    {
+     "w": "Drones",
+     "t": 128.38
+    },
+    {
+     "w": "can",
+     "t": 128.79
+    },
+    {
+     "w": "rush",
+     "t": 129.2
+    },
+    {
+     "w": "medicine",
+     "t": 129.61
+    },
+    {
+     "w": "to",
+     "t": 130.02
+    },
+    {
+     "w": "a",
+     "t": 130.43
+    },
+    {
+     "w": "sick",
+     "t": 130.84
+    },
+    {
+     "w": "climber,",
+     "t": 131.25
+    },
+    {
+     "w": "faster",
+     "t": 131.66
+    },
+    {
+     "w": "than",
+     "t": 132.07
+    },
+    {
+     "w": "legs",
+     "t": 132.48
+    },
+    {
+     "w": "on",
+     "t": 132.89
+    },
+    {
+     "w": "those",
+     "t": 133.3
+    },
+    {
+     "w": "steep,",
+     "t": 133.71
+    },
+    {
+     "w": "awkward",
+     "t": 134.12
+    },
+    {
+     "w": "steps.",
+     "t": 134.53
+    },
+    {
+     "w": "The",
+     "t": 134.94
+    },
+    {
+     "w": "idea",
+     "t": 135.35
+    },
+    {
+     "w": "has",
+     "t": 135.76
+    },
+    {
+     "w": "a",
+     "t": 136.17
+    },
+    {
+     "w": "simple",
+     "t": 136.58
+    },
+    {
+     "w": "appeal:",
+     "t": 136.99
+    },
+    {
+     "w": "lunch",
+     "t": 137.4
+    },
+    {
+     "w": "without",
+     "t": 137.81
+    },
+    {
+     "w": "the",
+     "t": 138.22
+    },
+    {
+     "w": "long",
+     "t": 138.63
+    },
+    {
+     "w": "climb.",
+     "t": 139.04
+    },
+    {
+     "w": "When",
+     "t": 139.45
+    },
+    {
+     "w": "the",
+     "t": 139.86
+    },
+    {
+     "w": "first",
+     "t": 140.27
+    },
+    {
+     "w": "lunches",
+     "t": 140.68
+    },
+    {
+     "w": "flew",
+     "t": 141.09
+    },
+    {
+     "w": "in,",
+     "t": 141.5
+    },
+    {
+     "w": "climbers",
+     "t": 141.91
+    },
+    {
+     "w": "were",
+     "t": 142.32
+    },
+    {
+     "w": "astonished,",
+     "t": 142.73
+    },
+    {
+     "w": "and",
+     "t": 143.14
+    },
+    {
+     "w": "the",
+     "t": 143.55
+    },
+    {
+     "w": "crowd",
+     "t": 143.96
+    },
+    {
+     "w": "erupted",
+     "t": 144.37
+    },
+    {
+     "w": "in",
+     "t": 144.78
+    },
+    {
+     "w": "cheers.",
+     "t": 145.19
+    },
+    {
+     "w": "Videos",
+     "t": 145.6
+    },
+    {
+     "w": "spread",
+     "t": 146.01
+    },
+    {
+     "w": "quickly",
+     "t": 146.42
+    },
+    {
+     "w": "on",
+     "t": 146.83
+    },
+    {
+     "w": "social",
+     "t": 147.24
+    },
+    {
+     "w": "media.",
+     "t": 147.65
+    },
+    {
+     "w": "A",
+     "t": 148.06
+    },
+    {
+     "w": "small",
+     "t": 148.47
+    },
+    {
+     "w": "service,",
+     "t": 148.88
+    },
+    {
+     "w": "with",
+     "t": 149.29
+    },
+    {
+     "w": "real",
+     "t": 149.7
+    },
+    {
+     "w": "significance.",
+     "t": 150.11
+    }
+   ]
+  },
+  {
+   "start": 166.1,
+   "end": 189.25,
+   "en": "Now meet a dancer: the honeybee. When a bee finds flowers full of nectar among the leaves, she returns home and tells her sisters where the food is — not with words, but with a dance. Karl von Frisch, a scientist from Austria, watched bees for years and cracked the code. It later won a Nobel Prize.",
+   "title": "蜜蜂的舞蹈",
+   "cn": "现在来认识一位舞者：蜜蜂。当一只蜜蜂在绿叶间找到满是花蜜的花，她就飞回家，把食物的位置告诉姐妹们——不是用语言，而是用一支舞。奥地利科学家卡尔·冯·弗里希观察蜜蜂多年，终于破译了这套密码。这项发现后来赢得了诺贝尔奖。",
+   "words": [
+    {
+     "w": "Now",
+     "t": 166.1
+    },
+    {
+     "w": "meet",
+     "t": 166.51
+    },
+    {
+     "w": "a",
+     "t": 166.91
+    },
+    {
+     "w": "dancer:",
+     "t": 167.32
+    },
+    {
+     "w": "the",
+     "t": 167.72
+    },
+    {
+     "w": "honeybee.",
+     "t": 168.13
+    },
+    {
+     "w": "When",
+     "t": 168.54
+    },
+    {
+     "w": "a",
+     "t": 168.94
+    },
+    {
+     "w": "bee",
+     "t": 169.35
+    },
+    {
+     "w": "finds",
+     "t": 169.76
+    },
+    {
+     "w": "flowers",
+     "t": 170.16
+    },
+    {
+     "w": "full",
+     "t": 170.57
+    },
+    {
+     "w": "of",
+     "t": 170.97
+    },
+    {
+     "w": "nectar",
+     "t": 171.38
+    },
+    {
+     "w": "among",
+     "t": 171.79
+    },
+    {
+     "w": "the",
+     "t": 172.19
+    },
+    {
+     "w": "leaves,",
+     "t": 172.6
+    },
+    {
+     "w": "she",
+     "t": 173.0
+    },
+    {
+     "w": "returns",
+     "t": 173.41
+    },
+    {
+     "w": "home",
+     "t": 173.82
+    },
+    {
+     "w": "and",
+     "t": 174.22
+    },
+    {
+     "w": "tells",
+     "t": 174.63
+    },
+    {
+     "w": "her",
+     "t": 175.03
+    },
+    {
+     "w": "sisters",
+     "t": 175.44
+    },
+    {
+     "w": "where",
+     "t": 175.85
+    },
+    {
+     "w": "the",
+     "t": 176.25
+    },
+    {
+     "w": "food",
+     "t": 176.66
+    },
+    {
+     "w": "is",
+     "t": 177.07
+    },
+    {
+     "w": "—",
+     "t": 177.47
+    },
+    {
+     "w": "not",
+     "t": 177.88
+    },
+    {
+     "w": "with",
+     "t": 178.28
+    },
+    {
+     "w": "words,",
+     "t": 178.69
+    },
+    {
+     "w": "but",
+     "t": 179.1
+    },
+    {
+     "w": "with",
+     "t": 179.5
+    },
+    {
+     "w": "a",
+     "t": 179.91
+    },
+    {
+     "w": "dance.",
+     "t": 180.31
+    },
+    {
+     "w": "Karl",
+     "t": 180.72
+    },
+    {
+     "w": "von",
+     "t": 181.13
+    },
+    {
+     "w": "Frisch,",
+     "t": 181.53
+    },
+    {
+     "w": "a",
+     "t": 181.94
+    },
+    {
+     "w": "scientist",
+     "t": 182.35
+    },
+    {
+     "w": "from",
+     "t": 182.75
+    },
+    {
+     "w": "Austria,",
+     "t": 183.16
+    },
+    {
+     "w": "watched",
+     "t": 183.56
+    },
+    {
+     "w": "bees",
+     "t": 183.97
+    },
+    {
+     "w": "for",
+     "t": 184.38
+    },
+    {
+     "w": "years",
+     "t": 184.78
+    },
+    {
+     "w": "and",
+     "t": 185.19
+    },
+    {
+     "w": "cracked",
+     "t": 185.59
+    },
+    {
+     "w": "the",
+     "t": 186.0
+    },
+    {
+     "w": "code.",
+     "t": 186.41
+    },
+    {
+     "w": "It",
+     "t": 186.81
+    },
+    {
+     "w": "later",
+     "t": 187.22
+    },
+    {
+     "w": "won",
+     "t": 187.62
+    },
+    {
+     "w": "a",
+     "t": 188.03
+    },
+    {
+     "w": "Nobel",
+     "t": 188.44
+    },
+    {
+     "w": "Prize.",
+     "t": 188.84
+    }
+   ]
+  },
+  {
+   "start": 189.25,
+   "end": 211.18,
+   "en": "Inside the dark hive, she dances on the honeycomb in a figure of eight. The middle of the dance is a straight run, and while she runs, she waggles her body from side to side. This waggle run carries the message. Her sisters feel it with their feelers, reading the dance like a map.",
+   "title": "蜜蜂的舞蹈",
+   "cn": "在黑暗的蜂巢里，她在巢脾上跳出一个“8”字形。舞蹈的中间部分是一段直线奔跑，她一边跑，一边把身体左右摇摆。这段摇摆跑传递着信息。她的姐妹们用触角感受舞蹈，像读地图一样读懂它。",
+   "words": [
+    {
+     "w": "Inside",
+     "t": 189.25
+    },
+    {
+     "w": "the",
+     "t": 189.66
+    },
+    {
+     "w": "dark",
+     "t": 190.06
+    },
+    {
+     "w": "hive,",
+     "t": 190.47
+    },
+    {
+     "w": "she",
+     "t": 190.87
+    },
+    {
+     "w": "dances",
+     "t": 191.28
+    },
+    {
+     "w": "on",
+     "t": 191.69
+    },
+    {
+     "w": "the",
+     "t": 192.09
+    },
+    {
+     "w": "honeycomb",
+     "t": 192.5
+    },
+    {
+     "w": "in",
+     "t": 192.9
+    },
+    {
+     "w": "a",
+     "t": 193.31
+    },
+    {
+     "w": "figure",
+     "t": 193.72
+    },
+    {
+     "w": "of",
+     "t": 194.12
+    },
+    {
+     "w": "eight.",
+     "t": 194.53
+    },
+    {
+     "w": "The",
+     "t": 194.94
+    },
+    {
+     "w": "middle",
+     "t": 195.34
+    },
+    {
+     "w": "of",
+     "t": 195.75
+    },
+    {
+     "w": "the",
+     "t": 196.15
+    },
+    {
+     "w": "dance",
+     "t": 196.56
+    },
+    {
+     "w": "is",
+     "t": 196.97
+    },
+    {
+     "w": "a",
+     "t": 197.37
+    },
+    {
+     "w": "straight",
+     "t": 197.78
+    },
+    {
+     "w": "run,",
+     "t": 198.18
+    },
+    {
+     "w": "and",
+     "t": 198.59
+    },
+    {
+     "w": "while",
+     "t": 199.0
+    },
+    {
+     "w": "she",
+     "t": 199.4
+    },
+    {
+     "w": "runs,",
+     "t": 199.81
+    },
+    {
+     "w": "she",
+     "t": 200.21
+    },
+    {
+     "w": "waggles",
+     "t": 200.62
+    },
+    {
+     "w": "her",
+     "t": 201.03
+    },
+    {
+     "w": "body",
+     "t": 201.43
+    },
+    {
+     "w": "from",
+     "t": 201.84
+    },
+    {
+     "w": "side",
+     "t": 202.25
+    },
+    {
+     "w": "to",
+     "t": 202.65
+    },
+    {
+     "w": "side.",
+     "t": 203.06
+    },
+    {
+     "w": "This",
+     "t": 203.46
+    },
+    {
+     "w": "waggle",
+     "t": 203.87
+    },
+    {
+     "w": "run",
+     "t": 204.28
+    },
+    {
+     "w": "carries",
+     "t": 204.68
+    },
+    {
+     "w": "the",
+     "t": 205.09
+    },
+    {
+     "w": "message.",
+     "t": 205.49
+    },
+    {
+     "w": "Her",
+     "t": 205.9
+    },
+    {
+     "w": "sisters",
+     "t": 206.31
+    },
+    {
+     "w": "feel",
+     "t": 206.71
+    },
+    {
+     "w": "it",
+     "t": 207.12
+    },
+    {
+     "w": "with",
+     "t": 207.53
+    },
+    {
+     "w": "their",
+     "t": 207.93
+    },
+    {
+     "w": "feelers,",
+     "t": 208.34
+    },
+    {
+     "w": "reading",
+     "t": 208.74
+    },
+    {
+     "w": "the",
+     "t": 209.15
+    },
+    {
+     "w": "dance",
+     "t": 209.56
+    },
+    {
+     "w": "like",
+     "t": 209.96
+    },
+    {
+     "w": "a",
+     "t": 210.37
+    },
+    {
+     "w": "map.",
+     "t": 210.77
+    }
+   ]
+  },
+  {
+   "start": 211.18,
+   "end": 231.89,
+   "en": "The angle of the run gives the direction. Straight up means: fly towards the sun. Turn left or right, and the flowers sit at that same angle from the sun. The waggle's length gives the distance: short means near, long means far — about one second of waggling for every kilometre.",
+   "title": "蜜蜂的舞蹈",
+   "cn": "奔跑的角度给出方向。笔直向上意味着：朝太阳的方向飞。向左或向右转一个角度，就意味着花朵在离太阳同样角度的位置。摇摆的时长给出距离：短就是近，长就是远——大约每摇摆一秒，代表一公里。",
+   "words": [
+    {
+     "w": "The",
+     "t": 211.18
+    },
+    {
+     "w": "angle",
+     "t": 211.59
+    },
+    {
+     "w": "of",
+     "t": 211.99
+    },
+    {
+     "w": "the",
+     "t": 212.4
+    },
+    {
+     "w": "run",
+     "t": 212.8
+    },
+    {
+     "w": "gives",
+     "t": 213.21
+    },
+    {
+     "w": "the",
+     "t": 213.62
+    },
+    {
+     "w": "direction.",
+     "t": 214.02
+    },
+    {
+     "w": "Straight",
+     "t": 214.43
+    },
+    {
+     "w": "up",
+     "t": 214.84
+    },
+    {
+     "w": "means:",
+     "t": 215.24
+    },
+    {
+     "w": "fly",
+     "t": 215.65
+    },
+    {
+     "w": "towards",
+     "t": 216.05
+    },
+    {
+     "w": "the",
+     "t": 216.46
+    },
+    {
+     "w": "sun.",
+     "t": 216.87
+    },
+    {
+     "w": "Turn",
+     "t": 217.27
+    },
+    {
+     "w": "left",
+     "t": 217.68
+    },
+    {
+     "w": "or",
+     "t": 218.08
+    },
+    {
+     "w": "right,",
+     "t": 218.49
+    },
+    {
+     "w": "and",
+     "t": 218.9
+    },
+    {
+     "w": "the",
+     "t": 219.3
+    },
+    {
+     "w": "flowers",
+     "t": 219.71
+    },
+    {
+     "w": "sit",
+     "t": 220.12
+    },
+    {
+     "w": "at",
+     "t": 220.52
+    },
+    {
+     "w": "that",
+     "t": 220.93
+    },
+    {
+     "w": "same",
+     "t": 221.33
+    },
+    {
+     "w": "angle",
+     "t": 221.74
+    },
+    {
+     "w": "from",
+     "t": 222.15
+    },
+    {
+     "w": "the",
+     "t": 222.55
+    },
+    {
+     "w": "sun.",
+     "t": 222.96
+    },
+    {
+     "w": "The",
+     "t": 223.36
+    },
+    {
+     "w": "waggle's",
+     "t": 223.77
+    },
+    {
+     "w": "length",
+     "t": 224.18
+    },
+    {
+     "w": "gives",
+     "t": 224.58
+    },
+    {
+     "w": "the",
+     "t": 224.99
+    },
+    {
+     "w": "distance:",
+     "t": 225.39
+    },
+    {
+     "w": "short",
+     "t": 225.8
+    },
+    {
+     "w": "means",
+     "t": 226.21
+    },
+    {
+     "w": "near,",
+     "t": 226.61
+    },
+    {
+     "w": "long",
+     "t": 227.02
+    },
+    {
+     "w": "means",
+     "t": 227.43
+    },
+    {
+     "w": "far",
+     "t": 227.83
+    },
+    {
+     "w": "—",
+     "t": 228.24
+    },
+    {
+     "w": "about",
+     "t": 228.64
+    },
+    {
+     "w": "one",
+     "t": 229.05
+    },
+    {
+     "w": "second",
+     "t": 229.46
+    },
+    {
+     "w": "of",
+     "t": 229.86
+    },
+    {
+     "w": "waggling",
+     "t": 230.27
+    },
+    {
+     "w": "for",
+     "t": 230.67
+    },
+    {
+     "w": "every",
+     "t": 231.08
+    },
+    {
+     "w": "kilometre.",
+     "t": 231.49
+    }
+   ]
+  },
+  {
+   "start": 231.89,
+   "end": 254.23,
+   "en": "Von Frisch tested his idea with a saucer of sugar water. He moved it step by step; dancers changed their angles, and their sisters flew straight to the new place. Scientists from Austria to America still study the dance. Don't worry when a bee hurries past — she is rushing home to dance the news.",
+   "title": "蜜蜂的舞蹈",
+   "cn": "冯·弗里希用一小碟糖水检验自己的想法。他一步步移动碟子，跳舞的蜜蜂随之改变角度，它们的姐妹径直飞向新地点。从奥地利到美国，科学家们至今仍在研究这支舞蹈。所以，看到一只蜜蜂匆匆飞过，不用担心——她正赶着回家，用舞蹈播报新闻呢。",
+   "words": [
+    {
+     "w": "Von",
+     "t": 231.89
+    },
+    {
+     "w": "Frisch",
+     "t": 232.3
+    },
+    {
+     "w": "tested",
+     "t": 232.71
+    },
+    {
+     "w": "his",
+     "t": 233.11
+    },
+    {
+     "w": "idea",
+     "t": 233.52
+    },
+    {
+     "w": "with",
+     "t": 233.92
+    },
+    {
+     "w": "a",
+     "t": 234.33
+    },
+    {
+     "w": "saucer",
+     "t": 234.74
+    },
+    {
+     "w": "of",
+     "t": 235.14
+    },
+    {
+     "w": "sugar",
+     "t": 235.55
+    },
+    {
+     "w": "water.",
+     "t": 235.95
+    },
+    {
+     "w": "He",
+     "t": 236.36
+    },
+    {
+     "w": "moved",
+     "t": 236.77
+    },
+    {
+     "w": "it",
+     "t": 237.17
+    },
+    {
+     "w": "step",
+     "t": 237.58
+    },
+    {
+     "w": "by",
+     "t": 237.98
+    },
+    {
+     "w": "step;",
+     "t": 238.39
+    },
+    {
+     "w": "dancers",
+     "t": 238.8
+    },
+    {
+     "w": "changed",
+     "t": 239.2
+    },
+    {
+     "w": "their",
+     "t": 239.61
+    },
+    {
+     "w": "angles,",
+     "t": 240.02
+    },
+    {
+     "w": "and",
+     "t": 240.42
+    },
+    {
+     "w": "their",
+     "t": 240.83
+    },
+    {
+     "w": "sisters",
+     "t": 241.23
+    },
+    {
+     "w": "flew",
+     "t": 241.64
+    },
+    {
+     "w": "straight",
+     "t": 242.05
+    },
+    {
+     "w": "to",
+     "t": 242.45
+    },
+    {
+     "w": "the",
+     "t": 242.86
+    },
+    {
+     "w": "new",
+     "t": 243.26
+    },
+    {
+     "w": "place.",
+     "t": 243.67
+    },
+    {
+     "w": "Scientists",
+     "t": 244.08
+    },
+    {
+     "w": "from",
+     "t": 244.48
+    },
+    {
+     "w": "Austria",
+     "t": 244.89
+    },
+    {
+     "w": "to",
+     "t": 245.3
+    },
+    {
+     "w": "America",
+     "t": 245.7
+    },
+    {
+     "w": "still",
+     "t": 246.11
+    },
+    {
+     "w": "study",
+     "t": 246.51
+    },
+    {
+     "w": "the",
+     "t": 246.92
+    },
+    {
+     "w": "dance.",
+     "t": 247.33
+    },
+    {
+     "w": "Don't",
+     "t": 247.73
+    },
+    {
+     "w": "worry",
+     "t": 248.14
+    },
+    {
+     "w": "when",
+     "t": 248.54
+    },
+    {
+     "w": "a",
+     "t": 248.95
+    },
+    {
+     "w": "bee",
+     "t": 249.36
+    },
+    {
+     "w": "hurries",
+     "t": 249.76
+    },
+    {
+     "w": "past",
+     "t": 250.17
+    },
+    {
+     "w": "—",
+     "t": 250.57
+    },
+    {
+     "w": "she",
+     "t": 250.98
+    },
+    {
+     "w": "is",
+     "t": 251.39
+    },
+    {
+     "w": "rushing",
+     "t": 251.79
+    },
+    {
+     "w": "home",
+     "t": 252.2
+    },
+    {
+     "w": "to",
+     "t": 252.61
+    },
+    {
+     "w": "dance",
+     "t": 253.01
+    },
+    {
+     "w": "the",
+     "t": 253.42
+    },
+    {
+     "w": "news.",
+     "t": 253.82
+    }
+   ]
+  },
+  {
+   "start": 269.57,
+   "end": 295.3,
+   "en": "Here's today's idiom: \"time flies.\" It means time passes quickly — as if it had wings! Think of the drone, or a bee dancing through summer. When you have fun, one hour feels like five minutes. Here's an example: \"We played in the park all day, and suddenly it was dinner time. Time flies!\" When does time fly for you?",
+   "title": "今日俚语",
+   "cn": "今天的俚语是“time flies”（时光飞逝）。它的意思是时间过得飞快——快得像长了翅膀！想想长城上空的无人机，或者整个夏天都在跳舞的蜜蜂。当你玩得开心时，一个小时感觉只有五分钟。举个例子：“我们在公园玩了一整天，突然就到晚饭时间了。时间过得真快！”对你来说，什么时候时间飞逝呢？",
+   "words": [
+    {
+     "w": "Here's",
+     "t": 269.57
+    },
+    {
+     "w": "today's",
+     "t": 270.0
+    },
+    {
+     "w": "idiom:",
+     "t": 270.43
+    },
+    {
+     "w": "\"time",
+     "t": 270.86
+    },
+    {
+     "w": "flies.\"",
+     "t": 271.29
+    },
+    {
+     "w": "It",
+     "t": 271.71
+    },
+    {
+     "w": "means",
+     "t": 272.14
+    },
+    {
+     "w": "time",
+     "t": 272.57
+    },
+    {
+     "w": "passes",
+     "t": 273.0
+    },
+    {
+     "w": "quickly",
+     "t": 273.43
+    },
+    {
+     "w": "—",
+     "t": 273.86
+    },
+    {
+     "w": "as",
+     "t": 274.29
+    },
+    {
+     "w": "if",
+     "t": 274.72
+    },
+    {
+     "w": "it",
+     "t": 275.14
+    },
+    {
+     "w": "had",
+     "t": 275.57
+    },
+    {
+     "w": "wings!",
+     "t": 276.0
+    },
+    {
+     "w": "Think",
+     "t": 276.43
+    },
+    {
+     "w": "of",
+     "t": 276.86
+    },
+    {
+     "w": "the",
+     "t": 277.29
+    },
+    {
+     "w": "drone,",
+     "t": 277.72
+    },
+    {
+     "w": "or",
+     "t": 278.15
+    },
+    {
+     "w": "a",
+     "t": 278.58
+    },
+    {
+     "w": "bee",
+     "t": 279.0
+    },
+    {
+     "w": "dancing",
+     "t": 279.43
+    },
+    {
+     "w": "through",
+     "t": 279.86
+    },
+    {
+     "w": "summer.",
+     "t": 280.29
+    },
+    {
+     "w": "When",
+     "t": 280.72
+    },
+    {
+     "w": "you",
+     "t": 281.15
+    },
+    {
+     "w": "have",
+     "t": 281.58
+    },
+    {
+     "w": "fun,",
+     "t": 282.01
+    },
+    {
+     "w": "one",
+     "t": 282.44
+    },
+    {
+     "w": "hour",
+     "t": 282.86
+    },
+    {
+     "w": "feels",
+     "t": 283.29
+    },
+    {
+     "w": "like",
+     "t": 283.72
+    },
+    {
+     "w": "five",
+     "t": 284.15
+    },
+    {
+     "w": "minutes.",
+     "t": 284.58
+    },
+    {
+     "w": "Here's",
+     "t": 285.01
+    },
+    {
+     "w": "an",
+     "t": 285.44
+    },
+    {
+     "w": "example:",
+     "t": 285.87
+    },
+    {
+     "w": "\"We",
+     "t": 286.29
+    },
+    {
+     "w": "played",
+     "t": 286.72
+    },
+    {
+     "w": "in",
+     "t": 287.15
+    },
+    {
+     "w": "the",
+     "t": 287.58
+    },
+    {
+     "w": "park",
+     "t": 288.01
+    },
+    {
+     "w": "all",
+     "t": 288.44
+    },
+    {
+     "w": "day,",
+     "t": 288.87
+    },
+    {
+     "w": "and",
+     "t": 289.3
+    },
+    {
+     "w": "suddenly",
+     "t": 289.73
+    },
+    {
+     "w": "it",
+     "t": 290.15
+    },
+    {
+     "w": "was",
+     "t": 290.58
+    },
+    {
+     "w": "dinner",
+     "t": 291.01
+    },
+    {
+     "w": "time.",
+     "t": 291.44
+    },
+    {
+     "w": "Time",
+     "t": 291.87
+    },
+    {
+     "w": "flies!\"",
+     "t": 292.3
+    },
+    {
+     "w": "When",
+     "t": 292.73
+    },
+    {
+     "w": "does",
+     "t": 293.16
+    },
+    {
+     "w": "time",
+     "t": 293.58
+    },
+    {
+     "w": "fly",
+     "t": 294.01
+    },
+    {
+     "w": "for",
+     "t": 294.44
+    },
+    {
+     "w": "you?",
+     "t": 294.87
+    }
+   ]
+  },
+  {
+   "start": 312.4,
+   "end": 331.81,
+   "en": "Let's think about our stories. A drone carried lunch up the wall, and a bee danced a map. Two questions for you. First: if a drone could bring you one thing, what would you order? Second: if you could talk by dancing, what would your dance say? Talk about it with your family!",
+   "title": "结束语与互动问题",
+   "cn": "我们来想想今天的故事。一架无人机把午餐送上长城，一只蜜蜂跳舞画出了一张地图。现在，轮到回答两个问题。第一：如果无人机能给你送一样东西，你会点什么？第二：如果你能用跳舞说话，你的舞蹈会说什么？和家人聊聊吧！",
+   "words": [
+    {
+     "w": "Let's",
+     "t": 312.4
+    },
+    {
+     "w": "think",
+     "t": 312.77
+    },
+    {
+     "w": "about",
+     "t": 313.13
+    },
+    {
+     "w": "our",
+     "t": 313.5
+    },
+    {
+     "w": "stories.",
+     "t": 313.86
+    },
+    {
+     "w": "A",
+     "t": 314.23
+    },
+    {
+     "w": "drone",
+     "t": 314.6
+    },
+    {
+     "w": "carried",
+     "t": 314.96
+    },
+    {
+     "w": "lunch",
+     "t": 315.33
+    },
+    {
+     "w": "up",
+     "t": 315.7
+    },
+    {
+     "w": "the",
+     "t": 316.06
+    },
+    {
+     "w": "wall,",
+     "t": 316.43
+    },
+    {
+     "w": "and",
+     "t": 316.79
+    },
+    {
+     "w": "a",
+     "t": 317.16
+    },
+    {
+     "w": "bee",
+     "t": 317.53
+    },
+    {
+     "w": "danced",
+     "t": 317.89
+    },
+    {
+     "w": "a",
+     "t": 318.26
+    },
+    {
+     "w": "map.",
+     "t": 318.63
+    },
+    {
+     "w": "Two",
+     "t": 318.99
+    },
+    {
+     "w": "questions",
+     "t": 319.36
+    },
+    {
+     "w": "for",
+     "t": 319.72
+    },
+    {
+     "w": "you.",
+     "t": 320.09
+    },
+    {
+     "w": "First:",
+     "t": 320.46
+    },
+    {
+     "w": "if",
+     "t": 320.82
+    },
+    {
+     "w": "a",
+     "t": 321.19
+    },
+    {
+     "w": "drone",
+     "t": 321.56
+    },
+    {
+     "w": "could",
+     "t": 321.92
+    },
+    {
+     "w": "bring",
+     "t": 322.29
+    },
+    {
+     "w": "you",
+     "t": 322.65
+    },
+    {
+     "w": "one",
+     "t": 323.02
+    },
+    {
+     "w": "thing,",
+     "t": 323.39
+    },
+    {
+     "w": "what",
+     "t": 323.75
+    },
+    {
+     "w": "would",
+     "t": 324.12
+    },
+    {
+     "w": "you",
+     "t": 324.49
+    },
+    {
+     "w": "order?",
+     "t": 324.85
+    },
+    {
+     "w": "Second:",
+     "t": 325.22
+    },
+    {
+     "w": "if",
+     "t": 325.58
+    },
+    {
+     "w": "you",
+     "t": 325.95
+    },
+    {
+     "w": "could",
+     "t": 326.32
+    },
+    {
+     "w": "talk",
+     "t": 326.68
+    },
+    {
+     "w": "by",
+     "t": 327.05
+    },
+    {
+     "w": "dancing,",
+     "t": 327.42
+    },
+    {
+     "w": "what",
+     "t": 327.78
+    },
+    {
+     "w": "would",
+     "t": 328.15
+    },
+    {
+     "w": "your",
+     "t": 328.51
+    },
+    {
+     "w": "dance",
+     "t": 328.88
+    },
+    {
+     "w": "say?",
+     "t": 329.25
+    },
+    {
+     "w": "Talk",
+     "t": 329.61
+    },
+    {
+     "w": "about",
+     "t": 329.98
+    },
+    {
+     "w": "it",
+     "t": 330.35
+    },
+    {
+     "w": "with",
+     "t": 330.71
+    },
+    {
+     "w": "your",
+     "t": 331.08
+    },
+    {
+     "w": "family!",
+     "t": 331.44
+    }
+   ]
+  },
+  {
+   "start": 342.91,
+   "end": 350.23,
+   "en": "That's all for today, young explorers. Like the little bee, always bring good news home. See you tomorrow morning!",
+   "title": "告别",
+   "cn": "今天的节目就到这里啦，小小探险家们。像小蜜蜂一样，永远把好消息带回家。明天早上见！",
+   "words": [
+    {
+     "w": "That's",
+     "t": 342.91
+    },
+    {
+     "w": "all",
+     "t": 343.3
+    },
+    {
+     "w": "for",
+     "t": 343.68
+    },
+    {
+     "w": "today,",
+     "t": 344.07
+    },
+    {
+     "w": "young",
+     "t": 344.45
+    },
+    {
+     "w": "explorers.",
+     "t": 344.84
+    },
+    {
+     "w": "Like",
+     "t": 345.22
+    },
+    {
+     "w": "the",
+     "t": 345.61
+    },
+    {
+     "w": "little",
+     "t": 345.99
+    },
+    {
+     "w": "bee,",
+     "t": 346.38
+    },
+    {
+     "w": "always",
+     "t": 346.76
+    },
+    {
+     "w": "bring",
+     "t": 347.15
+    },
+    {
+     "w": "good",
+     "t": 347.53
+    },
+    {
+     "w": "news",
+     "t": 347.92
+    },
+    {
+     "w": "home.",
+     "t": 348.3
+    },
+    {
+     "w": "See",
+     "t": 348.69
+    },
+    {
+     "w": "you",
+     "t": 349.07
+    },
+    {
+     "w": "tomorrow",
+     "t": 349.46
+    },
+    {
+     "w": "morning!",
+     "t": 349.84
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "time flies",
+    "phon": "/taɪm flaɪz/",
+    "meaning": "(习语) 时光飞逝；时间过得飞快",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: We played in the park all day, and suddenly it was dinner time. Time flies!"
+   },
+   {
+    "word": "dynasty",
+    "phon": "/ˈdaɪnəsti/",
+    "meaning": "(n.) 朝代；王朝",
+    "tags": [],
+    "example": "Example: Dynasty after dynasty of builders worked on it for two thousand years."
+   },
+   {
+    "word": "erupt",
+    "phon": "/ɪˈrʌpt/",
+    "meaning": "(v.) 爆发；突然发生",
+    "tags": [],
+    "example": "Example: The crowd erupted in cheers."
+   },
+   {
+    "word": "astonish",
+    "phon": "/əˈstɒnɪʃ/",
+    "meaning": "(v.) 使惊讶；使震惊",
+    "tags": [],
+    "example": "Example: The climbers were astonished when the first lunches flew in."
+   },
+   {
+    "word": "appeal",
+    "phon": "/əˈpiːl/",
+    "meaning": "(n.) 吸引力；感染力",
+    "tags": [],
+    "example": "Example: The idea has a simple appeal: lunch without the long climb."
+   },
+   {
+    "word": "significance",
+    "phon": "/sɪɡˈnɪfɪkəns/",
+    "meaning": "(n.) 意义；重要性",
+    "tags": [],
+    "example": "Example: A small service, with real significance."
+   },
+   {
+    "word": "awkward",
+    "phon": "/ˈɔːkwəd/",
+    "meaning": "(adj.) 难走的；笨拙的；尴尬的",
+    "tags": [],
+    "example": "Example: Faster than legs on those steep, awkward steps."
+   },
+   {
+    "word": "damage",
+    "phon": "/ˈdæmɪdʒ/",
+    "meaning": "(v.) 损坏；损害",
+    "tags": [],
+    "example": "Example: Nobody wants the crowds to damage it."
+   },
+   {
+    "word": "nectar",
+    "phon": "/ˈnektə/",
+    "meaning": "(n.) 花蜜",
+    "tags": [],
+    "example": "Example: When a bee finds flowers full of nectar among the leaves."
+   },
+   {
+    "word": "waggle",
+    "phon": "/ˈwæɡl/",
+    "meaning": "(v.) 摇摆；摆动",
+    "tags": [],
+    "example": "Example: While she runs, she waggles her body from side to side."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "How long does the drone take to bring lunch to the tower?\nA. About fifty minutes\nB. About five minutes\nC. About two hours\nD. All morning",
+     "What do the drones carry on the way back down?\nA. Tourists\nB. Cameras\nC. The visitors' rubbish\nD. Flowers",
+     "What does the angle of the waggle run tell the other bees?\nA. The distance\nB. The direction\nC. The weather\nD. The time",
+     "What does \"time flies\" mean?\nA. Time passes very quickly\nB. Bees can fly\nC. Drones fly very fast\nD. Clocks have wings"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "type": "text",
+        "text": "The middle of the dance "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "is"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " a straight run, "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "and"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "while"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " she runs, she "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "waggles"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " her body "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "from side to side"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "."
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "前半句是主干："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "The middle of the dance is a straight run."
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（舞蹈的中间部分是一段直线奔跑）主语是 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "The middle of the dance"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "——中心词是 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "middle"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，"
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "of the dance"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是后置修饰，说明“哪里的中间”；谓语是系动词 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "is"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，表语是 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "a straight run"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "and"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "并列连词"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：它把两个完整的句子并成一句——“中间是直线跑” + “她边跑边摇摆”，两件事地位平等。看到 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "and"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，就知道后面又来了一个主语和谓语。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "while she runs"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是 "
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "while 引导的时间状语从句"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（当她跑的时候）：它嵌在第二个分句的主语 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "she"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 和谓语 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "waggles"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 之间，前后用逗号隔开。从句出现的位置很灵活，读的时候先把它“括起来”，主干就清楚了："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "she waggles her body"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "句尾 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "from side to side"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "方式短语"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（从一边到另一边），紧贴动词 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "waggles"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，回答“怎样摇摆”。英语里这种短语常放在动词后面补充动作的样子。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句逻辑链："
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "直线跑是舞台（主干）→ and 并列出第二个分句 → while 标出“两个动作同时发生” → from side to side 点明摇摆的方式"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。蜜蜂的密码就藏在这个结构里：方向和动作，全在同一时刻被姐妹们读到。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "DANCE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（跳舞；舞蹈）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "NECTAR"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（花蜜）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SAUCER"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（茶托；小浅碟）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ANCIENT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（古代的；古老的）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "DRONE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（无人机）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "RUBBISH"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（垃圾）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "WAGGLE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（摇摆；摆动）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "DYNASTY"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（朝代）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ANGLE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（角度）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ERUPT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（爆发；突然发生）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says the walk down takes about fifty minutes, and "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"The drone shaves that long walk down to five.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"On the way back, the drones carry the visitors' rubbish down.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"The angle of the run gives the direction.\""
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": " The length of the waggle gives the distance."
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "A"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"It means time passes quickly — as if it had wings!\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. and  2. and"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. While  2. while"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. from side to side  2. from side to side"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "B",
+    "C",
+    "B",
+    "A"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. and 并列分句：用括号里的词补全（连接两个完整的句子）",
+     "items": [
+      {
+       "prompt": "The drone lifts off, ____ it flies over the wall.",
+       "options": [
+        "and",
+        "but",
+        "so"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "The bee dances on the comb, ____ her sisters feel the dance.",
+       "options": [
+        "but",
+        "and",
+        "or"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. while 时间从句：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "____ she runs, she waggles her body.",
+       "options": [
+        "Until",
+        "Because",
+        "While"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "Her sisters read the dance ____ the dancer runs.",
+       "options": [
+        "while",
+        "until",
+        "because"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. from side to side 方式短语：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "The bee waggles her body ____.",
+       "options": [
+        "from day to day",
+        "from side to side",
+        "from time to time"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "The little boat rocked ____ on the waves.",
+       "options": [
+        "from day to day",
+        "from time to time",
+        "from side to side"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "The drone flies over the wall, and while it flies, it carries lunch for the climbers.",
+    "She turns from side to side, and her sisters watch while she dances."
+   ]
+  },
+  "crossword": {
+   "nrows": 15,
+   "ncols": 9,
+   "words": [
+    {
+     "word": "DANCE",
+     "row": 0,
+     "col": 1,
+     "dir": "D",
+     "num": 1,
+     "cn": "跳舞；舞蹈",
+     "clue": "Moving your body in a pattern — the bee does this to tell her sisters the news."
+    },
+    {
+     "word": "NECTAR",
+     "row": 0,
+     "col": 4,
+     "dir": "D",
+     "num": 2,
+     "cn": "花蜜",
+     "clue": "The sweet liquid inside flowers that bees love to drink."
+    },
+    {
+     "word": "SAUCER",
+     "row": 1,
+     "col": 0,
+     "dir": "A",
+     "num": 3,
+     "cn": "茶托；小浅碟",
+     "clue": "A small, shallow plate — von Frisch put sugar water in one of these."
+    },
+    {
+     "word": "ANCIENT",
+     "row": 4,
+     "col": 6,
+     "dir": "D",
+     "num": 4,
+     "cn": "古代的；古老的",
+     "clue": "Very, very old — the wall is truly this."
+    },
+    {
+     "word": "DRONE",
+     "row": 5,
+     "col": 3,
+     "dir": "A",
+     "num": 5,
+     "cn": "无人机",
+     "clue": "A flying machine with no pilot inside — this one brings lunch through the sky."
+    },
+    {
+     "word": "RUBBISH",
+     "row": 7,
+     "col": 2,
+     "dir": "A",
+     "num": 6,
+     "cn": "垃圾",
+     "clue": "Things people throw away — on the way back, the drones carry the visitors' this down."
+    },
+    {
+     "word": "WAGGLE",
+     "row": 9,
+     "col": 4,
+     "dir": "D",
+     "num": 7,
+     "cn": "摇摆；摆动",
+     "clue": "To move from side to side — while she runs, she does this with her body."
+    },
+    {
+     "word": "DYNASTY",
+     "row": 10,
+     "col": 1,
+     "dir": "A",
+     "num": 8,
+     "cn": "朝代",
+     "clue": "A line of rulers from the same family — one after another of these, builders worked on the wall for two thousand years."
+    },
+    {
+     "word": "ANGLE",
+     "row": 12,
+     "col": 2,
+     "dir": "A",
+     "num": 9,
+     "cn": "角度",
+     "clue": "The space where two lines meet — the run's this gives the direction."
+    },
+    {
+     "word": "ERUPT",
+     "row": 14,
+     "col": 4,
+     "dir": "A",
+     "num": 10,
+     "cn": "爆发；突然发生",
+     "clue": "To burst out suddenly — the crowd did this in cheers."
+    }
+   ]
+  }
+ }
+}

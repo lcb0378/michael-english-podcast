@@ -1,0 +1,303 @@
+[
+ {
+  "id": 1,
+  "title": "开场白",
+  "blocks": [
+   {
+    "start": 31.95,
+    "end": 36.13,
+    "en": "Hello, young explorers, and welcome back to Michael's Morning Listening!"
+   },
+   {
+    "start": 36.13,
+    "end": 38.64,
+    "en": "This is our seventeenth show together!"
+   },
+   {
+    "start": 38.64,
+    "end": 41.56,
+    "en": "Today both of our heroes can fly."
+   },
+   {
+    "start": 41.56,
+    "end": 47.0,
+    "en": "One is a delivery drone, carrying lunch up the Great Wall of China."
+   },
+   {
+    "start": 47.0,
+    "end": 52.01,
+    "en": "The other is a tiny honeybee — and she talks by dancing!"
+   },
+   {
+    "start": 52.01,
+    "end": 52.85,
+    "en": "Let's go!"
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "title": "飞上长城的外卖",
+  "blocks": [
+   {
+    "start": 68.51,
+    "end": 70.97,
+    "en": "Lunch is served — by drone!"
+   },
+   {
+    "start": 70.97,
+    "end": 79.58,
+    "en": "On the Badaling Great Wall near Beijing, hungry climbers order on their phones, and a drone brings lunch through the sky."
+   },
+   {
+    "start": 79.58,
+    "end": 83.68,
+    "en": "This part of the wall has no shops at all."
+   },
+   {
+    "start": 83.68,
+    "end": 87.37,
+    "en": "Walking down for a drink takes about fifty minutes."
+   },
+   {
+    "start": 87.37,
+    "end": 91.06,
+    "en": "The drone shaves that long walk down to five."
+   },
+   {
+    "start": 91.06,
+    "end": 93.11,
+    "en": "Here is how it works."
+   },
+   {
+    "start": 93.11,
+    "end": 101.31,
+    "en": "At the South Ninth Tower, visitors scan a code and order drinks, snacks, or a sandwich on the Meituan app."
+   },
+   {
+    "start": 101.31,
+    "end": 108.28,
+    "en": "Workers pack the food, the drone lifts off, and minutes later it lands softly by the tower."
+   },
+   {
+    "start": 108.28,
+    "end": 110.75,
+    "en": "It can carry about two kilograms."
+   },
+   {
+    "start": 110.75,
+    "end": 121.0,
+    "en": "The wall is truly ancient: dynasty after dynasty of builders worked on it for two thousand years, and nobody wants the crowds to damage it."
+   },
+   {
+    "start": 121.0,
+    "end": 125.51,
+    "en": "On the way back, the drones carry the visitors' rubbish down."
+   },
+   {
+    "start": 125.51,
+    "end": 128.38,
+    "en": "No new shops, no mess left behind."
+   },
+   {
+    "start": 128.38,
+    "end": 134.94,
+    "en": "Drones can rush medicine to a sick climber, faster than legs on those steep, awkward steps."
+   },
+   {
+    "start": 134.94,
+    "end": 139.45,
+    "en": "The idea has a simple appeal: lunch without the long climb."
+   },
+   {
+    "start": 139.45,
+    "end": 145.6,
+    "en": "When the first lunches flew in, climbers were astonished, and the crowd erupted in cheers."
+   },
+   {
+    "start": 145.6,
+    "end": 148.06,
+    "en": "Videos spread quickly on social media."
+   },
+   {
+    "start": 148.06,
+    "end": 150.52,
+    "en": "A small service, with real significance."
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "title": "蜜蜂的舞蹈",
+  "blocks": [
+   {
+    "start": 166.1,
+    "end": 168.54,
+    "en": "Now meet a dancer: the honeybee."
+   },
+   {
+    "start": 168.54,
+    "end": 180.72,
+    "en": "When a bee finds flowers full of nectar among the leaves, she returns home and tells her sisters where the food is — not with words, but with a dance."
+   },
+   {
+    "start": 180.72,
+    "end": 186.81,
+    "en": "Karl von Frisch, a scientist from Austria, watched bees for years and cracked the code."
+   },
+   {
+    "start": 186.81,
+    "end": 189.25,
+    "en": "It later won a Nobel Prize."
+   },
+   {
+    "start": 189.25,
+    "end": 194.94,
+    "en": "Inside the dark hive, she dances on the honeycomb in a figure of eight."
+   },
+   {
+    "start": 194.94,
+    "end": 203.46,
+    "en": "The middle of the dance is a straight run, and while she runs, she waggles her body from side to side."
+   },
+   {
+    "start": 203.46,
+    "end": 205.9,
+    "en": "This waggle run carries the message."
+   },
+   {
+    "start": 205.9,
+    "end": 211.18,
+    "en": "Her sisters feel it with their feelers, reading the dance like a map."
+   },
+   {
+    "start": 211.18,
+    "end": 214.43,
+    "en": "The angle of the run gives the direction."
+   },
+   {
+    "start": 214.43,
+    "end": 217.27,
+    "en": "Straight up means: fly towards the sun."
+   },
+   {
+    "start": 217.27,
+    "end": 223.36,
+    "en": "Turn left or right, and the flowers sit at that same angle from the sun."
+   },
+   {
+    "start": 223.36,
+    "end": 231.89,
+    "en": "The waggle's length gives the distance: short means near, long means far — about one second of waggling for every kilometre."
+   },
+   {
+    "start": 231.89,
+    "end": 236.36,
+    "en": "Von Frisch tested his idea with a saucer of sugar water."
+   },
+   {
+    "start": 236.36,
+    "end": 244.08,
+    "en": "He moved it step by step; dancers changed their angles, and their sisters flew straight to the new place."
+   },
+   {
+    "start": 244.08,
+    "end": 247.73,
+    "en": "Scientists from Austria to America still study the dance."
+   },
+   {
+    "start": 247.73,
+    "end": 254.23,
+    "en": "Don't worry when a bee hurries past — she is rushing home to dance the news."
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "title": "今日俚语",
+  "blocks": [
+   {
+    "start": 269.57,
+    "end": 276.43,
+    "en": "Here's today's idiom: \"time flies.\" It means time passes quickly — as if it had wings!"
+   },
+   {
+    "start": 276.43,
+    "end": 280.72,
+    "en": "Think of the drone, or a bee dancing through summer."
+   },
+   {
+    "start": 280.72,
+    "end": 285.01,
+    "en": "When you have fun, one hour feels like five minutes."
+   },
+   {
+    "start": 285.01,
+    "end": 291.87,
+    "en": "Here's an example: \"We played in the park all day, and suddenly it was dinner time."
+   },
+   {
+    "start": 291.87,
+    "end": 295.3,
+    "en": "Time flies!\" When does time fly for you?"
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "title": "结束语与互动问题",
+  "blocks": [
+   {
+    "start": 312.4,
+    "end": 314.23,
+    "en": "Let's think about our stories."
+   },
+   {
+    "start": 314.23,
+    "end": 318.99,
+    "en": "A drone carried lunch up the wall, and a bee danced a map."
+   },
+   {
+    "start": 318.99,
+    "end": 320.46,
+    "en": "Two questions for you."
+   },
+   {
+    "start": 320.46,
+    "end": 325.22,
+    "en": "First: if a drone could bring you one thing, what would you order?"
+   },
+   {
+    "start": 325.22,
+    "end": 329.61,
+    "en": "Second: if you could talk by dancing, what would your dance say?"
+   },
+   {
+    "start": 329.61,
+    "end": 331.81,
+    "en": "Talk about it with your family!"
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "title": "告别",
+  "blocks": [
+   {
+    "start": 342.91,
+    "end": 345.22,
+    "en": "That's all for today, young explorers."
+   },
+   {
+    "start": 345.22,
+    "end": 348.69,
+    "en": "Like the little bee, always bring good news home."
+   },
+   {
+    "start": 348.69,
+    "end": 350.23,
+    "en": "See you tomorrow morning!"
+   }
+  ]
+ }
+]
