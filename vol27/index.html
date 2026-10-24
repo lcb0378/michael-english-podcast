@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.27 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol27/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol27/cover.png" controls playsinline preload="metadata"></video>
+<h1>🐟 Vol.27 · 长寿金鱼与一睡三年的蜗牛</h1>
+<div class="meta">英文 598 词 ｜ 音频 5分39秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol27/story-goldfish.png" alt="长寿金鱼">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol27/story-snail.png" alt="一睡三年的蜗牛">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">saved by the bell</span> <span class="phon">/seɪvd baɪ ðə bel/</span> (习语) 被铃声救了；在最后一刻得救<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: Leo was <b>saved by the bell</b> when the lunch bell rang.</div>
+</div>
+<div class="vocab">
+  <span class="word">patience</span> <span class="phon">/ˈpeɪʃns/</span> (n.) 耐心；忍耐<br>
+  
+  <div class="example">Example: One teaches us <b>patience</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">vivid</span> <span class="phon">/ˈvɪvɪd/</span> (adj.) 鲜艳的；生动的<br>
+  
+  <div class="example">Example: His <b>vivid</b> orange scales slowly turned silver.</div>
+</div>
+<div class="vocab">
+  <span class="word">caption</span> <span class="phon">/ˈkæpʃn/</span> (n.) 说明文字；标题<br>
+  
+  <div class="example">Example: The <b>caption</b> under his photo says he lived in a simple bowl.</div>
+</div>
+<div class="vocab">
+  <span class="word">discrimination</span> <span class="phon">/dɪˌskrɪmɪˈneɪʃn/</span> (n.) 区别对待；歧视<br>
+  
+  <div class="example">Example: The record book makes no <b>discrimination</b> between big animals and small ones.</div>
+</div>
+<div class="vocab">
+  <span class="word">ambassador</span> <span class="phon">/æmˈbæsədər/</span> (n.) 代言人；大使<br>
+  
+  <div class="example">Example: Tish became an <b>ambassador</b> for all small pets.</div>
+</div>
+<div class="vocab">
+  <span class="word">estivation</span> <span class="phon">/ˌestɪˈveɪʃn/</span> (n.) 夏眠（干旱时的休眠）<br>
+  
+  <div class="example">Example: Scientists call it <b>estivation</b> — a summer sleep for dry times.</div>
+</div>
+<div class="vocab">
+  <span class="word">pedestrian</span> <span class="phon">/pəˈdestriən/</span> (n.) 行人<br>
+  
+  <div class="example">Example: A <b>pedestrian</b> may walk right past the quiet shell.</div>
+</div>
+<div class="vocab">
+  <span class="word">spray</span> <span class="phon">/spreɪ/</span> (n.) 细水花；喷雾<br>
+  
+  <div class="example">Example: A fine <b>spray</b> falls on the garden.</div>
+</div>
+<div class="vocab">
+  <span class="word">deaf</span> <span class="phon">/def/</span> (adj.) 听不见的<br>
+  
+  <div class="example">Example: The snail is <b>deaf</b> to the footsteps and the wind.</div>
+</div>
+<div class="vocab">
+  <span class="word">erupt</span> <span class="phon">/ɪˈrʌpt/</span> (v.) 迸发；爆发<br>
+  
+  <div class="example">Example: Everyone <b>erupted</b> in cheers.</div>
+</div>
+<div class="vocab">
+  <span class="word">format</span> <span class="phon">/ˈfɔːrmæt/</span> (n.) 形式；载体<br>
+  
+  <div class="example">Example: Tish's story appeared in every <b>format</b>.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 18, "ncols": 10, "words": [{"word": "GARDEN", "row": 0, "col": 5, "dir": "D", "num": 1, "cn": "花园", "clue": "A fine spray falls on the ___."}, {"word": "SILVER", "row": 1, "col": 7, "dir": "D", "num": 2, "cn": "银色", "clue": "His vivid orange scales slowly turned ___."}, {"word": "PEDESTRIAN", "row": 5, "col": 0, "dir": "D", "num": 3, "cn": "行人", "clue": "A ___ may walk right past the quiet shell."}, {"word": "PATIENCE", "row": 5, "col": 0, "dir": "A", "num": 4, "cn": "耐心", "clue": "One teaches us ___."}, {"word": "GOLDFISH", "row": 7, "col": 4, "dir": "D", "num": 5, "cn": "金鱼", "clue": "a little ___ that outlived most dogs."}, {"word": "CHAMPION", "row": 7, "col": 8, "dir": "D", "num": 6, "cn": "冠军", "clue": "A tiny fish can be a ___ too."}, {"word": "ESTIVATION", "row": 8, "col": 6, "dir": "D", "num": 7, "cn": "夏眠", "clue": "Scientists call it ___ — a summer sleep for dry times."}, {"word": "SNAIL", "row": 9, "col": 0, "dir": "A", "num": 8, "cn": "蜗牛", "clue": "Now meet a slower champion: the garden ___."}, {"word": "AMBASSADOR", "row": 13, "col": 0, "dir": "A", "num": 9, "cn": "代言人", "clue": "Tish became an ___ for all small pets."}, {"word": "BELL", "row": 13, "col": 2, "dir": "D", "num": 10, "cn": "铃铛", "clue": "The boxer is saved by the ___."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. How long did Tish the goldfish live?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. Fifteen years</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. Thirty-eight years</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. Forty-three years</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. Fifty years</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. What does a snail do when the garden dries up?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. It flies away</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. It seals itself inside its shell</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. It digs a deep hole</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. It eats more leaves</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. What does &quot;saved by the bell&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. Saved by a telephone call</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. Saved at the very last moment</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. Saved by a teacher</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. Saved by a friend</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What is estivation?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. A winter sleep</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. A summer sleep for dry times</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. A kind of food</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. A snail&#x27;s shell</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：B</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [2, 1, 1, 1];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">A pedestrian <b class="kw">may walk</b> right past the <b class="kw">quiet shell</b> <b class="kw">at the bottom of the garden wall</b>.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li><i>may walk</i> 是<b>情态动词 + 动词原形</b>：may 后面跟动词原形 walk，不加 s、不加 to。may 在这里表示“可能”，不是“一定”——行人可能走过，也可能停下来看。</li>
+  <li><i>right past</i> 里的 right 不是“右”，而是“径直、直接”：walk right past = 径直走过，连看都没看一眼。这个 right 是副词，给 walk 加了“头也不回”的味道。</li>
+  <li><i>at the bottom of the garden wall</i> 是<b>介词短语表位置</b>：at the bottom of（在……的底部）告诉我们壳在哪里——花园墙的根部。介词短语放在名词后面，专门交代位置。</li>
+  <li><i>quiet shell</i> 是<b>形容词 + 名词</b>：quiet（安静的）放在名词 shell 前面，说明这只壳一声不响。英语里形容词一般都站在它修饰的名词前面。</li>
+  <li>整句逻辑链：<b>人物（行人）→ 可能的动作（径直走过）→ 对象（安静的壳）→ 位置（花园墙根）</b>。一句话里藏着情态动词、副词、介词短语和形容词四个机关。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. may + 动词原形：用括号里的词补全</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">A snail ____ sleep for months in dry times.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">may</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">mays</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">is</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：may</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">A goldfish ____ live for forty years with good care.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">mays</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">may</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">does</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：may</p>
+</div>
+<p class="p4-gname">B. at the bottom of：用括号里的词补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">The shell sits ____ the bottom of the garden wall.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">in</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">on</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">at</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：at</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">The key is ____ the bottom of the bag.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">at</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">under</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">over</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：at</p>
+</div>
+<p class="p4-gname">C. 形容词 + 名词：用括号里的词补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">The ____ shell waits in the garden.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">quietly</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">quiet</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">quick</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：quiet</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">Tish was a ____ fish with a big record.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">tinily</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">tired</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">tiny</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：tiny</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>A pedestrian may walk right past the quiet shell, but the snail feels the rain at last.</li>
+<li>With patience and care, even the smallest friend can stay with us for a very long time.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">1</span><span class="cwl">G</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">2</span><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">V</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">4</span><span class="cwl">P</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">5</span><span class="cwl">G</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">6</span><span class="cwl">C</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">7</span><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">8</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">M</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">F</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">P</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">V</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">9</span><span class="cwl">A</span></td><td class="cwc"><span class="cwl">M</span></td><td class="cwc"><span class="cwn">10</span><span class="cwl">B</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">D</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">R</span></td></tr><tr><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr></table></div>1 竖 → <b>GARDEN</b>（花园）<br>2 竖 → <b>SILVER</b>（银色）<br>3 竖 → <b>PEDESTRIAN</b>（行人）<br>4 横 → <b>PATIENCE</b>（耐心）<br>5 竖 → <b>GOLDFISH</b>（金鱼）<br>6 竖 → <b>CHAMPION</b>（冠军）<br>7 竖 → <b>ESTIVATION</b>（夏眠）<br>8 横 → <b>SNAIL</b>（蜗牛）<br>9 横 → <b>AMBASSADOR</b>（代言人）<br>10 竖 → <b>BELL</b>（铃铛）<br><br><b>B. Single Choice:</b><br>
+1 → <b>C</b>. The text says Tish <i>"lived forty-three years — a world record!"</i><br>
+2 → <b>B</b>. When the garden dries up, the snail <i>"climbs into its shell and seals the door with a layer of dried slime."</i><br>
+3 → <b>B</b>. The text says: <i>"We use it when something saves us at the very last moment."</i><br>
+4 → <b>B</b>. <i>"Scientists call it estivation — a summer sleep for dry times."</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. may&nbsp;&nbsp;2. may<br>
+B. 1. at&nbsp;&nbsp;2. at<br>
+C. 1. quiet&nbsp;&nbsp;2. tiny<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol27/Vol27_晚读讲义_长寿金鱼与一睡三年的蜗牛_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 23.07, "end": 41.81, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we meet two slow champions: a little goldfish that outlived most dogs, and a snail that can sleep for years. One teaches us patience; the other, the art of waiting. Let's go!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天我们要认识两位“慢冠军”：一条活得比大多数狗狗还久的小金鱼，和一只一睡就能睡好几年的蜗牛。一个教我们耐心，一个教我们等待的艺术。出发吧！", "words": [{"w": "Hello,", "t": 23.07}, {"w": "young", "t": 23.51}, {"w": "explorers,", "t": 23.94}, {"w": "and", "t": 24.38}, {"w": "welcome", "t": 24.81}, {"w": "back", "t": 25.25}, {"w": "to", "t": 25.68}, {"w": "Michael's", "t": 26.12}, {"w": "Morning", "t": 26.56}, {"w": "Listening!", "t": 26.99}, {"w": "Today", "t": 27.43}, {"w": "we", "t": 27.86}, {"w": "meet", "t": 28.3}, {"w": "two", "t": 28.74}, {"w": "slow", "t": 29.17}, {"w": "champions:", "t": 29.61}, {"w": "a", "t": 30.04}, {"w": "little", "t": 30.48}, {"w": "goldfish", "t": 30.91}, {"w": "that", "t": 31.35}, {"w": "outlived", "t": 31.79}, {"w": "most", "t": 32.22}, {"w": "dogs,", "t": 32.66}, {"w": "and", "t": 33.09}, {"w": "a", "t": 33.53}, {"w": "snail", "t": 33.97}, {"w": "that", "t": 34.4}, {"w": "can", "t": 34.84}, {"w": "sleep", "t": 35.27}, {"w": "for", "t": 35.71}, {"w": "years.", "t": 36.14}, {"w": "One", "t": 36.58}, {"w": "teaches", "t": 37.02}, {"w": "us", "t": 37.45}, {"w": "patience;", "t": 37.89}, {"w": "the", "t": 38.32}, {"w": "other,", "t": 38.76}, {"w": "the", "t": 39.2}, {"w": "art", "t": 39.63}, {"w": "of", "t": 40.07}, {"w": "waiting.", "t": 40.5}, {"w": "Let's", "t": 40.94}, {"w": "go!", "t": 41.37}]}, {"start": 57.23, "end": 81.74, "en": "Most goldfish live ten to fifteen years. But one little goldfish named Tish lived forty-three years — a world record! A seven-year-old boy named Peter won him at a fair, in a roll-a-coin game. Peter's mother Hilda then looked after Tish for most of his long life. His vivid orange scales slowly turned silver, like an old man's hair.", "title": "长寿金鱼蒂什", "cn": "大多数金鱼能活十到十五年。可有一条名叫蒂什的小金鱼，活了四十三年——创了世界纪录！七岁的男孩彼得在一个集市上玩滚硬币的游戏，把它赢回了家。之后，彼得的妈妈希尔达照顾了蒂什漫长一生中的大部分时光。他鲜艳的橙色鳞片慢慢变成了银色，就像老爷爷的白头发。", "words": [{"w": "Most", "t": 57.23}, {"w": "goldfish", "t": 57.65}, {"w": "live", "t": 58.06}, {"w": "ten", "t": 58.48}, {"w": "to", "t": 58.89}, {"w": "fifteen", "t": 59.31}, {"w": "years.", "t": 59.72}, {"w": "But", "t": 60.14}, {"w": "one", "t": 60.55}, {"w": "little", "t": 60.97}, {"w": "goldfish", "t": 61.38}, {"w": "named", "t": 61.8}, {"w": "Tish", "t": 62.22}, {"w": "lived", "t": 62.63}, {"w": "forty-three", "t": 63.05}, {"w": "years", "t": 63.46}, {"w": "—", "t": 63.88}, {"w": "a", "t": 64.29}, {"w": "world", "t": 64.71}, {"w": "record!", "t": 65.12}, {"w": "A", "t": 65.54}, {"w": "seven-year-old", "t": 65.95}, {"w": "boy", "t": 66.37}, {"w": "named", "t": 66.78}, {"w": "Peter", "t": 67.2}, {"w": "won", "t": 67.62}, {"w": "him", "t": 68.03}, {"w": "at", "t": 68.45}, {"w": "a", "t": 68.86}, {"w": "fair,", "t": 69.28}, {"w": "in", "t": 69.69}, {"w": "a", "t": 70.11}, {"w": "roll-a-coin", "t": 70.52}, {"w": "game.", "t": 70.94}, {"w": "Peter's", "t": 71.35}, {"w": "mother", "t": 71.77}, {"w": "Hilda", "t": 72.19}, {"w": "then", "t": 72.6}, {"w": "looked", "t": 73.02}, {"w": "after", "t": 73.43}, {"w": "Tish", "t": 73.85}, {"w": "for", "t": 74.26}, {"w": "most", "t": 74.68}, {"w": "of", "t": 75.09}, {"w": "his", "t": 75.51}, {"w": "long", "t": 75.92}, {"w": "life.", "t": 76.34}, {"w": "His", "t": 76.75}, {"w": "vivid", "t": 77.17}, {"w": "orange", "t": 77.59}, {"w": "scales", "t": 78.0}, {"w": "slowly", "t": 78.42}, {"w": "turned", "t": 78.83}, {"w": "silver,", "t": 79.25}, {"w": "like", "t": 79.66}, {"w": "an", "t": 80.08}, {"w": "old", "t": 80.49}, {"w": "man's", "t": 80.91}, {"w": "hair.", "t": 81.32}]}, {"start": 81.74, "end": 112.9, "en": "The caption under his photo, on a page of the record book, says he lived in a simple bowl, with fresh water and quiet days. He even survived a great escape: one day he jumped out of his bowl, but Hilda found him in time, and he swam away as if nothing had happened. The record book makes no discrimination between big animals and small ones — a tiny fish can be a champion too.", "title": "长寿金鱼蒂什", "cn": "纪录书里他照片下面的说明写着：他住在一个简单的鱼缸里，有干净的水和安静的日子。他甚至经历过一次大逃亡：有一天他从鱼缸里跳了出来，不过希尔达及时发现了他，他又像什么都没发生一样游走了。纪录书不分大动物还是小动物——一条小小的鱼也可以成为冠军。", "words": [{"w": "The", "t": 81.74}, {"w": "caption", "t": 82.16}, {"w": "under", "t": 82.57}, {"w": "his", "t": 82.99}, {"w": "photo,", "t": 83.4}, {"w": "on", "t": 83.82}, {"w": "a", "t": 84.23}, {"w": "page", "t": 84.65}, {"w": "of", "t": 85.06}, {"w": "the", "t": 85.48}, {"w": "record", "t": 85.89}, {"w": "book,", "t": 86.31}, {"w": "says", "t": 86.73}, {"w": "he", "t": 87.14}, {"w": "lived", "t": 87.56}, {"w": "in", "t": 87.97}, {"w": "a", "t": 88.39}, {"w": "simple", "t": 88.8}, {"w": "bowl,", "t": 89.22}, {"w": "with", "t": 89.63}, {"w": "fresh", "t": 90.05}, {"w": "water", "t": 90.46}, {"w": "and", "t": 90.88}, {"w": "quiet", "t": 91.3}, {"w": "days.", "t": 91.71}, {"w": "He", "t": 92.13}, {"w": "even", "t": 92.54}, {"w": "survived", "t": 92.96}, {"w": "a", "t": 93.37}, {"w": "great", "t": 93.79}, {"w": "escape:", "t": 94.2}, {"w": "one", "t": 94.62}, {"w": "day", "t": 95.03}, {"w": "he", "t": 95.45}, {"w": "jumped", "t": 95.87}, {"w": "out", "t": 96.28}, {"w": "of", "t": 96.7}, {"w": "his", "t": 97.11}, {"w": "bowl,", "t": 97.53}, {"w": "but", "t": 97.94}, {"w": "Hilda", "t": 98.36}, {"w": "found", "t": 98.77}, {"w": "him", "t": 99.19}, {"w": "in", "t": 99.61}, {"w": "time,", "t": 100.02}, {"w": "and", "t": 100.44}, {"w": "he", "t": 100.85}, {"w": "swam", "t": 101.27}, {"w": "away", "t": 101.68}, {"w": "as", "t": 102.1}, {"w": "if", "t": 102.51}, {"w": "nothing", "t": 102.93}, {"w": "had", "t": 103.34}, {"w": "happened.", "t": 103.76}, {"w": "The", "t": 104.18}, {"w": "record", "t": 104.59}, {"w": "book", "t": 105.01}, {"w": "makes", "t": 105.42}, {"w": "no", "t": 105.84}, {"w": "discrimination", "t": 106.25}, {"w": "between", "t": 106.67}, {"w": "big", "t": 107.08}, {"w": "animals", "t": 107.5}, {"w": "and", "t": 107.91}, {"w": "small", "t": 108.33}, {"w": "ones", "t": 108.75}, {"w": "—", "t": 109.16}, {"w": "a", "t": 109.58}, {"w": "tiny", "t": 109.99}, {"w": "fish", "t": 110.41}, {"w": "can", "t": 110.82}, {"w": "be", "t": 111.24}, {"w": "a", "t": 111.65}, {"w": "champion", "t": 112.07}, {"w": "too.", "t": 112.48}]}, {"start": 112.9, "end": 134.51, "en": "Tish was not alone. A cat named Creme Puff lived thirty-eight years — longer than most dogs! Tish's story appeared in every format: in books, in newspapers, and on television. Tish became an ambassador for all small pets: with patience and care, even the smallest friend can stay a very long time.", "title": "长寿金鱼蒂什", "cn": "在纪录书里，蒂什并不孤单。一只名叫“奶油泡芙”的猫活了三十八年——比大多数狗狗还久！蒂什的故事以各种形式出现过：书里、报纸上、电视上都有。他成了所有小宠物的代言人：只要有耐心和细心的照顾，即使是最小的朋友，也能陪伴我们很久很久。", "words": [{"w": "Tish", "t": 112.9}, {"w": "was", "t": 113.32}, {"w": "not", "t": 113.73}, {"w": "alone.", "t": 114.15}, {"w": "A", "t": 114.56}, {"w": "cat", "t": 114.98}, {"w": "named", "t": 115.39}, {"w": "Creme", "t": 115.81}, {"w": "Puff", "t": 116.22}, {"w": "lived", "t": 116.64}, {"w": "thirty-eight", "t": 117.06}, {"w": "years", "t": 117.47}, {"w": "—", "t": 117.89}, {"w": "longer", "t": 118.3}, {"w": "than", "t": 118.72}, {"w": "most", "t": 119.13}, {"w": "dogs!", "t": 119.55}, {"w": "Tish's", "t": 119.96}, {"w": "story", "t": 120.38}, {"w": "appeared", "t": 120.8}, {"w": "in", "t": 121.21}, {"w": "every", "t": 121.63}, {"w": "format:", "t": 122.04}, {"w": "in", "t": 122.46}, {"w": "books,", "t": 122.87}, {"w": "in", "t": 123.29}, {"w": "newspapers,", "t": 123.7}, {"w": "and", "t": 124.12}, {"w": "on", "t": 124.54}, {"w": "television.", "t": 124.95}, {"w": "Tish", "t": 125.37}, {"w": "became", "t": 125.78}, {"w": "an", "t": 126.2}, {"w": "ambassador", "t": 126.61}, {"w": "for", "t": 127.03}, {"w": "all", "t": 127.45}, {"w": "small", "t": 127.86}, {"w": "pets:", "t": 128.28}, {"w": "with", "t": 128.69}, {"w": "patience", "t": 129.11}, {"w": "and", "t": 129.52}, {"w": "care,", "t": 129.94}, {"w": "even", "t": 130.35}, {"w": "the", "t": 130.77}, {"w": "smallest", "t": 131.19}, {"w": "friend", "t": 131.6}, {"w": "can", "t": 132.02}, {"w": "stay", "t": 132.43}, {"w": "a", "t": 132.85}, {"w": "very", "t": 133.26}, {"w": "long", "t": 133.68}, {"w": "time.", "t": 134.09}]}, {"start": 150.81, "end": 179.86, "en": "Now meet a slower champion: the garden snail. On a warm day, a snail slides along a leaf, leaving a silver trail. But when hot, dry days come and the garden dries up, the snail does something amazing. It climbs into its shell and seals the door with a layer of dried slime, like closing a little gate. Inside, its body slows almost to a stop. It does not eat. It does not move. It waits.", "title": "一睡三年的蜗牛", "cn": "现在认识一位更慢的冠军：花园蜗牛。温暖的日子里，蜗牛沿着叶子慢慢爬，留下一道银色的痕迹。可当炎热干燥的日子到来、花园干透时，蜗牛会做出一件了不起的事。它缩进壳里，用一层干掉的黏液封住门口，就像关上一扇小门。在壳里，它的身体几乎慢到停了下来。它不吃东西，也不动弹，只是等着。", "words": [{"w": "Now", "t": 150.81}, {"w": "meet", "t": 151.19}, {"w": "a", "t": 151.57}, {"w": "slower", "t": 151.96}, {"w": "champion:", "t": 152.34}, {"w": "the", "t": 152.72}, {"w": "garden", "t": 153.1}, {"w": "snail.", "t": 153.49}, {"w": "On", "t": 153.87}, {"w": "a", "t": 154.25}, {"w": "warm", "t": 154.63}, {"w": "day,", "t": 155.01}, {"w": "a", "t": 155.4}, {"w": "snail", "t": 155.78}, {"w": "slides", "t": 156.16}, {"w": "along", "t": 156.54}, {"w": "a", "t": 156.93}, {"w": "leaf,", "t": 157.31}, {"w": "leaving", "t": 157.69}, {"w": "a", "t": 158.07}, {"w": "silver", "t": 158.45}, {"w": "trail.", "t": 158.84}, {"w": "But", "t": 159.22}, {"w": "when", "t": 159.6}, {"w": "hot,", "t": 159.98}, {"w": "dry", "t": 160.37}, {"w": "days", "t": 160.75}, {"w": "come", "t": 161.13}, {"w": "and", "t": 161.51}, {"w": "the", "t": 161.89}, {"w": "garden", "t": 162.28}, {"w": "dries", "t": 162.66}, {"w": "up,", "t": 163.04}, {"w": "the", "t": 163.42}, {"w": "snail", "t": 163.81}, {"w": "does", "t": 164.19}, {"w": "something", "t": 164.57}, {"w": "amazing.", "t": 164.95}, {"w": "It", "t": 165.34}, {"w": "climbs", "t": 165.72}, {"w": "into", "t": 166.1}, {"w": "its", "t": 166.48}, {"w": "shell", "t": 166.86}, {"w": "and", "t": 167.25}, {"w": "seals", "t": 167.63}, {"w": "the", "t": 168.01}, {"w": "door", "t": 168.39}, {"w": "with", "t": 168.78}, {"w": "a", "t": 169.16}, {"w": "layer", "t": 169.54}, {"w": "of", "t": 169.92}, {"w": "dried", "t": 170.3}, {"w": "slime,", "t": 170.69}, {"w": "like", "t": 171.07}, {"w": "closing", "t": 171.45}, {"w": "a", "t": 171.83}, {"w": "little", "t": 172.22}, {"w": "gate.", "t": 172.6}, {"w": "Inside,", "t": 172.98}, {"w": "its", "t": 173.36}, {"w": "body", "t": 173.74}, {"w": "slows", "t": 174.13}, {"w": "almost", "t": 174.51}, {"w": "to", "t": 174.89}, {"w": "a", "t": 175.27}, {"w": "stop.", "t": 175.66}, {"w": "It", "t": 176.04}, {"w": "does", "t": 176.42}, {"w": "not", "t": 176.8}, {"w": "eat.", "t": 177.18}, {"w": "It", "t": 177.57}, {"w": "does", "t": 177.95}, {"w": "not", "t": 178.33}, {"w": "move.", "t": 178.71}, {"w": "It", "t": 179.1}, {"w": "waits.", "t": 179.48}]}, {"start": 179.86, "end": 208.91, "en": "This deep sleep is not really sleep. Scientists call it estivation — a summer sleep for dry times. In this state, a snail can wait for months. In the driest places, some snails have waited for years — up to three years! A pedestrian may walk right past the quiet shell at the bottom of the garden wall. The snail is deaf to the footsteps and the wind, but it feels the change in the air.", "title": "一睡三年的蜗牛", "cn": "这种深沉的睡眠其实根本不是真正的睡眠。科学家叫它“夏眠”——为了熬过干旱的夏天而睡。在这种状态下，蜗牛可以等上好几个月。在最干旱的地方，有些蜗牛甚至等了好几年——长达三年！路过的行人可能从花园墙根那只安静的壳边走过，却从没注意到它。蜗牛听不见脚步声和风声，但它能感觉到空气的变化。", "words": [{"w": "This", "t": 179.86}, {"w": "deep", "t": 180.24}, {"w": "sleep", "t": 180.62}, {"w": "is", "t": 181.01}, {"w": "not", "t": 181.39}, {"w": "really", "t": 181.77}, {"w": "sleep.", "t": 182.15}, {"w": "Scientists", "t": 182.54}, {"w": "call", "t": 182.92}, {"w": "it", "t": 183.3}, {"w": "estivation", "t": 183.68}, {"w": "—", "t": 184.06}, {"w": "a", "t": 184.45}, {"w": "summer", "t": 184.83}, {"w": "sleep", "t": 185.21}, {"w": "for", "t": 185.59}, {"w": "dry", "t": 185.98}, {"w": "times.", "t": 186.36}, {"w": "In", "t": 186.74}, {"w": "this", "t": 187.12}, {"w": "state,", "t": 187.5}, {"w": "a", "t": 187.89}, {"w": "snail", "t": 188.27}, {"w": "can", "t": 188.65}, {"w": "wait", "t": 189.03}, {"w": "for", "t": 189.42}, {"w": "months.", "t": 189.8}, {"w": "In", "t": 190.18}, {"w": "the", "t": 190.56}, {"w": "driest", "t": 190.94}, {"w": "places,", "t": 191.33}, {"w": "some", "t": 191.71}, {"w": "snails", "t": 192.09}, {"w": "have", "t": 192.47}, {"w": "waited", "t": 192.86}, {"w": "for", "t": 193.24}, {"w": "years", "t": 193.62}, {"w": "—", "t": 194.0}, {"w": "up", "t": 194.38}, {"w": "to", "t": 194.77}, {"w": "three", "t": 195.15}, {"w": "years!", "t": 195.53}, {"w": "A", "t": 195.91}, {"w": "pedestrian", "t": 196.3}, {"w": "may", "t": 196.68}, {"w": "walk", "t": 197.06}, {"w": "right", "t": 197.44}, {"w": "past", "t": 197.83}, {"w": "the", "t": 198.21}, {"w": "quiet", "t": 198.59}, {"w": "shell", "t": 198.97}, {"w": "at", "t": 199.35}, {"w": "the", "t": 199.74}, {"w": "bottom", "t": 200.12}, {"w": "of", "t": 200.5}, {"w": "the", "t": 200.88}, {"w": "garden", "t": 201.27}, {"w": "wall.", "t": 201.65}, {"w": "The", "t": 202.03}, {"w": "snail", "t": 202.41}, {"w": "is", "t": 202.79}, {"w": "deaf", "t": 203.18}, {"w": "to", "t": 203.56}, {"w": "the", "t": 203.94}, {"w": "footsteps", "t": 204.32}, {"w": "and", "t": 204.71}, {"w": "the", "t": 205.09}, {"w": "wind,", "t": 205.47}, {"w": "but", "t": 205.85}, {"w": "it", "t": 206.23}, {"w": "feels", "t": 206.62}, {"w": "the", "t": 207.0}, {"w": "change", "t": 207.38}, {"w": "in", "t": 207.76}, {"w": "the", "t": 208.15}, {"w": "air.", "t": 208.53}]}, {"start": 208.91, "end": 223.82, "en": "Then, at last, the rain comes. A fine spray falls on the garden. The snail wakes, opens its little gate, and slides out into the morning light. The sun rises in the east, and the garden comes alive again.", "title": "一睡三年的蜗牛", "cn": "终于，雨来了。细细的水花洒落在花园里。蜗牛醒了，打开它的小门，慢慢爬进晨光里。太阳从东方升起，花园又活了过来。", "words": [{"w": "Then,", "t": 208.91}, {"w": "at", "t": 209.29}, {"w": "last,", "t": 209.67}, {"w": "the", "t": 210.06}, {"w": "rain", "t": 210.44}, {"w": "comes.", "t": 210.82}, {"w": "A", "t": 211.2}, {"w": "fine", "t": 211.59}, {"w": "spray", "t": 211.97}, {"w": "falls", "t": 212.35}, {"w": "on", "t": 212.73}, {"w": "the", "t": 213.12}, {"w": "garden.", "t": 213.5}, {"w": "The", "t": 213.88}, {"w": "snail", "t": 214.26}, {"w": "wakes,", "t": 214.64}, {"w": "opens", "t": 215.03}, {"w": "its", "t": 215.41}, {"w": "little", "t": 215.79}, {"w": "gate,", "t": 216.17}, {"w": "and", "t": 216.56}, {"w": "slides", "t": 216.94}, {"w": "out", "t": 217.32}, {"w": "into", "t": 217.7}, {"w": "the", "t": 218.09}, {"w": "morning", "t": 218.47}, {"w": "light.", "t": 218.85}, {"w": "The", "t": 219.23}, {"w": "sun", "t": 219.61}, {"w": "rises", "t": 220.0}, {"w": "in", "t": 220.38}, {"w": "the", "t": 220.76}, {"w": "east,", "t": 221.14}, {"w": "and", "t": 221.53}, {"w": "the", "t": 221.91}, {"w": "garden", "t": 222.29}, {"w": "comes", "t": 222.67}, {"w": "alive", "t": 223.06}, {"w": "again.", "t": 223.44}]}, {"start": 239.72, "end": 268.04, "en": "Here's today's idiom: 'saved by the bell.' In a boxing match, when a tired boxer is almost beaten, the bell rings to end the round — and he is saved by the bell! We use it when something saves us at the very last moment. Here's an example: 'Leo forgot his lines in the school play, but he was saved by the bell when the lunch bell rang and everyone erupted in cheers.' When were you saved by the bell?", "title": "今日俚语", "cn": "今天的俚语是“saved by the bell”（被铃声救了）。在拳击比赛中，拳手累得快要输掉的时候，铃声响起，一回合结束了——拳手就被铃声救了！我们用这个说法来形容在最后一刻被什么事情从麻烦里救出来。举个例子：“利奥在学校的话剧里忘了台词，可午餐铃一响，大家欢呼起来，他就被铃声救了。”你有过被铃声救了的时候吗？", "words": [{"w": "Here's", "t": 239.72}, {"w": "today's", "t": 240.07}, {"w": "idiom:", "t": 240.43}, {"w": "'saved", "t": 240.78}, {"w": "by", "t": 241.14}, {"w": "the", "t": 241.49}, {"w": "bell.'", "t": 241.84}, {"w": "In", "t": 242.2}, {"w": "a", "t": 242.55}, {"w": "boxing", "t": 242.91}, {"w": "match,", "t": 243.26}, {"w": "when", "t": 243.61}, {"w": "a", "t": 243.97}, {"w": "tired", "t": 244.32}, {"w": "boxer", "t": 244.68}, {"w": "is", "t": 245.03}, {"w": "almost", "t": 245.38}, {"w": "beaten,", "t": 245.74}, {"w": "the", "t": 246.09}, {"w": "bell", "t": 246.45}, {"w": "rings", "t": 246.8}, {"w": "to", "t": 247.15}, {"w": "end", "t": 247.51}, {"w": "the", "t": 247.86}, {"w": "round", "t": 248.22}, {"w": "—", "t": 248.57}, {"w": "and", "t": 248.92}, {"w": "he", "t": 249.28}, {"w": "is", "t": 249.63}, {"w": "saved", "t": 249.99}, {"w": "by", "t": 250.34}, {"w": "the", "t": 250.69}, {"w": "bell!", "t": 251.05}, {"w": "We", "t": 251.4}, {"w": "use", "t": 251.76}, {"w": "it", "t": 252.11}, {"w": "when", "t": 252.46}, {"w": "something", "t": 252.82}, {"w": "saves", "t": 253.17}, {"w": "us", "t": 253.53}, {"w": "at", "t": 253.88}, {"w": "the", "t": 254.23}, {"w": "very", "t": 254.59}, {"w": "last", "t": 254.94}, {"w": "moment.", "t": 255.3}, {"w": "Here's", "t": 255.65}, {"w": "an", "t": 256.0}, {"w": "example:", "t": 256.36}, {"w": "'Leo", "t": 256.71}, {"w": "forgot", "t": 257.07}, {"w": "his", "t": 257.42}, {"w": "lines", "t": 257.77}, {"w": "in", "t": 258.13}, {"w": "the", "t": 258.48}, {"w": "school", "t": 258.84}, {"w": "play,", "t": 259.19}, {"w": "but", "t": 259.54}, {"w": "he", "t": 259.9}, {"w": "was", "t": 260.25}, {"w": "saved", "t": 260.61}, {"w": "by", "t": 260.96}, {"w": "the", "t": 261.31}, {"w": "bell", "t": 261.67}, {"w": "when", "t": 262.02}, {"w": "the", "t": 262.38}, {"w": "lunch", "t": 262.73}, {"w": "bell", "t": 263.08}, {"w": "rang", "t": 263.44}, {"w": "and", "t": 263.79}, {"w": "everyone", "t": 264.15}, {"w": "erupted", "t": 264.5}, {"w": "in", "t": 264.85}, {"w": "cheers.'", "t": 265.21}, {"w": "When", "t": 265.56}, {"w": "were", "t": 265.92}, {"w": "you", "t": 266.27}, {"w": "saved", "t": 266.62}, {"w": "by", "t": 266.98}, {"w": "the", "t": 267.33}, {"w": "bell?", "t": 267.69}]}, {"start": 284.34, "end": 307.93, "en": "Let's think about our stories. Tish lived forty-three years, and a snail can wait three years for rain. Now, two questions for you. First: if you had a pet, what would you do to help it live a long, happy life? Second: if you could sleep for three years, what would you most want to see when you wake up? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事。蒂什活了四十三年，蜗牛可以等三年才等来一场雨。现在，轮到回答两个问题。第一：如果你养了一只宠物，你会怎么做，才能让它活得又久又开心？第二：如果你能一睡三年，醒来时最想看到什么？和家人聊聊吧！", "words": [{"w": "Let's", "t": 284.34}, {"w": "think", "t": 284.7}, {"w": "about", "t": 285.05}, {"w": "our", "t": 285.41}, {"w": "stories.", "t": 285.77}, {"w": "Tish", "t": 286.13}, {"w": "lived", "t": 286.48}, {"w": "forty-three", "t": 286.84}, {"w": "years,", "t": 287.2}, {"w": "and", "t": 287.56}, {"w": "a", "t": 287.91}, {"w": "snail", "t": 288.27}, {"w": "can", "t": 288.63}, {"w": "wait", "t": 288.99}, {"w": "three", "t": 289.34}, {"w": "years", "t": 289.7}, {"w": "for", "t": 290.06}, {"w": "rain.", "t": 290.42}, {"w": "Now,", "t": 290.77}, {"w": "two", "t": 291.13}, {"w": "questions", "t": 291.49}, {"w": "for", "t": 291.85}, {"w": "you.", "t": 292.2}, {"w": "First:", "t": 292.56}, {"w": "if", "t": 292.92}, {"w": "you", "t": 293.28}, {"w": "had", "t": 293.63}, {"w": "a", "t": 293.99}, {"w": "pet,", "t": 294.35}, {"w": "what", "t": 294.71}, {"w": "would", "t": 295.06}, {"w": "you", "t": 295.42}, {"w": "do", "t": 295.78}, {"w": "to", "t": 296.13}, {"w": "help", "t": 296.49}, {"w": "it", "t": 296.85}, {"w": "live", "t": 297.21}, {"w": "a", "t": 297.56}, {"w": "long,", "t": 297.92}, {"w": "happy", "t": 298.28}, {"w": "life?", "t": 298.64}, {"w": "Second:", "t": 298.99}, {"w": "if", "t": 299.35}, {"w": "you", "t": 299.71}, {"w": "could", "t": 300.07}, {"w": "sleep", "t": 300.42}, {"w": "for", "t": 300.78}, {"w": "three", "t": 301.14}, {"w": "years,", "t": 301.5}, {"w": "what", "t": 301.85}, {"w": "would", "t": 302.21}, {"w": "you", "t": 302.57}, {"w": "most", "t": 302.93}, {"w": "want", "t": 303.28}, {"w": "to", "t": 303.64}, {"w": "see", "t": 304.0}, {"w": "when", "t": 304.36}, {"w": "you", "t": 304.71}, {"w": "wake", "t": 305.07}, {"w": "up?", "t": 305.43}, {"w": "Talk", "t": 305.79}, {"w": "about", "t": 306.14}, {"w": "it", "t": 306.5}, {"w": "with", "t": 306.86}, {"w": "your", "t": 307.22}, {"w": "family!", "t": 307.57}]}, {"start": 317.43, "end": 330.15, "en": "That's all for today, young explorers. Be patient like Tish, and brave like a snail. And remember: sometimes help comes just in time — saved by the bell! See you tomorrow morning!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。像蒂什一样有耐心，像蜗牛一样勇敢。还要记住：有时候，帮助会在刚刚好的时候到来——被铃声救了！明天早上见！", "words": [{"w": "That's", "t": 317.43}, {"w": "all", "t": 317.83}, {"w": "for", "t": 318.23}, {"w": "today,", "t": 318.62}, {"w": "young", "t": 319.02}, {"w": "explorers.", "t": 319.42}, {"w": "Be", "t": 319.81}, {"w": "patient", "t": 320.21}, {"w": "like", "t": 320.61}, {"w": "Tish,", "t": 321.01}, {"w": "and", "t": 321.4}, {"w": "brave", "t": 321.8}, {"w": "like", "t": 322.2}, {"w": "a", "t": 322.6}, {"w": "snail.", "t": 323.0}, {"w": "And", "t": 323.39}, {"w": "remember:", "t": 323.79}, {"w": "sometimes", "t": 324.19}, {"w": "help", "t": 324.58}, {"w": "comes", "t": 324.98}, {"w": "just", "t": 325.38}, {"w": "in", "t": 325.78}, {"w": "time", "t": 326.18}, {"w": "—", "t": 326.57}, {"w": "saved", "t": 326.97}, {"w": "by", "t": 327.37}, {"w": "the", "t": 327.76}, {"w": "bell!", "t": 328.16}, {"w": "See", "t": 328.56}, {"w": "you", "t": 328.96}, {"w": "tomorrow", "t": 329.35}, {"w": "morning!", "t": 329.75}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol27/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
