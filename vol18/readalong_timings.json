@@ -1,0 +1,313 @@
+[
+ {
+  "id": 1,
+  "title": "开场白",
+  "blocks": [
+   {
+    "start": 27.63,
+    "end": 31.81,
+    "en": "Hello, young explorers, and welcome back to Michael's Morning Listening!"
+   },
+   {
+    "start": 31.81,
+    "end": 34.32,
+    "en": "This is our eighteenth show together!"
+   },
+   {
+    "start": 34.32,
+    "end": 35.99,
+    "en": "Today, two hot mysteries."
+   },
+   {
+    "start": 35.99,
+    "end": 43.52,
+    "en": "First, the hottest pepper ever — so hot that only five people have ever eaten a whole one."
+   },
+   {
+    "start": 43.52,
+    "end": 49.37,
+    "en": "Then, a kitchen puzzle: can hot water turn into ice faster than cold water?"
+   },
+   {
+    "start": 49.37,
+    "end": 50.21,
+    "en": "Let's go!"
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "title": "最辣的辣椒",
+  "blocks": [
+   {
+    "start": 62.83,
+    "end": 66.69,
+    "en": "Meet Pepper X, the hottest chilli pepper of all."
+   },
+   {
+    "start": 66.69,
+    "end": 70.98,
+    "en": "It grows in South Carolina, in America, under green leaves."
+   },
+   {
+    "start": 70.98,
+    "end": 75.7,
+    "en": "Its grower is Ed Currie, a pepper scientist with a dream."
+   },
+   {
+    "start": 75.7,
+    "end": 82.57,
+    "en": "He mixed pepper plants again and again — and after ten years, Pepper X was born."
+   },
+   {
+    "start": 82.57,
+    "end": 84.29,
+    "en": "How hot is it?"
+   },
+   {
+    "start": 84.29,
+    "end": 87.72,
+    "en": "Scientists measure pepper heat with the Scoville scale."
+   },
+   {
+    "start": 87.72,
+    "end": 90.73,
+    "en": "A jalapeño pepper reads about five thousand."
+   },
+   {
+    "start": 90.73,
+    "end": 91.58,
+    "en": "Pepper X?"
+   },
+   {
+    "start": 91.58,
+    "end": 96.3,
+    "en": "The lab reading astonished everyone: nearly two million, seven hundred thousand!"
+   },
+   {
+    "start": 96.3,
+    "end": 101.03,
+    "en": "That is more than five hundred times hotter than a jalapeño."
+   },
+   {
+    "start": 101.03,
+    "end": 105.32,
+    "en": "Guinness gave Pepper X the crown: hottest pepper ever measured."
+   },
+   {
+    "start": 105.32,
+    "end": 107.89,
+    "en": "Why is Pepper X so hot?"
+   },
+   {
+    "start": 107.89,
+    "end": 114.33,
+    "en": "The fire lives in capsaicin, a chemical in the white skin that holds the seeds."
+   },
+   {
+    "start": 114.33,
+    "end": 123.77,
+    "en": "Pepper X is small and wrinkly, and the wrinkles give that skin more room to grow, so it makes much more fire."
+   },
+   {
+    "start": 123.77,
+    "end": 127.2,
+    "en": "Only five people have eaten a whole one."
+   },
+   {
+    "start": 127.2,
+    "end": 130.64,
+    "en": "They sweat, cry, and the media film it."
+   },
+   {
+    "start": 130.64,
+    "end": 134.5,
+    "en": "Do not worry — the fire is a trick."
+   },
+   {
+    "start": 134.5,
+    "end": 140.51,
+    "en": "Capsaicin shouts “Fire!” to your nerves, but it cannot really burn or damage you."
+   },
+   {
+    "start": 140.51,
+    "end": 142.66,
+    "en": "Water cannot wash it away."
+   },
+   {
+    "start": 142.66,
+    "end": 145.23,
+    "en": "Milk can — milk carries fat."
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "title": "热水结冰之谜",
+  "blocks": [
+   {
+    "start": 160.41,
+    "end": 165.65,
+    "en": "Now fly to Tanzania, in Africa, to meet a schoolboy, Erasto Mpemba."
+   },
+   {
+    "start": 165.65,
+    "end": 170.01,
+    "en": "His class made ice cream from boiled milk and sugar."
+   },
+   {
+    "start": 170.01,
+    "end": 179.18,
+    "en": "One day, with the freezer nearly full, Mpemba pushed his hot mix straight in — no waiting for it to cool."
+   },
+   {
+    "start": 179.18,
+    "end": 182.67,
+    "en": "Later, Mpemba checked the freezer — and stared."
+   },
+   {
+    "start": 182.67,
+    "end": 188.78,
+    "en": "His hot mix was ice cream, but his classmate's cold mix was still soft!"
+   },
+   {
+    "start": 188.78,
+    "end": 196.64,
+    "en": "He asked his teacher why, but the teacher just laughed: “Mpemba's physics!” The whole class erupted in laughter."
+   },
+   {
+    "start": 196.64,
+    "end": 199.26,
+    "en": "The question stayed in his head."
+   },
+   {
+    "start": 199.26,
+    "end": 204.06,
+    "en": "Years later, a scientist, Dr Denis Osborne, visited Mpemba's new school."
+   },
+   {
+    "start": 204.06,
+    "end": 221.52,
+    "en": "He asked again: “Two cups of water, one at thirty-five degrees and one at one hundred — why does the hotter one freeze first?” Osborne returned to his laboratory, tested the idea again, and was astonished: the student was right."
+   },
+   {
+    "start": 221.52,
+    "end": 226.76,
+    "en": "They published the answer together, and the effect now carries Mpemba's name."
+   },
+   {
+    "start": 226.76,
+    "end": 231.13,
+    "en": "So why can hot water win the race to ice?"
+   },
+   {
+    "start": 231.13,
+    "end": 233.74,
+    "en": "Scientists still argue about the answer."
+   },
+   {
+    "start": 233.74,
+    "end": 240.73,
+    "en": "Hot water steams, so some of it flies away — less water is left to freeze."
+   },
+   {
+    "start": 240.73,
+    "end": 245.09,
+    "en": "It also swims in slow circles, carrying heat out faster."
+   },
+   {
+    "start": 245.09,
+    "end": 247.71,
+    "en": "But it does not always work."
+   },
+   {
+    "start": 247.71,
+    "end": 252.95,
+    "en": "It needs the right cups, the right temperatures — the right conditions."
+   },
+   {
+    "start": 252.95,
+    "end": 255.57,
+    "en": "Then hot really can beat cold!"
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "title": "今日俚语",
+  "blocks": [
+   {
+    "start": 268.27,
+    "end": 274.24,
+    "en": "Here's today's idiom: “in hot water.” But nobody is cooking, and nobody is taking a bath!"
+   },
+   {
+    "start": 274.24,
+    "end": 277.97,
+    "en": "If you are in hot water, you are in trouble."
+   },
+   {
+    "start": 277.97,
+    "end": 289.17,
+    "en": "Here's an example: “Tom forgot his homework again, so now he is in hot water with his teacher.” Poor Mpemba asked about hot water — he was never in it!"
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "title": "结束语与互动问题",
+  "blocks": [
+   {
+    "start": 302.51,
+    "end": 304.78,
+    "en": "Let's think about our stories."
+   },
+   {
+    "start": 304.78,
+    "end": 305.69,
+    "en": "Two questions."
+   },
+   {
+    "start": 305.69,
+    "end": 316.15,
+    "en": "First: if you could grow a record-breaking food in your garden, what would it be — the biggest, the sweetest, or the hottest?"
+   },
+   {
+    "start": 316.15,
+    "end": 320.7,
+    "en": "Second: Mpemba believed his own eyes, even when everyone laughed."
+   },
+   {
+    "start": 320.7,
+    "end": 324.79,
+    "en": "What strange thing have you noticed that nobody believed?"
+   },
+   {
+    "start": 324.79,
+    "end": 327.52,
+    "en": "Talk about it with your family!"
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "title": "告别",
+  "blocks": [
+   {
+    "start": 341.02,
+    "end": 343.46,
+    "en": "That's all for today, young explorers."
+   },
+   {
+    "start": 343.46,
+    "end": 348.34,
+    "en": "Stay curious, ask brave questions — and keep out of hot water!"
+   },
+   {
+    "start": 348.34,
+    "end": 349.97,
+    "en": "See you tomorrow morning!"
+   }
+  ]
+ }
+]

@@ -1,0 +1,3693 @@
+{
+ "id": "vol18",
+ "title": "最辣的辣椒与热水结冰之谜",
+ "words": 597,
+ "duration": "5分59秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol18/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol18/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol18/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol18/Vol18_晚读讲义_最辣的辣椒与热水结冰之谜_v1.pdf",
+ "pdfName": "Vol18_晚读讲义_最辣的辣椒与热水结冰之谜_v1.pdf",
+ "blocks": [
+  {
+   "start": 27.63,
+   "end": 50.21,
+   "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! This is our eighteenth show together! Today, two hot mysteries. First, the hottest pepper ever — so hot that only five people have ever eaten a whole one. Then, a kitchen puzzle: can hot water turn into ice faster than cold water? Let's go!",
+   "title": "开场白",
+   "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！这是我们在一起的第十八期节目啦！今天有两个火热的谜题。第一个，是有史以来最辣的辣椒——辣到全世界只有五个人整颗吃下去过。第二个，是一个厨房谜题：热水能比冷水更快变成冰吗？出发吧！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 27.63
+    },
+    {
+     "w": "young",
+     "t": 28.05
+    },
+    {
+     "w": "explorers,",
+     "t": 28.47
+    },
+    {
+     "w": "and",
+     "t": 28.88
+    },
+    {
+     "w": "welcome",
+     "t": 29.3
+    },
+    {
+     "w": "back",
+     "t": 29.72
+    },
+    {
+     "w": "to",
+     "t": 30.14
+    },
+    {
+     "w": "Michael's",
+     "t": 30.56
+    },
+    {
+     "w": "Morning",
+     "t": 30.98
+    },
+    {
+     "w": "Listening!",
+     "t": 31.39
+    },
+    {
+     "w": "This",
+     "t": 31.81
+    },
+    {
+     "w": "is",
+     "t": 32.23
+    },
+    {
+     "w": "our",
+     "t": 32.65
+    },
+    {
+     "w": "eighteenth",
+     "t": 33.07
+    },
+    {
+     "w": "show",
+     "t": 33.48
+    },
+    {
+     "w": "together!",
+     "t": 33.9
+    },
+    {
+     "w": "Today,",
+     "t": 34.32
+    },
+    {
+     "w": "two",
+     "t": 34.74
+    },
+    {
+     "w": "hot",
+     "t": 35.16
+    },
+    {
+     "w": "mysteries.",
+     "t": 35.57
+    },
+    {
+     "w": "First,",
+     "t": 35.99
+    },
+    {
+     "w": "the",
+     "t": 36.41
+    },
+    {
+     "w": "hottest",
+     "t": 36.83
+    },
+    {
+     "w": "pepper",
+     "t": 37.25
+    },
+    {
+     "w": "ever",
+     "t": 37.67
+    },
+    {
+     "w": "—",
+     "t": 38.08
+    },
+    {
+     "w": "so",
+     "t": 38.5
+    },
+    {
+     "w": "hot",
+     "t": 38.92
+    },
+    {
+     "w": "that",
+     "t": 39.34
+    },
+    {
+     "w": "only",
+     "t": 39.76
+    },
+    {
+     "w": "five",
+     "t": 40.17
+    },
+    {
+     "w": "people",
+     "t": 40.59
+    },
+    {
+     "w": "have",
+     "t": 41.01
+    },
+    {
+     "w": "ever",
+     "t": 41.43
+    },
+    {
+     "w": "eaten",
+     "t": 41.85
+    },
+    {
+     "w": "a",
+     "t": 42.27
+    },
+    {
+     "w": "whole",
+     "t": 42.68
+    },
+    {
+     "w": "one.",
+     "t": 43.1
+    },
+    {
+     "w": "Then,",
+     "t": 43.52
+    },
+    {
+     "w": "a",
+     "t": 43.94
+    },
+    {
+     "w": "kitchen",
+     "t": 44.36
+    },
+    {
+     "w": "puzzle:",
+     "t": 44.77
+    },
+    {
+     "w": "can",
+     "t": 45.19
+    },
+    {
+     "w": "hot",
+     "t": 45.61
+    },
+    {
+     "w": "water",
+     "t": 46.03
+    },
+    {
+     "w": "turn",
+     "t": 46.45
+    },
+    {
+     "w": "into",
+     "t": 46.86
+    },
+    {
+     "w": "ice",
+     "t": 47.28
+    },
+    {
+     "w": "faster",
+     "t": 47.7
+    },
+    {
+     "w": "than",
+     "t": 48.12
+    },
+    {
+     "w": "cold",
+     "t": 48.54
+    },
+    {
+     "w": "water?",
+     "t": 48.96
+    },
+    {
+     "w": "Let's",
+     "t": 49.37
+    },
+    {
+     "w": "go!",
+     "t": 49.79
+    }
+   ]
+  },
+  {
+   "start": 62.83,
+   "end": 82.57,
+   "en": "Meet Pepper X, the hottest chilli pepper of all. It grows in South Carolina, in America, under green leaves. Its grower is Ed Currie, a pepper scientist with a dream. He mixed pepper plants again and again — and after ten years, Pepper X was born.",
+   "title": "最辣的辣椒",
+   "cn": "来认识一下 Pepper X，全世界最辣的辣椒。它长在美国南卡罗来纳州，藏在绿叶底下。它的培育者是埃德·柯里，一位心怀梦想的辣椒科学家。他把不同的辣椒植株一次又一次地杂交——十年之后，Pepper X 诞生了。",
+   "words": [
+    {
+     "w": "Meet",
+     "t": 62.83
+    },
+    {
+     "w": "Pepper",
+     "t": 63.26
+    },
+    {
+     "w": "X,",
+     "t": 63.69
+    },
+    {
+     "w": "the",
+     "t": 64.12
+    },
+    {
+     "w": "hottest",
+     "t": 64.55
+    },
+    {
+     "w": "chilli",
+     "t": 64.98
+    },
+    {
+     "w": "pepper",
+     "t": 65.41
+    },
+    {
+     "w": "of",
+     "t": 65.83
+    },
+    {
+     "w": "all.",
+     "t": 66.26
+    },
+    {
+     "w": "It",
+     "t": 66.69
+    },
+    {
+     "w": "grows",
+     "t": 67.12
+    },
+    {
+     "w": "in",
+     "t": 67.55
+    },
+    {
+     "w": "South",
+     "t": 67.98
+    },
+    {
+     "w": "Carolina,",
+     "t": 68.41
+    },
+    {
+     "w": "in",
+     "t": 68.84
+    },
+    {
+     "w": "America,",
+     "t": 69.27
+    },
+    {
+     "w": "under",
+     "t": 69.7
+    },
+    {
+     "w": "green",
+     "t": 70.13
+    },
+    {
+     "w": "leaves.",
+     "t": 70.55
+    },
+    {
+     "w": "Its",
+     "t": 70.98
+    },
+    {
+     "w": "grower",
+     "t": 71.41
+    },
+    {
+     "w": "is",
+     "t": 71.84
+    },
+    {
+     "w": "Ed",
+     "t": 72.27
+    },
+    {
+     "w": "Currie,",
+     "t": 72.7
+    },
+    {
+     "w": "a",
+     "t": 73.13
+    },
+    {
+     "w": "pepper",
+     "t": 73.56
+    },
+    {
+     "w": "scientist",
+     "t": 73.99
+    },
+    {
+     "w": "with",
+     "t": 74.42
+    },
+    {
+     "w": "a",
+     "t": 74.85
+    },
+    {
+     "w": "dream.",
+     "t": 75.28
+    },
+    {
+     "w": "He",
+     "t": 75.7
+    },
+    {
+     "w": "mixed",
+     "t": 76.13
+    },
+    {
+     "w": "pepper",
+     "t": 76.56
+    },
+    {
+     "w": "plants",
+     "t": 76.99
+    },
+    {
+     "w": "again",
+     "t": 77.42
+    },
+    {
+     "w": "and",
+     "t": 77.85
+    },
+    {
+     "w": "again",
+     "t": 78.28
+    },
+    {
+     "w": "—",
+     "t": 78.71
+    },
+    {
+     "w": "and",
+     "t": 79.14
+    },
+    {
+     "w": "after",
+     "t": 79.57
+    },
+    {
+     "w": "ten",
+     "t": 80.0
+    },
+    {
+     "w": "years,",
+     "t": 80.43
+    },
+    {
+     "w": "Pepper",
+     "t": 80.85
+    },
+    {
+     "w": "X",
+     "t": 81.28
+    },
+    {
+     "w": "was",
+     "t": 81.71
+    },
+    {
+     "w": "born.",
+     "t": 82.14
+    }
+   ]
+  },
+  {
+   "start": 82.57,
+   "end": 105.32,
+   "en": "How hot is it? Scientists measure pepper heat with the Scoville scale. A jalapeño pepper reads about five thousand. Pepper X? The lab reading astonished everyone: nearly two million, seven hundred thousand! That is more than five hundred times hotter than a jalapeño. Guinness gave Pepper X the crown: hottest pepper ever measured.",
+   "title": "最辣的辣椒",
+   "cn": "它到底有多辣？科学家用史高维尔指标来衡量辣椒的辣度。一颗墨西哥辣椒大约是五千。而 Pepper X 呢？实验室的读数让所有人大吃一惊：接近二百七十万！是墨西哥辣椒的五百多倍。吉尼斯把王冠颁给了 Pepper X：有史以来测到过的最辣辣椒。",
+   "words": [
+    {
+     "w": "How",
+     "t": 82.57
+    },
+    {
+     "w": "hot",
+     "t": 83.0
+    },
+    {
+     "w": "is",
+     "t": 83.43
+    },
+    {
+     "w": "it?",
+     "t": 83.86
+    },
+    {
+     "w": "Scientists",
+     "t": 84.29
+    },
+    {
+     "w": "measure",
+     "t": 84.72
+    },
+    {
+     "w": "pepper",
+     "t": 85.15
+    },
+    {
+     "w": "heat",
+     "t": 85.58
+    },
+    {
+     "w": "with",
+     "t": 86.0
+    },
+    {
+     "w": "the",
+     "t": 86.43
+    },
+    {
+     "w": "Scoville",
+     "t": 86.86
+    },
+    {
+     "w": "scale.",
+     "t": 87.29
+    },
+    {
+     "w": "A",
+     "t": 87.72
+    },
+    {
+     "w": "jalapeño",
+     "t": 88.15
+    },
+    {
+     "w": "pepper",
+     "t": 88.58
+    },
+    {
+     "w": "reads",
+     "t": 89.01
+    },
+    {
+     "w": "about",
+     "t": 89.44
+    },
+    {
+     "w": "five",
+     "t": 89.87
+    },
+    {
+     "w": "thousand.",
+     "t": 90.3
+    },
+    {
+     "w": "Pepper",
+     "t": 90.73
+    },
+    {
+     "w": "X?",
+     "t": 91.15
+    },
+    {
+     "w": "The",
+     "t": 91.58
+    },
+    {
+     "w": "lab",
+     "t": 92.01
+    },
+    {
+     "w": "reading",
+     "t": 92.44
+    },
+    {
+     "w": "astonished",
+     "t": 92.87
+    },
+    {
+     "w": "everyone:",
+     "t": 93.3
+    },
+    {
+     "w": "nearly",
+     "t": 93.73
+    },
+    {
+     "w": "two",
+     "t": 94.16
+    },
+    {
+     "w": "million,",
+     "t": 94.59
+    },
+    {
+     "w": "seven",
+     "t": 95.02
+    },
+    {
+     "w": "hundred",
+     "t": 95.45
+    },
+    {
+     "w": "thousand!",
+     "t": 95.88
+    },
+    {
+     "w": "That",
+     "t": 96.3
+    },
+    {
+     "w": "is",
+     "t": 96.73
+    },
+    {
+     "w": "more",
+     "t": 97.16
+    },
+    {
+     "w": "than",
+     "t": 97.59
+    },
+    {
+     "w": "five",
+     "t": 98.02
+    },
+    {
+     "w": "hundred",
+     "t": 98.45
+    },
+    {
+     "w": "times",
+     "t": 98.88
+    },
+    {
+     "w": "hotter",
+     "t": 99.31
+    },
+    {
+     "w": "than",
+     "t": 99.74
+    },
+    {
+     "w": "a",
+     "t": 100.17
+    },
+    {
+     "w": "jalapeño.",
+     "t": 100.6
+    },
+    {
+     "w": "Guinness",
+     "t": 101.03
+    },
+    {
+     "w": "gave",
+     "t": 101.45
+    },
+    {
+     "w": "Pepper",
+     "t": 101.88
+    },
+    {
+     "w": "X",
+     "t": 102.31
+    },
+    {
+     "w": "the",
+     "t": 102.74
+    },
+    {
+     "w": "crown:",
+     "t": 103.17
+    },
+    {
+     "w": "hottest",
+     "t": 103.6
+    },
+    {
+     "w": "pepper",
+     "t": 104.03
+    },
+    {
+     "w": "ever",
+     "t": 104.46
+    },
+    {
+     "w": "measured.",
+     "t": 104.89
+    }
+   ]
+  },
+  {
+   "start": 105.32,
+   "end": 123.77,
+   "en": "Why is Pepper X so hot? The fire lives in capsaicin, a chemical in the white skin that holds the seeds. Pepper X is small and wrinkly, and the wrinkles give that skin more room to grow, so it makes much more fire.",
+   "title": "最辣的辣椒",
+   "cn": "Pepper X 为什么这么辣？辣劲来自辣椒素，一种藏在白色内皮里的化学物质，辣椒籽就附着在那层皮上。Pepper X 个头小、浑身是皱，皱褶让那层皮有更大的生长空间，于是能造出多得多的“辣火”。",
+   "words": [
+    {
+     "w": "Why",
+     "t": 105.32
+    },
+    {
+     "w": "is",
+     "t": 105.75
+    },
+    {
+     "w": "Pepper",
+     "t": 106.18
+    },
+    {
+     "w": "X",
+     "t": 106.6
+    },
+    {
+     "w": "so",
+     "t": 107.03
+    },
+    {
+     "w": "hot?",
+     "t": 107.46
+    },
+    {
+     "w": "The",
+     "t": 107.89
+    },
+    {
+     "w": "fire",
+     "t": 108.32
+    },
+    {
+     "w": "lives",
+     "t": 108.75
+    },
+    {
+     "w": "in",
+     "t": 109.18
+    },
+    {
+     "w": "capsaicin,",
+     "t": 109.61
+    },
+    {
+     "w": "a",
+     "t": 110.04
+    },
+    {
+     "w": "chemical",
+     "t": 110.47
+    },
+    {
+     "w": "in",
+     "t": 110.9
+    },
+    {
+     "w": "the",
+     "t": 111.33
+    },
+    {
+     "w": "white",
+     "t": 111.75
+    },
+    {
+     "w": "skin",
+     "t": 112.18
+    },
+    {
+     "w": "that",
+     "t": 112.61
+    },
+    {
+     "w": "holds",
+     "t": 113.04
+    },
+    {
+     "w": "the",
+     "t": 113.47
+    },
+    {
+     "w": "seeds.",
+     "t": 113.9
+    },
+    {
+     "w": "Pepper",
+     "t": 114.33
+    },
+    {
+     "w": "X",
+     "t": 114.76
+    },
+    {
+     "w": "is",
+     "t": 115.19
+    },
+    {
+     "w": "small",
+     "t": 115.62
+    },
+    {
+     "w": "and",
+     "t": 116.05
+    },
+    {
+     "w": "wrinkly,",
+     "t": 116.48
+    },
+    {
+     "w": "and",
+     "t": 116.91
+    },
+    {
+     "w": "the",
+     "t": 117.33
+    },
+    {
+     "w": "wrinkles",
+     "t": 117.76
+    },
+    {
+     "w": "give",
+     "t": 118.19
+    },
+    {
+     "w": "that",
+     "t": 118.62
+    },
+    {
+     "w": "skin",
+     "t": 119.05
+    },
+    {
+     "w": "more",
+     "t": 119.48
+    },
+    {
+     "w": "room",
+     "t": 119.91
+    },
+    {
+     "w": "to",
+     "t": 120.34
+    },
+    {
+     "w": "grow,",
+     "t": 120.77
+    },
+    {
+     "w": "so",
+     "t": 121.2
+    },
+    {
+     "w": "it",
+     "t": 121.63
+    },
+    {
+     "w": "makes",
+     "t": 122.05
+    },
+    {
+     "w": "much",
+     "t": 122.48
+    },
+    {
+     "w": "more",
+     "t": 122.91
+    },
+    {
+     "w": "fire.",
+     "t": 123.34
+    }
+   ]
+  },
+  {
+   "start": 123.77,
+   "end": 145.23,
+   "en": "Only five people have eaten a whole one. They sweat, cry, and the media film it. Do not worry — the fire is a trick. Capsaicin shouts “Fire!” to your nerves, but it cannot really burn or damage you. Water cannot wash it away. Milk can — milk carries fat.",
+   "title": "最辣的辣椒",
+   "cn": "只有五个人整颗吃下去过。他们辣得冒汗、流泪，媒体在旁边拍摄。别担心——这团“火”是个把戏。辣椒素冲着你的神经大喊“着火啦！”，可它并不能真的烧伤你、伤害你。用水冲不掉它，牛奶却可以——因为牛奶里有脂肪。",
+   "words": [
+    {
+     "w": "Only",
+     "t": 123.77
+    },
+    {
+     "w": "five",
+     "t": 124.2
+    },
+    {
+     "w": "people",
+     "t": 124.63
+    },
+    {
+     "w": "have",
+     "t": 125.06
+    },
+    {
+     "w": "eaten",
+     "t": 125.49
+    },
+    {
+     "w": "a",
+     "t": 125.92
+    },
+    {
+     "w": "whole",
+     "t": 126.35
+    },
+    {
+     "w": "one.",
+     "t": 126.78
+    },
+    {
+     "w": "They",
+     "t": 127.2
+    },
+    {
+     "w": "sweat,",
+     "t": 127.63
+    },
+    {
+     "w": "cry,",
+     "t": 128.06
+    },
+    {
+     "w": "and",
+     "t": 128.49
+    },
+    {
+     "w": "the",
+     "t": 128.92
+    },
+    {
+     "w": "media",
+     "t": 129.35
+    },
+    {
+     "w": "film",
+     "t": 129.78
+    },
+    {
+     "w": "it.",
+     "t": 130.21
+    },
+    {
+     "w": "Do",
+     "t": 130.64
+    },
+    {
+     "w": "not",
+     "t": 131.07
+    },
+    {
+     "w": "worry",
+     "t": 131.5
+    },
+    {
+     "w": "—",
+     "t": 131.93
+    },
+    {
+     "w": "the",
+     "t": 132.35
+    },
+    {
+     "w": "fire",
+     "t": 132.78
+    },
+    {
+     "w": "is",
+     "t": 133.21
+    },
+    {
+     "w": "a",
+     "t": 133.64
+    },
+    {
+     "w": "trick.",
+     "t": 134.07
+    },
+    {
+     "w": "Capsaicin",
+     "t": 134.5
+    },
+    {
+     "w": "shouts",
+     "t": 134.93
+    },
+    {
+     "w": "“Fire!”",
+     "t": 135.36
+    },
+    {
+     "w": "to",
+     "t": 135.79
+    },
+    {
+     "w": "your",
+     "t": 136.22
+    },
+    {
+     "w": "nerves,",
+     "t": 136.65
+    },
+    {
+     "w": "but",
+     "t": 137.08
+    },
+    {
+     "w": "it",
+     "t": 137.5
+    },
+    {
+     "w": "cannot",
+     "t": 137.93
+    },
+    {
+     "w": "really",
+     "t": 138.36
+    },
+    {
+     "w": "burn",
+     "t": 138.79
+    },
+    {
+     "w": "or",
+     "t": 139.22
+    },
+    {
+     "w": "damage",
+     "t": 139.65
+    },
+    {
+     "w": "you.",
+     "t": 140.08
+    },
+    {
+     "w": "Water",
+     "t": 140.51
+    },
+    {
+     "w": "cannot",
+     "t": 140.94
+    },
+    {
+     "w": "wash",
+     "t": 141.37
+    },
+    {
+     "w": "it",
+     "t": 141.8
+    },
+    {
+     "w": "away.",
+     "t": 142.23
+    },
+    {
+     "w": "Milk",
+     "t": 142.66
+    },
+    {
+     "w": "can",
+     "t": 143.08
+    },
+    {
+     "w": "—",
+     "t": 143.51
+    },
+    {
+     "w": "milk",
+     "t": 143.94
+    },
+    {
+     "w": "carries",
+     "t": 144.37
+    },
+    {
+     "w": "fat.",
+     "t": 144.8
+    }
+   ]
+  },
+  {
+   "start": 160.41,
+   "end": 179.18,
+   "en": "Now fly to Tanzania, in Africa, to meet a schoolboy, Erasto Mpemba. His class made ice cream from boiled milk and sugar. One day, with the freezer nearly full, Mpemba pushed his hot mix straight in — no waiting for it to cool.",
+   "title": "热水结冰之谜",
+   "cn": "现在飞到非洲的坦桑尼亚，认识一位小学生——埃拉斯托·姆潘巴。他们班用煮过的牛奶加糖做冰淇淋。有一天，冰柜快塞满了，姆潘巴把自己那锅还热着的混合液直接塞了进去，根本没等它凉下来。",
+   "words": [
+    {
+     "w": "Now",
+     "t": 160.41
+    },
+    {
+     "w": "fly",
+     "t": 160.85
+    },
+    {
+     "w": "to",
+     "t": 161.28
+    },
+    {
+     "w": "Tanzania,",
+     "t": 161.72
+    },
+    {
+     "w": "in",
+     "t": 162.16
+    },
+    {
+     "w": "Africa,",
+     "t": 162.59
+    },
+    {
+     "w": "to",
+     "t": 163.03
+    },
+    {
+     "w": "meet",
+     "t": 163.47
+    },
+    {
+     "w": "a",
+     "t": 163.9
+    },
+    {
+     "w": "schoolboy,",
+     "t": 164.34
+    },
+    {
+     "w": "Erasto",
+     "t": 164.78
+    },
+    {
+     "w": "Mpemba.",
+     "t": 165.21
+    },
+    {
+     "w": "His",
+     "t": 165.65
+    },
+    {
+     "w": "class",
+     "t": 166.08
+    },
+    {
+     "w": "made",
+     "t": 166.52
+    },
+    {
+     "w": "ice",
+     "t": 166.96
+    },
+    {
+     "w": "cream",
+     "t": 167.39
+    },
+    {
+     "w": "from",
+     "t": 167.83
+    },
+    {
+     "w": "boiled",
+     "t": 168.27
+    },
+    {
+     "w": "milk",
+     "t": 168.7
+    },
+    {
+     "w": "and",
+     "t": 169.14
+    },
+    {
+     "w": "sugar.",
+     "t": 169.58
+    },
+    {
+     "w": "One",
+     "t": 170.01
+    },
+    {
+     "w": "day,",
+     "t": 170.45
+    },
+    {
+     "w": "with",
+     "t": 170.89
+    },
+    {
+     "w": "the",
+     "t": 171.32
+    },
+    {
+     "w": "freezer",
+     "t": 171.76
+    },
+    {
+     "w": "nearly",
+     "t": 172.2
+    },
+    {
+     "w": "full,",
+     "t": 172.63
+    },
+    {
+     "w": "Mpemba",
+     "t": 173.07
+    },
+    {
+     "w": "pushed",
+     "t": 173.51
+    },
+    {
+     "w": "his",
+     "t": 173.94
+    },
+    {
+     "w": "hot",
+     "t": 174.38
+    },
+    {
+     "w": "mix",
+     "t": 174.81
+    },
+    {
+     "w": "straight",
+     "t": 175.25
+    },
+    {
+     "w": "in",
+     "t": 175.69
+    },
+    {
+     "w": "—",
+     "t": 176.12
+    },
+    {
+     "w": "no",
+     "t": 176.56
+    },
+    {
+     "w": "waiting",
+     "t": 177.0
+    },
+    {
+     "w": "for",
+     "t": 177.43
+    },
+    {
+     "w": "it",
+     "t": 177.87
+    },
+    {
+     "w": "to",
+     "t": 178.31
+    },
+    {
+     "w": "cool.",
+     "t": 178.74
+    }
+   ]
+  },
+  {
+   "start": 179.18,
+   "end": 199.26,
+   "en": "Later, Mpemba checked the freezer — and stared. His hot mix was ice cream, but his classmate's cold mix was still soft! He asked his teacher why, but the teacher just laughed: “Mpemba's physics!” The whole class erupted in laughter. The question stayed in his head.",
+   "title": "热水结冰之谜",
+   "cn": "过了一阵，姆潘巴打开冰柜看了一眼——愣住了。他那锅热的已经冻成冰淇淋了，而同学那锅凉的还软着！他跑去问老师为什么，老师却哈哈大笑：“姆潘巴物理学！”全班哄堂大笑。不过，这个问题从此住进了他的脑子里。",
+   "words": [
+    {
+     "w": "Later,",
+     "t": 179.18
+    },
+    {
+     "w": "Mpemba",
+     "t": 179.62
+    },
+    {
+     "w": "checked",
+     "t": 180.05
+    },
+    {
+     "w": "the",
+     "t": 180.49
+    },
+    {
+     "w": "freezer",
+     "t": 180.93
+    },
+    {
+     "w": "—",
+     "t": 181.36
+    },
+    {
+     "w": "and",
+     "t": 181.8
+    },
+    {
+     "w": "stared.",
+     "t": 182.24
+    },
+    {
+     "w": "His",
+     "t": 182.67
+    },
+    {
+     "w": "hot",
+     "t": 183.11
+    },
+    {
+     "w": "mix",
+     "t": 183.55
+    },
+    {
+     "w": "was",
+     "t": 183.98
+    },
+    {
+     "w": "ice",
+     "t": 184.42
+    },
+    {
+     "w": "cream,",
+     "t": 184.85
+    },
+    {
+     "w": "but",
+     "t": 185.29
+    },
+    {
+     "w": "his",
+     "t": 185.73
+    },
+    {
+     "w": "classmate's",
+     "t": 186.16
+    },
+    {
+     "w": "cold",
+     "t": 186.6
+    },
+    {
+     "w": "mix",
+     "t": 187.04
+    },
+    {
+     "w": "was",
+     "t": 187.47
+    },
+    {
+     "w": "still",
+     "t": 187.91
+    },
+    {
+     "w": "soft!",
+     "t": 188.35
+    },
+    {
+     "w": "He",
+     "t": 188.78
+    },
+    {
+     "w": "asked",
+     "t": 189.22
+    },
+    {
+     "w": "his",
+     "t": 189.66
+    },
+    {
+     "w": "teacher",
+     "t": 190.09
+    },
+    {
+     "w": "why,",
+     "t": 190.53
+    },
+    {
+     "w": "but",
+     "t": 190.97
+    },
+    {
+     "w": "the",
+     "t": 191.4
+    },
+    {
+     "w": "teacher",
+     "t": 191.84
+    },
+    {
+     "w": "just",
+     "t": 192.28
+    },
+    {
+     "w": "laughed:",
+     "t": 192.71
+    },
+    {
+     "w": "“Mpemba's",
+     "t": 193.15
+    },
+    {
+     "w": "physics!”",
+     "t": 193.59
+    },
+    {
+     "w": "The",
+     "t": 194.02
+    },
+    {
+     "w": "whole",
+     "t": 194.46
+    },
+    {
+     "w": "class",
+     "t": 194.89
+    },
+    {
+     "w": "erupted",
+     "t": 195.33
+    },
+    {
+     "w": "in",
+     "t": 195.77
+    },
+    {
+     "w": "laughter.",
+     "t": 196.2
+    },
+    {
+     "w": "The",
+     "t": 196.64
+    },
+    {
+     "w": "question",
+     "t": 197.08
+    },
+    {
+     "w": "stayed",
+     "t": 197.51
+    },
+    {
+     "w": "in",
+     "t": 197.95
+    },
+    {
+     "w": "his",
+     "t": 198.39
+    },
+    {
+     "w": "head.",
+     "t": 198.82
+    }
+   ]
+  },
+  {
+   "start": 199.26,
+   "end": 226.76,
+   "en": "Years later, a scientist, Dr Denis Osborne, visited Mpemba's new school. He asked again: “Two cups of water, one at thirty-five degrees and one at one hundred — why does the hotter one freeze first?” Osborne returned to his laboratory, tested the idea again, and was astonished: the student was right. They published the answer together, and the effect now carries Mpemba's name.",
+   "title": "热水结冰之谜",
+   "cn": "几年之后，科学家丹尼斯·奥斯本博士来到姆潘巴的新学校。姆潘巴又问了一遍：“两杯水，一杯三十五度，一杯一百度——为什么更热的那杯先结冰？”奥斯本回到自己的实验室，亲自把这个想法又测了一遍，惊得目瞪口呆：这个学生是对的！两人把研究结果一起发表了，这个效应如今就以姆潘巴的名字命名。",
+   "words": [
+    {
+     "w": "Years",
+     "t": 199.26
+    },
+    {
+     "w": "later,",
+     "t": 199.7
+    },
+    {
+     "w": "a",
+     "t": 200.13
+    },
+    {
+     "w": "scientist,",
+     "t": 200.57
+    },
+    {
+     "w": "Dr",
+     "t": 201.01
+    },
+    {
+     "w": "Denis",
+     "t": 201.44
+    },
+    {
+     "w": "Osborne,",
+     "t": 201.88
+    },
+    {
+     "w": "visited",
+     "t": 202.32
+    },
+    {
+     "w": "Mpemba's",
+     "t": 202.75
+    },
+    {
+     "w": "new",
+     "t": 203.19
+    },
+    {
+     "w": "school.",
+     "t": 203.62
+    },
+    {
+     "w": "He",
+     "t": 204.06
+    },
+    {
+     "w": "asked",
+     "t": 204.5
+    },
+    {
+     "w": "again:",
+     "t": 204.93
+    },
+    {
+     "w": "“Two",
+     "t": 205.37
+    },
+    {
+     "w": "cups",
+     "t": 205.81
+    },
+    {
+     "w": "of",
+     "t": 206.24
+    },
+    {
+     "w": "water,",
+     "t": 206.68
+    },
+    {
+     "w": "one",
+     "t": 207.12
+    },
+    {
+     "w": "at",
+     "t": 207.55
+    },
+    {
+     "w": "thirty-five",
+     "t": 207.99
+    },
+    {
+     "w": "degrees",
+     "t": 208.43
+    },
+    {
+     "w": "and",
+     "t": 208.86
+    },
+    {
+     "w": "one",
+     "t": 209.3
+    },
+    {
+     "w": "at",
+     "t": 209.74
+    },
+    {
+     "w": "one",
+     "t": 210.17
+    },
+    {
+     "w": "hundred",
+     "t": 210.61
+    },
+    {
+     "w": "—",
+     "t": 211.05
+    },
+    {
+     "w": "why",
+     "t": 211.48
+    },
+    {
+     "w": "does",
+     "t": 211.92
+    },
+    {
+     "w": "the",
+     "t": 212.36
+    },
+    {
+     "w": "hotter",
+     "t": 212.79
+    },
+    {
+     "w": "one",
+     "t": 213.23
+    },
+    {
+     "w": "freeze",
+     "t": 213.66
+    },
+    {
+     "w": "first?”",
+     "t": 214.1
+    },
+    {
+     "w": "Osborne",
+     "t": 214.54
+    },
+    {
+     "w": "returned",
+     "t": 214.97
+    },
+    {
+     "w": "to",
+     "t": 215.41
+    },
+    {
+     "w": "his",
+     "t": 215.85
+    },
+    {
+     "w": "laboratory,",
+     "t": 216.28
+    },
+    {
+     "w": "tested",
+     "t": 216.72
+    },
+    {
+     "w": "the",
+     "t": 217.16
+    },
+    {
+     "w": "idea",
+     "t": 217.59
+    },
+    {
+     "w": "again,",
+     "t": 218.03
+    },
+    {
+     "w": "and",
+     "t": 218.47
+    },
+    {
+     "w": "was",
+     "t": 218.9
+    },
+    {
+     "w": "astonished:",
+     "t": 219.34
+    },
+    {
+     "w": "the",
+     "t": 219.78
+    },
+    {
+     "w": "student",
+     "t": 220.21
+    },
+    {
+     "w": "was",
+     "t": 220.65
+    },
+    {
+     "w": "right.",
+     "t": 221.09
+    },
+    {
+     "w": "They",
+     "t": 221.52
+    },
+    {
+     "w": "published",
+     "t": 221.96
+    },
+    {
+     "w": "the",
+     "t": 222.39
+    },
+    {
+     "w": "answer",
+     "t": 222.83
+    },
+    {
+     "w": "together,",
+     "t": 223.27
+    },
+    {
+     "w": "and",
+     "t": 223.7
+    },
+    {
+     "w": "the",
+     "t": 224.14
+    },
+    {
+     "w": "effect",
+     "t": 224.58
+    },
+    {
+     "w": "now",
+     "t": 225.01
+    },
+    {
+     "w": "carries",
+     "t": 225.45
+    },
+    {
+     "w": "Mpemba's",
+     "t": 225.89
+    },
+    {
+     "w": "name.",
+     "t": 226.32
+    }
+   ]
+  },
+  {
+   "start": 226.76,
+   "end": 255.57,
+   "en": "So why can hot water win the race to ice? Scientists still argue about the answer. Hot water steams, so some of it flies away — less water is left to freeze. It also swims in slow circles, carrying heat out faster. But it does not always work. It needs the right cups, the right temperatures — the right conditions. Then hot really can beat cold!",
+   "title": "热水结冰之谜",
+   "cn": "那热水为什么能赢下这场结冰比赛呢？科学家们至今还在争论答案。热水会蒸发，一部分水先变成水汽飞走了——剩下的水变少，要冻住的也就少了。热水还会在杯子里慢慢打转，把热量更快地带出去。不过这一招不是每次都灵。它需要对的杯子、对的温度——对的条件。全对上了，热真的能赢冷！",
+   "words": [
+    {
+     "w": "So",
+     "t": 226.76
+    },
+    {
+     "w": "why",
+     "t": 227.2
+    },
+    {
+     "w": "can",
+     "t": 227.63
+    },
+    {
+     "w": "hot",
+     "t": 228.07
+    },
+    {
+     "w": "water",
+     "t": 228.51
+    },
+    {
+     "w": "win",
+     "t": 228.94
+    },
+    {
+     "w": "the",
+     "t": 229.38
+    },
+    {
+     "w": "race",
+     "t": 229.82
+    },
+    {
+     "w": "to",
+     "t": 230.25
+    },
+    {
+     "w": "ice?",
+     "t": 230.69
+    },
+    {
+     "w": "Scientists",
+     "t": 231.13
+    },
+    {
+     "w": "still",
+     "t": 231.56
+    },
+    {
+     "w": "argue",
+     "t": 232.0
+    },
+    {
+     "w": "about",
+     "t": 232.43
+    },
+    {
+     "w": "the",
+     "t": 232.87
+    },
+    {
+     "w": "answer.",
+     "t": 233.31
+    },
+    {
+     "w": "Hot",
+     "t": 233.74
+    },
+    {
+     "w": "water",
+     "t": 234.18
+    },
+    {
+     "w": "steams,",
+     "t": 234.62
+    },
+    {
+     "w": "so",
+     "t": 235.05
+    },
+    {
+     "w": "some",
+     "t": 235.49
+    },
+    {
+     "w": "of",
+     "t": 235.93
+    },
+    {
+     "w": "it",
+     "t": 236.36
+    },
+    {
+     "w": "flies",
+     "t": 236.8
+    },
+    {
+     "w": "away",
+     "t": 237.24
+    },
+    {
+     "w": "—",
+     "t": 237.67
+    },
+    {
+     "w": "less",
+     "t": 238.11
+    },
+    {
+     "w": "water",
+     "t": 238.55
+    },
+    {
+     "w": "is",
+     "t": 238.98
+    },
+    {
+     "w": "left",
+     "t": 239.42
+    },
+    {
+     "w": "to",
+     "t": 239.86
+    },
+    {
+     "w": "freeze.",
+     "t": 240.29
+    },
+    {
+     "w": "It",
+     "t": 240.73
+    },
+    {
+     "w": "also",
+     "t": 241.17
+    },
+    {
+     "w": "swims",
+     "t": 241.6
+    },
+    {
+     "w": "in",
+     "t": 242.04
+    },
+    {
+     "w": "slow",
+     "t": 242.47
+    },
+    {
+     "w": "circles,",
+     "t": 242.91
+    },
+    {
+     "w": "carrying",
+     "t": 243.35
+    },
+    {
+     "w": "heat",
+     "t": 243.78
+    },
+    {
+     "w": "out",
+     "t": 244.22
+    },
+    {
+     "w": "faster.",
+     "t": 244.66
+    },
+    {
+     "w": "But",
+     "t": 245.09
+    },
+    {
+     "w": "it",
+     "t": 245.53
+    },
+    {
+     "w": "does",
+     "t": 245.97
+    },
+    {
+     "w": "not",
+     "t": 246.4
+    },
+    {
+     "w": "always",
+     "t": 246.84
+    },
+    {
+     "w": "work.",
+     "t": 247.28
+    },
+    {
+     "w": "It",
+     "t": 247.71
+    },
+    {
+     "w": "needs",
+     "t": 248.15
+    },
+    {
+     "w": "the",
+     "t": 248.59
+    },
+    {
+     "w": "right",
+     "t": 249.02
+    },
+    {
+     "w": "cups,",
+     "t": 249.46
+    },
+    {
+     "w": "the",
+     "t": 249.9
+    },
+    {
+     "w": "right",
+     "t": 250.33
+    },
+    {
+     "w": "temperatures",
+     "t": 250.77
+    },
+    {
+     "w": "—",
+     "t": 251.2
+    },
+    {
+     "w": "the",
+     "t": 251.64
+    },
+    {
+     "w": "right",
+     "t": 252.08
+    },
+    {
+     "w": "conditions.",
+     "t": 252.51
+    },
+    {
+     "w": "Then",
+     "t": 252.95
+    },
+    {
+     "w": "hot",
+     "t": 253.39
+    },
+    {
+     "w": "really",
+     "t": 253.82
+    },
+    {
+     "w": "can",
+     "t": 254.26
+    },
+    {
+     "w": "beat",
+     "t": 254.7
+    },
+    {
+     "w": "cold!",
+     "t": 255.13
+    }
+   ]
+  },
+  {
+   "start": 268.27,
+   "end": 289.17,
+   "en": "Here's today's idiom: “in hot water.” But nobody is cooking, and nobody is taking a bath! If you are in hot water, you are in trouble. Here's an example: “Tom forgot his homework again, so now he is in hot water with his teacher.” Poor Mpemba asked about hot water — he was never in it!",
+   "title": "今日俚语",
+   "cn": "今天的俚语是“in hot water”（字面意思是“在热水里”）。可是这里没人做饭，也没人洗澡！如果你 in hot water，那就是你惹上麻烦啦。听个例句：“汤姆又忘写作业了，这下他在老师那儿可有麻烦了。”可怜的姆潘巴只是问了问热水的事，他自己可从来没惹过麻烦！",
+   "words": [
+    {
+     "w": "Here's",
+     "t": 268.27
+    },
+    {
+     "w": "today's",
+     "t": 268.64
+    },
+    {
+     "w": "idiom:",
+     "t": 269.02
+    },
+    {
+     "w": "“in",
+     "t": 269.39
+    },
+    {
+     "w": "hot",
+     "t": 269.76
+    },
+    {
+     "w": "water.”",
+     "t": 270.14
+    },
+    {
+     "w": "But",
+     "t": 270.51
+    },
+    {
+     "w": "nobody",
+     "t": 270.88
+    },
+    {
+     "w": "is",
+     "t": 271.26
+    },
+    {
+     "w": "cooking,",
+     "t": 271.63
+    },
+    {
+     "w": "and",
+     "t": 272.0
+    },
+    {
+     "w": "nobody",
+     "t": 272.38
+    },
+    {
+     "w": "is",
+     "t": 272.75
+    },
+    {
+     "w": "taking",
+     "t": 273.12
+    },
+    {
+     "w": "a",
+     "t": 273.5
+    },
+    {
+     "w": "bath!",
+     "t": 273.87
+    },
+    {
+     "w": "If",
+     "t": 274.24
+    },
+    {
+     "w": "you",
+     "t": 274.61
+    },
+    {
+     "w": "are",
+     "t": 274.99
+    },
+    {
+     "w": "in",
+     "t": 275.36
+    },
+    {
+     "w": "hot",
+     "t": 275.73
+    },
+    {
+     "w": "water,",
+     "t": 276.11
+    },
+    {
+     "w": "you",
+     "t": 276.48
+    },
+    {
+     "w": "are",
+     "t": 276.85
+    },
+    {
+     "w": "in",
+     "t": 277.23
+    },
+    {
+     "w": "trouble.",
+     "t": 277.6
+    },
+    {
+     "w": "Here's",
+     "t": 277.97
+    },
+    {
+     "w": "an",
+     "t": 278.35
+    },
+    {
+     "w": "example:",
+     "t": 278.72
+    },
+    {
+     "w": "“Tom",
+     "t": 279.09
+    },
+    {
+     "w": "forgot",
+     "t": 279.47
+    },
+    {
+     "w": "his",
+     "t": 279.84
+    },
+    {
+     "w": "homework",
+     "t": 280.21
+    },
+    {
+     "w": "again,",
+     "t": 280.59
+    },
+    {
+     "w": "so",
+     "t": 280.96
+    },
+    {
+     "w": "now",
+     "t": 281.33
+    },
+    {
+     "w": "he",
+     "t": 281.71
+    },
+    {
+     "w": "is",
+     "t": 282.08
+    },
+    {
+     "w": "in",
+     "t": 282.45
+    },
+    {
+     "w": "hot",
+     "t": 282.83
+    },
+    {
+     "w": "water",
+     "t": 283.2
+    },
+    {
+     "w": "with",
+     "t": 283.57
+    },
+    {
+     "w": "his",
+     "t": 283.94
+    },
+    {
+     "w": "teacher.”",
+     "t": 284.32
+    },
+    {
+     "w": "Poor",
+     "t": 284.69
+    },
+    {
+     "w": "Mpemba",
+     "t": 285.06
+    },
+    {
+     "w": "asked",
+     "t": 285.44
+    },
+    {
+     "w": "about",
+     "t": 285.81
+    },
+    {
+     "w": "hot",
+     "t": 286.18
+    },
+    {
+     "w": "water",
+     "t": 286.56
+    },
+    {
+     "w": "—",
+     "t": 286.93
+    },
+    {
+     "w": "he",
+     "t": 287.3
+    },
+    {
+     "w": "was",
+     "t": 287.68
+    },
+    {
+     "w": "never",
+     "t": 288.05
+    },
+    {
+     "w": "in",
+     "t": 288.42
+    },
+    {
+     "w": "it!",
+     "t": 288.8
+    }
+   ]
+  },
+  {
+   "start": 302.51,
+   "end": 327.52,
+   "en": "Let's think about our stories. Two questions. First: if you could grow a record-breaking food in your garden, what would it be — the biggest, the sweetest, or the hottest? Second: Mpemba believed his own eyes, even when everyone laughed. What strange thing have you noticed that nobody believed? Talk about it with your family!",
+   "title": "结束语与互动问题",
+   "cn": "我们来想想今天的故事。两个问题。第一：如果你能在自家花园里种出一种破纪录的食物，你想种什么——最大的、最甜的，还是最辣的？第二：姆潘巴相信自己的眼睛，哪怕所有人都在笑他。你有没有留意过什么奇怪的事，却没有人相信你？和家人聊聊吧！",
+   "words": [
+    {
+     "w": "Let's",
+     "t": 302.51
+    },
+    {
+     "w": "think",
+     "t": 302.96
+    },
+    {
+     "w": "about",
+     "t": 303.42
+    },
+    {
+     "w": "our",
+     "t": 303.87
+    },
+    {
+     "w": "stories.",
+     "t": 304.33
+    },
+    {
+     "w": "Two",
+     "t": 304.78
+    },
+    {
+     "w": "questions.",
+     "t": 305.24
+    },
+    {
+     "w": "First:",
+     "t": 305.69
+    },
+    {
+     "w": "if",
+     "t": 306.15
+    },
+    {
+     "w": "you",
+     "t": 306.6
+    },
+    {
+     "w": "could",
+     "t": 307.06
+    },
+    {
+     "w": "grow",
+     "t": 307.51
+    },
+    {
+     "w": "a",
+     "t": 307.97
+    },
+    {
+     "w": "record-breaking",
+     "t": 308.42
+    },
+    {
+     "w": "food",
+     "t": 308.88
+    },
+    {
+     "w": "in",
+     "t": 309.33
+    },
+    {
+     "w": "your",
+     "t": 309.79
+    },
+    {
+     "w": "garden,",
+     "t": 310.24
+    },
+    {
+     "w": "what",
+     "t": 310.7
+    },
+    {
+     "w": "would",
+     "t": 311.15
+    },
+    {
+     "w": "it",
+     "t": 311.6
+    },
+    {
+     "w": "be",
+     "t": 312.06
+    },
+    {
+     "w": "—",
+     "t": 312.51
+    },
+    {
+     "w": "the",
+     "t": 312.97
+    },
+    {
+     "w": "biggest,",
+     "t": 313.42
+    },
+    {
+     "w": "the",
+     "t": 313.88
+    },
+    {
+     "w": "sweetest,",
+     "t": 314.33
+    },
+    {
+     "w": "or",
+     "t": 314.79
+    },
+    {
+     "w": "the",
+     "t": 315.24
+    },
+    {
+     "w": "hottest?",
+     "t": 315.7
+    },
+    {
+     "w": "Second:",
+     "t": 316.15
+    },
+    {
+     "w": "Mpemba",
+     "t": 316.61
+    },
+    {
+     "w": "believed",
+     "t": 317.06
+    },
+    {
+     "w": "his",
+     "t": 317.52
+    },
+    {
+     "w": "own",
+     "t": 317.97
+    },
+    {
+     "w": "eyes,",
+     "t": 318.43
+    },
+    {
+     "w": "even",
+     "t": 318.88
+    },
+    {
+     "w": "when",
+     "t": 319.33
+    },
+    {
+     "w": "everyone",
+     "t": 319.79
+    },
+    {
+     "w": "laughed.",
+     "t": 320.24
+    },
+    {
+     "w": "What",
+     "t": 320.7
+    },
+    {
+     "w": "strange",
+     "t": 321.15
+    },
+    {
+     "w": "thing",
+     "t": 321.61
+    },
+    {
+     "w": "have",
+     "t": 322.06
+    },
+    {
+     "w": "you",
+     "t": 322.52
+    },
+    {
+     "w": "noticed",
+     "t": 322.97
+    },
+    {
+     "w": "that",
+     "t": 323.43
+    },
+    {
+     "w": "nobody",
+     "t": 323.88
+    },
+    {
+     "w": "believed?",
+     "t": 324.34
+    },
+    {
+     "w": "Talk",
+     "t": 324.79
+    },
+    {
+     "w": "about",
+     "t": 325.25
+    },
+    {
+     "w": "it",
+     "t": 325.7
+    },
+    {
+     "w": "with",
+     "t": 326.16
+    },
+    {
+     "w": "your",
+     "t": 326.61
+    },
+    {
+     "w": "family!",
+     "t": 327.07
+    }
+   ]
+  },
+  {
+   "start": 341.02,
+   "end": 349.97,
+   "en": "That's all for today, young explorers. Stay curious, ask brave questions — and keep out of hot water! See you tomorrow morning!",
+   "title": "告别",
+   "cn": "今天的节目就到这里啦，小小探险家们。保持好奇心，勇敢地提问——还有，千万别惹麻烦哦！明天早上见！",
+   "words": [
+    {
+     "w": "That's",
+     "t": 341.02
+    },
+    {
+     "w": "all",
+     "t": 341.43
+    },
+    {
+     "w": "for",
+     "t": 341.83
+    },
+    {
+     "w": "today,",
+     "t": 342.24
+    },
+    {
+     "w": "young",
+     "t": 342.65
+    },
+    {
+     "w": "explorers.",
+     "t": 343.05
+    },
+    {
+     "w": "Stay",
+     "t": 343.46
+    },
+    {
+     "w": "curious,",
+     "t": 343.87
+    },
+    {
+     "w": "ask",
+     "t": 344.27
+    },
+    {
+     "w": "brave",
+     "t": 344.68
+    },
+    {
+     "w": "questions",
+     "t": 345.09
+    },
+    {
+     "w": "—",
+     "t": 345.5
+    },
+    {
+     "w": "and",
+     "t": 345.9
+    },
+    {
+     "w": "keep",
+     "t": 346.31
+    },
+    {
+     "w": "out",
+     "t": 346.72
+    },
+    {
+     "w": "of",
+     "t": 347.12
+    },
+    {
+     "w": "hot",
+     "t": 347.53
+    },
+    {
+     "w": "water!",
+     "t": 347.94
+    },
+    {
+     "w": "See",
+     "t": 348.34
+    },
+    {
+     "w": "you",
+     "t": 348.75
+    },
+    {
+     "w": "tomorrow",
+     "t": 349.16
+    },
+    {
+     "w": "morning!",
+     "t": 349.56
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "in hot water",
+    "phon": "",
+    "meaning": "(习语) 陷入麻烦；惹上麻烦",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: Tom forgot his homework again, so now he is in hot water with his teacher."
+   },
+   {
+    "word": "astonished",
+    "phon": "/əˈstɒnɪʃt/",
+    "meaning": "(adj.) 十分惊讶的；大吃一惊的",
+    "tags": [],
+    "example": "Example: Osborne returned to his laboratory, tested the idea again, and was astonished: the student was right."
+   },
+   {
+    "word": "capsaicin",
+    "phon": "/kæpˈseɪɪsɪn/",
+    "meaning": "(n.) 辣椒素",
+    "tags": [],
+    "example": "Example: The fire lives in capsaicin, a chemical in the white skin that holds the seeds."
+   },
+   {
+    "word": "wrinkly",
+    "phon": "/ˈrɪŋkli/",
+    "meaning": "(adj.) 皱巴巴的；多皱纹的",
+    "tags": [],
+    "example": "Example: Pepper X is small and wrinkly, and the wrinkles give that skin more room to grow."
+   },
+   {
+    "word": "media",
+    "phon": "/ˈmiːdiə/",
+    "meaning": "(n.) 媒体（报纸、电视、网络等）",
+    "tags": [],
+    "example": "Example: They sweat, cry, and the media film it."
+   },
+   {
+    "word": "nerve",
+    "phon": "/nɜːv/",
+    "meaning": "(n.) 神经",
+    "tags": [],
+    "example": "Example: Capsaicin shouts \"Fire!\" to your nerves, but it cannot really burn or damage you."
+   },
+   {
+    "word": "damage",
+    "phon": "/ˈdæmɪdʒ/",
+    "meaning": "(v.) 损害；伤害",
+    "tags": [],
+    "example": "Example: It cannot really burn or damage you."
+   },
+   {
+    "word": "freezer",
+    "phon": "/ˈfriːzə/",
+    "meaning": "(n.) 冷冻柜；冰柜",
+    "tags": [],
+    "example": "Example: Later, Mpemba checked the freezer — and stared."
+   },
+   {
+    "word": "erupt",
+    "phon": "/ɪˈrʌpt/",
+    "meaning": "(v.) 爆发；突然发生",
+    "tags": [],
+    "example": "Example: The whole class erupted in laughter."
+   },
+   {
+    "word": "laboratory",
+    "phon": "/ləˈbɒrətri/",
+    "meaning": "(n.) 实验室",
+    "tags": [],
+    "example": "Example: Osborne returned to his laboratory and tested the idea again."
+   },
+   {
+    "word": "argue",
+    "phon": "/ˈɑːɡjuː/",
+    "meaning": "(v.) 争论；争辩",
+    "tags": [],
+    "example": "Example: Scientists still argue about the answer."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "What did Ed Currie do for about ten years to create Pepper X?\nA. He mixed pepper plants again and again\nB. He cooked peppers in a laboratory\nC. He travelled around the world looking for peppers\nD. He found the plant growing wild on a mountain",
+     "Why is Pepper X much hotter than other peppers?\nA. Because it is bigger than other peppers\nB. Because its wrinkly skin gives the fire-chemical more room to grow\nC. Because it drinks more water than other plants\nD. Because scientists added fire to it in a laboratory",
+     "What happened to Mpemba's hot ice-cream mix in the freezer?\nA. It was still soft when he checked\nB. It fell onto the floor\nC. It turned into ice cream before his classmate's cold mix\nD. It turned into a cold drink",
+     "What did Dr Osborne do after hearing Mpemba's question?\nA. He laughed at the boy\nB. He tested the idea in his laboratory and published the answer together with Mpemba\nC. He bought Mpemba a new freezer\nD. He told Mpemba to forget the question"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "type": "text",
+        "text": "Osborne "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "returned"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " to his laboratory, "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "tested"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " the idea again, "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "and was astonished"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": ": the student was right."
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句只有一个主语 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "Osborne"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，却连着三个谓语动作："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "returned"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（回到）、"
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "tested"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（检验）、"
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "was astonished"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（大吃一惊）。这叫"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "并列谓语"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：一个主语做几件事时，动词们排排队，"
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "and"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 只放在最后一件之前——就像列清单 \"A, B, and C\"。读长句先数动词、再找主语，就不迷路了。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "tested the idea again"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 里的 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "again"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（再一次）放在宾语 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "the idea"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 后面。英语里这类副词常跟在动词短语的末尾（比如 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "read it again"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "），和中文把「再」放在动词前面的习惯正好相反。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "was astonished"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " = "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "was"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " + 过去分词，在这里它已经变成一个"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "形容词"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，意思是「感到十分惊讶」。注意区分："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "the news astonished him"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（消息让他吃惊，主动）和 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "he was astonished"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（他感到吃惊）。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "句末的"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "冒号"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "负责「揭晓答案」：冒号后面的 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "the student was right"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（那个学生是对的）正是他吃惊的原因和结论。英语写作里想先卖个关子、再亮出结论，就用冒号。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句理顺：奥斯本回到实验室（动作一）→ 亲自又测了一遍（动作二）→ 大吃一惊（动作三）→ 冒号揭晓：学生是对的。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "FREEZER"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（冷冻柜；冰柜）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PEPPER"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（辣椒）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "QUESTION"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（问题）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "STEAM"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（水汽；蒸汽）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ERUPT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（爆发；突然发生）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "LAUGH"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（笑；大笑）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "AFRICA"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（非洲）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "TROUBLE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（麻烦）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "MILK"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（牛奶）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "CAPSAICIN"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（辣椒素）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "A"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"He mixed pepper plants again and again — and after ten years, Pepper X was born.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"the wrinkles give that skin more room to grow, so it makes much more fire.\""
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": " That white skin is where the fire-chemical, capsaicin, lives."
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"His hot mix was ice cream, but his classmate's cold mix was still soft!\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"Osborne returned to his laboratory, tested the idea again, and was astonished: the student was right. They published the answer together.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. tested  2. pushed"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. astonished  2. surprised"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. again  2. again"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "A",
+    "B",
+    "C",
+    "B"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. 并列谓语：用括号里的词的正确形式补全（与前后动词共用主语、时态对齐）",
+     "items": [
+      {
+       "prompt": "Osborne returned to his laboratory, ____ the idea again, and was astonished.",
+       "options": [
+        "tested",
+        "test",
+        "tests"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "Mpemba ____ his hot mix into the freezer and closed the door.",
+       "options": [
+        "push",
+        "pushed",
+        "pushes"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. was + 感受形容词：用括号里的词的正确形式补全",
+     "items": [
+      {
+       "prompt": "The whole class was ____ when the quiet boy answered first.",
+       "options": [
+        "astonish",
+        "astonishing",
+        "astonished"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "Mum was ____ to find the kitchen clean and tidy.",
+       "options": [
+        "surprised",
+        "surprise",
+        "surprising"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. again 的位置：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "He tested the idea ____ before he believed it.",
+       "options": [
+        "once",
+        "again",
+        "twice"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "Please say that ____, slowly and clearly.",
+       "options": [
+        "once",
+        "twice",
+        "again"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "Leo opened the box, counted the seeds again, and smiled: they were growing.",
+    "The dog sniffed the pepper, licked it once, and ran away: it was far too hot!"
+   ]
+  },
+  "crossword": {
+   "nrows": 11,
+   "ncols": 11,
+   "words": [
+    {
+     "word": "FREEZER",
+     "row": 0,
+     "col": 6,
+     "dir": "D",
+     "num": 1,
+     "cn": "冷冻柜；冰柜",
+     "clue": "The very cold box where Mpemba pushed his hot mix"
+    },
+    {
+     "word": "PEPPER",
+     "row": 1,
+     "col": 1,
+     "dir": "A",
+     "num": 2,
+     "cn": "辣椒",
+     "clue": "Pepper X is the hottest one of these in the world"
+    },
+    {
+     "word": "QUESTION",
+     "row": 1,
+     "col": 8,
+     "dir": "D",
+     "num": 3,
+     "cn": "问题",
+     "clue": "Mpemba kept asking this, even when people laughed"
+    },
+    {
+     "word": "STEAM",
+     "row": 1,
+     "col": 10,
+     "dir": "D",
+     "num": 4,
+     "cn": "水汽；蒸汽",
+     "clue": "Hot water sends this white cloud up into the air"
+    },
+    {
+     "word": "ERUPT",
+     "row": 2,
+     "col": 6,
+     "dir": "A",
+     "num": 5,
+     "cn": "爆发；突然发生",
+     "clue": "To burst out suddenly, like a volcano"
+    },
+    {
+     "word": "LAUGH",
+     "row": 3,
+     "col": 0,
+     "dir": "A",
+     "num": 6,
+     "cn": "笑；大笑",
+     "clue": "What the teacher and the class did when they first heard the idea"
+    },
+    {
+     "word": "AFRICA",
+     "row": 3,
+     "col": 1,
+     "dir": "D",
+     "num": 7,
+     "cn": "非洲",
+     "clue": "The continent where Tanzania is"
+    },
+    {
+     "word": "TROUBLE",
+     "row": 5,
+     "col": 0,
+     "dir": "A",
+     "num": 8,
+     "cn": "麻烦",
+     "clue": "If you are in hot water, you are in this"
+    },
+    {
+     "word": "MILK",
+     "row": 7,
+     "col": 5,
+     "dir": "D",
+     "num": 9,
+     "cn": "牛奶",
+     "clue": "It carries fat and can wash away a chilli fire"
+    },
+    {
+     "word": "CAPSAICIN",
+     "row": 8,
+     "col": 0,
+     "dir": "A",
+     "num": 10,
+     "cn": "辣椒素",
+     "clue": "The chemical inside a chilli that makes it hot"
+    }
+   ]
+  }
+ }
+}

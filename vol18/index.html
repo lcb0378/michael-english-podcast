@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.18 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol18/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol18/cover.png" controls playsinline preload="metadata"></video>
+<h1>🌶️ Vol.18 · 最辣的辣椒与热水结冰之谜</h1>
+<div class="meta">英文 597 词 ｜ 音频 5分59秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol18/story-pepper.png" alt="最辣的辣椒">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol18/story-ice.png" alt="热水结冰之谜">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">in hot water</span> <span class="phon"></span> (习语) 陷入麻烦；惹上麻烦<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: Tom forgot his homework again, so now he is <b>in hot water</b> with his teacher.</div>
+</div>
+<div class="vocab">
+  <span class="word">astonished</span> <span class="phon">/əˈstɒnɪʃt/</span> (adj.) 十分惊讶的；大吃一惊的<br>
+  
+  <div class="example">Example: Osborne returned to his laboratory, tested the idea again, and was <b>astonished</b>: the student was right.</div>
+</div>
+<div class="vocab">
+  <span class="word">capsaicin</span> <span class="phon">/kæpˈseɪɪsɪn/</span> (n.) 辣椒素<br>
+  
+  <div class="example">Example: The fire lives in <b>capsaicin</b>, a chemical in the white skin that holds the seeds.</div>
+</div>
+<div class="vocab">
+  <span class="word">wrinkly</span> <span class="phon">/ˈrɪŋkli/</span> (adj.) 皱巴巴的；多皱纹的<br>
+  
+  <div class="example">Example: Pepper X is small and <b>wrinkly</b>, and the wrinkles give that skin more room to grow.</div>
+</div>
+<div class="vocab">
+  <span class="word">media</span> <span class="phon">/ˈmiːdiə/</span> (n.) 媒体（报纸、电视、网络等）<br>
+  
+  <div class="example">Example: They sweat, cry, and the <b>media</b> film it.</div>
+</div>
+<div class="vocab">
+  <span class="word">nerve</span> <span class="phon">/nɜːv/</span> (n.) 神经<br>
+  
+  <div class="example">Example: Capsaicin shouts "Fire!" to your <b>nerves</b>, but it cannot really burn or damage you.</div>
+</div>
+<div class="vocab">
+  <span class="word">damage</span> <span class="phon">/ˈdæmɪdʒ/</span> (v.) 损害；伤害<br>
+  
+  <div class="example">Example: It cannot really burn or <b>damage</b> you.</div>
+</div>
+<div class="vocab">
+  <span class="word">freezer</span> <span class="phon">/ˈfriːzə/</span> (n.) 冷冻柜；冰柜<br>
+  
+  <div class="example">Example: Later, Mpemba checked the <b>freezer</b> — and stared.</div>
+</div>
+<div class="vocab">
+  <span class="word">erupt</span> <span class="phon">/ɪˈrʌpt/</span> (v.) 爆发；突然发生<br>
+  
+  <div class="example">Example: The whole class <b>erupted</b> in laughter.</div>
+</div>
+<div class="vocab">
+  <span class="word">laboratory</span> <span class="phon">/ləˈbɒrətri/</span> (n.) 实验室<br>
+  
+  <div class="example">Example: Osborne returned to his <b>laboratory</b> and tested the idea again.</div>
+</div>
+<div class="vocab">
+  <span class="word">argue</span> <span class="phon">/ˈɑːɡjuː/</span> (v.) 争论；争辩<br>
+  
+  <div class="example">Example: Scientists still <b>argue</b> about the answer.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 11, "ncols": 11, "words": [{"word": "FREEZER", "row": 0, "col": 6, "dir": "D", "num": 1, "cn": "冷冻柜；冰柜", "clue": "The very cold box where Mpemba pushed his hot mix"}, {"word": "PEPPER", "row": 1, "col": 1, "dir": "A", "num": 2, "cn": "辣椒", "clue": "Pepper X is the hottest one of these in the world"}, {"word": "QUESTION", "row": 1, "col": 8, "dir": "D", "num": 3, "cn": "问题", "clue": "Mpemba kept asking this, even when people laughed"}, {"word": "STEAM", "row": 1, "col": 10, "dir": "D", "num": 4, "cn": "水汽；蒸汽", "clue": "Hot water sends this white cloud up into the air"}, {"word": "ERUPT", "row": 2, "col": 6, "dir": "A", "num": 5, "cn": "爆发；突然发生", "clue": "To burst out suddenly, like a volcano"}, {"word": "LAUGH", "row": 3, "col": 0, "dir": "A", "num": 6, "cn": "笑；大笑", "clue": "What the teacher and the class did when they first heard the idea"}, {"word": "AFRICA", "row": 3, "col": 1, "dir": "D", "num": 7, "cn": "非洲", "clue": "The continent where Tanzania is"}, {"word": "TROUBLE", "row": 5, "col": 0, "dir": "A", "num": 8, "cn": "麻烦", "clue": "If you are in hot water, you are in this"}, {"word": "MILK", "row": 7, "col": 5, "dir": "D", "num": 9, "cn": "牛奶", "clue": "It carries fat and can wash away a chilli fire"}, {"word": "CAPSAICIN", "row": 8, "col": 0, "dir": "A", "num": 10, "cn": "辣椒素", "clue": "The chemical inside a chilli that makes it hot"}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. What did Ed Currie do for about ten years to create Pepper X?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. He mixed pepper plants again and again</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. He cooked peppers in a laboratory</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. He travelled around the world looking for peppers</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. He found the plant growing wild on a mountain</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：A</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. Why is Pepper X much hotter than other peppers?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. Because it is bigger than other peppers</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. Because its wrinkly skin gives the fire-chemical more room to grow</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. Because it drinks more water than other plants</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. Because scientists added fire to it in a laboratory</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. What happened to Mpemba&#x27;s hot ice-cream mix in the freezer?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. It was still soft when he checked</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. It fell onto the floor</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. It turned into ice cream before his classmate&#x27;s cold mix</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. It turned into a cold drink</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What did Dr Osborne do after hearing Mpemba&#x27;s question?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. He laughed at the boy</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. He tested the idea in his laboratory and published the answer together with Mpemba</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. He bought Mpemba a new freezer</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. He told Mpemba to forget the question</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：B</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [0, 1, 2, 1];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">Osborne <b class="kw">returned</b> to his laboratory, <b class="kw">tested</b> the idea again, <b class="kw">and was astonished</b>: the student was right.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li>整句只有一个主语 <i>Osborne</i>，却连着三个谓语动作：<i>returned</i>（回到）、<i>tested</i>（检验）、<i>was astonished</i>（大吃一惊）。这叫<b>并列谓语</b>：一个主语做几件事时，动词们排排队，<i>and</i> 只放在最后一件之前——就像列清单 "A, B, and C"。读长句先数动词、再找主语，就不迷路了。</li>
+  <li><i>tested the idea again</i> 里的 <i>again</i>（再一次）放在宾语 <i>the idea</i> 后面。英语里这类副词常跟在动词短语的末尾（比如 <i>read it again</i>），和中文把「再」放在动词前面的习惯正好相反。</li>
+  <li><i>was astonished</i> = <i>was</i> + 过去分词，在这里它已经变成一个<b>形容词</b>，意思是「感到十分惊讶」。注意区分：<i>the news astonished him</i>（消息让他吃惊，主动）和 <i>he was astonished</i>（他感到吃惊）。</li>
+  <li>句末的<b>冒号</b>负责「揭晓答案」：冒号后面的 <i>the student was right</i>（那个学生是对的）正是他吃惊的原因和结论。英语写作里想先卖个关子、再亮出结论，就用冒号。</li>
+  <li>整句理顺：奥斯本回到实验室（动作一）→ 亲自又测了一遍（动作二）→ 大吃一惊（动作三）→ 冒号揭晓：学生是对的。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. 并列谓语：用括号里的词的正确形式补全（与前后动词共用主语、时态对齐）</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">Osborne returned to his laboratory, ____ the idea again, and was astonished.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">tested</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">test</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">tests</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：tested</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">Mpemba ____ his hot mix into the freezer and closed the door.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">push</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">pushed</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">pushes</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：pushed</p>
+</div>
+<p class="p4-gname">B. was + 感受形容词：用括号里的词的正确形式补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">The whole class was ____ when the quiet boy answered first.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">astonish</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">astonishing</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">astonished</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：astonished</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">Mum was ____ to find the kitchen clean and tidy.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">surprised</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">surprise</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">surprising</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：surprised</p>
+</div>
+<p class="p4-gname">C. again 的位置：用括号里的词补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">He tested the idea ____ before he believed it.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">once</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">again</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">twice</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：again</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">Please say that ____, slowly and clearly.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">once</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">twice</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">again</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：again</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>Leo opened the box, counted the seeds again, and smiled: they were growing.</li>
+<li>The dog sniffed the pepper, licked it once, and ran away: it was far too hot!</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">1</span><span class="cwl">F</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">2</span><span class="cwl">P</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">3</span><span class="cwl">Q</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">S</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">5</span><span class="cwl">E</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">T</span></td></tr><tr><td class="cwc"><span class="cwn">6</span><span class="cwl">L</span></td><td class="cwc"><span class="cwn">7</span><span class="cwl">A</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">G</span></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">F</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">Z</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td></tr><tr><td class="cwc"><span class="cwn">8</span><span class="cwl">T</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">B</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">M</span></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">9</span><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">10</span><span class="cwl">C</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">K</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr></table></div>1 竖 → <b>FREEZER</b>（冷冻柜；冰柜）<br>2 横 → <b>PEPPER</b>（辣椒）<br>3 竖 → <b>QUESTION</b>（问题）<br>4 竖 → <b>STEAM</b>（水汽；蒸汽）<br>5 横 → <b>ERUPT</b>（爆发；突然发生）<br>6 横 → <b>LAUGH</b>（笑；大笑）<br>7 竖 → <b>AFRICA</b>（非洲）<br>8 横 → <b>TROUBLE</b>（麻烦）<br>9 竖 → <b>MILK</b>（牛奶）<br>10 横 → <b>CAPSAICIN</b>（辣椒素）<br><br><b>B. Single Choice:</b><br>
+1 → <b>A</b>. The text says: <i>"He mixed pepper plants again and again — and after ten years, Pepper X was born."</i><br>
+2 → <b>B</b>. The text says: <i>"the wrinkles give that skin more room to grow, so it makes much more fire."</i> That white skin is where the fire-chemical, capsaicin, lives.<br>
+3 → <b>C</b>. The text says: <i>"His hot mix was ice cream, but his classmate's cold mix was still soft!"</i><br>
+4 → <b>B</b>. The text says: <i>"Osborne returned to his laboratory, tested the idea again, and was astonished: the student was right. They published the answer together."</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. tested&nbsp;&nbsp;2. pushed<br>
+B. 1. astonished&nbsp;&nbsp;2. surprised<br>
+C. 1. again&nbsp;&nbsp;2. again<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol18/Vol18_晚读讲义_最辣的辣椒与热水结冰之谜_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 27.63, "end": 50.21, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! This is our eighteenth show together! Today, two hot mysteries. First, the hottest pepper ever — so hot that only five people have ever eaten a whole one. Then, a kitchen puzzle: can hot water turn into ice faster than cold water? Let's go!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！这是我们在一起的第十八期节目啦！今天有两个火热的谜题。第一个，是有史以来最辣的辣椒——辣到全世界只有五个人整颗吃下去过。第二个，是一个厨房谜题：热水能比冷水更快变成冰吗？出发吧！", "words": [{"w": "Hello,", "t": 27.63}, {"w": "young", "t": 28.05}, {"w": "explorers,", "t": 28.47}, {"w": "and", "t": 28.88}, {"w": "welcome", "t": 29.3}, {"w": "back", "t": 29.72}, {"w": "to", "t": 30.14}, {"w": "Michael's", "t": 30.56}, {"w": "Morning", "t": 30.98}, {"w": "Listening!", "t": 31.39}, {"w": "This", "t": 31.81}, {"w": "is", "t": 32.23}, {"w": "our", "t": 32.65}, {"w": "eighteenth", "t": 33.07}, {"w": "show", "t": 33.48}, {"w": "together!", "t": 33.9}, {"w": "Today,", "t": 34.32}, {"w": "two", "t": 34.74}, {"w": "hot", "t": 35.16}, {"w": "mysteries.", "t": 35.57}, {"w": "First,", "t": 35.99}, {"w": "the", "t": 36.41}, {"w": "hottest", "t": 36.83}, {"w": "pepper", "t": 37.25}, {"w": "ever", "t": 37.67}, {"w": "—", "t": 38.08}, {"w": "so", "t": 38.5}, {"w": "hot", "t": 38.92}, {"w": "that", "t": 39.34}, {"w": "only", "t": 39.76}, {"w": "five", "t": 40.17}, {"w": "people", "t": 40.59}, {"w": "have", "t": 41.01}, {"w": "ever", "t": 41.43}, {"w": "eaten", "t": 41.85}, {"w": "a", "t": 42.27}, {"w": "whole", "t": 42.68}, {"w": "one.", "t": 43.1}, {"w": "Then,", "t": 43.52}, {"w": "a", "t": 43.94}, {"w": "kitchen", "t": 44.36}, {"w": "puzzle:", "t": 44.77}, {"w": "can", "t": 45.19}, {"w": "hot", "t": 45.61}, {"w": "water", "t": 46.03}, {"w": "turn", "t": 46.45}, {"w": "into", "t": 46.86}, {"w": "ice", "t": 47.28}, {"w": "faster", "t": 47.7}, {"w": "than", "t": 48.12}, {"w": "cold", "t": 48.54}, {"w": "water?", "t": 48.96}, {"w": "Let's", "t": 49.37}, {"w": "go!", "t": 49.79}]}, {"start": 62.83, "end": 82.57, "en": "Meet Pepper X, the hottest chilli pepper of all. It grows in South Carolina, in America, under green leaves. Its grower is Ed Currie, a pepper scientist with a dream. He mixed pepper plants again and again — and after ten years, Pepper X was born.", "title": "最辣的辣椒", "cn": "来认识一下 Pepper X，全世界最辣的辣椒。它长在美国南卡罗来纳州，藏在绿叶底下。它的培育者是埃德·柯里，一位心怀梦想的辣椒科学家。他把不同的辣椒植株一次又一次地杂交——十年之后，Pepper X 诞生了。", "words": [{"w": "Meet", "t": 62.83}, {"w": "Pepper", "t": 63.26}, {"w": "X,", "t": 63.69}, {"w": "the", "t": 64.12}, {"w": "hottest", "t": 64.55}, {"w": "chilli", "t": 64.98}, {"w": "pepper", "t": 65.4}, {"w": "of", "t": 65.83}, {"w": "all.", "t": 66.26}, {"w": "It", "t": 66.69}, {"w": "grows", "t": 67.12}, {"w": "in", "t": 67.55}, {"w": "South", "t": 67.98}, {"w": "Carolina,", "t": 68.41}, {"w": "in", "t": 68.84}, {"w": "America,", "t": 69.27}, {"w": "under", "t": 69.7}, {"w": "green", "t": 70.13}, {"w": "leaves.", "t": 70.55}, {"w": "Its", "t": 70.98}, {"w": "grower", "t": 71.41}, {"w": "is", "t": 71.84}, {"w": "Ed", "t": 72.27}, {"w": "Currie,", "t": 72.7}, {"w": "a", "t": 73.13}, {"w": "pepper", "t": 73.56}, {"w": "scientist", "t": 73.99}, {"w": "with", "t": 74.42}, {"w": "a", "t": 74.85}, {"w": "dream.", "t": 75.27}, {"w": "He", "t": 75.7}, {"w": "mixed", "t": 76.13}, {"w": "pepper", "t": 76.56}, {"w": "plants", "t": 76.99}, {"w": "again", "t": 77.42}, {"w": "and", "t": 77.85}, {"w": "again", "t": 78.28}, {"w": "—", "t": 78.71}, {"w": "and", "t": 79.14}, {"w": "after", "t": 79.57}, {"w": "ten", "t": 80.0}, {"w": "years,", "t": 80.42}, {"w": "Pepper", "t": 80.85}, {"w": "X", "t": 81.28}, {"w": "was", "t": 81.71}, {"w": "born.", "t": 82.14}]}, {"start": 82.57, "end": 105.32, "en": "How hot is it? Scientists measure pepper heat with the Scoville scale. A jalapeño pepper reads about five thousand. Pepper X? The lab reading astonished everyone: nearly two million, seven hundred thousand! That is more than five hundred times hotter than a jalapeño. Guinness gave Pepper X the crown: hottest pepper ever measured.", "title": "最辣的辣椒", "cn": "它到底有多辣？科学家用史高维尔指标来衡量辣椒的辣度。一颗墨西哥辣椒大约是五千。而 Pepper X 呢？实验室的读数让所有人大吃一惊：接近二百七十万！是墨西哥辣椒的五百多倍。吉尼斯把王冠颁给了 Pepper X：有史以来测到过的最辣辣椒。", "words": [{"w": "How", "t": 82.57}, {"w": "hot", "t": 83.0}, {"w": "is", "t": 83.43}, {"w": "it?", "t": 83.86}, {"w": "Scientists", "t": 84.29}, {"w": "measure", "t": 84.72}, {"w": "pepper", "t": 85.15}, {"w": "heat", "t": 85.57}, {"w": "with", "t": 86.0}, {"w": "the", "t": 86.43}, {"w": "Scoville", "t": 86.86}, {"w": "scale.", "t": 87.29}, {"w": "A", "t": 87.72}, {"w": "jalapeño", "t": 88.15}, {"w": "pepper", "t": 88.58}, {"w": "reads", "t": 89.01}, {"w": "about", "t": 89.44}, {"w": "five", "t": 89.87}, {"w": "thousand.", "t": 90.3}, {"w": "Pepper", "t": 90.73}, {"w": "X?", "t": 91.15}, {"w": "The", "t": 91.58}, {"w": "lab", "t": 92.01}, {"w": "reading", "t": 92.44}, {"w": "astonished", "t": 92.87}, {"w": "everyone:", "t": 93.3}, {"w": "nearly", "t": 93.73}, {"w": "two", "t": 94.16}, {"w": "million,", "t": 94.59}, {"w": "seven", "t": 95.02}, {"w": "hundred", "t": 95.45}, {"w": "thousand!", "t": 95.88}, {"w": "That", "t": 96.31}, {"w": "is", "t": 96.74}, {"w": "more", "t": 97.16}, {"w": "than", "t": 97.59}, {"w": "five", "t": 98.02}, {"w": "hundred", "t": 98.45}, {"w": "times", "t": 98.88}, {"w": "hotter", "t": 99.31}, {"w": "than", "t": 99.74}, {"w": "a", "t": 100.17}, {"w": "jalapeño.", "t": 100.6}, {"w": "Guinness", "t": 101.03}, {"w": "gave", "t": 101.46}, {"w": "Pepper", "t": 101.89}, {"w": "X", "t": 102.32}, {"w": "the", "t": 102.74}, {"w": "crown:", "t": 103.17}, {"w": "hottest", "t": 103.6}, {"w": "pepper", "t": 104.03}, {"w": "ever", "t": 104.46}, {"w": "measured.", "t": 104.89}]}, {"start": 105.32, "end": 123.77, "en": "Why is Pepper X so hot? The fire lives in capsaicin, a chemical in the white skin that holds the seeds. Pepper X is small and wrinkly, and the wrinkles give that skin more room to grow, so it makes much more fire.", "title": "最辣的辣椒", "cn": "Pepper X 为什么这么辣？辣劲来自辣椒素，一种藏在白色内皮里的化学物质，辣椒籽就附着在那层皮上。Pepper X 个头小、浑身是皱，皱褶让那层皮有更大的生长空间，于是能造出多得多的“辣火”。", "words": [{"w": "Why", "t": 105.32}, {"w": "is", "t": 105.75}, {"w": "Pepper", "t": 106.18}, {"w": "X", "t": 106.61}, {"w": "so", "t": 107.04}, {"w": "hot?", "t": 107.47}, {"w": "The", "t": 107.89}, {"w": "fire", "t": 108.32}, {"w": "lives", "t": 108.75}, {"w": "in", "t": 109.18}, {"w": "capsaicin,", "t": 109.61}, {"w": "a", "t": 110.04}, {"w": "chemical", "t": 110.47}, {"w": "in", "t": 110.9}, {"w": "the", "t": 111.33}, {"w": "white", "t": 111.76}, {"w": "skin", "t": 112.19}, {"w": "that", "t": 112.61}, {"w": "holds", "t": 113.04}, {"w": "the", "t": 113.47}, {"w": "seeds.", "t": 113.9}, {"w": "Pepper", "t": 114.33}, {"w": "X", "t": 114.76}, {"w": "is", "t": 115.19}, {"w": "small", "t": 115.62}, {"w": "and", "t": 116.05}, {"w": "wrinkly,", "t": 116.48}, {"w": "and", "t": 116.9}, {"w": "the", "t": 117.33}, {"w": "wrinkles", "t": 117.76}, {"w": "give", "t": 118.19}, {"w": "that", "t": 118.62}, {"w": "skin", "t": 119.05}, {"w": "more", "t": 119.48}, {"w": "room", "t": 119.91}, {"w": "to", "t": 120.34}, {"w": "grow,", "t": 120.77}, {"w": "so", "t": 121.2}, {"w": "it", "t": 121.62}, {"w": "makes", "t": 122.05}, {"w": "much", "t": 122.48}, {"w": "more", "t": 122.91}, {"w": "fire.", "t": 123.34}]}, {"start": 123.77, "end": 145.23, "en": "Only five people have eaten a whole one. They sweat, cry, and the media film it. Do not worry — the fire is a trick. Capsaicin shouts “Fire!” to your nerves, but it cannot really burn or damage you. Water cannot wash it away. Milk can — milk carries fat.", "title": "最辣的辣椒", "cn": "只有五个人整颗吃下去过。他们辣得冒汗、流泪，媒体在旁边拍摄。别担心——这团“火”是个把戏。辣椒素冲着你的神经大喊“着火啦！”，可它并不能真的烧伤你、伤害你。用水冲不掉它，牛奶却可以——因为牛奶里有脂肪。", "words": [{"w": "Only", "t": 123.77}, {"w": "five", "t": 124.2}, {"w": "people", "t": 124.63}, {"w": "have", "t": 125.06}, {"w": "eaten", "t": 125.49}, {"w": "a", "t": 125.92}, {"w": "whole", "t": 126.35}, {"w": "one.", "t": 126.77}, {"w": "They", "t": 127.2}, {"w": "sweat,", "t": 127.63}, {"w": "cry,", "t": 128.06}, {"w": "and", "t": 128.49}, {"w": "the", "t": 128.92}, {"w": "media", "t": 129.35}, {"w": "film", "t": 129.78}, {"w": "it.", "t": 130.21}, {"w": "Do", "t": 130.64}, {"w": "not", "t": 131.07}, {"w": "worry", "t": 131.5}, {"w": "—", "t": 131.92}, {"w": "the", "t": 132.35}, {"w": "fire", "t": 132.78}, {"w": "is", "t": 133.21}, {"w": "a", "t": 133.64}, {"w": "trick.", "t": 134.07}, {"w": "Capsaicin", "t": 134.5}, {"w": "shouts", "t": 134.93}, {"w": "“Fire!”", "t": 135.36}, {"w": "to", "t": 135.79}, {"w": "your", "t": 136.22}, {"w": "nerves,", "t": 136.65}, {"w": "but", "t": 137.08}, {"w": "it", "t": 137.5}, {"w": "cannot", "t": 137.93}, {"w": "really", "t": 138.36}, {"w": "burn", "t": 138.79}, {"w": "or", "t": 139.22}, {"w": "damage", "t": 139.65}, {"w": "you.", "t": 140.08}, {"w": "Water", "t": 140.51}, {"w": "cannot", "t": 140.94}, {"w": "wash", "t": 141.37}, {"w": "it", "t": 141.8}, {"w": "away.", "t": 142.23}, {"w": "Milk", "t": 142.65}, {"w": "can", "t": 143.08}, {"w": "—", "t": 143.51}, {"w": "milk", "t": 143.94}, {"w": "carries", "t": 144.37}, {"w": "fat.", "t": 144.8}]}, {"start": 160.41, "end": 179.18, "en": "Now fly to Tanzania, in Africa, to meet a schoolboy, Erasto Mpemba. His class made ice cream from boiled milk and sugar. One day, with the freezer nearly full, Mpemba pushed his hot mix straight in — no waiting for it to cool.", "title": "热水结冰之谜", "cn": "现在飞到非洲的坦桑尼亚，认识一位小学生——埃拉斯托·姆潘巴。他们班用煮过的牛奶加糖做冰淇淋。有一天，冰柜快塞满了，姆潘巴把自己那锅还热着的混合液直接塞了进去，根本没等它凉下来。", "words": [{"w": "Now", "t": 160.41}, {"w": "fly", "t": 160.85}, {"w": "to", "t": 161.28}, {"w": "Tanzania,", "t": 161.72}, {"w": "in", "t": 162.16}, {"w": "Africa,", "t": 162.59}, {"w": "to", "t": 163.03}, {"w": "meet", "t": 163.47}, {"w": "a", "t": 163.9}, {"w": "schoolboy,", "t": 164.34}, {"w": "Erasto", "t": 164.78}, {"w": "Mpemba.", "t": 165.21}, {"w": "His", "t": 165.65}, {"w": "class", "t": 166.08}, {"w": "made", "t": 166.52}, {"w": "ice", "t": 166.96}, {"w": "cream", "t": 167.39}, {"w": "from", "t": 167.83}, {"w": "boiled", "t": 168.27}, {"w": "milk", "t": 168.7}, {"w": "and", "t": 169.14}, {"w": "sugar.", "t": 169.58}, {"w": "One", "t": 170.01}, {"w": "day,", "t": 170.45}, {"w": "with", "t": 170.89}, {"w": "the", "t": 171.32}, {"w": "freezer", "t": 171.76}, {"w": "nearly", "t": 172.2}, {"w": "full,", "t": 172.63}, {"w": "Mpemba", "t": 173.07}, {"w": "pushed", "t": 173.51}, {"w": "his", "t": 173.94}, {"w": "hot", "t": 174.38}, {"w": "mix", "t": 174.81}, {"w": "straight", "t": 175.25}, {"w": "in", "t": 175.69}, {"w": "—", "t": 176.12}, {"w": "no", "t": 176.56}, {"w": "waiting", "t": 177.0}, {"w": "for", "t": 177.43}, {"w": "it", "t": 177.87}, {"w": "to", "t": 178.31}, {"w": "cool.", "t": 178.74}]}, {"start": 179.18, "end": 199.26, "en": "Later, Mpemba checked the freezer — and stared. His hot mix was ice cream, but his classmate's cold mix was still soft! He asked his teacher why, but the teacher just laughed: “Mpemba's physics!” The whole class erupted in laughter. The question stayed in his head.", "title": "热水结冰之谜", "cn": "过了一阵，姆潘巴打开冰柜看了一眼——愣住了。他那锅热的已经冻成冰淇淋了，而同学那锅凉的还软着！他跑去问老师为什么，老师却哈哈大笑：“姆潘巴物理学！”全班哄堂大笑。不过，这个问题从此住进了他的脑子里。", "words": [{"w": "Later,", "t": 179.18}, {"w": "Mpemba", "t": 179.62}, {"w": "checked", "t": 180.05}, {"w": "the", "t": 180.49}, {"w": "freezer", "t": 180.93}, {"w": "—", "t": 181.36}, {"w": "and", "t": 181.8}, {"w": "stared.", "t": 182.24}, {"w": "His", "t": 182.67}, {"w": "hot", "t": 183.11}, {"w": "mix", "t": 183.55}, {"w": "was", "t": 183.98}, {"w": "ice", "t": 184.42}, {"w": "cream,", "t": 184.85}, {"w": "but", "t": 185.29}, {"w": "his", "t": 185.73}, {"w": "classmate's", "t": 186.16}, {"w": "cold", "t": 186.6}, {"w": "mix", "t": 187.04}, {"w": "was", "t": 187.47}, {"w": "still", "t": 187.91}, {"w": "soft!", "t": 188.35}, {"w": "He", "t": 188.78}, {"w": "asked", "t": 189.22}, {"w": "his", "t": 189.66}, {"w": "teacher", "t": 190.09}, {"w": "why,", "t": 190.53}, {"w": "but", "t": 190.97}, {"w": "the", "t": 191.4}, {"w": "teacher", "t": 191.84}, {"w": "just", "t": 192.28}, {"w": "laughed:", "t": 192.71}, {"w": "“Mpemba's", "t": 193.15}, {"w": "physics!”", "t": 193.59}, {"w": "The", "t": 194.02}, {"w": "whole", "t": 194.46}, {"w": "class", "t": 194.89}, {"w": "erupted", "t": 195.33}, {"w": "in", "t": 195.77}, {"w": "laughter.", "t": 196.2}, {"w": "The", "t": 196.64}, {"w": "question", "t": 197.08}, {"w": "stayed", "t": 197.51}, {"w": "in", "t": 197.95}, {"w": "his", "t": 198.39}, {"w": "head.", "t": 198.82}]}, {"start": 199.26, "end": 226.76, "en": "Years later, a scientist, Dr Denis Osborne, visited Mpemba's new school. He asked again: “Two cups of water, one at thirty-five degrees and one at one hundred — why does the hotter one freeze first?” Osborne returned to his laboratory, tested the idea again, and was astonished: the student was right. They published the answer together, and the effect now carries Mpemba's name.", "title": "热水结冰之谜", "cn": "几年之后，科学家丹尼斯·奥斯本博士来到姆潘巴的新学校。姆潘巴又问了一遍：“两杯水，一杯三十五度，一杯一百度——为什么更热的那杯先结冰？”奥斯本回到自己的实验室，亲自把这个想法又测了一遍，惊得目瞪口呆：这个学生是对的！两人把研究结果一起发表了，这个效应如今就以姆潘巴的名字命名。", "words": [{"w": "Years", "t": 199.26}, {"w": "later,", "t": 199.7}, {"w": "a", "t": 200.13}, {"w": "scientist,", "t": 200.57}, {"w": "Dr", "t": 201.01}, {"w": "Denis", "t": 201.44}, {"w": "Osborne,", "t": 201.88}, {"w": "visited", "t": 202.32}, {"w": "Mpemba's", "t": 202.75}, {"w": "new", "t": 203.19}, {"w": "school.", "t": 203.63}, {"w": "He", "t": 204.06}, {"w": "asked", "t": 204.5}, {"w": "again:", "t": 204.93}, {"w": "“Two", "t": 205.37}, {"w": "cups", "t": 205.81}, {"w": "of", "t": 206.24}, {"w": "water,", "t": 206.68}, {"w": "one", "t": 207.12}, {"w": "at", "t": 207.55}, {"w": "thirty-five", "t": 207.99}, {"w": "degrees", "t": 208.43}, {"w": "and", "t": 208.86}, {"w": "one", "t": 209.3}, {"w": "at", "t": 209.74}, {"w": "one", "t": 210.17}, {"w": "hundred", "t": 210.61}, {"w": "—", "t": 211.05}, {"w": "why", "t": 211.48}, {"w": "does", "t": 211.92}, {"w": "the", "t": 212.36}, {"w": "hotter", "t": 212.79}, {"w": "one", "t": 213.23}, {"w": "freeze", "t": 213.66}, {"w": "first?”", "t": 214.1}, {"w": "Osborne", "t": 214.54}, {"w": "returned", "t": 214.97}, {"w": "to", "t": 215.41}, {"w": "his", "t": 215.85}, {"w": "laboratory,", "t": 216.28}, {"w": "tested", "t": 216.72}, {"w": "the", "t": 217.16}, {"w": "idea", "t": 217.59}, {"w": "again,", "t": 218.03}, {"w": "and", "t": 218.47}, {"w": "was", "t": 218.9}, {"w": "astonished:", "t": 219.34}, {"w": "the", "t": 219.78}, {"w": "student", "t": 220.21}, {"w": "was", "t": 220.65}, {"w": "right.", "t": 221.09}, {"w": "They", "t": 221.52}, {"w": "published", "t": 221.96}, {"w": "the", "t": 222.39}, {"w": "answer", "t": 222.83}, {"w": "together,", "t": 223.27}, {"w": "and", "t": 223.7}, {"w": "the", "t": 224.14}, {"w": "effect", "t": 224.58}, {"w": "now", "t": 225.01}, {"w": "carries", "t": 225.45}, {"w": "Mpemba's", "t": 225.89}, {"w": "name.", "t": 226.32}]}, {"start": 226.76, "end": 255.57, "en": "So why can hot water win the race to ice? Scientists still argue about the answer. Hot water steams, so some of it flies away — less water is left to freeze. It also swims in slow circles, carrying heat out faster. But it does not always work. It needs the right cups, the right temperatures — the right conditions. Then hot really can beat cold!", "title": "热水结冰之谜", "cn": "那热水为什么能赢下这场结冰比赛呢？科学家们至今还在争论答案。热水会蒸发，一部分水先变成水汽飞走了——剩下的水变少，要冻住的也就少了。热水还会在杯子里慢慢打转，把热量更快地带出去。不过这一招不是每次都灵。它需要对的杯子、对的温度——对的条件。全对上了，热真的能赢冷！", "words": [{"w": "So", "t": 226.76}, {"w": "why", "t": 227.2}, {"w": "can", "t": 227.63}, {"w": "hot", "t": 228.07}, {"w": "water", "t": 228.51}, {"w": "win", "t": 228.94}, {"w": "the", "t": 229.38}, {"w": "race", "t": 229.82}, {"w": "to", "t": 230.25}, {"w": "ice?", "t": 230.69}, {"w": "Scientists", "t": 231.13}, {"w": "still", "t": 231.56}, {"w": "argue", "t": 232.0}, {"w": "about", "t": 232.43}, {"w": "the", "t": 232.87}, {"w": "answer.", "t": 233.31}, {"w": "Hot", "t": 233.74}, {"w": "water", "t": 234.18}, {"w": "steams,", "t": 234.62}, {"w": "so", "t": 235.05}, {"w": "some", "t": 235.49}, {"w": "of", "t": 235.93}, {"w": "it", "t": 236.36}, {"w": "flies", "t": 236.8}, {"w": "away", "t": 237.24}, {"w": "—", "t": 237.67}, {"w": "less", "t": 238.11}, {"w": "water", "t": 238.55}, {"w": "is", "t": 238.98}, {"w": "left", "t": 239.42}, {"w": "to", "t": 239.86}, {"w": "freeze.", "t": 240.29}, {"w": "It", "t": 240.73}, {"w": "also", "t": 241.16}, {"w": "swims", "t": 241.6}, {"w": "in", "t": 242.04}, {"w": "slow", "t": 242.47}, {"w": "circles,", "t": 242.91}, {"w": "carrying", "t": 243.35}, {"w": "heat", "t": 243.78}, {"w": "out", "t": 244.22}, {"w": "faster.", "t": 244.66}, {"w": "But", "t": 245.09}, {"w": "it", "t": 245.53}, {"w": "does", "t": 245.97}, {"w": "not", "t": 246.4}, {"w": "always", "t": 246.84}, {"w": "work.", "t": 247.28}, {"w": "It", "t": 247.71}, {"w": "needs", "t": 248.15}, {"w": "the", "t": 248.59}, {"w": "right", "t": 249.02}, {"w": "cups,", "t": 249.46}, {"w": "the", "t": 249.9}, {"w": "right", "t": 250.33}, {"w": "temperatures", "t": 250.77}, {"w": "—", "t": 251.2}, {"w": "the", "t": 251.64}, {"w": "right", "t": 252.08}, {"w": "conditions.", "t": 252.51}, {"w": "Then", "t": 252.95}, {"w": "hot", "t": 253.39}, {"w": "really", "t": 253.82}, {"w": "can", "t": 254.26}, {"w": "beat", "t": 254.7}, {"w": "cold!", "t": 255.13}]}, {"start": 268.27, "end": 289.17, "en": "Here's today's idiom: “in hot water.” But nobody is cooking, and nobody is taking a bath! If you are in hot water, you are in trouble. Here's an example: “Tom forgot his homework again, so now he is in hot water with his teacher.” Poor Mpemba asked about hot water — he was never in it!", "title": "今日俚语", "cn": "今天的俚语是“in hot water”（字面意思是“在热水里”）。可是这里没人做饭，也没人洗澡！如果你 in hot water，那就是你惹上麻烦啦。听个例句：“汤姆又忘写作业了，这下他在老师那儿可有麻烦了。”可怜的姆潘巴只是问了问热水的事，他自己可从来没惹过麻烦！", "words": [{"w": "Here's", "t": 268.27}, {"w": "today's", "t": 268.64}, {"w": "idiom:", "t": 269.02}, {"w": "“in", "t": 269.39}, {"w": "hot", "t": 269.76}, {"w": "water.”", "t": 270.14}, {"w": "But", "t": 270.51}, {"w": "nobody", "t": 270.88}, {"w": "is", "t": 271.26}, {"w": "cooking,", "t": 271.63}, {"w": "and", "t": 272.0}, {"w": "nobody", "t": 272.38}, {"w": "is", "t": 272.75}, {"w": "taking", "t": 273.12}, {"w": "a", "t": 273.5}, {"w": "bath!", "t": 273.87}, {"w": "If", "t": 274.24}, {"w": "you", "t": 274.61}, {"w": "are", "t": 274.99}, {"w": "in", "t": 275.36}, {"w": "hot", "t": 275.73}, {"w": "water,", "t": 276.11}, {"w": "you", "t": 276.48}, {"w": "are", "t": 276.85}, {"w": "in", "t": 277.23}, {"w": "trouble.", "t": 277.6}, {"w": "Here's", "t": 277.97}, {"w": "an", "t": 278.35}, {"w": "example:", "t": 278.72}, {"w": "“Tom", "t": 279.09}, {"w": "forgot", "t": 279.47}, {"w": "his", "t": 279.84}, {"w": "homework", "t": 280.21}, {"w": "again,", "t": 280.59}, {"w": "so", "t": 280.96}, {"w": "now", "t": 281.33}, {"w": "he", "t": 281.71}, {"w": "is", "t": 282.08}, {"w": "in", "t": 282.45}, {"w": "hot", "t": 282.83}, {"w": "water", "t": 283.2}, {"w": "with", "t": 283.57}, {"w": "his", "t": 283.94}, {"w": "teacher.”", "t": 284.32}, {"w": "Poor", "t": 284.69}, {"w": "Mpemba", "t": 285.06}, {"w": "asked", "t": 285.44}, {"w": "about", "t": 285.81}, {"w": "hot", "t": 286.18}, {"w": "water", "t": 286.56}, {"w": "—", "t": 286.93}, {"w": "he", "t": 287.3}, {"w": "was", "t": 287.68}, {"w": "never", "t": 288.05}, {"w": "in", "t": 288.42}, {"w": "it!", "t": 288.8}]}, {"start": 302.51, "end": 327.52, "en": "Let's think about our stories. Two questions. First: if you could grow a record-breaking food in your garden, what would it be — the biggest, the sweetest, or the hottest? Second: Mpemba believed his own eyes, even when everyone laughed. What strange thing have you noticed that nobody believed? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事。两个问题。第一：如果你能在自家花园里种出一种破纪录的食物，你想种什么——最大的、最甜的，还是最辣的？第二：姆潘巴相信自己的眼睛，哪怕所有人都在笑他。你有没有留意过什么奇怪的事，却没有人相信你？和家人聊聊吧！", "words": [{"w": "Let's", "t": 302.51}, {"w": "think", "t": 302.96}, {"w": "about", "t": 303.42}, {"w": "our", "t": 303.87}, {"w": "stories.", "t": 304.33}, {"w": "Two", "t": 304.78}, {"w": "questions.", "t": 305.24}, {"w": "First:", "t": 305.69}, {"w": "if", "t": 306.15}, {"w": "you", "t": 306.6}, {"w": "could", "t": 307.06}, {"w": "grow", "t": 307.51}, {"w": "a", "t": 307.97}, {"w": "record-breaking", "t": 308.42}, {"w": "food", "t": 308.88}, {"w": "in", "t": 309.33}, {"w": "your", "t": 309.79}, {"w": "garden,", "t": 310.24}, {"w": "what", "t": 310.7}, {"w": "would", "t": 311.15}, {"w": "it", "t": 311.6}, {"w": "be", "t": 312.06}, {"w": "—", "t": 312.51}, {"w": "the", "t": 312.97}, {"w": "biggest,", "t": 313.42}, {"w": "the", "t": 313.88}, {"w": "sweetest,", "t": 314.33}, {"w": "or", "t": 314.79}, {"w": "the", "t": 315.24}, {"w": "hottest?", "t": 315.7}, {"w": "Second:", "t": 316.15}, {"w": "Mpemba", "t": 316.61}, {"w": "believed", "t": 317.06}, {"w": "his", "t": 317.52}, {"w": "own", "t": 317.97}, {"w": "eyes,", "t": 318.43}, {"w": "even", "t": 318.88}, {"w": "when", "t": 319.33}, {"w": "everyone", "t": 319.79}, {"w": "laughed.", "t": 320.24}, {"w": "What", "t": 320.7}, {"w": "strange", "t": 321.15}, {"w": "thing", "t": 321.61}, {"w": "have", "t": 322.06}, {"w": "you", "t": 322.52}, {"w": "noticed", "t": 322.97}, {"w": "that", "t": 323.43}, {"w": "nobody", "t": 323.88}, {"w": "believed?", "t": 324.34}, {"w": "Talk", "t": 324.79}, {"w": "about", "t": 325.25}, {"w": "it", "t": 325.7}, {"w": "with", "t": 326.16}, {"w": "your", "t": 326.61}, {"w": "family!", "t": 327.07}]}, {"start": 341.02, "end": 349.97, "en": "That's all for today, young explorers. Stay curious, ask brave questions — and keep out of hot water! See you tomorrow morning!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。保持好奇心，勇敢地提问——还有，千万别惹麻烦哦！明天早上见！", "words": [{"w": "That's", "t": 341.02}, {"w": "all", "t": 341.43}, {"w": "for", "t": 341.83}, {"w": "today,", "t": 342.24}, {"w": "young", "t": 342.65}, {"w": "explorers.", "t": 343.05}, {"w": "Stay", "t": 343.46}, {"w": "curious,", "t": 343.87}, {"w": "ask", "t": 344.27}, {"w": "brave", "t": 344.68}, {"w": "questions", "t": 345.09}, {"w": "—", "t": 345.5}, {"w": "and", "t": 345.9}, {"w": "keep", "t": 346.31}, {"w": "out", "t": 346.72}, {"w": "of", "t": 347.12}, {"w": "hot", "t": 347.53}, {"w": "water!", "t": 347.94}, {"w": "See", "t": 348.34}, {"w": "you", "t": 348.75}, {"w": "tomorrow", "t": 349.16}, {"w": "morning!", "t": 349.56}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol18/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
