@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.40 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol40/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol40/cover.png" controls playsinline preload="metadata"></video>
+<h1>📚 Vol.40 · 借书冠军与不是白色的北极熊</h1>
+<div class="meta">英文 599 词 ｜ 音频 5分29秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol40/story-library.png" alt="借书冠军小读者">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol40/story-polar.png" alt="不是白色的北极熊">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">walking on air</span> <span class="phon">/ˌwɔːkɪŋ ɒn eər/</span> (习语) 高兴得飘起来；欣喜若狂<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: He was <b>walking on air</b> all the way home!</div>
+</div>
+<div class="vocab">
+  <span class="word">transparent</span> <span class="phon">/trænsˈpærənt/</span> (adj.) 透明的<br>
+  
+  <div class="example">Example: It is <b>transparent</b>, like a tiny glass tube.</div>
+</div>
+<div class="vocab">
+  <span class="word">hollow</span> <span class="phon">/ˈhɒləʊ/</span> (adj.) 中空的；空心的<br>
+  
+  <div class="example">Example: It is <b>hollow</b> inside.</div>
+</div>
+<div class="vocab">
+  <span class="word">camouflage</span> <span class="phon">/ˈkæməflɑːʒ/</span> (n.) 伪装；保护色<br>
+  
+  <div class="example">Example: The white look is also perfect <b>camouflage</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">accumulate</span> <span class="phon">/əˈkjuːmjəleɪt/</span> (v.) 积累；越积越多<br>
+  
+  <div class="example">Example: Book by book, the numbers <b>accumulated</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">statistics</span> <span class="phon">/stəˈtɪstɪks/</span> (n.) 统计数字；统计资料<br>
+  
+  <div class="example">Example: The library's <b>statistics</b> told an amazing story.</div>
+</div>
+<div class="vocab">
+  <span class="word">approve</span> <span class="phon">/əˈpruːv/</span> (v.) 批准；赞成<br>
+  
+  <div class="example">Example: The librarians <b>approved</b> a special prize for him.</div>
+</div>
+<div class="vocab">
+  <span class="word">meanwhile</span> <span class="phon">/ˈmiːnwaɪl/</span> (adv.) 同时；在此期间<br>
+  
+  <div class="example">Example: <b>Meanwhile</b>, his love of reading is already teaching everyone.</div>
+</div>
+<div class="vocab">
+  <span class="word">bond</span> <span class="phon">/bɒnd/</span> (n.) 纽带；联系<br>
+  
+  <div class="example">Example: Reading has built a strong <b>bond</b> between Alif and his little library.</div>
+</div>
+<div class="vocab">
+  <span class="word">leak</span> <span class="phon">/liːk/</span> (v.) 漏出；渗出<br>
+  
+  <div class="example">Example: Very little warmth <b>leaks</b> out.</div>
+</div>
+<div class="vocab">
+  <span class="word">borrower</span> <span class="phon">/ˈbɒrəʊər/</span> (n.) 借书人；借用者<br>
+  
+  <div class="example">Example: They named him the top young <b>borrower</b> of the year.</div>
+</div>
+<div class="vocab">
+  <span class="word">invisible</span> <span class="phon">/ɪnˈvɪzəbl/</span> (adj.) 看不见的；几乎看不到的<br>
+  
+  <div class="example">Example: On the ice, a white bear is almost <b>invisible</b>.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 17, "ncols": 11, "words": [{"word": "LIBRARY", "row": 4, "col": 4, "dir": "A", "num": 1, "cn": "图书馆", "clue": "His little public ___ is just a short walk from his house."}, {"word": "BORROWER", "row": 4, "col": 6, "dir": "D", "num": 2, "cn": "借书人", "clue": "They named him the top young ___ of the year."}, {"word": "ALIF", "row": 3, "col": 4, "dir": "D", "num": 3, "cn": "阿利夫（男孩名）", "clue": "In Malaysia, there is a boy named ___."}, {"word": "POLAR", "row": 0, "col": 7, "dir": "D", "num": 4, "cn": "北极的", "clue": "There lives the ___ bear, the great white bear of the ice."}, {"word": "TRANSPARENT", "row": 13, "col": 0, "dir": "A", "num": 5, "cn": "透明的", "clue": "It is ___, like a tiny glass tube."}, {"word": "HOLLOW", "row": 1, "col": 3, "dir": "A", "num": 6, "cn": "中空的", "clue": "It is ___ inside."}, {"word": "CAMOUFLAGE", "row": 6, "col": 2, "dir": "D", "num": 7, "cn": "伪装", "clue": "The white look is also perfect ___."}, {"word": "STATISTICS", "row": 7, "col": 0, "dir": "D", "num": 8, "cn": "统计数字", "clue": "The library's ___ told an amazing story."}, {"word": "ACCUMULATE", "row": 4, "col": 8, "dir": "D", "num": 9, "cn": "积累", "clue": "Book by book, the numbers ___."}, {"word": "FLOATING", "row": 9, "col": 10, "dir": "D", "num": 10, "cn": "飘浮的", "clue": "You are so happy that you feel like you are ___."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. How many books did Alif borrow from the library in one year?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. 378 books</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. 1,378 books</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. 3,000 books</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. 1,000 books</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. Why does a polar bear look white?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. Sunlight bounces around inside its clear, hollow hairs</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. Its hair is really white</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. Its skin is white</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. Snow sticks to its fur</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：A</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. What does &quot;walking on air&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. To walk very fast</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. To feel so happy that you feel like floating</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. To jump very high</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. To feel sleepy</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does Alif want to be when he grows up?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. A librarian</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. A writer</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. A science teacher</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. A doctor</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：C</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [1, 0, 1, 2];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">Because sunlight bounces around inside all those tiny clear tubes, and the light that comes back to our eyes looks white.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li><i>Because sunlight bounces around ...</i> 是<b>原因状语从句</b>：Because（因为）+ 一整句话，放在句首说明整件事的原因——熊看起来白，是因为阳光在透明管子里反弹。英语里 because 从句可以前置，主句在后，中间用逗号隔开。</li>
+  <li><i>that comes back to our eyes</i> 是<b>定语从句</b>：that（……的）+ 动词短语，紧跟在 light（光）后面，告诉你是哪一道光——就是那道回到我们眼睛里的光。相当于 "the light which comes back to our eyes"，that 在这里指代光。</li>
+  <li><i>bounces ... and ... looks</i> 是<b>并列结构</b>：and 把两个分句连起来——阳光反弹、光看起来白，两个动作一前一后，原因和结果一次说清。</li>
+  <li>整句逻辑链：<b>原因（阳光反弹）→ 限定（回到眼睛的那道光）→ 结果（看起来白）</b>。一句话里藏着原因状语从句、定语从句和并列结构三个机关。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. because 原因状语：用括号里的词补全</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">The bear looks white ____ sunlight bounces inside its hairs.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">because</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">but</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">and</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：because</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">Alif is happy ____ he loves books.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">but</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">because</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">and</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：because</p>
+</div>
+<p class="p4-gname">B. that 定语从句：用括号里的词补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">The light ____ comes back to our eyes looks white.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">what</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">who</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">that</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：that</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">The books ____ Alif borrows fill his shelves.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">that</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">what</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">who</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：that</p>
+</div>
+<p class="p4-gname">C. and 并列结构：用括号里的词补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">Sunlight bounces around ____ the light looks white.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">but</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">and</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">or</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：and</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">Alif reads after school ____ reads again at night.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">but</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">or</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">and</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：and</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>Because sunlight bounces around inside all those tiny clear tubes, and the light that comes back to our eyes looks white.</li>
+<li>A small library card can open a big world.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">P</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">6</span><span class="cwl">H</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">W</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">3</span><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">1</span><span class="cwl">L</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwn">2</span><span class="cwl">B</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwn">9</span><span class="cwl">A</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">Y</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">7</span><span class="cwl">C</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">F</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">8</span><span class="cwl">S</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">W</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">10</span><span class="cwl">F</span></td></tr><tr><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td></tr><tr><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">F</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td></tr><tr><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td></tr><tr><td class="cwc"><span class="cwn">5</span><span class="cwl">T</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">T</span></td></tr><tr><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">G</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td></tr><tr><td class="cwc"><span class="cwl">C</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td></tr><tr><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">G</span></td></tr></table></div>1 横 → <b>LIBRARY</b>（图书馆）<br>2 竖 → <b>BORROWER</b>（借书人）<br>3 竖 → <b>ALIF</b>（阿利夫（男孩名））<br>4 竖 → <b>POLAR</b>（北极的）<br>5 横 → <b>TRANSPARENT</b>（透明的）<br>6 横 → <b>HOLLOW</b>（中空的）<br>7 竖 → <b>CAMOUFLAGE</b>（伪装）<br>8 竖 → <b>STATISTICS</b>（统计数字）<br>9 竖 → <b>ACCUMULATE</b>（积累）<br>10 竖 → <b>FLOATING</b>（飘浮的）<br><br><b>B. Single Choice:</b><br>
+1 → <b>B</b>. The text says: <i>"in one year, Alif borrowed 1,378 books from the library!"</i><br>
+2 → <b>A</b>. <i>"Sunlight bounces around inside all those tiny clear tubes, and the light that comes back to our eyes looks white."</i><br>
+3 → <b>B</b>. The text says: <i>"When you are walking on air, you are so happy that you feel like you are floating!"</i><br>
+4 → <b>C</b>. <i>"When he grows up, he wants to be a science teacher."</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. because&nbsp;&nbsp;2. because<br>
+B. 1. that&nbsp;&nbsp;2. that<br>
+C. 1. and&nbsp;&nbsp;2. and<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol40/Vol40_晚读讲义_借书冠军与不是白色的北极熊_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 21.23, "end": 39.23, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we have two surprises for you: a boy who borrowed more books than any other young reader in his state, and a bear that looks white but is not white at all. Ready? Let's go!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天有两个惊喜等着你们：一位是借书比本州其他小读者都多的男孩，还有一只看起来白、其实一点也不白的熊。准备好了吗？出发！", "words": [{"w": "Hello,", "t": 21.23}, {"w": "young", "t": 21.62}, {"w": "explorers,", "t": 22.01}, {"w": "and", "t": 22.4}, {"w": "welcome", "t": 22.8}, {"w": "back", "t": 23.19}, {"w": "to", "t": 23.58}, {"w": "Michael's", "t": 23.97}, {"w": "Morning", "t": 24.36}, {"w": "Listening!", "t": 24.75}, {"w": "Today", "t": 25.14}, {"w": "we", "t": 25.53}, {"w": "have", "t": 25.93}, {"w": "two", "t": 26.32}, {"w": "surprises", "t": 26.71}, {"w": "for", "t": 27.1}, {"w": "you:", "t": 27.49}, {"w": "a", "t": 27.88}, {"w": "boy", "t": 28.27}, {"w": "who", "t": 28.66}, {"w": "borrowed", "t": 29.06}, {"w": "more", "t": 29.45}, {"w": "books", "t": 29.84}, {"w": "than", "t": 30.23}, {"w": "any", "t": 30.62}, {"w": "other", "t": 31.01}, {"w": "young", "t": 31.4}, {"w": "reader", "t": 31.8}, {"w": "in", "t": 32.19}, {"w": "his", "t": 32.58}, {"w": "state,", "t": 32.97}, {"w": "and", "t": 33.36}, {"w": "a", "t": 33.75}, {"w": "bear", "t": 34.14}, {"w": "that", "t": 34.53}, {"w": "looks", "t": 34.93}, {"w": "white", "t": 35.32}, {"w": "but", "t": 35.71}, {"w": "is", "t": 36.1}, {"w": "not", "t": 36.49}, {"w": "white", "t": 36.88}, {"w": "at", "t": 37.27}, {"w": "all.", "t": 37.66}, {"w": "Ready?", "t": 38.06}, {"w": "Let's", "t": 38.45}, {"w": "go!", "t": 38.84}]}, {"start": 49.21, "end": 70.4, "en": "In Malaysia, there is a boy named Alif. He is thirteen years old, and he loves books more than anything. His little public library is just a short walk from his house, and Alif calls it his second home. Reading has built a strong bond between Alif and his little library.", "title": "借书冠军小读者", "cn": "在马来西亚，有个叫阿利夫的男孩。他十三岁，爱书胜过一切。他家附近的小公共图书馆离他家只有几步路，阿利夫把它叫做自己的第二个家。读书在他和这座小图书馆之间搭起了一座坚固的纽带。", "words": [{"w": "In", "t": 49.21}, {"w": "Malaysia,", "t": 49.63}, {"w": "there", "t": 50.04}, {"w": "is", "t": 50.46}, {"w": "a", "t": 50.87}, {"w": "boy", "t": 51.29}, {"w": "named", "t": 51.7}, {"w": "Alif.", "t": 52.12}, {"w": "He", "t": 52.53}, {"w": "is", "t": 52.95}, {"w": "thirteen", "t": 53.36}, {"w": "years", "t": 53.78}, {"w": "old,", "t": 54.2}, {"w": "and", "t": 54.61}, {"w": "he", "t": 55.03}, {"w": "loves", "t": 55.44}, {"w": "books", "t": 55.86}, {"w": "more", "t": 56.27}, {"w": "than", "t": 56.69}, {"w": "anything.", "t": 57.1}, {"w": "His", "t": 57.52}, {"w": "little", "t": 57.94}, {"w": "public", "t": 58.35}, {"w": "library", "t": 58.77}, {"w": "is", "t": 59.18}, {"w": "just", "t": 59.6}, {"w": "a", "t": 60.01}, {"w": "short", "t": 60.43}, {"w": "walk", "t": 60.84}, {"w": "from", "t": 61.26}, {"w": "his", "t": 61.67}, {"w": "house,", "t": 62.09}, {"w": "and", "t": 62.51}, {"w": "Alif", "t": 62.92}, {"w": "calls", "t": 63.34}, {"w": "it", "t": 63.75}, {"w": "his", "t": 64.17}, {"w": "second", "t": 64.58}, {"w": "home.", "t": 65.0}, {"w": "Reading", "t": 65.41}, {"w": "has", "t": 65.83}, {"w": "built", "t": 66.25}, {"w": "a", "t": 66.66}, {"w": "strong", "t": 67.08}, {"w": "bond", "t": 67.49}, {"w": "between", "t": 67.91}, {"w": "Alif", "t": 68.32}, {"w": "and", "t": 68.74}, {"w": "his", "t": 69.15}, {"w": "little", "t": 69.57}, {"w": "library.", "t": 69.98}]}, {"start": 70.4, "end": 89.09, "en": "After school, Alif takes a short rest, and then he reads. At night, after his homework is done, he reads again. Book by book, the numbers accumulated: in one year, Alif borrowed 1,378 books from the library! That is more than three books every day.", "title": "借书冠军小读者", "cn": "放学后，阿利夫先休息一会儿，然后就开始读书。到了晚上，做完作业，他又接着读。一本接一本，数字越积越多：一年里，阿利夫从图书馆借了 1,378 本书！平均每天超过三本。", "words": [{"w": "After", "t": 70.4}, {"w": "school,", "t": 70.82}, {"w": "Alif", "t": 71.23}, {"w": "takes", "t": 71.65}, {"w": "a", "t": 72.06}, {"w": "short", "t": 72.48}, {"w": "rest,", "t": 72.89}, {"w": "and", "t": 73.31}, {"w": "then", "t": 73.72}, {"w": "he", "t": 74.14}, {"w": "reads.", "t": 74.55}, {"w": "At", "t": 74.97}, {"w": "night,", "t": 75.38}, {"w": "after", "t": 75.8}, {"w": "his", "t": 76.21}, {"w": "homework", "t": 76.63}, {"w": "is", "t": 77.05}, {"w": "done,", "t": 77.46}, {"w": "he", "t": 77.88}, {"w": "reads", "t": 78.29}, {"w": "again.", "t": 78.71}, {"w": "Book", "t": 79.12}, {"w": "by", "t": 79.54}, {"w": "book,", "t": 79.95}, {"w": "the", "t": 80.37}, {"w": "numbers", "t": 80.78}, {"w": "accumulated:", "t": 81.2}, {"w": "in", "t": 81.61}, {"w": "one", "t": 82.03}, {"w": "year,", "t": 82.44}, {"w": "Alif", "t": 82.86}, {"w": "borrowed", "t": 83.28}, {"w": "1,378", "t": 83.69}, {"w": "books", "t": 84.11}, {"w": "from", "t": 84.52}, {"w": "the", "t": 84.94}, {"w": "library!", "t": 85.35}, {"w": "That", "t": 85.77}, {"w": "is", "t": 86.18}, {"w": "more", "t": 86.6}, {"w": "than", "t": 87.01}, {"w": "three", "t": 87.43}, {"w": "books", "t": 87.84}, {"w": "every", "t": 88.26}, {"w": "day.", "t": 88.67}]}, {"start": 89.09, "end": 105.71, "en": "Soon the library's statistics told an amazing story: no other young reader in the whole state had borrowed so many books. The librarians approved a special prize for him, and they named him the top young borrower of the year.", "title": "借书冠军小读者", "cn": "很快，图书馆的统计数字讲出了一个惊人的故事：全州没有别的小读者借过这么多书。图书管理员们批准给他一份特别奖励，并称他为本年度借书冠军小读者。", "words": [{"w": "Soon", "t": 89.09}, {"w": "the", "t": 89.51}, {"w": "library's", "t": 89.92}, {"w": "statistics", "t": 90.34}, {"w": "told", "t": 90.75}, {"w": "an", "t": 91.17}, {"w": "amazing", "t": 91.58}, {"w": "story:", "t": 92.0}, {"w": "no", "t": 92.41}, {"w": "other", "t": 92.83}, {"w": "young", "t": 93.25}, {"w": "reader", "t": 93.66}, {"w": "in", "t": 94.08}, {"w": "the", "t": 94.49}, {"w": "whole", "t": 94.91}, {"w": "state", "t": 95.32}, {"w": "had", "t": 95.74}, {"w": "borrowed", "t": 96.15}, {"w": "so", "t": 96.57}, {"w": "many", "t": 96.98}, {"w": "books.", "t": 97.4}, {"w": "The", "t": 97.82}, {"w": "librarians", "t": 98.23}, {"w": "approved", "t": 98.65}, {"w": "a", "t": 99.06}, {"w": "special", "t": 99.48}, {"w": "prize", "t": 99.89}, {"w": "for", "t": 100.31}, {"w": "him,", "t": 100.72}, {"w": "and", "t": 101.14}, {"w": "they", "t": 101.55}, {"w": "named", "t": 101.97}, {"w": "him", "t": 102.39}, {"w": "the", "t": 102.8}, {"w": "top", "t": 103.22}, {"w": "young", "t": 103.63}, {"w": "borrower", "t": 104.05}, {"w": "of", "t": 104.46}, {"w": "the", "t": 104.88}, {"w": "year.", "t": 105.29}]}, {"start": 105.71, "end": 130.64, "en": "Alif reads real paper books, not screens. He says it is easier to understand a paper book, and easier to share what he learns with others. When he grows up, he wants to be a science teacher. Meanwhile, his love of reading is already teaching everyone around him one simple lesson: a small library card can open a big world.", "title": "借书冠军小读者", "cn": "阿利夫读的是真正的纸质书，不是屏幕。他说纸质书更容易读懂，也更容易把学到的东西分享给别人。长大后，他想当一名科学老师。同时，他对阅读的热爱已经在教周围所有人一个简单的道理：一张小小的借书卡，可以打开一个大大的世界。", "words": [{"w": "Alif", "t": 105.71}, {"w": "reads", "t": 106.13}, {"w": "real", "t": 106.54}, {"w": "paper", "t": 106.96}, {"w": "books,", "t": 107.37}, {"w": "not", "t": 107.79}, {"w": "screens.", "t": 108.2}, {"w": "He", "t": 108.62}, {"w": "says", "t": 109.03}, {"w": "it", "t": 109.45}, {"w": "is", "t": 109.86}, {"w": "easier", "t": 110.28}, {"w": "to", "t": 110.7}, {"w": "understand", "t": 111.11}, {"w": "a", "t": 111.53}, {"w": "paper", "t": 111.94}, {"w": "book,", "t": 112.36}, {"w": "and", "t": 112.77}, {"w": "easier", "t": 113.19}, {"w": "to", "t": 113.6}, {"w": "share", "t": 114.02}, {"w": "what", "t": 114.44}, {"w": "he", "t": 114.85}, {"w": "learns", "t": 115.27}, {"w": "with", "t": 115.68}, {"w": "others.", "t": 116.1}, {"w": "When", "t": 116.51}, {"w": "he", "t": 116.93}, {"w": "grows", "t": 117.34}, {"w": "up,", "t": 117.76}, {"w": "he", "t": 118.17}, {"w": "wants", "t": 118.59}, {"w": "to", "t": 119.01}, {"w": "be", "t": 119.42}, {"w": "a", "t": 119.84}, {"w": "science", "t": 120.25}, {"w": "teacher.", "t": 120.67}, {"w": "Meanwhile,", "t": 121.08}, {"w": "his", "t": 121.5}, {"w": "love", "t": 121.91}, {"w": "of", "t": 122.33}, {"w": "reading", "t": 122.75}, {"w": "is", "t": 123.16}, {"w": "already", "t": 123.58}, {"w": "teaching", "t": 123.99}, {"w": "everyone", "t": 124.41}, {"w": "around", "t": 124.82}, {"w": "him", "t": 125.24}, {"w": "one", "t": 125.65}, {"w": "simple", "t": 126.07}, {"w": "lesson:", "t": 126.48}, {"w": "a", "t": 126.9}, {"w": "small", "t": 127.32}, {"w": "library", "t": 127.73}, {"w": "card", "t": 128.15}, {"w": "can", "t": 128.56}, {"w": "open", "t": 128.98}, {"w": "a", "t": 129.39}, {"w": "big", "t": 129.81}, {"w": "world.", "t": 130.22}]}, {"start": 144.7, "end": 160.23, "en": "Now, from a warm library in Malaysia, let's travel far north, to the frozen Arctic. There lives the polar bear, the great white bear of the ice. But here is a secret: the polar bear is not white at all!", "title": "不是白色的北极熊", "cn": "现在，让我们从马来西亚温暖的图书馆出发，一路向北，来到冰封的北极。那里生活着北极熊——冰原上伟大的白熊。但有个秘密：北极熊其实一点也不白！", "words": [{"w": "Now,", "t": 144.7}, {"w": "from", "t": 145.09}, {"w": "a", "t": 145.48}, {"w": "warm", "t": 145.86}, {"w": "library", "t": 146.25}, {"w": "in", "t": 146.64}, {"w": "Malaysia,", "t": 147.03}, {"w": "let's", "t": 147.42}, {"w": "travel", "t": 147.81}, {"w": "far", "t": 148.19}, {"w": "north,", "t": 148.58}, {"w": "to", "t": 148.97}, {"w": "the", "t": 149.36}, {"w": "frozen", "t": 149.75}, {"w": "Arctic.", "t": 150.14}, {"w": "There", "t": 150.52}, {"w": "lives", "t": 150.91}, {"w": "the", "t": 151.3}, {"w": "polar", "t": 151.69}, {"w": "bear,", "t": 152.08}, {"w": "the", "t": 152.46}, {"w": "great", "t": 152.85}, {"w": "white", "t": 153.24}, {"w": "bear", "t": 153.63}, {"w": "of", "t": 154.02}, {"w": "the", "t": 154.41}, {"w": "ice.", "t": 154.79}, {"w": "But", "t": 155.18}, {"w": "here", "t": 155.57}, {"w": "is", "t": 155.96}, {"w": "a", "t": 156.35}, {"w": "secret:", "t": 156.74}, {"w": "the", "t": 157.12}, {"w": "polar", "t": 157.51}, {"w": "bear", "t": 157.9}, {"w": "is", "t": 158.29}, {"w": "not", "t": 158.68}, {"w": "white", "t": 159.07}, {"w": "at", "t": 159.45}, {"w": "all!", "t": 159.84}]}, {"start": 160.23, "end": 187.4, "en": "Look closely at one hair of its coat. It is not white. It is transparent, like a tiny glass tube, and it is hollow inside. The hair has no white color in it at all. So why does the bear look white? Because sunlight bounces around inside all those tiny clear tubes, and the light that comes back to our eyes looks white. It is a trick of the light!", "title": "不是白色的北极熊", "cn": "仔细看它皮毛上的一根毛。它不是白色的。它是透明的，像一根细细的玻璃管，而且里面是空心的。这根毛里根本没有白色。那么熊为什么看起来是白的呢？因为阳光在所有这些细小的透明管子里来回反弹，回到我们眼睛里的光看起来就是白色的。这就是光线变的小魔术！", "words": [{"w": "Look", "t": 160.23}, {"w": "closely", "t": 160.62}, {"w": "at", "t": 161.01}, {"w": "one", "t": 161.39}, {"w": "hair", "t": 161.78}, {"w": "of", "t": 162.17}, {"w": "its", "t": 162.56}, {"w": "coat.", "t": 162.95}, {"w": "It", "t": 163.34}, {"w": "is", "t": 163.72}, {"w": "not", "t": 164.11}, {"w": "white.", "t": 164.5}, {"w": "It", "t": 164.89}, {"w": "is", "t": 165.28}, {"w": "transparent,", "t": 165.66}, {"w": "like", "t": 166.05}, {"w": "a", "t": 166.44}, {"w": "tiny", "t": 166.83}, {"w": "glass", "t": 167.22}, {"w": "tube,", "t": 167.6}, {"w": "and", "t": 167.99}, {"w": "it", "t": 168.38}, {"w": "is", "t": 168.77}, {"w": "hollow", "t": 169.16}, {"w": "inside.", "t": 169.55}, {"w": "The", "t": 169.93}, {"w": "hair", "t": 170.32}, {"w": "has", "t": 170.71}, {"w": "no", "t": 171.1}, {"w": "white", "t": 171.49}, {"w": "color", "t": 171.87}, {"w": "in", "t": 172.26}, {"w": "it", "t": 172.65}, {"w": "at", "t": 173.04}, {"w": "all.", "t": 173.43}, {"w": "So", "t": 173.81}, {"w": "why", "t": 174.2}, {"w": "does", "t": 174.59}, {"w": "the", "t": 174.98}, {"w": "bear", "t": 175.37}, {"w": "look", "t": 175.76}, {"w": "white?", "t": 176.14}, {"w": "Because", "t": 176.53}, {"w": "sunlight", "t": 176.92}, {"w": "bounces", "t": 177.31}, {"w": "around", "t": 177.7}, {"w": "inside", "t": 178.08}, {"w": "all", "t": 178.47}, {"w": "those", "t": 178.86}, {"w": "tiny", "t": 179.25}, {"w": "clear", "t": 179.64}, {"w": "tubes,", "t": 180.03}, {"w": "and", "t": 180.41}, {"w": "the", "t": 180.8}, {"w": "light", "t": 181.19}, {"w": "that", "t": 181.58}, {"w": "comes", "t": 181.97}, {"w": "back", "t": 182.35}, {"w": "to", "t": 182.74}, {"w": "our", "t": 183.13}, {"w": "eyes", "t": 183.52}, {"w": "looks", "t": 183.91}, {"w": "white.", "t": 184.29}, {"w": "It", "t": 184.68}, {"w": "is", "t": 185.07}, {"w": "a", "t": 185.46}, {"w": "trick", "t": 185.85}, {"w": "of", "t": 186.24}, {"w": "the", "t": 186.62}, {"w": "light!", "t": 187.01}]}, {"start": 187.4, "end": 209.14, "en": "Under all that clear hair, the bear's skin is black. Black skin is good at soaking up the sun's warmth. And under the skin there is a thick layer of fat. Together, the clear coat, the black skin, and the fat work like a warm winter jacket: even in freezing wind, very little warmth leaks out.", "title": "不是白色的北极熊", "cn": "在所有这些透明毛发下面，熊的皮肤是黑色的。黑皮肤很擅长吸收太阳的热量。而皮肤下面还有一层厚厚的脂肪。透明的毛、黑色的皮肤和脂肪一起，就像一件暖和的冬衣：即使在刺骨的寒风里，也只有极少的热量会漏出去。", "words": [{"w": "Under", "t": 187.4}, {"w": "all", "t": 187.79}, {"w": "that", "t": 188.18}, {"w": "clear", "t": 188.56}, {"w": "hair,", "t": 188.95}, {"w": "the", "t": 189.34}, {"w": "bear's", "t": 189.73}, {"w": "skin", "t": 190.12}, {"w": "is", "t": 190.51}, {"w": "black.", "t": 190.89}, {"w": "Black", "t": 191.28}, {"w": "skin", "t": 191.67}, {"w": "is", "t": 192.06}, {"w": "good", "t": 192.45}, {"w": "at", "t": 192.84}, {"w": "soaking", "t": 193.22}, {"w": "up", "t": 193.61}, {"w": "the", "t": 194.0}, {"w": "sun's", "t": 194.39}, {"w": "warmth.", "t": 194.78}, {"w": "And", "t": 195.16}, {"w": "under", "t": 195.55}, {"w": "the", "t": 195.94}, {"w": "skin", "t": 196.33}, {"w": "there", "t": 196.72}, {"w": "is", "t": 197.11}, {"w": "a", "t": 197.49}, {"w": "thick", "t": 197.88}, {"w": "layer", "t": 198.27}, {"w": "of", "t": 198.66}, {"w": "fat.", "t": 199.05}, {"w": "Together,", "t": 199.43}, {"w": "the", "t": 199.82}, {"w": "clear", "t": 200.21}, {"w": "coat,", "t": 200.6}, {"w": "the", "t": 200.99}, {"w": "black", "t": 201.38}, {"w": "skin,", "t": 201.76}, {"w": "and", "t": 202.15}, {"w": "the", "t": 202.54}, {"w": "fat", "t": 202.93}, {"w": "work", "t": 203.32}, {"w": "like", "t": 203.7}, {"w": "a", "t": 204.09}, {"w": "warm", "t": 204.48}, {"w": "winter", "t": 204.87}, {"w": "jacket:", "t": 205.26}, {"w": "even", "t": 205.65}, {"w": "in", "t": 206.03}, {"w": "freezing", "t": 206.42}, {"w": "wind,", "t": 206.81}, {"w": "very", "t": 207.2}, {"w": "little", "t": 207.59}, {"w": "warmth", "t": 207.98}, {"w": "leaks", "t": 208.36}, {"w": "out.", "t": 208.75}]}, {"start": 209.14, "end": 228.94, "en": "The white look is also perfect camouflage. On the ice, a white bear is almost invisible, so seals do not see it coming. But the bear's real colors are a surprise: clear hair, black skin, and a clever design that keeps it alive in one of the coldest places on Earth.", "title": "不是白色的北极熊", "cn": "白色的外表还是完美的伪装。在冰面上，一只白熊几乎看不见，海豹也就发现不了它靠近。但熊真实的颜色却让人惊讶：透明的毛、黑色的皮肤，还有一套精巧的设计，让它能在地球上最冷的地方之一活下来。", "words": [{"w": "The", "t": 209.14}, {"w": "white", "t": 209.53}, {"w": "look", "t": 209.92}, {"w": "is", "t": 210.3}, {"w": "also", "t": 210.69}, {"w": "perfect", "t": 211.08}, {"w": "camouflage.", "t": 211.47}, {"w": "On", "t": 211.86}, {"w": "the", "t": 212.25}, {"w": "ice,", "t": 212.63}, {"w": "a", "t": 213.02}, {"w": "white", "t": 213.41}, {"w": "bear", "t": 213.8}, {"w": "is", "t": 214.19}, {"w": "almost", "t": 214.58}, {"w": "invisible,", "t": 214.96}, {"w": "so", "t": 215.35}, {"w": "seals", "t": 215.74}, {"w": "do", "t": 216.13}, {"w": "not", "t": 216.52}, {"w": "see", "t": 216.9}, {"w": "it", "t": 217.29}, {"w": "coming.", "t": 217.68}, {"w": "But", "t": 218.07}, {"w": "the", "t": 218.46}, {"w": "bear's", "t": 218.85}, {"w": "real", "t": 219.23}, {"w": "colors", "t": 219.62}, {"w": "are", "t": 220.01}, {"w": "a", "t": 220.4}, {"w": "surprise:", "t": 220.79}, {"w": "clear", "t": 221.18}, {"w": "hair,", "t": 221.56}, {"w": "black", "t": 221.95}, {"w": "skin,", "t": 222.34}, {"w": "and", "t": 222.73}, {"w": "a", "t": 223.12}, {"w": "clever", "t": 223.5}, {"w": "design", "t": 223.89}, {"w": "that", "t": 224.28}, {"w": "keeps", "t": 224.67}, {"w": "it", "t": 225.06}, {"w": "alive", "t": 225.45}, {"w": "in", "t": 225.83}, {"w": "one", "t": 226.22}, {"w": "of", "t": 226.61}, {"w": "the", "t": 227.0}, {"w": "coldest", "t": 227.39}, {"w": "places", "t": 227.78}, {"w": "on", "t": 228.16}, {"w": "Earth.", "t": 228.55}]}, {"start": 244.04, "end": 263.75, "en": "Here's today's idiom: 'walking on air.' When you are walking on air, you are so happy that you feel like you are floating! Here's an example: 'When Alif heard he was the top young borrower, he was walking on air all the way home!' Have you ever felt like you were walking on air?", "title": "今日俚语", "cn": "今天的俚语是“walking on air”（在空中行走）。当你 walking on air 时，你高兴得感觉自己像飘起来了一样！举个例子：“当阿利夫听说自己是借书冠军小读者时，他一路走回家都像飘在空中！”你有没有过像飘在空中一样高兴的时候？", "words": [{"w": "Here's", "t": 244.04}, {"w": "today's", "t": 244.41}, {"w": "idiom:", "t": 244.77}, {"w": "'walking", "t": 245.13}, {"w": "on", "t": 245.5}, {"w": "air.'", "t": 245.86}, {"w": "When", "t": 246.23}, {"w": "you", "t": 246.59}, {"w": "are", "t": 246.96}, {"w": "walking", "t": 247.32}, {"w": "on", "t": 247.69}, {"w": "air,", "t": 248.06}, {"w": "you", "t": 248.42}, {"w": "are", "t": 248.78}, {"w": "so", "t": 249.15}, {"w": "happy", "t": 249.51}, {"w": "that", "t": 249.88}, {"w": "you", "t": 250.25}, {"w": "feel", "t": 250.61}, {"w": "like", "t": 250.97}, {"w": "you", "t": 251.34}, {"w": "are", "t": 251.7}, {"w": "floating!", "t": 252.07}, {"w": "Here's", "t": 252.44}, {"w": "an", "t": 252.8}, {"w": "example:", "t": 253.16}, {"w": "'When", "t": 253.53}, {"w": "Alif", "t": 253.89}, {"w": "heard", "t": 254.26}, {"w": "he", "t": 254.62}, {"w": "was", "t": 254.99}, {"w": "the", "t": 255.35}, {"w": "top", "t": 255.72}, {"w": "young", "t": 256.08}, {"w": "borrower,", "t": 256.45}, {"w": "he", "t": 256.81}, {"w": "was", "t": 257.18}, {"w": "walking", "t": 257.55}, {"w": "on", "t": 257.91}, {"w": "air", "t": 258.27}, {"w": "all", "t": 258.64}, {"w": "the", "t": 259.0}, {"w": "way", "t": 259.37}, {"w": "home!'", "t": 259.74}, {"w": "Have", "t": 260.1}, {"w": "you", "t": 260.46}, {"w": "ever", "t": 260.83}, {"w": "felt", "t": 261.19}, {"w": "like", "t": 261.56}, {"w": "you", "t": 261.93}, {"w": "were", "t": 262.29}, {"w": "walking", "t": 262.65}, {"w": "on", "t": 263.02}, {"w": "air?", "t": 263.38}]}, {"start": 277.41, "end": 301.0, "en": "Let's think about our stories: a boy who read 1,378 books, and a bear that looks white but is not. First: if you could borrow any three books from the library today, which three would you pick? Second: the polar bear's coat is a trick of the light — what other animal tricks can you think of? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事：一个读了 1,378 本书的男孩，和一只看起来白、其实不白的熊。第一：如果你今天能从图书馆借任意三本书，你会选哪三本？第二：北极熊的毛色是光线变的小魔术——你还能想到哪些动物的奇妙把戏？和家人聊聊吧！", "words": [{"w": "Let's", "t": 277.41}, {"w": "think", "t": 277.78}, {"w": "about", "t": 278.16}, {"w": "our", "t": 278.53}, {"w": "stories:", "t": 278.91}, {"w": "a", "t": 279.28}, {"w": "boy", "t": 279.66}, {"w": "who", "t": 280.03}, {"w": "read", "t": 280.41}, {"w": "1,378", "t": 280.78}, {"w": "books,", "t": 281.15}, {"w": "and", "t": 281.53}, {"w": "a", "t": 281.9}, {"w": "bear", "t": 282.28}, {"w": "that", "t": 282.65}, {"w": "looks", "t": 283.03}, {"w": "white", "t": 283.4}, {"w": "but", "t": 283.78}, {"w": "is", "t": 284.15}, {"w": "not.", "t": 284.52}, {"w": "First:", "t": 284.9}, {"w": "if", "t": 285.27}, {"w": "you", "t": 285.65}, {"w": "could", "t": 286.02}, {"w": "borrow", "t": 286.4}, {"w": "any", "t": 286.77}, {"w": "three", "t": 287.15}, {"w": "books", "t": 287.52}, {"w": "from", "t": 287.89}, {"w": "the", "t": 288.27}, {"w": "library", "t": 288.64}, {"w": "today,", "t": 289.02}, {"w": "which", "t": 289.39}, {"w": "three", "t": 289.77}, {"w": "would", "t": 290.14}, {"w": "you", "t": 290.52}, {"w": "pick?", "t": 290.89}, {"w": "Second:", "t": 291.26}, {"w": "the", "t": 291.64}, {"w": "polar", "t": 292.01}, {"w": "bear's", "t": 292.39}, {"w": "coat", "t": 292.76}, {"w": "is", "t": 293.14}, {"w": "a", "t": 293.51}, {"w": "trick", "t": 293.89}, {"w": "of", "t": 294.26}, {"w": "the", "t": 294.63}, {"w": "light", "t": 295.01}, {"w": "—", "t": 295.38}, {"w": "what", "t": 295.76}, {"w": "other", "t": 296.13}, {"w": "animal", "t": 296.51}, {"w": "tricks", "t": 296.88}, {"w": "can", "t": 297.26}, {"w": "you", "t": 297.63}, {"w": "think", "t": 298.0}, {"w": "of?", "t": 298.38}, {"w": "Talk", "t": 298.75}, {"w": "about", "t": 299.13}, {"w": "it", "t": 299.5}, {"w": "with", "t": 299.88}, {"w": "your", "t": 300.25}, {"w": "family!", "t": 300.63}]}, {"start": 310.34, "end": 320.2, "en": "That's all for today, young explorers. Keep reading, keep wondering, and may you always feel like you are walking on air! See you tomorrow!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。坚持阅读，保持好奇，愿你永远都有像飘在空中一样高兴的时候！明天见！", "words": [{"w": "That's", "t": 310.34}, {"w": "all", "t": 310.75}, {"w": "for", "t": 311.16}, {"w": "today,", "t": 311.57}, {"w": "young", "t": 311.98}, {"w": "explorers.", "t": 312.39}, {"w": "Keep", "t": 312.8}, {"w": "reading,", "t": 313.22}, {"w": "keep", "t": 313.63}, {"w": "wondering,", "t": 314.04}, {"w": "and", "t": 314.45}, {"w": "may", "t": 314.86}, {"w": "you", "t": 315.27}, {"w": "always", "t": 315.68}, {"w": "feel", "t": 316.09}, {"w": "like", "t": 316.5}, {"w": "you", "t": 316.91}, {"w": "are", "t": 317.32}, {"w": "walking", "t": 317.74}, {"w": "on", "t": 318.15}, {"w": "air!", "t": 318.56}, {"w": "See", "t": 318.97}, {"w": "you", "t": 319.38}, {"w": "tomorrow!", "t": 319.79}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol40/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>

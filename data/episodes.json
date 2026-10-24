@@ -1,5 +1,16 @@
 [
  {
+  "id": "vol40",
+  "title": "借书冠军与不是白色的北极熊",
+  "words": 599,
+  "duration": "5分29秒",
+  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol40/cover.png",
+  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol40/audio.mp3",
+  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol40/video_v1.mp4",
+  "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol40/Vol40_晚读讲义_借书冠军与不是白色的北极熊_v1.pdf",
+  "pdfName": "Vol40_晚读讲义_借书冠军与不是白色的北极熊_v1.pdf"
+ },
+ {
   "id": "vol39",
   "title": "纸飞机爷爷与打盹的蚂蚁",
   "words": 591,
