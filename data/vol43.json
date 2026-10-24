@@ -1,0 +1,3456 @@
+{
+ "id": "vol43",
+ "title": "少年清洁船与海马爸爸",
+ "words": 593,
+ "duration": "5分43秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol43/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol43/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol43/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol43/Vol43_晚读讲义_少年清洁船与海马爸爸_v1.pdf",
+ "pdfName": "Vol43_晚读讲义_少年清洁船与海马爸爸_v1.pdf",
+ "blocks": [
+  {
+   "start": 21.87,
+   "end": 41.09,
+   "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today's heroes come from the sea: a teenage inventor who wants to clean plastic out of the ocean, and the ocean's most unusual dad — a father who gives birth to the babies! Ready? Let's dive in!",
+   "title": "开场白",
+   "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天的主角都来自大海：一位想把塑料清理出海洋的少年发明家，还有海洋里最不寻常的爸爸——一位生下宝宝的爸爸！准备好了吗？潜入大海吧！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 21.87
+    },
+    {
+     "w": "young",
+     "t": 22.28
+    },
+    {
+     "w": "explorers,",
+     "t": 22.69
+    },
+    {
+     "w": "and",
+     "t": 23.1
+    },
+    {
+     "w": "welcome",
+     "t": 23.51
+    },
+    {
+     "w": "back",
+     "t": 23.91
+    },
+    {
+     "w": "to",
+     "t": 24.32
+    },
+    {
+     "w": "Michael's",
+     "t": 24.73
+    },
+    {
+     "w": "Morning",
+     "t": 25.14
+    },
+    {
+     "w": "Listening!",
+     "t": 25.55
+    },
+    {
+     "w": "Today's",
+     "t": 25.96
+    },
+    {
+     "w": "heroes",
+     "t": 26.37
+    },
+    {
+     "w": "come",
+     "t": 26.78
+    },
+    {
+     "w": "from",
+     "t": 27.19
+    },
+    {
+     "w": "the",
+     "t": 27.6
+    },
+    {
+     "w": "sea:",
+     "t": 28.0
+    },
+    {
+     "w": "a",
+     "t": 28.41
+    },
+    {
+     "w": "teenage",
+     "t": 28.82
+    },
+    {
+     "w": "inventor",
+     "t": 29.23
+    },
+    {
+     "w": "who",
+     "t": 29.64
+    },
+    {
+     "w": "wants",
+     "t": 30.05
+    },
+    {
+     "w": "to",
+     "t": 30.46
+    },
+    {
+     "w": "clean",
+     "t": 30.87
+    },
+    {
+     "w": "plastic",
+     "t": 31.28
+    },
+    {
+     "w": "out",
+     "t": 31.68
+    },
+    {
+     "w": "of",
+     "t": 32.09
+    },
+    {
+     "w": "the",
+     "t": 32.5
+    },
+    {
+     "w": "ocean,",
+     "t": 32.91
+    },
+    {
+     "w": "and",
+     "t": 33.32
+    },
+    {
+     "w": "the",
+     "t": 33.73
+    },
+    {
+     "w": "ocean's",
+     "t": 34.14
+    },
+    {
+     "w": "most",
+     "t": 34.55
+    },
+    {
+     "w": "unusual",
+     "t": 34.96
+    },
+    {
+     "w": "dad",
+     "t": 35.36
+    },
+    {
+     "w": "—",
+     "t": 35.77
+    },
+    {
+     "w": "a",
+     "t": 36.18
+    },
+    {
+     "w": "father",
+     "t": 36.59
+    },
+    {
+     "w": "who",
+     "t": 37.0
+    },
+    {
+     "w": "gives",
+     "t": 37.41
+    },
+    {
+     "w": "birth",
+     "t": 37.82
+    },
+    {
+     "w": "to",
+     "t": 38.23
+    },
+    {
+     "w": "the",
+     "t": 38.64
+    },
+    {
+     "w": "babies!",
+     "t": 39.05
+    },
+    {
+     "w": "Ready?",
+     "t": 39.45
+    },
+    {
+     "w": "Let's",
+     "t": 39.86
+    },
+    {
+     "w": "dive",
+     "t": 40.27
+    },
+    {
+     "w": "in!",
+     "t": 40.68
+    }
+   ]
+  },
+  {
+   "start": 59.63,
+   "end": 83.23,
+   "en": "In India, there is a boy named Haaziq Kazi. When he was small, he watched films about the ocean, and the sight made him sad: plastic bags, bottles, and boxes floating everywhere, hurting fish, turtles, and birds. But Haaziq did not just feel sad. At twelve, he designed a special ship to clean the sea: ERVIS.",
+   "title": "少年清洁船",
+   "cn": "在印度，有个叫哈齐克·卡齐的男孩。小时候，他看了一些关于海洋的影片，看到的景象让他很难过：塑料袋、塑料瓶和塑料盒到处漂浮，伤害着鱼、海龟和鸟儿。但哈齐克没有只是难过。十二岁时，他设计了一艘清理海洋的特殊船：ERVIS。",
+   "words": [
+    {
+     "w": "In",
+     "t": 59.63
+    },
+    {
+     "w": "India,",
+     "t": 60.05
+    },
+    {
+     "w": "there",
+     "t": 60.47
+    },
+    {
+     "w": "is",
+     "t": 60.89
+    },
+    {
+     "w": "a",
+     "t": 61.32
+    },
+    {
+     "w": "boy",
+     "t": 61.74
+    },
+    {
+     "w": "named",
+     "t": 62.16
+    },
+    {
+     "w": "Haaziq",
+     "t": 62.58
+    },
+    {
+     "w": "Kazi.",
+     "t": 63.0
+    },
+    {
+     "w": "When",
+     "t": 63.42
+    },
+    {
+     "w": "he",
+     "t": 63.84
+    },
+    {
+     "w": "was",
+     "t": 64.27
+    },
+    {
+     "w": "small,",
+     "t": 64.69
+    },
+    {
+     "w": "he",
+     "t": 65.11
+    },
+    {
+     "w": "watched",
+     "t": 65.53
+    },
+    {
+     "w": "films",
+     "t": 65.95
+    },
+    {
+     "w": "about",
+     "t": 66.37
+    },
+    {
+     "w": "the",
+     "t": 66.79
+    },
+    {
+     "w": "ocean,",
+     "t": 67.22
+    },
+    {
+     "w": "and",
+     "t": 67.64
+    },
+    {
+     "w": "the",
+     "t": 68.06
+    },
+    {
+     "w": "sight",
+     "t": 68.48
+    },
+    {
+     "w": "made",
+     "t": 68.9
+    },
+    {
+     "w": "him",
+     "t": 69.32
+    },
+    {
+     "w": "sad:",
+     "t": 69.74
+    },
+    {
+     "w": "plastic",
+     "t": 70.16
+    },
+    {
+     "w": "bags,",
+     "t": 70.59
+    },
+    {
+     "w": "bottles,",
+     "t": 71.01
+    },
+    {
+     "w": "and",
+     "t": 71.43
+    },
+    {
+     "w": "boxes",
+     "t": 71.85
+    },
+    {
+     "w": "floating",
+     "t": 72.27
+    },
+    {
+     "w": "everywhere,",
+     "t": 72.69
+    },
+    {
+     "w": "hurting",
+     "t": 73.11
+    },
+    {
+     "w": "fish,",
+     "t": 73.54
+    },
+    {
+     "w": "turtles,",
+     "t": 73.96
+    },
+    {
+     "w": "and",
+     "t": 74.38
+    },
+    {
+     "w": "birds.",
+     "t": 74.8
+    },
+    {
+     "w": "But",
+     "t": 75.22
+    },
+    {
+     "w": "Haaziq",
+     "t": 75.64
+    },
+    {
+     "w": "did",
+     "t": 76.06
+    },
+    {
+     "w": "not",
+     "t": 76.49
+    },
+    {
+     "w": "just",
+     "t": 76.91
+    },
+    {
+     "w": "feel",
+     "t": 77.33
+    },
+    {
+     "w": "sad.",
+     "t": 77.75
+    },
+    {
+     "w": "At",
+     "t": 78.17
+    },
+    {
+     "w": "twelve,",
+     "t": 78.59
+    },
+    {
+     "w": "he",
+     "t": 79.01
+    },
+    {
+     "w": "designed",
+     "t": 79.44
+    },
+    {
+     "w": "a",
+     "t": 79.86
+    },
+    {
+     "w": "special",
+     "t": 80.28
+    },
+    {
+     "w": "ship",
+     "t": 80.7
+    },
+    {
+     "w": "to",
+     "t": 81.12
+    },
+    {
+     "w": "clean",
+     "t": 81.54
+    },
+    {
+     "w": "the",
+     "t": 81.96
+    },
+    {
+     "w": "sea:",
+     "t": 82.39
+    },
+    {
+     "w": "ERVIS.",
+     "t": 82.81
+    }
+   ]
+  },
+  {
+   "start": 83.23,
+   "end": 115.67,
+   "en": "How does ERVIS work? Think of water going down your kitchen sink. It spins around, pulling everything to the middle. Haaziq borrowed that idea! ERVIS has big floating saucers around it. They spin slowly, making a gentle whirlpool that pulls plastic to the middle of the ship. Then tubes under the saucers collect the plastic, and the ship sorts it by size and type, like sorting toys into different boxes. Clean water flows back into the sea.",
+   "title": "少年清洁船",
+   "cn": "ERVIS 是怎么工作的呢？想想水流进你家厨房水槽的样子。它打着转，把所有东西都拉到中间。哈齐克借用了这个主意！ERVIS 周围装着几个大的漂浮圆盘。它们慢慢旋转，造出一个温和的漩涡，把塑料拉到船的中间。然后圆盘下面的管子收集塑料，船再按大小和种类把塑料分好，就像把玩具分装进不同的盒子。干净的水又流回大海。",
+   "words": [
+    {
+     "w": "How",
+     "t": 83.23
+    },
+    {
+     "w": "does",
+     "t": 83.65
+    },
+    {
+     "w": "ERVIS",
+     "t": 84.07
+    },
+    {
+     "w": "work?",
+     "t": 84.49
+    },
+    {
+     "w": "Think",
+     "t": 84.91
+    },
+    {
+     "w": "of",
+     "t": 85.33
+    },
+    {
+     "w": "water",
+     "t": 85.76
+    },
+    {
+     "w": "going",
+     "t": 86.18
+    },
+    {
+     "w": "down",
+     "t": 86.6
+    },
+    {
+     "w": "your",
+     "t": 87.02
+    },
+    {
+     "w": "kitchen",
+     "t": 87.44
+    },
+    {
+     "w": "sink.",
+     "t": 87.86
+    },
+    {
+     "w": "It",
+     "t": 88.28
+    },
+    {
+     "w": "spins",
+     "t": 88.71
+    },
+    {
+     "w": "around,",
+     "t": 89.13
+    },
+    {
+     "w": "pulling",
+     "t": 89.55
+    },
+    {
+     "w": "everything",
+     "t": 89.97
+    },
+    {
+     "w": "to",
+     "t": 90.39
+    },
+    {
+     "w": "the",
+     "t": 90.81
+    },
+    {
+     "w": "middle.",
+     "t": 91.23
+    },
+    {
+     "w": "Haaziq",
+     "t": 91.66
+    },
+    {
+     "w": "borrowed",
+     "t": 92.08
+    },
+    {
+     "w": "that",
+     "t": 92.5
+    },
+    {
+     "w": "idea!",
+     "t": 92.92
+    },
+    {
+     "w": "ERVIS",
+     "t": 93.34
+    },
+    {
+     "w": "has",
+     "t": 93.76
+    },
+    {
+     "w": "big",
+     "t": 94.18
+    },
+    {
+     "w": "floating",
+     "t": 94.61
+    },
+    {
+     "w": "saucers",
+     "t": 95.03
+    },
+    {
+     "w": "around",
+     "t": 95.45
+    },
+    {
+     "w": "it.",
+     "t": 95.87
+    },
+    {
+     "w": "They",
+     "t": 96.29
+    },
+    {
+     "w": "spin",
+     "t": 96.71
+    },
+    {
+     "w": "slowly,",
+     "t": 97.13
+    },
+    {
+     "w": "making",
+     "t": 97.56
+    },
+    {
+     "w": "a",
+     "t": 97.98
+    },
+    {
+     "w": "gentle",
+     "t": 98.4
+    },
+    {
+     "w": "whirlpool",
+     "t": 98.82
+    },
+    {
+     "w": "that",
+     "t": 99.24
+    },
+    {
+     "w": "pulls",
+     "t": 99.66
+    },
+    {
+     "w": "plastic",
+     "t": 100.08
+    },
+    {
+     "w": "to",
+     "t": 100.5
+    },
+    {
+     "w": "the",
+     "t": 100.93
+    },
+    {
+     "w": "middle",
+     "t": 101.35
+    },
+    {
+     "w": "of",
+     "t": 101.77
+    },
+    {
+     "w": "the",
+     "t": 102.19
+    },
+    {
+     "w": "ship.",
+     "t": 102.61
+    },
+    {
+     "w": "Then",
+     "t": 103.03
+    },
+    {
+     "w": "tubes",
+     "t": 103.45
+    },
+    {
+     "w": "under",
+     "t": 103.88
+    },
+    {
+     "w": "the",
+     "t": 104.3
+    },
+    {
+     "w": "saucers",
+     "t": 104.72
+    },
+    {
+     "w": "collect",
+     "t": 105.14
+    },
+    {
+     "w": "the",
+     "t": 105.56
+    },
+    {
+     "w": "plastic,",
+     "t": 105.98
+    },
+    {
+     "w": "and",
+     "t": 106.4
+    },
+    {
+     "w": "the",
+     "t": 106.83
+    },
+    {
+     "w": "ship",
+     "t": 107.25
+    },
+    {
+     "w": "sorts",
+     "t": 107.67
+    },
+    {
+     "w": "it",
+     "t": 108.09
+    },
+    {
+     "w": "by",
+     "t": 108.51
+    },
+    {
+     "w": "size",
+     "t": 108.93
+    },
+    {
+     "w": "and",
+     "t": 109.35
+    },
+    {
+     "w": "type,",
+     "t": 109.78
+    },
+    {
+     "w": "like",
+     "t": 110.2
+    },
+    {
+     "w": "sorting",
+     "t": 110.62
+    },
+    {
+     "w": "toys",
+     "t": 111.04
+    },
+    {
+     "w": "into",
+     "t": 111.46
+    },
+    {
+     "w": "different",
+     "t": 111.88
+    },
+    {
+     "w": "boxes.",
+     "t": 112.3
+    },
+    {
+     "w": "Clean",
+     "t": 112.73
+    },
+    {
+     "w": "water",
+     "t": 113.15
+    },
+    {
+     "w": "flows",
+     "t": 113.57
+    },
+    {
+     "w": "back",
+     "t": 113.99
+    },
+    {
+     "w": "into",
+     "t": 114.41
+    },
+    {
+     "w": "the",
+     "t": 114.83
+    },
+    {
+     "w": "sea.",
+     "t": 115.25
+    }
+   ]
+  },
+  {
+   "start": 115.67,
+   "end": 138.43,
+   "en": "Haaziq also wants people to appreciate the ocean more. He started a foundation to help other young people share their sea-saving ideas. His message is simple: you do not need to be a grown-up to make a big change — one clear idea and a lot of hard work can help the whole planet.",
+   "title": "少年清洁船",
+   "cn": "哈齐克还希望人们更加珍爱海洋。他创办了一个基金会，帮助其他年轻人分享他们拯救海洋的点子。他的信念很简单：要带来大改变，不必等到长大——一个清晰的点子，再加很多努力，就能帮助整个地球。",
+   "words": [
+    {
+     "w": "Haaziq",
+     "t": 115.67
+    },
+    {
+     "w": "also",
+     "t": 116.1
+    },
+    {
+     "w": "wants",
+     "t": 116.52
+    },
+    {
+     "w": "people",
+     "t": 116.94
+    },
+    {
+     "w": "to",
+     "t": 117.36
+    },
+    {
+     "w": "appreciate",
+     "t": 117.78
+    },
+    {
+     "w": "the",
+     "t": 118.2
+    },
+    {
+     "w": "ocean",
+     "t": 118.62
+    },
+    {
+     "w": "more.",
+     "t": 119.05
+    },
+    {
+     "w": "He",
+     "t": 119.47
+    },
+    {
+     "w": "started",
+     "t": 119.89
+    },
+    {
+     "w": "a",
+     "t": 120.31
+    },
+    {
+     "w": "foundation",
+     "t": 120.73
+    },
+    {
+     "w": "to",
+     "t": 121.15
+    },
+    {
+     "w": "help",
+     "t": 121.57
+    },
+    {
+     "w": "other",
+     "t": 122.0
+    },
+    {
+     "w": "young",
+     "t": 122.42
+    },
+    {
+     "w": "people",
+     "t": 122.84
+    },
+    {
+     "w": "share",
+     "t": 123.26
+    },
+    {
+     "w": "their",
+     "t": 123.68
+    },
+    {
+     "w": "sea-saving",
+     "t": 124.1
+    },
+    {
+     "w": "ideas.",
+     "t": 124.52
+    },
+    {
+     "w": "His",
+     "t": 124.95
+    },
+    {
+     "w": "message",
+     "t": 125.37
+    },
+    {
+     "w": "is",
+     "t": 125.79
+    },
+    {
+     "w": "simple:",
+     "t": 126.21
+    },
+    {
+     "w": "you",
+     "t": 126.63
+    },
+    {
+     "w": "do",
+     "t": 127.05
+    },
+    {
+     "w": "not",
+     "t": 127.47
+    },
+    {
+     "w": "need",
+     "t": 127.9
+    },
+    {
+     "w": "to",
+     "t": 128.32
+    },
+    {
+     "w": "be",
+     "t": 128.74
+    },
+    {
+     "w": "a",
+     "t": 129.16
+    },
+    {
+     "w": "grown-up",
+     "t": 129.58
+    },
+    {
+     "w": "to",
+     "t": 130.0
+    },
+    {
+     "w": "make",
+     "t": 130.42
+    },
+    {
+     "w": "a",
+     "t": 130.84
+    },
+    {
+     "w": "big",
+     "t": 131.27
+    },
+    {
+     "w": "change",
+     "t": 131.69
+    },
+    {
+     "w": "—",
+     "t": 132.11
+    },
+    {
+     "w": "one",
+     "t": 132.53
+    },
+    {
+     "w": "clear",
+     "t": 132.95
+    },
+    {
+     "w": "idea",
+     "t": 133.37
+    },
+    {
+     "w": "and",
+     "t": 133.79
+    },
+    {
+     "w": "a",
+     "t": 134.22
+    },
+    {
+     "w": "lot",
+     "t": 134.64
+    },
+    {
+     "w": "of",
+     "t": 135.06
+    },
+    {
+     "w": "hard",
+     "t": 135.48
+    },
+    {
+     "w": "work",
+     "t": 135.9
+    },
+    {
+     "w": "can",
+     "t": 136.32
+    },
+    {
+     "w": "help",
+     "t": 136.74
+    },
+    {
+     "w": "the",
+     "t": 137.17
+    },
+    {
+     "w": "whole",
+     "t": 137.59
+    },
+    {
+     "w": "planet.",
+     "t": 138.01
+    }
+   ]
+  },
+  {
+   "start": 151.05,
+   "end": 168.17,
+   "en": "Now, let's dive under the waves and meet the seahorse, a small fish with a horse-like head and a tail that curls like a spring. Seahorses are slow swimmers with a big secret: in seahorse families, it is the father who bears the babies!",
+   "title": "海马爸爸",
+   "cn": "现在，让我们潜入波涛之下，去见见海马：一种有着马一样的头、尾巴像弹簧一样卷曲的小鱼。海马游得很慢，却有个大秘密：在海马家庭里，是爸爸生下宝宝！",
+   "words": [
+    {
+     "w": "Now,",
+     "t": 151.05
+    },
+    {
+     "w": "let's",
+     "t": 151.44
+    },
+    {
+     "w": "dive",
+     "t": 151.83
+    },
+    {
+     "w": "under",
+     "t": 152.22
+    },
+    {
+     "w": "the",
+     "t": 152.61
+    },
+    {
+     "w": "waves",
+     "t": 153.0
+    },
+    {
+     "w": "and",
+     "t": 153.38
+    },
+    {
+     "w": "meet",
+     "t": 153.77
+    },
+    {
+     "w": "the",
+     "t": 154.16
+    },
+    {
+     "w": "seahorse,",
+     "t": 154.55
+    },
+    {
+     "w": "a",
+     "t": 154.94
+    },
+    {
+     "w": "small",
+     "t": 155.33
+    },
+    {
+     "w": "fish",
+     "t": 155.72
+    },
+    {
+     "w": "with",
+     "t": 156.11
+    },
+    {
+     "w": "a",
+     "t": 156.5
+    },
+    {
+     "w": "horse-like",
+     "t": 156.89
+    },
+    {
+     "w": "head",
+     "t": 157.28
+    },
+    {
+     "w": "and",
+     "t": 157.66
+    },
+    {
+     "w": "a",
+     "t": 158.05
+    },
+    {
+     "w": "tail",
+     "t": 158.44
+    },
+    {
+     "w": "that",
+     "t": 158.83
+    },
+    {
+     "w": "curls",
+     "t": 159.22
+    },
+    {
+     "w": "like",
+     "t": 159.61
+    },
+    {
+     "w": "a",
+     "t": 160.0
+    },
+    {
+     "w": "spring.",
+     "t": 160.39
+    },
+    {
+     "w": "Seahorses",
+     "t": 160.78
+    },
+    {
+     "w": "are",
+     "t": 161.17
+    },
+    {
+     "w": "slow",
+     "t": 161.56
+    },
+    {
+     "w": "swimmers",
+     "t": 161.94
+    },
+    {
+     "w": "with",
+     "t": 162.33
+    },
+    {
+     "w": "a",
+     "t": 162.72
+    },
+    {
+     "w": "big",
+     "t": 163.11
+    },
+    {
+     "w": "secret:",
+     "t": 163.5
+    },
+    {
+     "w": "in",
+     "t": 163.89
+    },
+    {
+     "w": "seahorse",
+     "t": 164.28
+    },
+    {
+     "w": "families,",
+     "t": 164.67
+    },
+    {
+     "w": "it",
+     "t": 165.06
+    },
+    {
+     "w": "is",
+     "t": 165.45
+    },
+    {
+     "w": "the",
+     "t": 165.84
+    },
+    {
+     "w": "father",
+     "t": 166.22
+    },
+    {
+     "w": "who",
+     "t": 166.61
+    },
+    {
+     "w": "bears",
+     "t": 167.0
+    },
+    {
+     "w": "the",
+     "t": 167.39
+    },
+    {
+     "w": "babies!",
+     "t": 167.78
+    }
+   ]
+  },
+  {
+   "start": 168.17,
+   "end": 202.41,
+   "en": "Here is how it works. First, let me clarify: the father does not lay the eggs. The mother puts her eggs into a special pouch on the father's belly. The father keeps the eggs safe inside the pouch, just like a warm pocket. He feeds them, gives them clean water, and protects them from danger. After two to four weeks, the babies are ready. The father pushes, and in total, hundreds of little seahorses, each nearly transparent and no bigger than your fingernail, swim out into the sea!",
+   "title": "海马爸爸",
+   "cn": "具体是这样的。首先，我先澄清一点：爸爸并不产卵。妈妈把卵放进爸爸肚子上的一个特殊育儿袋里。爸爸把卵安全地保存在育儿袋里，就像一个温暖的口袋。他给它们喂食、提供干净的水，还保护它们不受危险。两到四周后，宝宝们准备好了。爸爸一推，总共几百只小海马——每只几乎透明，还没有你的指甲大——游进了大海！",
+   "words": [
+    {
+     "w": "Here",
+     "t": 168.17
+    },
+    {
+     "w": "is",
+     "t": 168.56
+    },
+    {
+     "w": "how",
+     "t": 168.95
+    },
+    {
+     "w": "it",
+     "t": 169.34
+    },
+    {
+     "w": "works.",
+     "t": 169.73
+    },
+    {
+     "w": "First,",
+     "t": 170.12
+    },
+    {
+     "w": "let",
+     "t": 170.5
+    },
+    {
+     "w": "me",
+     "t": 170.89
+    },
+    {
+     "w": "clarify:",
+     "t": 171.28
+    },
+    {
+     "w": "the",
+     "t": 171.67
+    },
+    {
+     "w": "father",
+     "t": 172.06
+    },
+    {
+     "w": "does",
+     "t": 172.45
+    },
+    {
+     "w": "not",
+     "t": 172.84
+    },
+    {
+     "w": "lay",
+     "t": 173.23
+    },
+    {
+     "w": "the",
+     "t": 173.62
+    },
+    {
+     "w": "eggs.",
+     "t": 174.01
+    },
+    {
+     "w": "The",
+     "t": 174.4
+    },
+    {
+     "w": "mother",
+     "t": 174.78
+    },
+    {
+     "w": "puts",
+     "t": 175.17
+    },
+    {
+     "w": "her",
+     "t": 175.56
+    },
+    {
+     "w": "eggs",
+     "t": 175.95
+    },
+    {
+     "w": "into",
+     "t": 176.34
+    },
+    {
+     "w": "a",
+     "t": 176.73
+    },
+    {
+     "w": "special",
+     "t": 177.12
+    },
+    {
+     "w": "pouch",
+     "t": 177.51
+    },
+    {
+     "w": "on",
+     "t": 177.9
+    },
+    {
+     "w": "the",
+     "t": 178.29
+    },
+    {
+     "w": "father's",
+     "t": 178.68
+    },
+    {
+     "w": "belly.",
+     "t": 179.06
+    },
+    {
+     "w": "The",
+     "t": 179.45
+    },
+    {
+     "w": "father",
+     "t": 179.84
+    },
+    {
+     "w": "keeps",
+     "t": 180.23
+    },
+    {
+     "w": "the",
+     "t": 180.62
+    },
+    {
+     "w": "eggs",
+     "t": 181.01
+    },
+    {
+     "w": "safe",
+     "t": 181.4
+    },
+    {
+     "w": "inside",
+     "t": 181.79
+    },
+    {
+     "w": "the",
+     "t": 182.18
+    },
+    {
+     "w": "pouch,",
+     "t": 182.57
+    },
+    {
+     "w": "just",
+     "t": 182.96
+    },
+    {
+     "w": "like",
+     "t": 183.34
+    },
+    {
+     "w": "a",
+     "t": 183.73
+    },
+    {
+     "w": "warm",
+     "t": 184.12
+    },
+    {
+     "w": "pocket.",
+     "t": 184.51
+    },
+    {
+     "w": "He",
+     "t": 184.9
+    },
+    {
+     "w": "feeds",
+     "t": 185.29
+    },
+    {
+     "w": "them,",
+     "t": 185.68
+    },
+    {
+     "w": "gives",
+     "t": 186.07
+    },
+    {
+     "w": "them",
+     "t": 186.46
+    },
+    {
+     "w": "clean",
+     "t": 186.85
+    },
+    {
+     "w": "water,",
+     "t": 187.24
+    },
+    {
+     "w": "and",
+     "t": 187.62
+    },
+    {
+     "w": "protects",
+     "t": 188.01
+    },
+    {
+     "w": "them",
+     "t": 188.4
+    },
+    {
+     "w": "from",
+     "t": 188.79
+    },
+    {
+     "w": "danger.",
+     "t": 189.18
+    },
+    {
+     "w": "After",
+     "t": 189.57
+    },
+    {
+     "w": "two",
+     "t": 189.96
+    },
+    {
+     "w": "to",
+     "t": 190.35
+    },
+    {
+     "w": "four",
+     "t": 190.74
+    },
+    {
+     "w": "weeks,",
+     "t": 191.13
+    },
+    {
+     "w": "the",
+     "t": 191.52
+    },
+    {
+     "w": "babies",
+     "t": 191.9
+    },
+    {
+     "w": "are",
+     "t": 192.29
+    },
+    {
+     "w": "ready.",
+     "t": 192.68
+    },
+    {
+     "w": "The",
+     "t": 193.07
+    },
+    {
+     "w": "father",
+     "t": 193.46
+    },
+    {
+     "w": "pushes,",
+     "t": 193.85
+    },
+    {
+     "w": "and",
+     "t": 194.24
+    },
+    {
+     "w": "in",
+     "t": 194.63
+    },
+    {
+     "w": "total,",
+     "t": 195.02
+    },
+    {
+     "w": "hundreds",
+     "t": 195.41
+    },
+    {
+     "w": "of",
+     "t": 195.8
+    },
+    {
+     "w": "little",
+     "t": 196.18
+    },
+    {
+     "w": "seahorses,",
+     "t": 196.57
+    },
+    {
+     "w": "each",
+     "t": 196.96
+    },
+    {
+     "w": "nearly",
+     "t": 197.35
+    },
+    {
+     "w": "transparent",
+     "t": 197.74
+    },
+    {
+     "w": "and",
+     "t": 198.13
+    },
+    {
+     "w": "no",
+     "t": 198.52
+    },
+    {
+     "w": "bigger",
+     "t": 198.91
+    },
+    {
+     "w": "than",
+     "t": 199.3
+    },
+    {
+     "w": "your",
+     "t": 199.69
+    },
+    {
+     "w": "fingernail,",
+     "t": 200.08
+    },
+    {
+     "w": "swim",
+     "t": 200.46
+    },
+    {
+     "w": "out",
+     "t": 200.85
+    },
+    {
+     "w": "into",
+     "t": 201.24
+    },
+    {
+     "w": "the",
+     "t": 201.63
+    },
+    {
+     "w": "sea!",
+     "t": 202.02
+    }
+   ]
+  },
+  {
+   "start": 202.41,
+   "end": 228.09,
+   "en": "But here is the sad part: baby seahorses must look after themselves from the very first minute — their parents do not feed or teach them. They hide behind a curtain of green sea grass hoping no bigger fish finds them. One scientist remarked that seahorse fathers are among the best dads in the animal world, because they give their babies the safest start in life.",
+   "title": "海马爸爸",
+   "cn": "但有个伤心的地方：小海马从出生的第一分钟起就必须自己照顾自己——爸爸妈妈既不喂它们，也不教它们。它们躲在一帘绿色的海草后面，希望没有更大的鱼发现它们。一位科学家说，海马爸爸是动物世界里最好的爸爸之一，因为它们给了宝宝最安全的生命起点。",
+   "words": [
+    {
+     "w": "But",
+     "t": 202.41
+    },
+    {
+     "w": "here",
+     "t": 202.8
+    },
+    {
+     "w": "is",
+     "t": 203.19
+    },
+    {
+     "w": "the",
+     "t": 203.58
+    },
+    {
+     "w": "sad",
+     "t": 203.97
+    },
+    {
+     "w": "part:",
+     "t": 204.36
+    },
+    {
+     "w": "baby",
+     "t": 204.74
+    },
+    {
+     "w": "seahorses",
+     "t": 205.13
+    },
+    {
+     "w": "must",
+     "t": 205.52
+    },
+    {
+     "w": "look",
+     "t": 205.91
+    },
+    {
+     "w": "after",
+     "t": 206.3
+    },
+    {
+     "w": "themselves",
+     "t": 206.69
+    },
+    {
+     "w": "from",
+     "t": 207.08
+    },
+    {
+     "w": "the",
+     "t": 207.47
+    },
+    {
+     "w": "very",
+     "t": 207.86
+    },
+    {
+     "w": "first",
+     "t": 208.25
+    },
+    {
+     "w": "minute",
+     "t": 208.64
+    },
+    {
+     "w": "—",
+     "t": 209.02
+    },
+    {
+     "w": "their",
+     "t": 209.41
+    },
+    {
+     "w": "parents",
+     "t": 209.8
+    },
+    {
+     "w": "do",
+     "t": 210.19
+    },
+    {
+     "w": "not",
+     "t": 210.58
+    },
+    {
+     "w": "feed",
+     "t": 210.97
+    },
+    {
+     "w": "or",
+     "t": 211.36
+    },
+    {
+     "w": "teach",
+     "t": 211.75
+    },
+    {
+     "w": "them.",
+     "t": 212.14
+    },
+    {
+     "w": "They",
+     "t": 212.53
+    },
+    {
+     "w": "hide",
+     "t": 212.92
+    },
+    {
+     "w": "behind",
+     "t": 213.3
+    },
+    {
+     "w": "a",
+     "t": 213.69
+    },
+    {
+     "w": "curtain",
+     "t": 214.08
+    },
+    {
+     "w": "of",
+     "t": 214.47
+    },
+    {
+     "w": "green",
+     "t": 214.86
+    },
+    {
+     "w": "sea",
+     "t": 215.25
+    },
+    {
+     "w": "grass",
+     "t": 215.64
+    },
+    {
+     "w": "hoping",
+     "t": 216.03
+    },
+    {
+     "w": "no",
+     "t": 216.42
+    },
+    {
+     "w": "bigger",
+     "t": 216.81
+    },
+    {
+     "w": "fish",
+     "t": 217.2
+    },
+    {
+     "w": "finds",
+     "t": 217.58
+    },
+    {
+     "w": "them.",
+     "t": 217.97
+    },
+    {
+     "w": "One",
+     "t": 218.36
+    },
+    {
+     "w": "scientist",
+     "t": 218.75
+    },
+    {
+     "w": "remarked",
+     "t": 219.14
+    },
+    {
+     "w": "that",
+     "t": 219.53
+    },
+    {
+     "w": "seahorse",
+     "t": 219.92
+    },
+    {
+     "w": "fathers",
+     "t": 220.31
+    },
+    {
+     "w": "are",
+     "t": 220.7
+    },
+    {
+     "w": "among",
+     "t": 221.09
+    },
+    {
+     "w": "the",
+     "t": 221.48
+    },
+    {
+     "w": "best",
+     "t": 221.86
+    },
+    {
+     "w": "dads",
+     "t": 222.25
+    },
+    {
+     "w": "in",
+     "t": 222.64
+    },
+    {
+     "w": "the",
+     "t": 223.03
+    },
+    {
+     "w": "animal",
+     "t": 223.42
+    },
+    {
+     "w": "world,",
+     "t": 223.81
+    },
+    {
+     "w": "because",
+     "t": 224.2
+    },
+    {
+     "w": "they",
+     "t": 224.59
+    },
+    {
+     "w": "give",
+     "t": 224.98
+    },
+    {
+     "w": "their",
+     "t": 225.37
+    },
+    {
+     "w": "babies",
+     "t": 225.76
+    },
+    {
+     "w": "the",
+     "t": 226.14
+    },
+    {
+     "w": "safest",
+     "t": 226.53
+    },
+    {
+     "w": "start",
+     "t": 226.92
+    },
+    {
+     "w": "in",
+     "t": 227.31
+    },
+    {
+     "w": "life.",
+     "t": 227.7
+    }
+   ]
+  },
+  {
+   "start": 245.11,
+   "end": 275.85,
+   "en": "Here's today's idiom: 'jump on the bandwagon.' Long ago, a bandwagon was a wagon carrying musicians in a parade, and crowds followed it because it was fun. Today, jumping on the bandwagon means joining something just because it is popular! Here's an example: 'When Haaziq's school started cleaning the beach, the whole class jumped on the bandwagon and joined in!' Do you jump on the bandwagon, or do you start the parade yourself?",
+   "title": "今日俚语",
+   "cn": "今天的俚语是“jump on the bandwagon”（跳上花车）。很久以前，花车是游行队伍里载着乐手的车，人们跟着它走，因为很有趣。今天，jump on the bandwagon 就是指因为一件事很流行就跟着一起做！举个例子：“当哈齐克的学校开始清理海滩时，全班同学都跳上了花车、一起加入了进来！”你是跟着跳上花车的人，还是自己带头游行的人呢？",
+   "words": [
+    {
+     "w": "Here's",
+     "t": 245.11
+    },
+    {
+     "w": "today's",
+     "t": 245.53
+    },
+    {
+     "w": "idiom:",
+     "t": 245.95
+    },
+    {
+     "w": "'jump",
+     "t": 246.37
+    },
+    {
+     "w": "on",
+     "t": 246.79
+    },
+    {
+     "w": "the",
+     "t": 247.22
+    },
+    {
+     "w": "bandwagon.'",
+     "t": 247.64
+    },
+    {
+     "w": "Long",
+     "t": 248.06
+    },
+    {
+     "w": "ago,",
+     "t": 248.48
+    },
+    {
+     "w": "a",
+     "t": 248.9
+    },
+    {
+     "w": "bandwagon",
+     "t": 249.32
+    },
+    {
+     "w": "was",
+     "t": 249.74
+    },
+    {
+     "w": "a",
+     "t": 250.16
+    },
+    {
+     "w": "wagon",
+     "t": 250.58
+    },
+    {
+     "w": "carrying",
+     "t": 251.01
+    },
+    {
+     "w": "musicians",
+     "t": 251.43
+    },
+    {
+     "w": "in",
+     "t": 251.85
+    },
+    {
+     "w": "a",
+     "t": 252.27
+    },
+    {
+     "w": "parade,",
+     "t": 252.69
+    },
+    {
+     "w": "and",
+     "t": 253.11
+    },
+    {
+     "w": "crowds",
+     "t": 253.53
+    },
+    {
+     "w": "followed",
+     "t": 253.95
+    },
+    {
+     "w": "it",
+     "t": 254.37
+    },
+    {
+     "w": "because",
+     "t": 254.8
+    },
+    {
+     "w": "it",
+     "t": 255.22
+    },
+    {
+     "w": "was",
+     "t": 255.64
+    },
+    {
+     "w": "fun.",
+     "t": 256.06
+    },
+    {
+     "w": "Today,",
+     "t": 256.48
+    },
+    {
+     "w": "jumping",
+     "t": 256.9
+    },
+    {
+     "w": "on",
+     "t": 257.32
+    },
+    {
+     "w": "the",
+     "t": 257.74
+    },
+    {
+     "w": "bandwagon",
+     "t": 258.16
+    },
+    {
+     "w": "means",
+     "t": 258.59
+    },
+    {
+     "w": "joining",
+     "t": 259.01
+    },
+    {
+     "w": "something",
+     "t": 259.43
+    },
+    {
+     "w": "just",
+     "t": 259.85
+    },
+    {
+     "w": "because",
+     "t": 260.27
+    },
+    {
+     "w": "it",
+     "t": 260.69
+    },
+    {
+     "w": "is",
+     "t": 261.11
+    },
+    {
+     "w": "popular!",
+     "t": 261.53
+    },
+    {
+     "w": "Here's",
+     "t": 261.95
+    },
+    {
+     "w": "an",
+     "t": 262.37
+    },
+    {
+     "w": "example:",
+     "t": 262.8
+    },
+    {
+     "w": "'When",
+     "t": 263.22
+    },
+    {
+     "w": "Haaziq's",
+     "t": 263.64
+    },
+    {
+     "w": "school",
+     "t": 264.06
+    },
+    {
+     "w": "started",
+     "t": 264.48
+    },
+    {
+     "w": "cleaning",
+     "t": 264.9
+    },
+    {
+     "w": "the",
+     "t": 265.32
+    },
+    {
+     "w": "beach,",
+     "t": 265.74
+    },
+    {
+     "w": "the",
+     "t": 266.16
+    },
+    {
+     "w": "whole",
+     "t": 266.59
+    },
+    {
+     "w": "class",
+     "t": 267.01
+    },
+    {
+     "w": "jumped",
+     "t": 267.43
+    },
+    {
+     "w": "on",
+     "t": 267.85
+    },
+    {
+     "w": "the",
+     "t": 268.27
+    },
+    {
+     "w": "bandwagon",
+     "t": 268.69
+    },
+    {
+     "w": "and",
+     "t": 269.11
+    },
+    {
+     "w": "joined",
+     "t": 269.53
+    },
+    {
+     "w": "in!'",
+     "t": 269.95
+    },
+    {
+     "w": "Do",
+     "t": 270.38
+    },
+    {
+     "w": "you",
+     "t": 270.8
+    },
+    {
+     "w": "jump",
+     "t": 271.22
+    },
+    {
+     "w": "on",
+     "t": 271.64
+    },
+    {
+     "w": "the",
+     "t": 272.06
+    },
+    {
+     "w": "bandwagon,",
+     "t": 272.48
+    },
+    {
+     "w": "or",
+     "t": 272.9
+    },
+    {
+     "w": "do",
+     "t": 273.32
+    },
+    {
+     "w": "you",
+     "t": 273.74
+    },
+    {
+     "w": "start",
+     "t": 274.17
+    },
+    {
+     "w": "the",
+     "t": 274.59
+    },
+    {
+     "w": "parade",
+     "t": 275.01
+    },
+    {
+     "w": "yourself?",
+     "t": 275.43
+    }
+   ]
+  },
+  {
+   "start": 289.75,
+   "end": 312.91,
+   "en": "Let's think about our stories: a boy who designed a sea-cleaning ship, and a father who carries the babies. First: if you could design one machine to help the ocean, what would it do? Second: seahorse dads carry their babies in a pouch — what other animal dads do you know that help look after their babies? Talk about it with your family!",
+   "title": "结束语与互动问题",
+   "cn": "我们来想想今天的故事：一个设计了海洋清洁船的男孩，和一位把宝宝带在身上的爸爸。第一：如果你能设计一台帮助海洋的机器，它会做什么？第二：海马爸爸把宝宝装在育儿袋里——你还知道哪些动物爸爸会帮忙照顾宝宝？和家人聊聊吧！",
+   "words": [
+    {
+     "w": "Let's",
+     "t": 289.75
+    },
+    {
+     "w": "think",
+     "t": 290.12
+    },
+    {
+     "w": "about",
+     "t": 290.49
+    },
+    {
+     "w": "our",
+     "t": 290.85
+    },
+    {
+     "w": "stories:",
+     "t": 291.22
+    },
+    {
+     "w": "a",
+     "t": 291.59
+    },
+    {
+     "w": "boy",
+     "t": 291.96
+    },
+    {
+     "w": "who",
+     "t": 292.32
+    },
+    {
+     "w": "designed",
+     "t": 292.69
+    },
+    {
+     "w": "a",
+     "t": 293.06
+    },
+    {
+     "w": "sea-cleaning",
+     "t": 293.43
+    },
+    {
+     "w": "ship,",
+     "t": 293.79
+    },
+    {
+     "w": "and",
+     "t": 294.16
+    },
+    {
+     "w": "a",
+     "t": 294.53
+    },
+    {
+     "w": "father",
+     "t": 294.9
+    },
+    {
+     "w": "who",
+     "t": 295.26
+    },
+    {
+     "w": "carries",
+     "t": 295.63
+    },
+    {
+     "w": "the",
+     "t": 296.0
+    },
+    {
+     "w": "babies.",
+     "t": 296.37
+    },
+    {
+     "w": "First:",
+     "t": 296.73
+    },
+    {
+     "w": "if",
+     "t": 297.1
+    },
+    {
+     "w": "you",
+     "t": 297.47
+    },
+    {
+     "w": "could",
+     "t": 297.84
+    },
+    {
+     "w": "design",
+     "t": 298.21
+    },
+    {
+     "w": "one",
+     "t": 298.57
+    },
+    {
+     "w": "machine",
+     "t": 298.94
+    },
+    {
+     "w": "to",
+     "t": 299.31
+    },
+    {
+     "w": "help",
+     "t": 299.68
+    },
+    {
+     "w": "the",
+     "t": 300.04
+    },
+    {
+     "w": "ocean,",
+     "t": 300.41
+    },
+    {
+     "w": "what",
+     "t": 300.78
+    },
+    {
+     "w": "would",
+     "t": 301.15
+    },
+    {
+     "w": "it",
+     "t": 301.51
+    },
+    {
+     "w": "do?",
+     "t": 301.88
+    },
+    {
+     "w": "Second:",
+     "t": 302.25
+    },
+    {
+     "w": "seahorse",
+     "t": 302.62
+    },
+    {
+     "w": "dads",
+     "t": 302.98
+    },
+    {
+     "w": "carry",
+     "t": 303.35
+    },
+    {
+     "w": "their",
+     "t": 303.72
+    },
+    {
+     "w": "babies",
+     "t": 304.09
+    },
+    {
+     "w": "in",
+     "t": 304.45
+    },
+    {
+     "w": "a",
+     "t": 304.82
+    },
+    {
+     "w": "pouch",
+     "t": 305.19
+    },
+    {
+     "w": "—",
+     "t": 305.56
+    },
+    {
+     "w": "what",
+     "t": 305.93
+    },
+    {
+     "w": "other",
+     "t": 306.29
+    },
+    {
+     "w": "animal",
+     "t": 306.66
+    },
+    {
+     "w": "dads",
+     "t": 307.03
+    },
+    {
+     "w": "do",
+     "t": 307.4
+    },
+    {
+     "w": "you",
+     "t": 307.76
+    },
+    {
+     "w": "know",
+     "t": 308.13
+    },
+    {
+     "w": "that",
+     "t": 308.5
+    },
+    {
+     "w": "help",
+     "t": 308.87
+    },
+    {
+     "w": "look",
+     "t": 309.23
+    },
+    {
+     "w": "after",
+     "t": 309.6
+    },
+    {
+     "w": "their",
+     "t": 309.97
+    },
+    {
+     "w": "babies?",
+     "t": 310.34
+    },
+    {
+     "w": "Talk",
+     "t": 310.7
+    },
+    {
+     "w": "about",
+     "t": 311.07
+    },
+    {
+     "w": "it",
+     "t": 311.44
+    },
+    {
+     "w": "with",
+     "t": 311.81
+    },
+    {
+     "w": "your",
+     "t": 312.17
+    },
+    {
+     "w": "family!",
+     "t": 312.54
+    }
+   ]
+  },
+  {
+   "start": 323.77,
+   "end": 333.68,
+   "en": "That's all for today, young explorers. Keep wondering, keep caring for our ocean, and jump on the bandwagon for a good cause! See you tomorrow!",
+   "title": "告别",
+   "cn": "今天的节目就到这里啦，小小探险家们。保持好奇，继续关爱我们的海洋，为了好的事业跳上花车吧！明天见！",
+   "words": [
+    {
+     "w": "That's",
+     "t": 323.77
+    },
+    {
+     "w": "all",
+     "t": 324.17
+    },
+    {
+     "w": "for",
+     "t": 324.56
+    },
+    {
+     "w": "today,",
+     "t": 324.96
+    },
+    {
+     "w": "young",
+     "t": 325.36
+    },
+    {
+     "w": "explorers.",
+     "t": 325.75
+    },
+    {
+     "w": "Keep",
+     "t": 326.15
+    },
+    {
+     "w": "wondering,",
+     "t": 326.54
+    },
+    {
+     "w": "keep",
+     "t": 326.94
+    },
+    {
+     "w": "caring",
+     "t": 327.34
+    },
+    {
+     "w": "for",
+     "t": 327.73
+    },
+    {
+     "w": "our",
+     "t": 328.13
+    },
+    {
+     "w": "ocean,",
+     "t": 328.53
+    },
+    {
+     "w": "and",
+     "t": 328.92
+    },
+    {
+     "w": "jump",
+     "t": 329.32
+    },
+    {
+     "w": "on",
+     "t": 329.72
+    },
+    {
+     "w": "the",
+     "t": 330.11
+    },
+    {
+     "w": "bandwagon",
+     "t": 330.51
+    },
+    {
+     "w": "for",
+     "t": 330.91
+    },
+    {
+     "w": "a",
+     "t": 331.3
+    },
+    {
+     "w": "good",
+     "t": 331.7
+    },
+    {
+     "w": "cause!",
+     "t": 332.09
+    },
+    {
+     "w": "See",
+     "t": 332.49
+    },
+    {
+     "w": "you",
+     "t": 332.89
+    },
+    {
+     "w": "tomorrow!",
+     "t": 333.28
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "jump on the bandwagon",
+    "phon": "/dʒʌmp ɒn ðə ˈbændwæɡən/",
+    "meaning": "(习语) 跟风；因为流行而跟着做",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: The whole class jumped on the bandwagon and joined in!"
+   },
+   {
+    "word": "appreciate",
+    "phon": "/əˈpriːʃieɪt/",
+    "meaning": "(v.) 珍爱；欣赏；感激",
+    "tags": [],
+    "example": "Example: Haaziq also wants people to appreciate the ocean more."
+   },
+   {
+    "word": "clarify",
+    "phon": "/ˈklærəfaɪ/",
+    "meaning": "(v.) 澄清；讲清楚",
+    "tags": [],
+    "example": "Example: First, let me clarify: the father does not lay the eggs."
+   },
+   {
+    "word": "whirlpool",
+    "phon": "/ˈwɜːlpʊl/",
+    "meaning": "(n.) 漩涡",
+    "tags": [],
+    "example": "Example: making a gentle whirlpool that pulls plastic to the middle of the ship."
+   },
+   {
+    "word": "pouch",
+    "phon": "/paʊtʃ/",
+    "meaning": "(n.) 育儿袋；小袋子",
+    "tags": [],
+    "example": "Example: into a special pouch on the father's belly."
+   },
+   {
+    "word": "transparent",
+    "phon": "/trænsˈpærənt/",
+    "meaning": "(adj.) 透明的",
+    "tags": [],
+    "example": "Example: each nearly transparent and no bigger than your fingernail."
+   },
+   {
+    "word": "remark",
+    "phon": "/rɪˈmɑːk/",
+    "meaning": "(v.) 说；评论",
+    "tags": [],
+    "example": "Example: One scientist remarked that seahorse fathers are among the best dads."
+   },
+   {
+    "word": "curtain",
+    "phon": "/ˈkɜːtn/",
+    "meaning": "(n.) 帘子；遮挡物",
+    "tags": [],
+    "example": "Example: behind a curtain of green sea grass."
+   },
+   {
+    "word": "inventor",
+    "phon": "/ɪnˈventər/",
+    "meaning": "(n.) 发明家",
+    "tags": [],
+    "example": "Example: a teenage inventor who wants to clean plastic out of the ocean."
+   },
+   {
+    "word": "foundation",
+    "phon": "/faʊnˈdeɪʃn/",
+    "meaning": "(n.) 基金会",
+    "tags": [],
+    "example": "Example: He started a foundation to help other young people."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "What gave Haaziq the idea for ERVIS?\nA. A storm at sea\nB. A toy boat\nC. Water going down a sink\nD. A washing machine",
+     "How does ERVIS collect plastic?\nA. With magnets\nB. With spinning saucers that make a whirlpool\nC. With big nets\nD. With divers",
+     "Who carries the baby seahorses?\nA. The father\nB. The mother\nC. Both parents\nD. No one",
+     "What does \"jump on the bandwagon\" mean?\nA. To start a parade\nB. To play music in a parade\nC. To jump onto a wagon\nD. To join something because it is popular"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "type": "text",
+        "text": "One scientist remarked that seahorse fathers are among the best dads in the animal world, because they give their babies the safest start in life."
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "that seahorse fathers are among the best dads ..."
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "宾语从句"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：remarked（说）后面跟一整句话，that（……）把这句话变成 remark 的内容——科学家说了什么？说了“海马爸爸是最好的爸爸之一”。that 在这里只起连接作用，译成中文时常常不用译出。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "because they give their babies the safest start in life"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "原因状语从句"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：because（因为）+ 一整句话，放在句尾说明原因——为什么说它们是最好的爸爸？因为它们给了宝宝最安全的生命起点。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "the safest start"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 与 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "the best dads"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "最高级"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：safest 是 safe（安全的）的最高级，best 是 good（好的）的最高级，前面都要加 the，表示“在所有……当中最……”。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句逻辑链："
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "观点（科学家说）→ 内容（最好的爸爸）→ 原因（给了最安全的起点）"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。一句话里藏着宾语从句、原因状语从句和最高级三个机关。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PLASTIC"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（塑料）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "WHIRLPOOL"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（漩涡）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "INVENTOR"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（发明家）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "POUCH"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（育儿袋）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ERVIS"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（ERVIS 清洁船）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "BANDWAGON"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（花车）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "CURTAIN"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（帘子）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SEAHORSE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（海马）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "OCEAN"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（海洋）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "TRANSPARENT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（透明的）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"Think of water going down your kitchen sink. It spins around, pulling everything to the middle.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"They spin slowly, making a gentle whirlpool that pulls plastic to the middle of the ship.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "A"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"In seahorse families, it is the father who bears the babies!\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "D"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"Jumping on the bandwagon means joining something just because it is popular!\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. that  2. that"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. because  2. because"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. safest  2. best"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "C",
+    "B",
+    "A",
+    "D"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. that 宾语从句：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "One scientist remarked ____ seahorse fathers are great dads.",
+       "options": [
+        "that",
+        "what",
+        "who"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "Haaziq believes ____ one idea can help the planet.",
+       "options": [
+        "what",
+        "that",
+        "who"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. because 原因状语：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "Seahorse fathers are great dads ____ they protect their babies.",
+       "options": [
+        "but",
+        "and",
+        "because"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "ERVIS works ____ its saucers make a whirlpool.",
+       "options": [
+        "because",
+        "but",
+        "and"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. 最高级：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "Seahorse fathers give their babies the ____ start in life.",
+       "options": [
+        "safer",
+        "safest",
+        "safe"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "One scientist called them the ____ dads in the animal world.",
+       "options": [
+        "better",
+        "good",
+        "best"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "One scientist remarked that seahorse fathers are among the best dads in the animal world, because they give their babies the safest start in life.",
+    "You do not need to be a grown-up to make a big change."
+   ]
+  },
+  "crossword": {
+   "nrows": 13,
+   "ncols": 13,
+   "words": [
+    {
+     "word": "PLASTIC",
+     "row": 0,
+     "col": 12,
+     "dir": "D",
+     "num": 1,
+     "cn": "塑料",
+     "clue": "a teenage inventor who wants to clean ___ out of the ocean."
+    },
+    {
+     "word": "WHIRLPOOL",
+     "row": 1,
+     "col": 4,
+     "dir": "A",
+     "num": 2,
+     "cn": "漩涡",
+     "clue": "making a gentle ___ that pulls plastic to the middle of the ship."
+    },
+    {
+     "word": "INVENTOR",
+     "row": 1,
+     "col": 6,
+     "dir": "D",
+     "num": 3,
+     "cn": "发明家",
+     "clue": "a teenage ___ who wants to clean plastic out of the ocean."
+    },
+    {
+     "word": "POUCH",
+     "row": 2,
+     "col": 0,
+     "dir": "D",
+     "num": 4,
+     "cn": "育儿袋",
+     "clue": "The mother puts her eggs into a special ___ on the father's belly."
+    },
+    {
+     "word": "ERVIS",
+     "row": 4,
+     "col": 2,
+     "dir": "D",
+     "num": 5,
+     "cn": "ERVIS 清洁船",
+     "clue": "At twelve, he designed a special ship to clean the sea: ___."
+    },
+    {
+     "word": "BANDWAGON",
+     "row": 4,
+     "col": 4,
+     "dir": "D",
+     "num": 6,
+     "cn": "花车",
+     "clue": "Today, jumping on the ___ means joining something just because it is popular!"
+    },
+    {
+     "word": "CURTAIN",
+     "row": 5,
+     "col": 0,
+     "dir": "A",
+     "num": 7,
+     "cn": "帘子",
+     "clue": "They hide behind a ___ of green sea grass."
+    },
+    {
+     "word": "SEAHORSE",
+     "row": 5,
+     "col": 9,
+     "dir": "D",
+     "num": 8,
+     "cn": "海马",
+     "clue": "Now let's dive under the waves and meet the ___."
+    },
+    {
+     "word": "OCEAN",
+     "row": 7,
+     "col": 6,
+     "dir": "A",
+     "num": 9,
+     "cn": "海洋",
+     "clue": "Haaziq also wants people to appreciate the ___ more."
+    },
+    {
+     "word": "TRANSPARENT",
+     "row": 12,
+     "col": 1,
+     "dir": "A",
+     "num": 10,
+     "cn": "透明的",
+     "clue": "each nearly ___ and no bigger than your fingernail."
+    }
+   ]
+  }
+ }
+}

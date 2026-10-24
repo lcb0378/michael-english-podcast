@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.43 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol43/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol43/cover.png" controls playsinline preload="metadata"></video>
+<h1>🌊 Vol.43 · 少年清洁船与海马爸爸</h1>
+<div class="meta">英文 593 词 ｜ 音频 5分43秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol43/story-cleanup.png" alt="少年清洁船">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol43/story-seahorse.png" alt="海马爸爸">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">jump on the bandwagon</span> <span class="phon">/dʒʌmp ɒn ðə ˈbændwæɡən/</span> (习语) 跟风；因为流行而跟着做<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: The whole class <b>jumped on the bandwagon</b> and joined in!</div>
+</div>
+<div class="vocab">
+  <span class="word">appreciate</span> <span class="phon">/əˈpriːʃieɪt/</span> (v.) 珍爱；欣赏；感激<br>
+  
+  <div class="example">Example: Haaziq also wants people to <b>appreciate</b> the ocean more.</div>
+</div>
+<div class="vocab">
+  <span class="word">clarify</span> <span class="phon">/ˈklærəfaɪ/</span> (v.) 澄清；讲清楚<br>
+  
+  <div class="example">Example: First, let me <b>clarify</b>: the father does not lay the eggs.</div>
+</div>
+<div class="vocab">
+  <span class="word">whirlpool</span> <span class="phon">/ˈwɜːlpʊl/</span> (n.) 漩涡<br>
+  
+  <div class="example">Example: making a gentle <b>whirlpool</b> that pulls plastic to the middle of the ship.</div>
+</div>
+<div class="vocab">
+  <span class="word">pouch</span> <span class="phon">/paʊtʃ/</span> (n.) 育儿袋；小袋子<br>
+  
+  <div class="example">Example: into a special <b>pouch</b> on the father's belly.</div>
+</div>
+<div class="vocab">
+  <span class="word">transparent</span> <span class="phon">/trænsˈpærənt/</span> (adj.) 透明的<br>
+  
+  <div class="example">Example: each nearly <b>transparent</b> and no bigger than your fingernail.</div>
+</div>
+<div class="vocab">
+  <span class="word">remark</span> <span class="phon">/rɪˈmɑːk/</span> (v.) 说；评论<br>
+  
+  <div class="example">Example: One scientist <b>remarked</b> that seahorse fathers are among the best dads.</div>
+</div>
+<div class="vocab">
+  <span class="word">curtain</span> <span class="phon">/ˈkɜːtn/</span> (n.) 帘子；遮挡物<br>
+  
+  <div class="example">Example: behind a <b>curtain</b> of green sea grass.</div>
+</div>
+<div class="vocab">
+  <span class="word">inventor</span> <span class="phon">/ɪnˈventər/</span> (n.) 发明家<br>
+  
+  <div class="example">Example: a teenage <b>inventor</b> who wants to clean plastic out of the ocean.</div>
+</div>
+<div class="vocab">
+  <span class="word">foundation</span> <span class="phon">/faʊnˈdeɪʃn/</span> (n.) 基金会<br>
+  
+  <div class="example">Example: He started a <b>foundation</b> to help other young people.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 13, "ncols": 13, "words": [{"word": "PLASTIC", "row": 0, "col": 12, "dir": "D", "num": 1, "cn": "塑料", "clue": "a teenage inventor who wants to clean ___ out of the ocean."}, {"word": "WHIRLPOOL", "row": 1, "col": 4, "dir": "A", "num": 2, "cn": "漩涡", "clue": "making a gentle ___ that pulls plastic to the middle of the ship."}, {"word": "INVENTOR", "row": 1, "col": 6, "dir": "D", "num": 3, "cn": "发明家", "clue": "a teenage ___ who wants to clean plastic out of the ocean."}, {"word": "POUCH", "row": 2, "col": 0, "dir": "D", "num": 4, "cn": "育儿袋", "clue": "The mother puts her eggs into a special ___ on the father's belly."}, {"word": "ERVIS", "row": 4, "col": 2, "dir": "D", "num": 5, "cn": "ERVIS 清洁船", "clue": "At twelve, he designed a special ship to clean the sea: ___."}, {"word": "BANDWAGON", "row": 4, "col": 4, "dir": "D", "num": 6, "cn": "花车", "clue": "Today, jumping on the ___ means joining something just because it is popular!"}, {"word": "CURTAIN", "row": 5, "col": 0, "dir": "A", "num": 7, "cn": "帘子", "clue": "They hide behind a ___ of green sea grass."}, {"word": "SEAHORSE", "row": 5, "col": 9, "dir": "D", "num": 8, "cn": "海马", "clue": "Now let's dive under the waves and meet the ___."}, {"word": "OCEAN", "row": 7, "col": 6, "dir": "A", "num": 9, "cn": "海洋", "clue": "Haaziq also wants people to appreciate the ___ more."}, {"word": "TRANSPARENT", "row": 12, "col": 1, "dir": "A", "num": 10, "cn": "透明的", "clue": "each nearly ___ and no bigger than your fingernail."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. What gave Haaziq the idea for ERVIS?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. A storm at sea</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. A toy boat</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. Water going down a sink</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. A washing machine</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. How does ERVIS collect plastic?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. With magnets</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. With spinning saucers that make a whirlpool</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. With big nets</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. With divers</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. Who carries the baby seahorses?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. The father</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. The mother</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. Both parents</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. No one</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：A</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does &quot;jump on the bandwagon&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. To start a parade</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. To play music in a parade</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. To jump onto a wagon</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. To join something because it is popular</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：D</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [2, 1, 0, 3];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">One scientist remarked that seahorse fathers are among the best dads in the animal world, because they give their babies the safest start in life.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li><i>that seahorse fathers are among the best dads ...</i> 是<b>宾语从句</b>：remarked（说）后面跟一整句话，that（……）把这句话变成 remark 的内容——科学家说了什么？说了“海马爸爸是最好的爸爸之一”。that 在这里只起连接作用，译成中文时常常不用译出。</li>
+  <li><i>because they give their babies the safest start in life</i> 是<b>原因状语从句</b>：because（因为）+ 一整句话，放在句尾说明原因——为什么说它们是最好的爸爸？因为它们给了宝宝最安全的生命起点。</li>
+  <li><i>the safest start</i> 与 <i>the best dads</i> 是<b>最高级</b>：safest 是 safe（安全的）的最高级，best 是 good（好的）的最高级，前面都要加 the，表示“在所有……当中最……”。</li>
+  <li>整句逻辑链：<b>观点（科学家说）→ 内容（最好的爸爸）→ 原因（给了最安全的起点）</b>。一句话里藏着宾语从句、原因状语从句和最高级三个机关。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. that 宾语从句：用括号里的词补全</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">One scientist remarked ____ seahorse fathers are great dads.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">that</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">what</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">who</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：that</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">Haaziq believes ____ one idea can help the planet.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">what</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">that</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">who</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：that</p>
+</div>
+<p class="p4-gname">B. because 原因状语：用括号里的词补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">Seahorse fathers are great dads ____ they protect their babies.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">but</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">and</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">because</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：because</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">ERVIS works ____ its saucers make a whirlpool.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">because</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">but</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">and</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：because</p>
+</div>
+<p class="p4-gname">C. 最高级：用括号里的词补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">Seahorse fathers give their babies the ____ start in life.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">safer</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">safest</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">safe</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：safest</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">One scientist called them the ____ dads in the animal world.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">better</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">good</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">best</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：best</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>One scientist remarked that seahorse fathers are among the best dads in the animal world, because they give their babies the safest start in life.</li>
+<li>You do not need to be a grown-up to make a big change.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">1</span><span class="cwl">P</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">2</span><span class="cwl">W</span></td><td class="cwc"><span class="cwl">H</span></td><td class="cwc"><span class="cwn">3</span><span class="cwl">I</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">L</span></td></tr><tr><td class="cwc"><span class="cwn">4</span><span class="cwl">P</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td></tr><tr><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">V</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td></tr><tr><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">5</span><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">6</span><span class="cwl">B</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td></tr><tr><td class="cwc"><span class="cwn">7</span><span class="cwl">C</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">8</span><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td></tr><tr><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">V</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">9</span><span class="cwl">O</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">W</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">G</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">10</span><span class="cwl">T</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td></tr></table></div>1 竖 → <b>PLASTIC</b>（塑料）<br>2 横 → <b>WHIRLPOOL</b>（漩涡）<br>3 竖 → <b>INVENTOR</b>（发明家）<br>4 竖 → <b>POUCH</b>（育儿袋）<br>5 竖 → <b>ERVIS</b>（ERVIS 清洁船）<br>6 竖 → <b>BANDWAGON</b>（花车）<br>7 横 → <b>CURTAIN</b>（帘子）<br>8 竖 → <b>SEAHORSE</b>（海马）<br>9 横 → <b>OCEAN</b>（海洋）<br>10 横 → <b>TRANSPARENT</b>（透明的）<br><br><b>B. Single Choice:</b><br>
+1 → <b>C</b>. The text says: <i>"Think of water going down your kitchen sink. It spins around, pulling everything to the middle."</i><br>
+2 → <b>B</b>. <i>"They spin slowly, making a gentle whirlpool that pulls plastic to the middle of the ship."</i><br>
+3 → <b>A</b>. The text says: <i>"In seahorse families, it is the father who bears the babies!"</i><br>
+4 → <b>D</b>. <i>"Jumping on the bandwagon means joining something just because it is popular!"</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. that&nbsp;&nbsp;2. that<br>
+B. 1. because&nbsp;&nbsp;2. because<br>
+C. 1. safest&nbsp;&nbsp;2. best<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol43/Vol43_晚读讲义_少年清洁船与海马爸爸_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 21.87, "end": 41.09, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today's heroes come from the sea: a teenage inventor who wants to clean plastic out of the ocean, and the ocean's most unusual dad — a father who gives birth to the babies! Ready? Let's dive in!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天的主角都来自大海：一位想把塑料清理出海洋的少年发明家，还有海洋里最不寻常的爸爸——一位生下宝宝的爸爸！准备好了吗？潜入大海吧！", "words": [{"w": "Hello,", "t": 21.87}, {"w": "young", "t": 22.28}, {"w": "explorers,", "t": 22.69}, {"w": "and", "t": 23.1}, {"w": "welcome", "t": 23.51}, {"w": "back", "t": 23.91}, {"w": "to", "t": 24.32}, {"w": "Michael's", "t": 24.73}, {"w": "Morning", "t": 25.14}, {"w": "Listening!", "t": 25.55}, {"w": "Today's", "t": 25.96}, {"w": "heroes", "t": 26.37}, {"w": "come", "t": 26.78}, {"w": "from", "t": 27.19}, {"w": "the", "t": 27.6}, {"w": "sea:", "t": 28.0}, {"w": "a", "t": 28.41}, {"w": "teenage", "t": 28.82}, {"w": "inventor", "t": 29.23}, {"w": "who", "t": 29.64}, {"w": "wants", "t": 30.05}, {"w": "to", "t": 30.46}, {"w": "clean", "t": 30.87}, {"w": "plastic", "t": 31.28}, {"w": "out", "t": 31.68}, {"w": "of", "t": 32.09}, {"w": "the", "t": 32.5}, {"w": "ocean,", "t": 32.91}, {"w": "and", "t": 33.32}, {"w": "the", "t": 33.73}, {"w": "ocean's", "t": 34.14}, {"w": "most", "t": 34.55}, {"w": "unusual", "t": 34.96}, {"w": "dad", "t": 35.36}, {"w": "—", "t": 35.77}, {"w": "a", "t": 36.18}, {"w": "father", "t": 36.59}, {"w": "who", "t": 37.0}, {"w": "gives", "t": 37.41}, {"w": "birth", "t": 37.82}, {"w": "to", "t": 38.23}, {"w": "the", "t": 38.64}, {"w": "babies!", "t": 39.05}, {"w": "Ready?", "t": 39.45}, {"w": "Let's", "t": 39.86}, {"w": "dive", "t": 40.27}, {"w": "in!", "t": 40.68}]}, {"start": 59.63, "end": 83.23, "en": "In India, there is a boy named Haaziq Kazi. When he was small, he watched films about the ocean, and the sight made him sad: plastic bags, bottles, and boxes floating everywhere, hurting fish, turtles, and birds. But Haaziq did not just feel sad. At twelve, he designed a special ship to clean the sea: ERVIS.", "title": "少年清洁船", "cn": "在印度，有个叫哈齐克·卡齐的男孩。小时候，他看了一些关于海洋的影片，看到的景象让他很难过：塑料袋、塑料瓶和塑料盒到处漂浮，伤害着鱼、海龟和鸟儿。但哈齐克没有只是难过。十二岁时，他设计了一艘清理海洋的特殊船：ERVIS。", "words": [{"w": "In", "t": 59.63}, {"w": "India,", "t": 60.05}, {"w": "there", "t": 60.47}, {"w": "is", "t": 60.89}, {"w": "a", "t": 61.32}, {"w": "boy", "t": 61.74}, {"w": "named", "t": 62.16}, {"w": "Haaziq", "t": 62.58}, {"w": "Kazi.", "t": 63.0}, {"w": "When", "t": 63.42}, {"w": "he", "t": 63.84}, {"w": "was", "t": 64.27}, {"w": "small,", "t": 64.69}, {"w": "he", "t": 65.11}, {"w": "watched", "t": 65.53}, {"w": "films", "t": 65.95}, {"w": "about", "t": 66.37}, {"w": "the", "t": 66.79}, {"w": "ocean,", "t": 67.22}, {"w": "and", "t": 67.64}, {"w": "the", "t": 68.06}, {"w": "sight", "t": 68.48}, {"w": "made", "t": 68.9}, {"w": "him", "t": 69.32}, {"w": "sad:", "t": 69.74}, {"w": "plastic", "t": 70.17}, {"w": "bags,", "t": 70.59}, {"w": "bottles,", "t": 71.01}, {"w": "and", "t": 71.43}, {"w": "boxes", "t": 71.85}, {"w": "floating", "t": 72.27}, {"w": "everywhere,", "t": 72.69}, {"w": "hurting", "t": 73.12}, {"w": "fish,", "t": 73.54}, {"w": "turtles,", "t": 73.96}, {"w": "and", "t": 74.38}, {"w": "birds.", "t": 74.8}, {"w": "But", "t": 75.22}, {"w": "Haaziq", "t": 75.64}, {"w": "did", "t": 76.07}, {"w": "not", "t": 76.49}, {"w": "just", "t": 76.91}, {"w": "feel", "t": 77.33}, {"w": "sad.", "t": 77.75}, {"w": "At", "t": 78.17}, {"w": "twelve,", "t": 78.59}, {"w": "he", "t": 79.02}, {"w": "designed", "t": 79.44}, {"w": "a", "t": 79.86}, {"w": "special", "t": 80.28}, {"w": "ship", "t": 80.7}, {"w": "to", "t": 81.12}, {"w": "clean", "t": 81.54}, {"w": "the", "t": 81.97}, {"w": "sea:", "t": 82.39}, {"w": "ERVIS.", "t": 82.81}]}, {"start": 83.23, "end": 115.67, "en": "How does ERVIS work? Think of water going down your kitchen sink. It spins around, pulling everything to the middle. Haaziq borrowed that idea! ERVIS has big floating saucers around it. They spin slowly, making a gentle whirlpool that pulls plastic to the middle of the ship. Then tubes under the saucers collect the plastic, and the ship sorts it by size and type, like sorting toys into different boxes. Clean water flows back into the sea.", "title": "少年清洁船", "cn": "ERVIS 是怎么工作的呢？想想水流进你家厨房水槽的样子。它打着转，把所有东西都拉到中间。哈齐克借用了这个主意！ERVIS 周围装着几个大的漂浮圆盘。它们慢慢旋转，造出一个温和的漩涡，把塑料拉到船的中间。然后圆盘下面的管子收集塑料，船再按大小和种类把塑料分好，就像把玩具分装进不同的盒子。干净的水又流回大海。", "words": [{"w": "How", "t": 83.23}, {"w": "does", "t": 83.65}, {"w": "ERVIS", "t": 84.07}, {"w": "work?", "t": 84.49}, {"w": "Think", "t": 84.92}, {"w": "of", "t": 85.34}, {"w": "water", "t": 85.76}, {"w": "going", "t": 86.18}, {"w": "down", "t": 86.6}, {"w": "your", "t": 87.02}, {"w": "kitchen", "t": 87.44}, {"w": "sink.", "t": 87.86}, {"w": "It", "t": 88.29}, {"w": "spins", "t": 88.71}, {"w": "around,", "t": 89.13}, {"w": "pulling", "t": 89.55}, {"w": "everything", "t": 89.97}, {"w": "to", "t": 90.39}, {"w": "the", "t": 90.81}, {"w": "middle.", "t": 91.23}, {"w": "Haaziq", "t": 91.66}, {"w": "borrowed", "t": 92.08}, {"w": "that", "t": 92.5}, {"w": "idea!", "t": 92.92}, {"w": "ERVIS", "t": 93.34}, {"w": "has", "t": 93.76}, {"w": "big", "t": 94.18}, {"w": "floating", "t": 94.61}, {"w": "saucers", "t": 95.03}, {"w": "around", "t": 95.45}, {"w": "it.", "t": 95.87}, {"w": "They", "t": 96.29}, {"w": "spin", "t": 96.71}, {"w": "slowly,", "t": 97.13}, {"w": "making", "t": 97.55}, {"w": "a", "t": 97.98}, {"w": "gentle", "t": 98.4}, {"w": "whirlpool", "t": 98.82}, {"w": "that", "t": 99.24}, {"w": "pulls", "t": 99.66}, {"w": "plastic", "t": 100.08}, {"w": "to", "t": 100.5}, {"w": "the", "t": 100.92}, {"w": "middle", "t": 101.35}, {"w": "of", "t": 101.77}, {"w": "the", "t": 102.19}, {"w": "ship.", "t": 102.61}, {"w": "Then", "t": 103.03}, {"w": "tubes", "t": 103.45}, {"w": "under", "t": 103.87}, {"w": "the", "t": 104.29}, {"w": "saucers", "t": 104.72}, {"w": "collect", "t": 105.14}, {"w": "the", "t": 105.56}, {"w": "plastic,", "t": 105.98}, {"w": "and", "t": 106.4}, {"w": "the", "t": 106.82}, {"w": "ship", "t": 107.24}, {"w": "sorts", "t": 107.67}, {"w": "it", "t": 108.09}, {"w": "by", "t": 108.51}, {"w": "size", "t": 108.93}, {"w": "and", "t": 109.35}, {"w": "type,", "t": 109.77}, {"w": "like", "t": 110.19}, {"w": "sorting", "t": 110.61}, {"w": "toys", "t": 111.04}, {"w": "into", "t": 111.46}, {"w": "different", "t": 111.88}, {"w": "boxes.", "t": 112.3}, {"w": "Clean", "t": 112.72}, {"w": "water", "t": 113.14}, {"w": "flows", "t": 113.56}, {"w": "back", "t": 113.98}, {"w": "into", "t": 114.41}, {"w": "the", "t": 114.83}, {"w": "sea.", "t": 115.25}]}, {"start": 115.67, "end": 138.43, "en": "Haaziq also wants people to appreciate the ocean more. He started a foundation to help other young people share their sea-saving ideas. His message is simple: you do not need to be a grown-up to make a big change — one clear idea and a lot of hard work can help the whole planet.", "title": "少年清洁船", "cn": "哈齐克还希望人们更加珍爱海洋。他创办了一个基金会，帮助其他年轻人分享他们拯救海洋的点子。他的信念很简单：要带来大改变，不必等到长大——一个清晰的点子，再加很多努力，就能帮助整个地球。", "words": [{"w": "Haaziq", "t": 115.67}, {"w": "also", "t": 116.09}, {"w": "wants", "t": 116.51}, {"w": "people", "t": 116.93}, {"w": "to", "t": 117.36}, {"w": "appreciate", "t": 117.78}, {"w": "the", "t": 118.2}, {"w": "ocean", "t": 118.62}, {"w": "more.", "t": 119.04}, {"w": "He", "t": 119.46}, {"w": "started", "t": 119.88}, {"w": "a", "t": 120.31}, {"w": "foundation", "t": 120.73}, {"w": "to", "t": 121.15}, {"w": "help", "t": 121.57}, {"w": "other", "t": 121.99}, {"w": "young", "t": 122.41}, {"w": "people", "t": 122.84}, {"w": "share", "t": 123.26}, {"w": "their", "t": 123.68}, {"w": "sea-saving", "t": 124.1}, {"w": "ideas.", "t": 124.52}, {"w": "His", "t": 124.94}, {"w": "message", "t": 125.36}, {"w": "is", "t": 125.79}, {"w": "simple:", "t": 126.21}, {"w": "you", "t": 126.63}, {"w": "do", "t": 127.05}, {"w": "not", "t": 127.47}, {"w": "need", "t": 127.89}, {"w": "to", "t": 128.31}, {"w": "be", "t": 128.74}, {"w": "a", "t": 129.16}, {"w": "grown-up", "t": 129.58}, {"w": "to", "t": 130.0}, {"w": "make", "t": 130.42}, {"w": "a", "t": 130.84}, {"w": "big", "t": 131.26}, {"w": "change", "t": 131.69}, {"w": "—", "t": 132.11}, {"w": "one", "t": 132.53}, {"w": "clear", "t": 132.95}, {"w": "idea", "t": 133.37}, {"w": "and", "t": 133.79}, {"w": "a", "t": 134.22}, {"w": "lot", "t": 134.64}, {"w": "of", "t": 135.06}, {"w": "hard", "t": 135.48}, {"w": "work", "t": 135.9}, {"w": "can", "t": 136.32}, {"w": "help", "t": 136.74}, {"w": "the", "t": 137.17}, {"w": "whole", "t": 137.59}, {"w": "planet.", "t": 138.01}]}, {"start": 151.05, "end": 168.17, "en": "Now, let's dive under the waves and meet the seahorse, a small fish with a horse-like head and a tail that curls like a spring. Seahorses are slow swimmers with a big secret: in seahorse families, it is the father who bears the babies!", "title": "海马爸爸", "cn": "现在，让我们潜入波涛之下，去见见海马：一种有着马一样的头、尾巴像弹簧一样卷曲的小鱼。海马游得很慢，却有个大秘密：在海马家庭里，是爸爸生下宝宝！", "words": [{"w": "Now,", "t": 151.05}, {"w": "let's", "t": 151.44}, {"w": "dive", "t": 151.83}, {"w": "under", "t": 152.22}, {"w": "the", "t": 152.61}, {"w": "waves", "t": 153.0}, {"w": "and", "t": 153.38}, {"w": "meet", "t": 153.77}, {"w": "the", "t": 154.16}, {"w": "seahorse,", "t": 154.55}, {"w": "a", "t": 154.94}, {"w": "small", "t": 155.33}, {"w": "fish", "t": 155.72}, {"w": "with", "t": 156.11}, {"w": "a", "t": 156.5}, {"w": "horse-like", "t": 156.89}, {"w": "head", "t": 157.28}, {"w": "and", "t": 157.66}, {"w": "a", "t": 158.05}, {"w": "tail", "t": 158.44}, {"w": "that", "t": 158.83}, {"w": "curls", "t": 159.22}, {"w": "like", "t": 159.61}, {"w": "a", "t": 160.0}, {"w": "spring.", "t": 160.39}, {"w": "Seahorses", "t": 160.78}, {"w": "are", "t": 161.17}, {"w": "slow", "t": 161.56}, {"w": "swimmers", "t": 161.94}, {"w": "with", "t": 162.33}, {"w": "a", "t": 162.72}, {"w": "big", "t": 163.11}, {"w": "secret:", "t": 163.5}, {"w": "in", "t": 163.89}, {"w": "seahorse", "t": 164.28}, {"w": "families,", "t": 164.67}, {"w": "it", "t": 165.06}, {"w": "is", "t": 165.45}, {"w": "the", "t": 165.84}, {"w": "father", "t": 166.22}, {"w": "who", "t": 166.61}, {"w": "bears", "t": 167.0}, {"w": "the", "t": 167.39}, {"w": "babies!", "t": 167.78}]}, {"start": 168.17, "end": 202.41, "en": "Here is how it works. First, let me clarify: the father does not lay the eggs. The mother puts her eggs into a special pouch on the father's belly. The father keeps the eggs safe inside the pouch, just like a warm pocket. He feeds them, gives them clean water, and protects them from danger. After two to four weeks, the babies are ready. The father pushes, and in total, hundreds of little seahorses, each nearly transparent and no bigger than your fingernail, swim out into the sea!", "title": "海马爸爸", "cn": "具体是这样的。首先，我先澄清一点：爸爸并不产卵。妈妈把卵放进爸爸肚子上的一个特殊育儿袋里。爸爸把卵安全地保存在育儿袋里，就像一个温暖的口袋。他给它们喂食、提供干净的水，还保护它们不受危险。两到四周后，宝宝们准备好了。爸爸一推，总共几百只小海马——每只几乎透明，还没有你的指甲大——游进了大海！", "words": [{"w": "Here", "t": 168.17}, {"w": "is", "t": 168.56}, {"w": "how", "t": 168.95}, {"w": "it", "t": 169.34}, {"w": "works.", "t": 169.73}, {"w": "First,", "t": 170.12}, {"w": "let", "t": 170.5}, {"w": "me", "t": 170.89}, {"w": "clarify:", "t": 171.28}, {"w": "the", "t": 171.67}, {"w": "father", "t": 172.06}, {"w": "does", "t": 172.45}, {"w": "not", "t": 172.84}, {"w": "lay", "t": 173.23}, {"w": "the", "t": 173.62}, {"w": "eggs.", "t": 174.01}, {"w": "The", "t": 174.4}, {"w": "mother", "t": 174.78}, {"w": "puts", "t": 175.17}, {"w": "her", "t": 175.56}, {"w": "eggs", "t": 175.95}, {"w": "into", "t": 176.34}, {"w": "a", "t": 176.73}, {"w": "special", "t": 177.12}, {"w": "pouch", "t": 177.51}, {"w": "on", "t": 177.9}, {"w": "the", "t": 178.29}, {"w": "father's", "t": 178.68}, {"w": "belly.", "t": 179.06}, {"w": "The", "t": 179.45}, {"w": "father", "t": 179.84}, {"w": "keeps", "t": 180.23}, {"w": "the", "t": 180.62}, {"w": "eggs", "t": 181.01}, {"w": "safe", "t": 181.4}, {"w": "inside", "t": 181.79}, {"w": "the", "t": 182.18}, {"w": "pouch,", "t": 182.57}, {"w": "just", "t": 182.96}, {"w": "like", "t": 183.34}, {"w": "a", "t": 183.73}, {"w": "warm", "t": 184.12}, {"w": "pocket.", "t": 184.51}, {"w": "He", "t": 184.9}, {"w": "feeds", "t": 185.29}, {"w": "them,", "t": 185.68}, {"w": "gives", "t": 186.07}, {"w": "them", "t": 186.46}, {"w": "clean", "t": 186.85}, {"w": "water,", "t": 187.24}, {"w": "and", "t": 187.62}, {"w": "protects", "t": 188.01}, {"w": "them", "t": 188.4}, {"w": "from", "t": 188.79}, {"w": "danger.", "t": 189.18}, {"w": "After", "t": 189.57}, {"w": "two", "t": 189.96}, {"w": "to", "t": 190.35}, {"w": "four", "t": 190.74}, {"w": "weeks,", "t": 191.13}, {"w": "the", "t": 191.52}, {"w": "babies", "t": 191.9}, {"w": "are", "t": 192.29}, {"w": "ready.", "t": 192.68}, {"w": "The", "t": 193.07}, {"w": "father", "t": 193.46}, {"w": "pushes,", "t": 193.85}, {"w": "and", "t": 194.24}, {"w": "in", "t": 194.63}, {"w": "total,", "t": 195.02}, {"w": "hundreds", "t": 195.41}, {"w": "of", "t": 195.8}, {"w": "little", "t": 196.18}, {"w": "seahorses,", "t": 196.57}, {"w": "each", "t": 196.96}, {"w": "nearly", "t": 197.35}, {"w": "transparent", "t": 197.74}, {"w": "and", "t": 198.13}, {"w": "no", "t": 198.52}, {"w": "bigger", "t": 198.91}, {"w": "than", "t": 199.3}, {"w": "your", "t": 199.69}, {"w": "fingernail,", "t": 200.08}, {"w": "swim", "t": 200.46}, {"w": "out", "t": 200.85}, {"w": "into", "t": 201.24}, {"w": "the", "t": 201.63}, {"w": "sea!", "t": 202.02}]}, {"start": 202.41, "end": 228.09, "en": "But here is the sad part: baby seahorses must look after themselves from the very first minute — their parents do not feed or teach them. They hide behind a curtain of green sea grass hoping no bigger fish finds them. One scientist remarked that seahorse fathers are among the best dads in the animal world, because they give their babies the safest start in life.", "title": "海马爸爸", "cn": "但有个伤心的地方：小海马从出生的第一分钟起就必须自己照顾自己——爸爸妈妈既不喂它们，也不教它们。它们躲在一帘绿色的海草后面，希望没有更大的鱼发现它们。一位科学家说，海马爸爸是动物世界里最好的爸爸之一，因为它们给了宝宝最安全的生命起点。", "words": [{"w": "But", "t": 202.41}, {"w": "here", "t": 202.8}, {"w": "is", "t": 203.19}, {"w": "the", "t": 203.58}, {"w": "sad", "t": 203.97}, {"w": "part:", "t": 204.36}, {"w": "baby", "t": 204.74}, {"w": "seahorses", "t": 205.13}, {"w": "must", "t": 205.52}, {"w": "look", "t": 205.91}, {"w": "after", "t": 206.3}, {"w": "themselves", "t": 206.69}, {"w": "from", "t": 207.08}, {"w": "the", "t": 207.47}, {"w": "very", "t": 207.86}, {"w": "first", "t": 208.25}, {"w": "minute", "t": 208.64}, {"w": "—", "t": 209.02}, {"w": "their", "t": 209.41}, {"w": "parents", "t": 209.8}, {"w": "do", "t": 210.19}, {"w": "not", "t": 210.58}, {"w": "feed", "t": 210.97}, {"w": "or", "t": 211.36}, {"w": "teach", "t": 211.75}, {"w": "them.", "t": 212.14}, {"w": "They", "t": 212.53}, {"w": "hide", "t": 212.92}, {"w": "behind", "t": 213.3}, {"w": "a", "t": 213.69}, {"w": "curtain", "t": 214.08}, {"w": "of", "t": 214.47}, {"w": "green", "t": 214.86}, {"w": "sea", "t": 215.25}, {"w": "grass", "t": 215.64}, {"w": "hoping", "t": 216.03}, {"w": "no", "t": 216.42}, {"w": "bigger", "t": 216.81}, {"w": "fish", "t": 217.2}, {"w": "finds", "t": 217.58}, {"w": "them.", "t": 217.97}, {"w": "One", "t": 218.36}, {"w": "scientist", "t": 218.75}, {"w": "remarked", "t": 219.14}, {"w": "that", "t": 219.53}, {"w": "seahorse", "t": 219.92}, {"w": "fathers", "t": 220.31}, {"w": "are", "t": 220.7}, {"w": "among", "t": 221.09}, {"w": "the", "t": 221.48}, {"w": "best", "t": 221.86}, {"w": "dads", "t": 222.25}, {"w": "in", "t": 222.64}, {"w": "the", "t": 223.03}, {"w": "animal", "t": 223.42}, {"w": "world,", "t": 223.81}, {"w": "because", "t": 224.2}, {"w": "they", "t": 224.59}, {"w": "give", "t": 224.98}, {"w": "their", "t": 225.37}, {"w": "babies", "t": 225.76}, {"w": "the", "t": 226.14}, {"w": "safest", "t": 226.53}, {"w": "start", "t": 226.92}, {"w": "in", "t": 227.31}, {"w": "life.", "t": 227.7}]}, {"start": 245.11, "end": 275.85, "en": "Here's today's idiom: 'jump on the bandwagon.' Long ago, a bandwagon was a wagon carrying musicians in a parade, and crowds followed it because it was fun. Today, jumping on the bandwagon means joining something just because it is popular! Here's an example: 'When Haaziq's school started cleaning the beach, the whole class jumped on the bandwagon and joined in!' Do you jump on the bandwagon, or do you start the parade yourself?", "title": "今日俚语", "cn": "今天的俚语是“jump on the bandwagon”（跳上花车）。很久以前，花车是游行队伍里载着乐手的车，人们跟着它走，因为很有趣。今天，jump on the bandwagon 就是指因为一件事很流行就跟着一起做！举个例子：“当哈齐克的学校开始清理海滩时，全班同学都跳上了花车、一起加入了进来！”你是跟着跳上花车的人，还是自己带头游行的人呢？", "words": [{"w": "Here's", "t": 245.11}, {"w": "today's", "t": 245.53}, {"w": "idiom:", "t": 245.95}, {"w": "'jump", "t": 246.37}, {"w": "on", "t": 246.79}, {"w": "the", "t": 247.22}, {"w": "bandwagon.'", "t": 247.64}, {"w": "Long", "t": 248.06}, {"w": "ago,", "t": 248.48}, {"w": "a", "t": 248.9}, {"w": "bandwagon", "t": 249.32}, {"w": "was", "t": 249.74}, {"w": "a", "t": 250.16}, {"w": "wagon", "t": 250.58}, {"w": "carrying", "t": 251.01}, {"w": "musicians", "t": 251.43}, {"w": "in", "t": 251.85}, {"w": "a", "t": 252.27}, {"w": "parade,", "t": 252.69}, {"w": "and", "t": 253.11}, {"w": "crowds", "t": 253.53}, {"w": "followed", "t": 253.95}, {"w": "it", "t": 254.37}, {"w": "because", "t": 254.8}, {"w": "it", "t": 255.22}, {"w": "was", "t": 255.64}, {"w": "fun.", "t": 256.06}, {"w": "Today,", "t": 256.48}, {"w": "jumping", "t": 256.9}, {"w": "on", "t": 257.32}, {"w": "the", "t": 257.74}, {"w": "bandwagon", "t": 258.16}, {"w": "means", "t": 258.59}, {"w": "joining", "t": 259.01}, {"w": "something", "t": 259.43}, {"w": "just", "t": 259.85}, {"w": "because", "t": 260.27}, {"w": "it", "t": 260.69}, {"w": "is", "t": 261.11}, {"w": "popular!", "t": 261.53}, {"w": "Here's", "t": 261.95}, {"w": "an", "t": 262.37}, {"w": "example:", "t": 262.8}, {"w": "'When", "t": 263.22}, {"w": "Haaziq's", "t": 263.64}, {"w": "school", "t": 264.06}, {"w": "started", "t": 264.48}, {"w": "cleaning", "t": 264.9}, {"w": "the", "t": 265.32}, {"w": "beach,", "t": 265.74}, {"w": "the", "t": 266.16}, {"w": "whole", "t": 266.59}, {"w": "class", "t": 267.01}, {"w": "jumped", "t": 267.43}, {"w": "on", "t": 267.85}, {"w": "the", "t": 268.27}, {"w": "bandwagon", "t": 268.69}, {"w": "and", "t": 269.11}, {"w": "joined", "t": 269.53}, {"w": "in!'", "t": 269.95}, {"w": "Do", "t": 270.38}, {"w": "you", "t": 270.8}, {"w": "jump", "t": 271.22}, {"w": "on", "t": 271.64}, {"w": "the", "t": 272.06}, {"w": "bandwagon,", "t": 272.48}, {"w": "or", "t": 272.9}, {"w": "do", "t": 273.32}, {"w": "you", "t": 273.74}, {"w": "start", "t": 274.17}, {"w": "the", "t": 274.59}, {"w": "parade", "t": 275.01}, {"w": "yourself?", "t": 275.43}]}, {"start": 289.75, "end": 312.91, "en": "Let's think about our stories: a boy who designed a sea-cleaning ship, and a father who carries the babies. First: if you could design one machine to help the ocean, what would it do? Second: seahorse dads carry their babies in a pouch — what other animal dads do you know that help look after their babies? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事：一个设计了海洋清洁船的男孩，和一位把宝宝带在身上的爸爸。第一：如果你能设计一台帮助海洋的机器，它会做什么？第二：海马爸爸把宝宝装在育儿袋里——你还知道哪些动物爸爸会帮忙照顾宝宝？和家人聊聊吧！", "words": [{"w": "Let's", "t": 289.75}, {"w": "think", "t": 290.12}, {"w": "about", "t": 290.49}, {"w": "our", "t": 290.85}, {"w": "stories:", "t": 291.22}, {"w": "a", "t": 291.59}, {"w": "boy", "t": 291.96}, {"w": "who", "t": 292.32}, {"w": "designed", "t": 292.69}, {"w": "a", "t": 293.06}, {"w": "sea-cleaning", "t": 293.43}, {"w": "ship,", "t": 293.79}, {"w": "and", "t": 294.16}, {"w": "a", "t": 294.53}, {"w": "father", "t": 294.9}, {"w": "who", "t": 295.26}, {"w": "carries", "t": 295.63}, {"w": "the", "t": 296.0}, {"w": "babies.", "t": 296.37}, {"w": "First:", "t": 296.73}, {"w": "if", "t": 297.1}, {"w": "you", "t": 297.47}, {"w": "could", "t": 297.84}, {"w": "design", "t": 298.21}, {"w": "one", "t": 298.57}, {"w": "machine", "t": 298.94}, {"w": "to", "t": 299.31}, {"w": "help", "t": 299.68}, {"w": "the", "t": 300.04}, {"w": "ocean,", "t": 300.41}, {"w": "what", "t": 300.78}, {"w": "would", "t": 301.15}, {"w": "it", "t": 301.51}, {"w": "do?", "t": 301.88}, {"w": "Second:", "t": 302.25}, {"w": "seahorse", "t": 302.62}, {"w": "dads", "t": 302.98}, {"w": "carry", "t": 303.35}, {"w": "their", "t": 303.72}, {"w": "babies", "t": 304.09}, {"w": "in", "t": 304.45}, {"w": "a", "t": 304.82}, {"w": "pouch", "t": 305.19}, {"w": "—", "t": 305.56}, {"w": "what", "t": 305.93}, {"w": "other", "t": 306.29}, {"w": "animal", "t": 306.66}, {"w": "dads", "t": 307.03}, {"w": "do", "t": 307.4}, {"w": "you", "t": 307.76}, {"w": "know", "t": 308.13}, {"w": "that", "t": 308.5}, {"w": "help", "t": 308.87}, {"w": "look", "t": 309.23}, {"w": "after", "t": 309.6}, {"w": "their", "t": 309.97}, {"w": "babies?", "t": 310.34}, {"w": "Talk", "t": 310.7}, {"w": "about", "t": 311.07}, {"w": "it", "t": 311.44}, {"w": "with", "t": 311.81}, {"w": "your", "t": 312.17}, {"w": "family!", "t": 312.54}]}, {"start": 323.77, "end": 333.68, "en": "That's all for today, young explorers. Keep wondering, keep caring for our ocean, and jump on the bandwagon for a good cause! See you tomorrow!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。保持好奇，继续关爱我们的海洋，为了好的事业跳上花车吧！明天见！", "words": [{"w": "That's", "t": 323.77}, {"w": "all", "t": 324.17}, {"w": "for", "t": 324.56}, {"w": "today,", "t": 324.96}, {"w": "young", "t": 325.36}, {"w": "explorers.", "t": 325.75}, {"w": "Keep", "t": 326.15}, {"w": "wondering,", "t": 326.54}, {"w": "keep", "t": 326.94}, {"w": "caring", "t": 327.34}, {"w": "for", "t": 327.73}, {"w": "our", "t": 328.13}, {"w": "ocean,", "t": 328.53}, {"w": "and", "t": 328.92}, {"w": "jump", "t": 329.32}, {"w": "on", "t": 329.72}, {"w": "the", "t": 330.11}, {"w": "bandwagon", "t": 330.51}, {"w": "for", "t": 330.91}, {"w": "a", "t": 331.3}, {"w": "good", "t": 331.7}, {"w": "cause!", "t": 332.09}, {"w": "See", "t": 332.49}, {"w": "you", "t": 332.89}, {"w": "tomorrow!", "t": 333.28}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol43/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
