@@ -1,0 +1,3530 @@
+{
+ "id": "vol41",
+ "title": "机器人咖啡师与猫头鹰转头的秘密",
+ "words": 600,
+ "duration": "5分24秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol41/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol41/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol41/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol41/Vol41_晚读讲义_机器人咖啡师与猫头鹰转头的秘密_v1.pdf",
+ "pdfName": "Vol41_晚读讲义_机器人咖啡师与猫头鹰转头的秘密_v1.pdf",
+ "blocks": [
+  {
+   "start": 19.31,
+   "end": 35.58,
+   "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we have two stars for you: a robot barista that never sleeps, and an owl that can turn its head almost all the way around. Ready? Let's go!",
+   "title": "开场白",
+   "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天有两位明星等着你们：一位是从不睡觉的机器人咖啡师，还有一只脑袋几乎能转到背后的猫头鹰。准备好了吗？出发！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 19.31
+    },
+    {
+     "w": "young",
+     "t": 19.73
+    },
+    {
+     "w": "explorers,",
+     "t": 20.14
+    },
+    {
+     "w": "and",
+     "t": 20.56
+    },
+    {
+     "w": "welcome",
+     "t": 20.98
+    },
+    {
+     "w": "back",
+     "t": 21.4
+    },
+    {
+     "w": "to",
+     "t": 21.81
+    },
+    {
+     "w": "Michael's",
+     "t": 22.23
+    },
+    {
+     "w": "Morning",
+     "t": 22.65
+    },
+    {
+     "w": "Listening!",
+     "t": 23.06
+    },
+    {
+     "w": "Today",
+     "t": 23.48
+    },
+    {
+     "w": "we",
+     "t": 23.9
+    },
+    {
+     "w": "have",
+     "t": 24.32
+    },
+    {
+     "w": "two",
+     "t": 24.73
+    },
+    {
+     "w": "stars",
+     "t": 25.15
+    },
+    {
+     "w": "for",
+     "t": 25.57
+    },
+    {
+     "w": "you:",
+     "t": 25.98
+    },
+    {
+     "w": "a",
+     "t": 26.4
+    },
+    {
+     "w": "robot",
+     "t": 26.82
+    },
+    {
+     "w": "barista",
+     "t": 27.24
+    },
+    {
+     "w": "that",
+     "t": 27.65
+    },
+    {
+     "w": "never",
+     "t": 28.07
+    },
+    {
+     "w": "sleeps,",
+     "t": 28.49
+    },
+    {
+     "w": "and",
+     "t": 28.91
+    },
+    {
+     "w": "an",
+     "t": 29.32
+    },
+    {
+     "w": "owl",
+     "t": 29.74
+    },
+    {
+     "w": "that",
+     "t": 30.16
+    },
+    {
+     "w": "can",
+     "t": 30.57
+    },
+    {
+     "w": "turn",
+     "t": 30.99
+    },
+    {
+     "w": "its",
+     "t": 31.41
+    },
+    {
+     "w": "head",
+     "t": 31.83
+    },
+    {
+     "w": "almost",
+     "t": 32.24
+    },
+    {
+     "w": "all",
+     "t": 32.66
+    },
+    {
+     "w": "the",
+     "t": 33.08
+    },
+    {
+     "w": "way",
+     "t": 33.49
+    },
+    {
+     "w": "around.",
+     "t": 33.91
+    },
+    {
+     "w": "Ready?",
+     "t": 34.33
+    },
+    {
+     "w": "Let's",
+     "t": 34.75
+    },
+    {
+     "w": "go!",
+     "t": 35.16
+    }
+   ]
+  },
+  {
+   "start": 49.96,
+   "end": 72.94,
+   "en": "In Beijing, there is a special coffee shop. There is no human barista inside — a robot makes all the coffee, all day and all night. You tap your order on a screen. With a minimum wait of about twenty-five seconds, your cup is ready. No need to yell across a noisy room — the robot reads your order and gets to work.",
+   "title": "机器人咖啡师",
+   "cn": "在北京，有一家特别的咖啡店。里面没有人类咖啡师——一台机器人全天候制作所有的咖啡。你在屏幕上点单。最短只要等大约二十五秒，你的咖啡就做好了。不用隔着吵闹的房间大喊——机器人读到你的订单就开工了。",
+   "words": [
+    {
+     "w": "In",
+     "t": 49.96
+    },
+    {
+     "w": "Beijing,",
+     "t": 50.32
+    },
+    {
+     "w": "there",
+     "t": 50.69
+    },
+    {
+     "w": "is",
+     "t": 51.05
+    },
+    {
+     "w": "a",
+     "t": 51.42
+    },
+    {
+     "w": "special",
+     "t": 51.78
+    },
+    {
+     "w": "coffee",
+     "t": 52.15
+    },
+    {
+     "w": "shop.",
+     "t": 52.51
+    },
+    {
+     "w": "There",
+     "t": 52.88
+    },
+    {
+     "w": "is",
+     "t": 53.24
+    },
+    {
+     "w": "no",
+     "t": 53.61
+    },
+    {
+     "w": "human",
+     "t": 53.97
+    },
+    {
+     "w": "barista",
+     "t": 54.34
+    },
+    {
+     "w": "inside",
+     "t": 54.7
+    },
+    {
+     "w": "—",
+     "t": 55.07
+    },
+    {
+     "w": "a",
+     "t": 55.43
+    },
+    {
+     "w": "robot",
+     "t": 55.8
+    },
+    {
+     "w": "makes",
+     "t": 56.16
+    },
+    {
+     "w": "all",
+     "t": 56.53
+    },
+    {
+     "w": "the",
+     "t": 56.89
+    },
+    {
+     "w": "coffee,",
+     "t": 57.26
+    },
+    {
+     "w": "all",
+     "t": 57.62
+    },
+    {
+     "w": "day",
+     "t": 57.99
+    },
+    {
+     "w": "and",
+     "t": 58.35
+    },
+    {
+     "w": "all",
+     "t": 58.72
+    },
+    {
+     "w": "night.",
+     "t": 59.08
+    },
+    {
+     "w": "You",
+     "t": 59.45
+    },
+    {
+     "w": "tap",
+     "t": 59.81
+    },
+    {
+     "w": "your",
+     "t": 60.18
+    },
+    {
+     "w": "order",
+     "t": 60.54
+    },
+    {
+     "w": "on",
+     "t": 60.91
+    },
+    {
+     "w": "a",
+     "t": 61.27
+    },
+    {
+     "w": "screen.",
+     "t": 61.63
+    },
+    {
+     "w": "With",
+     "t": 62.0
+    },
+    {
+     "w": "a",
+     "t": 62.36
+    },
+    {
+     "w": "minimum",
+     "t": 62.73
+    },
+    {
+     "w": "wait",
+     "t": 63.09
+    },
+    {
+     "w": "of",
+     "t": 63.46
+    },
+    {
+     "w": "about",
+     "t": 63.82
+    },
+    {
+     "w": "twenty-five",
+     "t": 64.19
+    },
+    {
+     "w": "seconds,",
+     "t": 64.55
+    },
+    {
+     "w": "your",
+     "t": 64.92
+    },
+    {
+     "w": "cup",
+     "t": 65.28
+    },
+    {
+     "w": "is",
+     "t": 65.65
+    },
+    {
+     "w": "ready.",
+     "t": 66.01
+    },
+    {
+     "w": "No",
+     "t": 66.38
+    },
+    {
+     "w": "need",
+     "t": 66.74
+    },
+    {
+     "w": "to",
+     "t": 67.11
+    },
+    {
+     "w": "yell",
+     "t": 67.47
+    },
+    {
+     "w": "across",
+     "t": 67.84
+    },
+    {
+     "w": "a",
+     "t": 68.2
+    },
+    {
+     "w": "noisy",
+     "t": 68.57
+    },
+    {
+     "w": "room",
+     "t": 68.93
+    },
+    {
+     "w": "—",
+     "t": 69.3
+    },
+    {
+     "w": "the",
+     "t": 69.66
+    },
+    {
+     "w": "robot",
+     "t": 70.03
+    },
+    {
+     "w": "reads",
+     "t": 70.39
+    },
+    {
+     "w": "your",
+     "t": 70.76
+    },
+    {
+     "w": "order",
+     "t": 71.12
+    },
+    {
+     "w": "and",
+     "t": 71.49
+    },
+    {
+     "w": "gets",
+     "t": 71.85
+    },
+    {
+     "w": "to",
+     "t": 72.22
+    },
+    {
+     "w": "work.",
+     "t": 72.58
+    }
+   ]
+  },
+  {
+   "start": 72.94,
+   "end": 90.46,
+   "en": "Let me clarify one thing: it is not a big brewery with huge tanks. It is a small, neat machine that makes one cup at a time. It follows the same standard steps every time: grinding the beans, pouring hot water, adding milk, and handing you the cup.",
+   "title": "机器人咖啡师",
+   "cn": "先澄清一件事：它不是一个有着大罐子的酿造厂。它是一台小巧整齐的机器，一次只做一杯。每次它都按同样的标准步骤来：磨豆子、倒热水、加牛奶、把杯子递给你。",
+   "words": [
+    {
+     "w": "Let",
+     "t": 72.94
+    },
+    {
+     "w": "me",
+     "t": 73.31
+    },
+    {
+     "w": "clarify",
+     "t": 73.67
+    },
+    {
+     "w": "one",
+     "t": 74.04
+    },
+    {
+     "w": "thing:",
+     "t": 74.4
+    },
+    {
+     "w": "it",
+     "t": 74.77
+    },
+    {
+     "w": "is",
+     "t": 75.13
+    },
+    {
+     "w": "not",
+     "t": 75.5
+    },
+    {
+     "w": "a",
+     "t": 75.86
+    },
+    {
+     "w": "big",
+     "t": 76.23
+    },
+    {
+     "w": "brewery",
+     "t": 76.59
+    },
+    {
+     "w": "with",
+     "t": 76.96
+    },
+    {
+     "w": "huge",
+     "t": 77.32
+    },
+    {
+     "w": "tanks.",
+     "t": 77.69
+    },
+    {
+     "w": "It",
+     "t": 78.05
+    },
+    {
+     "w": "is",
+     "t": 78.42
+    },
+    {
+     "w": "a",
+     "t": 78.78
+    },
+    {
+     "w": "small,",
+     "t": 79.15
+    },
+    {
+     "w": "neat",
+     "t": 79.51
+    },
+    {
+     "w": "machine",
+     "t": 79.88
+    },
+    {
+     "w": "that",
+     "t": 80.24
+    },
+    {
+     "w": "makes",
+     "t": 80.61
+    },
+    {
+     "w": "one",
+     "t": 80.97
+    },
+    {
+     "w": "cup",
+     "t": 81.34
+    },
+    {
+     "w": "at",
+     "t": 81.7
+    },
+    {
+     "w": "a",
+     "t": 82.07
+    },
+    {
+     "w": "time.",
+     "t": 82.43
+    },
+    {
+     "w": "It",
+     "t": 82.8
+    },
+    {
+     "w": "follows",
+     "t": 83.16
+    },
+    {
+     "w": "the",
+     "t": 83.53
+    },
+    {
+     "w": "same",
+     "t": 83.89
+    },
+    {
+     "w": "standard",
+     "t": 84.25
+    },
+    {
+     "w": "steps",
+     "t": 84.62
+    },
+    {
+     "w": "every",
+     "t": 84.98
+    },
+    {
+     "w": "time:",
+     "t": 85.35
+    },
+    {
+     "w": "grinding",
+     "t": 85.71
+    },
+    {
+     "w": "the",
+     "t": 86.08
+    },
+    {
+     "w": "beans,",
+     "t": 86.44
+    },
+    {
+     "w": "pouring",
+     "t": 86.81
+    },
+    {
+     "w": "hot",
+     "t": 87.17
+    },
+    {
+     "w": "water,",
+     "t": 87.54
+    },
+    {
+     "w": "adding",
+     "t": 87.9
+    },
+    {
+     "w": "milk,",
+     "t": 88.27
+    },
+    {
+     "w": "and",
+     "t": 88.63
+    },
+    {
+     "w": "handing",
+     "t": 89.0
+    },
+    {
+     "w": "you",
+     "t": 89.36
+    },
+    {
+     "w": "the",
+     "t": 89.73
+    },
+    {
+     "w": "cup.",
+     "t": 90.09
+    }
+   ]
+  },
+  {
+   "start": 90.46,
+   "end": 117.09,
+   "en": "Cup by cup, the numbers accumulate: on its opening day, the little shop served 202 cups in one hour — more than three cups every minute! Visitors often remark on how fast it is, and a group of morning customers appreciate it most at night, when every other shop is closed. In total, the robot can work all night without feeling tired. So, would you trust a robot to make your hot chocolate?",
+   "title": "机器人咖啡师",
+   "cn": "一杯接一杯，数字越积越多：开业那天，这家小店一小时就卖出了 202 杯——平均每分钟超过三杯！来访者常常谈论它有多快，一群早晨的顾客最欣赏它的一点是深夜——当别的店都关门时它还开着。总的来说，机器人可以整夜工作而不会觉得累。那么，你会放心让机器人给你做热巧克力吗？",
+   "words": [
+    {
+     "w": "Cup",
+     "t": 90.46
+    },
+    {
+     "w": "by",
+     "t": 90.82
+    },
+    {
+     "w": "cup,",
+     "t": 91.19
+    },
+    {
+     "w": "the",
+     "t": 91.55
+    },
+    {
+     "w": "numbers",
+     "t": 91.92
+    },
+    {
+     "w": "accumulate:",
+     "t": 92.28
+    },
+    {
+     "w": "on",
+     "t": 92.65
+    },
+    {
+     "w": "its",
+     "t": 93.01
+    },
+    {
+     "w": "opening",
+     "t": 93.38
+    },
+    {
+     "w": "day,",
+     "t": 93.74
+    },
+    {
+     "w": "the",
+     "t": 94.11
+    },
+    {
+     "w": "little",
+     "t": 94.47
+    },
+    {
+     "w": "shop",
+     "t": 94.83
+    },
+    {
+     "w": "served",
+     "t": 95.2
+    },
+    {
+     "w": "202",
+     "t": 95.56
+    },
+    {
+     "w": "cups",
+     "t": 95.93
+    },
+    {
+     "w": "in",
+     "t": 96.29
+    },
+    {
+     "w": "one",
+     "t": 96.66
+    },
+    {
+     "w": "hour",
+     "t": 97.02
+    },
+    {
+     "w": "—",
+     "t": 97.39
+    },
+    {
+     "w": "more",
+     "t": 97.75
+    },
+    {
+     "w": "than",
+     "t": 98.12
+    },
+    {
+     "w": "three",
+     "t": 98.48
+    },
+    {
+     "w": "cups",
+     "t": 98.85
+    },
+    {
+     "w": "every",
+     "t": 99.21
+    },
+    {
+     "w": "minute!",
+     "t": 99.58
+    },
+    {
+     "w": "Visitors",
+     "t": 99.94
+    },
+    {
+     "w": "often",
+     "t": 100.31
+    },
+    {
+     "w": "remark",
+     "t": 100.67
+    },
+    {
+     "w": "on",
+     "t": 101.04
+    },
+    {
+     "w": "how",
+     "t": 101.4
+    },
+    {
+     "w": "fast",
+     "t": 101.77
+    },
+    {
+     "w": "it",
+     "t": 102.13
+    },
+    {
+     "w": "is,",
+     "t": 102.5
+    },
+    {
+     "w": "and",
+     "t": 102.86
+    },
+    {
+     "w": "a",
+     "t": 103.23
+    },
+    {
+     "w": "group",
+     "t": 103.59
+    },
+    {
+     "w": "of",
+     "t": 103.96
+    },
+    {
+     "w": "morning",
+     "t": 104.32
+    },
+    {
+     "w": "customers",
+     "t": 104.69
+    },
+    {
+     "w": "appreciate",
+     "t": 105.05
+    },
+    {
+     "w": "it",
+     "t": 105.42
+    },
+    {
+     "w": "most",
+     "t": 105.78
+    },
+    {
+     "w": "at",
+     "t": 106.14
+    },
+    {
+     "w": "night,",
+     "t": 106.51
+    },
+    {
+     "w": "when",
+     "t": 106.87
+    },
+    {
+     "w": "every",
+     "t": 107.24
+    },
+    {
+     "w": "other",
+     "t": 107.6
+    },
+    {
+     "w": "shop",
+     "t": 107.97
+    },
+    {
+     "w": "is",
+     "t": 108.33
+    },
+    {
+     "w": "closed.",
+     "t": 108.7
+    },
+    {
+     "w": "In",
+     "t": 109.06
+    },
+    {
+     "w": "total,",
+     "t": 109.43
+    },
+    {
+     "w": "the",
+     "t": 109.79
+    },
+    {
+     "w": "robot",
+     "t": 110.16
+    },
+    {
+     "w": "can",
+     "t": 110.52
+    },
+    {
+     "w": "work",
+     "t": 110.89
+    },
+    {
+     "w": "all",
+     "t": 111.25
+    },
+    {
+     "w": "night",
+     "t": 111.62
+    },
+    {
+     "w": "without",
+     "t": 111.98
+    },
+    {
+     "w": "feeling",
+     "t": 112.35
+    },
+    {
+     "w": "tired.",
+     "t": 112.71
+    },
+    {
+     "w": "So,",
+     "t": 113.08
+    },
+    {
+     "w": "would",
+     "t": 113.44
+    },
+    {
+     "w": "you",
+     "t": 113.81
+    },
+    {
+     "w": "trust",
+     "t": 114.17
+    },
+    {
+     "w": "a",
+     "t": 114.54
+    },
+    {
+     "w": "robot",
+     "t": 114.9
+    },
+    {
+     "w": "to",
+     "t": 115.27
+    },
+    {
+     "w": "make",
+     "t": 115.63
+    },
+    {
+     "w": "your",
+     "t": 116.0
+    },
+    {
+     "w": "hot",
+     "t": 116.36
+    },
+    {
+     "w": "chocolate?",
+     "t": 116.73
+    }
+   ]
+  },
+  {
+   "start": 128.83,
+   "end": 146.31,
+   "en": "Now let's fly into the quiet night. When the dark curtain of night falls, the owl wakes up. And here is a surprise: an owl can turn its head about 270 degrees — almost all the way around — without moving its body!",
+   "title": "猫头鹰转头的秘密",
+   "cn": "现在，让我们飞进安静的夜晚。当夜的黑幕落下，猫头鹰醒来了。还有个惊喜：猫头鹰能把脑袋转大约 270 度——几乎转到背后——而身体一动不动！",
+   "words": [
+    {
+     "w": "Now",
+     "t": 128.83
+    },
+    {
+     "w": "let's",
+     "t": 129.24
+    },
+    {
+     "w": "fly",
+     "t": 129.64
+    },
+    {
+     "w": "into",
+     "t": 130.05
+    },
+    {
+     "w": "the",
+     "t": 130.46
+    },
+    {
+     "w": "quiet",
+     "t": 130.86
+    },
+    {
+     "w": "night.",
+     "t": 131.27
+    },
+    {
+     "w": "When",
+     "t": 131.68
+    },
+    {
+     "w": "the",
+     "t": 132.08
+    },
+    {
+     "w": "dark",
+     "t": 132.49
+    },
+    {
+     "w": "curtain",
+     "t": 132.9
+    },
+    {
+     "w": "of",
+     "t": 133.3
+    },
+    {
+     "w": "night",
+     "t": 133.71
+    },
+    {
+     "w": "falls,",
+     "t": 134.12
+    },
+    {
+     "w": "the",
+     "t": 134.52
+    },
+    {
+     "w": "owl",
+     "t": 134.93
+    },
+    {
+     "w": "wakes",
+     "t": 135.34
+    },
+    {
+     "w": "up.",
+     "t": 135.74
+    },
+    {
+     "w": "And",
+     "t": 136.15
+    },
+    {
+     "w": "here",
+     "t": 136.56
+    },
+    {
+     "w": "is",
+     "t": 136.96
+    },
+    {
+     "w": "a",
+     "t": 137.37
+    },
+    {
+     "w": "surprise:",
+     "t": 137.78
+    },
+    {
+     "w": "an",
+     "t": 138.18
+    },
+    {
+     "w": "owl",
+     "t": 138.59
+    },
+    {
+     "w": "can",
+     "t": 139.0
+    },
+    {
+     "w": "turn",
+     "t": 139.4
+    },
+    {
+     "w": "its",
+     "t": 139.81
+    },
+    {
+     "w": "head",
+     "t": 140.21
+    },
+    {
+     "w": "about",
+     "t": 140.62
+    },
+    {
+     "w": "270",
+     "t": 141.03
+    },
+    {
+     "w": "degrees",
+     "t": 141.43
+    },
+    {
+     "w": "—",
+     "t": 141.84
+    },
+    {
+     "w": "almost",
+     "t": 142.25
+    },
+    {
+     "w": "all",
+     "t": 142.65
+    },
+    {
+     "w": "the",
+     "t": 143.06
+    },
+    {
+     "w": "way",
+     "t": 143.47
+    },
+    {
+     "w": "around",
+     "t": 143.87
+    },
+    {
+     "w": "—",
+     "t": 144.28
+    },
+    {
+     "w": "without",
+     "t": 144.69
+    },
+    {
+     "w": "moving",
+     "t": 145.09
+    },
+    {
+     "w": "its",
+     "t": 145.5
+    },
+    {
+     "w": "body!",
+     "t": 145.91
+    }
+   ]
+  },
+  {
+   "start": 146.31,
+   "end": 158.11,
+   "en": "Why? First, count the bones: we have seven small bones in our necks, but an owl has fourteen — twice as many! More bones mean more room to turn.",
+   "title": "猫头鹰转头的秘密",
+   "cn": "为什么呢？先数数骨头：我们的脖子有七块小骨头，可猫头鹰有十四块——足足两倍！骨头越多，转动的空间就越大。",
+   "words": [
+    {
+     "w": "Why?",
+     "t": 146.31
+    },
+    {
+     "w": "First,",
+     "t": 146.72
+    },
+    {
+     "w": "count",
+     "t": 147.13
+    },
+    {
+     "w": "the",
+     "t": 147.53
+    },
+    {
+     "w": "bones:",
+     "t": 147.94
+    },
+    {
+     "w": "we",
+     "t": 148.35
+    },
+    {
+     "w": "have",
+     "t": 148.75
+    },
+    {
+     "w": "seven",
+     "t": 149.16
+    },
+    {
+     "w": "small",
+     "t": 149.57
+    },
+    {
+     "w": "bones",
+     "t": 149.97
+    },
+    {
+     "w": "in",
+     "t": 150.38
+    },
+    {
+     "w": "our",
+     "t": 150.79
+    },
+    {
+     "w": "necks,",
+     "t": 151.19
+    },
+    {
+     "w": "but",
+     "t": 151.6
+    },
+    {
+     "w": "an",
+     "t": 152.01
+    },
+    {
+     "w": "owl",
+     "t": 152.41
+    },
+    {
+     "w": "has",
+     "t": 152.82
+    },
+    {
+     "w": "fourteen",
+     "t": 153.23
+    },
+    {
+     "w": "—",
+     "t": 153.63
+    },
+    {
+     "w": "twice",
+     "t": 154.04
+    },
+    {
+     "w": "as",
+     "t": 154.45
+    },
+    {
+     "w": "many!",
+     "t": 154.85
+    },
+    {
+     "w": "More",
+     "t": 155.26
+    },
+    {
+     "w": "bones",
+     "t": 155.67
+    },
+    {
+     "w": "mean",
+     "t": 156.07
+    },
+    {
+     "w": "more",
+     "t": 156.48
+    },
+    {
+     "w": "room",
+     "t": 156.89
+    },
+    {
+     "w": "to",
+     "t": 157.29
+    },
+    {
+     "w": "turn.",
+     "t": 157.7
+    }
+   ]
+  },
+  {
+   "start": 158.11,
+   "end": 175.59,
+   "en": "Second, an owl cannot move its eyes: its big eyes are fixed in their sockets, like cameras that cannot look left or right. So the head must do all the turning, and the owl can look behind itself while its body stays still.",
+   "title": "猫头鹰转头的秘密",
+   "cn": "第二，猫头鹰转不动眼珠：它的大眼睛固定在眼窝里，就像不能左右看的照相机。所以脑袋必须完成所有的转动，猫头鹰才能在身体保持不动的情况下看到身后。",
+   "words": [
+    {
+     "w": "Second,",
+     "t": 158.11
+    },
+    {
+     "w": "an",
+     "t": 158.51
+    },
+    {
+     "w": "owl",
+     "t": 158.92
+    },
+    {
+     "w": "cannot",
+     "t": 159.33
+    },
+    {
+     "w": "move",
+     "t": 159.73
+    },
+    {
+     "w": "its",
+     "t": 160.14
+    },
+    {
+     "w": "eyes:",
+     "t": 160.55
+    },
+    {
+     "w": "its",
+     "t": 160.95
+    },
+    {
+     "w": "big",
+     "t": 161.36
+    },
+    {
+     "w": "eyes",
+     "t": 161.77
+    },
+    {
+     "w": "are",
+     "t": 162.17
+    },
+    {
+     "w": "fixed",
+     "t": 162.58
+    },
+    {
+     "w": "in",
+     "t": 162.98
+    },
+    {
+     "w": "their",
+     "t": 163.39
+    },
+    {
+     "w": "sockets,",
+     "t": 163.8
+    },
+    {
+     "w": "like",
+     "t": 164.2
+    },
+    {
+     "w": "cameras",
+     "t": 164.61
+    },
+    {
+     "w": "that",
+     "t": 165.02
+    },
+    {
+     "w": "cannot",
+     "t": 165.42
+    },
+    {
+     "w": "look",
+     "t": 165.83
+    },
+    {
+     "w": "left",
+     "t": 166.24
+    },
+    {
+     "w": "or",
+     "t": 166.64
+    },
+    {
+     "w": "right.",
+     "t": 167.05
+    },
+    {
+     "w": "So",
+     "t": 167.46
+    },
+    {
+     "w": "the",
+     "t": 167.86
+    },
+    {
+     "w": "head",
+     "t": 168.27
+    },
+    {
+     "w": "must",
+     "t": 168.68
+    },
+    {
+     "w": "do",
+     "t": 169.08
+    },
+    {
+     "w": "all",
+     "t": 169.49
+    },
+    {
+     "w": "the",
+     "t": 169.9
+    },
+    {
+     "w": "turning,",
+     "t": 170.3
+    },
+    {
+     "w": "and",
+     "t": 170.71
+    },
+    {
+     "w": "the",
+     "t": 171.12
+    },
+    {
+     "w": "owl",
+     "t": 171.52
+    },
+    {
+     "w": "can",
+     "t": 171.93
+    },
+    {
+     "w": "look",
+     "t": 172.34
+    },
+    {
+     "w": "behind",
+     "t": 172.74
+    },
+    {
+     "w": "itself",
+     "t": 173.15
+    },
+    {
+     "w": "while",
+     "t": 173.56
+    },
+    {
+     "w": "its",
+     "t": 173.96
+    },
+    {
+     "w": "body",
+     "t": 174.37
+    },
+    {
+     "w": "stays",
+     "t": 174.78
+    },
+    {
+     "w": "still.",
+     "t": 175.18
+    }
+   ]
+  },
+  {
+   "start": 175.59,
+   "end": 205.68,
+   "en": "But wait — what causes the owl's brain to keep working when its neck twists so far? In our necks, such a twist would squeeze the blood vessels. The owl has a clever design: its neck bones have little air pockets, and its blood vessels have extra room and backup paths, so blood keeps flowing to the brain. It is like a road with side streets: if one is blocked, the blood takes another.",
+   "title": "猫头鹰转头的秘密",
+   "cn": "但等一下——当脖子扭到这种程度时，是什么让猫头鹰的大脑还能继续工作？在我们的脖子里，这样的扭转会挤压血管。猫头鹰的设计很巧妙：它的颈骨里有小气囊，血管周围有多余的空间和备用通道，所以血液能一直流向大脑。这就像一条带岔路的马路：如果一条堵了，血液就走另一条。",
+   "words": [
+    {
+     "w": "But",
+     "t": 175.59
+    },
+    {
+     "w": "wait",
+     "t": 176.0
+    },
+    {
+     "w": "—",
+     "t": 176.4
+    },
+    {
+     "w": "what",
+     "t": 176.81
+    },
+    {
+     "w": "causes",
+     "t": 177.22
+    },
+    {
+     "w": "the",
+     "t": 177.62
+    },
+    {
+     "w": "owl's",
+     "t": 178.03
+    },
+    {
+     "w": "brain",
+     "t": 178.44
+    },
+    {
+     "w": "to",
+     "t": 178.84
+    },
+    {
+     "w": "keep",
+     "t": 179.25
+    },
+    {
+     "w": "working",
+     "t": 179.66
+    },
+    {
+     "w": "when",
+     "t": 180.06
+    },
+    {
+     "w": "its",
+     "t": 180.47
+    },
+    {
+     "w": "neck",
+     "t": 180.88
+    },
+    {
+     "w": "twists",
+     "t": 181.28
+    },
+    {
+     "w": "so",
+     "t": 181.69
+    },
+    {
+     "w": "far?",
+     "t": 182.1
+    },
+    {
+     "w": "In",
+     "t": 182.5
+    },
+    {
+     "w": "our",
+     "t": 182.91
+    },
+    {
+     "w": "necks,",
+     "t": 183.32
+    },
+    {
+     "w": "such",
+     "t": 183.72
+    },
+    {
+     "w": "a",
+     "t": 184.13
+    },
+    {
+     "w": "twist",
+     "t": 184.54
+    },
+    {
+     "w": "would",
+     "t": 184.94
+    },
+    {
+     "w": "squeeze",
+     "t": 185.35
+    },
+    {
+     "w": "the",
+     "t": 185.75
+    },
+    {
+     "w": "blood",
+     "t": 186.16
+    },
+    {
+     "w": "vessels.",
+     "t": 186.57
+    },
+    {
+     "w": "The",
+     "t": 186.97
+    },
+    {
+     "w": "owl",
+     "t": 187.38
+    },
+    {
+     "w": "has",
+     "t": 187.79
+    },
+    {
+     "w": "a",
+     "t": 188.19
+    },
+    {
+     "w": "clever",
+     "t": 188.6
+    },
+    {
+     "w": "design:",
+     "t": 189.01
+    },
+    {
+     "w": "its",
+     "t": 189.41
+    },
+    {
+     "w": "neck",
+     "t": 189.82
+    },
+    {
+     "w": "bones",
+     "t": 190.23
+    },
+    {
+     "w": "have",
+     "t": 190.63
+    },
+    {
+     "w": "little",
+     "t": 191.04
+    },
+    {
+     "w": "air",
+     "t": 191.45
+    },
+    {
+     "w": "pockets,",
+     "t": 191.85
+    },
+    {
+     "w": "and",
+     "t": 192.26
+    },
+    {
+     "w": "its",
+     "t": 192.67
+    },
+    {
+     "w": "blood",
+     "t": 193.07
+    },
+    {
+     "w": "vessels",
+     "t": 193.48
+    },
+    {
+     "w": "have",
+     "t": 193.89
+    },
+    {
+     "w": "extra",
+     "t": 194.29
+    },
+    {
+     "w": "room",
+     "t": 194.7
+    },
+    {
+     "w": "and",
+     "t": 195.11
+    },
+    {
+     "w": "backup",
+     "t": 195.51
+    },
+    {
+     "w": "paths,",
+     "t": 195.92
+    },
+    {
+     "w": "so",
+     "t": 196.33
+    },
+    {
+     "w": "blood",
+     "t": 196.73
+    },
+    {
+     "w": "keeps",
+     "t": 197.14
+    },
+    {
+     "w": "flowing",
+     "t": 197.55
+    },
+    {
+     "w": "to",
+     "t": 197.95
+    },
+    {
+     "w": "the",
+     "t": 198.36
+    },
+    {
+     "w": "brain.",
+     "t": 198.77
+    },
+    {
+     "w": "It",
+     "t": 199.17
+    },
+    {
+     "w": "is",
+     "t": 199.58
+    },
+    {
+     "w": "like",
+     "t": 199.99
+    },
+    {
+     "w": "a",
+     "t": 200.39
+    },
+    {
+     "w": "road",
+     "t": 200.8
+    },
+    {
+     "w": "with",
+     "t": 201.21
+    },
+    {
+     "w": "side",
+     "t": 201.61
+    },
+    {
+     "w": "streets:",
+     "t": 202.02
+    },
+    {
+     "w": "if",
+     "t": 202.43
+    },
+    {
+     "w": "one",
+     "t": 202.83
+    },
+    {
+     "w": "is",
+     "t": 203.24
+    },
+    {
+     "w": "blocked,",
+     "t": 203.65
+    },
+    {
+     "w": "the",
+     "t": 204.05
+    },
+    {
+     "w": "blood",
+     "t": 204.46
+    },
+    {
+     "w": "takes",
+     "t": 204.87
+    },
+    {
+     "w": "another.",
+     "t": 205.27
+    }
+   ]
+  },
+  {
+   "start": 205.68,
+   "end": 218.69,
+   "en": "So on a dark night, the owl turns its head, listens, and hears a tiny mouse moving in the grass. Dinner is served — and the mouse never saw the owl move.",
+   "title": "猫头鹰转头的秘密",
+   "cn": "所以在一个漆黑的夜晚，猫头鹰转过脑袋，仔细听，听见一只小老鼠在草丛里活动。晚餐上桌了——而老鼠根本没发现猫头鹰动过。",
+   "words": [
+    {
+     "w": "So",
+     "t": 205.68
+    },
+    {
+     "w": "on",
+     "t": 206.09
+    },
+    {
+     "w": "a",
+     "t": 206.49
+    },
+    {
+     "w": "dark",
+     "t": 206.9
+    },
+    {
+     "w": "night,",
+     "t": 207.31
+    },
+    {
+     "w": "the",
+     "t": 207.71
+    },
+    {
+     "w": "owl",
+     "t": 208.12
+    },
+    {
+     "w": "turns",
+     "t": 208.52
+    },
+    {
+     "w": "its",
+     "t": 208.93
+    },
+    {
+     "w": "head,",
+     "t": 209.34
+    },
+    {
+     "w": "listens,",
+     "t": 209.74
+    },
+    {
+     "w": "and",
+     "t": 210.15
+    },
+    {
+     "w": "hears",
+     "t": 210.56
+    },
+    {
+     "w": "a",
+     "t": 210.96
+    },
+    {
+     "w": "tiny",
+     "t": 211.37
+    },
+    {
+     "w": "mouse",
+     "t": 211.78
+    },
+    {
+     "w": "moving",
+     "t": 212.18
+    },
+    {
+     "w": "in",
+     "t": 212.59
+    },
+    {
+     "w": "the",
+     "t": 213.0
+    },
+    {
+     "w": "grass.",
+     "t": 213.4
+    },
+    {
+     "w": "Dinner",
+     "t": 213.81
+    },
+    {
+     "w": "is",
+     "t": 214.22
+    },
+    {
+     "w": "served",
+     "t": 214.62
+    },
+    {
+     "w": "—",
+     "t": 215.03
+    },
+    {
+     "w": "and",
+     "t": 215.44
+    },
+    {
+     "w": "the",
+     "t": 215.84
+    },
+    {
+     "w": "mouse",
+     "t": 216.25
+    },
+    {
+     "w": "never",
+     "t": 216.66
+    },
+    {
+     "w": "saw",
+     "t": 217.06
+    },
+    {
+     "w": "the",
+     "t": 217.47
+    },
+    {
+     "w": "owl",
+     "t": 217.88
+    },
+    {
+     "w": "move.",
+     "t": 218.28
+    }
+   ]
+  },
+  {
+   "start": 233.23,
+   "end": 252.5,
+   "en": "Today's idiom is 'spill the beans.' When you spill the beans, you tell a secret by mistake! Here's an example: 'Lily wanted the birthday party to be a surprise, but she spilled the beans and told her brother!' Remember: if you want to keep a secret, don't spill the beans!",
+   "title": "今日俚语",
+   "cn": "今天的俚语是 spill the beans（洒出豆子）。当你 spill the beans 时，你就是不小心说漏了秘密！举个例子：“莉莉想让生日派对成为一个惊喜，可她说漏了嘴，告诉了她哥哥！”记住：如果你想保守一个秘密，千万别 spill the beans！",
+   "words": [
+    {
+     "w": "Today's",
+     "t": 233.23
+    },
+    {
+     "w": "idiom",
+     "t": 233.62
+    },
+    {
+     "w": "is",
+     "t": 234.0
+    },
+    {
+     "w": "'spill",
+     "t": 234.39
+    },
+    {
+     "w": "the",
+     "t": 234.77
+    },
+    {
+     "w": "beans.'",
+     "t": 235.16
+    },
+    {
+     "w": "When",
+     "t": 235.54
+    },
+    {
+     "w": "you",
+     "t": 235.93
+    },
+    {
+     "w": "spill",
+     "t": 236.31
+    },
+    {
+     "w": "the",
+     "t": 236.7
+    },
+    {
+     "w": "beans,",
+     "t": 237.08
+    },
+    {
+     "w": "you",
+     "t": 237.47
+    },
+    {
+     "w": "tell",
+     "t": 237.85
+    },
+    {
+     "w": "a",
+     "t": 238.24
+    },
+    {
+     "w": "secret",
+     "t": 238.63
+    },
+    {
+     "w": "by",
+     "t": 239.01
+    },
+    {
+     "w": "mistake!",
+     "t": 239.4
+    },
+    {
+     "w": "Here's",
+     "t": 239.78
+    },
+    {
+     "w": "an",
+     "t": 240.17
+    },
+    {
+     "w": "example:",
+     "t": 240.55
+    },
+    {
+     "w": "'Lily",
+     "t": 240.94
+    },
+    {
+     "w": "wanted",
+     "t": 241.32
+    },
+    {
+     "w": "the",
+     "t": 241.71
+    },
+    {
+     "w": "birthday",
+     "t": 242.09
+    },
+    {
+     "w": "party",
+     "t": 242.48
+    },
+    {
+     "w": "to",
+     "t": 242.87
+    },
+    {
+     "w": "be",
+     "t": 243.25
+    },
+    {
+     "w": "a",
+     "t": 243.64
+    },
+    {
+     "w": "surprise,",
+     "t": 244.02
+    },
+    {
+     "w": "but",
+     "t": 244.41
+    },
+    {
+     "w": "she",
+     "t": 244.79
+    },
+    {
+     "w": "spilled",
+     "t": 245.18
+    },
+    {
+     "w": "the",
+     "t": 245.56
+    },
+    {
+     "w": "beans",
+     "t": 245.95
+    },
+    {
+     "w": "and",
+     "t": 246.33
+    },
+    {
+     "w": "told",
+     "t": 246.72
+    },
+    {
+     "w": "her",
+     "t": 247.1
+    },
+    {
+     "w": "brother!'",
+     "t": 247.49
+    },
+    {
+     "w": "Remember:",
+     "t": 247.88
+    },
+    {
+     "w": "if",
+     "t": 248.26
+    },
+    {
+     "w": "you",
+     "t": 248.65
+    },
+    {
+     "w": "want",
+     "t": 249.03
+    },
+    {
+     "w": "to",
+     "t": 249.42
+    },
+    {
+     "w": "keep",
+     "t": 249.8
+    },
+    {
+     "w": "a",
+     "t": 250.19
+    },
+    {
+     "w": "secret,",
+     "t": 250.57
+    },
+    {
+     "w": "don't",
+     "t": 250.96
+    },
+    {
+     "w": "spill",
+     "t": 251.34
+    },
+    {
+     "w": "the",
+     "t": 251.73
+    },
+    {
+     "w": "beans!",
+     "t": 252.11
+    }
+   ]
+  },
+  {
+   "start": 266.24,
+   "end": 298.28,
+   "en": "Let's think: a robot that makes coffee all night, and an owl that turns its head 270 degrees. First: if a minister came to your town, what drink would you ask the robot to make for him? Second: the owl has fourteen neck bones and we have only seven — what other animal superpower would you like to have? Third: if you were as small as an ant, would you rather ride on the robot's arm or sit on the owl's back? Talk about it with your family!",
+   "title": "结束语与互动问题",
+   "cn": "我们来想想：一台整夜做咖啡的机器人，和一只脑袋能转 270 度的猫头鹰。第一：如果一位部长来到你的城市，你会请机器人给他做什么饮料？第二：猫头鹰有十四块颈骨，而我们只有七块——你还想拥有什么动物的超能力？第三：如果你变得像蚂蚁一样小，你更愿意坐在机器人的手臂上，还是坐在猫头鹰的背上？和家人聊聊吧！",
+   "words": [
+    {
+     "w": "Let's",
+     "t": 266.24
+    },
+    {
+     "w": "think:",
+     "t": 266.6
+    },
+    {
+     "w": "a",
+     "t": 266.97
+    },
+    {
+     "w": "robot",
+     "t": 267.33
+    },
+    {
+     "w": "that",
+     "t": 267.7
+    },
+    {
+     "w": "makes",
+     "t": 268.06
+    },
+    {
+     "w": "coffee",
+     "t": 268.42
+    },
+    {
+     "w": "all",
+     "t": 268.79
+    },
+    {
+     "w": "night,",
+     "t": 269.15
+    },
+    {
+     "w": "and",
+     "t": 269.52
+    },
+    {
+     "w": "an",
+     "t": 269.88
+    },
+    {
+     "w": "owl",
+     "t": 270.25
+    },
+    {
+     "w": "that",
+     "t": 270.61
+    },
+    {
+     "w": "turns",
+     "t": 270.97
+    },
+    {
+     "w": "its",
+     "t": 271.34
+    },
+    {
+     "w": "head",
+     "t": 271.7
+    },
+    {
+     "w": "270",
+     "t": 272.07
+    },
+    {
+     "w": "degrees.",
+     "t": 272.43
+    },
+    {
+     "w": "First:",
+     "t": 272.79
+    },
+    {
+     "w": "if",
+     "t": 273.16
+    },
+    {
+     "w": "a",
+     "t": 273.52
+    },
+    {
+     "w": "minister",
+     "t": 273.89
+    },
+    {
+     "w": "came",
+     "t": 274.25
+    },
+    {
+     "w": "to",
+     "t": 274.61
+    },
+    {
+     "w": "your",
+     "t": 274.98
+    },
+    {
+     "w": "town,",
+     "t": 275.34
+    },
+    {
+     "w": "what",
+     "t": 275.71
+    },
+    {
+     "w": "drink",
+     "t": 276.07
+    },
+    {
+     "w": "would",
+     "t": 276.43
+    },
+    {
+     "w": "you",
+     "t": 276.8
+    },
+    {
+     "w": "ask",
+     "t": 277.16
+    },
+    {
+     "w": "the",
+     "t": 277.53
+    },
+    {
+     "w": "robot",
+     "t": 277.89
+    },
+    {
+     "w": "to",
+     "t": 278.25
+    },
+    {
+     "w": "make",
+     "t": 278.62
+    },
+    {
+     "w": "for",
+     "t": 278.98
+    },
+    {
+     "w": "him?",
+     "t": 279.35
+    },
+    {
+     "w": "Second:",
+     "t": 279.71
+    },
+    {
+     "w": "the",
+     "t": 280.08
+    },
+    {
+     "w": "owl",
+     "t": 280.44
+    },
+    {
+     "w": "has",
+     "t": 280.8
+    },
+    {
+     "w": "fourteen",
+     "t": 281.17
+    },
+    {
+     "w": "neck",
+     "t": 281.53
+    },
+    {
+     "w": "bones",
+     "t": 281.9
+    },
+    {
+     "w": "and",
+     "t": 282.26
+    },
+    {
+     "w": "we",
+     "t": 282.62
+    },
+    {
+     "w": "have",
+     "t": 282.99
+    },
+    {
+     "w": "only",
+     "t": 283.35
+    },
+    {
+     "w": "seven",
+     "t": 283.72
+    },
+    {
+     "w": "—",
+     "t": 284.08
+    },
+    {
+     "w": "what",
+     "t": 284.44
+    },
+    {
+     "w": "other",
+     "t": 284.81
+    },
+    {
+     "w": "animal",
+     "t": 285.17
+    },
+    {
+     "w": "superpower",
+     "t": 285.54
+    },
+    {
+     "w": "would",
+     "t": 285.9
+    },
+    {
+     "w": "you",
+     "t": 286.26
+    },
+    {
+     "w": "like",
+     "t": 286.63
+    },
+    {
+     "w": "to",
+     "t": 286.99
+    },
+    {
+     "w": "have?",
+     "t": 287.36
+    },
+    {
+     "w": "Third:",
+     "t": 287.72
+    },
+    {
+     "w": "if",
+     "t": 288.09
+    },
+    {
+     "w": "you",
+     "t": 288.45
+    },
+    {
+     "w": "were",
+     "t": 288.81
+    },
+    {
+     "w": "as",
+     "t": 289.18
+    },
+    {
+     "w": "small",
+     "t": 289.54
+    },
+    {
+     "w": "as",
+     "t": 289.91
+    },
+    {
+     "w": "an",
+     "t": 290.27
+    },
+    {
+     "w": "ant,",
+     "t": 290.63
+    },
+    {
+     "w": "would",
+     "t": 291.0
+    },
+    {
+     "w": "you",
+     "t": 291.36
+    },
+    {
+     "w": "rather",
+     "t": 291.73
+    },
+    {
+     "w": "ride",
+     "t": 292.09
+    },
+    {
+     "w": "on",
+     "t": 292.45
+    },
+    {
+     "w": "the",
+     "t": 292.82
+    },
+    {
+     "w": "robot's",
+     "t": 293.18
+    },
+    {
+     "w": "arm",
+     "t": 293.55
+    },
+    {
+     "w": "or",
+     "t": 293.91
+    },
+    {
+     "w": "sit",
+     "t": 294.27
+    },
+    {
+     "w": "on",
+     "t": 294.64
+    },
+    {
+     "w": "the",
+     "t": 295.0
+    },
+    {
+     "w": "owl's",
+     "t": 295.37
+    },
+    {
+     "w": "back?",
+     "t": 295.73
+    },
+    {
+     "w": "Talk",
+     "t": 296.1
+    },
+    {
+     "w": "about",
+     "t": 296.46
+    },
+    {
+     "w": "it",
+     "t": 296.82
+    },
+    {
+     "w": "with",
+     "t": 297.19
+    },
+    {
+     "w": "your",
+     "t": 297.55
+    },
+    {
+     "w": "family!",
+     "t": 297.92
+    }
+   ]
+  },
+  {
+   "start": 307.54,
+   "end": 315.0,
+   "en": "That's all for today, young explorers. Keep reading, keep wondering, and never spill the beans! See you tomorrow!",
+   "title": "告别",
+   "cn": "今天的节目就到这里啦，小小探险家们。坚持阅读，保持好奇，永远别说漏嘴！明天见！",
+   "words": [
+    {
+     "w": "That's",
+     "t": 307.54
+    },
+    {
+     "w": "all",
+     "t": 307.95
+    },
+    {
+     "w": "for",
+     "t": 308.37
+    },
+    {
+     "w": "today,",
+     "t": 308.78
+    },
+    {
+     "w": "young",
+     "t": 309.2
+    },
+    {
+     "w": "explorers.",
+     "t": 309.61
+    },
+    {
+     "w": "Keep",
+     "t": 310.03
+    },
+    {
+     "w": "reading,",
+     "t": 310.44
+    },
+    {
+     "w": "keep",
+     "t": 310.86
+    },
+    {
+     "w": "wondering,",
+     "t": 311.27
+    },
+    {
+     "w": "and",
+     "t": 311.68
+    },
+    {
+     "w": "never",
+     "t": 312.1
+    },
+    {
+     "w": "spill",
+     "t": 312.51
+    },
+    {
+     "w": "the",
+     "t": 312.93
+    },
+    {
+     "w": "beans!",
+     "t": 313.34
+    },
+    {
+     "w": "See",
+     "t": 313.76
+    },
+    {
+     "w": "you",
+     "t": 314.17
+    },
+    {
+     "w": "tomorrow!",
+     "t": 314.59
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "spill the beans",
+    "phon": "/spɪl ðə biːnz/",
+    "meaning": "(习语) 说漏嘴；不小心泄露秘密",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: When you spill the beans, you tell a secret by mistake!"
+   },
+   {
+    "word": "clarify",
+    "phon": "/ˈklærəfaɪ/",
+    "meaning": "(v.) 澄清；阐明",
+    "tags": [],
+    "example": "Example: Let me clarify one thing."
+   },
+   {
+    "word": "minister",
+    "phon": "/ˈmɪnɪstər/",
+    "meaning": "(n.) 部长；大臣",
+    "tags": [],
+    "example": "Example: If a minister came to your town, what drink would you ask the robot to make?"
+   },
+   {
+    "word": "total",
+    "phon": "/ˈtəʊtl/",
+    "meaning": "(adv.) 总的来说；合计",
+    "tags": [],
+    "example": "Example: In total, the robot can work all night without feeling tired."
+   },
+   {
+    "word": "standard",
+    "phon": "/ˈstændəd/",
+    "meaning": "(adj.) 标准的；一成不变的",
+    "tags": [],
+    "example": "Example: It follows the same standard steps every time."
+   },
+   {
+    "word": "remark",
+    "phon": "/rɪˈmɑːk/",
+    "meaning": "(v.) 评论；谈论",
+    "tags": [],
+    "example": "Example: Visitors often remark on how fast it is."
+   },
+   {
+    "word": "brewery",
+    "phon": "/ˈbruːəri/",
+    "meaning": "(n.) 酿造厂；啤酒厂",
+    "tags": [],
+    "example": "Example: It is not a big brewery with huge tanks."
+   },
+   {
+    "word": "yell",
+    "phon": "/jel/",
+    "meaning": "(v.) 大喊；叫喊",
+    "tags": [],
+    "example": "Example: No need to yell across a noisy room."
+   },
+   {
+    "word": "curtain",
+    "phon": "/ˈkɜːtn/",
+    "meaning": "(n.) 幕；幕布",
+    "tags": [],
+    "example": "Example: When the dark curtain of night falls, the owl wakes up."
+   },
+   {
+    "word": "minimum",
+    "phon": "/ˈmɪnɪməm/",
+    "meaning": "(adj.) 最小的；最低的",
+    "tags": [],
+    "example": "Example: With a minimum wait of about twenty-five seconds, your cup is ready."
+   },
+   {
+    "word": "accumulate",
+    "phon": "/əˈkjuːmjəleɪt/",
+    "meaning": "(v.) 积累；越积越多",
+    "tags": [],
+    "example": "Example: Cup by cup, the numbers accumulate."
+   },
+   {
+    "word": "ant",
+    "phon": "/ænt/",
+    "meaning": "(n.) 蚂蚁",
+    "tags": [],
+    "example": "Example: If you were as small as an ant, would you rather ride on the robot's arm?"
+   },
+   {
+    "word": "neat",
+    "phon": "/niːt/",
+    "meaning": "(adj.) 整齐的；小巧整齐的",
+    "tags": [],
+    "example": "Example: It is a small, neat machine."
+   },
+   {
+    "word": "barista",
+    "phon": "/bəˈriːstə/",
+    "meaning": "(n.) 咖啡师",
+    "tags": [],
+    "example": "Example: A robot barista that never sleeps."
+   },
+   {
+    "word": "socket",
+    "phon": "/ˈsɒkɪt/",
+    "meaning": "(n.) 眼窝；插座",
+    "tags": [],
+    "example": "Example: Its big eyes are fixed in their sockets."
+   },
+   {
+    "word": "vessel",
+    "phon": "/ˈvesl/",
+    "meaning": "(n.) 血管；容器",
+    "tags": [],
+    "example": "Example: Such a twist would squeeze the blood vessels."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "How fast can the robot coffee shop make one cup?\nA. About 25 seconds\nB. About 25 minutes\nC. About 2 hours\nD. About 5 seconds",
+     "How many cups did the little shop serve in one hour on its opening day?\nA. 22 cups\nB. 102 cups\nC. 202 cups\nD. 2,000 cups",
+     "Why can an owl turn its head so far?\nA. It has fourteen neck bones and special blood vessels\nB. It has no bones in its neck\nC. Its eyes can move all the way around\nD. It sleeps all day",
+     "What does \"spill the beans\" mean?\nA. To cook beans\nB. To tell a secret by mistake\nC. To drop your food\nD. To plant beans"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "type": "text",
+        "text": "Its neck bones have little air pockets, and its blood vessels have extra room and backup paths, so blood keeps flowing to the brain."
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "and"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "并列连词"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：and 把两个分句连起来——颈骨有小气囊、血管有多余空间和备用通道，两个事实并列出现，像把两块积木拼在一起。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "so"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "结果连词"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：so + 一整句话表示结果——前面两个巧妙设计带来的结果，就是血液能一直流向大脑。英语里 so 放在结果句句首，前面用逗号隔开。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "keeps flowing"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是 "
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "keep + doing 结构"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：keep（保持）+ 动词 -ing 形式，表示\"一直做某事\"——keeps flowing 就是血液一直流、不停下。主语 blood 是第三人称单数，所以 keep 要加 s 变成 keeps。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句逻辑链："
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "设计一（气囊）+ 设计二（空间与备用通道）→ 结果（血液持续流动）"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。一句话里藏着并列、结果和 keep + doing 三个机关。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "BARISTA"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（咖啡师）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "BREWERY"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（酿造厂）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "MINISTER"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（部长）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "STANDARD"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（标准的）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ACCUMULATE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（积累）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "CURTAIN"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（幕布）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "CLARIFY"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（澄清）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "YELL"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（大喊）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "NEAT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（整齐小巧的）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "BEANS"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（豆子）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "A"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"With a minimum wait of about twenty-five seconds, your cup is ready.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"On its opening day, the little shop served 202 cups in one hour.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "A"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"An owl has fourteen — twice as many! ... its blood vessels have extra room and backup paths.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"When you spill the beans, you tell a secret by mistake!\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. and  2. and"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. so  2. so"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. keeps flowing  2. keeps working"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "A",
+    "C",
+    "A",
+    "B"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. and 并列结构：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "The robot grinds the beans ____ pours hot water.",
+       "options": [
+        "and",
+        "but",
+        "so"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "The owl turns its head ____ listens carefully.",
+       "options": [
+        "but",
+        "and",
+        "or"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. so 结果连词：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "The owl has backup paths, ____ blood keeps flowing to the brain.",
+       "options": [
+        "but",
+        "and",
+        "so"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "The shop is open all night, ____ night customers love it.",
+       "options": [
+        "so",
+        "but",
+        "or"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. keep + doing 结构：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "The blood ____ to the brain.",
+       "options": [
+        "keep flowing",
+        "keeps flowing",
+        "keeps flow"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "The robot ____ all night.",
+       "options": [
+        "keep working",
+        "keeps work",
+        "keeps working"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "Its neck bones have little air pockets, and its blood vessels have extra room and backup paths, so blood keeps flowing to the brain.",
+    "A robot barista that never sleeps."
+   ]
+  },
+  "crossword": {
+   "nrows": 11,
+   "ncols": 13,
+   "words": [
+    {
+     "word": "BARISTA",
+     "row": 5,
+     "col": 6,
+     "dir": "A",
+     "num": 1,
+     "cn": "咖啡师",
+     "clue": "There is no human ___ inside."
+    },
+    {
+     "word": "BREWERY",
+     "row": 1,
+     "col": 4,
+     "dir": "A",
+     "num": 2,
+     "cn": "酿造厂",
+     "clue": "It is not a big ___ with huge tanks."
+    },
+    {
+     "word": "MINISTER",
+     "row": 3,
+     "col": 4,
+     "dir": "D",
+     "num": 3,
+     "cn": "部长",
+     "clue": "If a ___ came to your town, what drink would you ask the robot to make for him?"
+    },
+    {
+     "word": "STANDARD",
+     "row": 7,
+     "col": 4,
+     "dir": "A",
+     "num": 4,
+     "cn": "标准的",
+     "clue": "It follows the same ___ steps every time."
+    },
+    {
+     "word": "ACCUMULATE",
+     "row": 3,
+     "col": 0,
+     "dir": "A",
+     "num": 5,
+     "cn": "积累",
+     "clue": "Cup by cup, the numbers ___."
+    },
+    {
+     "word": "CURTAIN",
+     "row": 3,
+     "col": 2,
+     "dir": "D",
+     "num": 6,
+     "cn": "幕布",
+     "clue": "When the dark ___ of night falls, the owl wakes up."
+    },
+    {
+     "word": "CLARIFY",
+     "row": 1,
+     "col": 0,
+     "dir": "D",
+     "num": 7,
+     "cn": "澄清",
+     "clue": "Let me ___ one thing."
+    },
+    {
+     "word": "YELL",
+     "row": 0,
+     "col": 6,
+     "dir": "D",
+     "num": 8,
+     "cn": "大喊",
+     "clue": "No need to ___ across a noisy room."
+    },
+    {
+     "word": "NEAT",
+     "row": 0,
+     "col": 8,
+     "dir": "D",
+     "num": 9,
+     "cn": "整齐小巧的",
+     "clue": "It is a small, ___ machine."
+    },
+    {
+     "word": "BEANS",
+     "row": 5,
+     "col": 6,
+     "dir": "D",
+     "num": 10,
+     "cn": "豆子",
+     "clue": "When you spill the ___, you tell a secret by mistake."
+    }
+   ]
+  }
+ }
+}

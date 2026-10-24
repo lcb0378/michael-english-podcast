@@ -1,5 +1,16 @@
 [
  {
+  "id": "vol41",
+  "title": "机器人咖啡师与猫头鹰转头的秘密",
+  "words": 600,
+  "duration": "5分24秒",
+  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol41/cover.png",
+  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol41/audio.mp3",
+  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol41/video_v1.mp4",
+  "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol41/Vol41_晚读讲义_机器人咖啡师与猫头鹰转头的秘密_v1.pdf",
+  "pdfName": "Vol41_晚读讲义_机器人咖啡师与猫头鹰转头的秘密_v1.pdf"
+ },
+ {
   "id": "vol40",
   "title": "借书冠军与不是白色的北极熊",
   "words": 599,

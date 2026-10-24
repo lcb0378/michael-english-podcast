@@ -1,0 +1,238 @@
+[
+ {
+  "id": 1,
+  "title": "开场白",
+  "blocks": [
+   {
+    "start": 19.31,
+    "end": 23.48,
+    "en": "Hello, young explorers, and welcome back to Michael's Morning Listening!"
+   },
+   {
+    "start": 23.48,
+    "end": 34.33,
+    "en": "Today we have two stars for you: a robot barista that never sleeps, and an owl that can turn its head almost all the way around."
+   },
+   {
+    "start": 34.33,
+    "end": 34.75,
+    "en": "Ready?"
+   },
+   {
+    "start": 34.75,
+    "end": 35.58,
+    "en": "Let's go!"
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "title": "机器人咖啡师",
+  "blocks": [
+   {
+    "start": 49.96,
+    "end": 52.88,
+    "en": "In Beijing, there is a special coffee shop."
+   },
+   {
+    "start": 52.88,
+    "end": 59.45,
+    "en": "There is no human barista inside — a robot makes all the coffee, all day and all night."
+   },
+   {
+    "start": 59.45,
+    "end": 62.0,
+    "en": "You tap your order on a screen."
+   },
+   {
+    "start": 62.0,
+    "end": 66.38,
+    "en": "With a minimum wait of about twenty-five seconds, your cup is ready."
+   },
+   {
+    "start": 66.38,
+    "end": 72.94,
+    "en": "No need to yell across a noisy room — the robot reads your order and gets to work."
+   },
+   {
+    "start": 72.94,
+    "end": 78.05,
+    "en": "Let me clarify one thing: it is not a big brewery with huge tanks."
+   },
+   {
+    "start": 78.05,
+    "end": 82.8,
+    "en": "It is a small, neat machine that makes one cup at a time."
+   },
+   {
+    "start": 82.8,
+    "end": 90.46,
+    "en": "It follows the same standard steps every time: grinding the beans, pouring hot water, adding milk, and handing you the cup."
+   },
+   {
+    "start": 90.46,
+    "end": 99.94,
+    "en": "Cup by cup, the numbers accumulate: on its opening day, the little shop served 202 cups in one hour — more than three cups every minute!"
+   },
+   {
+    "start": 99.94,
+    "end": 109.06,
+    "en": "Visitors often remark on how fast it is, and a group of morning customers appreciate it most at night, when every other shop is closed."
+   },
+   {
+    "start": 109.06,
+    "end": 113.08,
+    "en": "In total, the robot can work all night without feeling tired."
+   },
+   {
+    "start": 113.08,
+    "end": 117.09,
+    "en": "So, would you trust a robot to make your hot chocolate?"
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "title": "猫头鹰转头的秘密",
+  "blocks": [
+   {
+    "start": 128.83,
+    "end": 131.68,
+    "en": "Now let's fly into the quiet night."
+   },
+   {
+    "start": 131.68,
+    "end": 136.15,
+    "en": "When the dark curtain of night falls, the owl wakes up."
+   },
+   {
+    "start": 136.15,
+    "end": 146.31,
+    "en": "And here is a surprise: an owl can turn its head about 270 degrees — almost all the way around — without moving its body!"
+   },
+   {
+    "start": 146.31,
+    "end": 146.72,
+    "en": "Why?"
+   },
+   {
+    "start": 146.72,
+    "end": 155.26,
+    "en": "First, count the bones: we have seven small bones in our necks, but an owl has fourteen — twice as many!"
+   },
+   {
+    "start": 155.26,
+    "end": 158.11,
+    "en": "More bones mean more room to turn."
+   },
+   {
+    "start": 158.11,
+    "end": 167.46,
+    "en": "Second, an owl cannot move its eyes: its big eyes are fixed in their sockets, like cameras that cannot look left or right."
+   },
+   {
+    "start": 167.46,
+    "end": 175.59,
+    "en": "So the head must do all the turning, and the owl can look behind itself while its body stays still."
+   },
+   {
+    "start": 175.59,
+    "end": 182.5,
+    "en": "But wait — what causes the owl's brain to keep working when its neck twists so far?"
+   },
+   {
+    "start": 182.5,
+    "end": 186.97,
+    "en": "In our necks, such a twist would squeeze the blood vessels."
+   },
+   {
+    "start": 186.97,
+    "end": 199.17,
+    "en": "The owl has a clever design: its neck bones have little air pockets, and its blood vessels have extra room and backup paths, so blood keeps flowing to the brain."
+   },
+   {
+    "start": 199.17,
+    "end": 205.68,
+    "en": "It is like a road with side streets: if one is blocked, the blood takes another."
+   },
+   {
+    "start": 205.68,
+    "end": 213.81,
+    "en": "So on a dark night, the owl turns its head, listens, and hears a tiny mouse moving in the grass."
+   },
+   {
+    "start": 213.81,
+    "end": 218.69,
+    "en": "Dinner is served — and the mouse never saw the owl move."
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "title": "今日俚语",
+  "blocks": [
+   {
+    "start": 233.23,
+    "end": 239.78,
+    "en": "Today's idiom is 'spill the beans.' When you spill the beans, you tell a secret by mistake!"
+   },
+   {
+    "start": 239.78,
+    "end": 252.5,
+    "en": "Here's an example: 'Lily wanted the birthday party to be a surprise, but she spilled the beans and told her brother!' Remember: if you want to keep a secret, don't spill the beans!"
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "title": "结束语与互动问题",
+  "blocks": [
+   {
+    "start": 266.24,
+    "end": 272.79,
+    "en": "Let's think: a robot that makes coffee all night, and an owl that turns its head 270 degrees."
+   },
+   {
+    "start": 272.79,
+    "end": 279.71,
+    "en": "First: if a minister came to your town, what drink would you ask the robot to make for him?"
+   },
+   {
+    "start": 279.71,
+    "end": 287.72,
+    "en": "Second: the owl has fourteen neck bones and we have only seven — what other animal superpower would you like to have?"
+   },
+   {
+    "start": 287.72,
+    "end": 296.1,
+    "en": "Third: if you were as small as an ant, would you rather ride on the robot's arm or sit on the owl's back?"
+   },
+   {
+    "start": 296.1,
+    "end": 298.28,
+    "en": "Talk about it with your family!"
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "title": "告别",
+  "blocks": [
+   {
+    "start": 307.54,
+    "end": 310.03,
+    "en": "That's all for today, young explorers."
+   },
+   {
+    "start": 310.03,
+    "end": 313.76,
+    "en": "Keep reading, keep wondering, and never spill the beans!"
+   },
+   {
+    "start": 313.76,
+    "end": 315.0,
+    "en": "See you tomorrow!"
+   }
+  ]
+ }
+]
