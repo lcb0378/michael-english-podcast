@@ -1,0 +1,3519 @@
+{
+ "id": "vol47",
+ "title": "旅行奶奶与长颈鹿",
+ "words": 597,
+ "duration": "5分56秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol47/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol47/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol47/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol47/Vol47_晚读讲义_旅行奶奶与长颈鹿_v1.pdf",
+ "pdfName": "Vol47_晚读讲义_旅行奶奶与长颈鹿_v1.pdf",
+ "blocks": [
+  {
+   "start": 22.91,
+   "end": 37.6,
+   "en": "Hello, young explorers, and welcome back! Today we celebrate a grandmother who proves adventure has no age limit, and the super-strong heart of the tallest animal on Earth. Ready? Let's go!",
+   "title": "开场白",
+   "cn": "你好，小小探险家们，欢迎回来！今天，我们要庆祝一位奶奶，她证明了冒险没有年龄限制；还要认识地球上最高动物的超级强大的心脏。准备好了吗？出发！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 22.91
+    },
+    {
+     "w": "young",
+     "t": 23.38
+    },
+    {
+     "w": "explorers,",
+     "t": 23.86
+    },
+    {
+     "w": "and",
+     "t": 24.33
+    },
+    {
+     "w": "welcome",
+     "t": 24.81
+    },
+    {
+     "w": "back!",
+     "t": 25.28
+    },
+    {
+     "w": "Today",
+     "t": 25.75
+    },
+    {
+     "w": "we",
+     "t": 26.23
+    },
+    {
+     "w": "celebrate",
+     "t": 26.7
+    },
+    {
+     "w": "a",
+     "t": 27.17
+    },
+    {
+     "w": "grandmother",
+     "t": 27.65
+    },
+    {
+     "w": "who",
+     "t": 28.12
+    },
+    {
+     "w": "proves",
+     "t": 28.6
+    },
+    {
+     "w": "adventure",
+     "t": 29.07
+    },
+    {
+     "w": "has",
+     "t": 29.54
+    },
+    {
+     "w": "no",
+     "t": 30.02
+    },
+    {
+     "w": "age",
+     "t": 30.49
+    },
+    {
+     "w": "limit,",
+     "t": 30.97
+    },
+    {
+     "w": "and",
+     "t": 31.44
+    },
+    {
+     "w": "the",
+     "t": 31.91
+    },
+    {
+     "w": "super-strong",
+     "t": 32.39
+    },
+    {
+     "w": "heart",
+     "t": 32.86
+    },
+    {
+     "w": "of",
+     "t": 33.34
+    },
+    {
+     "w": "the",
+     "t": 33.81
+    },
+    {
+     "w": "tallest",
+     "t": 34.28
+    },
+    {
+     "w": "animal",
+     "t": 34.76
+    },
+    {
+     "w": "on",
+     "t": 35.23
+    },
+    {
+     "w": "Earth.",
+     "t": 35.7
+    },
+    {
+     "w": "Ready?",
+     "t": 36.18
+    },
+    {
+     "w": "Let's",
+     "t": 36.65
+    },
+    {
+     "w": "go!",
+     "t": 37.13
+    }
+   ]
+  },
+  {
+   "start": 56.14,
+   "end": 82.14,
+   "en": "Joy Ryan, known as Grandma Joy, did not get her first passport until she was 91. Before that, she had never seen a mountain or an ocean. Then her grandson Brad took her camping in the mountains, and that one small trip changed everything. Together, they visited all 63 national parks in the United States, and Joy became the oldest person ever to do that.",
+   "title": "旅行奶奶",
+   "cn": "乔伊·瑞安，大家叫她“快乐奶奶”，直到 91 岁才拿到第一本护照。在那之前，她连大山和大海都没见过。后来，她的孙子布拉德带她去山里露营，那一次小小的旅行改变了一切。后来，他们一起游遍了美国全部 63 个国家公园，乔伊也成了有史以来完成这件事年纪最大的人。",
+   "words": [
+    {
+     "w": "Joy",
+     "t": 56.14
+    },
+    {
+     "w": "Ryan,",
+     "t": 56.54
+    },
+    {
+     "w": "known",
+     "t": 56.94
+    },
+    {
+     "w": "as",
+     "t": 57.34
+    },
+    {
+     "w": "Grandma",
+     "t": 57.74
+    },
+    {
+     "w": "Joy,",
+     "t": 58.14
+    },
+    {
+     "w": "did",
+     "t": 58.54
+    },
+    {
+     "w": "not",
+     "t": 58.94
+    },
+    {
+     "w": "get",
+     "t": 59.34
+    },
+    {
+     "w": "her",
+     "t": 59.74
+    },
+    {
+     "w": "first",
+     "t": 60.14
+    },
+    {
+     "w": "passport",
+     "t": 60.54
+    },
+    {
+     "w": "until",
+     "t": 60.94
+    },
+    {
+     "w": "she",
+     "t": 61.34
+    },
+    {
+     "w": "was",
+     "t": 61.74
+    },
+    {
+     "w": "91.",
+     "t": 62.14
+    },
+    {
+     "w": "Before",
+     "t": 62.54
+    },
+    {
+     "w": "that,",
+     "t": 62.94
+    },
+    {
+     "w": "she",
+     "t": 63.34
+    },
+    {
+     "w": "had",
+     "t": 63.74
+    },
+    {
+     "w": "never",
+     "t": 64.14
+    },
+    {
+     "w": "seen",
+     "t": 64.54
+    },
+    {
+     "w": "a",
+     "t": 64.94
+    },
+    {
+     "w": "mountain",
+     "t": 65.34
+    },
+    {
+     "w": "or",
+     "t": 65.74
+    },
+    {
+     "w": "an",
+     "t": 66.14
+    },
+    {
+     "w": "ocean.",
+     "t": 66.54
+    },
+    {
+     "w": "Then",
+     "t": 66.94
+    },
+    {
+     "w": "her",
+     "t": 67.34
+    },
+    {
+     "w": "grandson",
+     "t": 67.74
+    },
+    {
+     "w": "Brad",
+     "t": 68.14
+    },
+    {
+     "w": "took",
+     "t": 68.54
+    },
+    {
+     "w": "her",
+     "t": 68.94
+    },
+    {
+     "w": "camping",
+     "t": 69.34
+    },
+    {
+     "w": "in",
+     "t": 69.74
+    },
+    {
+     "w": "the",
+     "t": 70.14
+    },
+    {
+     "w": "mountains,",
+     "t": 70.54
+    },
+    {
+     "w": "and",
+     "t": 70.94
+    },
+    {
+     "w": "that",
+     "t": 71.34
+    },
+    {
+     "w": "one",
+     "t": 71.74
+    },
+    {
+     "w": "small",
+     "t": 72.14
+    },
+    {
+     "w": "trip",
+     "t": 72.54
+    },
+    {
+     "w": "changed",
+     "t": 72.94
+    },
+    {
+     "w": "everything.",
+     "t": 73.34
+    },
+    {
+     "w": "Together,",
+     "t": 73.74
+    },
+    {
+     "w": "they",
+     "t": 74.14
+    },
+    {
+     "w": "visited",
+     "t": 74.54
+    },
+    {
+     "w": "all",
+     "t": 74.94
+    },
+    {
+     "w": "63",
+     "t": 75.34
+    },
+    {
+     "w": "national",
+     "t": 75.74
+    },
+    {
+     "w": "parks",
+     "t": 76.14
+    },
+    {
+     "w": "in",
+     "t": 76.54
+    },
+    {
+     "w": "the",
+     "t": 76.94
+    },
+    {
+     "w": "United",
+     "t": 77.34
+    },
+    {
+     "w": "States,",
+     "t": 77.74
+    },
+    {
+     "w": "and",
+     "t": 78.14
+    },
+    {
+     "w": "Joy",
+     "t": 78.54
+    },
+    {
+     "w": "became",
+     "t": 78.94
+    },
+    {
+     "w": "the",
+     "t": 79.34
+    },
+    {
+     "w": "oldest",
+     "t": 79.74
+    },
+    {
+     "w": "person",
+     "t": 80.14
+    },
+    {
+     "w": "ever",
+     "t": 80.54
+    },
+    {
+     "w": "to",
+     "t": 80.94
+    },
+    {
+     "w": "do",
+     "t": 81.34
+    },
+    {
+     "w": "that.",
+     "t": 81.74
+    }
+   ]
+  },
+  {
+   "start": 82.14,
+   "end": 97.34,
+   "en": "But they did not stop there. From North America, they went on to Europe, Asia, Africa, South America, and Australia, and finally Antarctica. At 96, Joy had set foot on all seven continents, with her grandson beside her.",
+   "title": "旅行奶奶",
+   "cn": "但他们没有就此停下。从北美洲出发，他们先后去了欧洲、亚洲、非洲、南美洲和澳大利亚，最后到了南极洲。96 岁的时候，乔伊已经踏上了全部七大洲，孙子一直陪在她身边。",
+   "words": [
+    {
+     "w": "But",
+     "t": 82.14
+    },
+    {
+     "w": "they",
+     "t": 82.54
+    },
+    {
+     "w": "did",
+     "t": 82.94
+    },
+    {
+     "w": "not",
+     "t": 83.34
+    },
+    {
+     "w": "stop",
+     "t": 83.74
+    },
+    {
+     "w": "there.",
+     "t": 84.14
+    },
+    {
+     "w": "From",
+     "t": 84.54
+    },
+    {
+     "w": "North",
+     "t": 84.94
+    },
+    {
+     "w": "America,",
+     "t": 85.34
+    },
+    {
+     "w": "they",
+     "t": 85.74
+    },
+    {
+     "w": "went",
+     "t": 86.14
+    },
+    {
+     "w": "on",
+     "t": 86.54
+    },
+    {
+     "w": "to",
+     "t": 86.94
+    },
+    {
+     "w": "Europe,",
+     "t": 87.34
+    },
+    {
+     "w": "Asia,",
+     "t": 87.74
+    },
+    {
+     "w": "Africa,",
+     "t": 88.14
+    },
+    {
+     "w": "South",
+     "t": 88.54
+    },
+    {
+     "w": "America,",
+     "t": 88.94
+    },
+    {
+     "w": "and",
+     "t": 89.34
+    },
+    {
+     "w": "Australia,",
+     "t": 89.74
+    },
+    {
+     "w": "and",
+     "t": 90.14
+    },
+    {
+     "w": "finally",
+     "t": 90.54
+    },
+    {
+     "w": "Antarctica.",
+     "t": 90.94
+    },
+    {
+     "w": "At",
+     "t": 91.34
+    },
+    {
+     "w": "96,",
+     "t": 91.74
+    },
+    {
+     "w": "Joy",
+     "t": 92.14
+    },
+    {
+     "w": "had",
+     "t": 92.54
+    },
+    {
+     "w": "set",
+     "t": 92.94
+    },
+    {
+     "w": "foot",
+     "t": 93.34
+    },
+    {
+     "w": "on",
+     "t": 93.74
+    },
+    {
+     "w": "all",
+     "t": 94.14
+    },
+    {
+     "w": "seven",
+     "t": 94.54
+    },
+    {
+     "w": "continents,",
+     "t": 94.94
+    },
+    {
+     "w": "with",
+     "t": 95.34
+    },
+    {
+     "w": "her",
+     "t": 95.74
+    },
+    {
+     "w": "grandson",
+     "t": 96.14
+    },
+    {
+     "w": "beside",
+     "t": 96.54
+    },
+    {
+     "w": "her.",
+     "t": 96.94
+    }
+   ]
+  },
+  {
+   "start": 97.34,
+   "end": 118.54,
+   "en": "Her approach to life is simple: never say you are too old to try. A big trip can be expensive, but Joy shows us it does not have to cost a lot to be precious. She has no diploma in travel: she just went, one step at a time, and discovered the world.",
+   "title": "旅行奶奶",
+   "cn": "她对待生活的方法很简单：永远不要说自己太老了、不能尝试了。一次大旅行可能会很贵，但乔伊告诉我们，它不一定要花很多钱，也可以很珍贵。她没有旅行的文凭：她只是一步一步出发，去发现这个世界。",
+   "words": [
+    {
+     "w": "Her",
+     "t": 97.34
+    },
+    {
+     "w": "approach",
+     "t": 97.74
+    },
+    {
+     "w": "to",
+     "t": 98.14
+    },
+    {
+     "w": "life",
+     "t": 98.54
+    },
+    {
+     "w": "is",
+     "t": 98.94
+    },
+    {
+     "w": "simple:",
+     "t": 99.34
+    },
+    {
+     "w": "never",
+     "t": 99.74
+    },
+    {
+     "w": "say",
+     "t": 100.14
+    },
+    {
+     "w": "you",
+     "t": 100.54
+    },
+    {
+     "w": "are",
+     "t": 100.94
+    },
+    {
+     "w": "too",
+     "t": 101.34
+    },
+    {
+     "w": "old",
+     "t": 101.74
+    },
+    {
+     "w": "to",
+     "t": 102.14
+    },
+    {
+     "w": "try.",
+     "t": 102.54
+    },
+    {
+     "w": "A",
+     "t": 102.94
+    },
+    {
+     "w": "big",
+     "t": 103.34
+    },
+    {
+     "w": "trip",
+     "t": 103.74
+    },
+    {
+     "w": "can",
+     "t": 104.14
+    },
+    {
+     "w": "be",
+     "t": 104.54
+    },
+    {
+     "w": "expensive,",
+     "t": 104.94
+    },
+    {
+     "w": "but",
+     "t": 105.34
+    },
+    {
+     "w": "Joy",
+     "t": 105.74
+    },
+    {
+     "w": "shows",
+     "t": 106.14
+    },
+    {
+     "w": "us",
+     "t": 106.54
+    },
+    {
+     "w": "it",
+     "t": 106.94
+    },
+    {
+     "w": "does",
+     "t": 107.34
+    },
+    {
+     "w": "not",
+     "t": 107.74
+    },
+    {
+     "w": "have",
+     "t": 108.14
+    },
+    {
+     "w": "to",
+     "t": 108.54
+    },
+    {
+     "w": "cost",
+     "t": 108.94
+    },
+    {
+     "w": "a",
+     "t": 109.34
+    },
+    {
+     "w": "lot",
+     "t": 109.74
+    },
+    {
+     "w": "to",
+     "t": 110.14
+    },
+    {
+     "w": "be",
+     "t": 110.54
+    },
+    {
+     "w": "precious.",
+     "t": 110.94
+    },
+    {
+     "w": "She",
+     "t": 111.34
+    },
+    {
+     "w": "has",
+     "t": 111.74
+    },
+    {
+     "w": "no",
+     "t": 112.14
+    },
+    {
+     "w": "diploma",
+     "t": 112.54
+    },
+    {
+     "w": "in",
+     "t": 112.94
+    },
+    {
+     "w": "travel:",
+     "t": 113.34
+    },
+    {
+     "w": "she",
+     "t": 113.74
+    },
+    {
+     "w": "just",
+     "t": 114.14
+    },
+    {
+     "w": "went,",
+     "t": 114.54
+    },
+    {
+     "w": "one",
+     "t": 114.94
+    },
+    {
+     "w": "step",
+     "t": 115.34
+    },
+    {
+     "w": "at",
+     "t": 115.74
+    },
+    {
+     "w": "a",
+     "t": 116.14
+    },
+    {
+     "w": "time,",
+     "t": 116.54
+    },
+    {
+     "w": "and",
+     "t": 116.94
+    },
+    {
+     "w": "discovered",
+     "t": 117.34
+    },
+    {
+     "w": "the",
+     "t": 117.74
+    },
+    {
+     "w": "world.",
+     "t": 118.14
+    }
+   ]
+  },
+  {
+   "start": 131.64,
+   "end": 152.33,
+   "en": "Now let's meet the tallest animal on Earth: the giraffe. A giraffe can stand nearly six metres tall, its head high above its heart, almost like a brain living at a high altitude. So how does blood get up there? The answer is one amazing aspect of the giraffe: its heart.",
+   "title": "长颈鹿",
+   "cn": "现在，让我们认识地球上最高的动物：长颈鹿。长颈鹿站起来将近六米高，它的脑袋高高地悬在心脏上方，几乎像一个住在高海拔的大脑。那么，血液是怎么送上去的呢？答案是长颈鹿身上一个神奇的方面：它的心脏。",
+   "words": [
+    {
+     "w": "Now",
+     "t": 131.64
+    },
+    {
+     "w": "let's",
+     "t": 132.05
+    },
+    {
+     "w": "meet",
+     "t": 132.45
+    },
+    {
+     "w": "the",
+     "t": 132.86
+    },
+    {
+     "w": "tallest",
+     "t": 133.26
+    },
+    {
+     "w": "animal",
+     "t": 133.67
+    },
+    {
+     "w": "on",
+     "t": 134.07
+    },
+    {
+     "w": "Earth:",
+     "t": 134.48
+    },
+    {
+     "w": "the",
+     "t": 134.89
+    },
+    {
+     "w": "giraffe.",
+     "t": 135.29
+    },
+    {
+     "w": "A",
+     "t": 135.7
+    },
+    {
+     "w": "giraffe",
+     "t": 136.1
+    },
+    {
+     "w": "can",
+     "t": 136.51
+    },
+    {
+     "w": "stand",
+     "t": 136.91
+    },
+    {
+     "w": "nearly",
+     "t": 137.32
+    },
+    {
+     "w": "six",
+     "t": 137.73
+    },
+    {
+     "w": "metres",
+     "t": 138.13
+    },
+    {
+     "w": "tall,",
+     "t": 138.54
+    },
+    {
+     "w": "its",
+     "t": 138.94
+    },
+    {
+     "w": "head",
+     "t": 139.35
+    },
+    {
+     "w": "high",
+     "t": 139.75
+    },
+    {
+     "w": "above",
+     "t": 140.16
+    },
+    {
+     "w": "its",
+     "t": 140.56
+    },
+    {
+     "w": "heart,",
+     "t": 140.97
+    },
+    {
+     "w": "almost",
+     "t": 141.38
+    },
+    {
+     "w": "like",
+     "t": 141.78
+    },
+    {
+     "w": "a",
+     "t": 142.19
+    },
+    {
+     "w": "brain",
+     "t": 142.59
+    },
+    {
+     "w": "living",
+     "t": 143.0
+    },
+    {
+     "w": "at",
+     "t": 143.4
+    },
+    {
+     "w": "a",
+     "t": 143.81
+    },
+    {
+     "w": "high",
+     "t": 144.22
+    },
+    {
+     "w": "altitude.",
+     "t": 144.62
+    },
+    {
+     "w": "So",
+     "t": 145.03
+    },
+    {
+     "w": "how",
+     "t": 145.43
+    },
+    {
+     "w": "does",
+     "t": 145.84
+    },
+    {
+     "w": "blood",
+     "t": 146.24
+    },
+    {
+     "w": "get",
+     "t": 146.65
+    },
+    {
+     "w": "up",
+     "t": 147.06
+    },
+    {
+     "w": "there?",
+     "t": 147.46
+    },
+    {
+     "w": "The",
+     "t": 147.87
+    },
+    {
+     "w": "answer",
+     "t": 148.27
+    },
+    {
+     "w": "is",
+     "t": 148.68
+    },
+    {
+     "w": "one",
+     "t": 149.08
+    },
+    {
+     "w": "amazing",
+     "t": 149.49
+    },
+    {
+     "w": "aspect",
+     "t": 149.9
+    },
+    {
+     "w": "of",
+     "t": 150.3
+    },
+    {
+     "w": "the",
+     "t": 150.71
+    },
+    {
+     "w": "giraffe:",
+     "t": 151.11
+    },
+    {
+     "w": "its",
+     "t": 151.52
+    },
+    {
+     "w": "heart.",
+     "t": 151.92
+    }
+   ]
+  },
+  {
+   "start": 152.33,
+   "end": 189.25,
+   "en": "A giraffe's heart weighs about 11 kilograms, as heavy as a big dog, and measures about 60 centimetres long. Its walls are thick muscle tissue, and every beat sends a strong pulse of liquid blood up the long neck. Scientists who conducted studies found that a giraffe's blood pressure is about twice as high as ours. But the giraffe has a clever trick. When it lowers its head to drink, one-way valves and a net of tiny blood vessels slow the blood and protect the brain, so the giraffe never faints.",
+   "title": "长颈鹿",
+   "cn": "长颈鹿的心脏大约重 11 千克，跟一条大狗差不多重，长约 60 厘米。它的心壁是厚厚的肌肉组织，每一次跳动都会把一股强有力的液态血液送上长长的脖子。做过研究的科学家发现，长颈鹿的血压大约是我们的两倍。但长颈鹿有个聪明的办法。当它低头喝水时，单向瓣膜和一张细小血管网会让血液慢下来、保护大脑，所以长颈鹿从来不会晕倒。",
+   "words": [
+    {
+     "w": "A",
+     "t": 152.33
+    },
+    {
+     "w": "giraffe's",
+     "t": 152.73
+    },
+    {
+     "w": "heart",
+     "t": 153.14
+    },
+    {
+     "w": "weighs",
+     "t": 153.55
+    },
+    {
+     "w": "about",
+     "t": 153.95
+    },
+    {
+     "w": "11",
+     "t": 154.36
+    },
+    {
+     "w": "kilograms,",
+     "t": 154.76
+    },
+    {
+     "w": "as",
+     "t": 155.17
+    },
+    {
+     "w": "heavy",
+     "t": 155.57
+    },
+    {
+     "w": "as",
+     "t": 155.98
+    },
+    {
+     "w": "a",
+     "t": 156.39
+    },
+    {
+     "w": "big",
+     "t": 156.79
+    },
+    {
+     "w": "dog,",
+     "t": 157.2
+    },
+    {
+     "w": "and",
+     "t": 157.6
+    },
+    {
+     "w": "measures",
+     "t": 158.01
+    },
+    {
+     "w": "about",
+     "t": 158.41
+    },
+    {
+     "w": "60",
+     "t": 158.82
+    },
+    {
+     "w": "centimetres",
+     "t": 159.23
+    },
+    {
+     "w": "long.",
+     "t": 159.63
+    },
+    {
+     "w": "Its",
+     "t": 160.04
+    },
+    {
+     "w": "walls",
+     "t": 160.44
+    },
+    {
+     "w": "are",
+     "t": 160.85
+    },
+    {
+     "w": "thick",
+     "t": 161.25
+    },
+    {
+     "w": "muscle",
+     "t": 161.66
+    },
+    {
+     "w": "tissue,",
+     "t": 162.07
+    },
+    {
+     "w": "and",
+     "t": 162.47
+    },
+    {
+     "w": "every",
+     "t": 162.88
+    },
+    {
+     "w": "beat",
+     "t": 163.28
+    },
+    {
+     "w": "sends",
+     "t": 163.69
+    },
+    {
+     "w": "a",
+     "t": 164.09
+    },
+    {
+     "w": "strong",
+     "t": 164.5
+    },
+    {
+     "w": "pulse",
+     "t": 164.91
+    },
+    {
+     "w": "of",
+     "t": 165.31
+    },
+    {
+     "w": "liquid",
+     "t": 165.72
+    },
+    {
+     "w": "blood",
+     "t": 166.12
+    },
+    {
+     "w": "up",
+     "t": 166.53
+    },
+    {
+     "w": "the",
+     "t": 166.93
+    },
+    {
+     "w": "long",
+     "t": 167.34
+    },
+    {
+     "w": "neck.",
+     "t": 167.74
+    },
+    {
+     "w": "Scientists",
+     "t": 168.15
+    },
+    {
+     "w": "who",
+     "t": 168.56
+    },
+    {
+     "w": "conducted",
+     "t": 168.96
+    },
+    {
+     "w": "studies",
+     "t": 169.37
+    },
+    {
+     "w": "found",
+     "t": 169.77
+    },
+    {
+     "w": "that",
+     "t": 170.18
+    },
+    {
+     "w": "a",
+     "t": 170.58
+    },
+    {
+     "w": "giraffe's",
+     "t": 170.99
+    },
+    {
+     "w": "blood",
+     "t": 171.4
+    },
+    {
+     "w": "pressure",
+     "t": 171.8
+    },
+    {
+     "w": "is",
+     "t": 172.21
+    },
+    {
+     "w": "about",
+     "t": 172.61
+    },
+    {
+     "w": "twice",
+     "t": 173.02
+    },
+    {
+     "w": "as",
+     "t": 173.42
+    },
+    {
+     "w": "high",
+     "t": 173.83
+    },
+    {
+     "w": "as",
+     "t": 174.24
+    },
+    {
+     "w": "ours.",
+     "t": 174.64
+    },
+    {
+     "w": "But",
+     "t": 175.05
+    },
+    {
+     "w": "the",
+     "t": 175.45
+    },
+    {
+     "w": "giraffe",
+     "t": 175.86
+    },
+    {
+     "w": "has",
+     "t": 176.26
+    },
+    {
+     "w": "a",
+     "t": 176.67
+    },
+    {
+     "w": "clever",
+     "t": 177.08
+    },
+    {
+     "w": "trick.",
+     "t": 177.48
+    },
+    {
+     "w": "When",
+     "t": 177.89
+    },
+    {
+     "w": "it",
+     "t": 178.29
+    },
+    {
+     "w": "lowers",
+     "t": 178.7
+    },
+    {
+     "w": "its",
+     "t": 179.1
+    },
+    {
+     "w": "head",
+     "t": 179.51
+    },
+    {
+     "w": "to",
+     "t": 179.92
+    },
+    {
+     "w": "drink,",
+     "t": 180.32
+    },
+    {
+     "w": "one-way",
+     "t": 180.73
+    },
+    {
+     "w": "valves",
+     "t": 181.13
+    },
+    {
+     "w": "and",
+     "t": 181.54
+    },
+    {
+     "w": "a",
+     "t": 181.94
+    },
+    {
+     "w": "net",
+     "t": 182.35
+    },
+    {
+     "w": "of",
+     "t": 182.75
+    },
+    {
+     "w": "tiny",
+     "t": 183.16
+    },
+    {
+     "w": "blood",
+     "t": 183.57
+    },
+    {
+     "w": "vessels",
+     "t": 183.97
+    },
+    {
+     "w": "slow",
+     "t": 184.38
+    },
+    {
+     "w": "the",
+     "t": 184.78
+    },
+    {
+     "w": "blood",
+     "t": 185.19
+    },
+    {
+     "w": "and",
+     "t": 185.59
+    },
+    {
+     "w": "protect",
+     "t": 186.0
+    },
+    {
+     "w": "the",
+     "t": 186.41
+    },
+    {
+     "w": "brain,",
+     "t": 186.81
+    },
+    {
+     "w": "so",
+     "t": 187.22
+    },
+    {
+     "w": "the",
+     "t": 187.62
+    },
+    {
+     "w": "giraffe",
+     "t": 188.03
+    },
+    {
+     "w": "never",
+     "t": 188.43
+    },
+    {
+     "w": "faints.",
+     "t": 188.84
+    }
+   ]
+  },
+  {
+   "start": 189.25,
+   "end": 216.02,
+   "en": "Another surprise: a mother giraffe is pregnant for about 15 months, and her baby drops nearly two metres to the ground at birth, then stands up within an hour! Even a tiny sparrow's heart beats fast, but no heart works as hard against gravity as a giraffe's. Look for the two little horns on a giraffe's forehead next time you see one: they are called ossicones.",
+   "title": "长颈鹿",
+   "cn": "还有一个惊喜：长颈鹿妈妈怀孕大约 15 个月，生下来的宝宝出生时要从将近两米高的地方掉到地上，然后一小时内就能站起来！即使小麻雀的心脏也跳得很快，但没有哪颗心脏像长颈鹿的心脏这样努力对抗重力。下次看到长颈鹿时，找找它额头上的两只小角：它们叫做骨锥。",
+   "words": [
+    {
+     "w": "Another",
+     "t": 189.25
+    },
+    {
+     "w": "surprise:",
+     "t": 189.65
+    },
+    {
+     "w": "a",
+     "t": 190.06
+    },
+    {
+     "w": "mother",
+     "t": 190.46
+    },
+    {
+     "w": "giraffe",
+     "t": 190.87
+    },
+    {
+     "w": "is",
+     "t": 191.27
+    },
+    {
+     "w": "pregnant",
+     "t": 191.68
+    },
+    {
+     "w": "for",
+     "t": 192.09
+    },
+    {
+     "w": "about",
+     "t": 192.49
+    },
+    {
+     "w": "15",
+     "t": 192.9
+    },
+    {
+     "w": "months,",
+     "t": 193.3
+    },
+    {
+     "w": "and",
+     "t": 193.71
+    },
+    {
+     "w": "her",
+     "t": 194.11
+    },
+    {
+     "w": "baby",
+     "t": 194.52
+    },
+    {
+     "w": "drops",
+     "t": 194.93
+    },
+    {
+     "w": "nearly",
+     "t": 195.33
+    },
+    {
+     "w": "two",
+     "t": 195.74
+    },
+    {
+     "w": "metres",
+     "t": 196.14
+    },
+    {
+     "w": "to",
+     "t": 196.55
+    },
+    {
+     "w": "the",
+     "t": 196.95
+    },
+    {
+     "w": "ground",
+     "t": 197.36
+    },
+    {
+     "w": "at",
+     "t": 197.76
+    },
+    {
+     "w": "birth,",
+     "t": 198.17
+    },
+    {
+     "w": "then",
+     "t": 198.58
+    },
+    {
+     "w": "stands",
+     "t": 198.98
+    },
+    {
+     "w": "up",
+     "t": 199.39
+    },
+    {
+     "w": "within",
+     "t": 199.79
+    },
+    {
+     "w": "an",
+     "t": 200.2
+    },
+    {
+     "w": "hour!",
+     "t": 200.6
+    },
+    {
+     "w": "Even",
+     "t": 201.01
+    },
+    {
+     "w": "a",
+     "t": 201.42
+    },
+    {
+     "w": "tiny",
+     "t": 201.82
+    },
+    {
+     "w": "sparrow's",
+     "t": 202.23
+    },
+    {
+     "w": "heart",
+     "t": 202.63
+    },
+    {
+     "w": "beats",
+     "t": 203.04
+    },
+    {
+     "w": "fast,",
+     "t": 203.44
+    },
+    {
+     "w": "but",
+     "t": 203.85
+    },
+    {
+     "w": "no",
+     "t": 204.26
+    },
+    {
+     "w": "heart",
+     "t": 204.66
+    },
+    {
+     "w": "works",
+     "t": 205.07
+    },
+    {
+     "w": "as",
+     "t": 205.47
+    },
+    {
+     "w": "hard",
+     "t": 205.88
+    },
+    {
+     "w": "against",
+     "t": 206.28
+    },
+    {
+     "w": "gravity",
+     "t": 206.69
+    },
+    {
+     "w": "as",
+     "t": 207.1
+    },
+    {
+     "w": "a",
+     "t": 207.5
+    },
+    {
+     "w": "giraffe's.",
+     "t": 207.91
+    },
+    {
+     "w": "Look",
+     "t": 208.31
+    },
+    {
+     "w": "for",
+     "t": 208.72
+    },
+    {
+     "w": "the",
+     "t": 209.12
+    },
+    {
+     "w": "two",
+     "t": 209.53
+    },
+    {
+     "w": "little",
+     "t": 209.93
+    },
+    {
+     "w": "horns",
+     "t": 210.34
+    },
+    {
+     "w": "on",
+     "t": 210.75
+    },
+    {
+     "w": "a",
+     "t": 211.15
+    },
+    {
+     "w": "giraffe's",
+     "t": 211.56
+    },
+    {
+     "w": "forehead",
+     "t": 211.96
+    },
+    {
+     "w": "next",
+     "t": 212.37
+    },
+    {
+     "w": "time",
+     "t": 212.77
+    },
+    {
+     "w": "you",
+     "t": 213.18
+    },
+    {
+     "w": "see",
+     "t": 213.59
+    },
+    {
+     "w": "one:",
+     "t": 213.99
+    },
+    {
+     "w": "they",
+     "t": 214.4
+    },
+    {
+     "w": "are",
+     "t": 214.8
+    },
+    {
+     "w": "called",
+     "t": 215.21
+    },
+    {
+     "w": "ossicones.",
+     "t": 215.61
+    }
+   ]
+  },
+  {
+   "start": 232.4,
+   "end": 286.5,
+   "en": "Today's idiom is \"cry over spilled milk.\" It means: do not waste time feeling sad about a small mistake you cannot undo. Imagine you knock over a glass of milk. The milk is already on the floor. Crying will not put it back in the glass! So we say: don't cry over spilled milk. Just clean it up and move on. For example: I lost the game yesterday, but there is no use crying over spilled milk; I will practise and try again tomorrow. Grandma Joy lives this way: if a plan goes wrong on a trip, she laughs, finds a new plan, and keeps going. Try it this week: when something small goes wrong, say, \"No crying over spilled milk!\"",
+   "title": "今日俚语",
+   "cn": "今天的俚语是“cry over spilled milk”（为打翻的牛奶哭泣）。它的意思是：不要为一个无法挽回的小错误难过太久。想象一下，你打翻了一杯牛奶，牛奶已经洒在地板上了。哭是哭不回杯子里的！所以我们说：don't cry over spilled milk。把它擦干净，继续往前走就行了。举个例子：我昨天输了比赛，但为此哭泣没有用；我会练习，明天再试一次。快乐奶奶也是这样生活的：如果旅行中的计划出了问题，她会笑一笑，找个新计划，继续出发。这周试试看：当一件小事出了问题，就对自己说：“No crying over spilled milk！”",
+   "words": [
+    {
+     "w": "Today's",
+     "t": 232.4
+    },
+    {
+     "w": "idiom",
+     "t": 232.85
+    },
+    {
+     "w": "is",
+     "t": 233.29
+    },
+    {
+     "w": "\"cry",
+     "t": 233.74
+    },
+    {
+     "w": "over",
+     "t": 234.19
+    },
+    {
+     "w": "spilled",
+     "t": 234.64
+    },
+    {
+     "w": "milk.\"",
+     "t": 235.08
+    },
+    {
+     "w": "It",
+     "t": 235.53
+    },
+    {
+     "w": "means:",
+     "t": 235.98
+    },
+    {
+     "w": "do",
+     "t": 236.42
+    },
+    {
+     "w": "not",
+     "t": 236.87
+    },
+    {
+     "w": "waste",
+     "t": 237.32
+    },
+    {
+     "w": "time",
+     "t": 237.77
+    },
+    {
+     "w": "feeling",
+     "t": 238.21
+    },
+    {
+     "w": "sad",
+     "t": 238.66
+    },
+    {
+     "w": "about",
+     "t": 239.11
+    },
+    {
+     "w": "a",
+     "t": 239.55
+    },
+    {
+     "w": "small",
+     "t": 240.0
+    },
+    {
+     "w": "mistake",
+     "t": 240.45
+    },
+    {
+     "w": "you",
+     "t": 240.9
+    },
+    {
+     "w": "cannot",
+     "t": 241.34
+    },
+    {
+     "w": "undo.",
+     "t": 241.79
+    },
+    {
+     "w": "Imagine",
+     "t": 242.24
+    },
+    {
+     "w": "you",
+     "t": 242.68
+    },
+    {
+     "w": "knock",
+     "t": 243.13
+    },
+    {
+     "w": "over",
+     "t": 243.58
+    },
+    {
+     "w": "a",
+     "t": 244.02
+    },
+    {
+     "w": "glass",
+     "t": 244.47
+    },
+    {
+     "w": "of",
+     "t": 244.92
+    },
+    {
+     "w": "milk.",
+     "t": 245.37
+    },
+    {
+     "w": "The",
+     "t": 245.81
+    },
+    {
+     "w": "milk",
+     "t": 246.26
+    },
+    {
+     "w": "is",
+     "t": 246.71
+    },
+    {
+     "w": "already",
+     "t": 247.15
+    },
+    {
+     "w": "on",
+     "t": 247.6
+    },
+    {
+     "w": "the",
+     "t": 248.05
+    },
+    {
+     "w": "floor.",
+     "t": 248.5
+    },
+    {
+     "w": "Crying",
+     "t": 248.94
+    },
+    {
+     "w": "will",
+     "t": 249.39
+    },
+    {
+     "w": "not",
+     "t": 249.84
+    },
+    {
+     "w": "put",
+     "t": 250.28
+    },
+    {
+     "w": "it",
+     "t": 250.73
+    },
+    {
+     "w": "back",
+     "t": 251.18
+    },
+    {
+     "w": "in",
+     "t": 251.63
+    },
+    {
+     "w": "the",
+     "t": 252.07
+    },
+    {
+     "w": "glass!",
+     "t": 252.52
+    },
+    {
+     "w": "So",
+     "t": 252.97
+    },
+    {
+     "w": "we",
+     "t": 253.41
+    },
+    {
+     "w": "say:",
+     "t": 253.86
+    },
+    {
+     "w": "don't",
+     "t": 254.31
+    },
+    {
+     "w": "cry",
+     "t": 254.76
+    },
+    {
+     "w": "over",
+     "t": 255.2
+    },
+    {
+     "w": "spilled",
+     "t": 255.65
+    },
+    {
+     "w": "milk.",
+     "t": 256.1
+    },
+    {
+     "w": "Just",
+     "t": 256.54
+    },
+    {
+     "w": "clean",
+     "t": 256.99
+    },
+    {
+     "w": "it",
+     "t": 257.44
+    },
+    {
+     "w": "up",
+     "t": 257.89
+    },
+    {
+     "w": "and",
+     "t": 258.33
+    },
+    {
+     "w": "move",
+     "t": 258.78
+    },
+    {
+     "w": "on.",
+     "t": 259.23
+    },
+    {
+     "w": "For",
+     "t": 259.67
+    },
+    {
+     "w": "example:",
+     "t": 260.12
+    },
+    {
+     "w": "I",
+     "t": 260.57
+    },
+    {
+     "w": "lost",
+     "t": 261.01
+    },
+    {
+     "w": "the",
+     "t": 261.46
+    },
+    {
+     "w": "game",
+     "t": 261.91
+    },
+    {
+     "w": "yesterday,",
+     "t": 262.36
+    },
+    {
+     "w": "but",
+     "t": 262.8
+    },
+    {
+     "w": "there",
+     "t": 263.25
+    },
+    {
+     "w": "is",
+     "t": 263.7
+    },
+    {
+     "w": "no",
+     "t": 264.14
+    },
+    {
+     "w": "use",
+     "t": 264.59
+    },
+    {
+     "w": "crying",
+     "t": 265.04
+    },
+    {
+     "w": "over",
+     "t": 265.49
+    },
+    {
+     "w": "spilled",
+     "t": 265.93
+    },
+    {
+     "w": "milk;",
+     "t": 266.38
+    },
+    {
+     "w": "I",
+     "t": 266.83
+    },
+    {
+     "w": "will",
+     "t": 267.27
+    },
+    {
+     "w": "practise",
+     "t": 267.72
+    },
+    {
+     "w": "and",
+     "t": 268.17
+    },
+    {
+     "w": "try",
+     "t": 268.62
+    },
+    {
+     "w": "again",
+     "t": 269.06
+    },
+    {
+     "w": "tomorrow.",
+     "t": 269.51
+    },
+    {
+     "w": "Grandma",
+     "t": 269.96
+    },
+    {
+     "w": "Joy",
+     "t": 270.4
+    },
+    {
+     "w": "lives",
+     "t": 270.85
+    },
+    {
+     "w": "this",
+     "t": 271.3
+    },
+    {
+     "w": "way:",
+     "t": 271.75
+    },
+    {
+     "w": "if",
+     "t": 272.19
+    },
+    {
+     "w": "a",
+     "t": 272.64
+    },
+    {
+     "w": "plan",
+     "t": 273.09
+    },
+    {
+     "w": "goes",
+     "t": 273.53
+    },
+    {
+     "w": "wrong",
+     "t": 273.98
+    },
+    {
+     "w": "on",
+     "t": 274.43
+    },
+    {
+     "w": "a",
+     "t": 274.88
+    },
+    {
+     "w": "trip,",
+     "t": 275.32
+    },
+    {
+     "w": "she",
+     "t": 275.77
+    },
+    {
+     "w": "laughs,",
+     "t": 276.22
+    },
+    {
+     "w": "finds",
+     "t": 276.66
+    },
+    {
+     "w": "a",
+     "t": 277.11
+    },
+    {
+     "w": "new",
+     "t": 277.56
+    },
+    {
+     "w": "plan,",
+     "t": 278.0
+    },
+    {
+     "w": "and",
+     "t": 278.45
+    },
+    {
+     "w": "keeps",
+     "t": 278.9
+    },
+    {
+     "w": "going.",
+     "t": 279.35
+    },
+    {
+     "w": "Try",
+     "t": 279.79
+    },
+    {
+     "w": "it",
+     "t": 280.24
+    },
+    {
+     "w": "this",
+     "t": 280.69
+    },
+    {
+     "w": "week:",
+     "t": 281.13
+    },
+    {
+     "w": "when",
+     "t": 281.58
+    },
+    {
+     "w": "something",
+     "t": 282.03
+    },
+    {
+     "w": "small",
+     "t": 282.48
+    },
+    {
+     "w": "goes",
+     "t": 282.92
+    },
+    {
+     "w": "wrong,",
+     "t": 283.37
+    },
+    {
+     "w": "say,",
+     "t": 283.82
+    },
+    {
+     "w": "\"No",
+     "t": 284.26
+    },
+    {
+     "w": "crying",
+     "t": 284.71
+    },
+    {
+     "w": "over",
+     "t": 285.16
+    },
+    {
+     "w": "spilled",
+     "t": 285.61
+    },
+    {
+     "w": "milk!\"",
+     "t": 286.05
+    }
+   ]
+  },
+  {
+   "start": 300.48,
+   "end": 321.67,
+   "en": "Now it is your turn! Two questions for you. One: Grandma Joy visited all seven continents. Can you name them all? Two: a giraffe's heart works twice as hard as ours to push blood up its long neck. What other animal body part works extra hard? Talk about it!",
+   "title": "结束语与互动问题",
+   "cn": "现在轮到你们啦！两个问题考考你。第一：快乐奶奶游遍了七大洲，你能把七大洲都说出来吗？第二：长颈鹿的心脏要比我们的心脏努力两倍，才能把血液送上长长的脖子。你觉得还有哪种动物的哪个身体部位也格外努力？聊聊吧！",
+   "words": [
+    {
+     "w": "Now",
+     "t": 300.48
+    },
+    {
+     "w": "it",
+     "t": 300.91
+    },
+    {
+     "w": "is",
+     "t": 301.34
+    },
+    {
+     "w": "your",
+     "t": 301.78
+    },
+    {
+     "w": "turn!",
+     "t": 302.21
+    },
+    {
+     "w": "Two",
+     "t": 302.64
+    },
+    {
+     "w": "questions",
+     "t": 303.07
+    },
+    {
+     "w": "for",
+     "t": 303.51
+    },
+    {
+     "w": "you.",
+     "t": 303.94
+    },
+    {
+     "w": "One:",
+     "t": 304.37
+    },
+    {
+     "w": "Grandma",
+     "t": 304.8
+    },
+    {
+     "w": "Joy",
+     "t": 305.24
+    },
+    {
+     "w": "visited",
+     "t": 305.67
+    },
+    {
+     "w": "all",
+     "t": 306.1
+    },
+    {
+     "w": "seven",
+     "t": 306.53
+    },
+    {
+     "w": "continents.",
+     "t": 306.97
+    },
+    {
+     "w": "Can",
+     "t": 307.4
+    },
+    {
+     "w": "you",
+     "t": 307.83
+    },
+    {
+     "w": "name",
+     "t": 308.26
+    },
+    {
+     "w": "them",
+     "t": 308.7
+    },
+    {
+     "w": "all?",
+     "t": 309.13
+    },
+    {
+     "w": "Two:",
+     "t": 309.56
+    },
+    {
+     "w": "a",
+     "t": 309.99
+    },
+    {
+     "w": "giraffe's",
+     "t": 310.43
+    },
+    {
+     "w": "heart",
+     "t": 310.86
+    },
+    {
+     "w": "works",
+     "t": 311.29
+    },
+    {
+     "w": "twice",
+     "t": 311.72
+    },
+    {
+     "w": "as",
+     "t": 312.16
+    },
+    {
+     "w": "hard",
+     "t": 312.59
+    },
+    {
+     "w": "as",
+     "t": 313.02
+    },
+    {
+     "w": "ours",
+     "t": 313.45
+    },
+    {
+     "w": "to",
+     "t": 313.89
+    },
+    {
+     "w": "push",
+     "t": 314.32
+    },
+    {
+     "w": "blood",
+     "t": 314.75
+    },
+    {
+     "w": "up",
+     "t": 315.18
+    },
+    {
+     "w": "its",
+     "t": 315.62
+    },
+    {
+     "w": "long",
+     "t": 316.05
+    },
+    {
+     "w": "neck.",
+     "t": 316.48
+    },
+    {
+     "w": "What",
+     "t": 316.91
+    },
+    {
+     "w": "other",
+     "t": 317.35
+    },
+    {
+     "w": "animal",
+     "t": 317.78
+    },
+    {
+     "w": "body",
+     "t": 318.21
+    },
+    {
+     "w": "part",
+     "t": 318.64
+    },
+    {
+     "w": "works",
+     "t": 319.08
+    },
+    {
+     "w": "extra",
+     "t": 319.51
+    },
+    {
+     "w": "hard?",
+     "t": 319.94
+    },
+    {
+     "w": "Talk",
+     "t": 320.37
+    },
+    {
+     "w": "about",
+     "t": 320.81
+    },
+    {
+     "w": "it!",
+     "t": 321.24
+    }
+   ]
+  },
+  {
+   "start": 333.17,
+   "end": 347.14,
+   "en": "That is all for today, young explorers. We hope Grandma Joy inspires you to try something new, and the giraffe reminds you how amazing nature can be. Keep asking questions, and see you tomorrow morning. Goodbye!",
+   "title": "告别",
+   "cn": "今天的节目就到这里啦，小小探险家们。希望快乐奶奶能激励你去尝试新事物，长颈鹿能让你想起大自然有多神奇。继续提问，我们明天早上见。再见！",
+   "words": [
+    {
+     "w": "That",
+     "t": 333.17
+    },
+    {
+     "w": "is",
+     "t": 333.56
+    },
+    {
+     "w": "all",
+     "t": 333.95
+    },
+    {
+     "w": "for",
+     "t": 334.33
+    },
+    {
+     "w": "today,",
+     "t": 334.72
+    },
+    {
+     "w": "young",
+     "t": 335.11
+    },
+    {
+     "w": "explorers.",
+     "t": 335.5
+    },
+    {
+     "w": "We",
+     "t": 335.89
+    },
+    {
+     "w": "hope",
+     "t": 336.27
+    },
+    {
+     "w": "Grandma",
+     "t": 336.66
+    },
+    {
+     "w": "Joy",
+     "t": 337.05
+    },
+    {
+     "w": "inspires",
+     "t": 337.44
+    },
+    {
+     "w": "you",
+     "t": 337.83
+    },
+    {
+     "w": "to",
+     "t": 338.21
+    },
+    {
+     "w": "try",
+     "t": 338.6
+    },
+    {
+     "w": "something",
+     "t": 338.99
+    },
+    {
+     "w": "new,",
+     "t": 339.38
+    },
+    {
+     "w": "and",
+     "t": 339.77
+    },
+    {
+     "w": "the",
+     "t": 340.15
+    },
+    {
+     "w": "giraffe",
+     "t": 340.54
+    },
+    {
+     "w": "reminds",
+     "t": 340.93
+    },
+    {
+     "w": "you",
+     "t": 341.32
+    },
+    {
+     "w": "how",
+     "t": 341.71
+    },
+    {
+     "w": "amazing",
+     "t": 342.1
+    },
+    {
+     "w": "nature",
+     "t": 342.48
+    },
+    {
+     "w": "can",
+     "t": 342.87
+    },
+    {
+     "w": "be.",
+     "t": 343.26
+    },
+    {
+     "w": "Keep",
+     "t": 343.65
+    },
+    {
+     "w": "asking",
+     "t": 344.04
+    },
+    {
+     "w": "questions,",
+     "t": 344.42
+    },
+    {
+     "w": "and",
+     "t": 344.81
+    },
+    {
+     "w": "see",
+     "t": 345.2
+    },
+    {
+     "w": "you",
+     "t": 345.59
+    },
+    {
+     "w": "tomorrow",
+     "t": 345.98
+    },
+    {
+     "w": "morning.",
+     "t": 346.36
+    },
+    {
+     "w": "Goodbye!",
+     "t": 346.75
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "cry over spilled milk",
+    "phon": "/kraɪ ˈəʊvə spɪld mɪlk/",
+    "meaning": "(习语) 别为无法挽回的小事难过；覆水难收",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: If a plan goes wrong, do not cry over spilled milk."
+   },
+   {
+    "word": "approach",
+    "phon": "/əˈproʊtʃ/",
+    "meaning": "(n.) 方法；途径",
+    "tags": [],
+    "example": "Example: Her approach to life is simple: never say you are too old to try."
+   },
+   {
+    "word": "pregnant",
+    "phon": "/ˈpreɡnənt/",
+    "meaning": "(adj.) 怀孕的",
+    "tags": [],
+    "example": "Example: A mother giraffe is pregnant for about 15 months."
+   },
+   {
+    "word": "sparrow",
+    "phon": "/ˈspæroʊ/",
+    "meaning": "(n.) 麻雀",
+    "tags": [],
+    "example": "Example: Even a tiny sparrow's heart beats fast."
+   },
+   {
+    "word": "aspect",
+    "phon": "/ˈæspekt/",
+    "meaning": "(n.) 方面",
+    "tags": [],
+    "example": "Example: The answer is one amazing aspect of the giraffe: its heart."
+   },
+   {
+    "word": "pulse",
+    "phon": "/pʌls/",
+    "meaning": "(n.) 脉搏；一股（血液等的）流动",
+    "tags": [],
+    "example": "Example: every beat sends a strong pulse of liquid blood up the long neck."
+   },
+   {
+    "word": "conduct",
+    "phon": "/kənˈdʌkt/",
+    "meaning": "(v.) 进行（研究）；实施",
+    "tags": [],
+    "example": "Example: Scientists who conducted studies found that a giraffe's blood pressure is about twice as high as ours."
+   },
+   {
+    "word": "altitude",
+    "phon": "/ˈæltɪtuːd/",
+    "meaning": "(n.) 高度；海拔",
+    "tags": [],
+    "example": "Example: almost like a brain living at a high altitude."
+   },
+   {
+    "word": "diploma",
+    "phon": "/dɪˈploʊmə/",
+    "meaning": "(n.) 文凭；毕业证书",
+    "tags": [],
+    "example": "Example: She has no diploma in travel."
+   },
+   {
+    "word": "tissue",
+    "phon": "/ˈtɪʃuː/",
+    "meaning": "(n.) （肌肉）组织",
+    "tags": [],
+    "example": "Example: Its walls are thick muscle tissue."
+   },
+   {
+    "word": "forehead",
+    "phon": "/ˈfɔːrhed/",
+    "meaning": "(n.) 额头",
+    "tags": [],
+    "example": "Example: the two little horns on a giraffe's forehead."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "When did Joy Ryan get her first passport?\nA. At 63\nB. At 85\nC. At 91\nD. At 96",
+     "How many national parks in the United States did Joy and Brad visit?\nA. 7\nB. 63\nC. 96\nD. 11",
+     "How heavy is a giraffe's heart?\nA. About 1 kilogram\nB. About 5 kilograms\nC. About 11 kilograms\nD. About 60 kilograms",
+     "What does \"cry over spilled milk\" mean?\nA. Cry when you are thirsty\nB. Do not be sad about a small mistake you cannot undo\nC. Drink milk every day\nD. Clean the floor quickly"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "type": "text",
+        "text": "Its walls are thick muscle tissue, and every beat sends a strong pulse of liquid blood up the long neck."
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "Its walls are thick muscle tissue"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "主系表结构"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：Its walls（它的心壁）是主语，are 是系动词，thick muscle tissue（厚厚的肌肉组织）是表语，说明心壁是什么样的。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "and"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "并列连词"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：连接前后两个完整的句子——前句说心壁是什么，后句说每次跳动做什么，两个句子地位平等。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "every beat sends a strong pulse"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "主谓宾结构"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：every beat（每一次跳动）是主语，sends（送出）是谓语，a strong pulse（一股强有力的流动）是宾语；of liquid blood（液态血液的）补充说明这股流动是什么。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "up the long neck"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "方向状语"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：up（向上）+ the long neck（长长的脖子），说明血液往哪里走——一路向上，送到大脑。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句逻辑链："
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "心壁是什么（thick muscle tissue）→ 每次跳动做什么（sends a strong pulse）→ 往哪里送（up the long neck）"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SPARROW"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（麻雀）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PASSPORT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（护照）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "APPROACH"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（方法）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PREGNANT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（怀孕的）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PULSE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（一股流动；脉搏）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "TISSUE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（组织）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "GIRAFFE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（长颈鹿）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ALTITUDE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（海拔；高度）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "CONTINENT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（大洲）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "FOREHEAD"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（额头）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"did not get her first passport until she was 91.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"they visited all 63 national parks in the United States.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"A giraffe's heart weighs about 11 kilograms.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"do not waste time feeling sad about a small mistake you cannot undo.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. and  2. and"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. Every  2. Every"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. up  2. up"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "C",
+    "B",
+    "C",
+    "B"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. and 并列句：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "Its walls are thick muscle tissue ____ every beat sends a strong pulse of liquid blood up the long neck.",
+       "options": [
+        "and",
+        "but",
+        "so"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "Grandma Joy visited all 63 national parks ____ she went on to all seven continents.",
+       "options": [
+        "but",
+        "and",
+        "so"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. every + 单数名词：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "____ beat sends a strong pulse of liquid blood up the long neck.",
+       "options": [
+        "Ever",
+        "Very",
+        "Every"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "____ day, the giraffe's head goes up and down many times.",
+       "options": [
+        "Every",
+        "Ever",
+        "Very"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. up + 地点短语（方向）：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "The blood travels ____ the long neck to the brain.",
+       "options": [
+        "down",
+        "up",
+        "into"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "Joy climbed ____ the mountain with her grandson.",
+       "options": [
+        "down",
+        "under",
+        "up"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "Its walls are thick muscle tissue, and every beat sends a strong pulse of liquid blood up the long neck.",
+    "Her approach to life is simple: never say you are too old to try."
+   ]
+  },
+  "crossword": {
+   "nrows": 11,
+   "ncols": 12,
+   "words": [
+    {
+     "word": "SPARROW",
+     "row": 0,
+     "col": 2,
+     "dir": "A",
+     "num": 1,
+     "cn": "麻雀",
+     "clue": "Even a tiny ___'s heart beats fast."
+    },
+    {
+     "word": "PASSPORT",
+     "row": 0,
+     "col": 3,
+     "dir": "D",
+     "num": 2,
+     "cn": "护照",
+     "clue": "did not get her first ___ until she was 91."
+    },
+    {
+     "word": "APPROACH",
+     "row": 1,
+     "col": 0,
+     "dir": "D",
+     "num": 3,
+     "cn": "方法",
+     "clue": "Her ___ to life is simple."
+    },
+    {
+     "word": "PREGNANT",
+     "row": 1,
+     "col": 11,
+     "dir": "D",
+     "num": 4,
+     "cn": "怀孕的",
+     "clue": "a mother giraffe is ___ for about 15 months."
+    },
+    {
+     "word": "PULSE",
+     "row": 2,
+     "col": 0,
+     "dir": "A",
+     "num": 5,
+     "cn": "一股流动；脉搏",
+     "clue": "every beat sends a strong ___ of liquid blood up the long neck."
+    },
+    {
+     "word": "TISSUE",
+     "row": 2,
+     "col": 6,
+     "dir": "D",
+     "num": 6,
+     "cn": "组织",
+     "clue": "Its walls are thick muscle ___."
+    },
+    {
+     "word": "GIRAFFE",
+     "row": 3,
+     "col": 5,
+     "dir": "A",
+     "num": 7,
+     "cn": "长颈鹿",
+     "clue": "let's meet the tallest animal on Earth: the ___."
+    },
+    {
+     "word": "ALTITUDE",
+     "row": 3,
+     "col": 8,
+     "dir": "D",
+     "num": 8,
+     "cn": "海拔；高度",
+     "clue": "almost like a brain living at a high ___."
+    },
+    {
+     "word": "CONTINENT",
+     "row": 7,
+     "col": 0,
+     "dir": "A",
+     "num": 9,
+     "cn": "大洲",
+     "clue": "At 96, Joy had set foot on all seven ___s."
+    },
+    {
+     "word": "FOREHEAD",
+     "row": 9,
+     "col": 1,
+     "dir": "A",
+     "num": 10,
+     "cn": "额头",
+     "clue": "the two little horns on a giraffe's ___."
+    }
+   ]
+  }
+ }
+}

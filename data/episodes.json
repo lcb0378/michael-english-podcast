@@ -1,5 +1,16 @@
 [
  {
+  "id": "vol47",
+  "title": "旅行奶奶与长颈鹿",
+  "words": 597,
+  "duration": "5分56秒",
+  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol47/cover.png",
+  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol47/audio.mp3",
+  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol47/video_v1.mp4",
+  "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol47/Vol47_晚读讲义_旅行奶奶与长颈鹿_v1.pdf",
+  "pdfName": "Vol47_晚读讲义_旅行奶奶与长颈鹿_v1.pdf"
+ },
+ {
   "id": "vol46",
   "title": "无人机灯光秀与萤火虫",
   "words": 599,
