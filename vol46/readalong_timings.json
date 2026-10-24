@@ -1,0 +1,278 @@
+[
+ {
+  "id": 1,
+  "title": "开场白",
+  "blocks": [
+   {
+    "start": 20.75,
+    "end": 25.54,
+    "en": "Hello, young explorers, and welcome back to Michael's Morning Listening!"
+   },
+   {
+    "start": 25.54,
+    "end": 37.02,
+    "en": "Tonight, two kinds of light take the stage: flying robots that paint pictures in the sky, and one tiny insect with its own lamp."
+   },
+   {
+    "start": 37.02,
+    "end": 39.42,
+    "en": "First, a world-record drone show."
+   },
+   {
+    "start": 39.42,
+    "end": 43.24,
+    "en": "Then, the secret of the firefly's cold light."
+   },
+   {
+    "start": 43.24,
+    "end": 43.72,
+    "en": "Ready?"
+   },
+   {
+    "start": 43.72,
+    "end": 44.68,
+    "en": "Let's go!"
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "title": "无人机灯光秀",
+  "blocks": [
+   {
+    "start": 57.3,
+    "end": 62.64,
+    "en": "Raise your eyes to the night sky over Dujiangyan in Sichuan, China."
+   },
+   {
+    "start": 62.64,
+    "end": 75.99,
+    "en": "At the approach of night, 33,615 drones rise together into the dark and set three Guinness World Records at once, the largest number of drones ever flown in one show!"
+   },
+   {
+    "start": 75.99,
+    "end": 83.11,
+    "en": "Each drone is small, about the size of a sparrow, and carries one bright LED light."
+   },
+   {
+    "start": 83.11,
+    "end": 95.12,
+    "en": "One computer can conduct the whole show, like a conductor leading an orchestra, and every drone holds its own altitude while every aspect is planned in advance."
+   },
+   {
+    "start": 95.12,
+    "end": 105.8,
+    "en": "Watch what they paint: a giant panda munching bamboo, floating islands, and the 28 constellations of the East, star pictures from old Chinese stories."
+   },
+   {
+    "start": 105.8,
+    "end": 112.92,
+    "en": "The lights pulse on and off, and the drones even write a sentence across the sky!"
+   },
+   {
+    "start": 112.92,
+    "end": 118.71,
+    "en": "Together, they form a floating screen, the largest mid-air LED screen ever made."
+   },
+   {
+    "start": 118.71,
+    "end": 128.94,
+    "en": "The drones act as one giant paintbrush, quietly: no smoke to make you cough, no loud bangs, just light dancing in the dark."
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "title": "萤火虫",
+  "blocks": [
+   {
+    "start": 139.08,
+    "end": 143.12,
+    "en": "Now let's meet nature's own little lamp: the firefly."
+   },
+   {
+    "start": 143.12,
+    "end": 146.72,
+    "en": "A firefly is not a fly at all."
+   },
+   {
+    "start": 146.72,
+    "end": 156.61,
+    "en": "It is a beetle, and it carries its light under its belly, in a special tissue, a thin layer of tiny cells."
+   },
+   {
+    "start": 156.61,
+    "end": 161.1,
+    "en": "Here is the secret: inside those cells, two chemicals meet."
+   },
+   {
+    "start": 161.1,
+    "end": 166.49,
+    "en": "One is called luciferin, and the other is an enzyme called luciferase."
+   },
+   {
+    "start": 166.49,
+    "end": 171.44,
+    "en": "Add oxygen from the air, and the mixture gives off light."
+   },
+   {
+    "start": 171.44,
+    "end": 174.13,
+    "en": "Scientists call this bioluminescence, living light."
+   },
+   {
+    "start": 174.13,
+    "end": 182.67,
+    "en": "And here is the magic part: almost all the energy turns into light, and almost none turns into heat."
+   },
+   {
+    "start": 182.67,
+    "end": 190.76,
+    "en": "A normal light bulb wastes most of its energy as heat, but a firefly's light is cold light."
+   },
+   {
+    "start": 190.76,
+    "end": 198.4,
+    "en": "You can hold a firefly in your hand, and its glow will not burn you at all!"
+   },
+   {
+    "start": 198.4,
+    "end": 200.2,
+    "en": "Why do they glow?"
+   },
+   {
+    "start": 200.2,
+    "end": 201.55,
+    "en": "Mostly to talk."
+   },
+   {
+    "start": 201.55,
+    "end": 208.74,
+    "en": "Each kind of firefly flashes its own code, a pattern of pulses, like a secret language."
+   },
+   {
+    "start": 208.74,
+    "end": 210.54,
+    "en": "Males flash, females answer."
+   },
+   {
+    "start": 210.54,
+    "end": 219.53,
+    "en": "Some mother fireflies, pregnant with tiny eggs, keep flashing to warn hungry birds: do not eat me, I taste terrible!"
+   },
+   {
+    "start": 219.53,
+    "end": 224.47,
+    "en": "Each egg she lays is tinier than a grain of rice."
+   },
+   {
+    "start": 224.47,
+    "end": 228.51,
+    "en": "You might think the light sits on its forehead."
+   },
+   {
+    "start": 228.51,
+    "end": 228.96,
+    "en": "No!"
+   },
+   {
+    "start": 228.96,
+    "end": 231.21,
+    "en": "It sits under its belly."
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "title": "今日俚语",
+  "blocks": [
+   {
+    "start": 247.51,
+    "end": 254.84,
+    "en": "Today's idiom is \"burn the midnight oil.\" It means to work or study late into the night."
+   },
+   {
+    "start": 254.84,
+    "end": 261.31,
+    "en": "Long ago, people read by oil lamps, so working after midnight really did burn oil!"
+   },
+   {
+    "start": 261.31,
+    "end": 269.07,
+    "en": "For example: The engineers burned the midnight oil for weeks to program 33,615 drones for the record show."
+   },
+   {
+    "start": 269.07,
+    "end": 274.67,
+    "en": "Fireflies never need to burn the midnight oil: they carry their own lights!"
+   },
+   {
+    "start": 274.67,
+    "end": 281.14,
+    "en": "Try it this week: tell your family about a time you burned the midnight oil."
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "title": "结束语与互动问题",
+  "blocks": [
+   {
+    "start": 294.64,
+    "end": 296.66,
+    "en": "Now it is your turn!"
+   },
+   {
+    "start": 296.66,
+    "end": 298.27,
+    "en": "Two questions for you."
+   },
+   {
+    "start": 298.27,
+    "end": 305.13,
+    "en": "One: which light would you rather have in your bedroom, a drone show or a firefly lamp?"
+   },
+   {
+    "start": 305.13,
+    "end": 312.8,
+    "en": "Two: can you invent your own flash code, maybe two quick flashes for \"hello\" and three for \"good night\"?"
+   },
+   {
+    "start": 312.8,
+    "end": 315.22,
+    "en": "Talk about it with your family!"
+   },
+   {
+    "start": 315.22,
+    "end": 323.29,
+    "en": "Oh, and one more thing: if nature gave a diploma, the firefly would graduate first in its class in chemistry!"
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "title": "告别",
+  "blocks": [
+   {
+    "start": 334.47,
+    "end": 337.27,
+    "en": "That is all for today, young explorers."
+   },
+   {
+    "start": 337.27,
+    "end": 340.48,
+    "en": "We appreciate you listening and learning with us."
+   },
+   {
+    "start": 340.48,
+    "end": 346.09,
+    "en": "Keep your eyes open, keep asking questions, and we will meet again tomorrow morning."
+   },
+   {
+    "start": 346.09,
+    "end": 348.49,
+    "en": "Goodbye, and have a wonderful day!"
+   }
+  ]
+ }
+]

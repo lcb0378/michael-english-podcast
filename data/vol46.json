@@ -1,0 +1,3509 @@
+{
+ "id": "vol46",
+ "title": "无人机灯光秀与萤火虫",
+ "words": 599,
+ "duration": "5分57秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol46/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol46/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol46/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol46/Vol46_晚读讲义_无人机灯光秀与萤火虫_v1.pdf",
+ "pdfName": "Vol46_晚读讲义_无人机灯光秀与萤火虫_v1.pdf",
+ "blocks": [
+  {
+   "start": 20.75,
+   "end": 44.68,
+   "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Tonight, two kinds of light take the stage: flying robots that paint pictures in the sky, and one tiny insect with its own lamp. First, a world-record drone show. Then, the secret of the firefly's cold light. Ready? Let's go!",
+   "title": "开场白",
+   "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今晚，两种光要登场：能在天上画画的飞行机器人，和一只自带小灯的小昆虫。先说破世界纪录的无人机灯光秀。再说萤火虫冷光的秘密。准备好了吗？出发！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 20.75
+    },
+    {
+     "w": "young",
+     "t": 21.23
+    },
+    {
+     "w": "explorers,",
+     "t": 21.71
+    },
+    {
+     "w": "and",
+     "t": 22.19
+    },
+    {
+     "w": "welcome",
+     "t": 22.66
+    },
+    {
+     "w": "back",
+     "t": 23.14
+    },
+    {
+     "w": "to",
+     "t": 23.62
+    },
+    {
+     "w": "Michael's",
+     "t": 24.1
+    },
+    {
+     "w": "Morning",
+     "t": 24.58
+    },
+    {
+     "w": "Listening!",
+     "t": 25.06
+    },
+    {
+     "w": "Tonight,",
+     "t": 25.54
+    },
+    {
+     "w": "two",
+     "t": 26.01
+    },
+    {
+     "w": "kinds",
+     "t": 26.49
+    },
+    {
+     "w": "of",
+     "t": 26.97
+    },
+    {
+     "w": "light",
+     "t": 27.45
+    },
+    {
+     "w": "take",
+     "t": 27.93
+    },
+    {
+     "w": "the",
+     "t": 28.41
+    },
+    {
+     "w": "stage:",
+     "t": 28.89
+    },
+    {
+     "w": "flying",
+     "t": 29.36
+    },
+    {
+     "w": "robots",
+     "t": 29.84
+    },
+    {
+     "w": "that",
+     "t": 30.32
+    },
+    {
+     "w": "paint",
+     "t": 30.8
+    },
+    {
+     "w": "pictures",
+     "t": 31.28
+    },
+    {
+     "w": "in",
+     "t": 31.76
+    },
+    {
+     "w": "the",
+     "t": 32.24
+    },
+    {
+     "w": "sky,",
+     "t": 32.72
+    },
+    {
+     "w": "and",
+     "t": 33.19
+    },
+    {
+     "w": "one",
+     "t": 33.67
+    },
+    {
+     "w": "tiny",
+     "t": 34.15
+    },
+    {
+     "w": "insect",
+     "t": 34.63
+    },
+    {
+     "w": "with",
+     "t": 35.11
+    },
+    {
+     "w": "its",
+     "t": 35.59
+    },
+    {
+     "w": "own",
+     "t": 36.07
+    },
+    {
+     "w": "lamp.",
+     "t": 36.54
+    },
+    {
+     "w": "First,",
+     "t": 37.02
+    },
+    {
+     "w": "a",
+     "t": 37.5
+    },
+    {
+     "w": "world-record",
+     "t": 37.98
+    },
+    {
+     "w": "drone",
+     "t": 38.46
+    },
+    {
+     "w": "show.",
+     "t": 38.94
+    },
+    {
+     "w": "Then,",
+     "t": 39.42
+    },
+    {
+     "w": "the",
+     "t": 39.89
+    },
+    {
+     "w": "secret",
+     "t": 40.37
+    },
+    {
+     "w": "of",
+     "t": 40.85
+    },
+    {
+     "w": "the",
+     "t": 41.33
+    },
+    {
+     "w": "firefly's",
+     "t": 41.81
+    },
+    {
+     "w": "cold",
+     "t": 42.29
+    },
+    {
+     "w": "light.",
+     "t": 42.77
+    },
+    {
+     "w": "Ready?",
+     "t": 43.24
+    },
+    {
+     "w": "Let's",
+     "t": 43.72
+    },
+    {
+     "w": "go!",
+     "t": 44.2
+    }
+   ]
+  },
+  {
+   "start": 57.3,
+   "end": 75.99,
+   "en": "Raise your eyes to the night sky over Dujiangyan in Sichuan, China. At the approach of night, 33,615 drones rise together into the dark and set three Guinness World Records at once, the largest number of drones ever flown in one show!",
+   "title": "无人机灯光秀",
+   "cn": "抬头看看四川都江堰的夜空。在夜幕降临的时候，33,615 架无人机一起升入黑暗，同时创下三项吉尼斯世界纪录，是单场飞行无人机数量最多的一次！",
+   "words": [
+    {
+     "w": "Raise",
+     "t": 57.3
+    },
+    {
+     "w": "your",
+     "t": 57.74
+    },
+    {
+     "w": "eyes",
+     "t": 58.19
+    },
+    {
+     "w": "to",
+     "t": 58.63
+    },
+    {
+     "w": "the",
+     "t": 59.08
+    },
+    {
+     "w": "night",
+     "t": 59.52
+    },
+    {
+     "w": "sky",
+     "t": 59.97
+    },
+    {
+     "w": "over",
+     "t": 60.41
+    },
+    {
+     "w": "Dujiangyan",
+     "t": 60.86
+    },
+    {
+     "w": "in",
+     "t": 61.3
+    },
+    {
+     "w": "Sichuan,",
+     "t": 61.75
+    },
+    {
+     "w": "China.",
+     "t": 62.19
+    },
+    {
+     "w": "At",
+     "t": 62.64
+    },
+    {
+     "w": "the",
+     "t": 63.08
+    },
+    {
+     "w": "approach",
+     "t": 63.53
+    },
+    {
+     "w": "of",
+     "t": 63.97
+    },
+    {
+     "w": "night,",
+     "t": 64.42
+    },
+    {
+     "w": "33,615",
+     "t": 64.86
+    },
+    {
+     "w": "drones",
+     "t": 65.31
+    },
+    {
+     "w": "rise",
+     "t": 65.75
+    },
+    {
+     "w": "together",
+     "t": 66.2
+    },
+    {
+     "w": "into",
+     "t": 66.64
+    },
+    {
+     "w": "the",
+     "t": 67.09
+    },
+    {
+     "w": "dark",
+     "t": 67.53
+    },
+    {
+     "w": "and",
+     "t": 67.98
+    },
+    {
+     "w": "set",
+     "t": 68.42
+    },
+    {
+     "w": "three",
+     "t": 68.87
+    },
+    {
+     "w": "Guinness",
+     "t": 69.31
+    },
+    {
+     "w": "World",
+     "t": 69.76
+    },
+    {
+     "w": "Records",
+     "t": 70.2
+    },
+    {
+     "w": "at",
+     "t": 70.65
+    },
+    {
+     "w": "once,",
+     "t": 71.09
+    },
+    {
+     "w": "the",
+     "t": 71.54
+    },
+    {
+     "w": "largest",
+     "t": 71.98
+    },
+    {
+     "w": "number",
+     "t": 72.43
+    },
+    {
+     "w": "of",
+     "t": 72.87
+    },
+    {
+     "w": "drones",
+     "t": 73.32
+    },
+    {
+     "w": "ever",
+     "t": 73.76
+    },
+    {
+     "w": "flown",
+     "t": 74.21
+    },
+    {
+     "w": "in",
+     "t": 74.65
+    },
+    {
+     "w": "one",
+     "t": 75.1
+    },
+    {
+     "w": "show!",
+     "t": 75.54
+    }
+   ]
+  },
+  {
+   "start": 75.99,
+   "end": 95.12,
+   "en": "Each drone is small, about the size of a sparrow, and carries one bright LED light. One computer can conduct the whole show, like a conductor leading an orchestra, and every drone holds its own altitude while every aspect is planned in advance.",
+   "title": "无人机灯光秀",
+   "cn": "每架无人机都很小，大约只有一只麻雀那么大，身上带一盏明亮的 LED 灯。一台电脑就能指挥整场表演，就像指挥家指挥乐队一样，每架无人机都保持自己的高度，而表演的每个方面都提前计划好了。",
+   "words": [
+    {
+     "w": "Each",
+     "t": 75.99
+    },
+    {
+     "w": "drone",
+     "t": 76.43
+    },
+    {
+     "w": "is",
+     "t": 76.88
+    },
+    {
+     "w": "small,",
+     "t": 77.32
+    },
+    {
+     "w": "about",
+     "t": 77.77
+    },
+    {
+     "w": "the",
+     "t": 78.21
+    },
+    {
+     "w": "size",
+     "t": 78.66
+    },
+    {
+     "w": "of",
+     "t": 79.1
+    },
+    {
+     "w": "a",
+     "t": 79.55
+    },
+    {
+     "w": "sparrow,",
+     "t": 79.99
+    },
+    {
+     "w": "and",
+     "t": 80.44
+    },
+    {
+     "w": "carries",
+     "t": 80.88
+    },
+    {
+     "w": "one",
+     "t": 81.33
+    },
+    {
+     "w": "bright",
+     "t": 81.77
+    },
+    {
+     "w": "LED",
+     "t": 82.22
+    },
+    {
+     "w": "light.",
+     "t": 82.66
+    },
+    {
+     "w": "One",
+     "t": 83.11
+    },
+    {
+     "w": "computer",
+     "t": 83.55
+    },
+    {
+     "w": "can",
+     "t": 84.0
+    },
+    {
+     "w": "conduct",
+     "t": 84.44
+    },
+    {
+     "w": "the",
+     "t": 84.89
+    },
+    {
+     "w": "whole",
+     "t": 85.33
+    },
+    {
+     "w": "show,",
+     "t": 85.78
+    },
+    {
+     "w": "like",
+     "t": 86.22
+    },
+    {
+     "w": "a",
+     "t": 86.67
+    },
+    {
+     "w": "conductor",
+     "t": 87.11
+    },
+    {
+     "w": "leading",
+     "t": 87.56
+    },
+    {
+     "w": "an",
+     "t": 88.0
+    },
+    {
+     "w": "orchestra,",
+     "t": 88.45
+    },
+    {
+     "w": "and",
+     "t": 88.89
+    },
+    {
+     "w": "every",
+     "t": 89.34
+    },
+    {
+     "w": "drone",
+     "t": 89.78
+    },
+    {
+     "w": "holds",
+     "t": 90.23
+    },
+    {
+     "w": "its",
+     "t": 90.67
+    },
+    {
+     "w": "own",
+     "t": 91.12
+    },
+    {
+     "w": "altitude",
+     "t": 91.56
+    },
+    {
+     "w": "while",
+     "t": 92.01
+    },
+    {
+     "w": "every",
+     "t": 92.45
+    },
+    {
+     "w": "aspect",
+     "t": 92.9
+    },
+    {
+     "w": "is",
+     "t": 93.34
+    },
+    {
+     "w": "planned",
+     "t": 93.79
+    },
+    {
+     "w": "in",
+     "t": 94.23
+    },
+    {
+     "w": "advance.",
+     "t": 94.68
+    }
+   ]
+  },
+  {
+   "start": 95.12,
+   "end": 118.71,
+   "en": "Watch what they paint: a giant panda munching bamboo, floating islands, and the 28 constellations of the East, star pictures from old Chinese stories. The lights pulse on and off, and the drones even write a sentence across the sky! Together, they form a floating screen, the largest mid-air LED screen ever made.",
+   "title": "无人机灯光秀",
+   "cn": "看看它们画了什么：一只啃竹子的大熊猫、漂浮的岛屿，还有东方的二十八宿，那是古老中国故事里的星星图。灯光一闪一灭，无人机甚至能在天上写出一句话！它们一起组成了一块漂浮的屏幕，是有史以来最大的空中 LED 屏幕。",
+   "words": [
+    {
+     "w": "Watch",
+     "t": 95.12
+    },
+    {
+     "w": "what",
+     "t": 95.57
+    },
+    {
+     "w": "they",
+     "t": 96.01
+    },
+    {
+     "w": "paint:",
+     "t": 96.46
+    },
+    {
+     "w": "a",
+     "t": 96.9
+    },
+    {
+     "w": "giant",
+     "t": 97.35
+    },
+    {
+     "w": "panda",
+     "t": 97.79
+    },
+    {
+     "w": "munching",
+     "t": 98.24
+    },
+    {
+     "w": "bamboo,",
+     "t": 98.68
+    },
+    {
+     "w": "floating",
+     "t": 99.13
+    },
+    {
+     "w": "islands,",
+     "t": 99.57
+    },
+    {
+     "w": "and",
+     "t": 100.02
+    },
+    {
+     "w": "the",
+     "t": 100.46
+    },
+    {
+     "w": "28",
+     "t": 100.91
+    },
+    {
+     "w": "constellations",
+     "t": 101.35
+    },
+    {
+     "w": "of",
+     "t": 101.8
+    },
+    {
+     "w": "the",
+     "t": 102.24
+    },
+    {
+     "w": "East,",
+     "t": 102.69
+    },
+    {
+     "w": "star",
+     "t": 103.13
+    },
+    {
+     "w": "pictures",
+     "t": 103.58
+    },
+    {
+     "w": "from",
+     "t": 104.02
+    },
+    {
+     "w": "old",
+     "t": 104.47
+    },
+    {
+     "w": "Chinese",
+     "t": 104.91
+    },
+    {
+     "w": "stories.",
+     "t": 105.36
+    },
+    {
+     "w": "The",
+     "t": 105.8
+    },
+    {
+     "w": "lights",
+     "t": 106.25
+    },
+    {
+     "w": "pulse",
+     "t": 106.69
+    },
+    {
+     "w": "on",
+     "t": 107.14
+    },
+    {
+     "w": "and",
+     "t": 107.58
+    },
+    {
+     "w": "off,",
+     "t": 108.03
+    },
+    {
+     "w": "and",
+     "t": 108.47
+    },
+    {
+     "w": "the",
+     "t": 108.92
+    },
+    {
+     "w": "drones",
+     "t": 109.36
+    },
+    {
+     "w": "even",
+     "t": 109.81
+    },
+    {
+     "w": "write",
+     "t": 110.25
+    },
+    {
+     "w": "a",
+     "t": 110.7
+    },
+    {
+     "w": "sentence",
+     "t": 111.14
+    },
+    {
+     "w": "across",
+     "t": 111.59
+    },
+    {
+     "w": "the",
+     "t": 112.03
+    },
+    {
+     "w": "sky!",
+     "t": 112.48
+    },
+    {
+     "w": "Together,",
+     "t": 112.92
+    },
+    {
+     "w": "they",
+     "t": 113.37
+    },
+    {
+     "w": "form",
+     "t": 113.81
+    },
+    {
+     "w": "a",
+     "t": 114.26
+    },
+    {
+     "w": "floating",
+     "t": 114.7
+    },
+    {
+     "w": "screen,",
+     "t": 115.15
+    },
+    {
+     "w": "the",
+     "t": 115.59
+    },
+    {
+     "w": "largest",
+     "t": 116.04
+    },
+    {
+     "w": "mid-air",
+     "t": 116.48
+    },
+    {
+     "w": "LED",
+     "t": 116.93
+    },
+    {
+     "w": "screen",
+     "t": 117.37
+    },
+    {
+     "w": "ever",
+     "t": 117.82
+    },
+    {
+     "w": "made.",
+     "t": 118.26
+    }
+   ]
+  },
+  {
+   "start": 118.71,
+   "end": 128.94,
+   "en": "The drones act as one giant paintbrush, quietly: no smoke to make you cough, no loud bangs, just light dancing in the dark.",
+   "title": "无人机灯光秀",
+   "cn": "无人机就像一支巨大的画笔，安安静静地作画：没有呛得你咳嗽的烟，没有震耳的巨响，只有光在黑暗中起舞。",
+   "words": [
+    {
+     "w": "The",
+     "t": 118.71
+    },
+    {
+     "w": "drones",
+     "t": 119.15
+    },
+    {
+     "w": "act",
+     "t": 119.6
+    },
+    {
+     "w": "as",
+     "t": 120.04
+    },
+    {
+     "w": "one",
+     "t": 120.49
+    },
+    {
+     "w": "giant",
+     "t": 120.93
+    },
+    {
+     "w": "paintbrush,",
+     "t": 121.38
+    },
+    {
+     "w": "quietly:",
+     "t": 121.82
+    },
+    {
+     "w": "no",
+     "t": 122.27
+    },
+    {
+     "w": "smoke",
+     "t": 122.71
+    },
+    {
+     "w": "to",
+     "t": 123.16
+    },
+    {
+     "w": "make",
+     "t": 123.6
+    },
+    {
+     "w": "you",
+     "t": 124.05
+    },
+    {
+     "w": "cough,",
+     "t": 124.49
+    },
+    {
+     "w": "no",
+     "t": 124.94
+    },
+    {
+     "w": "loud",
+     "t": 125.38
+    },
+    {
+     "w": "bangs,",
+     "t": 125.83
+    },
+    {
+     "w": "just",
+     "t": 126.27
+    },
+    {
+     "w": "light",
+     "t": 126.72
+    },
+    {
+     "w": "dancing",
+     "t": 127.16
+    },
+    {
+     "w": "in",
+     "t": 127.61
+    },
+    {
+     "w": "the",
+     "t": 128.05
+    },
+    {
+     "w": "dark.",
+     "t": 128.5
+    }
+   ]
+  },
+  {
+   "start": 139.08,
+   "end": 156.61,
+   "en": "Now let's meet nature's own little lamp: the firefly. A firefly is not a fly at all. It is a beetle, and it carries its light under its belly, in a special tissue, a thin layer of tiny cells.",
+   "title": "萤火虫",
+   "cn": "现在来认识大自然自己的小灯：萤火虫。萤火虫根本不是苍蝇。它是一种甲虫，光就藏在它肚子下面的一层特殊组织里，那是薄薄的一层小细胞。",
+   "words": [
+    {
+     "w": "Now",
+     "t": 139.08
+    },
+    {
+     "w": "let's",
+     "t": 139.53
+    },
+    {
+     "w": "meet",
+     "t": 139.98
+    },
+    {
+     "w": "nature's",
+     "t": 140.43
+    },
+    {
+     "w": "own",
+     "t": 140.88
+    },
+    {
+     "w": "little",
+     "t": 141.33
+    },
+    {
+     "w": "lamp:",
+     "t": 141.78
+    },
+    {
+     "w": "the",
+     "t": 142.23
+    },
+    {
+     "w": "firefly.",
+     "t": 142.68
+    },
+    {
+     "w": "A",
+     "t": 143.12
+    },
+    {
+     "w": "firefly",
+     "t": 143.57
+    },
+    {
+     "w": "is",
+     "t": 144.02
+    },
+    {
+     "w": "not",
+     "t": 144.47
+    },
+    {
+     "w": "a",
+     "t": 144.92
+    },
+    {
+     "w": "fly",
+     "t": 145.37
+    },
+    {
+     "w": "at",
+     "t": 145.82
+    },
+    {
+     "w": "all.",
+     "t": 146.27
+    },
+    {
+     "w": "It",
+     "t": 146.72
+    },
+    {
+     "w": "is",
+     "t": 147.17
+    },
+    {
+     "w": "a",
+     "t": 147.62
+    },
+    {
+     "w": "beetle,",
+     "t": 148.07
+    },
+    {
+     "w": "and",
+     "t": 148.52
+    },
+    {
+     "w": "it",
+     "t": 148.97
+    },
+    {
+     "w": "carries",
+     "t": 149.42
+    },
+    {
+     "w": "its",
+     "t": 149.87
+    },
+    {
+     "w": "light",
+     "t": 150.32
+    },
+    {
+     "w": "under",
+     "t": 150.76
+    },
+    {
+     "w": "its",
+     "t": 151.21
+    },
+    {
+     "w": "belly,",
+     "t": 151.66
+    },
+    {
+     "w": "in",
+     "t": 152.11
+    },
+    {
+     "w": "a",
+     "t": 152.56
+    },
+    {
+     "w": "special",
+     "t": 153.01
+    },
+    {
+     "w": "tissue,",
+     "t": 153.46
+    },
+    {
+     "w": "a",
+     "t": 153.91
+    },
+    {
+     "w": "thin",
+     "t": 154.36
+    },
+    {
+     "w": "layer",
+     "t": 154.81
+    },
+    {
+     "w": "of",
+     "t": 155.26
+    },
+    {
+     "w": "tiny",
+     "t": 155.71
+    },
+    {
+     "w": "cells.",
+     "t": 156.16
+    }
+   ]
+  },
+  {
+   "start": 156.61,
+   "end": 174.13,
+   "en": "Here is the secret: inside those cells, two chemicals meet. One is called luciferin, and the other is an enzyme called luciferase. Add oxygen from the air, and the mixture gives off light. Scientists call this bioluminescence, living light.",
+   "title": "萤火虫",
+   "cn": "秘密是这样的：在这些细胞里，两种化学物质相遇了。一种叫荧光素，另一种是叫荧光素酶的酵素。再加上空气中的氧气，混合物就会发出光。科学家把这叫做生物发光，也就是活的光。",
+   "words": [
+    {
+     "w": "Here",
+     "t": 156.61
+    },
+    {
+     "w": "is",
+     "t": 157.06
+    },
+    {
+     "w": "the",
+     "t": 157.51
+    },
+    {
+     "w": "secret:",
+     "t": 157.96
+    },
+    {
+     "w": "inside",
+     "t": 158.4
+    },
+    {
+     "w": "those",
+     "t": 158.85
+    },
+    {
+     "w": "cells,",
+     "t": 159.3
+    },
+    {
+     "w": "two",
+     "t": 159.75
+    },
+    {
+     "w": "chemicals",
+     "t": 160.2
+    },
+    {
+     "w": "meet.",
+     "t": 160.65
+    },
+    {
+     "w": "One",
+     "t": 161.1
+    },
+    {
+     "w": "is",
+     "t": 161.55
+    },
+    {
+     "w": "called",
+     "t": 162.0
+    },
+    {
+     "w": "luciferin,",
+     "t": 162.45
+    },
+    {
+     "w": "and",
+     "t": 162.9
+    },
+    {
+     "w": "the",
+     "t": 163.35
+    },
+    {
+     "w": "other",
+     "t": 163.8
+    },
+    {
+     "w": "is",
+     "t": 164.25
+    },
+    {
+     "w": "an",
+     "t": 164.7
+    },
+    {
+     "w": "enzyme",
+     "t": 165.15
+    },
+    {
+     "w": "called",
+     "t": 165.6
+    },
+    {
+     "w": "luciferase.",
+     "t": 166.04
+    },
+    {
+     "w": "Add",
+     "t": 166.49
+    },
+    {
+     "w": "oxygen",
+     "t": 166.94
+    },
+    {
+     "w": "from",
+     "t": 167.39
+    },
+    {
+     "w": "the",
+     "t": 167.84
+    },
+    {
+     "w": "air,",
+     "t": 168.29
+    },
+    {
+     "w": "and",
+     "t": 168.74
+    },
+    {
+     "w": "the",
+     "t": 169.19
+    },
+    {
+     "w": "mixture",
+     "t": 169.64
+    },
+    {
+     "w": "gives",
+     "t": 170.09
+    },
+    {
+     "w": "off",
+     "t": 170.54
+    },
+    {
+     "w": "light.",
+     "t": 170.99
+    },
+    {
+     "w": "Scientists",
+     "t": 171.44
+    },
+    {
+     "w": "call",
+     "t": 171.89
+    },
+    {
+     "w": "this",
+     "t": 172.34
+    },
+    {
+     "w": "bioluminescence,",
+     "t": 172.79
+    },
+    {
+     "w": "living",
+     "t": 173.24
+    },
+    {
+     "w": "light.",
+     "t": 173.68
+    }
+   ]
+  },
+  {
+   "start": 174.13,
+   "end": 198.4,
+   "en": "And here is the magic part: almost all the energy turns into light, and almost none turns into heat. A normal light bulb wastes most of its energy as heat, but a firefly's light is cold light. You can hold a firefly in your hand, and its glow will not burn you at all!",
+   "title": "萤火虫",
+   "cn": "最神奇的地方是：几乎所有的能量都变成了光，几乎没有变成热。普通的灯泡把大部分能量都浪费成了热，但萤火虫的光是冷光。你可以把萤火虫捧在手里，它的光一点也不会烫伤你！",
+   "words": [
+    {
+     "w": "And",
+     "t": 174.13
+    },
+    {
+     "w": "here",
+     "t": 174.58
+    },
+    {
+     "w": "is",
+     "t": 175.03
+    },
+    {
+     "w": "the",
+     "t": 175.48
+    },
+    {
+     "w": "magic",
+     "t": 175.93
+    },
+    {
+     "w": "part:",
+     "t": 176.38
+    },
+    {
+     "w": "almost",
+     "t": 176.83
+    },
+    {
+     "w": "all",
+     "t": 177.28
+    },
+    {
+     "w": "the",
+     "t": 177.73
+    },
+    {
+     "w": "energy",
+     "t": 178.18
+    },
+    {
+     "w": "turns",
+     "t": 178.63
+    },
+    {
+     "w": "into",
+     "t": 179.08
+    },
+    {
+     "w": "light,",
+     "t": 179.53
+    },
+    {
+     "w": "and",
+     "t": 179.98
+    },
+    {
+     "w": "almost",
+     "t": 180.43
+    },
+    {
+     "w": "none",
+     "t": 180.88
+    },
+    {
+     "w": "turns",
+     "t": 181.32
+    },
+    {
+     "w": "into",
+     "t": 181.77
+    },
+    {
+     "w": "heat.",
+     "t": 182.22
+    },
+    {
+     "w": "A",
+     "t": 182.67
+    },
+    {
+     "w": "normal",
+     "t": 183.12
+    },
+    {
+     "w": "light",
+     "t": 183.57
+    },
+    {
+     "w": "bulb",
+     "t": 184.02
+    },
+    {
+     "w": "wastes",
+     "t": 184.47
+    },
+    {
+     "w": "most",
+     "t": 184.92
+    },
+    {
+     "w": "of",
+     "t": 185.37
+    },
+    {
+     "w": "its",
+     "t": 185.82
+    },
+    {
+     "w": "energy",
+     "t": 186.27
+    },
+    {
+     "w": "as",
+     "t": 186.72
+    },
+    {
+     "w": "heat,",
+     "t": 187.17
+    },
+    {
+     "w": "but",
+     "t": 187.62
+    },
+    {
+     "w": "a",
+     "t": 188.07
+    },
+    {
+     "w": "firefly's",
+     "t": 188.52
+    },
+    {
+     "w": "light",
+     "t": 188.97
+    },
+    {
+     "w": "is",
+     "t": 189.41
+    },
+    {
+     "w": "cold",
+     "t": 189.86
+    },
+    {
+     "w": "light.",
+     "t": 190.31
+    },
+    {
+     "w": "You",
+     "t": 190.76
+    },
+    {
+     "w": "can",
+     "t": 191.21
+    },
+    {
+     "w": "hold",
+     "t": 191.66
+    },
+    {
+     "w": "a",
+     "t": 192.11
+    },
+    {
+     "w": "firefly",
+     "t": 192.56
+    },
+    {
+     "w": "in",
+     "t": 193.01
+    },
+    {
+     "w": "your",
+     "t": 193.46
+    },
+    {
+     "w": "hand,",
+     "t": 193.91
+    },
+    {
+     "w": "and",
+     "t": 194.36
+    },
+    {
+     "w": "its",
+     "t": 194.81
+    },
+    {
+     "w": "glow",
+     "t": 195.26
+    },
+    {
+     "w": "will",
+     "t": 195.71
+    },
+    {
+     "w": "not",
+     "t": 196.16
+    },
+    {
+     "w": "burn",
+     "t": 196.61
+    },
+    {
+     "w": "you",
+     "t": 197.05
+    },
+    {
+     "w": "at",
+     "t": 197.5
+    },
+    {
+     "w": "all!",
+     "t": 197.95
+    }
+   ]
+  },
+  {
+   "start": 198.4,
+   "end": 231.21,
+   "en": "Why do they glow? Mostly to talk. Each kind of firefly flashes its own code, a pattern of pulses, like a secret language. Males flash, females answer. Some mother fireflies, pregnant with tiny eggs, keep flashing to warn hungry birds: do not eat me, I taste terrible! Each egg she lays is tinier than a grain of rice. You might think the light sits on its forehead. No! It sits under its belly.",
+   "title": "萤火虫",
+   "cn": "它们为什么发光？主要是为了说话。每种萤火虫都有自己的闪烁密码，一串有节奏的闪光，就像一种秘密语言。雄虫闪，雌虫答。一些怀着小小卵的萤火虫妈妈会一直闪着光，警告饿肚子的鸟：别吃我，我难吃极了！她产下的每一颗卵都比一粒米还小。你可能以为光长在它的额头上。不！它长在肚子下面。",
+   "words": [
+    {
+     "w": "Why",
+     "t": 198.4
+    },
+    {
+     "w": "do",
+     "t": 198.85
+    },
+    {
+     "w": "they",
+     "t": 199.3
+    },
+    {
+     "w": "glow?",
+     "t": 199.75
+    },
+    {
+     "w": "Mostly",
+     "t": 200.2
+    },
+    {
+     "w": "to",
+     "t": 200.65
+    },
+    {
+     "w": "talk.",
+     "t": 201.1
+    },
+    {
+     "w": "Each",
+     "t": 201.55
+    },
+    {
+     "w": "kind",
+     "t": 202.0
+    },
+    {
+     "w": "of",
+     "t": 202.45
+    },
+    {
+     "w": "firefly",
+     "t": 202.9
+    },
+    {
+     "w": "flashes",
+     "t": 203.35
+    },
+    {
+     "w": "its",
+     "t": 203.8
+    },
+    {
+     "w": "own",
+     "t": 204.25
+    },
+    {
+     "w": "code,",
+     "t": 204.69
+    },
+    {
+     "w": "a",
+     "t": 205.14
+    },
+    {
+     "w": "pattern",
+     "t": 205.59
+    },
+    {
+     "w": "of",
+     "t": 206.04
+    },
+    {
+     "w": "pulses,",
+     "t": 206.49
+    },
+    {
+     "w": "like",
+     "t": 206.94
+    },
+    {
+     "w": "a",
+     "t": 207.39
+    },
+    {
+     "w": "secret",
+     "t": 207.84
+    },
+    {
+     "w": "language.",
+     "t": 208.29
+    },
+    {
+     "w": "Males",
+     "t": 208.74
+    },
+    {
+     "w": "flash,",
+     "t": 209.19
+    },
+    {
+     "w": "females",
+     "t": 209.64
+    },
+    {
+     "w": "answer.",
+     "t": 210.09
+    },
+    {
+     "w": "Some",
+     "t": 210.54
+    },
+    {
+     "w": "mother",
+     "t": 210.99
+    },
+    {
+     "w": "fireflies,",
+     "t": 211.44
+    },
+    {
+     "w": "pregnant",
+     "t": 211.89
+    },
+    {
+     "w": "with",
+     "t": 212.33
+    },
+    {
+     "w": "tiny",
+     "t": 212.78
+    },
+    {
+     "w": "eggs,",
+     "t": 213.23
+    },
+    {
+     "w": "keep",
+     "t": 213.68
+    },
+    {
+     "w": "flashing",
+     "t": 214.13
+    },
+    {
+     "w": "to",
+     "t": 214.58
+    },
+    {
+     "w": "warn",
+     "t": 215.03
+    },
+    {
+     "w": "hungry",
+     "t": 215.48
+    },
+    {
+     "w": "birds:",
+     "t": 215.93
+    },
+    {
+     "w": "do",
+     "t": 216.38
+    },
+    {
+     "w": "not",
+     "t": 216.83
+    },
+    {
+     "w": "eat",
+     "t": 217.28
+    },
+    {
+     "w": "me,",
+     "t": 217.73
+    },
+    {
+     "w": "I",
+     "t": 218.18
+    },
+    {
+     "w": "taste",
+     "t": 218.63
+    },
+    {
+     "w": "terrible!",
+     "t": 219.08
+    },
+    {
+     "w": "Each",
+     "t": 219.53
+    },
+    {
+     "w": "egg",
+     "t": 219.97
+    },
+    {
+     "w": "she",
+     "t": 220.42
+    },
+    {
+     "w": "lays",
+     "t": 220.87
+    },
+    {
+     "w": "is",
+     "t": 221.32
+    },
+    {
+     "w": "tinier",
+     "t": 221.77
+    },
+    {
+     "w": "than",
+     "t": 222.22
+    },
+    {
+     "w": "a",
+     "t": 222.67
+    },
+    {
+     "w": "grain",
+     "t": 223.12
+    },
+    {
+     "w": "of",
+     "t": 223.57
+    },
+    {
+     "w": "rice.",
+     "t": 224.02
+    },
+    {
+     "w": "You",
+     "t": 224.47
+    },
+    {
+     "w": "might",
+     "t": 224.92
+    },
+    {
+     "w": "think",
+     "t": 225.37
+    },
+    {
+     "w": "the",
+     "t": 225.82
+    },
+    {
+     "w": "light",
+     "t": 226.27
+    },
+    {
+     "w": "sits",
+     "t": 226.72
+    },
+    {
+     "w": "on",
+     "t": 227.17
+    },
+    {
+     "w": "its",
+     "t": 227.61
+    },
+    {
+     "w": "forehead.",
+     "t": 228.06
+    },
+    {
+     "w": "No!",
+     "t": 228.51
+    },
+    {
+     "w": "It",
+     "t": 228.96
+    },
+    {
+     "w": "sits",
+     "t": 229.41
+    },
+    {
+     "w": "under",
+     "t": 229.86
+    },
+    {
+     "w": "its",
+     "t": 230.31
+    },
+    {
+     "w": "belly.",
+     "t": 230.76
+    }
+   ]
+  },
+  {
+   "start": 247.51,
+   "end": 281.14,
+   "en": "Today's idiom is \"burn the midnight oil.\" It means to work or study late into the night. Long ago, people read by oil lamps, so working after midnight really did burn oil! For example: The engineers burned the midnight oil for weeks to program 33,615 drones for the record show. Fireflies never need to burn the midnight oil: they carry their own lights! Try it this week: tell your family about a time you burned the midnight oil.",
+   "title": "今日俚语",
+   "cn": "今天的俚语是“burn the midnight oil”（烧午夜的灯油）。它的意思是熬夜工作或学习。很久以前，人们靠油灯看书，所以半夜还在干活，真的会烧掉灯油！举个例子：工程师们为了给破纪录表演编写 33,615 架无人机的程序，连续几周都在 burn the midnight oil。萤火虫却从来不用 burn the midnight oil：它们自带灯光！这周试试用它：跟家人说说你曾经 burn the midnight oil 的时候。",
+   "words": [
+    {
+     "w": "Today's",
+     "t": 247.51
+    },
+    {
+     "w": "idiom",
+     "t": 247.94
+    },
+    {
+     "w": "is",
+     "t": 248.37
+    },
+    {
+     "w": "\"burn",
+     "t": 248.8
+    },
+    {
+     "w": "the",
+     "t": 249.23
+    },
+    {
+     "w": "midnight",
+     "t": 249.67
+    },
+    {
+     "w": "oil.\"",
+     "t": 250.1
+    },
+    {
+     "w": "It",
+     "t": 250.53
+    },
+    {
+     "w": "means",
+     "t": 250.96
+    },
+    {
+     "w": "to",
+     "t": 251.39
+    },
+    {
+     "w": "work",
+     "t": 251.82
+    },
+    {
+     "w": "or",
+     "t": 252.25
+    },
+    {
+     "w": "study",
+     "t": 252.68
+    },
+    {
+     "w": "late",
+     "t": 253.11
+    },
+    {
+     "w": "into",
+     "t": 253.55
+    },
+    {
+     "w": "the",
+     "t": 253.98
+    },
+    {
+     "w": "night.",
+     "t": 254.41
+    },
+    {
+     "w": "Long",
+     "t": 254.84
+    },
+    {
+     "w": "ago,",
+     "t": 255.27
+    },
+    {
+     "w": "people",
+     "t": 255.7
+    },
+    {
+     "w": "read",
+     "t": 256.13
+    },
+    {
+     "w": "by",
+     "t": 256.56
+    },
+    {
+     "w": "oil",
+     "t": 257.0
+    },
+    {
+     "w": "lamps,",
+     "t": 257.43
+    },
+    {
+     "w": "so",
+     "t": 257.86
+    },
+    {
+     "w": "working",
+     "t": 258.29
+    },
+    {
+     "w": "after",
+     "t": 258.72
+    },
+    {
+     "w": "midnight",
+     "t": 259.15
+    },
+    {
+     "w": "really",
+     "t": 259.58
+    },
+    {
+     "w": "did",
+     "t": 260.01
+    },
+    {
+     "w": "burn",
+     "t": 260.44
+    },
+    {
+     "w": "oil!",
+     "t": 260.88
+    },
+    {
+     "w": "For",
+     "t": 261.31
+    },
+    {
+     "w": "example:",
+     "t": 261.74
+    },
+    {
+     "w": "The",
+     "t": 262.17
+    },
+    {
+     "w": "engineers",
+     "t": 262.6
+    },
+    {
+     "w": "burned",
+     "t": 263.03
+    },
+    {
+     "w": "the",
+     "t": 263.46
+    },
+    {
+     "w": "midnight",
+     "t": 263.89
+    },
+    {
+     "w": "oil",
+     "t": 264.32
+    },
+    {
+     "w": "for",
+     "t": 264.76
+    },
+    {
+     "w": "weeks",
+     "t": 265.19
+    },
+    {
+     "w": "to",
+     "t": 265.62
+    },
+    {
+     "w": "program",
+     "t": 266.05
+    },
+    {
+     "w": "33,615",
+     "t": 266.48
+    },
+    {
+     "w": "drones",
+     "t": 266.91
+    },
+    {
+     "w": "for",
+     "t": 267.34
+    },
+    {
+     "w": "the",
+     "t": 267.77
+    },
+    {
+     "w": "record",
+     "t": 268.21
+    },
+    {
+     "w": "show.",
+     "t": 268.64
+    },
+    {
+     "w": "Fireflies",
+     "t": 269.07
+    },
+    {
+     "w": "never",
+     "t": 269.5
+    },
+    {
+     "w": "need",
+     "t": 269.93
+    },
+    {
+     "w": "to",
+     "t": 270.36
+    },
+    {
+     "w": "burn",
+     "t": 270.79
+    },
+    {
+     "w": "the",
+     "t": 271.22
+    },
+    {
+     "w": "midnight",
+     "t": 271.65
+    },
+    {
+     "w": "oil:",
+     "t": 272.09
+    },
+    {
+     "w": "they",
+     "t": 272.52
+    },
+    {
+     "w": "carry",
+     "t": 272.95
+    },
+    {
+     "w": "their",
+     "t": 273.38
+    },
+    {
+     "w": "own",
+     "t": 273.81
+    },
+    {
+     "w": "lights!",
+     "t": 274.24
+    },
+    {
+     "w": "Try",
+     "t": 274.67
+    },
+    {
+     "w": "it",
+     "t": 275.1
+    },
+    {
+     "w": "this",
+     "t": 275.53
+    },
+    {
+     "w": "week:",
+     "t": 275.97
+    },
+    {
+     "w": "tell",
+     "t": 276.4
+    },
+    {
+     "w": "your",
+     "t": 276.83
+    },
+    {
+     "w": "family",
+     "t": 277.26
+    },
+    {
+     "w": "about",
+     "t": 277.69
+    },
+    {
+     "w": "a",
+     "t": 278.12
+    },
+    {
+     "w": "time",
+     "t": 278.55
+    },
+    {
+     "w": "you",
+     "t": 278.98
+    },
+    {
+     "w": "burned",
+     "t": 279.42
+    },
+    {
+     "w": "the",
+     "t": 279.85
+    },
+    {
+     "w": "midnight",
+     "t": 280.28
+    },
+    {
+     "w": "oil.",
+     "t": 280.71
+    }
+   ]
+  },
+  {
+   "start": 294.64,
+   "end": 323.29,
+   "en": "Now it is your turn! Two questions for you. One: which light would you rather have in your bedroom, a drone show or a firefly lamp? Two: can you invent your own flash code, maybe two quick flashes for \"hello\" and three for \"good night\"? Talk about it with your family! Oh, and one more thing: if nature gave a diploma, the firefly would graduate first in its class in chemistry!",
+   "title": "结束语与互动问题",
+   "cn": "现在轮到你们啦！两个问题考考你。第一：你更想在卧室里放哪种光，无人机灯光秀还是萤火虫灯？第二：你能发明自己的闪烁密码吗，比如闪两下表示“你好”，闪三下表示“晚安”？和家人聊聊吧！还有一件事：如果大自然发毕业证书，萤火虫一定会以化学第一名毕业！",
+   "words": [
+    {
+     "w": "Now",
+     "t": 294.64
+    },
+    {
+     "w": "it",
+     "t": 295.04
+    },
+    {
+     "w": "is",
+     "t": 295.45
+    },
+    {
+     "w": "your",
+     "t": 295.85
+    },
+    {
+     "w": "turn!",
+     "t": 296.25
+    },
+    {
+     "w": "Two",
+     "t": 296.66
+    },
+    {
+     "w": "questions",
+     "t": 297.06
+    },
+    {
+     "w": "for",
+     "t": 297.46
+    },
+    {
+     "w": "you.",
+     "t": 297.87
+    },
+    {
+     "w": "One:",
+     "t": 298.27
+    },
+    {
+     "w": "which",
+     "t": 298.68
+    },
+    {
+     "w": "light",
+     "t": 299.08
+    },
+    {
+     "w": "would",
+     "t": 299.48
+    },
+    {
+     "w": "you",
+     "t": 299.89
+    },
+    {
+     "w": "rather",
+     "t": 300.29
+    },
+    {
+     "w": "have",
+     "t": 300.69
+    },
+    {
+     "w": "in",
+     "t": 301.1
+    },
+    {
+     "w": "your",
+     "t": 301.5
+    },
+    {
+     "w": "bedroom,",
+     "t": 301.9
+    },
+    {
+     "w": "a",
+     "t": 302.31
+    },
+    {
+     "w": "drone",
+     "t": 302.71
+    },
+    {
+     "w": "show",
+     "t": 303.11
+    },
+    {
+     "w": "or",
+     "t": 303.52
+    },
+    {
+     "w": "a",
+     "t": 303.92
+    },
+    {
+     "w": "firefly",
+     "t": 304.32
+    },
+    {
+     "w": "lamp?",
+     "t": 304.73
+    },
+    {
+     "w": "Two:",
+     "t": 305.13
+    },
+    {
+     "w": "can",
+     "t": 305.54
+    },
+    {
+     "w": "you",
+     "t": 305.94
+    },
+    {
+     "w": "invent",
+     "t": 306.34
+    },
+    {
+     "w": "your",
+     "t": 306.75
+    },
+    {
+     "w": "own",
+     "t": 307.15
+    },
+    {
+     "w": "flash",
+     "t": 307.55
+    },
+    {
+     "w": "code,",
+     "t": 307.96
+    },
+    {
+     "w": "maybe",
+     "t": 308.36
+    },
+    {
+     "w": "two",
+     "t": 308.76
+    },
+    {
+     "w": "quick",
+     "t": 309.17
+    },
+    {
+     "w": "flashes",
+     "t": 309.57
+    },
+    {
+     "w": "for",
+     "t": 309.97
+    },
+    {
+     "w": "\"hello\"",
+     "t": 310.38
+    },
+    {
+     "w": "and",
+     "t": 310.78
+    },
+    {
+     "w": "three",
+     "t": 311.18
+    },
+    {
+     "w": "for",
+     "t": 311.59
+    },
+    {
+     "w": "\"good",
+     "t": 311.99
+    },
+    {
+     "w": "night\"?",
+     "t": 312.39
+    },
+    {
+     "w": "Talk",
+     "t": 312.8
+    },
+    {
+     "w": "about",
+     "t": 313.2
+    },
+    {
+     "w": "it",
+     "t": 313.61
+    },
+    {
+     "w": "with",
+     "t": 314.01
+    },
+    {
+     "w": "your",
+     "t": 314.41
+    },
+    {
+     "w": "family!",
+     "t": 314.82
+    },
+    {
+     "w": "Oh,",
+     "t": 315.22
+    },
+    {
+     "w": "and",
+     "t": 315.62
+    },
+    {
+     "w": "one",
+     "t": 316.03
+    },
+    {
+     "w": "more",
+     "t": 316.43
+    },
+    {
+     "w": "thing:",
+     "t": 316.83
+    },
+    {
+     "w": "if",
+     "t": 317.24
+    },
+    {
+     "w": "nature",
+     "t": 317.64
+    },
+    {
+     "w": "gave",
+     "t": 318.04
+    },
+    {
+     "w": "a",
+     "t": 318.45
+    },
+    {
+     "w": "diploma,",
+     "t": 318.85
+    },
+    {
+     "w": "the",
+     "t": 319.25
+    },
+    {
+     "w": "firefly",
+     "t": 319.66
+    },
+    {
+     "w": "would",
+     "t": 320.06
+    },
+    {
+     "w": "graduate",
+     "t": 320.47
+    },
+    {
+     "w": "first",
+     "t": 320.87
+    },
+    {
+     "w": "in",
+     "t": 321.27
+    },
+    {
+     "w": "its",
+     "t": 321.68
+    },
+    {
+     "w": "class",
+     "t": 322.08
+    },
+    {
+     "w": "in",
+     "t": 322.48
+    },
+    {
+     "w": "chemistry!",
+     "t": 322.89
+    }
+   ]
+  },
+  {
+   "start": 334.47,
+   "end": 348.49,
+   "en": "That is all for today, young explorers. We appreciate you listening and learning with us. Keep your eyes open, keep asking questions, and we will meet again tomorrow morning. Goodbye, and have a wonderful day!",
+   "title": "告别",
+   "cn": "今天的节目就到这里啦，小小探险家们。感谢你们和我们一起听、一起学。保持好奇，继续提问，我们明天早上再见。再见，祝你度过美好的一天！",
+   "words": [
+    {
+     "w": "That",
+     "t": 334.47
+    },
+    {
+     "w": "is",
+     "t": 334.87
+    },
+    {
+     "w": "all",
+     "t": 335.27
+    },
+    {
+     "w": "for",
+     "t": 335.67
+    },
+    {
+     "w": "today,",
+     "t": 336.07
+    },
+    {
+     "w": "young",
+     "t": 336.47
+    },
+    {
+     "w": "explorers.",
+     "t": 336.87
+    },
+    {
+     "w": "We",
+     "t": 337.27
+    },
+    {
+     "w": "appreciate",
+     "t": 337.67
+    },
+    {
+     "w": "you",
+     "t": 338.08
+    },
+    {
+     "w": "listening",
+     "t": 338.48
+    },
+    {
+     "w": "and",
+     "t": 338.88
+    },
+    {
+     "w": "learning",
+     "t": 339.28
+    },
+    {
+     "w": "with",
+     "t": 339.68
+    },
+    {
+     "w": "us.",
+     "t": 340.08
+    },
+    {
+     "w": "Keep",
+     "t": 340.48
+    },
+    {
+     "w": "your",
+     "t": 340.88
+    },
+    {
+     "w": "eyes",
+     "t": 341.28
+    },
+    {
+     "w": "open,",
+     "t": 341.68
+    },
+    {
+     "w": "keep",
+     "t": 342.08
+    },
+    {
+     "w": "asking",
+     "t": 342.48
+    },
+    {
+     "w": "questions,",
+     "t": 342.88
+    },
+    {
+     "w": "and",
+     "t": 343.28
+    },
+    {
+     "w": "we",
+     "t": 343.68
+    },
+    {
+     "w": "will",
+     "t": 344.08
+    },
+    {
+     "w": "meet",
+     "t": 344.48
+    },
+    {
+     "w": "again",
+     "t": 344.88
+    },
+    {
+     "w": "tomorrow",
+     "t": 345.29
+    },
+    {
+     "w": "morning.",
+     "t": 345.69
+    },
+    {
+     "w": "Goodbye,",
+     "t": 346.09
+    },
+    {
+     "w": "and",
+     "t": 346.49
+    },
+    {
+     "w": "have",
+     "t": 346.89
+    },
+    {
+     "w": "a",
+     "t": 347.29
+    },
+    {
+     "w": "wonderful",
+     "t": 347.69
+    },
+    {
+     "w": "day!",
+     "t": 348.09
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "burn the midnight oil",
+    "phon": "/bɜːrn ðə ˈmɪdnaɪt ɔɪl/",
+    "meaning": "(习语) 熬夜工作；熬夜学习",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: The engineers burned the midnight oil for weeks to program 33,615 drones."
+   },
+   {
+    "word": "approach",
+    "phon": "/əˈproʊtʃ/",
+    "meaning": "(n.) 接近；来临",
+    "tags": [],
+    "example": "Example: At the approach of night, 33,615 drones rise together into the dark."
+   },
+   {
+    "word": "pregnant",
+    "phon": "/ˈpreɡnənt/",
+    "meaning": "(adj.) 怀孕的",
+    "tags": [],
+    "example": "Example: Some mother fireflies, pregnant with tiny eggs, keep flashing."
+   },
+   {
+    "word": "sparrow",
+    "phon": "/ˈspæroʊ/",
+    "meaning": "(n.) 麻雀",
+    "tags": [],
+    "example": "Example: Each drone is small, about the size of a sparrow."
+   },
+   {
+    "word": "aspect",
+    "phon": "/ˈæspekt/",
+    "meaning": "(n.) 方面",
+    "tags": [],
+    "example": "Example: every aspect is planned in advance."
+   },
+   {
+    "word": "pulse",
+    "phon": "/pʌls/",
+    "meaning": "(v.) 有节奏地闪烁；跳动",
+    "tags": [],
+    "example": "Example: The lights pulse on and off."
+   },
+   {
+    "word": "conduct",
+    "phon": "/kənˈdʌkt/",
+    "meaning": "(v.) 指挥；实施",
+    "tags": [],
+    "example": "Example: One computer can conduct the whole show."
+   },
+   {
+    "word": "altitude",
+    "phon": "/ˈæltɪtuːd/",
+    "meaning": "(n.) 高度；海拔",
+    "tags": [],
+    "example": "Example: every drone holds its own altitude."
+   },
+   {
+    "word": "diploma",
+    "phon": "/dɪˈploʊmə/",
+    "meaning": "(n.) 毕业证书；文凭",
+    "tags": [],
+    "example": "Example: if nature gave a diploma, the firefly would graduate first."
+   },
+   {
+    "word": "tissue",
+    "phon": "/ˈtɪʃuː/",
+    "meaning": "(n.) （生物）组织",
+    "tags": [],
+    "example": "Example: in a special tissue, a thin layer of tiny cells."
+   },
+   {
+    "word": "forehead",
+    "phon": "/ˈfɔːrhed/",
+    "meaning": "(n.) 额头",
+    "tags": [],
+    "example": "Example: the light sits on its forehead."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "How many drones flew in the record show?\nA. 3,615\nB. 11,787\nC. 33,615\nD. 22,580",
+     "What do fireflies use to make light?\nA. Electricity\nB. A chemical reaction\nC. Sunlight\nD. Hot metal",
+     "Why is a firefly's light called \"cold light\"?\nA. It feels cold to touch\nB. Almost no energy turns into heat\nC. Fireflies live in cold places\nD. It only shines in winter",
+     "What does \"burn the midnight oil\" mean?\nA. To burn oil for light\nB. To work or study late into the night\nC. To sleep early\nD. To cook at midnight"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "type": "text",
+        "text": "One computer can conduct the whole show, like a conductor leading an orchestra, and every drone holds its own altitude while every aspect is planned in advance."
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "like a conductor leading an orchestra"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "比较短语"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：like（像）后面跟名词短语，把一台电脑比作乐队指挥——电脑指挥无人机，就像指挥家指挥乐队，意思一下子就清楚了。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "can conduct"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "情态动词 + 动词原形"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：can（能够）后面必须跟动词原形 conduct（指挥），不能加 s、不能加 to——can conduct 就是“能够指挥”。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "while every aspect is planned in advance"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是 "
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "while 引导的从句"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：while（在……的同时）把两个同时发生的情况连起来——无人机保持高度的同时，表演的每个方面都提前计划好了；其中 is planned 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "被动语态"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（被计划）。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句逻辑链："
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "能够指挥（can conduct）→ 像谁（like 指挥家）→ 同时发生什么（while 从句）"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。一句话里藏着比较、情态动词和从句三个机关。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PULSE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（闪烁）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "CONDUCT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（指挥）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PANDA"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（熊猫）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "MIDNIGHT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（午夜）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "FIREFLY"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（萤火虫）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "DRONE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（无人机）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "TISSUE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（组织）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "FOREHEAD"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（额头）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SPARROW"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（麻雀）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ALTITUDE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（高度）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"33,615 drones rise together into the dark and set three Guinness World Records at once.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"Add oxygen from the air, and the mixture gives off light.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"almost all the energy turns into light, and almost none turns into heat.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"It means to work or study late into the night.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. like  2. like"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. while  2. while"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. can  2. can"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "C",
+    "B",
+    "B",
+    "B"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. like 比较：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "One computer can conduct the whole show, ____ a conductor leading an orchestra.",
+       "options": [
+        "like",
+        "as",
+        "with"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "The drones paint pictures in the sky ____ artists.",
+       "options": [
+        "as",
+        "like",
+        "with"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. while 从句：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "Every drone holds its own altitude ____ every aspect is planned in advance.",
+       "options": [
+        "when",
+        "because",
+        "while"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "Fireflies glow ____ children sleep.",
+       "options": [
+        "while",
+        "when",
+        "because"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. can + 动词原形：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "One computer ____ conduct the whole show.",
+       "options": [
+        "cans",
+        "can",
+        "could"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "A firefly ____ light up the night.",
+       "options": [
+        "cans",
+        "could",
+        "can"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "One computer can conduct the whole show, like a conductor leading an orchestra, and every drone holds its own altitude while every aspect is planned in advance.",
+    "You can hold a firefly in your hand, and its glow will not burn you at all!"
+   ]
+  },
+  "crossword": {
+   "nrows": 15,
+   "ncols": 9,
+   "words": [
+    {
+     "word": "PULSE",
+     "row": 0,
+     "col": 5,
+     "dir": "D",
+     "num": 1,
+     "cn": "闪烁",
+     "clue": "The lights ___ on and off."
+    },
+    {
+     "word": "CONDUCT",
+     "row": 1,
+     "col": 1,
+     "dir": "A",
+     "num": 2,
+     "cn": "指挥",
+     "clue": "One computer can ___ the whole show."
+    },
+    {
+     "word": "PANDA",
+     "row": 3,
+     "col": 0,
+     "dir": "D",
+     "num": 3,
+     "cn": "熊猫",
+     "clue": "a giant ___ munching bamboo."
+    },
+    {
+     "word": "MIDNIGHT",
+     "row": 3,
+     "col": 3,
+     "dir": "D",
+     "num": 4,
+     "cn": "午夜",
+     "clue": "burn the ___ oil."
+    },
+    {
+     "word": "FIREFLY",
+     "row": 4,
+     "col": 2,
+     "dir": "A",
+     "num": 5,
+     "cn": "萤火虫",
+     "clue": "let's meet nature's own little lamp: the ___."
+    },
+    {
+     "word": "DRONE",
+     "row": 6,
+     "col": 0,
+     "dir": "A",
+     "num": 6,
+     "cn": "无人机",
+     "clue": "33,615 ___ rise together into the dark."
+    },
+    {
+     "word": "TISSUE",
+     "row": 6,
+     "col": 6,
+     "dir": "D",
+     "num": 7,
+     "cn": "组织",
+     "clue": "in a special ___, a thin layer of tiny cells."
+    },
+    {
+     "word": "FOREHEAD",
+     "row": 7,
+     "col": 8,
+     "dir": "D",
+     "num": 8,
+     "cn": "额头",
+     "clue": "the light sits on its ___."
+    },
+    {
+     "word": "SPARROW",
+     "row": 8,
+     "col": 1,
+     "dir": "D",
+     "num": 9,
+     "cn": "麻雀",
+     "clue": "about the size of a ___."
+    },
+    {
+     "word": "ALTITUDE",
+     "row": 10,
+     "col": 1,
+     "dir": "A",
+     "num": 10,
+     "cn": "高度",
+     "clue": "every drone holds its own ___."
+    }
+   ]
+  }
+ }
+}
