@@ -1,0 +1,268 @@
+[
+ {
+  "id": 1,
+  "title": "开场白",
+  "blocks": [
+   {
+    "start": 22.19,
+    "end": 26.44,
+    "en": "Hello, young explorers, and welcome back to Michael's Morning Listening!"
+   },
+   {
+    "start": 26.44,
+    "end": 29.85,
+    "en": "Today we visit two wonders of the desert."
+   },
+   {
+    "start": 29.85,
+    "end": 35.37,
+    "en": "First, a ski resort in the middle of hot sand, with real snow!"
+   },
+   {
+    "start": 35.37,
+    "end": 40.9,
+    "en": "Then, a tiny fish that swims in water almost too hot to touch."
+   },
+   {
+    "start": 40.9,
+    "end": 41.33,
+    "en": "Ready?"
+   },
+   {
+    "start": 41.33,
+    "end": 42.18,
+    "en": "Let's go!"
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "title": "沙漠滑雪场",
+  "blocks": [
+   {
+    "start": 54.4,
+    "end": 62.86,
+    "en": "In Dubai, a city in the middle of the desert, there is a ski resort inside a huge shopping mall."
+   },
+   {
+    "start": 62.86,
+    "end": 65.4,
+    "en": "Outside, the sun bakes the sand."
+   },
+   {
+    "start": 65.4,
+    "end": 68.36,
+    "en": "Inside, it is winter all year round!"
+   },
+   {
+    "start": 68.36,
+    "end": 73.86,
+    "en": "The temperature stays around minus two degrees, and real snow covers the slopes."
+   },
+   {
+    "start": 73.86,
+    "end": 81.48,
+    "en": "Here are some amazing statistics: there are five slopes, and the longest run is four hundred metres long."
+   },
+   {
+    "start": 81.48,
+    "end": 87.82,
+    "en": "Every night, snow machines make fresh snow, and it accumulates into a soft white mountain."
+   },
+   {
+    "start": 87.82,
+    "end": 93.75,
+    "en": "Thick walls and double doors make sure the cold air does not leak out."
+   },
+   {
+    "start": 93.75,
+    "end": 100.52,
+    "en": "Meanwhile, visitors put on warm jackets and boots — the resort lends them all for free!"
+   },
+   {
+    "start": 100.52,
+    "end": 104.32,
+    "en": "Families come here to ski, snowboard, and build snowmen."
+   },
+   {
+    "start": 104.32,
+    "end": 108.55,
+    "en": "Children race down on sleds, and friends have snowball fights."
+   },
+   {
+    "start": 108.55,
+    "end": 113.21,
+    "en": "If you stay late, the snow park glows with coloured lights."
+   },
+   {
+    "start": 113.21,
+    "end": 119.55,
+    "en": "And here is the biggest surprise: visitors also get the chance to meet real penguins!"
+   },
+   {
+    "start": 119.55,
+    "end": 127.17,
+    "en": "King penguins and gentoo penguins waddle around their icy home, and they seem to approve of the cold."
+   },
+   {
+    "start": 127.17,
+    "end": 132.67,
+    "en": "Skiing together in the desert is a wonderful way for families to bond."
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "title": "沙漠小鱼",
+  "blocks": [
+   {
+    "start": 147.21,
+    "end": 153.08,
+    "en": "Now we travel to Death Valley in America, one of the hottest places on Earth."
+   },
+   {
+    "start": 153.08,
+    "end": 158.17,
+    "en": "Among the rocks and sand, there are small pools of warm spring water."
+   },
+   {
+    "start": 158.17,
+    "end": 162.48,
+    "en": "And in that water lives a tiny hero: the desert pupfish."
+   },
+   {
+    "start": 162.48,
+    "end": 167.17,
+    "en": "It is only about four centimetres long — smaller than your thumb!"
+   },
+   {
+    "start": 167.17,
+    "end": 170.31,
+    "en": "This little fish is a champion of survival."
+   },
+   {
+    "start": 170.31,
+    "end": 176.57,
+    "en": "In summer, its pool can heat up to forty-seven degrees — almost too hot to touch!"
+   },
+   {
+    "start": 176.57,
+    "end": 180.09,
+    "en": "In winter, the same water can drop to zero."
+   },
+   {
+    "start": 180.09,
+    "end": 184.01,
+    "en": "And the water is four times saltier than the ocean."
+   },
+   {
+    "start": 184.01,
+    "end": 187.14,
+    "en": "Most fish would not last a day here."
+   },
+   {
+    "start": 187.14,
+    "end": 190.66,
+    "en": "The males turn bright blue in the mating season."
+   },
+   {
+    "start": 190.66,
+    "end": 192.62,
+    "en": "How does it do it?"
+   },
+   {
+    "start": 192.62,
+    "end": 199.27,
+    "en": "Special cells in its gills and kidneys work like tiny filters, keeping the salt balance just right."
+   },
+   {
+    "start": 199.27,
+    "end": 206.71,
+    "en": "When the water gets low in oxygen, the pupfish rises to the surface, where the air meets the water."
+   },
+   {
+    "start": 206.71,
+    "end": 213.37,
+    "en": "Rangers check the health of the springs every week, because these fish live nowhere else on Earth."
+   },
+   {
+    "start": 213.37,
+    "end": 220.41,
+    "en": "One more pupfish lives in a single desert-cave pool, where the water stays around thirty-four degrees all year."
+   },
+   {
+    "start": 220.41,
+    "end": 222.76,
+    "en": "Only a few hundred are left."
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "title": "今日俚语",
+  "blocks": [
+   {
+    "start": 237.94,
+    "end": 247.7,
+    "en": "Here's today's idiom: 'under the weather.' When you feel under the weather, you feel a little sick — not seriously ill, just not quite yourself!"
+   },
+   {
+    "start": 247.7,
+    "end": 266.83,
+    "en": "Here's an example: 'After skiing all day in the cold, Tom felt under the weather, so he stayed home with hot soup and a good book.' So next time your nose is runny or your head feels heavy, you can say: 'I'm feeling a bit under the weather today.'"
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "title": "结束语与互动问题",
+  "blocks": [
+   {
+    "start": 281.45,
+    "end": 288.25,
+    "en": "Let's think about our stories: a ski resort in the desert, and a tiny fish in hot water."
+   },
+   {
+    "start": 288.25,
+    "end": 297.71,
+    "en": "First: if you could build something impossible in the desert — a snow mountain, an ice palace, anything — what would you build, and why?"
+   },
+   {
+    "start": 297.71,
+    "end": 302.62,
+    "en": "Second: the pupfish survives the hottest water by changing how its body works."
+   },
+   {
+    "start": 302.62,
+    "end": 306.4,
+    "en": "What helps you feel better on a very hot day?"
+   },
+   {
+    "start": 306.4,
+    "end": 308.67,
+    "en": "Talk about it with your family!"
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "title": "告别",
+  "blocks": [
+   {
+    "start": 317.45,
+    "end": 319.72,
+    "en": "That's all for today, young explorers."
+   },
+   {
+    "start": 319.72,
+    "end": 326.9,
+    "en": "Stay curious, stay brave — and if you ever feel under the weather, rest well and come back stronger!"
+   },
+   {
+    "start": 326.9,
+    "end": 328.03,
+    "en": "See you tomorrow!"
+   }
+  ]
+ }
+]

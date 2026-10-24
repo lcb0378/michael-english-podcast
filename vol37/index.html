@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.37 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol37/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol37/cover.png" controls playsinline preload="metadata"></video>
+<h1>⛷️ Vol.37 · 沙漠滑雪场与热水里的小鱼</h1>
+<div class="meta">英文 598 词 ｜ 音频 5分37秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol37/story-ski.png" alt="沙漠滑雪场">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol37/story-pupfish.png" alt="热水里的小鱼">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">under the weather</span> <span class="phon">/ʌndər ðə ˈweðər/</span> (习语) 感觉有点不舒服；小病初起<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: After skiing all day, Tom felt <b>under the weather</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">accumulate</span> <span class="phon">/əˈkjuːmjəleɪt/</span> (v.) 积累；越积越多<br>
+  
+  <div class="example">Example: Fresh snow <b>accumulates</b> into a soft white mountain.</div>
+</div>
+<div class="vocab">
+  <span class="word">statistics</span> <span class="phon">/stəˈtɪstɪks/</span> (n.) 统计数字<br>
+  
+  <div class="example">Example: Here are some amazing <b>statistics</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">approve</span> <span class="phon">/əˈpruːv/</span> (v.) 赞成；认可<br>
+  
+  <div class="example">Example: The penguins seem to <b>approve</b> of the cold.</div>
+</div>
+<div class="vocab">
+  <span class="word">leak</span> <span class="phon">/liːk/</span> (v.) 漏；渗漏<br>
+  
+  <div class="example">Example: The cold air does not <b>leak</b> out.</div>
+</div>
+<div class="vocab">
+  <span class="word">bond</span> <span class="phon">/bɑːnd/</span> (v.) 增进感情；建立联系<br>
+  
+  <div class="example">Example: A wonderful way for families to <b>bond</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">meanwhile</span> <span class="phon">/ˈmiːnwaɪl/</span> (adv.) 同时<br>
+  
+  <div class="example">Example: <b>Meanwhile</b>, visitors put on warm jackets.</div>
+</div>
+<div class="vocab">
+  <span class="word">pupfish</span> <span class="phon">/ˈpʌpfɪʃ/</span> (n.) 沙漠小鱼<br>
+  
+  <div class="example">Example: The desert <b>pupfish</b> is only four centimetres long.</div>
+</div>
+<div class="vocab">
+  <span class="word">mating</span> <span class="phon">/ˈmeɪtɪŋ/</span> (adj.) 交配的<br>
+  
+  <div class="example">Example: The males turn bright blue in the <b>mating</b> season.</div>
+</div>
+<div class="vocab">
+  <span class="word">oxygen</span> <span class="phon">/ˈɒksɪdʒən/</span> (n.) 氧气<br>
+  
+  <div class="example">Example: When the water gets low in <b>oxygen</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">gentoo</span> <span class="phon">/ˈdʒentuː/</span> (n.) 巴布亚企鹅<br>
+  
+  <div class="example">Example: King penguins and <b>gentoo</b> penguins waddle around.</div>
+</div>
+<div class="vocab">
+  <span class="word">waddle</span> <span class="phon">/ˈwɒdl/</span> (v.) 摇摇摆摆地走<br>
+  
+  <div class="example">Example: The penguins <b>waddle</b> around their icy home.</div>
+</div>
+<div class="vocab">
+  <span class="word">filter</span> <span class="phon">/ˈfɪltər/</span> (n.) 过滤器<br>
+  
+  <div class="example">Example: Cells work like tiny <b>filters</b>.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 8, "ncols": 13, "words": [{"word": "DESERT", "row": 4, "col": 0, "dir": "A", "num": 1, "cn": "沙漠", "clue": "In Dubai, a city in the middle of the ___."}, {"word": "PENGUIN", "row": 5, "col": 6, "dir": "A", "num": 2, "cn": "企鹅", "clue": "Visitors also get the chance to meet real ___."}, {"word": "PUPFISH", "row": 1, "col": 11, "dir": "D", "num": 3, "cn": "沙漠小鱼", "clue": "In that water lives a tiny hero: the desert ___."}, {"word": "SLOPE", "row": 1, "col": 7, "dir": "D", "num": 4, "cn": "滑雪坡", "clue": "Real snow covers the ___."}, {"word": "SNOW", "row": 4, "col": 2, "dir": "D", "num": 5, "cn": "雪", "clue": "Every night, machines make fresh ___."}, {"word": "SALT", "row": 1, "col": 5, "dir": "D", "num": 6, "cn": "盐", "clue": "The water is four times ___ier than the ocean."}, {"word": "SPRING", "row": 0, "col": 9, "dir": "D", "num": 7, "cn": "泉水", "clue": "There are small pools of warm ___ water."}, {"word": "CAVE", "row": 1, "col": 1, "dir": "D", "num": 8, "cn": "洞穴", "clue": "One more pupfish lives in a single desert-___ pool."}, {"word": "WEATHER", "row": 7, "col": 2, "dir": "A", "num": 9, "cn": "天气", "clue": "'under the ___' means feeling a little sick."}, {"word": "MALL", "row": 2, "col": 4, "dir": "A", "num": 10, "cn": "商场", "clue": "There is a ski resort inside a huge shopping ___."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. Where is the ski resort in the story?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. On a snowy mountain</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. Inside a shopping mall in Dubai</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. In a desert cave</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. Near the ocean</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. How does the desert pupfish handle salty water?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. It drinks only fresh water</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. Special cells in its gills and kidneys keep the salt balance right</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. It never swims in salty water</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. It grows a new kidney every year</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. What does &quot;under the weather&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. To be caught in a storm</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. To feel a little sick</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. To be very happy</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. To ski in bad weather</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What is special about the Devils Hole pupfish?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. It lives in a single desert-cave pool</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. It can fly</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. It is bigger than a shark</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. It lives in the ocean</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：A</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [1, 1, 1, 0];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">Special cells in its gills and kidneys work like tiny filters, keeping the salt balance just right.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li><i>in its gills and kidneys</i> 是<b>介词短语表地点</b>：in（在……里）+ 名词，告诉你这些特殊细胞住在哪里——在鳃里、在肾里。英语里地点短语放在名词后面，说明这个东西的位置。</li>
+  <li><i>like tiny filters</i> 是<b>明喻</b>：like（像）+ 名词，把细胞直接比作过滤器——细胞的工作方式和过滤器一样，把多余的东西挡在外面。一比就懂，不用再解释。</li>
+  <li><i>keeping the salt balance just right</i> 是<b>现在分词短语作伴随状语</b>：keeping（保持着）+ 宾语，补充说明细胞工作时顺带达成的结果——一边工作，一边就把盐分保持得刚刚好，不用再写一个句子。</li>
+  <li>整句逻辑链：<b>地点（鳃和肾里的细胞）→ 比喻（像过滤器一样工作）→ 伴随结果（盐分刚刚好）</b>。一句话里藏着地点短语、明喻和伴随状语三个机关。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. 介词短语表地点：用括号里的词补全</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">Special cells ____ its gills work like filters.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">in</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">on</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">under</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：in</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">A ski resort ____ a shopping mall stays cold all year.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">outside</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">inside</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">above</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：inside</p>
+</div>
+<p class="p4-gname">B. like 明喻：用括号里的词补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">The cells work ____ tiny filters.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">as</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">than</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">like</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：like</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">The snow mountain looks ____ a white cake in the sun.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">like</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">as</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">with</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：like</p>
+</div>
+<p class="p4-gname">C. keeping 分词伴随：用括号里的词补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">The cells work, ____ the salt balance just right.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">keep</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">keeping</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">keeps</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：keeping</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">The resort makes snow at night, ____ the slopes white for the morning.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">keep</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">keeps</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">keeping</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：keeping</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>Special cells in its gills and kidneys work like tiny filters, keeping the salt balance just right.</li>
+<li>Thick walls and double doors make sure the cold air does not leak out.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">7</span><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">8</span><span class="cwl">C</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">6</span><span class="cwl">S</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">S</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">P</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">3</span><span class="cwl">P</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">10</span><span class="cwl">M</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">V</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">P</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">1</span><span class="cwl">D</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwn">5</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">P</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">F</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">2</span><span class="cwl">P</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">G</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">N</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">9</span><span class="cwl">W</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">H</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td></tr></table></div>1 横 → <b>DESERT</b>（沙漠）<br>2 横 → <b>PENGUIN</b>（企鹅）<br>3 竖 → <b>PUPFISH</b>（沙漠小鱼）<br>4 竖 → <b>SLOPE</b>（滑雪坡）<br>5 竖 → <b>SNOW</b>（雪）<br>6 竖 → <b>SALT</b>（盐）<br>7 竖 → <b>SPRING</b>（泉水）<br>8 竖 → <b>CAVE</b>（洞穴）<br>9 横 → <b>WEATHER</b>（天气）<br>10 横 → <b>MALL</b>（商场）<br><br><b>B. Single Choice:</b><br>
+1 → <b>B</b>. The text says: <i>"there is a ski resort inside a huge shopping mall."</i><br>
+2 → <b>B</b>. <i>"Special cells in its gills and kidneys work like tiny filters, keeping the salt balance just right."</i><br>
+3 → <b>B</b>. The text says: <i>"When you feel under the weather, you feel a little sick."</i><br>
+4 → <b>A</b>. <i>"One more pupfish lives in a single desert-cave pool."</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. in&nbsp;&nbsp;2. inside<br>
+B. 1. like&nbsp;&nbsp;2. like<br>
+C. 1. keeping&nbsp;&nbsp;2. keeping<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol37/Vol37_晚读讲义_沙漠滑雪场与热水里的小鱼_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 22.19, "end": 42.18, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we visit two wonders of the desert. First, a ski resort in the middle of hot sand, with real snow! Then, a tiny fish that swims in water almost too hot to touch. Ready? Let's go!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天我们要去看沙漠里的两大奇观：第一，是滚滚热沙中间的一座滑雪场，里面有真正的雪！然后，是一种能在几乎烫手的热水里游泳的小鱼。准备好了吗？出发！", "words": [{"w": "Hello,", "t": 22.19}, {"w": "young", "t": 22.62}, {"w": "explorers,", "t": 23.04}, {"w": "and", "t": 23.47}, {"w": "welcome", "t": 23.89}, {"w": "back", "t": 24.32}, {"w": "to", "t": 24.74}, {"w": "Michael's", "t": 25.17}, {"w": "Morning", "t": 25.59}, {"w": "Listening!", "t": 26.02}, {"w": "Today", "t": 26.44}, {"w": "we", "t": 26.87}, {"w": "visit", "t": 27.29}, {"w": "two", "t": 27.72}, {"w": "wonders", "t": 28.14}, {"w": "of", "t": 28.57}, {"w": "the", "t": 29.0}, {"w": "desert.", "t": 29.42}, {"w": "First,", "t": 29.85}, {"w": "a", "t": 30.27}, {"w": "ski", "t": 30.7}, {"w": "resort", "t": 31.12}, {"w": "in", "t": 31.55}, {"w": "the", "t": 31.97}, {"w": "middle", "t": 32.4}, {"w": "of", "t": 32.82}, {"w": "hot", "t": 33.25}, {"w": "sand,", "t": 33.67}, {"w": "with", "t": 34.1}, {"w": "real", "t": 34.52}, {"w": "snow!", "t": 34.95}, {"w": "Then,", "t": 35.37}, {"w": "a", "t": 35.8}, {"w": "tiny", "t": 36.23}, {"w": "fish", "t": 36.65}, {"w": "that", "t": 37.08}, {"w": "swims", "t": 37.5}, {"w": "in", "t": 37.93}, {"w": "water", "t": 38.35}, {"w": "almost", "t": 38.78}, {"w": "too", "t": 39.2}, {"w": "hot", "t": 39.63}, {"w": "to", "t": 40.05}, {"w": "touch.", "t": 40.48}, {"w": "Ready?", "t": 40.9}, {"w": "Let's", "t": 41.33}, {"w": "go!", "t": 41.75}]}, {"start": 54.4, "end": 73.86, "en": "In Dubai, a city in the middle of the desert, there is a ski resort inside a huge shopping mall. Outside, the sun bakes the sand. Inside, it is winter all year round! The temperature stays around minus two degrees, and real snow covers the slopes.", "title": "沙漠滑雪场", "cn": "在迪拜——一座沙漠中间的城市——有一座滑雪场，就在一家巨大的商场里面。外面，太阳炙烤着沙子。里面，却一年到头都是冬天！气温保持在零下两度左右，真正的雪覆盖着滑雪坡。", "words": [{"w": "In", "t": 54.4}, {"w": "Dubai,", "t": 54.82}, {"w": "a", "t": 55.25}, {"w": "city", "t": 55.67}, {"w": "in", "t": 56.09}, {"w": "the", "t": 56.52}, {"w": "middle", "t": 56.94}, {"w": "of", "t": 57.36}, {"w": "the", "t": 57.78}, {"w": "desert,", "t": 58.21}, {"w": "there", "t": 58.63}, {"w": "is", "t": 59.05}, {"w": "a", "t": 59.48}, {"w": "ski", "t": 59.9}, {"w": "resort", "t": 60.32}, {"w": "inside", "t": 60.75}, {"w": "a", "t": 61.17}, {"w": "huge", "t": 61.59}, {"w": "shopping", "t": 62.01}, {"w": "mall.", "t": 62.44}, {"w": "Outside,", "t": 62.86}, {"w": "the", "t": 63.28}, {"w": "sun", "t": 63.71}, {"w": "bakes", "t": 64.13}, {"w": "the", "t": 64.55}, {"w": "sand.", "t": 64.98}, {"w": "Inside,", "t": 65.4}, {"w": "it", "t": 65.82}, {"w": "is", "t": 66.25}, {"w": "winter", "t": 66.67}, {"w": "all", "t": 67.09}, {"w": "year", "t": 67.51}, {"w": "round!", "t": 67.94}, {"w": "The", "t": 68.36}, {"w": "temperature", "t": 68.78}, {"w": "stays", "t": 69.21}, {"w": "around", "t": 69.63}, {"w": "minus", "t": 70.05}, {"w": "two", "t": 70.48}, {"w": "degrees,", "t": 70.9}, {"w": "and", "t": 71.32}, {"w": "real", "t": 71.74}, {"w": "snow", "t": 72.17}, {"w": "covers", "t": 72.59}, {"w": "the", "t": 73.01}, {"w": "slopes.", "t": 73.44}]}, {"start": 73.86, "end": 100.52, "en": "Here are some amazing statistics: there are five slopes, and the longest run is four hundred metres long. Every night, snow machines make fresh snow, and it accumulates into a soft white mountain. Thick walls and double doors make sure the cold air does not leak out. Meanwhile, visitors put on warm jackets and boots — the resort lends them all for free!", "title": "沙漠滑雪场", "cn": "先来看一组惊人的数字：这里有五条滑雪道，最长的一条有四百米。每晚，造雪机都会造出新雪，雪越积越多，堆成一座柔软的白色小山。厚厚的墙和双层门保证冷空气不会漏出去。同时，游客们穿上暖和的夹克和靴子——这些装备滑雪场都免费借给你！", "words": [{"w": "Here", "t": 73.86}, {"w": "are", "t": 74.28}, {"w": "some", "t": 74.71}, {"w": "amazing", "t": 75.13}, {"w": "statistics:", "t": 75.55}, {"w": "there", "t": 75.98}, {"w": "are", "t": 76.4}, {"w": "five", "t": 76.82}, {"w": "slopes,", "t": 77.25}, {"w": "and", "t": 77.67}, {"w": "the", "t": 78.09}, {"w": "longest", "t": 78.51}, {"w": "run", "t": 78.94}, {"w": "is", "t": 79.36}, {"w": "four", "t": 79.78}, {"w": "hundred", "t": 80.21}, {"w": "metres", "t": 80.63}, {"w": "long.", "t": 81.05}, {"w": "Every", "t": 81.48}, {"w": "night,", "t": 81.9}, {"w": "snow", "t": 82.32}, {"w": "machines", "t": 82.75}, {"w": "make", "t": 83.17}, {"w": "fresh", "t": 83.59}, {"w": "snow,", "t": 84.02}, {"w": "and", "t": 84.44}, {"w": "it", "t": 84.86}, {"w": "accumulates", "t": 85.29}, {"w": "into", "t": 85.71}, {"w": "a", "t": 86.13}, {"w": "soft", "t": 86.56}, {"w": "white", "t": 86.98}, {"w": "mountain.", "t": 87.4}, {"w": "Thick", "t": 87.82}, {"w": "walls", "t": 88.25}, {"w": "and", "t": 88.67}, {"w": "double", "t": 89.09}, {"w": "doors", "t": 89.52}, {"w": "make", "t": 89.94}, {"w": "sure", "t": 90.36}, {"w": "the", "t": 90.79}, {"w": "cold", "t": 91.21}, {"w": "air", "t": 91.63}, {"w": "does", "t": 92.06}, {"w": "not", "t": 92.48}, {"w": "leak", "t": 92.9}, {"w": "out.", "t": 93.33}, {"w": "Meanwhile,", "t": 93.75}, {"w": "visitors", "t": 94.17}, {"w": "put", "t": 94.6}, {"w": "on", "t": 95.02}, {"w": "warm", "t": 95.44}, {"w": "jackets", "t": 95.87}, {"w": "and", "t": 96.29}, {"w": "boots", "t": 96.71}, {"w": "—", "t": 97.13}, {"w": "the", "t": 97.56}, {"w": "resort", "t": 97.98}, {"w": "lends", "t": 98.4}, {"w": "them", "t": 98.83}, {"w": "all", "t": 99.25}, {"w": "for", "t": 99.67}, {"w": "free!", "t": 100.1}]}, {"start": 100.52, "end": 132.67, "en": "Families come here to ski, snowboard, and build snowmen. Children race down on sleds, and friends have snowball fights. If you stay late, the snow park glows with coloured lights. And here is the biggest surprise: visitors also get the chance to meet real penguins! King penguins and gentoo penguins waddle around their icy home, and they seem to approve of the cold. Skiing together in the desert is a wonderful way for families to bond.", "title": "沙漠滑雪场", "cn": "一家人来这里滑雪、滑单板、堆雪人。孩子们坐着雪橇往下滑，朋友们打雪仗。如果待得晚一点，还能看到灯光闪烁的雪上乐园。而最大的惊喜是：游客还有机会见到真正的企鹅！帝企鹅和巴布亚企鹅在它们冰冷的家里摇摇摆摆地走来走去，看起来很喜欢这里的寒冷。在沙漠里一起滑雪，是一家人增进感情的好办法。", "words": [{"w": "Families", "t": 100.52}, {"w": "come", "t": 100.94}, {"w": "here", "t": 101.37}, {"w": "to", "t": 101.79}, {"w": "ski,", "t": 102.21}, {"w": "snowboard,", "t": 102.64}, {"w": "and", "t": 103.06}, {"w": "build", "t": 103.48}, {"w": "snowmen.", "t": 103.9}, {"w": "Children", "t": 104.33}, {"w": "race", "t": 104.75}, {"w": "down", "t": 105.17}, {"w": "on", "t": 105.6}, {"w": "sleds,", "t": 106.02}, {"w": "and", "t": 106.44}, {"w": "friends", "t": 106.87}, {"w": "have", "t": 107.29}, {"w": "snowball", "t": 107.71}, {"w": "fights.", "t": 108.13}, {"w": "If", "t": 108.56}, {"w": "you", "t": 108.98}, {"w": "stay", "t": 109.4}, {"w": "late,", "t": 109.83}, {"w": "the", "t": 110.25}, {"w": "snow", "t": 110.67}, {"w": "park", "t": 111.1}, {"w": "glows", "t": 111.52}, {"w": "with", "t": 111.94}, {"w": "coloured", "t": 112.36}, {"w": "lights.", "t": 112.79}, {"w": "And", "t": 113.21}, {"w": "here", "t": 113.63}, {"w": "is", "t": 114.06}, {"w": "the", "t": 114.48}, {"w": "biggest", "t": 114.9}, {"w": "surprise:", "t": 115.33}, {"w": "visitors", "t": 115.75}, {"w": "also", "t": 116.17}, {"w": "get", "t": 116.59}, {"w": "the", "t": 117.02}, {"w": "chance", "t": 117.44}, {"w": "to", "t": 117.86}, {"w": "meet", "t": 118.29}, {"w": "real", "t": 118.71}, {"w": "penguins!", "t": 119.13}, {"w": "King", "t": 119.56}, {"w": "penguins", "t": 119.98}, {"w": "and", "t": 120.4}, {"w": "gentoo", "t": 120.83}, {"w": "penguins", "t": 121.25}, {"w": "waddle", "t": 121.67}, {"w": "around", "t": 122.09}, {"w": "their", "t": 122.52}, {"w": "icy", "t": 122.94}, {"w": "home,", "t": 123.36}, {"w": "and", "t": 123.79}, {"w": "they", "t": 124.21}, {"w": "seem", "t": 124.63}, {"w": "to", "t": 125.06}, {"w": "approve", "t": 125.48}, {"w": "of", "t": 125.9}, {"w": "the", "t": 126.32}, {"w": "cold.", "t": 126.75}, {"w": "Skiing", "t": 127.17}, {"w": "together", "t": 127.59}, {"w": "in", "t": 128.02}, {"w": "the", "t": 128.44}, {"w": "desert", "t": 128.86}, {"w": "is", "t": 129.29}, {"w": "a", "t": 129.71}, {"w": "wonderful", "t": 130.13}, {"w": "way", "t": 130.55}, {"w": "for", "t": 130.98}, {"w": "families", "t": 131.4}, {"w": "to", "t": 131.82}, {"w": "bond.", "t": 132.25}]}, {"start": 147.21, "end": 167.17, "en": "Now we travel to Death Valley in America, one of the hottest places on Earth. Among the rocks and sand, there are small pools of warm spring water. And in that water lives a tiny hero: the desert pupfish. It is only about four centimetres long — smaller than your thumb!", "title": "沙漠小鱼", "cn": "现在我们来到美国的死亡谷，那是地球上最热的地方之一。在岩石和沙子中间，有一汪汪温暖的泉水。而在那水里，住着一位小小的英雄：沙漠小鱼。它只有大约四厘米长——比你的大拇指还小！", "words": [{"w": "Now", "t": 147.21}, {"w": "we", "t": 147.6}, {"w": "travel", "t": 147.99}, {"w": "to", "t": 148.38}, {"w": "Death", "t": 148.78}, {"w": "Valley", "t": 149.17}, {"w": "in", "t": 149.56}, {"w": "America,", "t": 149.95}, {"w": "one", "t": 150.34}, {"w": "of", "t": 150.73}, {"w": "the", "t": 151.12}, {"w": "hottest", "t": 151.52}, {"w": "places", "t": 151.91}, {"w": "on", "t": 152.3}, {"w": "Earth.", "t": 152.69}, {"w": "Among", "t": 153.08}, {"w": "the", "t": 153.47}, {"w": "rocks", "t": 153.86}, {"w": "and", "t": 154.25}, {"w": "sand,", "t": 154.65}, {"w": "there", "t": 155.04}, {"w": "are", "t": 155.43}, {"w": "small", "t": 155.82}, {"w": "pools", "t": 156.21}, {"w": "of", "t": 156.6}, {"w": "warm", "t": 156.99}, {"w": "spring", "t": 157.39}, {"w": "water.", "t": 157.78}, {"w": "And", "t": 158.17}, {"w": "in", "t": 158.56}, {"w": "that", "t": 158.95}, {"w": "water", "t": 159.34}, {"w": "lives", "t": 159.73}, {"w": "a", "t": 160.13}, {"w": "tiny", "t": 160.52}, {"w": "hero:", "t": 160.91}, {"w": "the", "t": 161.3}, {"w": "desert", "t": 161.69}, {"w": "pupfish.", "t": 162.08}, {"w": "It", "t": 162.47}, {"w": "is", "t": 162.86}, {"w": "only", "t": 163.26}, {"w": "about", "t": 163.65}, {"w": "four", "t": 164.04}, {"w": "centimetres", "t": 164.43}, {"w": "long", "t": 164.82}, {"w": "—", "t": 165.21}, {"w": "smaller", "t": 165.6}, {"w": "than", "t": 166.0}, {"w": "your", "t": 166.39}, {"w": "thumb!", "t": 166.78}]}, {"start": 167.17, "end": 190.66, "en": "This little fish is a champion of survival. In summer, its pool can heat up to forty-seven degrees — almost too hot to touch! In winter, the same water can drop to zero. And the water is four times saltier than the ocean. Most fish would not last a day here. The males turn bright blue in the mating season.", "title": "沙漠小鱼", "cn": "这条小鱼可是生存冠军。夏天，它的水塘能热到四十七度——几乎烫手！冬天，同一汪水又能降到零度。而且这里的水比海水咸四倍。大多数鱼在这里一天都活不下来。而到了交配季节，雄鱼会变成亮蓝色。", "words": [{"w": "This", "t": 167.17}, {"w": "little", "t": 167.56}, {"w": "fish", "t": 167.95}, {"w": "is", "t": 168.34}, {"w": "a", "t": 168.74}, {"w": "champion", "t": 169.13}, {"w": "of", "t": 169.52}, {"w": "survival.", "t": 169.91}, {"w": "In", "t": 170.3}, {"w": "summer,", "t": 170.69}, {"w": "its", "t": 171.08}, {"w": "pool", "t": 171.48}, {"w": "can", "t": 171.87}, {"w": "heat", "t": 172.26}, {"w": "up", "t": 172.65}, {"w": "to", "t": 173.04}, {"w": "forty-seven", "t": 173.43}, {"w": "degrees", "t": 173.83}, {"w": "—", "t": 174.22}, {"w": "almost", "t": 174.61}, {"w": "too", "t": 175.0}, {"w": "hot", "t": 175.39}, {"w": "to", "t": 175.78}, {"w": "touch!", "t": 176.17}, {"w": "In", "t": 176.57}, {"w": "winter,", "t": 176.96}, {"w": "the", "t": 177.35}, {"w": "same", "t": 177.74}, {"w": "water", "t": 178.13}, {"w": "can", "t": 178.52}, {"w": "drop", "t": 178.91}, {"w": "to", "t": 179.31}, {"w": "zero.", "t": 179.7}, {"w": "And", "t": 180.09}, {"w": "the", "t": 180.48}, {"w": "water", "t": 180.87}, {"w": "is", "t": 181.26}, {"w": "four", "t": 181.66}, {"w": "times", "t": 182.05}, {"w": "saltier", "t": 182.44}, {"w": "than", "t": 182.83}, {"w": "the", "t": 183.22}, {"w": "ocean.", "t": 183.61}, {"w": "Most", "t": 184.0}, {"w": "fish", "t": 184.4}, {"w": "would", "t": 184.79}, {"w": "not", "t": 185.18}, {"w": "last", "t": 185.57}, {"w": "a", "t": 185.96}, {"w": "day", "t": 186.35}, {"w": "here.", "t": 186.75}, {"w": "The", "t": 187.14}, {"w": "males", "t": 187.53}, {"w": "turn", "t": 187.92}, {"w": "bright", "t": 188.31}, {"w": "blue", "t": 188.7}, {"w": "in", "t": 189.09}, {"w": "the", "t": 189.49}, {"w": "mating", "t": 189.88}, {"w": "season.", "t": 190.27}]}, {"start": 190.66, "end": 222.76, "en": "How does it do it? Special cells in its gills and kidneys work like tiny filters, keeping the salt balance just right. When the water gets low in oxygen, the pupfish rises to the surface, where the air meets the water. Rangers check the health of the springs every week, because these fish live nowhere else on Earth. One more pupfish lives in a single desert-cave pool, where the water stays around thirty-four degrees all year. Only a few hundred are left.", "title": "沙漠小鱼", "cn": "它是怎么做到的呢？它鳃和肾里的特殊细胞就像小小的过滤器，让体内的盐分不多不少刚刚好。当水里氧气不足时，沙漠小鱼会浮到水面呼吸。护林员每周都会检查泉水的健康状况，因为这种鱼在地球上别的地方都没有。还有一种小鱼住在沙漠洞穴里唯一的一汪水塘中，那里的水温一年到头都保持在三十四度左右。现在只剩下几百条了。", "words": [{"w": "How", "t": 190.66}, {"w": "does", "t": 191.05}, {"w": "it", "t": 191.44}, {"w": "do", "t": 191.83}, {"w": "it?", "t": 192.23}, {"w": "Special", "t": 192.62}, {"w": "cells", "t": 193.01}, {"w": "in", "t": 193.4}, {"w": "its", "t": 193.79}, {"w": "gills", "t": 194.18}, {"w": "and", "t": 194.57}, {"w": "kidneys", "t": 194.97}, {"w": "work", "t": 195.36}, {"w": "like", "t": 195.75}, {"w": "tiny", "t": 196.14}, {"w": "filters,", "t": 196.53}, {"w": "keeping", "t": 196.92}, {"w": "the", "t": 197.31}, {"w": "salt", "t": 197.71}, {"w": "balance", "t": 198.1}, {"w": "just", "t": 198.49}, {"w": "right.", "t": 198.88}, {"w": "When", "t": 199.27}, {"w": "the", "t": 199.66}, {"w": "water", "t": 200.06}, {"w": "gets", "t": 200.45}, {"w": "low", "t": 200.84}, {"w": "in", "t": 201.23}, {"w": "oxygen,", "t": 201.62}, {"w": "the", "t": 202.01}, {"w": "pupfish", "t": 202.4}, {"w": "rises", "t": 202.8}, {"w": "to", "t": 203.19}, {"w": "the", "t": 203.58}, {"w": "surface,", "t": 203.97}, {"w": "where", "t": 204.36}, {"w": "the", "t": 204.75}, {"w": "air", "t": 205.14}, {"w": "meets", "t": 205.54}, {"w": "the", "t": 205.93}, {"w": "water.", "t": 206.32}, {"w": "Rangers", "t": 206.71}, {"w": "check", "t": 207.1}, {"w": "the", "t": 207.49}, {"w": "health", "t": 207.88}, {"w": "of", "t": 208.28}, {"w": "the", "t": 208.67}, {"w": "springs", "t": 209.06}, {"w": "every", "t": 209.45}, {"w": "week,", "t": 209.84}, {"w": "because", "t": 210.23}, {"w": "these", "t": 210.62}, {"w": "fish", "t": 211.02}, {"w": "live", "t": 211.41}, {"w": "nowhere", "t": 211.8}, {"w": "else", "t": 212.19}, {"w": "on", "t": 212.58}, {"w": "Earth.", "t": 212.97}, {"w": "One", "t": 213.36}, {"w": "more", "t": 213.76}, {"w": "pupfish", "t": 214.15}, {"w": "lives", "t": 214.54}, {"w": "in", "t": 214.93}, {"w": "a", "t": 215.32}, {"w": "single", "t": 215.71}, {"w": "desert-cave", "t": 216.11}, {"w": "pool,", "t": 216.5}, {"w": "where", "t": 216.89}, {"w": "the", "t": 217.28}, {"w": "water", "t": 217.67}, {"w": "stays", "t": 218.06}, {"w": "around", "t": 218.45}, {"w": "thirty-four", "t": 218.85}, {"w": "degrees", "t": 219.24}, {"w": "all", "t": 219.63}, {"w": "year.", "t": 220.02}, {"w": "Only", "t": 220.41}, {"w": "a", "t": 220.8}, {"w": "few", "t": 221.19}, {"w": "hundred", "t": 221.59}, {"w": "are", "t": 221.98}, {"w": "left.", "t": 222.37}]}, {"start": 237.94, "end": 266.83, "en": "Here's today's idiom: 'under the weather.' When you feel under the weather, you feel a little sick — not seriously ill, just not quite yourself! Here's an example: 'After skiing all day in the cold, Tom felt under the weather, so he stayed home with hot soup and a good book.' So next time your nose is runny or your head feels heavy, you can say: 'I'm feeling a bit under the weather today.'", "title": "今日俚语", "cn": "今天的俚语是“under the weather”（在天气之下）。当你感觉 under the weather 时，你就是有点不舒服——不是大病，只是感觉不太对劲！举个例子：“在寒冷中滑了一整天雪之后，汤姆感觉有点不舒服，于是待在家里喝热汤、看好书。”所以下次你流鼻涕或者头昏昏的时候，就可以说：“我今天感觉有点 under the weather。”", "words": [{"w": "Here's", "t": 237.94}, {"w": "today's", "t": 238.33}, {"w": "idiom:", "t": 238.72}, {"w": "'under", "t": 239.11}, {"w": "the", "t": 239.5}, {"w": "weather.'", "t": 239.89}, {"w": "When", "t": 240.28}, {"w": "you", "t": 240.67}, {"w": "feel", "t": 241.06}, {"w": "under", "t": 241.45}, {"w": "the", "t": 241.84}, {"w": "weather,", "t": 242.23}, {"w": "you", "t": 242.62}, {"w": "feel", "t": 243.02}, {"w": "a", "t": 243.41}, {"w": "little", "t": 243.8}, {"w": "sick", "t": 244.19}, {"w": "—", "t": 244.58}, {"w": "not", "t": 244.97}, {"w": "seriously", "t": 245.36}, {"w": "ill,", "t": 245.75}, {"w": "just", "t": 246.14}, {"w": "not", "t": 246.53}, {"w": "quite", "t": 246.92}, {"w": "yourself!", "t": 247.31}, {"w": "Here's", "t": 247.7}, {"w": "an", "t": 248.09}, {"w": "example:", "t": 248.48}, {"w": "'After", "t": 248.87}, {"w": "skiing", "t": 249.26}, {"w": "all", "t": 249.65}, {"w": "day", "t": 250.04}, {"w": "in", "t": 250.43}, {"w": "the", "t": 250.82}, {"w": "cold,", "t": 251.21}, {"w": "Tom", "t": 251.6}, {"w": "felt", "t": 251.99}, {"w": "under", "t": 252.38}, {"w": "the", "t": 252.78}, {"w": "weather,", "t": 253.17}, {"w": "so", "t": 253.56}, {"w": "he", "t": 253.95}, {"w": "stayed", "t": 254.34}, {"w": "home", "t": 254.73}, {"w": "with", "t": 255.12}, {"w": "hot", "t": 255.51}, {"w": "soup", "t": 255.9}, {"w": "and", "t": 256.29}, {"w": "a", "t": 256.68}, {"w": "good", "t": 257.07}, {"w": "book.'", "t": 257.46}, {"w": "So", "t": 257.85}, {"w": "next", "t": 258.24}, {"w": "time", "t": 258.63}, {"w": "your", "t": 259.02}, {"w": "nose", "t": 259.41}, {"w": "is", "t": 259.8}, {"w": "runny", "t": 260.19}, {"w": "or", "t": 260.58}, {"w": "your", "t": 260.97}, {"w": "head", "t": 261.36}, {"w": "feels", "t": 261.75}, {"w": "heavy,", "t": 262.15}, {"w": "you", "t": 262.54}, {"w": "can", "t": 262.93}, {"w": "say:", "t": 263.32}, {"w": "'I'm", "t": 263.71}, {"w": "feeling", "t": 264.1}, {"w": "a", "t": 264.49}, {"w": "bit", "t": 264.88}, {"w": "under", "t": 265.27}, {"w": "the", "t": 265.66}, {"w": "weather", "t": 266.05}, {"w": "today.'", "t": 266.44}]}, {"start": 281.45, "end": 308.67, "en": "Let's think about our stories: a ski resort in the desert, and a tiny fish in hot water. First: if you could build something impossible in the desert — a snow mountain, an ice palace, anything — what would you build, and why? Second: the pupfish survives the hottest water by changing how its body works. What helps you feel better on a very hot day? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事：沙漠里的一座滑雪场，和一条生活在热水里的小鱼。第一：如果你能在沙漠里建一样不可能的东西——一座雪山、一座冰宫，什么都行——你会建什么？为什么？第二：沙漠小鱼靠改变身体的工作方式活过了最热的水。在非常热的一天里，什么能让你感觉舒服一点？和家人聊聊吧！", "words": [{"w": "Let's", "t": 281.45}, {"w": "think", "t": 281.83}, {"w": "about", "t": 282.21}, {"w": "our", "t": 282.58}, {"w": "stories:", "t": 282.96}, {"w": "a", "t": 283.34}, {"w": "ski", "t": 283.72}, {"w": "resort", "t": 284.1}, {"w": "in", "t": 284.47}, {"w": "the", "t": 284.85}, {"w": "desert,", "t": 285.23}, {"w": "and", "t": 285.61}, {"w": "a", "t": 285.99}, {"w": "tiny", "t": 286.36}, {"w": "fish", "t": 286.74}, {"w": "in", "t": 287.12}, {"w": "hot", "t": 287.5}, {"w": "water.", "t": 287.88}, {"w": "First:", "t": 288.25}, {"w": "if", "t": 288.63}, {"w": "you", "t": 289.01}, {"w": "could", "t": 289.39}, {"w": "build", "t": 289.77}, {"w": "something", "t": 290.15}, {"w": "impossible", "t": 290.52}, {"w": "in", "t": 290.9}, {"w": "the", "t": 291.28}, {"w": "desert", "t": 291.66}, {"w": "—", "t": 292.04}, {"w": "a", "t": 292.41}, {"w": "snow", "t": 292.79}, {"w": "mountain,", "t": 293.17}, {"w": "an", "t": 293.55}, {"w": "ice", "t": 293.93}, {"w": "palace,", "t": 294.3}, {"w": "anything", "t": 294.68}, {"w": "—", "t": 295.06}, {"w": "what", "t": 295.44}, {"w": "would", "t": 295.82}, {"w": "you", "t": 296.19}, {"w": "build,", "t": 296.57}, {"w": "and", "t": 296.95}, {"w": "why?", "t": 297.33}, {"w": "Second:", "t": 297.71}, {"w": "the", "t": 298.08}, {"w": "pupfish", "t": 298.46}, {"w": "survives", "t": 298.84}, {"w": "the", "t": 299.22}, {"w": "hottest", "t": 299.6}, {"w": "water", "t": 299.97}, {"w": "by", "t": 300.35}, {"w": "changing", "t": 300.73}, {"w": "how", "t": 301.11}, {"w": "its", "t": 301.49}, {"w": "body", "t": 301.87}, {"w": "works.", "t": 302.24}, {"w": "What", "t": 302.62}, {"w": "helps", "t": 303.0}, {"w": "you", "t": 303.38}, {"w": "feel", "t": 303.76}, {"w": "better", "t": 304.13}, {"w": "on", "t": 304.51}, {"w": "a", "t": 304.89}, {"w": "very", "t": 305.27}, {"w": "hot", "t": 305.65}, {"w": "day?", "t": 306.02}, {"w": "Talk", "t": 306.4}, {"w": "about", "t": 306.78}, {"w": "it", "t": 307.16}, {"w": "with", "t": 307.54}, {"w": "your", "t": 307.91}, {"w": "family!", "t": 308.29}]}, {"start": 317.45, "end": 328.03, "en": "That's all for today, young explorers. Stay curious, stay brave — and if you ever feel under the weather, rest well and come back stronger! See you tomorrow!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。保持好奇心，保持勇敢——如果你哪天感觉有点 under the weather，好好休息，恢复得更强壮！明天见！", "words": [{"w": "That's", "t": 317.45}, {"w": "all", "t": 317.83}, {"w": "for", "t": 318.21}, {"w": "today,", "t": 318.58}, {"w": "young", "t": 318.96}, {"w": "explorers.", "t": 319.34}, {"w": "Stay", "t": 319.72}, {"w": "curious,", "t": 320.09}, {"w": "stay", "t": 320.47}, {"w": "brave", "t": 320.85}, {"w": "—", "t": 321.23}, {"w": "and", "t": 321.61}, {"w": "if", "t": 321.98}, {"w": "you", "t": 322.36}, {"w": "ever", "t": 322.74}, {"w": "feel", "t": 323.12}, {"w": "under", "t": 323.5}, {"w": "the", "t": 323.87}, {"w": "weather,", "t": 324.25}, {"w": "rest", "t": 324.63}, {"w": "well", "t": 325.01}, {"w": "and", "t": 325.38}, {"w": "come", "t": 325.76}, {"w": "back", "t": 326.14}, {"w": "stronger!", "t": 326.52}, {"w": "See", "t": 326.9}, {"w": "you", "t": 327.27}, {"w": "tomorrow!", "t": 327.65}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol37/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>

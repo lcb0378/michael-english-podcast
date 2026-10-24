@@ -1,0 +1,3487 @@
+{
+ "id": "vol37",
+ "title": "沙漠滑雪场与热水里的小鱼",
+ "words": 598,
+ "duration": "5分37秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol37/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol37/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol37/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol37/Vol37_晚读讲义_沙漠滑雪场与热水里的小鱼_v1.pdf",
+ "pdfName": "Vol37_晚读讲义_沙漠滑雪场与热水里的小鱼_v1.pdf",
+ "blocks": [
+  {
+   "start": 22.19,
+   "end": 42.18,
+   "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we visit two wonders of the desert. First, a ski resort in the middle of hot sand, with real snow! Then, a tiny fish that swims in water almost too hot to touch. Ready? Let's go!",
+   "title": "开场白",
+   "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天我们要去看沙漠里的两大奇观：第一，是滚滚热沙中间的一座滑雪场，里面有真正的雪！然后，是一种能在几乎烫手的热水里游泳的小鱼。准备好了吗？出发！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 22.19
+    },
+    {
+     "w": "young",
+     "t": 22.62
+    },
+    {
+     "w": "explorers,",
+     "t": 23.04
+    },
+    {
+     "w": "and",
+     "t": 23.47
+    },
+    {
+     "w": "welcome",
+     "t": 23.89
+    },
+    {
+     "w": "back",
+     "t": 24.32
+    },
+    {
+     "w": "to",
+     "t": 24.74
+    },
+    {
+     "w": "Michael's",
+     "t": 25.17
+    },
+    {
+     "w": "Morning",
+     "t": 25.59
+    },
+    {
+     "w": "Listening!",
+     "t": 26.02
+    },
+    {
+     "w": "Today",
+     "t": 26.44
+    },
+    {
+     "w": "we",
+     "t": 26.87
+    },
+    {
+     "w": "visit",
+     "t": 27.29
+    },
+    {
+     "w": "two",
+     "t": 27.72
+    },
+    {
+     "w": "wonders",
+     "t": 28.14
+    },
+    {
+     "w": "of",
+     "t": 28.57
+    },
+    {
+     "w": "the",
+     "t": 29.0
+    },
+    {
+     "w": "desert.",
+     "t": 29.42
+    },
+    {
+     "w": "First,",
+     "t": 29.85
+    },
+    {
+     "w": "a",
+     "t": 30.27
+    },
+    {
+     "w": "ski",
+     "t": 30.7
+    },
+    {
+     "w": "resort",
+     "t": 31.12
+    },
+    {
+     "w": "in",
+     "t": 31.55
+    },
+    {
+     "w": "the",
+     "t": 31.97
+    },
+    {
+     "w": "middle",
+     "t": 32.4
+    },
+    {
+     "w": "of",
+     "t": 32.82
+    },
+    {
+     "w": "hot",
+     "t": 33.25
+    },
+    {
+     "w": "sand,",
+     "t": 33.67
+    },
+    {
+     "w": "with",
+     "t": 34.1
+    },
+    {
+     "w": "real",
+     "t": 34.52
+    },
+    {
+     "w": "snow!",
+     "t": 34.95
+    },
+    {
+     "w": "Then,",
+     "t": 35.37
+    },
+    {
+     "w": "a",
+     "t": 35.8
+    },
+    {
+     "w": "tiny",
+     "t": 36.23
+    },
+    {
+     "w": "fish",
+     "t": 36.65
+    },
+    {
+     "w": "that",
+     "t": 37.08
+    },
+    {
+     "w": "swims",
+     "t": 37.5
+    },
+    {
+     "w": "in",
+     "t": 37.93
+    },
+    {
+     "w": "water",
+     "t": 38.35
+    },
+    {
+     "w": "almost",
+     "t": 38.78
+    },
+    {
+     "w": "too",
+     "t": 39.2
+    },
+    {
+     "w": "hot",
+     "t": 39.63
+    },
+    {
+     "w": "to",
+     "t": 40.05
+    },
+    {
+     "w": "touch.",
+     "t": 40.48
+    },
+    {
+     "w": "Ready?",
+     "t": 40.9
+    },
+    {
+     "w": "Let's",
+     "t": 41.33
+    },
+    {
+     "w": "go!",
+     "t": 41.75
+    }
+   ]
+  },
+  {
+   "start": 54.4,
+   "end": 73.86,
+   "en": "In Dubai, a city in the middle of the desert, there is a ski resort inside a huge shopping mall. Outside, the sun bakes the sand. Inside, it is winter all year round! The temperature stays around minus two degrees, and real snow covers the slopes.",
+   "title": "沙漠滑雪场",
+   "cn": "在迪拜——一座沙漠中间的城市——有一座滑雪场，就在一家巨大的商场里面。外面，太阳炙烤着沙子。里面，却一年到头都是冬天！气温保持在零下两度左右，真正的雪覆盖着滑雪坡。",
+   "words": [
+    {
+     "w": "In",
+     "t": 54.4
+    },
+    {
+     "w": "Dubai,",
+     "t": 54.82
+    },
+    {
+     "w": "a",
+     "t": 55.25
+    },
+    {
+     "w": "city",
+     "t": 55.67
+    },
+    {
+     "w": "in",
+     "t": 56.09
+    },
+    {
+     "w": "the",
+     "t": 56.52
+    },
+    {
+     "w": "middle",
+     "t": 56.94
+    },
+    {
+     "w": "of",
+     "t": 57.36
+    },
+    {
+     "w": "the",
+     "t": 57.78
+    },
+    {
+     "w": "desert,",
+     "t": 58.21
+    },
+    {
+     "w": "there",
+     "t": 58.63
+    },
+    {
+     "w": "is",
+     "t": 59.05
+    },
+    {
+     "w": "a",
+     "t": 59.48
+    },
+    {
+     "w": "ski",
+     "t": 59.9
+    },
+    {
+     "w": "resort",
+     "t": 60.32
+    },
+    {
+     "w": "inside",
+     "t": 60.75
+    },
+    {
+     "w": "a",
+     "t": 61.17
+    },
+    {
+     "w": "huge",
+     "t": 61.59
+    },
+    {
+     "w": "shopping",
+     "t": 62.02
+    },
+    {
+     "w": "mall.",
+     "t": 62.44
+    },
+    {
+     "w": "Outside,",
+     "t": 62.86
+    },
+    {
+     "w": "the",
+     "t": 63.28
+    },
+    {
+     "w": "sun",
+     "t": 63.71
+    },
+    {
+     "w": "bakes",
+     "t": 64.13
+    },
+    {
+     "w": "the",
+     "t": 64.55
+    },
+    {
+     "w": "sand.",
+     "t": 64.98
+    },
+    {
+     "w": "Inside,",
+     "t": 65.4
+    },
+    {
+     "w": "it",
+     "t": 65.82
+    },
+    {
+     "w": "is",
+     "t": 66.25
+    },
+    {
+     "w": "winter",
+     "t": 66.67
+    },
+    {
+     "w": "all",
+     "t": 67.09
+    },
+    {
+     "w": "year",
+     "t": 67.52
+    },
+    {
+     "w": "round!",
+     "t": 67.94
+    },
+    {
+     "w": "The",
+     "t": 68.36
+    },
+    {
+     "w": "temperature",
+     "t": 68.78
+    },
+    {
+     "w": "stays",
+     "t": 69.21
+    },
+    {
+     "w": "around",
+     "t": 69.63
+    },
+    {
+     "w": "minus",
+     "t": 70.05
+    },
+    {
+     "w": "two",
+     "t": 70.48
+    },
+    {
+     "w": "degrees,",
+     "t": 70.9
+    },
+    {
+     "w": "and",
+     "t": 71.32
+    },
+    {
+     "w": "real",
+     "t": 71.75
+    },
+    {
+     "w": "snow",
+     "t": 72.17
+    },
+    {
+     "w": "covers",
+     "t": 72.59
+    },
+    {
+     "w": "the",
+     "t": 73.02
+    },
+    {
+     "w": "slopes.",
+     "t": 73.44
+    }
+   ]
+  },
+  {
+   "start": 73.86,
+   "end": 100.52,
+   "en": "Here are some amazing statistics: there are five slopes, and the longest run is four hundred metres long. Every night, snow machines make fresh snow, and it accumulates into a soft white mountain. Thick walls and double doors make sure the cold air does not leak out. Meanwhile, visitors put on warm jackets and boots — the resort lends them all for free!",
+   "title": "沙漠滑雪场",
+   "cn": "先来看一组惊人的数字：这里有五条滑雪道，最长的一条有四百米。每晚，造雪机都会造出新雪，雪越积越多，堆成一座柔软的白色小山。厚厚的墙和双层门保证冷空气不会漏出去。同时，游客们穿上暖和的夹克和靴子——这些装备滑雪场都免费借给你！",
+   "words": [
+    {
+     "w": "Here",
+     "t": 73.86
+    },
+    {
+     "w": "are",
+     "t": 74.28
+    },
+    {
+     "w": "some",
+     "t": 74.71
+    },
+    {
+     "w": "amazing",
+     "t": 75.13
+    },
+    {
+     "w": "statistics:",
+     "t": 75.55
+    },
+    {
+     "w": "there",
+     "t": 75.98
+    },
+    {
+     "w": "are",
+     "t": 76.4
+    },
+    {
+     "w": "five",
+     "t": 76.82
+    },
+    {
+     "w": "slopes,",
+     "t": 77.25
+    },
+    {
+     "w": "and",
+     "t": 77.67
+    },
+    {
+     "w": "the",
+     "t": 78.09
+    },
+    {
+     "w": "longest",
+     "t": 78.52
+    },
+    {
+     "w": "run",
+     "t": 78.94
+    },
+    {
+     "w": "is",
+     "t": 79.36
+    },
+    {
+     "w": "four",
+     "t": 79.78
+    },
+    {
+     "w": "hundred",
+     "t": 80.21
+    },
+    {
+     "w": "metres",
+     "t": 80.63
+    },
+    {
+     "w": "long.",
+     "t": 81.05
+    },
+    {
+     "w": "Every",
+     "t": 81.48
+    },
+    {
+     "w": "night,",
+     "t": 81.9
+    },
+    {
+     "w": "snow",
+     "t": 82.32
+    },
+    {
+     "w": "machines",
+     "t": 82.75
+    },
+    {
+     "w": "make",
+     "t": 83.17
+    },
+    {
+     "w": "fresh",
+     "t": 83.59
+    },
+    {
+     "w": "snow,",
+     "t": 84.02
+    },
+    {
+     "w": "and",
+     "t": 84.44
+    },
+    {
+     "w": "it",
+     "t": 84.86
+    },
+    {
+     "w": "accumulates",
+     "t": 85.28
+    },
+    {
+     "w": "into",
+     "t": 85.71
+    },
+    {
+     "w": "a",
+     "t": 86.13
+    },
+    {
+     "w": "soft",
+     "t": 86.55
+    },
+    {
+     "w": "white",
+     "t": 86.98
+    },
+    {
+     "w": "mountain.",
+     "t": 87.4
+    },
+    {
+     "w": "Thick",
+     "t": 87.82
+    },
+    {
+     "w": "walls",
+     "t": 88.25
+    },
+    {
+     "w": "and",
+     "t": 88.67
+    },
+    {
+     "w": "double",
+     "t": 89.09
+    },
+    {
+     "w": "doors",
+     "t": 89.52
+    },
+    {
+     "w": "make",
+     "t": 89.94
+    },
+    {
+     "w": "sure",
+     "t": 90.36
+    },
+    {
+     "w": "the",
+     "t": 90.78
+    },
+    {
+     "w": "cold",
+     "t": 91.21
+    },
+    {
+     "w": "air",
+     "t": 91.63
+    },
+    {
+     "w": "does",
+     "t": 92.05
+    },
+    {
+     "w": "not",
+     "t": 92.48
+    },
+    {
+     "w": "leak",
+     "t": 92.9
+    },
+    {
+     "w": "out.",
+     "t": 93.32
+    },
+    {
+     "w": "Meanwhile,",
+     "t": 93.75
+    },
+    {
+     "w": "visitors",
+     "t": 94.17
+    },
+    {
+     "w": "put",
+     "t": 94.59
+    },
+    {
+     "w": "on",
+     "t": 95.02
+    },
+    {
+     "w": "warm",
+     "t": 95.44
+    },
+    {
+     "w": "jackets",
+     "t": 95.86
+    },
+    {
+     "w": "and",
+     "t": 96.29
+    },
+    {
+     "w": "boots",
+     "t": 96.71
+    },
+    {
+     "w": "—",
+     "t": 97.13
+    },
+    {
+     "w": "the",
+     "t": 97.55
+    },
+    {
+     "w": "resort",
+     "t": 97.98
+    },
+    {
+     "w": "lends",
+     "t": 98.4
+    },
+    {
+     "w": "them",
+     "t": 98.82
+    },
+    {
+     "w": "all",
+     "t": 99.25
+    },
+    {
+     "w": "for",
+     "t": 99.67
+    },
+    {
+     "w": "free!",
+     "t": 100.09
+    }
+   ]
+  },
+  {
+   "start": 100.52,
+   "end": 132.67,
+   "en": "Families come here to ski, snowboard, and build snowmen. Children race down on sleds, and friends have snowball fights. If you stay late, the snow park glows with coloured lights. And here is the biggest surprise: visitors also get the chance to meet real penguins! King penguins and gentoo penguins waddle around their icy home, and they seem to approve of the cold. Skiing together in the desert is a wonderful way for families to bond.",
+   "title": "沙漠滑雪场",
+   "cn": "一家人来这里滑雪、滑单板、堆雪人。孩子们坐着雪橇往下滑，朋友们打雪仗。如果待得晚一点，还能看到灯光闪烁的雪上乐园。而最大的惊喜是：游客还有机会见到真正的企鹅！帝企鹅和巴布亚企鹅在它们冰冷的家里摇摇摆摆地走来走去，看起来很喜欢这里的寒冷。在沙漠里一起滑雪，是一家人增进感情的好办法。",
+   "words": [
+    {
+     "w": "Families",
+     "t": 100.52
+    },
+    {
+     "w": "come",
+     "t": 100.94
+    },
+    {
+     "w": "here",
+     "t": 101.36
+    },
+    {
+     "w": "to",
+     "t": 101.79
+    },
+    {
+     "w": "ski,",
+     "t": 102.21
+    },
+    {
+     "w": "snowboard,",
+     "t": 102.63
+    },
+    {
+     "w": "and",
+     "t": 103.05
+    },
+    {
+     "w": "build",
+     "t": 103.48
+    },
+    {
+     "w": "snowmen.",
+     "t": 103.9
+    },
+    {
+     "w": "Children",
+     "t": 104.32
+    },
+    {
+     "w": "race",
+     "t": 104.75
+    },
+    {
+     "w": "down",
+     "t": 105.17
+    },
+    {
+     "w": "on",
+     "t": 105.59
+    },
+    {
+     "w": "sleds,",
+     "t": 106.02
+    },
+    {
+     "w": "and",
+     "t": 106.44
+    },
+    {
+     "w": "friends",
+     "t": 106.86
+    },
+    {
+     "w": "have",
+     "t": 107.29
+    },
+    {
+     "w": "snowball",
+     "t": 107.71
+    },
+    {
+     "w": "fights.",
+     "t": 108.13
+    },
+    {
+     "w": "If",
+     "t": 108.55
+    },
+    {
+     "w": "you",
+     "t": 108.98
+    },
+    {
+     "w": "stay",
+     "t": 109.4
+    },
+    {
+     "w": "late,",
+     "t": 109.82
+    },
+    {
+     "w": "the",
+     "t": 110.25
+    },
+    {
+     "w": "snow",
+     "t": 110.67
+    },
+    {
+     "w": "park",
+     "t": 111.09
+    },
+    {
+     "w": "glows",
+     "t": 111.52
+    },
+    {
+     "w": "with",
+     "t": 111.94
+    },
+    {
+     "w": "coloured",
+     "t": 112.36
+    },
+    {
+     "w": "lights.",
+     "t": 112.79
+    },
+    {
+     "w": "And",
+     "t": 113.21
+    },
+    {
+     "w": "here",
+     "t": 113.63
+    },
+    {
+     "w": "is",
+     "t": 114.05
+    },
+    {
+     "w": "the",
+     "t": 114.48
+    },
+    {
+     "w": "biggest",
+     "t": 114.9
+    },
+    {
+     "w": "surprise:",
+     "t": 115.32
+    },
+    {
+     "w": "visitors",
+     "t": 115.75
+    },
+    {
+     "w": "also",
+     "t": 116.17
+    },
+    {
+     "w": "get",
+     "t": 116.59
+    },
+    {
+     "w": "the",
+     "t": 117.02
+    },
+    {
+     "w": "chance",
+     "t": 117.44
+    },
+    {
+     "w": "to",
+     "t": 117.86
+    },
+    {
+     "w": "meet",
+     "t": 118.29
+    },
+    {
+     "w": "real",
+     "t": 118.71
+    },
+    {
+     "w": "penguins!",
+     "t": 119.13
+    },
+    {
+     "w": "King",
+     "t": 119.55
+    },
+    {
+     "w": "penguins",
+     "t": 119.98
+    },
+    {
+     "w": "and",
+     "t": 120.4
+    },
+    {
+     "w": "gentoo",
+     "t": 120.82
+    },
+    {
+     "w": "penguins",
+     "t": 121.25
+    },
+    {
+     "w": "waddle",
+     "t": 121.67
+    },
+    {
+     "w": "around",
+     "t": 122.09
+    },
+    {
+     "w": "their",
+     "t": 122.52
+    },
+    {
+     "w": "icy",
+     "t": 122.94
+    },
+    {
+     "w": "home,",
+     "t": 123.36
+    },
+    {
+     "w": "and",
+     "t": 123.79
+    },
+    {
+     "w": "they",
+     "t": 124.21
+    },
+    {
+     "w": "seem",
+     "t": 124.63
+    },
+    {
+     "w": "to",
+     "t": 125.05
+    },
+    {
+     "w": "approve",
+     "t": 125.48
+    },
+    {
+     "w": "of",
+     "t": 125.9
+    },
+    {
+     "w": "the",
+     "t": 126.32
+    },
+    {
+     "w": "cold.",
+     "t": 126.75
+    },
+    {
+     "w": "Skiing",
+     "t": 127.17
+    },
+    {
+     "w": "together",
+     "t": 127.59
+    },
+    {
+     "w": "in",
+     "t": 128.02
+    },
+    {
+     "w": "the",
+     "t": 128.44
+    },
+    {
+     "w": "desert",
+     "t": 128.86
+    },
+    {
+     "w": "is",
+     "t": 129.29
+    },
+    {
+     "w": "a",
+     "t": 129.71
+    },
+    {
+     "w": "wonderful",
+     "t": 130.13
+    },
+    {
+     "w": "way",
+     "t": 130.55
+    },
+    {
+     "w": "for",
+     "t": 130.98
+    },
+    {
+     "w": "families",
+     "t": 131.4
+    },
+    {
+     "w": "to",
+     "t": 131.82
+    },
+    {
+     "w": "bond.",
+     "t": 132.25
+    }
+   ]
+  },
+  {
+   "start": 147.21,
+   "end": 167.17,
+   "en": "Now we travel to Death Valley in America, one of the hottest places on Earth. Among the rocks and sand, there are small pools of warm spring water. And in that water lives a tiny hero: the desert pupfish. It is only about four centimetres long — smaller than your thumb!",
+   "title": "沙漠小鱼",
+   "cn": "现在我们来到美国的死亡谷，那是地球上最热的地方之一。在岩石和沙子中间，有一汪汪温暖的泉水。而在那水里，住着一位小小的英雄：沙漠小鱼。它只有大约四厘米长——比你的大拇指还小！",
+   "words": [
+    {
+     "w": "Now",
+     "t": 147.21
+    },
+    {
+     "w": "we",
+     "t": 147.6
+    },
+    {
+     "w": "travel",
+     "t": 147.99
+    },
+    {
+     "w": "to",
+     "t": 148.38
+    },
+    {
+     "w": "Death",
+     "t": 148.78
+    },
+    {
+     "w": "Valley",
+     "t": 149.17
+    },
+    {
+     "w": "in",
+     "t": 149.56
+    },
+    {
+     "w": "America,",
+     "t": 149.95
+    },
+    {
+     "w": "one",
+     "t": 150.34
+    },
+    {
+     "w": "of",
+     "t": 150.73
+    },
+    {
+     "w": "the",
+     "t": 151.12
+    },
+    {
+     "w": "hottest",
+     "t": 151.52
+    },
+    {
+     "w": "places",
+     "t": 151.91
+    },
+    {
+     "w": "on",
+     "t": 152.3
+    },
+    {
+     "w": "Earth.",
+     "t": 152.69
+    },
+    {
+     "w": "Among",
+     "t": 153.08
+    },
+    {
+     "w": "the",
+     "t": 153.47
+    },
+    {
+     "w": "rocks",
+     "t": 153.86
+    },
+    {
+     "w": "and",
+     "t": 154.26
+    },
+    {
+     "w": "sand,",
+     "t": 154.65
+    },
+    {
+     "w": "there",
+     "t": 155.04
+    },
+    {
+     "w": "are",
+     "t": 155.43
+    },
+    {
+     "w": "small",
+     "t": 155.82
+    },
+    {
+     "w": "pools",
+     "t": 156.21
+    },
+    {
+     "w": "of",
+     "t": 156.6
+    },
+    {
+     "w": "warm",
+     "t": 157.0
+    },
+    {
+     "w": "spring",
+     "t": 157.39
+    },
+    {
+     "w": "water.",
+     "t": 157.78
+    },
+    {
+     "w": "And",
+     "t": 158.17
+    },
+    {
+     "w": "in",
+     "t": 158.56
+    },
+    {
+     "w": "that",
+     "t": 158.95
+    },
+    {
+     "w": "water",
+     "t": 159.34
+    },
+    {
+     "w": "lives",
+     "t": 159.74
+    },
+    {
+     "w": "a",
+     "t": 160.13
+    },
+    {
+     "w": "tiny",
+     "t": 160.52
+    },
+    {
+     "w": "hero:",
+     "t": 160.91
+    },
+    {
+     "w": "the",
+     "t": 161.3
+    },
+    {
+     "w": "desert",
+     "t": 161.69
+    },
+    {
+     "w": "pupfish.",
+     "t": 162.09
+    },
+    {
+     "w": "It",
+     "t": 162.48
+    },
+    {
+     "w": "is",
+     "t": 162.87
+    },
+    {
+     "w": "only",
+     "t": 163.26
+    },
+    {
+     "w": "about",
+     "t": 163.65
+    },
+    {
+     "w": "four",
+     "t": 164.04
+    },
+    {
+     "w": "centimetres",
+     "t": 164.43
+    },
+    {
+     "w": "long",
+     "t": 164.83
+    },
+    {
+     "w": "—",
+     "t": 165.22
+    },
+    {
+     "w": "smaller",
+     "t": 165.61
+    },
+    {
+     "w": "than",
+     "t": 166.0
+    },
+    {
+     "w": "your",
+     "t": 166.39
+    },
+    {
+     "w": "thumb!",
+     "t": 166.78
+    }
+   ]
+  },
+  {
+   "start": 167.17,
+   "end": 190.66,
+   "en": "This little fish is a champion of survival. In summer, its pool can heat up to forty-seven degrees — almost too hot to touch! In winter, the same water can drop to zero. And the water is four times saltier than the ocean. Most fish would not last a day here. The males turn bright blue in the mating season.",
+   "title": "沙漠小鱼",
+   "cn": "这条小鱼可是生存冠军。夏天，它的水塘能热到四十七度——几乎烫手！冬天，同一汪水又能降到零度。而且这里的水比海水咸四倍。大多数鱼在这里一天都活不下来。而到了交配季节，雄鱼会变成亮蓝色。",
+   "words": [
+    {
+     "w": "This",
+     "t": 167.17
+    },
+    {
+     "w": "little",
+     "t": 167.57
+    },
+    {
+     "w": "fish",
+     "t": 167.96
+    },
+    {
+     "w": "is",
+     "t": 168.35
+    },
+    {
+     "w": "a",
+     "t": 168.74
+    },
+    {
+     "w": "champion",
+     "t": 169.13
+    },
+    {
+     "w": "of",
+     "t": 169.52
+    },
+    {
+     "w": "survival.",
+     "t": 169.91
+    },
+    {
+     "w": "In",
+     "t": 170.31
+    },
+    {
+     "w": "summer,",
+     "t": 170.7
+    },
+    {
+     "w": "its",
+     "t": 171.09
+    },
+    {
+     "w": "pool",
+     "t": 171.48
+    },
+    {
+     "w": "can",
+     "t": 171.87
+    },
+    {
+     "w": "heat",
+     "t": 172.26
+    },
+    {
+     "w": "up",
+     "t": 172.65
+    },
+    {
+     "w": "to",
+     "t": 173.05
+    },
+    {
+     "w": "forty-seven",
+     "t": 173.44
+    },
+    {
+     "w": "degrees",
+     "t": 173.83
+    },
+    {
+     "w": "—",
+     "t": 174.22
+    },
+    {
+     "w": "almost",
+     "t": 174.61
+    },
+    {
+     "w": "too",
+     "t": 175.0
+    },
+    {
+     "w": "hot",
+     "t": 175.39
+    },
+    {
+     "w": "to",
+     "t": 175.79
+    },
+    {
+     "w": "touch!",
+     "t": 176.18
+    },
+    {
+     "w": "In",
+     "t": 176.57
+    },
+    {
+     "w": "winter,",
+     "t": 176.96
+    },
+    {
+     "w": "the",
+     "t": 177.35
+    },
+    {
+     "w": "same",
+     "t": 177.74
+    },
+    {
+     "w": "water",
+     "t": 178.13
+    },
+    {
+     "w": "can",
+     "t": 178.53
+    },
+    {
+     "w": "drop",
+     "t": 178.92
+    },
+    {
+     "w": "to",
+     "t": 179.31
+    },
+    {
+     "w": "zero.",
+     "t": 179.7
+    },
+    {
+     "w": "And",
+     "t": 180.09
+    },
+    {
+     "w": "the",
+     "t": 180.48
+    },
+    {
+     "w": "water",
+     "t": 180.87
+    },
+    {
+     "w": "is",
+     "t": 181.27
+    },
+    {
+     "w": "four",
+     "t": 181.66
+    },
+    {
+     "w": "times",
+     "t": 182.05
+    },
+    {
+     "w": "saltier",
+     "t": 182.44
+    },
+    {
+     "w": "than",
+     "t": 182.83
+    },
+    {
+     "w": "the",
+     "t": 183.22
+    },
+    {
+     "w": "ocean.",
+     "t": 183.61
+    },
+    {
+     "w": "Most",
+     "t": 184.01
+    },
+    {
+     "w": "fish",
+     "t": 184.4
+    },
+    {
+     "w": "would",
+     "t": 184.79
+    },
+    {
+     "w": "not",
+     "t": 185.18
+    },
+    {
+     "w": "last",
+     "t": 185.57
+    },
+    {
+     "w": "a",
+     "t": 185.96
+    },
+    {
+     "w": "day",
+     "t": 186.36
+    },
+    {
+     "w": "here.",
+     "t": 186.75
+    },
+    {
+     "w": "The",
+     "t": 187.14
+    },
+    {
+     "w": "males",
+     "t": 187.53
+    },
+    {
+     "w": "turn",
+     "t": 187.92
+    },
+    {
+     "w": "bright",
+     "t": 188.31
+    },
+    {
+     "w": "blue",
+     "t": 188.7
+    },
+    {
+     "w": "in",
+     "t": 189.1
+    },
+    {
+     "w": "the",
+     "t": 189.49
+    },
+    {
+     "w": "mating",
+     "t": 189.88
+    },
+    {
+     "w": "season.",
+     "t": 190.27
+    }
+   ]
+  },
+  {
+   "start": 190.66,
+   "end": 222.76,
+   "en": "How does it do it? Special cells in its gills and kidneys work like tiny filters, keeping the salt balance just right. When the water gets low in oxygen, the pupfish rises to the surface, where the air meets the water. Rangers check the health of the springs every week, because these fish live nowhere else on Earth. One more pupfish lives in a single desert-cave pool, where the water stays around thirty-four degrees all year. Only a few hundred are left.",
+   "title": "沙漠小鱼",
+   "cn": "它是怎么做到的呢？它鳃和肾里的特殊细胞就像小小的过滤器，让体内的盐分不多不少刚刚好。当水里氧气不足时，沙漠小鱼会浮到水面呼吸。护林员每周都会检查泉水的健康状况，因为这种鱼在地球上别的地方都没有。还有一种小鱼住在沙漠洞穴里唯一的一汪水塘中，那里的水温一年到头都保持在三十四度左右。现在只剩下几百条了。",
+   "words": [
+    {
+     "w": "How",
+     "t": 190.66
+    },
+    {
+     "w": "does",
+     "t": 191.05
+    },
+    {
+     "w": "it",
+     "t": 191.44
+    },
+    {
+     "w": "do",
+     "t": 191.84
+    },
+    {
+     "w": "it?",
+     "t": 192.23
+    },
+    {
+     "w": "Special",
+     "t": 192.62
+    },
+    {
+     "w": "cells",
+     "t": 193.01
+    },
+    {
+     "w": "in",
+     "t": 193.4
+    },
+    {
+     "w": "its",
+     "t": 193.79
+    },
+    {
+     "w": "gills",
+     "t": 194.18
+    },
+    {
+     "w": "and",
+     "t": 194.58
+    },
+    {
+     "w": "kidneys",
+     "t": 194.97
+    },
+    {
+     "w": "work",
+     "t": 195.36
+    },
+    {
+     "w": "like",
+     "t": 195.75
+    },
+    {
+     "w": "tiny",
+     "t": 196.14
+    },
+    {
+     "w": "filters,",
+     "t": 196.53
+    },
+    {
+     "w": "keeping",
+     "t": 196.92
+    },
+    {
+     "w": "the",
+     "t": 197.32
+    },
+    {
+     "w": "salt",
+     "t": 197.71
+    },
+    {
+     "w": "balance",
+     "t": 198.1
+    },
+    {
+     "w": "just",
+     "t": 198.49
+    },
+    {
+     "w": "right.",
+     "t": 198.88
+    },
+    {
+     "w": "When",
+     "t": 199.27
+    },
+    {
+     "w": "the",
+     "t": 199.66
+    },
+    {
+     "w": "water",
+     "t": 200.06
+    },
+    {
+     "w": "gets",
+     "t": 200.45
+    },
+    {
+     "w": "low",
+     "t": 200.84
+    },
+    {
+     "w": "in",
+     "t": 201.23
+    },
+    {
+     "w": "oxygen,",
+     "t": 201.62
+    },
+    {
+     "w": "the",
+     "t": 202.01
+    },
+    {
+     "w": "pupfish",
+     "t": 202.4
+    },
+    {
+     "w": "rises",
+     "t": 202.8
+    },
+    {
+     "w": "to",
+     "t": 203.19
+    },
+    {
+     "w": "the",
+     "t": 203.58
+    },
+    {
+     "w": "surface,",
+     "t": 203.97
+    },
+    {
+     "w": "where",
+     "t": 204.36
+    },
+    {
+     "w": "the",
+     "t": 204.75
+    },
+    {
+     "w": "air",
+     "t": 205.14
+    },
+    {
+     "w": "meets",
+     "t": 205.54
+    },
+    {
+     "w": "the",
+     "t": 205.93
+    },
+    {
+     "w": "water.",
+     "t": 206.32
+    },
+    {
+     "w": "Rangers",
+     "t": 206.71
+    },
+    {
+     "w": "check",
+     "t": 207.1
+    },
+    {
+     "w": "the",
+     "t": 207.49
+    },
+    {
+     "w": "health",
+     "t": 207.88
+    },
+    {
+     "w": "of",
+     "t": 208.28
+    },
+    {
+     "w": "the",
+     "t": 208.67
+    },
+    {
+     "w": "springs",
+     "t": 209.06
+    },
+    {
+     "w": "every",
+     "t": 209.45
+    },
+    {
+     "w": "week,",
+     "t": 209.84
+    },
+    {
+     "w": "because",
+     "t": 210.23
+    },
+    {
+     "w": "these",
+     "t": 210.63
+    },
+    {
+     "w": "fish",
+     "t": 211.02
+    },
+    {
+     "w": "live",
+     "t": 211.41
+    },
+    {
+     "w": "nowhere",
+     "t": 211.8
+    },
+    {
+     "w": "else",
+     "t": 212.19
+    },
+    {
+     "w": "on",
+     "t": 212.58
+    },
+    {
+     "w": "Earth.",
+     "t": 212.97
+    },
+    {
+     "w": "One",
+     "t": 213.37
+    },
+    {
+     "w": "more",
+     "t": 213.76
+    },
+    {
+     "w": "pupfish",
+     "t": 214.15
+    },
+    {
+     "w": "lives",
+     "t": 214.54
+    },
+    {
+     "w": "in",
+     "t": 214.93
+    },
+    {
+     "w": "a",
+     "t": 215.32
+    },
+    {
+     "w": "single",
+     "t": 215.71
+    },
+    {
+     "w": "desert-cave",
+     "t": 216.11
+    },
+    {
+     "w": "pool,",
+     "t": 216.5
+    },
+    {
+     "w": "where",
+     "t": 216.89
+    },
+    {
+     "w": "the",
+     "t": 217.28
+    },
+    {
+     "w": "water",
+     "t": 217.67
+    },
+    {
+     "w": "stays",
+     "t": 218.06
+    },
+    {
+     "w": "around",
+     "t": 218.45
+    },
+    {
+     "w": "thirty-four",
+     "t": 218.85
+    },
+    {
+     "w": "degrees",
+     "t": 219.24
+    },
+    {
+     "w": "all",
+     "t": 219.63
+    },
+    {
+     "w": "year.",
+     "t": 220.02
+    },
+    {
+     "w": "Only",
+     "t": 220.41
+    },
+    {
+     "w": "a",
+     "t": 220.8
+    },
+    {
+     "w": "few",
+     "t": 221.19
+    },
+    {
+     "w": "hundred",
+     "t": 221.59
+    },
+    {
+     "w": "are",
+     "t": 221.98
+    },
+    {
+     "w": "left.",
+     "t": 222.37
+    }
+   ]
+  },
+  {
+   "start": 237.94,
+   "end": 266.83,
+   "en": "Here's today's idiom: 'under the weather.' When you feel under the weather, you feel a little sick — not seriously ill, just not quite yourself! Here's an example: 'After skiing all day in the cold, Tom felt under the weather, so he stayed home with hot soup and a good book.' So next time your nose is runny or your head feels heavy, you can say: 'I'm feeling a bit under the weather today.'",
+   "title": "今日俚语",
+   "cn": "今天的俚语是“under the weather”（在天气之下）。当你感觉 under the weather 时，你就是有点不舒服——不是大病，只是感觉不太对劲！举个例子：“在寒冷中滑了一整天雪之后，汤姆感觉有点不舒服，于是待在家里喝热汤、看好书。”所以下次你流鼻涕或者头昏昏的时候，就可以说：“我今天感觉有点 under the weather。”",
+   "words": [
+    {
+     "w": "Here's",
+     "t": 237.94
+    },
+    {
+     "w": "today's",
+     "t": 238.33
+    },
+    {
+     "w": "idiom:",
+     "t": 238.72
+    },
+    {
+     "w": "'under",
+     "t": 239.11
+    },
+    {
+     "w": "the",
+     "t": 239.5
+    },
+    {
+     "w": "weather.'",
+     "t": 239.89
+    },
+    {
+     "w": "When",
+     "t": 240.28
+    },
+    {
+     "w": "you",
+     "t": 240.67
+    },
+    {
+     "w": "feel",
+     "t": 241.06
+    },
+    {
+     "w": "under",
+     "t": 241.45
+    },
+    {
+     "w": "the",
+     "t": 241.84
+    },
+    {
+     "w": "weather,",
+     "t": 242.23
+    },
+    {
+     "w": "you",
+     "t": 242.62
+    },
+    {
+     "w": "feel",
+     "t": 243.02
+    },
+    {
+     "w": "a",
+     "t": 243.41
+    },
+    {
+     "w": "little",
+     "t": 243.8
+    },
+    {
+     "w": "sick",
+     "t": 244.19
+    },
+    {
+     "w": "—",
+     "t": 244.58
+    },
+    {
+     "w": "not",
+     "t": 244.97
+    },
+    {
+     "w": "seriously",
+     "t": 245.36
+    },
+    {
+     "w": "ill,",
+     "t": 245.75
+    },
+    {
+     "w": "just",
+     "t": 246.14
+    },
+    {
+     "w": "not",
+     "t": 246.53
+    },
+    {
+     "w": "quite",
+     "t": 246.92
+    },
+    {
+     "w": "yourself!",
+     "t": 247.31
+    },
+    {
+     "w": "Here's",
+     "t": 247.7
+    },
+    {
+     "w": "an",
+     "t": 248.09
+    },
+    {
+     "w": "example:",
+     "t": 248.48
+    },
+    {
+     "w": "'After",
+     "t": 248.87
+    },
+    {
+     "w": "skiing",
+     "t": 249.26
+    },
+    {
+     "w": "all",
+     "t": 249.65
+    },
+    {
+     "w": "day",
+     "t": 250.04
+    },
+    {
+     "w": "in",
+     "t": 250.43
+    },
+    {
+     "w": "the",
+     "t": 250.82
+    },
+    {
+     "w": "cold,",
+     "t": 251.21
+    },
+    {
+     "w": "Tom",
+     "t": 251.6
+    },
+    {
+     "w": "felt",
+     "t": 251.99
+    },
+    {
+     "w": "under",
+     "t": 252.38
+    },
+    {
+     "w": "the",
+     "t": 252.78
+    },
+    {
+     "w": "weather,",
+     "t": 253.17
+    },
+    {
+     "w": "so",
+     "t": 253.56
+    },
+    {
+     "w": "he",
+     "t": 253.95
+    },
+    {
+     "w": "stayed",
+     "t": 254.34
+    },
+    {
+     "w": "home",
+     "t": 254.73
+    },
+    {
+     "w": "with",
+     "t": 255.12
+    },
+    {
+     "w": "hot",
+     "t": 255.51
+    },
+    {
+     "w": "soup",
+     "t": 255.9
+    },
+    {
+     "w": "and",
+     "t": 256.29
+    },
+    {
+     "w": "a",
+     "t": 256.68
+    },
+    {
+     "w": "good",
+     "t": 257.07
+    },
+    {
+     "w": "book.'",
+     "t": 257.46
+    },
+    {
+     "w": "So",
+     "t": 257.85
+    },
+    {
+     "w": "next",
+     "t": 258.24
+    },
+    {
+     "w": "time",
+     "t": 258.63
+    },
+    {
+     "w": "your",
+     "t": 259.02
+    },
+    {
+     "w": "nose",
+     "t": 259.41
+    },
+    {
+     "w": "is",
+     "t": 259.8
+    },
+    {
+     "w": "runny",
+     "t": 260.19
+    },
+    {
+     "w": "or",
+     "t": 260.58
+    },
+    {
+     "w": "your",
+     "t": 260.97
+    },
+    {
+     "w": "head",
+     "t": 261.36
+    },
+    {
+     "w": "feels",
+     "t": 261.75
+    },
+    {
+     "w": "heavy,",
+     "t": 262.15
+    },
+    {
+     "w": "you",
+     "t": 262.54
+    },
+    {
+     "w": "can",
+     "t": 262.93
+    },
+    {
+     "w": "say:",
+     "t": 263.32
+    },
+    {
+     "w": "'I'm",
+     "t": 263.71
+    },
+    {
+     "w": "feeling",
+     "t": 264.1
+    },
+    {
+     "w": "a",
+     "t": 264.49
+    },
+    {
+     "w": "bit",
+     "t": 264.88
+    },
+    {
+     "w": "under",
+     "t": 265.27
+    },
+    {
+     "w": "the",
+     "t": 265.66
+    },
+    {
+     "w": "weather",
+     "t": 266.05
+    },
+    {
+     "w": "today.'",
+     "t": 266.44
+    }
+   ]
+  },
+  {
+   "start": 281.45,
+   "end": 308.67,
+   "en": "Let's think about our stories: a ski resort in the desert, and a tiny fish in hot water. First: if you could build something impossible in the desert — a snow mountain, an ice palace, anything — what would you build, and why? Second: the pupfish survives the hottest water by changing how its body works. What helps you feel better on a very hot day? Talk about it with your family!",
+   "title": "结束语与互动问题",
+   "cn": "我们来想想今天的故事：沙漠里的一座滑雪场，和一条生活在热水里的小鱼。第一：如果你能在沙漠里建一样不可能的东西——一座雪山、一座冰宫，什么都行——你会建什么？为什么？第二：沙漠小鱼靠改变身体的工作方式活过了最热的水。在非常热的一天里，什么能让你感觉舒服一点？和家人聊聊吧！",
+   "words": [
+    {
+     "w": "Let's",
+     "t": 281.45
+    },
+    {
+     "w": "think",
+     "t": 281.83
+    },
+    {
+     "w": "about",
+     "t": 282.21
+    },
+    {
+     "w": "our",
+     "t": 282.58
+    },
+    {
+     "w": "stories:",
+     "t": 282.96
+    },
+    {
+     "w": "a",
+     "t": 283.34
+    },
+    {
+     "w": "ski",
+     "t": 283.72
+    },
+    {
+     "w": "resort",
+     "t": 284.1
+    },
+    {
+     "w": "in",
+     "t": 284.47
+    },
+    {
+     "w": "the",
+     "t": 284.85
+    },
+    {
+     "w": "desert,",
+     "t": 285.23
+    },
+    {
+     "w": "and",
+     "t": 285.61
+    },
+    {
+     "w": "a",
+     "t": 285.99
+    },
+    {
+     "w": "tiny",
+     "t": 286.36
+    },
+    {
+     "w": "fish",
+     "t": 286.74
+    },
+    {
+     "w": "in",
+     "t": 287.12
+    },
+    {
+     "w": "hot",
+     "t": 287.5
+    },
+    {
+     "w": "water.",
+     "t": 287.88
+    },
+    {
+     "w": "First:",
+     "t": 288.25
+    },
+    {
+     "w": "if",
+     "t": 288.63
+    },
+    {
+     "w": "you",
+     "t": 289.01
+    },
+    {
+     "w": "could",
+     "t": 289.39
+    },
+    {
+     "w": "build",
+     "t": 289.77
+    },
+    {
+     "w": "something",
+     "t": 290.15
+    },
+    {
+     "w": "impossible",
+     "t": 290.52
+    },
+    {
+     "w": "in",
+     "t": 290.9
+    },
+    {
+     "w": "the",
+     "t": 291.28
+    },
+    {
+     "w": "desert",
+     "t": 291.66
+    },
+    {
+     "w": "—",
+     "t": 292.04
+    },
+    {
+     "w": "a",
+     "t": 292.41
+    },
+    {
+     "w": "snow",
+     "t": 292.79
+    },
+    {
+     "w": "mountain,",
+     "t": 293.17
+    },
+    {
+     "w": "an",
+     "t": 293.55
+    },
+    {
+     "w": "ice",
+     "t": 293.93
+    },
+    {
+     "w": "palace,",
+     "t": 294.3
+    },
+    {
+     "w": "anything",
+     "t": 294.68
+    },
+    {
+     "w": "—",
+     "t": 295.06
+    },
+    {
+     "w": "what",
+     "t": 295.44
+    },
+    {
+     "w": "would",
+     "t": 295.82
+    },
+    {
+     "w": "you",
+     "t": 296.19
+    },
+    {
+     "w": "build,",
+     "t": 296.57
+    },
+    {
+     "w": "and",
+     "t": 296.95
+    },
+    {
+     "w": "why?",
+     "t": 297.33
+    },
+    {
+     "w": "Second:",
+     "t": 297.71
+    },
+    {
+     "w": "the",
+     "t": 298.08
+    },
+    {
+     "w": "pupfish",
+     "t": 298.46
+    },
+    {
+     "w": "survives",
+     "t": 298.84
+    },
+    {
+     "w": "the",
+     "t": 299.22
+    },
+    {
+     "w": "hottest",
+     "t": 299.6
+    },
+    {
+     "w": "water",
+     "t": 299.97
+    },
+    {
+     "w": "by",
+     "t": 300.35
+    },
+    {
+     "w": "changing",
+     "t": 300.73
+    },
+    {
+     "w": "how",
+     "t": 301.11
+    },
+    {
+     "w": "its",
+     "t": 301.49
+    },
+    {
+     "w": "body",
+     "t": 301.87
+    },
+    {
+     "w": "works.",
+     "t": 302.24
+    },
+    {
+     "w": "What",
+     "t": 302.62
+    },
+    {
+     "w": "helps",
+     "t": 303.0
+    },
+    {
+     "w": "you",
+     "t": 303.38
+    },
+    {
+     "w": "feel",
+     "t": 303.76
+    },
+    {
+     "w": "better",
+     "t": 304.13
+    },
+    {
+     "w": "on",
+     "t": 304.51
+    },
+    {
+     "w": "a",
+     "t": 304.89
+    },
+    {
+     "w": "very",
+     "t": 305.27
+    },
+    {
+     "w": "hot",
+     "t": 305.65
+    },
+    {
+     "w": "day?",
+     "t": 306.02
+    },
+    {
+     "w": "Talk",
+     "t": 306.4
+    },
+    {
+     "w": "about",
+     "t": 306.78
+    },
+    {
+     "w": "it",
+     "t": 307.16
+    },
+    {
+     "w": "with",
+     "t": 307.54
+    },
+    {
+     "w": "your",
+     "t": 307.91
+    },
+    {
+     "w": "family!",
+     "t": 308.29
+    }
+   ]
+  },
+  {
+   "start": 317.45,
+   "end": 328.03,
+   "en": "That's all for today, young explorers. Stay curious, stay brave — and if you ever feel under the weather, rest well and come back stronger! See you tomorrow!",
+   "title": "告别",
+   "cn": "今天的节目就到这里啦，小小探险家们。保持好奇心，保持勇敢——如果你哪天感觉有点 under the weather，好好休息，恢复得更强壮！明天见！",
+   "words": [
+    {
+     "w": "That's",
+     "t": 317.45
+    },
+    {
+     "w": "all",
+     "t": 317.83
+    },
+    {
+     "w": "for",
+     "t": 318.21
+    },
+    {
+     "w": "today,",
+     "t": 318.58
+    },
+    {
+     "w": "young",
+     "t": 318.96
+    },
+    {
+     "w": "explorers.",
+     "t": 319.34
+    },
+    {
+     "w": "Stay",
+     "t": 319.72
+    },
+    {
+     "w": "curious,",
+     "t": 320.09
+    },
+    {
+     "w": "stay",
+     "t": 320.47
+    },
+    {
+     "w": "brave",
+     "t": 320.85
+    },
+    {
+     "w": "—",
+     "t": 321.23
+    },
+    {
+     "w": "and",
+     "t": 321.61
+    },
+    {
+     "w": "if",
+     "t": 321.98
+    },
+    {
+     "w": "you",
+     "t": 322.36
+    },
+    {
+     "w": "ever",
+     "t": 322.74
+    },
+    {
+     "w": "feel",
+     "t": 323.12
+    },
+    {
+     "w": "under",
+     "t": 323.5
+    },
+    {
+     "w": "the",
+     "t": 323.87
+    },
+    {
+     "w": "weather,",
+     "t": 324.25
+    },
+    {
+     "w": "rest",
+     "t": 324.63
+    },
+    {
+     "w": "well",
+     "t": 325.01
+    },
+    {
+     "w": "and",
+     "t": 325.38
+    },
+    {
+     "w": "come",
+     "t": 325.76
+    },
+    {
+     "w": "back",
+     "t": 326.14
+    },
+    {
+     "w": "stronger!",
+     "t": 326.52
+    },
+    {
+     "w": "See",
+     "t": 326.9
+    },
+    {
+     "w": "you",
+     "t": 327.27
+    },
+    {
+     "w": "tomorrow!",
+     "t": 327.65
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "under the weather",
+    "phon": "/ʌndər ðə ˈweðər/",
+    "meaning": "(习语) 感觉有点不舒服；小病初起",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: After skiing all day, Tom felt under the weather."
+   },
+   {
+    "word": "accumulate",
+    "phon": "/əˈkjuːmjəleɪt/",
+    "meaning": "(v.) 积累；越积越多",
+    "tags": [],
+    "example": "Example: Fresh snow accumulates into a soft white mountain."
+   },
+   {
+    "word": "statistics",
+    "phon": "/stəˈtɪstɪks/",
+    "meaning": "(n.) 统计数字",
+    "tags": [],
+    "example": "Example: Here are some amazing statistics."
+   },
+   {
+    "word": "approve",
+    "phon": "/əˈpruːv/",
+    "meaning": "(v.) 赞成；认可",
+    "tags": [],
+    "example": "Example: The penguins seem to approve of the cold."
+   },
+   {
+    "word": "leak",
+    "phon": "/liːk/",
+    "meaning": "(v.) 漏；渗漏",
+    "tags": [],
+    "example": "Example: The cold air does not leak out."
+   },
+   {
+    "word": "bond",
+    "phon": "/bɑːnd/",
+    "meaning": "(v.) 增进感情；建立联系",
+    "tags": [],
+    "example": "Example: A wonderful way for families to bond."
+   },
+   {
+    "word": "meanwhile",
+    "phon": "/ˈmiːnwaɪl/",
+    "meaning": "(adv.) 同时",
+    "tags": [],
+    "example": "Example: Meanwhile, visitors put on warm jackets."
+   },
+   {
+    "word": "pupfish",
+    "phon": "/ˈpʌpfɪʃ/",
+    "meaning": "(n.) 沙漠小鱼",
+    "tags": [],
+    "example": "Example: The desert pupfish is only four centimetres long."
+   },
+   {
+    "word": "mating",
+    "phon": "/ˈmeɪtɪŋ/",
+    "meaning": "(adj.) 交配的",
+    "tags": [],
+    "example": "Example: The males turn bright blue in the mating season."
+   },
+   {
+    "word": "oxygen",
+    "phon": "/ˈɒksɪdʒən/",
+    "meaning": "(n.) 氧气",
+    "tags": [],
+    "example": "Example: When the water gets low in oxygen."
+   },
+   {
+    "word": "gentoo",
+    "phon": "/ˈdʒentuː/",
+    "meaning": "(n.) 巴布亚企鹅",
+    "tags": [],
+    "example": "Example: King penguins and gentoo penguins waddle around."
+   },
+   {
+    "word": "waddle",
+    "phon": "/ˈwɒdl/",
+    "meaning": "(v.) 摇摇摆摆地走",
+    "tags": [],
+    "example": "Example: The penguins waddle around their icy home."
+   },
+   {
+    "word": "filter",
+    "phon": "/ˈfɪltər/",
+    "meaning": "(n.) 过滤器",
+    "tags": [],
+    "example": "Example: Cells work like tiny filters."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "Where is the ski resort in the story?\nA. On a snowy mountain\nB. Inside a shopping mall in Dubai\nC. In a desert cave\nD. Near the ocean",
+     "How does the desert pupfish handle salty water?\nA. It drinks only fresh water\nB. Special cells in its gills and kidneys keep the salt balance right\nC. It never swims in salty water\nD. It grows a new kidney every year",
+     "What does \"under the weather\" mean?\nA. To be caught in a storm\nB. To feel a little sick\nC. To be very happy\nD. To ski in bad weather",
+     "What is special about the Devils Hole pupfish?\nA. It lives in a single desert-cave pool\nB. It can fly\nC. It is bigger than a shark\nD. It lives in the ocean"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "type": "text",
+        "text": "Special cells in its gills and kidneys work like tiny filters, keeping the salt balance just right."
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "in its gills and kidneys"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "介词短语表地点"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：in（在……里）+ 名词，告诉你这些特殊细胞住在哪里——在鳃里、在肾里。英语里地点短语放在名词后面，说明这个东西的位置。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "like tiny filters"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "明喻"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：like（像）+ 名词，把细胞直接比作过滤器——细胞的工作方式和过滤器一样，把多余的东西挡在外面。一比就懂，不用再解释。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "keeping the salt balance just right"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "现在分词短语作伴随状语"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：keeping（保持着）+ 宾语，补充说明细胞工作时顺带达成的结果——一边工作，一边就把盐分保持得刚刚好，不用再写一个句子。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句逻辑链："
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "地点（鳃和肾里的细胞）→ 比喻（像过滤器一样工作）→ 伴随结果（盐分刚刚好）"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。一句话里藏着地点短语、明喻和伴随状语三个机关。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "DESERT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（沙漠）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PENGUIN"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（企鹅）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PUPFISH"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（沙漠小鱼）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SLOPE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（滑雪坡）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SNOW"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（雪）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SALT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（盐）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SPRING"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（泉水）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "CAVE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（洞穴）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "WEATHER"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（天气）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "MALL"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（商场）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"there is a ski resort inside a huge shopping mall.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"Special cells in its gills and kidneys work like tiny filters, keeping the salt balance just right.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"When you feel under the weather, you feel a little sick.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "A"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"One more pupfish lives in a single desert-cave pool.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. in  2. inside"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. like  2. like"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. keeping  2. keeping"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "B",
+    "B",
+    "B",
+    "A"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. 介词短语表地点：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "Special cells ____ its gills work like filters.",
+       "options": [
+        "in",
+        "on",
+        "under"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "A ski resort ____ a shopping mall stays cold all year.",
+       "options": [
+        "outside",
+        "inside",
+        "above"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. like 明喻：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "The cells work ____ tiny filters.",
+       "options": [
+        "as",
+        "than",
+        "like"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "The snow mountain looks ____ a white cake in the sun.",
+       "options": [
+        "like",
+        "as",
+        "with"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. keeping 分词伴随：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "The cells work, ____ the salt balance just right.",
+       "options": [
+        "keep",
+        "keeping",
+        "keeps"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "The resort makes snow at night, ____ the slopes white for the morning.",
+       "options": [
+        "keep",
+        "keeps",
+        "keeping"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "Special cells in its gills and kidneys work like tiny filters, keeping the salt balance just right.",
+    "Thick walls and double doors make sure the cold air does not leak out."
+   ]
+  },
+  "crossword": {
+   "nrows": 8,
+   "ncols": 13,
+   "words": [
+    {
+     "word": "DESERT",
+     "row": 4,
+     "col": 0,
+     "dir": "A",
+     "num": 1,
+     "cn": "沙漠",
+     "clue": "In Dubai, a city in the middle of the ___."
+    },
+    {
+     "word": "PENGUIN",
+     "row": 5,
+     "col": 6,
+     "dir": "A",
+     "num": 2,
+     "cn": "企鹅",
+     "clue": "Visitors also get the chance to meet real ___."
+    },
+    {
+     "word": "PUPFISH",
+     "row": 1,
+     "col": 11,
+     "dir": "D",
+     "num": 3,
+     "cn": "沙漠小鱼",
+     "clue": "In that water lives a tiny hero: the desert ___."
+    },
+    {
+     "word": "SLOPE",
+     "row": 1,
+     "col": 7,
+     "dir": "D",
+     "num": 4,
+     "cn": "滑雪坡",
+     "clue": "Real snow covers the ___."
+    },
+    {
+     "word": "SNOW",
+     "row": 4,
+     "col": 2,
+     "dir": "D",
+     "num": 5,
+     "cn": "雪",
+     "clue": "Every night, machines make fresh ___."
+    },
+    {
+     "word": "SALT",
+     "row": 1,
+     "col": 5,
+     "dir": "D",
+     "num": 6,
+     "cn": "盐",
+     "clue": "The water is four times ___ier than the ocean."
+    },
+    {
+     "word": "SPRING",
+     "row": 0,
+     "col": 9,
+     "dir": "D",
+     "num": 7,
+     "cn": "泉水",
+     "clue": "There are small pools of warm ___ water."
+    },
+    {
+     "word": "CAVE",
+     "row": 1,
+     "col": 1,
+     "dir": "D",
+     "num": 8,
+     "cn": "洞穴",
+     "clue": "One more pupfish lives in a single desert-___ pool."
+    },
+    {
+     "word": "WEATHER",
+     "row": 7,
+     "col": 2,
+     "dir": "A",
+     "num": 9,
+     "cn": "天气",
+     "clue": "'under the ___' means feeling a little sick."
+    },
+    {
+     "word": "MALL",
+     "row": 2,
+     "col": 4,
+     "dir": "A",
+     "num": 10,
+     "cn": "商场",
+     "clue": "There is a ski resort inside a huge shopping ___."
+    }
+   ]
+  }
+ }
+}
