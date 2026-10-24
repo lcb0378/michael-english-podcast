@@ -1,0 +1,258 @@
+[
+ {
+  "id": 1,
+  "title": "开场白",
+  "blocks": [
+   {
+    "start": 21.47,
+    "end": 25.93,
+    "en": "Hello, young explorers, and welcome back to Michael's Morning Listening!"
+   },
+   {
+    "start": 25.93,
+    "end": 37.51,
+    "en": "Today we meet two awesome record-breakers: a jigsaw puzzle with more than half a million pieces, and a little animal that can regrow its own leg."
+   },
+   {
+    "start": 37.51,
+    "end": 37.96,
+    "en": "Ready?"
+   },
+   {
+    "start": 37.96,
+    "end": 38.85,
+    "en": "Let's go!"
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "title": "世界最大的拼图",
+  "blocks": [
+   {
+    "start": 56.51,
+    "end": 63.89,
+    "en": "In a big stadium in Vietnam, 1,600 students worked together on the biggest jigsaw puzzle ever made."
+   },
+   {
+    "start": 63.89,
+    "end": 65.63,
+    "en": "It had 551,232 pieces!"
+   },
+   {
+    "start": 65.63,
+    "end": 77.79,
+    "en": "When it was finished, the picture was a beautiful lotus flower, nearly 15 meters wide and 23 meters long — bigger than a classroom, bigger than a house!"
+   },
+   {
+    "start": 77.79,
+    "end": 83.86,
+    "en": "The puzzle was so big that nobody could work on it all at once."
+   },
+   {
+    "start": 83.86,
+    "end": 89.94,
+    "en": "It was cut into 3,132 small sections, and each team worked on one section."
+   },
+   {
+    "start": 89.94,
+    "end": 92.98,
+    "en": "Each piece had only one valid place."
+   },
+   {
+    "start": 92.98,
+    "end": 98.19,
+    "en": "A piece in the wrong place, and the picture would not work."
+   },
+   {
+    "start": 98.19,
+    "end": 102.97,
+    "en": "With patience and teamwork, the students fitted section after section together."
+   },
+   {
+    "start": 102.97,
+    "end": 107.74,
+    "en": "After 17 hours of work, the last piece clicked into place."
+   },
+   {
+    "start": 107.74,
+    "end": 109.05,
+    "en": "Imagine the cheers!"
+   },
+   {
+    "start": 109.05,
+    "end": 119.47,
+    "en": "Even the biggest puzzle you can buy in a shop is much smaller: a puzzle with 54,000 pieces, showing more than 50 famous paintings."
+   },
+   {
+    "start": 119.47,
+    "end": 124.68,
+    "en": "That is still awesome, but the stadium puzzle is ten times bigger."
+   },
+   {
+    "start": 124.68,
+    "end": 129.02,
+    "en": "People enjoy puzzles because every piece is a small mystery."
+   },
+   {
+    "start": 129.02,
+    "end": 136.4,
+    "en": "So remember: no puzzle is too big if you cut it into small parts and work together."
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "title": "六角恐龙",
+  "blocks": [
+   {
+    "start": 153.82,
+    "end": 156.73,
+    "en": "Meet the axolotl, a salamander from Mexico."
+   },
+   {
+    "start": 156.73,
+    "end": 163.8,
+    "en": "In Chinese it is called the \"six-horned dinosaur\", because of the six feathery gills on its head."
+   },
+   {
+    "start": 163.8,
+    "end": 175.85,
+    "en": "But it is not a dinosaur at all — it is a salamander that keeps its baby looks as a grown-up and lives in the water all its life."
+   },
+   {
+    "start": 175.85,
+    "end": 180.84,
+    "en": "Its delicate, bright pink gills wave in the water like tiny feathers."
+   },
+   {
+    "start": 180.84,
+    "end": 184.58,
+    "en": "Here is the difference between us and the axolotl."
+   },
+   {
+    "start": 184.58,
+    "end": 189.15,
+    "en": "When we get a bad cut, our body makes a scar."
+   },
+   {
+    "start": 189.15,
+    "end": 199.96,
+    "en": "When an axolotl loses a leg, its body does something amazing: it grows a brand-new leg, with new bones, muscles, and even the same skin patterns."
+   },
+   {
+    "start": 199.96,
+    "end": 202.87,
+    "en": "It can do this again and again."
+   },
+   {
+    "start": 202.87,
+    "end": 207.86,
+    "en": "It can also regrow parts of its heart and its spinal cord!"
+   },
+   {
+    "start": 207.86,
+    "end": 209.52,
+    "en": "How does it work?"
+   },
+   {
+    "start": 209.52,
+    "end": 214.51,
+    "en": "When a leg is lost, the cells under the skin are exposed."
+   },
+   {
+    "start": 214.51,
+    "end": 223.24,
+    "en": "Instead of making a scar, those cells change back into young, growing cells and form a soft lump called a blastema."
+   },
+   {
+    "start": 223.24,
+    "end": 229.89,
+    "en": "The blastema is like a builder's workshop: it slowly builds the missing leg, piece by piece."
+   },
+   {
+    "start": 229.89,
+    "end": 234.46,
+    "en": "Scientists study the axolotl to learn how it recovers so perfectly."
+   },
+   {
+    "start": 234.46,
+    "end": 239.45,
+    "en": "One day, this knowledge might help doctors help people recover from injuries."
+   },
+   {
+    "start": 239.45,
+    "end": 248.59,
+    "en": "In the wild, axolotls live only in the lakes near Mexico City, and they are in danger because their lakes are shrinking."
+   },
+   {
+    "start": 248.59,
+    "end": 251.5,
+    "en": "Scientists are working hard to protect them."
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "title": "今日俚语",
+  "blocks": [
+   {
+    "start": 270.6,
+    "end": 279.62,
+    "en": "Here's today's idiom: 'bite the bullet.' When you bite the bullet, you do something difficult or unpleasant — you just face it bravely!"
+   },
+   {
+    "start": 279.62,
+    "end": 290.59,
+    "en": "Here's an example: 'Tom lost the instructions for his puzzle, but he bit the bullet and started with the edge pieces.' When did you last bite the bullet?"
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "title": "结束语与互动问题",
+  "blocks": [
+   {
+    "start": 305.05,
+    "end": 313.18,
+    "en": "Let's think about our stories: a puzzle with 551,232 pieces, and an animal that can regrow a leg."
+   },
+   {
+    "start": 313.18,
+    "end": 324.03,
+    "en": "First: if you had to bite the bullet and finish a giant puzzle, would you start with the edges, or with your favorite color?"
+   },
+   {
+    "start": 324.03,
+    "end": 329.9,
+    "en": "Second: if you could regrow anything, like the axolotl, what would you choose?"
+   },
+   {
+    "start": 329.9,
+    "end": 332.61,
+    "en": "Talk about it with your family!"
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "title": "告别",
+  "blocks": [
+   {
+    "start": 341.87,
+    "end": 344.25,
+    "en": "That's all for today, young explorers."
+   },
+   {
+    "start": 344.25,
+    "end": 351.79,
+    "en": "Be patient like a puzzler, brave like an axolotl — and when something feels hard, just bite the bullet!"
+   },
+   {
+    "start": 351.79,
+    "end": 352.98,
+    "en": "See you tomorrow!"
+   }
+  ]
+ }
+]

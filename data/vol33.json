@@ -1,0 +1,3545 @@
+{
+ "id": "vol33",
+ "title": "超级拼图与再生的六角恐龙",
+ "words": 598,
+ "duration": "6分02秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol33/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol33/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol33/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol33/Vol33_晚读讲义_超级拼图与再生的六角恐龙_v1.pdf",
+ "pdfName": "Vol33_晚读讲义_超级拼图与再生的六角恐龙_v1.pdf",
+ "blocks": [
+  {
+   "start": 21.47,
+   "end": 38.85,
+   "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we meet two awesome record-breakers: a jigsaw puzzle with more than half a million pieces, and a little animal that can regrow its own leg. Ready? Let's go!",
+   "title": "开场白",
+   "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天我们要认识两位了不起的纪录创造者：一幅五十多万块的拼图，和一只可以再长出自己的腿的小动物。准备好了吗？出发吧！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 21.47
+    },
+    {
+     "w": "young",
+     "t": 21.92
+    },
+    {
+     "w": "explorers,",
+     "t": 22.36
+    },
+    {
+     "w": "and",
+     "t": 22.81
+    },
+    {
+     "w": "welcome",
+     "t": 23.25
+    },
+    {
+     "w": "back",
+     "t": 23.7
+    },
+    {
+     "w": "to",
+     "t": 24.14
+    },
+    {
+     "w": "Michael's",
+     "t": 24.59
+    },
+    {
+     "w": "Morning",
+     "t": 25.04
+    },
+    {
+     "w": "Listening!",
+     "t": 25.48
+    },
+    {
+     "w": "Today",
+     "t": 25.93
+    },
+    {
+     "w": "we",
+     "t": 26.37
+    },
+    {
+     "w": "meet",
+     "t": 26.82
+    },
+    {
+     "w": "two",
+     "t": 27.26
+    },
+    {
+     "w": "awesome",
+     "t": 27.71
+    },
+    {
+     "w": "record-breakers:",
+     "t": 28.15
+    },
+    {
+     "w": "a",
+     "t": 28.6
+    },
+    {
+     "w": "jigsaw",
+     "t": 29.05
+    },
+    {
+     "w": "puzzle",
+     "t": 29.49
+    },
+    {
+     "w": "with",
+     "t": 29.94
+    },
+    {
+     "w": "more",
+     "t": 30.38
+    },
+    {
+     "w": "than",
+     "t": 30.83
+    },
+    {
+     "w": "half",
+     "t": 31.27
+    },
+    {
+     "w": "a",
+     "t": 31.72
+    },
+    {
+     "w": "million",
+     "t": 32.17
+    },
+    {
+     "w": "pieces,",
+     "t": 32.61
+    },
+    {
+     "w": "and",
+     "t": 33.06
+    },
+    {
+     "w": "a",
+     "t": 33.5
+    },
+    {
+     "w": "little",
+     "t": 33.95
+    },
+    {
+     "w": "animal",
+     "t": 34.39
+    },
+    {
+     "w": "that",
+     "t": 34.84
+    },
+    {
+     "w": "can",
+     "t": 35.28
+    },
+    {
+     "w": "regrow",
+     "t": 35.73
+    },
+    {
+     "w": "its",
+     "t": 36.18
+    },
+    {
+     "w": "own",
+     "t": 36.62
+    },
+    {
+     "w": "leg.",
+     "t": 37.07
+    },
+    {
+     "w": "Ready?",
+     "t": 37.51
+    },
+    {
+     "w": "Let's",
+     "t": 37.96
+    },
+    {
+     "w": "go!",
+     "t": 38.4
+    }
+   ]
+  },
+  {
+   "start": 56.51,
+   "end": 77.79,
+   "en": "In a big stadium in Vietnam, 1,600 students worked together on the biggest jigsaw puzzle ever made. It had 551,232 pieces! When it was finished, the picture was a beautiful lotus flower, nearly 15 meters wide and 23 meters long — bigger than a classroom, bigger than a house!",
+   "title": "世界最大的拼图",
+   "cn": "在越南的一座大体育场里，1600 名学生一起拼出了有史以来最大的拼图。它一共有 551,232 块！拼好以后，画面是一朵美丽的莲花，宽将近 15 米、长 23 米——比一间教室还大，比一栋房子还大！",
+   "words": [
+    {
+     "w": "In",
+     "t": 56.51
+    },
+    {
+     "w": "a",
+     "t": 56.94
+    },
+    {
+     "w": "big",
+     "t": 57.38
+    },
+    {
+     "w": "stadium",
+     "t": 57.81
+    },
+    {
+     "w": "in",
+     "t": 58.25
+    },
+    {
+     "w": "Vietnam,",
+     "t": 58.68
+    },
+    {
+     "w": "1,600",
+     "t": 59.12
+    },
+    {
+     "w": "students",
+     "t": 59.55
+    },
+    {
+     "w": "worked",
+     "t": 59.98
+    },
+    {
+     "w": "together",
+     "t": 60.42
+    },
+    {
+     "w": "on",
+     "t": 60.85
+    },
+    {
+     "w": "the",
+     "t": 61.29
+    },
+    {
+     "w": "biggest",
+     "t": 61.72
+    },
+    {
+     "w": "jigsaw",
+     "t": 62.15
+    },
+    {
+     "w": "puzzle",
+     "t": 62.59
+    },
+    {
+     "w": "ever",
+     "t": 63.02
+    },
+    {
+     "w": "made.",
+     "t": 63.46
+    },
+    {
+     "w": "It",
+     "t": 63.89
+    },
+    {
+     "w": "had",
+     "t": 64.33
+    },
+    {
+     "w": "551,232",
+     "t": 64.76
+    },
+    {
+     "w": "pieces!",
+     "t": 65.19
+    },
+    {
+     "w": "When",
+     "t": 65.63
+    },
+    {
+     "w": "it",
+     "t": 66.06
+    },
+    {
+     "w": "was",
+     "t": 66.5
+    },
+    {
+     "w": "finished,",
+     "t": 66.93
+    },
+    {
+     "w": "the",
+     "t": 67.36
+    },
+    {
+     "w": "picture",
+     "t": 67.8
+    },
+    {
+     "w": "was",
+     "t": 68.23
+    },
+    {
+     "w": "a",
+     "t": 68.67
+    },
+    {
+     "w": "beautiful",
+     "t": 69.1
+    },
+    {
+     "w": "lotus",
+     "t": 69.54
+    },
+    {
+     "w": "flower,",
+     "t": 69.97
+    },
+    {
+     "w": "nearly",
+     "t": 70.4
+    },
+    {
+     "w": "15",
+     "t": 70.84
+    },
+    {
+     "w": "meters",
+     "t": 71.27
+    },
+    {
+     "w": "wide",
+     "t": 71.71
+    },
+    {
+     "w": "and",
+     "t": 72.14
+    },
+    {
+     "w": "23",
+     "t": 72.57
+    },
+    {
+     "w": "meters",
+     "t": 73.01
+    },
+    {
+     "w": "long",
+     "t": 73.44
+    },
+    {
+     "w": "—",
+     "t": 73.88
+    },
+    {
+     "w": "bigger",
+     "t": 74.31
+    },
+    {
+     "w": "than",
+     "t": 74.75
+    },
+    {
+     "w": "a",
+     "t": 75.18
+    },
+    {
+     "w": "classroom,",
+     "t": 75.61
+    },
+    {
+     "w": "bigger",
+     "t": 76.05
+    },
+    {
+     "w": "than",
+     "t": 76.48
+    },
+    {
+     "w": "a",
+     "t": 76.92
+    },
+    {
+     "w": "house!",
+     "t": 77.35
+    }
+   ]
+  },
+  {
+   "start": 77.79,
+   "end": 109.05,
+   "en": "The puzzle was so big that nobody could work on it all at once. It was cut into 3,132 small sections, and each team worked on one section. Each piece had only one valid place. A piece in the wrong place, and the picture would not work. With patience and teamwork, the students fitted section after section together. After 17 hours of work, the last piece clicked into place. Imagine the cheers!",
+   "title": "世界最大的拼图",
+   "cn": "这幅拼图太大了，没有人能一下子拼完它。它被切成了 3132 个小区域，每个小组负责一个区域。每一块都有唯一正确的位置。放错一块，整幅画就不对了。凭着耐心和团队合作，学生们把一个又一个区域拼到了一起。经过 17 个小时的努力，最后一块“咔哒”一声归位了。想象一下那时的欢呼声吧！",
+   "words": [
+    {
+     "w": "The",
+     "t": 77.79
+    },
+    {
+     "w": "puzzle",
+     "t": 78.22
+    },
+    {
+     "w": "was",
+     "t": 78.65
+    },
+    {
+     "w": "so",
+     "t": 79.09
+    },
+    {
+     "w": "big",
+     "t": 79.52
+    },
+    {
+     "w": "that",
+     "t": 79.96
+    },
+    {
+     "w": "nobody",
+     "t": 80.39
+    },
+    {
+     "w": "could",
+     "t": 80.82
+    },
+    {
+     "w": "work",
+     "t": 81.26
+    },
+    {
+     "w": "on",
+     "t": 81.69
+    },
+    {
+     "w": "it",
+     "t": 82.13
+    },
+    {
+     "w": "all",
+     "t": 82.56
+    },
+    {
+     "w": "at",
+     "t": 83.0
+    },
+    {
+     "w": "once.",
+     "t": 83.43
+    },
+    {
+     "w": "It",
+     "t": 83.86
+    },
+    {
+     "w": "was",
+     "t": 84.3
+    },
+    {
+     "w": "cut",
+     "t": 84.73
+    },
+    {
+     "w": "into",
+     "t": 85.17
+    },
+    {
+     "w": "3,132",
+     "t": 85.6
+    },
+    {
+     "w": "small",
+     "t": 86.03
+    },
+    {
+     "w": "sections,",
+     "t": 86.47
+    },
+    {
+     "w": "and",
+     "t": 86.9
+    },
+    {
+     "w": "each",
+     "t": 87.34
+    },
+    {
+     "w": "team",
+     "t": 87.77
+    },
+    {
+     "w": "worked",
+     "t": 88.21
+    },
+    {
+     "w": "on",
+     "t": 88.64
+    },
+    {
+     "w": "one",
+     "t": 89.07
+    },
+    {
+     "w": "section.",
+     "t": 89.51
+    },
+    {
+     "w": "Each",
+     "t": 89.94
+    },
+    {
+     "w": "piece",
+     "t": 90.38
+    },
+    {
+     "w": "had",
+     "t": 90.81
+    },
+    {
+     "w": "only",
+     "t": 91.24
+    },
+    {
+     "w": "one",
+     "t": 91.68
+    },
+    {
+     "w": "valid",
+     "t": 92.11
+    },
+    {
+     "w": "place.",
+     "t": 92.55
+    },
+    {
+     "w": "A",
+     "t": 92.98
+    },
+    {
+     "w": "piece",
+     "t": 93.42
+    },
+    {
+     "w": "in",
+     "t": 93.85
+    },
+    {
+     "w": "the",
+     "t": 94.28
+    },
+    {
+     "w": "wrong",
+     "t": 94.72
+    },
+    {
+     "w": "place,",
+     "t": 95.15
+    },
+    {
+     "w": "and",
+     "t": 95.59
+    },
+    {
+     "w": "the",
+     "t": 96.02
+    },
+    {
+     "w": "picture",
+     "t": 96.45
+    },
+    {
+     "w": "would",
+     "t": 96.89
+    },
+    {
+     "w": "not",
+     "t": 97.32
+    },
+    {
+     "w": "work.",
+     "t": 97.76
+    },
+    {
+     "w": "With",
+     "t": 98.19
+    },
+    {
+     "w": "patience",
+     "t": 98.63
+    },
+    {
+     "w": "and",
+     "t": 99.06
+    },
+    {
+     "w": "teamwork,",
+     "t": 99.49
+    },
+    {
+     "w": "the",
+     "t": 99.93
+    },
+    {
+     "w": "students",
+     "t": 100.36
+    },
+    {
+     "w": "fitted",
+     "t": 100.8
+    },
+    {
+     "w": "section",
+     "t": 101.23
+    },
+    {
+     "w": "after",
+     "t": 101.67
+    },
+    {
+     "w": "section",
+     "t": 102.1
+    },
+    {
+     "w": "together.",
+     "t": 102.53
+    },
+    {
+     "w": "After",
+     "t": 102.97
+    },
+    {
+     "w": "17",
+     "t": 103.4
+    },
+    {
+     "w": "hours",
+     "t": 103.84
+    },
+    {
+     "w": "of",
+     "t": 104.27
+    },
+    {
+     "w": "work,",
+     "t": 104.7
+    },
+    {
+     "w": "the",
+     "t": 105.14
+    },
+    {
+     "w": "last",
+     "t": 105.57
+    },
+    {
+     "w": "piece",
+     "t": 106.01
+    },
+    {
+     "w": "clicked",
+     "t": 106.44
+    },
+    {
+     "w": "into",
+     "t": 106.88
+    },
+    {
+     "w": "place.",
+     "t": 107.31
+    },
+    {
+     "w": "Imagine",
+     "t": 107.74
+    },
+    {
+     "w": "the",
+     "t": 108.18
+    },
+    {
+     "w": "cheers!",
+     "t": 108.61
+    }
+   ]
+  },
+  {
+   "start": 109.05,
+   "end": 136.4,
+   "en": "Even the biggest puzzle you can buy in a shop is much smaller: a puzzle with 54,000 pieces, showing more than 50 famous paintings. That is still awesome, but the stadium puzzle is ten times bigger. People enjoy puzzles because every piece is a small mystery. So remember: no puzzle is too big if you cut it into small parts and work together.",
+   "title": "世界最大的拼图",
+   "cn": "即使是你在商店里能买到的最大的拼图也要小得多：一幅 54000 块的拼图，上面有 50 多幅名画。那已经很了不起了，但体育场里的那幅要大十倍。人们喜欢拼图，是因为每一块都是一个小谜团。所以记住：只要把它切成小块、大家一起拼，就没有太大的拼图。",
+   "words": [
+    {
+     "w": "Even",
+     "t": 109.05
+    },
+    {
+     "w": "the",
+     "t": 109.48
+    },
+    {
+     "w": "biggest",
+     "t": 109.91
+    },
+    {
+     "w": "puzzle",
+     "t": 110.35
+    },
+    {
+     "w": "you",
+     "t": 110.78
+    },
+    {
+     "w": "can",
+     "t": 111.22
+    },
+    {
+     "w": "buy",
+     "t": 111.65
+    },
+    {
+     "w": "in",
+     "t": 112.09
+    },
+    {
+     "w": "a",
+     "t": 112.52
+    },
+    {
+     "w": "shop",
+     "t": 112.95
+    },
+    {
+     "w": "is",
+     "t": 113.39
+    },
+    {
+     "w": "much",
+     "t": 113.82
+    },
+    {
+     "w": "smaller:",
+     "t": 114.26
+    },
+    {
+     "w": "a",
+     "t": 114.69
+    },
+    {
+     "w": "puzzle",
+     "t": 115.12
+    },
+    {
+     "w": "with",
+     "t": 115.56
+    },
+    {
+     "w": "54,000",
+     "t": 115.99
+    },
+    {
+     "w": "pieces,",
+     "t": 116.43
+    },
+    {
+     "w": "showing",
+     "t": 116.86
+    },
+    {
+     "w": "more",
+     "t": 117.3
+    },
+    {
+     "w": "than",
+     "t": 117.73
+    },
+    {
+     "w": "50",
+     "t": 118.16
+    },
+    {
+     "w": "famous",
+     "t": 118.6
+    },
+    {
+     "w": "paintings.",
+     "t": 119.03
+    },
+    {
+     "w": "That",
+     "t": 119.47
+    },
+    {
+     "w": "is",
+     "t": 119.9
+    },
+    {
+     "w": "still",
+     "t": 120.34
+    },
+    {
+     "w": "awesome,",
+     "t": 120.77
+    },
+    {
+     "w": "but",
+     "t": 121.2
+    },
+    {
+     "w": "the",
+     "t": 121.64
+    },
+    {
+     "w": "stadium",
+     "t": 122.07
+    },
+    {
+     "w": "puzzle",
+     "t": 122.51
+    },
+    {
+     "w": "is",
+     "t": 122.94
+    },
+    {
+     "w": "ten",
+     "t": 123.37
+    },
+    {
+     "w": "times",
+     "t": 123.81
+    },
+    {
+     "w": "bigger.",
+     "t": 124.24
+    },
+    {
+     "w": "People",
+     "t": 124.68
+    },
+    {
+     "w": "enjoy",
+     "t": 125.11
+    },
+    {
+     "w": "puzzles",
+     "t": 125.55
+    },
+    {
+     "w": "because",
+     "t": 125.98
+    },
+    {
+     "w": "every",
+     "t": 126.41
+    },
+    {
+     "w": "piece",
+     "t": 126.85
+    },
+    {
+     "w": "is",
+     "t": 127.28
+    },
+    {
+     "w": "a",
+     "t": 127.72
+    },
+    {
+     "w": "small",
+     "t": 128.15
+    },
+    {
+     "w": "mystery.",
+     "t": 128.58
+    },
+    {
+     "w": "So",
+     "t": 129.02
+    },
+    {
+     "w": "remember:",
+     "t": 129.45
+    },
+    {
+     "w": "no",
+     "t": 129.89
+    },
+    {
+     "w": "puzzle",
+     "t": 130.32
+    },
+    {
+     "w": "is",
+     "t": 130.76
+    },
+    {
+     "w": "too",
+     "t": 131.19
+    },
+    {
+     "w": "big",
+     "t": 131.62
+    },
+    {
+     "w": "if",
+     "t": 132.06
+    },
+    {
+     "w": "you",
+     "t": 132.49
+    },
+    {
+     "w": "cut",
+     "t": 132.93
+    },
+    {
+     "w": "it",
+     "t": 133.36
+    },
+    {
+     "w": "into",
+     "t": 133.79
+    },
+    {
+     "w": "small",
+     "t": 134.23
+    },
+    {
+     "w": "parts",
+     "t": 134.66
+    },
+    {
+     "w": "and",
+     "t": 135.1
+    },
+    {
+     "w": "work",
+     "t": 135.53
+    },
+    {
+     "w": "together.",
+     "t": 135.97
+    }
+   ]
+  },
+  {
+   "start": 153.82,
+   "end": 180.84,
+   "en": "Meet the axolotl, a salamander from Mexico. In Chinese it is called the \"six-horned dinosaur\", because of the six feathery gills on its head. But it is not a dinosaur at all — it is a salamander that keeps its baby looks as a grown-up and lives in the water all its life. Its delicate, bright pink gills wave in the water like tiny feathers.",
+   "title": "六角恐龙",
+   "cn": "认识一下墨西哥钝口螈，一种来自墨西哥的蝾螈。在中文里它被叫做“六角恐龙”，因为它的头上有六根羽毛状的鳃。可它根本不是恐龙——它是一种长大以后还保持着娃娃模样的蝾螈，一辈子都生活在水里。它娇嫩的、亮粉色的鳃像小羽毛一样在水中飘动。",
+   "words": [
+    {
+     "w": "Meet",
+     "t": 153.82
+    },
+    {
+     "w": "the",
+     "t": 154.24
+    },
+    {
+     "w": "axolotl,",
+     "t": 154.65
+    },
+    {
+     "w": "a",
+     "t": 155.07
+    },
+    {
+     "w": "salamander",
+     "t": 155.48
+    },
+    {
+     "w": "from",
+     "t": 155.9
+    },
+    {
+     "w": "Mexico.",
+     "t": 156.31
+    },
+    {
+     "w": "In",
+     "t": 156.73
+    },
+    {
+     "w": "Chinese",
+     "t": 157.15
+    },
+    {
+     "w": "it",
+     "t": 157.56
+    },
+    {
+     "w": "is",
+     "t": 157.98
+    },
+    {
+     "w": "called",
+     "t": 158.39
+    },
+    {
+     "w": "the",
+     "t": 158.81
+    },
+    {
+     "w": "\"six-horned",
+     "t": 159.22
+    },
+    {
+     "w": "dinosaur\",",
+     "t": 159.64
+    },
+    {
+     "w": "because",
+     "t": 160.05
+    },
+    {
+     "w": "of",
+     "t": 160.47
+    },
+    {
+     "w": "the",
+     "t": 160.89
+    },
+    {
+     "w": "six",
+     "t": 161.3
+    },
+    {
+     "w": "feathery",
+     "t": 161.72
+    },
+    {
+     "w": "gills",
+     "t": 162.13
+    },
+    {
+     "w": "on",
+     "t": 162.55
+    },
+    {
+     "w": "its",
+     "t": 162.96
+    },
+    {
+     "w": "head.",
+     "t": 163.38
+    },
+    {
+     "w": "But",
+     "t": 163.8
+    },
+    {
+     "w": "it",
+     "t": 164.21
+    },
+    {
+     "w": "is",
+     "t": 164.63
+    },
+    {
+     "w": "not",
+     "t": 165.04
+    },
+    {
+     "w": "a",
+     "t": 165.46
+    },
+    {
+     "w": "dinosaur",
+     "t": 165.87
+    },
+    {
+     "w": "at",
+     "t": 166.29
+    },
+    {
+     "w": "all",
+     "t": 166.71
+    },
+    {
+     "w": "—",
+     "t": 167.12
+    },
+    {
+     "w": "it",
+     "t": 167.54
+    },
+    {
+     "w": "is",
+     "t": 167.95
+    },
+    {
+     "w": "a",
+     "t": 168.37
+    },
+    {
+     "w": "salamander",
+     "t": 168.78
+    },
+    {
+     "w": "that",
+     "t": 169.2
+    },
+    {
+     "w": "keeps",
+     "t": 169.62
+    },
+    {
+     "w": "its",
+     "t": 170.03
+    },
+    {
+     "w": "baby",
+     "t": 170.45
+    },
+    {
+     "w": "looks",
+     "t": 170.86
+    },
+    {
+     "w": "as",
+     "t": 171.28
+    },
+    {
+     "w": "a",
+     "t": 171.69
+    },
+    {
+     "w": "grown-up",
+     "t": 172.11
+    },
+    {
+     "w": "and",
+     "t": 172.52
+    },
+    {
+     "w": "lives",
+     "t": 172.94
+    },
+    {
+     "w": "in",
+     "t": 173.36
+    },
+    {
+     "w": "the",
+     "t": 173.77
+    },
+    {
+     "w": "water",
+     "t": 174.19
+    },
+    {
+     "w": "all",
+     "t": 174.6
+    },
+    {
+     "w": "its",
+     "t": 175.02
+    },
+    {
+     "w": "life.",
+     "t": 175.43
+    },
+    {
+     "w": "Its",
+     "t": 175.85
+    },
+    {
+     "w": "delicate,",
+     "t": 176.27
+    },
+    {
+     "w": "bright",
+     "t": 176.68
+    },
+    {
+     "w": "pink",
+     "t": 177.1
+    },
+    {
+     "w": "gills",
+     "t": 177.51
+    },
+    {
+     "w": "wave",
+     "t": 177.93
+    },
+    {
+     "w": "in",
+     "t": 178.34
+    },
+    {
+     "w": "the",
+     "t": 178.76
+    },
+    {
+     "w": "water",
+     "t": 179.18
+    },
+    {
+     "w": "like",
+     "t": 179.59
+    },
+    {
+     "w": "tiny",
+     "t": 180.01
+    },
+    {
+     "w": "feathers.",
+     "t": 180.42
+    }
+   ]
+  },
+  {
+   "start": 180.84,
+   "end": 207.86,
+   "en": "Here is the difference between us and the axolotl. When we get a bad cut, our body makes a scar. When an axolotl loses a leg, its body does something amazing: it grows a brand-new leg, with new bones, muscles, and even the same skin patterns. It can do this again and again. It can also regrow parts of its heart and its spinal cord!",
+   "title": "六角恐龙",
+   "cn": "这里就是我们和墨西哥钝口螈的不同。当我们受了严重的割伤，身体会长出伤疤。而当墨西哥钝口螈失去一条腿时，它的身体会做出一件神奇的事：长出一条全新的腿，带着新的骨头、肌肉，甚至连皮肤的花纹都一模一样。它可以一次又一次地这样做。它还能再长出部分心脏和脊髓！",
+   "words": [
+    {
+     "w": "Here",
+     "t": 180.84
+    },
+    {
+     "w": "is",
+     "t": 181.25
+    },
+    {
+     "w": "the",
+     "t": 181.67
+    },
+    {
+     "w": "difference",
+     "t": 182.08
+    },
+    {
+     "w": "between",
+     "t": 182.5
+    },
+    {
+     "w": "us",
+     "t": 182.92
+    },
+    {
+     "w": "and",
+     "t": 183.33
+    },
+    {
+     "w": "the",
+     "t": 183.75
+    },
+    {
+     "w": "axolotl.",
+     "t": 184.16
+    },
+    {
+     "w": "When",
+     "t": 184.58
+    },
+    {
+     "w": "we",
+     "t": 184.99
+    },
+    {
+     "w": "get",
+     "t": 185.41
+    },
+    {
+     "w": "a",
+     "t": 185.83
+    },
+    {
+     "w": "bad",
+     "t": 186.24
+    },
+    {
+     "w": "cut,",
+     "t": 186.66
+    },
+    {
+     "w": "our",
+     "t": 187.07
+    },
+    {
+     "w": "body",
+     "t": 187.49
+    },
+    {
+     "w": "makes",
+     "t": 187.9
+    },
+    {
+     "w": "a",
+     "t": 188.32
+    },
+    {
+     "w": "scar.",
+     "t": 188.74
+    },
+    {
+     "w": "When",
+     "t": 189.15
+    },
+    {
+     "w": "an",
+     "t": 189.57
+    },
+    {
+     "w": "axolotl",
+     "t": 189.98
+    },
+    {
+     "w": "loses",
+     "t": 190.4
+    },
+    {
+     "w": "a",
+     "t": 190.81
+    },
+    {
+     "w": "leg,",
+     "t": 191.23
+    },
+    {
+     "w": "its",
+     "t": 191.65
+    },
+    {
+     "w": "body",
+     "t": 192.06
+    },
+    {
+     "w": "does",
+     "t": 192.48
+    },
+    {
+     "w": "something",
+     "t": 192.89
+    },
+    {
+     "w": "amazing:",
+     "t": 193.31
+    },
+    {
+     "w": "it",
+     "t": 193.72
+    },
+    {
+     "w": "grows",
+     "t": 194.14
+    },
+    {
+     "w": "a",
+     "t": 194.55
+    },
+    {
+     "w": "brand-new",
+     "t": 194.97
+    },
+    {
+     "w": "leg,",
+     "t": 195.39
+    },
+    {
+     "w": "with",
+     "t": 195.8
+    },
+    {
+     "w": "new",
+     "t": 196.22
+    },
+    {
+     "w": "bones,",
+     "t": 196.63
+    },
+    {
+     "w": "muscles,",
+     "t": 197.05
+    },
+    {
+     "w": "and",
+     "t": 197.46
+    },
+    {
+     "w": "even",
+     "t": 197.88
+    },
+    {
+     "w": "the",
+     "t": 198.3
+    },
+    {
+     "w": "same",
+     "t": 198.71
+    },
+    {
+     "w": "skin",
+     "t": 199.13
+    },
+    {
+     "w": "patterns.",
+     "t": 199.54
+    },
+    {
+     "w": "It",
+     "t": 199.96
+    },
+    {
+     "w": "can",
+     "t": 200.37
+    },
+    {
+     "w": "do",
+     "t": 200.79
+    },
+    {
+     "w": "this",
+     "t": 201.21
+    },
+    {
+     "w": "again",
+     "t": 201.62
+    },
+    {
+     "w": "and",
+     "t": 202.04
+    },
+    {
+     "w": "again.",
+     "t": 202.45
+    },
+    {
+     "w": "It",
+     "t": 202.87
+    },
+    {
+     "w": "can",
+     "t": 203.28
+    },
+    {
+     "w": "also",
+     "t": 203.7
+    },
+    {
+     "w": "regrow",
+     "t": 204.11
+    },
+    {
+     "w": "parts",
+     "t": 204.53
+    },
+    {
+     "w": "of",
+     "t": 204.95
+    },
+    {
+     "w": "its",
+     "t": 205.36
+    },
+    {
+     "w": "heart",
+     "t": 205.78
+    },
+    {
+     "w": "and",
+     "t": 206.19
+    },
+    {
+     "w": "its",
+     "t": 206.61
+    },
+    {
+     "w": "spinal",
+     "t": 207.02
+    },
+    {
+     "w": "cord!",
+     "t": 207.44
+    }
+   ]
+  },
+  {
+   "start": 207.86,
+   "end": 239.45,
+   "en": "How does it work? When a leg is lost, the cells under the skin are exposed. Instead of making a scar, those cells change back into young, growing cells and form a soft lump called a blastema. The blastema is like a builder's workshop: it slowly builds the missing leg, piece by piece. Scientists study the axolotl to learn how it recovers so perfectly. One day, this knowledge might help doctors help people recover from injuries.",
+   "title": "六角恐龙",
+   "cn": "这是怎么做到的呢？当一条腿失去后，皮肤下面的细胞就暴露出来了。这些细胞不是长成伤疤，而是变回年轻的、正在生长的细胞，形成一个柔软的小团，叫做再生芽。再生芽就像一个建筑工人的车间：它一点一点地把缺失的腿重新造出来。科学家们研究墨西哥钝口螈，就是想了解它为什么能恢复得如此完美。也许有一天，这些知识能帮助医生帮助人们从伤病中恢复。",
+   "words": [
+    {
+     "w": "How",
+     "t": 207.86
+    },
+    {
+     "w": "does",
+     "t": 208.27
+    },
+    {
+     "w": "it",
+     "t": 208.69
+    },
+    {
+     "w": "work?",
+     "t": 209.1
+    },
+    {
+     "w": "When",
+     "t": 209.52
+    },
+    {
+     "w": "a",
+     "t": 209.93
+    },
+    {
+     "w": "leg",
+     "t": 210.35
+    },
+    {
+     "w": "is",
+     "t": 210.77
+    },
+    {
+     "w": "lost,",
+     "t": 211.18
+    },
+    {
+     "w": "the",
+     "t": 211.6
+    },
+    {
+     "w": "cells",
+     "t": 212.01
+    },
+    {
+     "w": "under",
+     "t": 212.43
+    },
+    {
+     "w": "the",
+     "t": 212.84
+    },
+    {
+     "w": "skin",
+     "t": 213.26
+    },
+    {
+     "w": "are",
+     "t": 213.67
+    },
+    {
+     "w": "exposed.",
+     "t": 214.09
+    },
+    {
+     "w": "Instead",
+     "t": 214.51
+    },
+    {
+     "w": "of",
+     "t": 214.92
+    },
+    {
+     "w": "making",
+     "t": 215.34
+    },
+    {
+     "w": "a",
+     "t": 215.75
+    },
+    {
+     "w": "scar,",
+     "t": 216.17
+    },
+    {
+     "w": "those",
+     "t": 216.58
+    },
+    {
+     "w": "cells",
+     "t": 217.0
+    },
+    {
+     "w": "change",
+     "t": 217.42
+    },
+    {
+     "w": "back",
+     "t": 217.83
+    },
+    {
+     "w": "into",
+     "t": 218.25
+    },
+    {
+     "w": "young,",
+     "t": 218.66
+    },
+    {
+     "w": "growing",
+     "t": 219.08
+    },
+    {
+     "w": "cells",
+     "t": 219.49
+    },
+    {
+     "w": "and",
+     "t": 219.91
+    },
+    {
+     "w": "form",
+     "t": 220.33
+    },
+    {
+     "w": "a",
+     "t": 220.74
+    },
+    {
+     "w": "soft",
+     "t": 221.16
+    },
+    {
+     "w": "lump",
+     "t": 221.57
+    },
+    {
+     "w": "called",
+     "t": 221.99
+    },
+    {
+     "w": "a",
+     "t": 222.4
+    },
+    {
+     "w": "blastema.",
+     "t": 222.82
+    },
+    {
+     "w": "The",
+     "t": 223.24
+    },
+    {
+     "w": "blastema",
+     "t": 223.65
+    },
+    {
+     "w": "is",
+     "t": 224.07
+    },
+    {
+     "w": "like",
+     "t": 224.48
+    },
+    {
+     "w": "a",
+     "t": 224.9
+    },
+    {
+     "w": "builder's",
+     "t": 225.31
+    },
+    {
+     "w": "workshop:",
+     "t": 225.73
+    },
+    {
+     "w": "it",
+     "t": 226.14
+    },
+    {
+     "w": "slowly",
+     "t": 226.56
+    },
+    {
+     "w": "builds",
+     "t": 226.98
+    },
+    {
+     "w": "the",
+     "t": 227.39
+    },
+    {
+     "w": "missing",
+     "t": 227.81
+    },
+    {
+     "w": "leg,",
+     "t": 228.22
+    },
+    {
+     "w": "piece",
+     "t": 228.64
+    },
+    {
+     "w": "by",
+     "t": 229.05
+    },
+    {
+     "w": "piece.",
+     "t": 229.47
+    },
+    {
+     "w": "Scientists",
+     "t": 229.89
+    },
+    {
+     "w": "study",
+     "t": 230.3
+    },
+    {
+     "w": "the",
+     "t": 230.72
+    },
+    {
+     "w": "axolotl",
+     "t": 231.13
+    },
+    {
+     "w": "to",
+     "t": 231.55
+    },
+    {
+     "w": "learn",
+     "t": 231.96
+    },
+    {
+     "w": "how",
+     "t": 232.38
+    },
+    {
+     "w": "it",
+     "t": 232.8
+    },
+    {
+     "w": "recovers",
+     "t": 233.21
+    },
+    {
+     "w": "so",
+     "t": 233.63
+    },
+    {
+     "w": "perfectly.",
+     "t": 234.04
+    },
+    {
+     "w": "One",
+     "t": 234.46
+    },
+    {
+     "w": "day,",
+     "t": 234.87
+    },
+    {
+     "w": "this",
+     "t": 235.29
+    },
+    {
+     "w": "knowledge",
+     "t": 235.7
+    },
+    {
+     "w": "might",
+     "t": 236.12
+    },
+    {
+     "w": "help",
+     "t": 236.54
+    },
+    {
+     "w": "doctors",
+     "t": 236.95
+    },
+    {
+     "w": "help",
+     "t": 237.37
+    },
+    {
+     "w": "people",
+     "t": 237.78
+    },
+    {
+     "w": "recover",
+     "t": 238.2
+    },
+    {
+     "w": "from",
+     "t": 238.61
+    },
+    {
+     "w": "injuries.",
+     "t": 239.03
+    }
+   ]
+  },
+  {
+   "start": 239.45,
+   "end": 251.5,
+   "en": "In the wild, axolotls live only in the lakes near Mexico City, and they are in danger because their lakes are shrinking. Scientists are working hard to protect them.",
+   "title": "六角恐龙",
+   "cn": "在野外，墨西哥钝口螈只生活在墨西哥城附近的湖里，而它们的湖正在缩小，所以它们处在危险之中。科学家们正在努力保护它们。",
+   "words": [
+    {
+     "w": "In",
+     "t": 239.45
+    },
+    {
+     "w": "the",
+     "t": 239.86
+    },
+    {
+     "w": "wild,",
+     "t": 240.28
+    },
+    {
+     "w": "axolotls",
+     "t": 240.69
+    },
+    {
+     "w": "live",
+     "t": 241.11
+    },
+    {
+     "w": "only",
+     "t": 241.52
+    },
+    {
+     "w": "in",
+     "t": 241.94
+    },
+    {
+     "w": "the",
+     "t": 242.36
+    },
+    {
+     "w": "lakes",
+     "t": 242.77
+    },
+    {
+     "w": "near",
+     "t": 243.19
+    },
+    {
+     "w": "Mexico",
+     "t": 243.6
+    },
+    {
+     "w": "City,",
+     "t": 244.02
+    },
+    {
+     "w": "and",
+     "t": 244.43
+    },
+    {
+     "w": "they",
+     "t": 244.85
+    },
+    {
+     "w": "are",
+     "t": 245.27
+    },
+    {
+     "w": "in",
+     "t": 245.68
+    },
+    {
+     "w": "danger",
+     "t": 246.1
+    },
+    {
+     "w": "because",
+     "t": 246.51
+    },
+    {
+     "w": "their",
+     "t": 246.93
+    },
+    {
+     "w": "lakes",
+     "t": 247.34
+    },
+    {
+     "w": "are",
+     "t": 247.76
+    },
+    {
+     "w": "shrinking.",
+     "t": 248.17
+    },
+    {
+     "w": "Scientists",
+     "t": 248.59
+    },
+    {
+     "w": "are",
+     "t": 249.01
+    },
+    {
+     "w": "working",
+     "t": 249.42
+    },
+    {
+     "w": "hard",
+     "t": 249.84
+    },
+    {
+     "w": "to",
+     "t": 250.25
+    },
+    {
+     "w": "protect",
+     "t": 250.67
+    },
+    {
+     "w": "them.",
+     "t": 251.08
+    }
+   ]
+  },
+  {
+   "start": 270.6,
+   "end": 290.59,
+   "en": "Here's today's idiom: 'bite the bullet.' When you bite the bullet, you do something difficult or unpleasant — you just face it bravely! Here's an example: 'Tom lost the instructions for his puzzle, but he bit the bullet and started with the edge pieces.' When did you last bite the bullet?",
+   "title": "今日俚语",
+   "cn": "今天的俚语是“bite the bullet”（硬着头皮做难事）。当你 bite the bullet 时，你就是去做一件困难或不愉快的事——你只是勇敢地面对它！举个例子：“汤姆把拼图的说明书弄丢了，但他硬着头皮，从边缘的拼块开始拼。”你上一次硬着头皮做难事是什么时候？",
+   "words": [
+    {
+     "w": "Here's",
+     "t": 270.6
+    },
+    {
+     "w": "today's",
+     "t": 270.99
+    },
+    {
+     "w": "idiom:",
+     "t": 271.38
+    },
+    {
+     "w": "'bite",
+     "t": 271.78
+    },
+    {
+     "w": "the",
+     "t": 272.17
+    },
+    {
+     "w": "bullet.'",
+     "t": 272.56
+    },
+    {
+     "w": "When",
+     "t": 272.95
+    },
+    {
+     "w": "you",
+     "t": 273.34
+    },
+    {
+     "w": "bite",
+     "t": 273.74
+    },
+    {
+     "w": "the",
+     "t": 274.13
+    },
+    {
+     "w": "bullet,",
+     "t": 274.52
+    },
+    {
+     "w": "you",
+     "t": 274.91
+    },
+    {
+     "w": "do",
+     "t": 275.3
+    },
+    {
+     "w": "something",
+     "t": 275.7
+    },
+    {
+     "w": "difficult",
+     "t": 276.09
+    },
+    {
+     "w": "or",
+     "t": 276.48
+    },
+    {
+     "w": "unpleasant",
+     "t": 276.87
+    },
+    {
+     "w": "—",
+     "t": 277.26
+    },
+    {
+     "w": "you",
+     "t": 277.66
+    },
+    {
+     "w": "just",
+     "t": 278.05
+    },
+    {
+     "w": "face",
+     "t": 278.44
+    },
+    {
+     "w": "it",
+     "t": 278.83
+    },
+    {
+     "w": "bravely!",
+     "t": 279.22
+    },
+    {
+     "w": "Here's",
+     "t": 279.62
+    },
+    {
+     "w": "an",
+     "t": 280.01
+    },
+    {
+     "w": "example:",
+     "t": 280.4
+    },
+    {
+     "w": "'Tom",
+     "t": 280.79
+    },
+    {
+     "w": "lost",
+     "t": 281.18
+    },
+    {
+     "w": "the",
+     "t": 281.57
+    },
+    {
+     "w": "instructions",
+     "t": 281.97
+    },
+    {
+     "w": "for",
+     "t": 282.36
+    },
+    {
+     "w": "his",
+     "t": 282.75
+    },
+    {
+     "w": "puzzle,",
+     "t": 283.14
+    },
+    {
+     "w": "but",
+     "t": 283.53
+    },
+    {
+     "w": "he",
+     "t": 283.93
+    },
+    {
+     "w": "bit",
+     "t": 284.32
+    },
+    {
+     "w": "the",
+     "t": 284.71
+    },
+    {
+     "w": "bullet",
+     "t": 285.1
+    },
+    {
+     "w": "and",
+     "t": 285.49
+    },
+    {
+     "w": "started",
+     "t": 285.89
+    },
+    {
+     "w": "with",
+     "t": 286.28
+    },
+    {
+     "w": "the",
+     "t": 286.67
+    },
+    {
+     "w": "edge",
+     "t": 287.06
+    },
+    {
+     "w": "pieces.'",
+     "t": 287.45
+    },
+    {
+     "w": "When",
+     "t": 287.85
+    },
+    {
+     "w": "did",
+     "t": 288.24
+    },
+    {
+     "w": "you",
+     "t": 288.63
+    },
+    {
+     "w": "last",
+     "t": 289.02
+    },
+    {
+     "w": "bite",
+     "t": 289.41
+    },
+    {
+     "w": "the",
+     "t": 289.81
+    },
+    {
+     "w": "bullet?",
+     "t": 290.2
+    }
+   ]
+  },
+  {
+   "start": 305.05,
+   "end": 332.61,
+   "en": "Let's think about our stories: a puzzle with 551,232 pieces, and an animal that can regrow a leg. First: if you had to bite the bullet and finish a giant puzzle, would you start with the edges, or with your favorite color? Second: if you could regrow anything, like the axolotl, what would you choose? Talk about it with your family!",
+   "title": "结束语与互动问题",
+   "cn": "我们来想想今天的故事：一幅 551,232 块的拼图，和一种可以再长出腿的动物。第一：如果你必须硬着头皮拼完一幅巨型拼图，你会从边缘开始，还是从你最喜欢的颜色开始？第二：如果你能像墨西哥钝口螈一样再长出任何东西，你会选什么？和家人聊聊吧！",
+   "words": [
+    {
+     "w": "Let's",
+     "t": 305.05
+    },
+    {
+     "w": "think",
+     "t": 305.5
+    },
+    {
+     "w": "about",
+     "t": 305.95
+    },
+    {
+     "w": "our",
+     "t": 306.41
+    },
+    {
+     "w": "stories:",
+     "t": 306.86
+    },
+    {
+     "w": "a",
+     "t": 307.31
+    },
+    {
+     "w": "puzzle",
+     "t": 307.76
+    },
+    {
+     "w": "with",
+     "t": 308.21
+    },
+    {
+     "w": "551,232",
+     "t": 308.66
+    },
+    {
+     "w": "pieces,",
+     "t": 309.12
+    },
+    {
+     "w": "and",
+     "t": 309.57
+    },
+    {
+     "w": "an",
+     "t": 310.02
+    },
+    {
+     "w": "animal",
+     "t": 310.47
+    },
+    {
+     "w": "that",
+     "t": 310.92
+    },
+    {
+     "w": "can",
+     "t": 311.38
+    },
+    {
+     "w": "regrow",
+     "t": 311.83
+    },
+    {
+     "w": "a",
+     "t": 312.28
+    },
+    {
+     "w": "leg.",
+     "t": 312.73
+    },
+    {
+     "w": "First:",
+     "t": 313.18
+    },
+    {
+     "w": "if",
+     "t": 313.63
+    },
+    {
+     "w": "you",
+     "t": 314.09
+    },
+    {
+     "w": "had",
+     "t": 314.54
+    },
+    {
+     "w": "to",
+     "t": 314.99
+    },
+    {
+     "w": "bite",
+     "t": 315.44
+    },
+    {
+     "w": "the",
+     "t": 315.89
+    },
+    {
+     "w": "bullet",
+     "t": 316.35
+    },
+    {
+     "w": "and",
+     "t": 316.8
+    },
+    {
+     "w": "finish",
+     "t": 317.25
+    },
+    {
+     "w": "a",
+     "t": 317.7
+    },
+    {
+     "w": "giant",
+     "t": 318.15
+    },
+    {
+     "w": "puzzle,",
+     "t": 318.6
+    },
+    {
+     "w": "would",
+     "t": 319.06
+    },
+    {
+     "w": "you",
+     "t": 319.51
+    },
+    {
+     "w": "start",
+     "t": 319.96
+    },
+    {
+     "w": "with",
+     "t": 320.41
+    },
+    {
+     "w": "the",
+     "t": 320.86
+    },
+    {
+     "w": "edges,",
+     "t": 321.31
+    },
+    {
+     "w": "or",
+     "t": 321.77
+    },
+    {
+     "w": "with",
+     "t": 322.22
+    },
+    {
+     "w": "your",
+     "t": 322.67
+    },
+    {
+     "w": "favorite",
+     "t": 323.12
+    },
+    {
+     "w": "color?",
+     "t": 323.57
+    },
+    {
+     "w": "Second:",
+     "t": 324.03
+    },
+    {
+     "w": "if",
+     "t": 324.48
+    },
+    {
+     "w": "you",
+     "t": 324.93
+    },
+    {
+     "w": "could",
+     "t": 325.38
+    },
+    {
+     "w": "regrow",
+     "t": 325.83
+    },
+    {
+     "w": "anything,",
+     "t": 326.28
+    },
+    {
+     "w": "like",
+     "t": 326.74
+    },
+    {
+     "w": "the",
+     "t": 327.19
+    },
+    {
+     "w": "axolotl,",
+     "t": 327.64
+    },
+    {
+     "w": "what",
+     "t": 328.09
+    },
+    {
+     "w": "would",
+     "t": 328.54
+    },
+    {
+     "w": "you",
+     "t": 329.0
+    },
+    {
+     "w": "choose?",
+     "t": 329.45
+    },
+    {
+     "w": "Talk",
+     "t": 329.9
+    },
+    {
+     "w": "about",
+     "t": 330.35
+    },
+    {
+     "w": "it",
+     "t": 330.8
+    },
+    {
+     "w": "with",
+     "t": 331.25
+    },
+    {
+     "w": "your",
+     "t": 331.71
+    },
+    {
+     "w": "family!",
+     "t": 332.16
+    }
+   ]
+  },
+  {
+   "start": 341.87,
+   "end": 352.98,
+   "en": "That's all for today, young explorers. Be patient like a puzzler, brave like an axolotl — and when something feels hard, just bite the bullet! See you tomorrow!",
+   "title": "告别",
+   "cn": "今天的节目就到这里啦，小小探险家们。像拼图的人一样有耐心，像墨西哥钝口螈一样勇敢——当一件事情感觉很难时，就硬着头皮上吧！明天见！",
+   "words": [
+    {
+     "w": "That's",
+     "t": 341.87
+    },
+    {
+     "w": "all",
+     "t": 342.27
+    },
+    {
+     "w": "for",
+     "t": 342.66
+    },
+    {
+     "w": "today,",
+     "t": 343.06
+    },
+    {
+     "w": "young",
+     "t": 343.46
+    },
+    {
+     "w": "explorers.",
+     "t": 343.85
+    },
+    {
+     "w": "Be",
+     "t": 344.25
+    },
+    {
+     "w": "patient",
+     "t": 344.65
+    },
+    {
+     "w": "like",
+     "t": 345.04
+    },
+    {
+     "w": "a",
+     "t": 345.44
+    },
+    {
+     "w": "puzzler,",
+     "t": 345.84
+    },
+    {
+     "w": "brave",
+     "t": 346.23
+    },
+    {
+     "w": "like",
+     "t": 346.63
+    },
+    {
+     "w": "an",
+     "t": 347.03
+    },
+    {
+     "w": "axolotl",
+     "t": 347.43
+    },
+    {
+     "w": "—",
+     "t": 347.82
+    },
+    {
+     "w": "and",
+     "t": 348.22
+    },
+    {
+     "w": "when",
+     "t": 348.62
+    },
+    {
+     "w": "something",
+     "t": 349.01
+    },
+    {
+     "w": "feels",
+     "t": 349.41
+    },
+    {
+     "w": "hard,",
+     "t": 349.81
+    },
+    {
+     "w": "just",
+     "t": 350.2
+    },
+    {
+     "w": "bite",
+     "t": 350.6
+    },
+    {
+     "w": "the",
+     "t": 351.0
+    },
+    {
+     "w": "bullet!",
+     "t": 351.39
+    },
+    {
+     "w": "See",
+     "t": 351.79
+    },
+    {
+     "w": "you",
+     "t": 352.19
+    },
+    {
+     "w": "tomorrow!",
+     "t": 352.58
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "bite the bullet",
+    "phon": "/baɪt ðə ˈbʊlɪt/",
+    "meaning": "(习语) 硬着头皮做难事；咬牙坚持",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: Tom lost the instructions for his puzzle, but he bit the bullet and started with the edge pieces."
+   },
+   {
+    "word": "awesome",
+    "phon": "/ˈɔːsəm/",
+    "meaning": "(adj.) 了不起的；令人惊叹的",
+    "tags": [],
+    "example": "Example: Today we meet two awesome record-breakers."
+   },
+   {
+    "word": "valid",
+    "phon": "/ˈvælɪd/",
+    "meaning": "(adj.) 有效的；唯一正确的",
+    "tags": [],
+    "example": "Example: Each piece had only one valid place."
+   },
+   {
+    "word": "patience",
+    "phon": "/ˈpeɪʃns/",
+    "meaning": "(n.) 耐心；忍耐",
+    "tags": [],
+    "example": "Example: With patience and teamwork, the students fitted section after section together."
+   },
+   {
+    "word": "delicate",
+    "phon": "/ˈdelɪkət/",
+    "meaning": "(adj.) 娇嫩的；精致的；易碎的",
+    "tags": [],
+    "example": "Example: Its delicate, bright pink gills wave in the water."
+   },
+   {
+    "word": "recover",
+    "phon": "/rɪˈkʌvər/",
+    "meaning": "(v.) 恢复；痊愈",
+    "tags": [],
+    "example": "Example: This knowledge might help doctors help people recover from injuries."
+   },
+   {
+    "word": "expose",
+    "phon": "/ɪkˈspoʊz/",
+    "meaning": "(v.) 暴露；使显露",
+    "tags": [],
+    "example": "Example: The cells under the skin are exposed."
+   },
+   {
+    "word": "instruct",
+    "phon": "/ɪnˈstrʌkt/",
+    "meaning": "(v.) 指导；指示",
+    "tags": [],
+    "example": "Example: Tom lost the instructions for his puzzle."
+   },
+   {
+    "word": "scar",
+    "phon": "/skɑːr/",
+    "meaning": "(n.) 伤疤",
+    "tags": [],
+    "example": "Example: When we get a bad cut, our body makes a scar."
+   },
+   {
+    "word": "axolotl",
+    "phon": "/ˈæksəlɒtəl/",
+    "meaning": "(n.) 墨西哥钝口螈",
+    "tags": [],
+    "example": "Example: Meet the axolotl, a salamander from Mexico."
+   },
+   {
+    "word": "salamander",
+    "phon": "/ˈsæləmændər/",
+    "meaning": "(n.) 蝾螈",
+    "tags": [],
+    "example": "Example: It is a salamander that keeps its baby looks as a grown-up."
+   },
+   {
+    "word": "blastema",
+    "phon": "/blæˈstiːmə/",
+    "meaning": "(n.) 再生芽",
+    "tags": [],
+    "example": "Example: Those cells form a soft lump called a blastema."
+   },
+   {
+    "word": "jigsaw",
+    "phon": "/ˈdʒɪɡsɔː/",
+    "meaning": "(n.) 拼图（玩具）",
+    "tags": [],
+    "example": "Example: The biggest jigsaw puzzle ever made."
+   },
+   {
+    "word": "lotus",
+    "phon": "/ˈləʊtəs/",
+    "meaning": "(n.) 莲花；荷花",
+    "tags": [],
+    "example": "Example: The picture was a beautiful lotus flower."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "How many pieces did the biggest jigsaw puzzle have?\nA. 54,000\nB. 3,132\nC. 551,232\nD. 1,600",
+     "What happens when an axolotl loses a leg?\nA. It grows a scar\nB. It grows a brand-new leg\nC. It stays without a leg\nD. It becomes a dinosaur",
+     "What is a blastema?\nA. A kind of scar\nB. A soft lump of young cells that builds the missing leg\nC. A lake in Mexico\nD. A puzzle piece",
+     "What does \"bite the bullet\" mean?\nA. To eat something hard\nB. To face a difficult thing bravely\nC. To lose a game\nD. To run away"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "type": "text",
+        "text": "When a leg is lost, the cells under the "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "skin"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " are "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "exposed"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "."
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "When a leg is lost"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "时间状语从句"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：When（当……的时候）+ 句子，放在句首，先告诉你“什么时候”——当一条腿失去的时候。英语里这种时间状语可以前置，让句子先有时间背景，再出主句。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "is lost / are exposed"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "被动语态"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：be + 过去分词（lost / exposed），表示“被失去 / 被暴露”，动作的承受者作主语。腿不是自己丢的、细胞不是自己暴露的，都是“被”发生的，所以用被动。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "under the skin"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "介词短语表位置"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：under（在……下面）+ 名词，紧跟在 cells（细胞）后面，告诉你这些细胞在哪里——在皮肤下面。介词短语放在名词后面作定语，相当于 \"the cells that are under the skin\" 的缩写。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句逻辑链："
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "时间（腿失去时）→ 主体（皮肤下面的细胞）→ 状态（被暴露出来）"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。一句话里藏着时间从句、被动语态和介词短语三个机关。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PUZZLE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（拼图）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "JIGSAW"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（拼图玩具）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "LOTUS"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（莲花）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "STADIUM"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（体育场）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "AXOLOTL"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（墨西哥钝口螈）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "GILLS"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（鳃）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "BLASTEMA"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（再生芽）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SCAR"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（伤疤）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "BULLET"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（子弹）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SALAMANDER"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（蝾螈）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says the puzzle had "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"551,232 pieces!\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"It grows a brand-new leg, with new bones, muscles, and even the same skin patterns.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says the cells "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"form a soft lump called a blastema\""
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": " which "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"slowly builds the missing leg, piece by piece.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"When you bite the bullet, you do something difficult or unpleasant — you just face it bravely!\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. When  2. When"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. exposed  2. cut"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. under  2. by"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "C",
+    "B",
+    "B",
+    "B"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. When 时间状语从句：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "____ a leg is lost, the cells under the skin are exposed.",
+       "options": [
+        "When",
+        "While",
+        "Because"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "____ an axolotl loses a leg, its body grows a new one.",
+       "options": [
+        "While",
+        "When",
+        "Because"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. 被动语态：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "The cells under the skin are ____.",
+       "options": [
+        "expose",
+        "exposing",
+        "exposed"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "The puzzle was ____ into 3,132 sections.",
+       "options": [
+        "cut",
+        "cutting",
+        "cuts"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. under 介词短语：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "The cells ____ the skin are exposed.",
+       "options": [
+        "over",
+        "under",
+        "above"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "The blastema builds the leg, piece ____ piece.",
+       "options": [
+        "with",
+        "for",
+        "by"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "When a leg is lost, the cells under the skin are exposed.",
+    "Instead of making a scar, those cells change back into young, growing cells."
+   ]
+  },
+  "crossword": {
+   "nrows": 10,
+   "ncols": 14,
+   "words": [
+    {
+     "word": "PUZZLE",
+     "row": 4,
+     "col": 12,
+     "dir": "D",
+     "num": 1,
+     "cn": "拼图",
+     "clue": "a jigsaw ___ with more than half a million pieces."
+    },
+    {
+     "word": "JIGSAW",
+     "row": 0,
+     "col": 1,
+     "dir": "A",
+     "num": 2,
+     "cn": "拼图玩具",
+     "clue": "the biggest ___ puzzle ever made."
+    },
+    {
+     "word": "LOTUS",
+     "row": 5,
+     "col": 2,
+     "dir": "D",
+     "num": 3,
+     "cn": "莲花",
+     "clue": "the picture was a beautiful ___ flower."
+    },
+    {
+     "word": "STADIUM",
+     "row": 1,
+     "col": 10,
+     "dir": "D",
+     "num": 4,
+     "cn": "体育场",
+     "clue": "In a big ___ in Vietnam, 1,600 students worked together."
+    },
+    {
+     "word": "AXOLOTL",
+     "row": 6,
+     "col": 0,
+     "dir": "A",
+     "num": 5,
+     "cn": "墨西哥钝口螈",
+     "clue": "Meet the ___, a salamander from Mexico."
+    },
+    {
+     "word": "GILLS",
+     "row": 0,
+     "col": 3,
+     "dir": "D",
+     "num": 6,
+     "cn": "鳃",
+     "clue": "the six feathery ___ on its head."
+    },
+    {
+     "word": "BLASTEMA",
+     "row": 2,
+     "col": 5,
+     "dir": "D",
+     "num": 7,
+     "cn": "再生芽",
+     "clue": "form a soft lump called a ___."
+    },
+    {
+     "word": "SCAR",
+     "row": 4,
+     "col": 3,
+     "dir": "A",
+     "num": 8,
+     "cn": "伤疤",
+     "clue": "our body makes a ___."
+    },
+    {
+     "word": "BULLET",
+     "row": 2,
+     "col": 5,
+     "dir": "A",
+     "num": 9,
+     "cn": "子弹",
+     "clue": "'bite the ___' means facing a difficult thing bravely."
+    },
+    {
+     "word": "SALAMANDER",
+     "row": 9,
+     "col": 4,
+     "dir": "A",
+     "num": 10,
+     "cn": "蝾螈",
+     "clue": "it is a ___ that keeps its baby looks as a grown-up."
+    }
+   ]
+  }
+ }
+}
