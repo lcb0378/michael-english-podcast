@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.50 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol50/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol50/cover.png" controls playsinline preload="metadata"></video>
+<h1>🎉 Vol.50 · 十个最爱故事与声音的旅行</h1>
+<div class="meta">英文 592 词 ｜ 音频 5分34秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol50/story-ten.png" alt="十个最爱故事">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol50/story-sound.png" alt="声音的旅行">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">your guess is as good as mine</span> <span class="phon">/jɔːr ɡes ɪz əz ɡʊd əz maɪn/</span> (习语) 你的猜测和我的一样好；我也不知道<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: if you ask me how many songs a sparrow can sing, <b>your guess is as good as mine</b>!</div>
+</div>
+<div class="vocab">
+  <span class="word">approach</span> <span class="phon">/əˈproʊtʃ/</span> (n.) 方法；途径<br>
+  
+  <div class="example">Example: Our <b>approach</b> is simple.</div>
+</div>
+<div class="vocab">
+  <span class="word">tissue</span> <span class="phon">/ˈtɪʃuː/</span> (n.) 组织<br>
+  
+  <div class="example">Example: a thin piece of <b>tissue</b> called the eardrum.</div>
+</div>
+<div class="vocab">
+  <span class="word">conduct</span> <span class="phon">/kənˈdʌkt/</span> (v.) 传导；进行<br>
+  
+  <div class="example">Example: they <b>conduct</b> the shake onward.</div>
+</div>
+<div class="vocab">
+  <span class="word">aspect</span> <span class="phon">/ˈæspekt/</span> (n.) 方面；一面<br>
+  
+  <div class="example">Example: the most amazing <b>aspect</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">pulse</span> <span class="phon">/pʌls/</span> (n.) 脉冲；跳动<br>
+  
+  <div class="example">Example: Sound moves as a <b>pulse</b> through the air.</div>
+</div>
+<div class="vocab">
+  <span class="word">sparrow</span> <span class="phon">/ˈspæroʊ/</span> (n.) 麻雀<br>
+  
+  <div class="example">Example: your brain reads them as a <b>sparrow's</b> song.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 13, "ncols": 10, "words": [{"word": "GUESS", "row": 0, "col": 5, "dir": "D", "num": 1, "cn": "猜测", "clue": "your ___ is as good as mine."}, {"word": "BONE", "row": 1, "col": 8, "dir": "D", "num": 2, "cn": "骨头", "clue": "three tiny ___s — the hammer, the anvil and the stirrup."}, {"word": "WAVE", "row": 2, "col": 2, "dir": "A", "num": 3, "cn": "声波", "clue": "it pushes the air into a ___."}, {"word": "TISSUE", "row": 4, "col": 3, "dir": "A", "num": 4, "cn": "组织", "clue": "a thin piece of ___ called the eardrum."}, {"word": "SPARROW", "row": 4, "col": 6, "dir": "D", "num": 5, "cn": "麻雀", "clue": "a ___'s song."}, {"word": "SOUND", "row": 5, "col": 1, "dir": "D", "num": 6, "cn": "声音", "clue": "Every ___ begins with a shake."}, {"word": "COCHLEA", "row": 6, "col": 0, "dir": "A", "num": 7, "cn": "耳蜗", "clue": "a snail-shaped room called the ___."}, {"word": "PULSE", "row": 8, "col": 3, "dir": "D", "num": 8, "cn": "脉冲", "clue": "Sound moves as a ___ through the air."}, {"word": "DRUM", "row": 9, "col": 1, "dir": "A", "num": 9, "cn": "鼓", "clue": "Hit a ___, and its skin shakes."}, {"word": "EARDRUM", "row": 12, "col": 3, "dir": "A", "num": 10, "cn": "耳膜", "clue": "a thin piece of tissue called the ___."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. Which story is about a robot?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. A robot that ran a half marathon</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. A robot that grew a sunflower</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. A robot that sang songs</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. A robot that played football</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：A</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. What makes the eardrum shake?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. Light</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. A sound wave</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. Water</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. A magnet</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. What do the hair cells in the cochlea do?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. They turn shakes into electrical signals</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. They make sounds louder</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. They stop sounds</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. They clean the ear</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：A</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does &quot;your guess is as good as mine&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. Your guess is better than mine</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. I don&#x27;t know either</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. You must guess again</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. I know the answer</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：B</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [0, 1, 0, 1];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">Inside, thousands of tiny hair cells bend like grass in the wind, and their bending turns the shake into electrical signals.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li><i>thousands of tiny hair cells</i> 是<b>thousands of + 复数名词</b>：thousands of（成千上万的）+ tiny hair cells（细小的毛细胞，复数），意思是“成千上万根细小的毛细胞”。说“成千上万个……”时，英语就用 thousands of + 复数名词。</li>
+  <li><i>bend like grass in the wind</i> 是<b>like + 名词的明喻</b>：bend（弯曲）+ like（像）+ grass in the wind（风中的小草），意思是“像风中的小草一样弯曲”。like 后面直接跟拿来打比方的名词。</li>
+  <li><i>their bending turns the shake into electrical signals</i> 藏着两个机关：<b>their bending（它们的弯曲）是动名词短语作主语</b>——bend（弯曲）+ ing 变成 bending（弯曲这件事），前面加 their（它们的），整个短语当主语；<b>turn A into B（把 A 变成 B）</b>：turn（变成）+ the shake（震动）+ into（成）+ electrical signals（电信号），意思是“把震动变成电信号”。</li>
+  <li>整句逻辑链：<b>成千上万（thousands of）→ 像小草一样弯（bend like grass）→ 弯曲把震动变成信号（bending turns … into …）</b>。一句话里藏着数量表达、明喻和动名词主语三个机关。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. thousands of + 复数名词：用括号里的词补全</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">Inside the cochlea, there are thousands of tiny ____ .</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">hair cells</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">hair cell</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">hairs</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：hair cells</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">Thousands of ____ visit the library every year.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">reader</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">readers</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">reading</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：readers</p>
+</div>
+<p class="p4-gname">B. like + 名词明喻：用括号里的词补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">The hair cells bend like ____ in the wind.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">winds</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">tree</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">grass</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：grass</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">The eardrum shakes like ____ when sound arrives.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">a drum</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">a bell</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">a guitar</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：a drum</p>
+</div>
+<p class="p4-gname">C. turn A into B：用括号里的词补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">Their bending turns the shake ____ electrical signals.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">to</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">into</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">for</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：into</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">Their bending turns the shake into ____ .</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">sound waves</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">music</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">electrical signals</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：electrical signals</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>Inside, thousands of tiny hair cells bend like grass in the wind, and their bending turns the shake into electrical signals.</li>
+<li>Sound moves as a pulse through the air at about 343 metres every second.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">1</span><span class="cwl">G</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">2</span><span class="cwl">B</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">3</span><span class="cwl">W</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">V</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">T</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwn">5</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">6</span><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">P</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">7</span><span class="cwl">C</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">H</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">8</span><span class="cwl">P</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">9</span><span class="cwl">D</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">M</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">W</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">10</span><span class="cwl">E</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">D</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">M</span></td></tr></table></div>1 竖 → <b>GUESS</b>（猜测）<br>2 竖 → <b>BONE</b>（骨头）<br>3 横 → <b>WAVE</b>（声波）<br>4 横 → <b>TISSUE</b>（组织）<br>5 竖 → <b>SPARROW</b>（麻雀）<br>6 竖 → <b>SOUND</b>（声音）<br>7 横 → <b>COCHLEA</b>（耳蜗）<br>8 竖 → <b>PULSE</b>（脉冲）<br>9 横 → <b>DRUM</b>（鼓）<br>10 横 → <b>EARDRUM</b>（耳膜）<br><br><b>B. Single Choice:</b><br>
+1 → <b>A</b>. The text says: <i>"A robot ran a half marathon beside human runners."</i><br>
+2 → <b>B</b>. The text says: <i>"your outer ear catches the wave ... The wave makes the eardrum shake!"</i><br>
+3 → <b>A</b>. The text says: <i>"their bending turns the shake into electrical signals."</i><br>
+4 → <b>B</b>. The text says: <i>"It means "I don't know either!""</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. hair cells&nbsp;&nbsp;2. readers<br>
+B. 1. grass&nbsp;&nbsp;2. a drum<br>
+C. 1. into&nbsp;&nbsp;2. electrical signals<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol50/Vol50_晚读讲义_十个最爱故事与声音的旅行_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 24.27, "end": 43.78, "en": "Hello, young explorers, and welcome to our fiftieth episode of Michael's Morning Listening! Today we first look back at ten of our favourite stories from the past fifty episodes. Then we follow a tiny traveller — a sound — all the way into your ear. Ready? Let's go!", "title": "开场白", "cn": "你好，小小探险家们，欢迎来到 Michael 的早听晚读第五十期！今天，我们先一起回顾过去五十期里最受大家喜欢的十个故事。然后，我们跟随一位小小的旅行者——声音——一路走进你的耳朵。准备好了吗？出发！", "words": [{"w": "Hello,", "t": 24.27}, {"w": "young", "t": 24.68}, {"w": "explorers,", "t": 25.08}, {"w": "and", "t": 25.49}, {"w": "welcome", "t": 25.9}, {"w": "to", "t": 26.3}, {"w": "our", "t": 26.71}, {"w": "fiftieth", "t": 27.12}, {"w": "episode", "t": 27.52}, {"w": "of", "t": 27.93}, {"w": "Michael's", "t": 28.33}, {"w": "Morning", "t": 28.74}, {"w": "Listening!", "t": 29.15}, {"w": "Today", "t": 29.55}, {"w": "we", "t": 29.96}, {"w": "first", "t": 30.37}, {"w": "look", "t": 30.77}, {"w": "back", "t": 31.18}, {"w": "at", "t": 31.59}, {"w": "ten", "t": 31.99}, {"w": "of", "t": 32.4}, {"w": "our", "t": 32.81}, {"w": "favourite", "t": 33.21}, {"w": "stories", "t": 33.62}, {"w": "from", "t": 34.02}, {"w": "the", "t": 34.43}, {"w": "past", "t": 34.84}, {"w": "fifty", "t": 35.24}, {"w": "episodes.", "t": 35.65}, {"w": "Then", "t": 36.06}, {"w": "we", "t": 36.46}, {"w": "follow", "t": 36.87}, {"w": "a", "t": 37.28}, {"w": "tiny", "t": 37.68}, {"w": "traveller", "t": 38.09}, {"w": "—", "t": 38.5}, {"w": "a", "t": 38.9}, {"w": "sound", "t": 39.31}, {"w": "—", "t": 39.72}, {"w": "all", "t": 40.12}, {"w": "the", "t": 40.53}, {"w": "way", "t": 40.93}, {"w": "into", "t": 41.34}, {"w": "your", "t": 41.75}, {"w": "ear.", "t": 42.15}, {"w": "Ready?", "t": 42.56}, {"w": "Let's", "t": 42.97}, {"w": "go!", "t": 43.37}]}, {"start": 56.32, "end": 92.04, "en": "Do you remember the flying car? It drove on the road like a car, then spread its wings and flew into the sky! And the bees that learned to play football — they pushed the ball into the goal, one tiny kick at a time. Messi said goodbye to Argentina's home stadium, and the fans sang his name. A robot ran a half marathon beside human runners — slow, steady, and never giving up. A pumpkin grew heavier than a rhino, so big that a whole family could sit inside it!", "title": "十个最爱故事", "cn": "还记得会飞的汽车吗？它在路上像汽车一样开，然后展开翅膀飞上天空！还有学会踢足球的蜜蜂——它们一脚一脚地把球推进球门。梅西告别了阿根廷的主场，球迷们齐声高唱他的名字。一个机器人和人类跑者一起跑完了半程马拉松——慢慢的、稳稳的、从不放弃。一个南瓜长得比犀牛还重，大到一家人都能坐进去！", "words": [{"w": "Do", "t": 56.32}, {"w": "you", "t": 56.71}, {"w": "remember", "t": 57.11}, {"w": "the", "t": 57.5}, {"w": "flying", "t": 57.89}, {"w": "car?", "t": 58.28}, {"w": "It", "t": 58.68}, {"w": "drove", "t": 59.07}, {"w": "on", "t": 59.46}, {"w": "the", "t": 59.85}, {"w": "road", "t": 60.25}, {"w": "like", "t": 60.64}, {"w": "a", "t": 61.03}, {"w": "car,", "t": 61.42}, {"w": "then", "t": 61.82}, {"w": "spread", "t": 62.21}, {"w": "its", "t": 62.6}, {"w": "wings", "t": 62.99}, {"w": "and", "t": 63.39}, {"w": "flew", "t": 63.78}, {"w": "into", "t": 64.17}, {"w": "the", "t": 64.56}, {"w": "sky!", "t": 64.96}, {"w": "And", "t": 65.35}, {"w": "the", "t": 65.74}, {"w": "bees", "t": 66.13}, {"w": "that", "t": 66.53}, {"w": "learned", "t": 66.92}, {"w": "to", "t": 67.31}, {"w": "play", "t": 67.7}, {"w": "football", "t": 68.1}, {"w": "—", "t": 68.49}, {"w": "they", "t": 68.88}, {"w": "pushed", "t": 69.27}, {"w": "the", "t": 69.67}, {"w": "ball", "t": 70.06}, {"w": "into", "t": 70.45}, {"w": "the", "t": 70.84}, {"w": "goal,", "t": 71.24}, {"w": "one", "t": 71.63}, {"w": "tiny", "t": 72.02}, {"w": "kick", "t": 72.41}, {"w": "at", "t": 72.81}, {"w": "a", "t": 73.2}, {"w": "time.", "t": 73.59}, {"w": "Messi", "t": 73.98}, {"w": "said", "t": 74.38}, {"w": "goodbye", "t": 74.77}, {"w": "to", "t": 75.16}, {"w": "Argentina's", "t": 75.55}, {"w": "home", "t": 75.95}, {"w": "stadium,", "t": 76.34}, {"w": "and", "t": 76.73}, {"w": "the", "t": 77.12}, {"w": "fans", "t": 77.52}, {"w": "sang", "t": 77.91}, {"w": "his", "t": 78.3}, {"w": "name.", "t": 78.69}, {"w": "A", "t": 79.09}, {"w": "robot", "t": 79.48}, {"w": "ran", "t": 79.87}, {"w": "a", "t": 80.26}, {"w": "half", "t": 80.66}, {"w": "marathon", "t": 81.05}, {"w": "beside", "t": 81.44}, {"w": "human", "t": 81.83}, {"w": "runners", "t": 82.23}, {"w": "—", "t": 82.62}, {"w": "slow,", "t": 83.01}, {"w": "steady,", "t": 83.4}, {"w": "and", "t": 83.8}, {"w": "never", "t": 84.19}, {"w": "giving", "t": 84.58}, {"w": "up.", "t": 84.97}, {"w": "A", "t": 85.37}, {"w": "pumpkin", "t": 85.76}, {"w": "grew", "t": 86.15}, {"w": "heavier", "t": 86.54}, {"w": "than", "t": 86.94}, {"w": "a", "t": 87.33}, {"w": "rhino,", "t": 87.72}, {"w": "so", "t": 88.11}, {"w": "big", "t": 88.51}, {"w": "that", "t": 88.9}, {"w": "a", "t": 89.29}, {"w": "whole", "t": 89.68}, {"w": "family", "t": 90.08}, {"w": "could", "t": 90.47}, {"w": "sit", "t": 90.86}, {"w": "inside", "t": 91.25}, {"w": "it!", "t": 91.65}]}, {"start": 92.04, "end": 126.19, "en": "A cat became the boss of a library, sleeping on the books and greeting every reader at the door. A hundred-year-old grandpa jumped out of a plane with a parachute — age is only a number! A penguin proposed with a pebble, offering the smoothest stone he could find to the one he loved. The mantis shrimp sees colours we cannot imagine, with eyes that move on their own. And Lucy, the little girl who grew a sunflower taller than a bus — small hands, huge surprise!", "title": "十个最爱故事", "cn": "一只猫当上了图书馆的馆长，睡在书上，在门口迎接每一位读者。一位一百岁的爷爷带着降落伞跳出飞机——年龄只是一个数字！一只企鹅用一颗鹅卵石求婚，把它能找到的最光滑的石头送给心爱的那一位。皮皮虾能看到我们无法想象的颜色，它的眼睛还能自己转动。还有露西，那个种出比巴士还高的向日葵的小姑娘——小小的双手，大大的惊喜！", "words": [{"w": "A", "t": 92.04}, {"w": "cat", "t": 92.43}, {"w": "became", "t": 92.83}, {"w": "the", "t": 93.22}, {"w": "boss", "t": 93.61}, {"w": "of", "t": 94.0}, {"w": "a", "t": 94.4}, {"w": "library,", "t": 94.79}, {"w": "sleeping", "t": 95.18}, {"w": "on", "t": 95.57}, {"w": "the", "t": 95.97}, {"w": "books", "t": 96.36}, {"w": "and", "t": 96.75}, {"w": "greeting", "t": 97.14}, {"w": "every", "t": 97.54}, {"w": "reader", "t": 97.93}, {"w": "at", "t": 98.32}, {"w": "the", "t": 98.71}, {"w": "door.", "t": 99.11}, {"w": "A", "t": 99.5}, {"w": "hundred-year-old", "t": 99.89}, {"w": "grandpa", "t": 100.28}, {"w": "jumped", "t": 100.68}, {"w": "out", "t": 101.07}, {"w": "of", "t": 101.46}, {"w": "a", "t": 101.85}, {"w": "plane", "t": 102.25}, {"w": "with", "t": 102.64}, {"w": "a", "t": 103.03}, {"w": "parachute", "t": 103.42}, {"w": "—", "t": 103.82}, {"w": "age", "t": 104.21}, {"w": "is", "t": 104.6}, {"w": "only", "t": 104.99}, {"w": "a", "t": 105.39}, {"w": "number!", "t": 105.78}, {"w": "A", "t": 106.17}, {"w": "penguin", "t": 106.56}, {"w": "proposed", "t": 106.96}, {"w": "with", "t": 107.35}, {"w": "a", "t": 107.74}, {"w": "pebble,", "t": 108.13}, {"w": "offering", "t": 108.53}, {"w": "the", "t": 108.92}, {"w": "smoothest", "t": 109.31}, {"w": "stone", "t": 109.7}, {"w": "he", "t": 110.1}, {"w": "could", "t": 110.49}, {"w": "find", "t": 110.88}, {"w": "to", "t": 111.27}, {"w": "the", "t": 111.67}, {"w": "one", "t": 112.06}, {"w": "he", "t": 112.45}, {"w": "loved.", "t": 112.84}, {"w": "The", "t": 113.24}, {"w": "mantis", "t": 113.63}, {"w": "shrimp", "t": 114.02}, {"w": "sees", "t": 114.41}, {"w": "colours", "t": 114.81}, {"w": "we", "t": 115.2}, {"w": "cannot", "t": 115.59}, {"w": "imagine,", "t": 115.98}, {"w": "with", "t": 116.38}, {"w": "eyes", "t": 116.77}, {"w": "that", "t": 117.16}, {"w": "move", "t": 117.55}, {"w": "on", "t": 117.95}, {"w": "their", "t": 118.34}, {"w": "own.", "t": 118.73}, {"w": "And", "t": 119.12}, {"w": "Lucy,", "t": 119.52}, {"w": "the", "t": 119.91}, {"w": "little", "t": 120.3}, {"w": "girl", "t": 120.69}, {"w": "who", "t": 121.09}, {"w": "grew", "t": 121.48}, {"w": "a", "t": 121.87}, {"w": "sunflower", "t": 122.26}, {"w": "taller", "t": 122.66}, {"w": "than", "t": 123.05}, {"w": "a", "t": 123.44}, {"w": "bus", "t": 123.83}, {"w": "—", "t": 124.23}, {"w": "small", "t": 124.62}, {"w": "hands,", "t": 125.01}, {"w": "huge", "t": 125.4}, {"w": "surprise!", "t": 125.8}]}, {"start": 136.97, "end": 167.65, "en": "Every sound begins with a shake. Hit a drum, and its skin shakes back and forth. That shake is called a vibration, and it pushes the air into a wave. Our approach is simple: follow that wave, step by step, all the way into your ear. First, your outer ear catches the wave and funnels it down the ear canal to a thin piece of tissue called the eardrum. The wave makes the eardrum shake!", "title": "声音的旅行", "cn": "每一个声音都从一次震动开始。敲一下鼓，鼓面就会来回震动。这种震动叫做 vibration（振动），它把空气推成一波波的声波。我们的方法很简单：一步一步地跟随这波声波，一路走进你的耳朵。首先，你的外耳接住声波，把它送进耳道，传到一层薄薄的组织——耳膜。声波让耳膜也震动起来！", "words": [{"w": "Every", "t": 136.97}, {"w": "sound", "t": 137.38}, {"w": "begins", "t": 137.79}, {"w": "with", "t": 138.2}, {"w": "a", "t": 138.61}, {"w": "shake.", "t": 139.02}, {"w": "Hit", "t": 139.42}, {"w": "a", "t": 139.83}, {"w": "drum,", "t": 140.24}, {"w": "and", "t": 140.65}, {"w": "its", "t": 141.06}, {"w": "skin", "t": 141.47}, {"w": "shakes", "t": 141.88}, {"w": "back", "t": 142.29}, {"w": "and", "t": 142.7}, {"w": "forth.", "t": 143.11}, {"w": "That", "t": 143.52}, {"w": "shake", "t": 143.92}, {"w": "is", "t": 144.33}, {"w": "called", "t": 144.74}, {"w": "a", "t": 145.15}, {"w": "vibration,", "t": 145.56}, {"w": "and", "t": 145.97}, {"w": "it", "t": 146.38}, {"w": "pushes", "t": 146.79}, {"w": "the", "t": 147.2}, {"w": "air", "t": 147.61}, {"w": "into", "t": 148.01}, {"w": "a", "t": 148.42}, {"w": "wave.", "t": 148.83}, {"w": "Our", "t": 149.24}, {"w": "approach", "t": 149.65}, {"w": "is", "t": 150.06}, {"w": "simple:", "t": 150.47}, {"w": "follow", "t": 150.88}, {"w": "that", "t": 151.29}, {"w": "wave,", "t": 151.7}, {"w": "step", "t": 152.11}, {"w": "by", "t": 152.51}, {"w": "step,", "t": 152.92}, {"w": "all", "t": 153.33}, {"w": "the", "t": 153.74}, {"w": "way", "t": 154.15}, {"w": "into", "t": 154.56}, {"w": "your", "t": 154.97}, {"w": "ear.", "t": 155.38}, {"w": "First,", "t": 155.79}, {"w": "your", "t": 156.2}, {"w": "outer", "t": 156.61}, {"w": "ear", "t": 157.01}, {"w": "catches", "t": 157.42}, {"w": "the", "t": 157.83}, {"w": "wave", "t": 158.24}, {"w": "and", "t": 158.65}, {"w": "funnels", "t": 159.06}, {"w": "it", "t": 159.47}, {"w": "down", "t": 159.88}, {"w": "the", "t": 160.29}, {"w": "ear", "t": 160.7}, {"w": "canal", "t": 161.1}, {"w": "to", "t": 161.51}, {"w": "a", "t": 161.92}, {"w": "thin", "t": 162.33}, {"w": "piece", "t": 162.74}, {"w": "of", "t": 163.15}, {"w": "tissue", "t": 163.56}, {"w": "called", "t": 163.97}, {"w": "the", "t": 164.38}, {"w": "eardrum.", "t": 164.79}, {"w": "The", "t": 165.2}, {"w": "wave", "t": 165.6}, {"w": "makes", "t": 166.01}, {"w": "the", "t": 166.42}, {"w": "eardrum", "t": 166.83}, {"w": "shake!", "t": 167.24}]}, {"start": 167.65, "end": 211.01, "en": "Next, the shake reaches three tiny bones — the hammer, the anvil and the stirrup. They are the smallest bones in your body, and they conduct the shake onward, making it stronger. Then comes the most amazing aspect: a snail-shaped room full of fluid, called the cochlea. Inside, thousands of tiny hair cells bend like grass in the wind, and their bending turns the shake into electrical signals. Those signals race along the auditory nerve to your brain, and your brain reads them as a sparrow's song, a friend's laugh, or music. Sound moves as a pulse through the air at about 343 metres every second.", "title": "声音的旅行", "cn": "接着，震动传到三块小小的骨头——锤骨、砧骨和镫骨。它们是你身体里最小的骨头，能把震动继续传下去，还让它变得更强。然后是最神奇的一幕：一个像蜗牛壳一样的、装满液体的房间，叫做 cochlea（耳蜗）。里面，成千上万根细小的毛细胞像风中的小草一样弯曲，它们的弯曲把震动变成了电信号。这些信号沿着听觉神经飞奔到你的大脑，大脑把它们解读成麻雀的歌声、朋友的笑声，或者音乐。声音以脉冲的形式在空气中传播，每秒大约 343 米。", "words": [{"w": "Next,", "t": 167.65}, {"w": "the", "t": 168.06}, {"w": "shake", "t": 168.47}, {"w": "reaches", "t": 168.88}, {"w": "three", "t": 169.29}, {"w": "tiny", "t": 169.7}, {"w": "bones", "t": 170.1}, {"w": "—", "t": 170.51}, {"w": "the", "t": 170.92}, {"w": "hammer,", "t": 171.33}, {"w": "the", "t": 171.74}, {"w": "anvil", "t": 172.15}, {"w": "and", "t": 172.56}, {"w": "the", "t": 172.97}, {"w": "stirrup.", "t": 173.38}, {"w": "They", "t": 173.79}, {"w": "are", "t": 174.19}, {"w": "the", "t": 174.6}, {"w": "smallest", "t": 175.01}, {"w": "bones", "t": 175.42}, {"w": "in", "t": 175.83}, {"w": "your", "t": 176.24}, {"w": "body,", "t": 176.65}, {"w": "and", "t": 177.06}, {"w": "they", "t": 177.47}, {"w": "conduct", "t": 177.88}, {"w": "the", "t": 178.29}, {"w": "shake", "t": 178.69}, {"w": "onward,", "t": 179.1}, {"w": "making", "t": 179.51}, {"w": "it", "t": 179.92}, {"w": "stronger.", "t": 180.33}, {"w": "Then", "t": 180.74}, {"w": "comes", "t": 181.15}, {"w": "the", "t": 181.56}, {"w": "most", "t": 181.97}, {"w": "amazing", "t": 182.38}, {"w": "aspect:", "t": 182.79}, {"w": "a", "t": 183.19}, {"w": "snail-shaped", "t": 183.6}, {"w": "room", "t": 184.01}, {"w": "full", "t": 184.42}, {"w": "of", "t": 184.83}, {"w": "fluid,", "t": 185.24}, {"w": "called", "t": 185.65}, {"w": "the", "t": 186.06}, {"w": "cochlea.", "t": 186.47}, {"w": "Inside,", "t": 186.88}, {"w": "thousands", "t": 187.28}, {"w": "of", "t": 187.69}, {"w": "tiny", "t": 188.1}, {"w": "hair", "t": 188.51}, {"w": "cells", "t": 188.92}, {"w": "bend", "t": 189.33}, {"w": "like", "t": 189.74}, {"w": "grass", "t": 190.15}, {"w": "in", "t": 190.56}, {"w": "the", "t": 190.97}, {"w": "wind,", "t": 191.38}, {"w": "and", "t": 191.78}, {"w": "their", "t": 192.19}, {"w": "bending", "t": 192.6}, {"w": "turns", "t": 193.01}, {"w": "the", "t": 193.42}, {"w": "shake", "t": 193.83}, {"w": "into", "t": 194.24}, {"w": "electrical", "t": 194.65}, {"w": "signals.", "t": 195.06}, {"w": "Those", "t": 195.47}, {"w": "signals", "t": 195.87}, {"w": "race", "t": 196.28}, {"w": "along", "t": 196.69}, {"w": "the", "t": 197.1}, {"w": "auditory", "t": 197.51}, {"w": "nerve", "t": 197.92}, {"w": "to", "t": 198.33}, {"w": "your", "t": 198.74}, {"w": "brain,", "t": 199.15}, {"w": "and", "t": 199.56}, {"w": "your", "t": 199.97}, {"w": "brain", "t": 200.37}, {"w": "reads", "t": 200.78}, {"w": "them", "t": 201.19}, {"w": "as", "t": 201.6}, {"w": "a", "t": 202.01}, {"w": "sparrow's", "t": 202.42}, {"w": "song,", "t": 202.83}, {"w": "a", "t": 203.24}, {"w": "friend's", "t": 203.65}, {"w": "laugh,", "t": 204.06}, {"w": "or", "t": 204.47}, {"w": "music.", "t": 204.87}, {"w": "Sound", "t": 205.28}, {"w": "moves", "t": 205.69}, {"w": "as", "t": 206.1}, {"w": "a", "t": 206.51}, {"w": "pulse", "t": 206.92}, {"w": "through", "t": 207.33}, {"w": "the", "t": 207.74}, {"w": "air", "t": 208.15}, {"w": "at", "t": 208.56}, {"w": "about", "t": 208.96}, {"w": "343", "t": 209.37}, {"w": "metres", "t": 209.78}, {"w": "every", "t": 210.19}, {"w": "second.", "t": 210.6}]}, {"start": 211.01, "end": 230.64, "en": "And here is a fun fact: sound needs something to travel through. In empty space, with no air at all, there is no sound — that is why space is silent! So remember the journey: shake, wave, eardrum, bones, cochlea, brain — all in less than a blink!", "title": "声音的旅行", "cn": "还有一个有趣的事实：声音需要东西来传播。在空无一物的太空里，完全没有空气，也就没有声音——所以太空是安静的！记住这趟旅程吧：震动、声波、耳膜、骨头、耳蜗、大脑——全部不到眨一下眼的时间！", "words": [{"w": "And", "t": 211.01}, {"w": "here", "t": 211.42}, {"w": "is", "t": 211.83}, {"w": "a", "t": 212.24}, {"w": "fun", "t": 212.65}, {"w": "fact:", "t": 213.05}, {"w": "sound", "t": 213.46}, {"w": "needs", "t": 213.87}, {"w": "something", "t": 214.28}, {"w": "to", "t": 214.69}, {"w": "travel", "t": 215.1}, {"w": "through.", "t": 215.51}, {"w": "In", "t": 215.92}, {"w": "empty", "t": 216.33}, {"w": "space,", "t": 216.74}, {"w": "with", "t": 217.14}, {"w": "no", "t": 217.55}, {"w": "air", "t": 217.96}, {"w": "at", "t": 218.37}, {"w": "all,", "t": 218.78}, {"w": "there", "t": 219.19}, {"w": "is", "t": 219.6}, {"w": "no", "t": 220.01}, {"w": "sound", "t": 220.42}, {"w": "—", "t": 220.82}, {"w": "that", "t": 221.23}, {"w": "is", "t": 221.64}, {"w": "why", "t": 222.05}, {"w": "space", "t": 222.46}, {"w": "is", "t": 222.87}, {"w": "silent!", "t": 223.28}, {"w": "So", "t": 223.69}, {"w": "remember", "t": 224.1}, {"w": "the", "t": 224.51}, {"w": "journey:", "t": 224.91}, {"w": "shake,", "t": 225.32}, {"w": "wave,", "t": 225.73}, {"w": "eardrum,", "t": 226.14}, {"w": "bones,", "t": 226.55}, {"w": "cochlea,", "t": 226.96}, {"w": "brain", "t": 227.37}, {"w": "—", "t": 227.78}, {"w": "all", "t": 228.19}, {"w": "in", "t": 228.6}, {"w": "less", "t": 229.0}, {"w": "than", "t": 229.41}, {"w": "a", "t": 229.82}, {"w": "blink!", "t": 230.23}]}, {"start": 245.98, "end": 267.27, "en": "Today's idiom is \"your guess is as good as mine.\" It means \"I don't know either!\" For example: if you ask me how many songs a sparrow can sing, your guess is as good as mine! Try it: when a friend asks you something nobody knows, just smile and say: your guess is as good as mine!", "title": "今日俚语", "cn": "今天的俚语是“your guess is as good as mine”（你的猜测和我的一样好）。它的意思是“我也不知道！”举个例子：如果你问我一只麻雀会唱多少首歌，your guess is as good as mine！试试用它：当朋友问你一个谁也不知道答案的问题时，就微笑着说：your guess is as good as mine！", "words": [{"w": "Today's", "t": 245.98}, {"w": "idiom", "t": 246.35}, {"w": "is", "t": 246.73}, {"w": "\"your", "t": 247.1}, {"w": "guess", "t": 247.47}, {"w": "is", "t": 247.85}, {"w": "as", "t": 248.22}, {"w": "good", "t": 248.59}, {"w": "as", "t": 248.97}, {"w": "mine.\"", "t": 249.34}, {"w": "It", "t": 249.72}, {"w": "means", "t": 250.09}, {"w": "\"I", "t": 250.46}, {"w": "don't", "t": 250.84}, {"w": "know", "t": 251.21}, {"w": "either!\"", "t": 251.58}, {"w": "For", "t": 251.96}, {"w": "example:", "t": 252.33}, {"w": "if", "t": 252.7}, {"w": "you", "t": 253.08}, {"w": "ask", "t": 253.45}, {"w": "me", "t": 253.82}, {"w": "how", "t": 254.2}, {"w": "many", "t": 254.57}, {"w": "songs", "t": 254.94}, {"w": "a", "t": 255.32}, {"w": "sparrow", "t": 255.69}, {"w": "can", "t": 256.06}, {"w": "sing,", "t": 256.44}, {"w": "your", "t": 256.81}, {"w": "guess", "t": 257.19}, {"w": "is", "t": 257.56}, {"w": "as", "t": 257.93}, {"w": "good", "t": 258.31}, {"w": "as", "t": 258.68}, {"w": "mine!", "t": 259.05}, {"w": "Try", "t": 259.43}, {"w": "it:", "t": 259.8}, {"w": "when", "t": 260.17}, {"w": "a", "t": 260.55}, {"w": "friend", "t": 260.92}, {"w": "asks", "t": 261.29}, {"w": "you", "t": 261.67}, {"w": "something", "t": 262.04}, {"w": "nobody", "t": 262.41}, {"w": "knows,", "t": 262.79}, {"w": "just", "t": 263.16}, {"w": "smile", "t": 263.53}, {"w": "and", "t": 263.91}, {"w": "say:", "t": 264.28}, {"w": "your", "t": 264.66}, {"w": "guess", "t": 265.03}, {"w": "is", "t": 265.4}, {"w": "as", "t": 265.78}, {"w": "good", "t": 266.15}, {"w": "as", "t": 266.52}, {"w": "mine!", "t": 266.9}]}, {"start": 281.49, "end": 299.05, "en": "Now it is your turn! One: which of our ten favourite stories do you like best, and why? Two: sound cannot travel in empty space — can you think of another place where sound travels, like water or a wall? Talk about it with your family!", "title": "结束语与互动问题", "cn": "现在轮到你们啦！第一：在我们回顾的十个最爱的故事里，你最喜欢哪一个，为什么？第二：声音不能在空无一物的太空里传播——你能想到声音还能在什么地方传播吗，比如水里或者墙里？和家人聊聊吧！", "words": [{"w": "Now", "t": 281.49}, {"w": "it", "t": 281.87}, {"w": "is", "t": 282.25}, {"w": "your", "t": 282.64}, {"w": "turn!", "t": 283.02}, {"w": "One:", "t": 283.4}, {"w": "which", "t": 283.78}, {"w": "of", "t": 284.16}, {"w": "our", "t": 284.54}, {"w": "ten", "t": 284.93}, {"w": "favourite", "t": 285.31}, {"w": "stories", "t": 285.69}, {"w": "do", "t": 286.07}, {"w": "you", "t": 286.45}, {"w": "like", "t": 286.83}, {"w": "best,", "t": 287.22}, {"w": "and", "t": 287.6}, {"w": "why?", "t": 287.98}, {"w": "Two:", "t": 288.36}, {"w": "sound", "t": 288.74}, {"w": "cannot", "t": 289.12}, {"w": "travel", "t": 289.51}, {"w": "in", "t": 289.89}, {"w": "empty", "t": 290.27}, {"w": "space", "t": 290.65}, {"w": "—", "t": 291.03}, {"w": "can", "t": 291.42}, {"w": "you", "t": 291.8}, {"w": "think", "t": 292.18}, {"w": "of", "t": 292.56}, {"w": "another", "t": 292.94}, {"w": "place", "t": 293.32}, {"w": "where", "t": 293.71}, {"w": "sound", "t": 294.09}, {"w": "travels,", "t": 294.47}, {"w": "like", "t": 294.85}, {"w": "water", "t": 295.23}, {"w": "or", "t": 295.61}, {"w": "a", "t": 296.0}, {"w": "wall?", "t": 296.38}, {"w": "Talk", "t": 296.76}, {"w": "about", "t": 297.14}, {"w": "it", "t": 297.52}, {"w": "with", "t": 297.9}, {"w": "your", "t": 298.29}, {"w": "family!", "t": 298.67}]}, {"start": 311.43, "end": 325.26, "en": "That is all for today, young explorers — and thank you for fifty wonderful episodes! Keep your ears open, keep asking questions, and we will meet tomorrow morning. Goodbye, and have a wonderful day!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们——谢谢你们陪伴我们度过五十期精彩的节目！竖起耳朵，继续提问，我们明天早上再见。再见，祝你度过美好的一天！", "words": [{"w": "That", "t": 311.43}, {"w": "is", "t": 311.84}, {"w": "all", "t": 312.24}, {"w": "for", "t": 312.65}, {"w": "today,", "t": 313.06}, {"w": "young", "t": 313.46}, {"w": "explorers", "t": 313.87}, {"w": "—", "t": 314.28}, {"w": "and", "t": 314.68}, {"w": "thank", "t": 315.09}, {"w": "you", "t": 315.5}, {"w": "for", "t": 315.9}, {"w": "fifty", "t": 316.31}, {"w": "wonderful", "t": 316.72}, {"w": "episodes!", "t": 317.12}, {"w": "Keep", "t": 317.53}, {"w": "your", "t": 317.94}, {"w": "ears", "t": 318.35}, {"w": "open,", "t": 318.75}, {"w": "keep", "t": 319.16}, {"w": "asking", "t": 319.57}, {"w": "questions,", "t": 319.97}, {"w": "and", "t": 320.38}, {"w": "we", "t": 320.79}, {"w": "will", "t": 321.19}, {"w": "meet", "t": 321.6}, {"w": "tomorrow", "t": 322.01}, {"w": "morning.", "t": 322.41}, {"w": "Goodbye,", "t": 322.82}, {"w": "and", "t": 323.23}, {"w": "have", "t": 323.63}, {"w": "a", "t": 324.04}, {"w": "wonderful", "t": 324.45}, {"w": "day!", "t": 324.85}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol50/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>

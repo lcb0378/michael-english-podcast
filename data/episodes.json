@@ -1,5 +1,16 @@
 [
  {
+  "id": "vol50",
+  "title": "十个最爱故事与声音的旅行",
+  "words": 592,
+  "duration": "5分34秒",
+  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol50/cover.png",
+  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol50/audio.mp3",
+  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol50/video_v1.mp4",
+  "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol50/Vol50_晚读讲义_十个最爱故事与声音的旅行_v1.pdf",
+  "pdfName": "Vol50_晚读讲义_十个最爱故事与声音的旅行_v1.pdf"
+ },
+ {
   "id": "vol49",
   "title": "搜救犬退役与狗狗的超级鼻子",
   "words": 596,

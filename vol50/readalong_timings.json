@@ -1,0 +1,238 @@
+[
+ {
+  "id": 1,
+  "title": "开场白",
+  "blocks": [
+   {
+    "start": 24.27,
+    "end": 29.55,
+    "en": "Hello, young explorers, and welcome to our fiftieth episode of Michael's Morning Listening!"
+   },
+   {
+    "start": 29.55,
+    "end": 36.06,
+    "en": "Today we first look back at ten of our favourite stories from the past fifty episodes."
+   },
+   {
+    "start": 36.06,
+    "end": 42.56,
+    "en": "Then we follow a tiny traveller — a sound — all the way into your ear."
+   },
+   {
+    "start": 42.56,
+    "end": 42.97,
+    "en": "Ready?"
+   },
+   {
+    "start": 42.97,
+    "end": 43.78,
+    "en": "Let's go!"
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "title": "十个最爱故事",
+  "blocks": [
+   {
+    "start": 56.32,
+    "end": 58.68,
+    "en": "Do you remember the flying car?"
+   },
+   {
+    "start": 58.68,
+    "end": 65.35,
+    "en": "It drove on the road like a car, then spread its wings and flew into the sky!"
+   },
+   {
+    "start": 65.35,
+    "end": 73.98,
+    "en": "And the bees that learned to play football — they pushed the ball into the goal, one tiny kick at a time."
+   },
+   {
+    "start": 73.98,
+    "end": 79.09,
+    "en": "Messi said goodbye to Argentina's home stadium, and the fans sang his name."
+   },
+   {
+    "start": 79.09,
+    "end": 85.37,
+    "en": "A robot ran a half marathon beside human runners — slow, steady, and never giving up."
+   },
+   {
+    "start": 85.37,
+    "end": 92.04,
+    "en": "A pumpkin grew heavier than a rhino, so big that a whole family could sit inside it!"
+   },
+   {
+    "start": 92.04,
+    "end": 99.5,
+    "en": "A cat became the boss of a library, sleeping on the books and greeting every reader at the door."
+   },
+   {
+    "start": 99.5,
+    "end": 106.17,
+    "en": "A hundred-year-old grandpa jumped out of a plane with a parachute — age is only a number!"
+   },
+   {
+    "start": 106.17,
+    "end": 113.24,
+    "en": "A penguin proposed with a pebble, offering the smoothest stone he could find to the one he loved."
+   },
+   {
+    "start": 113.24,
+    "end": 119.12,
+    "en": "The mantis shrimp sees colours we cannot imagine, with eyes that move on their own."
+   },
+   {
+    "start": 119.12,
+    "end": 126.19,
+    "en": "And Lucy, the little girl who grew a sunflower taller than a bus — small hands, huge surprise!"
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "title": "声音的旅行",
+  "blocks": [
+   {
+    "start": 136.97,
+    "end": 139.42,
+    "en": "Every sound begins with a shake."
+   },
+   {
+    "start": 139.42,
+    "end": 143.51,
+    "en": "Hit a drum, and its skin shakes back and forth."
+   },
+   {
+    "start": 143.51,
+    "end": 149.24,
+    "en": "That shake is called a vibration, and it pushes the air into a wave."
+   },
+   {
+    "start": 149.24,
+    "end": 155.79,
+    "en": "Our approach is simple: follow that wave, step by step, all the way into your ear."
+   },
+   {
+    "start": 155.79,
+    "end": 165.19,
+    "en": "First, your outer ear catches the wave and funnels it down the ear canal to a thin piece of tissue called the eardrum."
+   },
+   {
+    "start": 165.19,
+    "end": 167.65,
+    "en": "The wave makes the eardrum shake!"
+   },
+   {
+    "start": 167.65,
+    "end": 173.78,
+    "en": "Next, the shake reaches three tiny bones — the hammer, the anvil and the stirrup."
+   },
+   {
+    "start": 173.78,
+    "end": 180.74,
+    "en": "They are the smallest bones in your body, and they conduct the shake onward, making it stronger."
+   },
+   {
+    "start": 180.74,
+    "end": 186.87,
+    "en": "Then comes the most amazing aspect: a snail-shaped room full of fluid, called the cochlea."
+   },
+   {
+    "start": 186.87,
+    "end": 195.46,
+    "en": "Inside, thousands of tiny hair cells bend like grass in the wind, and their bending turns the shake into electrical signals."
+   },
+   {
+    "start": 195.46,
+    "end": 205.28,
+    "en": "Those signals race along the auditory nerve to your brain, and your brain reads them as a sparrow's song, a friend's laugh, or music."
+   },
+   {
+    "start": 205.28,
+    "end": 211.01,
+    "en": "Sound moves as a pulse through the air at about 343 metres every second."
+   },
+   {
+    "start": 211.01,
+    "end": 215.91,
+    "en": "And here is a fun fact: sound needs something to travel through."
+   },
+   {
+    "start": 215.91,
+    "end": 223.69,
+    "en": "In empty space, with no air at all, there is no sound — that is why space is silent!"
+   },
+   {
+    "start": 223.69,
+    "end": 230.64,
+    "en": "So remember the journey: shake, wave, eardrum, bones, cochlea, brain — all in less than a blink!"
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "title": "今日俚语",
+  "blocks": [
+   {
+    "start": 245.98,
+    "end": 259.43,
+    "en": "Today's idiom is \"your guess is as good as mine.\" It means \"I don't know either!\" For example: if you ask me how many songs a sparrow can sing, your guess is as good as mine!"
+   },
+   {
+    "start": 259.43,
+    "end": 267.27,
+    "en": "Try it: when a friend asks you something nobody knows, just smile and say: your guess is as good as mine!"
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "title": "结束语与互动问题",
+  "blocks": [
+   {
+    "start": 281.49,
+    "end": 283.4,
+    "en": "Now it is your turn!"
+   },
+   {
+    "start": 283.4,
+    "end": 288.36,
+    "en": "One: which of our ten favourite stories do you like best, and why?"
+   },
+   {
+    "start": 288.36,
+    "end": 296.76,
+    "en": "Two: sound cannot travel in empty space — can you think of another place where sound travels, like water or a wall?"
+   },
+   {
+    "start": 296.76,
+    "end": 299.05,
+    "en": "Talk about it with your family!"
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "title": "告别",
+  "blocks": [
+   {
+    "start": 311.43,
+    "end": 317.53,
+    "en": "That is all for today, young explorers — and thank you for fifty wonderful episodes!"
+   },
+   {
+    "start": 317.53,
+    "end": 322.82,
+    "en": "Keep your ears open, keep asking questions, and we will meet tomorrow morning."
+   },
+   {
+    "start": 322.82,
+    "end": 325.26,
+    "en": "Goodbye, and have a wonderful day!"
+   }
+  ]
+ }
+]
