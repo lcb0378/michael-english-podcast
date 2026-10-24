@@ -1,0 +1,268 @@
+[
+ {
+  "id": 1,
+  "title": "开场白",
+  "blocks": [
+   {
+    "start": 25.07,
+    "end": 29.07,
+    "en": "Hello, young explorers, and welcome back to Michael's Morning Listening!"
+   },
+   {
+    "start": 29.07,
+    "end": 31.46,
+    "en": "This is our twenty-second show together!"
+   },
+   {
+    "start": 31.46,
+    "end": 42.66,
+    "en": "Today we climb the tallest mountain on Earth with a man who cannot see it, and we dive under the sea to meet an animal with three hearts!"
+   },
+   {
+    "start": 42.66,
+    "end": 44.65,
+    "en": "One story is about courage."
+   },
+   {
+    "start": 44.65,
+    "end": 48.25,
+    "en": "One story is about a body full of surprises."
+   },
+   {
+    "start": 48.25,
+    "end": 49.05,
+    "en": "Let's go!"
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "title": "看不见的登山家",
+  "blocks": [
+   {
+    "start": 66.15,
+    "end": 75.34,
+    "en": "Erik Weihenmayer was born with weak eyes, and his eyesight faded slowly until, as a young boy, he could not see at all."
+   },
+   {
+    "start": 75.34,
+    "end": 78.53,
+    "en": "But losing his sight did not stop him."
+   },
+   {
+    "start": 78.53,
+    "end": 86.92,
+    "en": "He learned to climb rocks by touch, feeling every crack with his fingers, and listening to the voices of his friends."
+   },
+   {
+    "start": 86.92,
+    "end": 89.32,
+    "en": "Step by step, his courage grew."
+   },
+   {
+    "start": 89.32,
+    "end": 98.51,
+    "en": "He wore thick garments against the cold wind, and he kept going even when his hands got small wounds from ice and stone."
+   },
+   {
+    "start": 98.51,
+    "end": 103.7,
+    "en": "Then came his greatest climb: Mount Everest, the tallest mountain in the world."
+   },
+   {
+    "start": 103.7,
+    "end": 116.08,
+    "en": "Guided by his friends' voices and bells, Erik reached the top — the first blind person ever to do it, to the delight of his whole team, who erupted with cheers."
+   },
+   {
+    "start": 116.08,
+    "end": 118.08,
+    "en": "He did not stop there."
+   },
+   {
+    "start": 118.08,
+    "end": 124.07,
+    "en": "He went on to climb the highest peak on every continent, seven mountains in all."
+   },
+   {
+    "start": 124.07,
+    "end": 128.07,
+    "en": "Touch was his primary guide, and courage was his engine."
+   },
+   {
+    "start": 128.07,
+    "end": 133.66,
+    "en": "Erik says what is inside you is stronger than what stands in your way."
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "title": "三颗心脏的章鱼",
+  "blocks": [
+   {
+    "start": 147.56,
+    "end": 155.2,
+    "en": "Now dive with me into the sea and meet the octopus, a soft animal with no bones at all."
+   },
+   {
+    "start": 155.2,
+    "end": 158.01,
+    "en": "It has not one heart, but three!"
+   },
+   {
+    "start": 158.01,
+    "end": 166.06,
+    "en": "Two small hearts, called branchial hearts, push blood to its gills, where the blood picks up oxygen from the water."
+   },
+   {
+    "start": 166.06,
+    "end": 173.29,
+    "en": "Then a third, bigger heart, the systemic heart, sends the oxygen-rich blood around the body, to every cell."
+   },
+   {
+    "start": 173.29,
+    "end": 177.72,
+    "en": "And here is the strangest part: the octopus's blood is blue!"
+   },
+   {
+    "start": 177.72,
+    "end": 184.96,
+    "en": "Our blood is red because it uses iron, but octopus blood uses copper, and copper turns it blue."
+   },
+   {
+    "start": 184.96,
+    "end": 189.78,
+    "en": "When the octopus swims fast, its big heart stops for a while."
+   },
+   {
+    "start": 189.78,
+    "end": 193.4,
+    "en": "Do not worry — the octopus is not dead."
+   },
+   {
+    "start": 193.4,
+    "end": 196.62,
+    "en": "It just gets too tired to keep pumping."
+   },
+   {
+    "start": 196.62,
+    "end": 201.84,
+    "en": "That is why octopuses usually crawl along the sea floor instead of swimming."
+   },
+   {
+    "start": 201.84,
+    "end": 212.7,
+    "en": "It is no coincidence that they are such good crawlers: eight soft arms, covered in suckers, can grip rocks and squeeze the whole body through tiny gaps."
+   },
+   {
+    "start": 212.7,
+    "end": 219.13,
+    "en": "One octopus slipped out of its pen in an aquarium and escaped back to the sea!"
+   },
+   {
+    "start": 219.13,
+    "end": 225.97,
+    "en": "With three hearts, blue blood, and a body of soft flesh, the octopus is alive with surprises."
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "title": "今日俚语",
+  "blocks": [
+   {
+    "start": 240.11,
+    "end": 245.96,
+    "en": "Here's today's idiom: \"pull someone's leg.\" It does not mean you really pull a leg!"
+   },
+   {
+    "start": 245.96,
+    "end": 249.08,
+    "en": "It means you tease someone with a joke."
+   },
+   {
+    "start": 249.08,
+    "end": 255.7,
+    "en": "Listen to this: Tom told his friend Sam that a shark lived in the school swimming pool."
+   },
+   {
+    "start": 255.7,
+    "end": 259.6,
+    "en": "Sam put on his swimming hat and ran to look."
+   },
+   {
+    "start": 259.6,
+    "end": 268.57,
+    "en": "Then Tom laughed and said, \"I was only pulling your leg!\" When someone pulls your leg, they are joking, not telling the truth."
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "title": "结束语与互动问题",
+  "blocks": [
+   {
+    "start": 282.87,
+    "end": 284.87,
+    "en": "Let's think about our stories."
+   },
+   {
+    "start": 284.87,
+    "end": 292.49,
+    "en": "A blind climber reached the top of the world, and an octopus carries three hearts in its soft body."
+   },
+   {
+    "start": 292.49,
+    "end": 294.09,
+    "en": "Two questions for you."
+   },
+   {
+    "start": 294.09,
+    "end": 297.3,
+    "en": "First: Erik climbed by touch and by listening."
+   },
+   {
+    "start": 297.3,
+    "end": 303.31,
+    "en": "If you could not see, what would help you most — touch, sound, or smell?"
+   },
+   {
+    "start": 303.31,
+    "end": 310.12,
+    "en": "Second: if you had three hearts like an octopus, what would you do with the extra one?"
+   },
+   {
+    "start": 310.12,
+    "end": 313.33,
+    "en": "Talk about it with your father and mother!"
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "title": "告别",
+  "blocks": [
+   {
+    "start": 324.51,
+    "end": 326.85,
+    "en": "That's all for today, young explorers."
+   },
+   {
+    "start": 326.85,
+    "end": 333.47,
+    "en": "Remember: courage can carry you up any mountain, and a joke is only fun when everyone laughs."
+   },
+   {
+    "start": 333.47,
+    "end": 334.25,
+    "en": "Stay curious!"
+   },
+   {
+    "start": 334.25,
+    "end": 335.81,
+    "en": "See you tomorrow morning!"
+   }
+  ]
+ }
+]

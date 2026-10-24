@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.22 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol22/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol22/cover.png" controls playsinline preload="metadata"></video>
+<h1>🧗 Vol.22 · 看不见的登山家与三颗心脏的章鱼</h1>
+<div class="meta">英文 599 词 ｜ 音频 5分45秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol22/story-climber.png" alt="看不见的登山家">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol22/story-octopus.png" alt="三颗心脏的章鱼">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">pull someone&#x27;s leg</span> <span class="phon">/pʊl ˈsʌmwʌnz leɡ/</span> (习语) 开某人的玩笑；逗别人<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: Tom laughed and said, "I was only <b>pulling your leg</b>!"</div>
+</div>
+<div class="vocab">
+  <span class="word">courage</span> <span class="phon">/ˈkʌrɪdʒ/</span> (n.) 勇气；胆量<br>
+  
+  <div class="example">Example: Step by step, his <b>courage</b> grew.</div>
+</div>
+<div class="vocab">
+  <span class="word">delight</span> <span class="phon">/dɪˈlaɪt/</span> (n.) 高兴；喜悦<br>
+  
+  <div class="example">Example: Erik reached the top, to the <b>delight</b> of his whole team.</div>
+</div>
+<div class="vocab">
+  <span class="word">erupt</span> <span class="phon">/ɪˈrʌpt/</span> (v.) 爆发；喷发<br>
+  
+  <div class="example">Example: His team <b>erupted</b> with cheers.</div>
+</div>
+<div class="vocab">
+  <span class="word">garment</span> <span class="phon">/ˈɡɑːmənt/</span> (n.) 衣服；服装<br>
+  
+  <div class="example">Example: He wore thick <b>garments</b> against the cold wind.</div>
+</div>
+<div class="vocab">
+  <span class="word">wound</span> <span class="phon">/wuːnd/</span> (n.) 伤口；创伤<br>
+  
+  <div class="example">Example: His hands got small <b>wounds</b> from ice and stone.</div>
+</div>
+<div class="vocab">
+  <span class="word">fade</span> <span class="phon">/feɪd/</span> (v.) 渐渐消失；褪色<br>
+  
+  <div class="example">Example: His eyesight <b>faded</b> slowly.</div>
+</div>
+<div class="vocab">
+  <span class="word">primary</span> <span class="phon">/ˈpraɪməri/</span> (adj.) 主要的；首要的<br>
+  
+  <div class="example">Example: Touch was his <b>primary</b> guide.</div>
+</div>
+<div class="vocab">
+  <span class="word">coincidence</span> <span class="phon">/kəʊˈɪnsɪdəns/</span> (n.) 巧合；碰巧<br>
+  
+  <div class="example">Example: It is no <b>coincidence</b> that they are such good crawlers.</div>
+</div>
+<div class="vocab">
+  <span class="word">flesh</span> <span class="phon">/fleʃ/</span> (n.) 肉；肉体<br>
+  
+  <div class="example">Example: A body of soft <b>flesh</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">branchial</span> <span class="phon">/ˈbræŋkiəl/</span> (adj.) 鳃的<br>
+  
+  <div class="example">Example: Two small hearts, called <b>branchial</b> hearts, push blood to its gills.</div>
+</div>
+<div class="vocab">
+  <span class="word">systemic</span> <span class="phon">/sɪˈstemɪk/</span> (adj.) 体循环的；全身的<br>
+  
+  <div class="example">Example: The <b>systemic</b> heart sends blood around the body.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 15, "ncols": 11, "words": [{"word": "FLESH", "row": 0, "col": 8, "dir": "D", "num": 1, "cn": "肉；肉体", "clue": "A body of soft ___."}, {"word": "GARMENT", "row": 1, "col": 6, "dir": "D", "num": 2, "cn": "服装", "clue": "He wore thick ___s against the cold wind."}, {"word": "SYSTEMIC", "row": 2, "col": 0, "dir": "D", "num": 3, "cn": "体循环的", "clue": "The ___ heart sends blood around the body."}, {"word": "FADE", "row": 2, "col": 5, "dir": "A", "num": 4, "cn": "渐渐消失", "clue": "His eyesight ___d slowly."}, {"word": "COURAGE", "row": 3, "col": 10, "dir": "D", "num": 5, "cn": "勇气", "clue": "Step by step, his ___ grew."}, {"word": "DELIGHT", "row": 6, "col": 2, "dir": "D", "num": 6, "cn": "喜悦", "clue": "Erik reached the top, to the ___ of his whole team."}, {"word": "BRANCHIAL", "row": 6, "col": 8, "dir": "D", "num": 7, "cn": "鳃的", "clue": "Two small hearts, called ___ hearts, push blood to its gills."}, {"word": "ERUPT", "row": 7, "col": 2, "dir": "A", "num": 8, "cn": "爆发", "clue": "His team ___ed with cheers. (past form in the text)"}, {"word": "PRIMARY", "row": 7, "col": 5, "dir": "D", "num": 9, "cn": "主要的", "clue": "Touch was his ___ guide."}, {"word": "COINCIDENCE", "row": 9, "col": 0, "dir": "A", "num": 10, "cn": "巧合", "clue": "It is no ___ that they are such good crawlers."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. How did Erik climb mountains?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. He followed maps with big pictures</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. He climbed by touch and by listening to his friends</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. He used a robot guide</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. He climbed only in summer</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. What is special about octopus blood?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. It is red because it uses iron</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. It is green because it uses leaves</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. It is blue because it uses copper</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. It is black because it uses ink</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. Why do octopuses usually crawl instead of swim?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. They have no arms</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. Their big heart stops when they swim fast, so they get tired</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. They are afraid of water</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. Crawling is faster than swimming</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does &quot;pull someone&#x27;s leg&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. To help someone walk</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. To tease someone with a joke</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. To pull someone out of a pool</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. To dance with a friend</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：B</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [1, 2, 1, 1];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;"><b class="kw">Guided</b> by his friends' voices and bells, Erik reached the top — <b class="kw">the first blind person ever to do it</b>, <b class="kw">to the delight of</b> his whole team, who erupted with cheers.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li>句首 <i>Guided by his friends' voices and bells</i> 是<b>过去分词短语作状语</b>：它省略了主语和 be 动词，完整意思是 <i>(After he was) guided by his friends' voices and bells</i>（在朋友们的声音和铃铛声指引下）。分词短语的逻辑主语必须和主句主语是同一个——这里都是 <i>Erik</i>，所以可以放心省略。读到句首的分词短语，先在心里把它补全。</li>
+  <li><i>the first blind person ever to do it</i> 是 <i>Erik</i> 的<b>同位语</b>：它不是新动作，而是对 Erik 的补充说明，用逗号隔开，意思是"有史以来第一个做到这件事的盲人"。其中的 <i>ever</i> 是加强语气，相当于"在历史上从来没有过"。</li>
+  <li>句尾 <i>to the delight of his whole team</i> 是<b>介词短语表结果</b>：<i>to one's delight</i> 的固定意思是"令某人高兴的是"，这里交代了登顶带来的结果——整个团队都高兴极了。类似的结构还有 <i>to one's surprise</i>（令某人惊讶的是）。</li>
+  <li>整句逻辑链：<b>在指引下登顶（分词短语交代方式）→ 他是史上第一位盲人登顶者（同位语点明意义）→ 团队欢呼（to the delight of 收尾点睛）</b>。一句话讲完一次登顶、一个纪录、一片欢呼。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. 过去分词短语作状语：选出正确的词填入空格</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">____ by his friends&#x27; voices, Erik found his way up the mountain.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">Guided</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">Guiding</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">Guides</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：Guided</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">____ in thick garments, the climbers stayed warm in the wind.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">Wrapping</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">Wrapped</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">Wraps</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：Wrapped</p>
+</div>
+<p class="p4-gname">B. 同位语：选出正确的短语填入空格</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">Erik, ____, reached the top of Everest.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">a first blind person ever to do it</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">the first blind person never to do it</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">the first blind person ever to do it</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：the first blind person ever to do it</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">Mount Everest, ____, is the tallest mountain in the world.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">the tallest mountain in the world</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">a tallest mountain in the world</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">the taller mountain in the world</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：the tallest mountain in the world</p>
+</div>
+<p class="p4-gname">C. to the delight/surprise of（令某人高兴/惊讶的是）：选出正确的短语填入空格</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">Erik reached the top, ____ his whole team.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">to the delight for</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">to the delight of</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">to the delightful of</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：to the delight of</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">____ everyone, the octopus crawled away quietly.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">To the surprise for</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">To the surprising of</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">To the surprise of</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：To the surprise of</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>Guided by the sound of the bell, the blind climber found the top of the hill, as if his hands could see.</li>
+<li>The octopus crawled across the rocks, yet its three hearts beat on quietly, as if nothing were wrong.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">1</span><span class="cwl">F</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">2</span><span class="cwl">G</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">3</span><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">F</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">D</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">Y</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">5</span><span class="cwl">C</span></td></tr><tr><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">M</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td></tr><tr><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td></tr><tr><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">6</span><span class="cwl">D</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">7</span><span class="cwl">B</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td></tr><tr><td class="cwc"><span class="cwl">M</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">8</span><span class="cwl">E</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwn">9</span><span class="cwl">P</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td></tr><tr><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">G</span></td></tr><tr><td class="cwc"><span class="cwn">10</span><span class="cwl">C</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">D</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">E</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">G</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">Y</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td></tr></table></div>1 竖 → <b>FLESH</b>（肉；肉体）<br>2 竖 → <b>GARMENT</b>（服装）<br>3 竖 → <b>SYSTEMIC</b>（体循环的）<br>4 横 → <b>FADE</b>（渐渐消失）<br>5 竖 → <b>COURAGE</b>（勇气）<br>6 竖 → <b>DELIGHT</b>（喜悦）<br>7 竖 → <b>BRANCHIAL</b>（鳃的）<br>8 横 → <b>ERUPT</b>（爆发）<br>9 竖 → <b>PRIMARY</b>（主要的）<br>10 横 → <b>COINCIDENCE</b>（巧合）<br><br><b>B. Single Choice:</b><br>
+1 → <b>B</b>. The text says Erik <i>"learned to climb rocks by touch"</i> and listened <i>"to the voices of his friends."</i><br>
+2 → <b>C</b>. The text says <i>"octopus blood uses copper, and copper turns it blue."</i><br>
+3 → <b>B</b>. The text says <i>"its big heart stops for a while"</i> when the octopus swims fast, so <i>"it just gets too tired to keep pumping."</i><br>
+4 → <b>B</b>. The idiom means <i>"you tease someone with a joke."</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. Guided&nbsp;&nbsp;2. Wrapped<br>
+B. 1. the first blind person ever to do it&nbsp;&nbsp;2. the tallest mountain in the world<br>
+C. 1. to the delight of&nbsp;&nbsp;2. To the surprise of<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol22/Vol22_晚读讲义_看不见的登山家与三颗心脏的章鱼_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 25.07, "end": 49.05, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! This is our twenty-second show together! Today we climb the tallest mountain on Earth with a man who cannot see it, and we dive under the sea to meet an animal with three hearts! One story is about courage. One story is about a body full of surprises. Let's go!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！这是我们在一起的第二十二期节目啦！今天我们要和一位看不见这座山的男人一起登上地球最高的山，还要潜入海底认识一只长着三颗心脏的动物！一个故事讲的是勇气，一个故事讲的是一个浑身是惊喜的身体。出发吧！", "words": [{"w": "Hello,", "t": 25.07}, {"w": "young", "t": 25.47}, {"w": "explorers,", "t": 25.87}, {"w": "and", "t": 26.27}, {"w": "welcome", "t": 26.67}, {"w": "back", "t": 27.07}, {"w": "to", "t": 27.47}, {"w": "Michael's", "t": 27.87}, {"w": "Morning", "t": 28.27}, {"w": "Listening!", "t": 28.67}, {"w": "This", "t": 29.07}, {"w": "is", "t": 29.47}, {"w": "our", "t": 29.87}, {"w": "twenty-second", "t": 30.27}, {"w": "show", "t": 30.67}, {"w": "together!", "t": 31.06}, {"w": "Today", "t": 31.46}, {"w": "we", "t": 31.86}, {"w": "climb", "t": 32.26}, {"w": "the", "t": 32.66}, {"w": "tallest", "t": 33.06}, {"w": "mountain", "t": 33.46}, {"w": "on", "t": 33.86}, {"w": "Earth", "t": 34.26}, {"w": "with", "t": 34.66}, {"w": "a", "t": 35.06}, {"w": "man", "t": 35.46}, {"w": "who", "t": 35.86}, {"w": "cannot", "t": 36.26}, {"w": "see", "t": 36.66}, {"w": "it,", "t": 37.06}, {"w": "and", "t": 37.46}, {"w": "we", "t": 37.86}, {"w": "dive", "t": 38.26}, {"w": "under", "t": 38.66}, {"w": "the", "t": 39.06}, {"w": "sea", "t": 39.46}, {"w": "to", "t": 39.86}, {"w": "meet", "t": 40.26}, {"w": "an", "t": 40.66}, {"w": "animal", "t": 41.06}, {"w": "with", "t": 41.46}, {"w": "three", "t": 41.86}, {"w": "hearts!", "t": 42.26}, {"w": "One", "t": 42.66}, {"w": "story", "t": 43.05}, {"w": "is", "t": 43.45}, {"w": "about", "t": 43.85}, {"w": "courage.", "t": 44.25}, {"w": "One", "t": 44.65}, {"w": "story", "t": 45.05}, {"w": "is", "t": 45.45}, {"w": "about", "t": 45.85}, {"w": "a", "t": 46.25}, {"w": "body", "t": 46.65}, {"w": "full", "t": 47.05}, {"w": "of", "t": 47.45}, {"w": "surprises.", "t": 47.85}, {"w": "Let's", "t": 48.25}, {"w": "go!", "t": 48.65}]}, {"start": 66.15, "end": 86.92, "en": "Erik Weihenmayer was born with weak eyes, and his eyesight faded slowly until, as a young boy, he could not see at all. But losing his sight did not stop him. He learned to climb rocks by touch, feeling every crack with his fingers, and listening to the voices of his friends.", "title": "看不见的登山家", "cn": "埃里克·魏亨迈尔天生眼睛不好，视力慢慢减弱，小时候就什么也看不见了。可是，失去视力并没有拦住他。他学会了靠触摸爬山，用手指摸索每一道裂缝，听朋友们的声音指引方向。", "words": [{"w": "Erik", "t": 66.15}, {"w": "Weihenmayer", "t": 66.55}, {"w": "was", "t": 66.95}, {"w": "born", "t": 67.35}, {"w": "with", "t": 67.75}, {"w": "weak", "t": 68.15}, {"w": "eyes,", "t": 68.55}, {"w": "and", "t": 68.95}, {"w": "his", "t": 69.35}, {"w": "eyesight", "t": 69.74}, {"w": "faded", "t": 70.14}, {"w": "slowly", "t": 70.54}, {"w": "until,", "t": 70.94}, {"w": "as", "t": 71.34}, {"w": "a", "t": 71.74}, {"w": "young", "t": 72.14}, {"w": "boy,", "t": 72.54}, {"w": "he", "t": 72.94}, {"w": "could", "t": 73.34}, {"w": "not", "t": 73.74}, {"w": "see", "t": 74.14}, {"w": "at", "t": 74.54}, {"w": "all.", "t": 74.94}, {"w": "But", "t": 75.34}, {"w": "losing", "t": 75.74}, {"w": "his", "t": 76.14}, {"w": "sight", "t": 76.53}, {"w": "did", "t": 76.93}, {"w": "not", "t": 77.33}, {"w": "stop", "t": 77.73}, {"w": "him.", "t": 78.13}, {"w": "He", "t": 78.53}, {"w": "learned", "t": 78.93}, {"w": "to", "t": 79.33}, {"w": "climb", "t": 79.73}, {"w": "rocks", "t": 80.13}, {"w": "by", "t": 80.53}, {"w": "touch,", "t": 80.93}, {"w": "feeling", "t": 81.33}, {"w": "every", "t": 81.73}, {"w": "crack", "t": 82.13}, {"w": "with", "t": 82.53}, {"w": "his", "t": 82.93}, {"w": "fingers,", "t": 83.33}, {"w": "and", "t": 83.72}, {"w": "listening", "t": 84.12}, {"w": "to", "t": 84.52}, {"w": "the", "t": 84.92}, {"w": "voices", "t": 85.32}, {"w": "of", "t": 85.72}, {"w": "his", "t": 86.12}, {"w": "friends.", "t": 86.52}]}, {"start": 86.92, "end": 98.51, "en": "Step by step, his courage grew. He wore thick garments against the cold wind, and he kept going even when his hands got small wounds from ice and stone.", "title": "看不见的登山家", "cn": "一步一步，他的勇气越来越大。他穿着厚厚的衣服抵御寒风，哪怕双手被冰雪和岩石磨出小伤口，也坚持往上爬。", "words": [{"w": "Step", "t": 86.92}, {"w": "by", "t": 87.32}, {"w": "step,", "t": 87.72}, {"w": "his", "t": 88.12}, {"w": "courage", "t": 88.52}, {"w": "grew.", "t": 88.92}, {"w": "He", "t": 89.32}, {"w": "wore", "t": 89.72}, {"w": "thick", "t": 90.12}, {"w": "garments", "t": 90.52}, {"w": "against", "t": 90.92}, {"w": "the", "t": 91.32}, {"w": "cold", "t": 91.72}, {"w": "wind,", "t": 92.12}, {"w": "and", "t": 92.52}, {"w": "he", "t": 92.91}, {"w": "kept", "t": 93.31}, {"w": "going", "t": 93.71}, {"w": "even", "t": 94.11}, {"w": "when", "t": 94.51}, {"w": "his", "t": 94.91}, {"w": "hands", "t": 95.31}, {"w": "got", "t": 95.71}, {"w": "small", "t": 96.11}, {"w": "wounds", "t": 96.51}, {"w": "from", "t": 96.91}, {"w": "ice", "t": 97.31}, {"w": "and", "t": 97.71}, {"w": "stone.", "t": 98.11}]}, {"start": 98.51, "end": 116.08, "en": "Then came his greatest climb: Mount Everest, the tallest mountain in the world. Guided by his friends' voices and bells, Erik reached the top — the first blind person ever to do it, to the delight of his whole team, who erupted with cheers.", "title": "看不见的登山家", "cn": "然后迎来了他最伟大的一次攀登：珠穆朗玛峰，世界最高的山。在朋友们的声音和铃铛声指引下，埃里克登上了峰顶——他是第一个做到这一点的盲人，整个团队都高兴极了，爆发出一阵欢呼。", "words": [{"w": "Then", "t": 98.51}, {"w": "came", "t": 98.91}, {"w": "his", "t": 99.31}, {"w": "greatest", "t": 99.71}, {"w": "climb:", "t": 100.11}, {"w": "Mount", "t": 100.51}, {"w": "Everest,", "t": 100.91}, {"w": "the", "t": 101.31}, {"w": "tallest", "t": 101.7}, {"w": "mountain", "t": 102.1}, {"w": "in", "t": 102.5}, {"w": "the", "t": 102.9}, {"w": "world.", "t": 103.3}, {"w": "Guided", "t": 103.7}, {"w": "by", "t": 104.1}, {"w": "his", "t": 104.5}, {"w": "friends'", "t": 104.9}, {"w": "voices", "t": 105.3}, {"w": "and", "t": 105.7}, {"w": "bells,", "t": 106.1}, {"w": "Erik", "t": 106.5}, {"w": "reached", "t": 106.9}, {"w": "the", "t": 107.3}, {"w": "top", "t": 107.69}, {"w": "—", "t": 108.09}, {"w": "the", "t": 108.49}, {"w": "first", "t": 108.89}, {"w": "blind", "t": 109.29}, {"w": "person", "t": 109.69}, {"w": "ever", "t": 110.09}, {"w": "to", "t": 110.49}, {"w": "do", "t": 110.89}, {"w": "it,", "t": 111.29}, {"w": "to", "t": 111.69}, {"w": "the", "t": 112.09}, {"w": "delight", "t": 112.49}, {"w": "of", "t": 112.89}, {"w": "his", "t": 113.28}, {"w": "whole", "t": 113.68}, {"w": "team,", "t": 114.08}, {"w": "who", "t": 114.48}, {"w": "erupted", "t": 114.88}, {"w": "with", "t": 115.28}, {"w": "cheers.", "t": 115.68}]}, {"start": 116.08, "end": 133.66, "en": "He did not stop there. He went on to climb the highest peak on every continent, seven mountains in all. Touch was his primary guide, and courage was his engine. Erik says what is inside you is stronger than what stands in your way.", "title": "看不见的登山家", "cn": "他没有就此停下。后来他又登上了每个大洲的最高峰，一共七座大山。触摸是他最主要的向导，勇气是他的发动机。埃里克说：你内心的力量，比挡在你面前的任何东西都强大。", "words": [{"w": "He", "t": 116.08}, {"w": "did", "t": 116.48}, {"w": "not", "t": 116.88}, {"w": "stop", "t": 117.28}, {"w": "there.", "t": 117.68}, {"w": "He", "t": 118.08}, {"w": "went", "t": 118.48}, {"w": "on", "t": 118.88}, {"w": "to", "t": 119.28}, {"w": "climb", "t": 119.68}, {"w": "the", "t": 120.08}, {"w": "highest", "t": 120.47}, {"w": "peak", "t": 120.87}, {"w": "on", "t": 121.27}, {"w": "every", "t": 121.67}, {"w": "continent,", "t": 122.07}, {"w": "seven", "t": 122.47}, {"w": "mountains", "t": 122.87}, {"w": "in", "t": 123.27}, {"w": "all.", "t": 123.67}, {"w": "Touch", "t": 124.07}, {"w": "was", "t": 124.47}, {"w": "his", "t": 124.87}, {"w": "primary", "t": 125.27}, {"w": "guide,", "t": 125.67}, {"w": "and", "t": 126.07}, {"w": "courage", "t": 126.47}, {"w": "was", "t": 126.87}, {"w": "his", "t": 127.27}, {"w": "engine.", "t": 127.67}, {"w": "Erik", "t": 128.07}, {"w": "says", "t": 128.47}, {"w": "what", "t": 128.87}, {"w": "is", "t": 129.26}, {"w": "inside", "t": 129.66}, {"w": "you", "t": 130.06}, {"w": "is", "t": 130.46}, {"w": "stronger", "t": 130.86}, {"w": "than", "t": 131.26}, {"w": "what", "t": 131.66}, {"w": "stands", "t": 132.06}, {"w": "in", "t": 132.46}, {"w": "your", "t": 132.86}, {"w": "way.", "t": 133.26}]}, {"start": 147.56, "end": 173.29, "en": "Now dive with me into the sea and meet the octopus, a soft animal with no bones at all. It has not one heart, but three! Two small hearts, called branchial hearts, push blood to its gills, where the blood picks up oxygen from the water. Then a third, bigger heart, the systemic heart, sends the oxygen-rich blood around the body, to every cell.", "title": "三颗心脏的章鱼", "cn": "现在跟我一起潜入大海，认识一下章鱼吧——它是一种软软的动物，全身没有一根骨头。它不是只有一颗心脏，而是有三颗！两颗小小的心脏叫鳃心，负责把血液送到鳃里，让血液从水中吸取氧气。然后第三颗更大的心脏——体循环心脏，把富含氧气的血液送往全身，送到每一个细胞。", "words": [{"w": "Now", "t": 147.56}, {"w": "dive", "t": 147.96}, {"w": "with", "t": 148.36}, {"w": "me", "t": 148.77}, {"w": "into", "t": 149.17}, {"w": "the", "t": 149.57}, {"w": "sea", "t": 149.97}, {"w": "and", "t": 150.37}, {"w": "meet", "t": 150.78}, {"w": "the", "t": 151.18}, {"w": "octopus,", "t": 151.58}, {"w": "a", "t": 151.98}, {"w": "soft", "t": 152.38}, {"w": "animal", "t": 152.79}, {"w": "with", "t": 153.19}, {"w": "no", "t": 153.59}, {"w": "bones", "t": 153.99}, {"w": "at", "t": 154.39}, {"w": "all.", "t": 154.8}, {"w": "It", "t": 155.2}, {"w": "has", "t": 155.6}, {"w": "not", "t": 156.0}, {"w": "one", "t": 156.4}, {"w": "heart,", "t": 156.81}, {"w": "but", "t": 157.21}, {"w": "three!", "t": 157.61}, {"w": "Two", "t": 158.01}, {"w": "small", "t": 158.41}, {"w": "hearts,", "t": 158.82}, {"w": "called", "t": 159.22}, {"w": "branchial", "t": 159.62}, {"w": "hearts,", "t": 160.02}, {"w": "push", "t": 160.43}, {"w": "blood", "t": 160.83}, {"w": "to", "t": 161.23}, {"w": "its", "t": 161.63}, {"w": "gills,", "t": 162.03}, {"w": "where", "t": 162.44}, {"w": "the", "t": 162.84}, {"w": "blood", "t": 163.24}, {"w": "picks", "t": 163.64}, {"w": "up", "t": 164.04}, {"w": "oxygen", "t": 164.45}, {"w": "from", "t": 164.85}, {"w": "the", "t": 165.25}, {"w": "water.", "t": 165.65}, {"w": "Then", "t": 166.05}, {"w": "a", "t": 166.46}, {"w": "third,", "t": 166.86}, {"w": "bigger", "t": 167.26}, {"w": "heart,", "t": 167.66}, {"w": "the", "t": 168.06}, {"w": "systemic", "t": 168.47}, {"w": "heart,", "t": 168.87}, {"w": "sends", "t": 169.27}, {"w": "the", "t": 169.67}, {"w": "oxygen-rich", "t": 170.07}, {"w": "blood", "t": 170.48}, {"w": "around", "t": 170.88}, {"w": "the", "t": 171.28}, {"w": "body,", "t": 171.68}, {"w": "to", "t": 172.08}, {"w": "every", "t": 172.49}, {"w": "cell.", "t": 172.89}]}, {"start": 173.29, "end": 184.96, "en": "And here is the strangest part: the octopus's blood is blue! Our blood is red because it uses iron, but octopus blood uses copper, and copper turns it blue.", "title": "三颗心脏的章鱼", "cn": "最奇怪的地方来了：章鱼的血是蓝色的！我们的血是红色的，因为里面有铁；章鱼的血里用的是铜，铜让它的血变成了蓝色。", "words": [{"w": "And", "t": 173.29}, {"w": "here", "t": 173.69}, {"w": "is", "t": 174.09}, {"w": "the", "t": 174.5}, {"w": "strangest", "t": 174.9}, {"w": "part:", "t": 175.3}, {"w": "the", "t": 175.7}, {"w": "octopus's", "t": 176.11}, {"w": "blood", "t": 176.51}, {"w": "is", "t": 176.91}, {"w": "blue!", "t": 177.31}, {"w": "Our", "t": 177.72}, {"w": "blood", "t": 178.12}, {"w": "is", "t": 178.52}, {"w": "red", "t": 178.92}, {"w": "because", "t": 179.33}, {"w": "it", "t": 179.73}, {"w": "uses", "t": 180.13}, {"w": "iron,", "t": 180.53}, {"w": "but", "t": 180.94}, {"w": "octopus", "t": 181.34}, {"w": "blood", "t": 181.74}, {"w": "uses", "t": 182.14}, {"w": "copper,", "t": 182.55}, {"w": "and", "t": 182.95}, {"w": "copper", "t": 183.35}, {"w": "turns", "t": 183.75}, {"w": "it", "t": 184.16}, {"w": "blue.", "t": 184.56}]}, {"start": 184.96, "end": 201.84, "en": "When the octopus swims fast, its big heart stops for a while. Do not worry — the octopus is not dead. It just gets too tired to keep pumping. That is why octopuses usually crawl along the sea floor instead of swimming.", "title": "三颗心脏的章鱼", "cn": "当章鱼快速游动时，它的大心脏会停跳一会儿。别担心——章鱼并没有死。它只是累得泵不动血了。所以章鱼平时更喜欢在海底爬行，而不是游泳。", "words": [{"w": "When", "t": 184.96}, {"w": "the", "t": 185.36}, {"w": "octopus", "t": 185.76}, {"w": "swims", "t": 186.17}, {"w": "fast,", "t": 186.57}, {"w": "its", "t": 186.97}, {"w": "big", "t": 187.37}, {"w": "heart", "t": 187.77}, {"w": "stops", "t": 188.18}, {"w": "for", "t": 188.58}, {"w": "a", "t": 188.98}, {"w": "while.", "t": 189.38}, {"w": "Do", "t": 189.78}, {"w": "not", "t": 190.18}, {"w": "worry", "t": 190.59}, {"w": "—", "t": 190.99}, {"w": "the", "t": 191.39}, {"w": "octopus", "t": 191.79}, {"w": "is", "t": 192.19}, {"w": "not", "t": 192.6}, {"w": "dead.", "t": 193.0}, {"w": "It", "t": 193.4}, {"w": "just", "t": 193.8}, {"w": "gets", "t": 194.2}, {"w": "too", "t": 194.61}, {"w": "tired", "t": 195.01}, {"w": "to", "t": 195.41}, {"w": "keep", "t": 195.81}, {"w": "pumping.", "t": 196.21}, {"w": "That", "t": 196.62}, {"w": "is", "t": 197.02}, {"w": "why", "t": 197.42}, {"w": "octopuses", "t": 197.82}, {"w": "usually", "t": 198.22}, {"w": "crawl", "t": 198.62}, {"w": "along", "t": 199.03}, {"w": "the", "t": 199.43}, {"w": "sea", "t": 199.83}, {"w": "floor", "t": 200.23}, {"w": "instead", "t": 200.63}, {"w": "of", "t": 201.04}, {"w": "swimming.", "t": 201.44}]}, {"start": 201.84, "end": 225.97, "en": "It is no coincidence that they are such good crawlers: eight soft arms, covered in suckers, can grip rocks and squeeze the whole body through tiny gaps. One octopus slipped out of its pen in an aquarium and escaped back to the sea! With three hearts, blue blood, and a body of soft flesh, the octopus is alive with surprises.", "title": "三颗心脏的章鱼", "cn": "它们这么会爬绝不是巧合：八条软软的手臂上长满了吸盘，能抓住岩石，还能把整个身体挤过小小的缝隙。有一只章鱼甚至从水族馆的围栏里溜了出来，逃回了大海！三颗心脏、蓝色的血、一身软软的肉——章鱼浑身都是惊喜。", "words": [{"w": "It", "t": 201.84}, {"w": "is", "t": 202.24}, {"w": "no", "t": 202.64}, {"w": "coincidence", "t": 203.05}, {"w": "that", "t": 203.45}, {"w": "they", "t": 203.85}, {"w": "are", "t": 204.25}, {"w": "such", "t": 204.66}, {"w": "good", "t": 205.06}, {"w": "crawlers:", "t": 205.46}, {"w": "eight", "t": 205.86}, {"w": "soft", "t": 206.26}, {"w": "arms,", "t": 206.67}, {"w": "covered", "t": 207.07}, {"w": "in", "t": 207.47}, {"w": "suckers,", "t": 207.87}, {"w": "can", "t": 208.27}, {"w": "grip", "t": 208.68}, {"w": "rocks", "t": 209.08}, {"w": "and", "t": 209.48}, {"w": "squeeze", "t": 209.88}, {"w": "the", "t": 210.29}, {"w": "whole", "t": 210.69}, {"w": "body", "t": 211.09}, {"w": "through", "t": 211.49}, {"w": "tiny", "t": 211.89}, {"w": "gaps.", "t": 212.3}, {"w": "One", "t": 212.7}, {"w": "octopus", "t": 213.1}, {"w": "slipped", "t": 213.5}, {"w": "out", "t": 213.91}, {"w": "of", "t": 214.31}, {"w": "its", "t": 214.71}, {"w": "pen", "t": 215.11}, {"w": "in", "t": 215.51}, {"w": "an", "t": 215.92}, {"w": "aquarium", "t": 216.32}, {"w": "and", "t": 216.72}, {"w": "escaped", "t": 217.12}, {"w": "back", "t": 217.52}, {"w": "to", "t": 217.93}, {"w": "the", "t": 218.33}, {"w": "sea!", "t": 218.73}, {"w": "With", "t": 219.13}, {"w": "three", "t": 219.54}, {"w": "hearts,", "t": 219.94}, {"w": "blue", "t": 220.34}, {"w": "blood,", "t": 220.74}, {"w": "and", "t": 221.14}, {"w": "a", "t": 221.55}, {"w": "body", "t": 221.95}, {"w": "of", "t": 222.35}, {"w": "soft", "t": 222.75}, {"w": "flesh,", "t": 223.15}, {"w": "the", "t": 223.56}, {"w": "octopus", "t": 223.96}, {"w": "is", "t": 224.36}, {"w": "alive", "t": 224.76}, {"w": "with", "t": 225.17}, {"w": "surprises.", "t": 225.57}]}, {"start": 240.11, "end": 268.57, "en": "Here's today's idiom: \"pull someone's leg.\" It does not mean you really pull a leg! It means you tease someone with a joke. Listen to this: Tom told his friend Sam that a shark lived in the school swimming pool. Sam put on his swimming hat and ran to look. Then Tom laughed and said, \"I was only pulling your leg!\" When someone pulls your leg, they are joking, not telling the truth.", "title": "今日俚语", "cn": "今天的俚语是“pull someone's leg”（开某人的玩笑）。它不是真的去拉别人的腿！它的意思是拿别人开玩笑、逗别人。听这个小故事：汤姆告诉他的朋友萨姆，说学校游泳池里住着一条鲨鱼。萨姆戴上泳帽就跑去看。接着汤姆笑着说：“我只是跟你开玩笑啦！”当有人 pull your leg 的时候，他是在开玩笑，不是在说真话。", "words": [{"w": "Here's", "t": 240.11}, {"w": "today's", "t": 240.5}, {"w": "idiom:", "t": 240.89}, {"w": "\"pull", "t": 241.28}, {"w": "someone's", "t": 241.67}, {"w": "leg.\"", "t": 242.06}, {"w": "It", "t": 242.45}, {"w": "does", "t": 242.84}, {"w": "not", "t": 243.23}, {"w": "mean", "t": 243.62}, {"w": "you", "t": 244.01}, {"w": "really", "t": 244.4}, {"w": "pull", "t": 244.79}, {"w": "a", "t": 245.18}, {"w": "leg!", "t": 245.57}, {"w": "It", "t": 245.96}, {"w": "means", "t": 246.35}, {"w": "you", "t": 246.74}, {"w": "tease", "t": 247.13}, {"w": "someone", "t": 247.52}, {"w": "with", "t": 247.91}, {"w": "a", "t": 248.3}, {"w": "joke.", "t": 248.69}, {"w": "Listen", "t": 249.08}, {"w": "to", "t": 249.47}, {"w": "this:", "t": 249.86}, {"w": "Tom", "t": 250.25}, {"w": "told", "t": 250.64}, {"w": "his", "t": 251.03}, {"w": "friend", "t": 251.42}, {"w": "Sam", "t": 251.81}, {"w": "that", "t": 252.2}, {"w": "a", "t": 252.59}, {"w": "shark", "t": 252.98}, {"w": "lived", "t": 253.37}, {"w": "in", "t": 253.76}, {"w": "the", "t": 254.15}, {"w": "school", "t": 254.53}, {"w": "swimming", "t": 254.92}, {"w": "pool.", "t": 255.31}, {"w": "Sam", "t": 255.7}, {"w": "put", "t": 256.09}, {"w": "on", "t": 256.48}, {"w": "his", "t": 256.87}, {"w": "swimming", "t": 257.26}, {"w": "hat", "t": 257.65}, {"w": "and", "t": 258.04}, {"w": "ran", "t": 258.43}, {"w": "to", "t": 258.82}, {"w": "look.", "t": 259.21}, {"w": "Then", "t": 259.6}, {"w": "Tom", "t": 259.99}, {"w": "laughed", "t": 260.38}, {"w": "and", "t": 260.77}, {"w": "said,", "t": 261.16}, {"w": "\"I", "t": 261.55}, {"w": "was", "t": 261.94}, {"w": "only", "t": 262.33}, {"w": "pulling", "t": 262.72}, {"w": "your", "t": 263.11}, {"w": "leg!\"", "t": 263.5}, {"w": "When", "t": 263.89}, {"w": "someone", "t": 264.28}, {"w": "pulls", "t": 264.67}, {"w": "your", "t": 265.06}, {"w": "leg,", "t": 265.45}, {"w": "they", "t": 265.84}, {"w": "are", "t": 266.23}, {"w": "joking,", "t": 266.62}, {"w": "not", "t": 267.01}, {"w": "telling", "t": 267.4}, {"w": "the", "t": 267.79}, {"w": "truth.", "t": 268.18}]}, {"start": 282.87, "end": 313.33, "en": "Let's think about our stories. A blind climber reached the top of the world, and an octopus carries three hearts in its soft body. Two questions for you. First: Erik climbed by touch and by listening. If you could not see, what would help you most — touch, sound, or smell? Second: if you had three hearts like an octopus, what would you do with the extra one? Talk about it with your father and mother!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事。一位盲人登山家登上了世界之巅，一只章鱼的身体里带着三颗心脏。轮到回答两个问题。第一：埃里克靠触摸和听觉登山。如果你看不见，什么对你的帮助最大——触摸、声音，还是气味？第二：如果你像章鱼一样有三颗心脏，多出来的那颗你会用来做什么？和爸爸妈妈聊聊吧！", "words": [{"w": "Let's", "t": 282.87}, {"w": "think", "t": 283.27}, {"w": "about", "t": 283.67}, {"w": "our", "t": 284.07}, {"w": "stories.", "t": 284.47}, {"w": "A", "t": 284.87}, {"w": "blind", "t": 285.27}, {"w": "climber", "t": 285.68}, {"w": "reached", "t": 286.08}, {"w": "the", "t": 286.48}, {"w": "top", "t": 286.88}, {"w": "of", "t": 287.28}, {"w": "the", "t": 287.68}, {"w": "world,", "t": 288.08}, {"w": "and", "t": 288.48}, {"w": "an", "t": 288.88}, {"w": "octopus", "t": 289.28}, {"w": "carries", "t": 289.68}, {"w": "three", "t": 290.08}, {"w": "hearts", "t": 290.49}, {"w": "in", "t": 290.89}, {"w": "its", "t": 291.29}, {"w": "soft", "t": 291.69}, {"w": "body.", "t": 292.09}, {"w": "Two", "t": 292.49}, {"w": "questions", "t": 292.89}, {"w": "for", "t": 293.29}, {"w": "you.", "t": 293.69}, {"w": "First:", "t": 294.09}, {"w": "Erik", "t": 294.49}, {"w": "climbed", "t": 294.89}, {"w": "by", "t": 295.29}, {"w": "touch", "t": 295.7}, {"w": "and", "t": 296.1}, {"w": "by", "t": 296.5}, {"w": "listening.", "t": 296.9}, {"w": "If", "t": 297.3}, {"w": "you", "t": 297.7}, {"w": "could", "t": 298.1}, {"w": "not", "t": 298.5}, {"w": "see,", "t": 298.9}, {"w": "what", "t": 299.3}, {"w": "would", "t": 299.7}, {"w": "help", "t": 300.1}, {"w": "you", "t": 300.5}, {"w": "most", "t": 300.91}, {"w": "—", "t": 301.31}, {"w": "touch,", "t": 301.71}, {"w": "sound,", "t": 302.11}, {"w": "or", "t": 302.51}, {"w": "smell?", "t": 302.91}, {"w": "Second:", "t": 303.31}, {"w": "if", "t": 303.71}, {"w": "you", "t": 304.11}, {"w": "had", "t": 304.51}, {"w": "three", "t": 304.91}, {"w": "hearts", "t": 305.31}, {"w": "like", "t": 305.71}, {"w": "an", "t": 306.12}, {"w": "octopus,", "t": 306.52}, {"w": "what", "t": 306.92}, {"w": "would", "t": 307.32}, {"w": "you", "t": 307.72}, {"w": "do", "t": 308.12}, {"w": "with", "t": 308.52}, {"w": "the", "t": 308.92}, {"w": "extra", "t": 309.32}, {"w": "one?", "t": 309.72}, {"w": "Talk", "t": 310.12}, {"w": "about", "t": 310.52}, {"w": "it", "t": 310.93}, {"w": "with", "t": 311.33}, {"w": "your", "t": 311.73}, {"w": "father", "t": 312.13}, {"w": "and", "t": 312.53}, {"w": "mother!", "t": 312.93}]}, {"start": 324.51, "end": 335.81, "en": "That's all for today, young explorers. Remember: courage can carry you up any mountain, and a joke is only fun when everyone laughs. Stay curious! See you tomorrow morning!", "title": "告别", "cn": "今天的节目就到这里，小小探险家们。记住：勇气能带你登上任何一座高山，开玩笑也要大家一起笑才好玩。保持好奇心！明天早上见！", "words": [{"w": "That's", "t": 324.51}, {"w": "all", "t": 324.9}, {"w": "for", "t": 325.29}, {"w": "today,", "t": 325.68}, {"w": "young", "t": 326.07}, {"w": "explorers.", "t": 326.46}, {"w": "Remember:", "t": 326.85}, {"w": "courage", "t": 327.24}, {"w": "can", "t": 327.63}, {"w": "carry", "t": 328.02}, {"w": "you", "t": 328.41}, {"w": "up", "t": 328.8}, {"w": "any", "t": 329.19}, {"w": "mountain,", "t": 329.58}, {"w": "and", "t": 329.97}, {"w": "a", "t": 330.35}, {"w": "joke", "t": 330.74}, {"w": "is", "t": 331.13}, {"w": "only", "t": 331.52}, {"w": "fun", "t": 331.91}, {"w": "when", "t": 332.3}, {"w": "everyone", "t": 332.69}, {"w": "laughs.", "t": 333.08}, {"w": "Stay", "t": 333.47}, {"w": "curious!", "t": 333.86}, {"w": "See", "t": 334.25}, {"w": "you", "t": 334.64}, {"w": "tomorrow", "t": 335.03}, {"w": "morning!", "t": 335.42}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol22/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>

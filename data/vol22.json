@@ -1,0 +1,3674 @@
+{
+ "id": "vol22",
+ "title": "看不见的登山家与三颗心脏的章鱼",
+ "words": 599,
+ "duration": "5分45秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol22/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol22/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol22/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol22/Vol22_晚读讲义_看不见的登山家与三颗心脏的章鱼_v1.pdf",
+ "pdfName": "Vol22_晚读讲义_看不见的登山家与三颗心脏的章鱼_v1.pdf",
+ "blocks": [
+  {
+   "start": 25.07,
+   "end": 49.05,
+   "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! This is our twenty-second show together! Today we climb the tallest mountain on Earth with a man who cannot see it, and we dive under the sea to meet an animal with three hearts! One story is about courage. One story is about a body full of surprises. Let's go!",
+   "title": "开场白",
+   "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！这是我们在一起的第二十二期节目啦！今天我们要和一位看不见这座山的男人一起登上地球最高的山，还要潜入海底认识一只长着三颗心脏的动物！一个故事讲的是勇气，一个故事讲的是一个浑身是惊喜的身体。出发吧！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 25.07
+    },
+    {
+     "w": "young",
+     "t": 25.47
+    },
+    {
+     "w": "explorers,",
+     "t": 25.87
+    },
+    {
+     "w": "and",
+     "t": 26.27
+    },
+    {
+     "w": "welcome",
+     "t": 26.67
+    },
+    {
+     "w": "back",
+     "t": 27.07
+    },
+    {
+     "w": "to",
+     "t": 27.47
+    },
+    {
+     "w": "Michael's",
+     "t": 27.87
+    },
+    {
+     "w": "Morning",
+     "t": 28.27
+    },
+    {
+     "w": "Listening!",
+     "t": 28.67
+    },
+    {
+     "w": "This",
+     "t": 29.07
+    },
+    {
+     "w": "is",
+     "t": 29.47
+    },
+    {
+     "w": "our",
+     "t": 29.87
+    },
+    {
+     "w": "twenty-second",
+     "t": 30.27
+    },
+    {
+     "w": "show",
+     "t": 30.67
+    },
+    {
+     "w": "together!",
+     "t": 31.06
+    },
+    {
+     "w": "Today",
+     "t": 31.46
+    },
+    {
+     "w": "we",
+     "t": 31.86
+    },
+    {
+     "w": "climb",
+     "t": 32.26
+    },
+    {
+     "w": "the",
+     "t": 32.66
+    },
+    {
+     "w": "tallest",
+     "t": 33.06
+    },
+    {
+     "w": "mountain",
+     "t": 33.46
+    },
+    {
+     "w": "on",
+     "t": 33.86
+    },
+    {
+     "w": "Earth",
+     "t": 34.26
+    },
+    {
+     "w": "with",
+     "t": 34.66
+    },
+    {
+     "w": "a",
+     "t": 35.06
+    },
+    {
+     "w": "man",
+     "t": 35.46
+    },
+    {
+     "w": "who",
+     "t": 35.86
+    },
+    {
+     "w": "cannot",
+     "t": 36.26
+    },
+    {
+     "w": "see",
+     "t": 36.66
+    },
+    {
+     "w": "it,",
+     "t": 37.06
+    },
+    {
+     "w": "and",
+     "t": 37.46
+    },
+    {
+     "w": "we",
+     "t": 37.86
+    },
+    {
+     "w": "dive",
+     "t": 38.26
+    },
+    {
+     "w": "under",
+     "t": 38.66
+    },
+    {
+     "w": "the",
+     "t": 39.06
+    },
+    {
+     "w": "sea",
+     "t": 39.46
+    },
+    {
+     "w": "to",
+     "t": 39.86
+    },
+    {
+     "w": "meet",
+     "t": 40.26
+    },
+    {
+     "w": "an",
+     "t": 40.66
+    },
+    {
+     "w": "animal",
+     "t": 41.06
+    },
+    {
+     "w": "with",
+     "t": 41.46
+    },
+    {
+     "w": "three",
+     "t": 41.86
+    },
+    {
+     "w": "hearts!",
+     "t": 42.26
+    },
+    {
+     "w": "One",
+     "t": 42.66
+    },
+    {
+     "w": "story",
+     "t": 43.05
+    },
+    {
+     "w": "is",
+     "t": 43.45
+    },
+    {
+     "w": "about",
+     "t": 43.85
+    },
+    {
+     "w": "courage.",
+     "t": 44.25
+    },
+    {
+     "w": "One",
+     "t": 44.65
+    },
+    {
+     "w": "story",
+     "t": 45.05
+    },
+    {
+     "w": "is",
+     "t": 45.45
+    },
+    {
+     "w": "about",
+     "t": 45.85
+    },
+    {
+     "w": "a",
+     "t": 46.25
+    },
+    {
+     "w": "body",
+     "t": 46.65
+    },
+    {
+     "w": "full",
+     "t": 47.05
+    },
+    {
+     "w": "of",
+     "t": 47.45
+    },
+    {
+     "w": "surprises.",
+     "t": 47.85
+    },
+    {
+     "w": "Let's",
+     "t": 48.25
+    },
+    {
+     "w": "go!",
+     "t": 48.65
+    }
+   ]
+  },
+  {
+   "start": 66.15,
+   "end": 86.92,
+   "en": "Erik Weihenmayer was born with weak eyes, and his eyesight faded slowly until, as a young boy, he could not see at all. But losing his sight did not stop him. He learned to climb rocks by touch, feeling every crack with his fingers, and listening to the voices of his friends.",
+   "title": "看不见的登山家",
+   "cn": "埃里克·魏亨迈尔天生眼睛不好，视力慢慢减弱，小时候就什么也看不见了。可是，失去视力并没有拦住他。他学会了靠触摸爬山，用手指摸索每一道裂缝，听朋友们的声音指引方向。",
+   "words": [
+    {
+     "w": "Erik",
+     "t": 66.15
+    },
+    {
+     "w": "Weihenmayer",
+     "t": 66.55
+    },
+    {
+     "w": "was",
+     "t": 66.95
+    },
+    {
+     "w": "born",
+     "t": 67.35
+    },
+    {
+     "w": "with",
+     "t": 67.75
+    },
+    {
+     "w": "weak",
+     "t": 68.15
+    },
+    {
+     "w": "eyes,",
+     "t": 68.55
+    },
+    {
+     "w": "and",
+     "t": 68.95
+    },
+    {
+     "w": "his",
+     "t": 69.35
+    },
+    {
+     "w": "eyesight",
+     "t": 69.75
+    },
+    {
+     "w": "faded",
+     "t": 70.14
+    },
+    {
+     "w": "slowly",
+     "t": 70.54
+    },
+    {
+     "w": "until,",
+     "t": 70.94
+    },
+    {
+     "w": "as",
+     "t": 71.34
+    },
+    {
+     "w": "a",
+     "t": 71.74
+    },
+    {
+     "w": "young",
+     "t": 72.14
+    },
+    {
+     "w": "boy,",
+     "t": 72.54
+    },
+    {
+     "w": "he",
+     "t": 72.94
+    },
+    {
+     "w": "could",
+     "t": 73.34
+    },
+    {
+     "w": "not",
+     "t": 73.74
+    },
+    {
+     "w": "see",
+     "t": 74.14
+    },
+    {
+     "w": "at",
+     "t": 74.54
+    },
+    {
+     "w": "all.",
+     "t": 74.94
+    },
+    {
+     "w": "But",
+     "t": 75.34
+    },
+    {
+     "w": "losing",
+     "t": 75.74
+    },
+    {
+     "w": "his",
+     "t": 76.14
+    },
+    {
+     "w": "sight",
+     "t": 76.54
+    },
+    {
+     "w": "did",
+     "t": 76.94
+    },
+    {
+     "w": "not",
+     "t": 77.34
+    },
+    {
+     "w": "stop",
+     "t": 77.73
+    },
+    {
+     "w": "him.",
+     "t": 78.13
+    },
+    {
+     "w": "He",
+     "t": 78.53
+    },
+    {
+     "w": "learned",
+     "t": 78.93
+    },
+    {
+     "w": "to",
+     "t": 79.33
+    },
+    {
+     "w": "climb",
+     "t": 79.73
+    },
+    {
+     "w": "rocks",
+     "t": 80.13
+    },
+    {
+     "w": "by",
+     "t": 80.53
+    },
+    {
+     "w": "touch,",
+     "t": 80.93
+    },
+    {
+     "w": "feeling",
+     "t": 81.33
+    },
+    {
+     "w": "every",
+     "t": 81.73
+    },
+    {
+     "w": "crack",
+     "t": 82.13
+    },
+    {
+     "w": "with",
+     "t": 82.53
+    },
+    {
+     "w": "his",
+     "t": 82.93
+    },
+    {
+     "w": "fingers,",
+     "t": 83.33
+    },
+    {
+     "w": "and",
+     "t": 83.73
+    },
+    {
+     "w": "listening",
+     "t": 84.13
+    },
+    {
+     "w": "to",
+     "t": 84.53
+    },
+    {
+     "w": "the",
+     "t": 84.92
+    },
+    {
+     "w": "voices",
+     "t": 85.32
+    },
+    {
+     "w": "of",
+     "t": 85.72
+    },
+    {
+     "w": "his",
+     "t": 86.12
+    },
+    {
+     "w": "friends.",
+     "t": 86.52
+    }
+   ]
+  },
+  {
+   "start": 86.92,
+   "end": 98.51,
+   "en": "Step by step, his courage grew. He wore thick garments against the cold wind, and he kept going even when his hands got small wounds from ice and stone.",
+   "title": "看不见的登山家",
+   "cn": "一步一步，他的勇气越来越大。他穿着厚厚的衣服抵御寒风，哪怕双手被冰雪和岩石磨出小伤口，也坚持往上爬。",
+   "words": [
+    {
+     "w": "Step",
+     "t": 86.92
+    },
+    {
+     "w": "by",
+     "t": 87.32
+    },
+    {
+     "w": "step,",
+     "t": 87.72
+    },
+    {
+     "w": "his",
+     "t": 88.12
+    },
+    {
+     "w": "courage",
+     "t": 88.52
+    },
+    {
+     "w": "grew.",
+     "t": 88.92
+    },
+    {
+     "w": "He",
+     "t": 89.32
+    },
+    {
+     "w": "wore",
+     "t": 89.72
+    },
+    {
+     "w": "thick",
+     "t": 90.12
+    },
+    {
+     "w": "garments",
+     "t": 90.52
+    },
+    {
+     "w": "against",
+     "t": 90.92
+    },
+    {
+     "w": "the",
+     "t": 91.32
+    },
+    {
+     "w": "cold",
+     "t": 91.72
+    },
+    {
+     "w": "wind,",
+     "t": 92.12
+    },
+    {
+     "w": "and",
+     "t": 92.51
+    },
+    {
+     "w": "he",
+     "t": 92.91
+    },
+    {
+     "w": "kept",
+     "t": 93.31
+    },
+    {
+     "w": "going",
+     "t": 93.71
+    },
+    {
+     "w": "even",
+     "t": 94.11
+    },
+    {
+     "w": "when",
+     "t": 94.51
+    },
+    {
+     "w": "his",
+     "t": 94.91
+    },
+    {
+     "w": "hands",
+     "t": 95.31
+    },
+    {
+     "w": "got",
+     "t": 95.71
+    },
+    {
+     "w": "small",
+     "t": 96.11
+    },
+    {
+     "w": "wounds",
+     "t": 96.51
+    },
+    {
+     "w": "from",
+     "t": 96.91
+    },
+    {
+     "w": "ice",
+     "t": 97.31
+    },
+    {
+     "w": "and",
+     "t": 97.71
+    },
+    {
+     "w": "stone.",
+     "t": 98.11
+    }
+   ]
+  },
+  {
+   "start": 98.51,
+   "end": 116.08,
+   "en": "Then came his greatest climb: Mount Everest, the tallest mountain in the world. Guided by his friends' voices and bells, Erik reached the top — the first blind person ever to do it, to the delight of his whole team, who erupted with cheers.",
+   "title": "看不见的登山家",
+   "cn": "然后迎来了他最伟大的一次攀登：珠穆朗玛峰，世界最高的山。在朋友们的声音和铃铛声指引下，埃里克登上了峰顶——他是第一个做到这一点的盲人，整个团队都高兴极了，爆发出一阵欢呼。",
+   "words": [
+    {
+     "w": "Then",
+     "t": 98.51
+    },
+    {
+     "w": "came",
+     "t": 98.91
+    },
+    {
+     "w": "his",
+     "t": 99.31
+    },
+    {
+     "w": "greatest",
+     "t": 99.71
+    },
+    {
+     "w": "climb:",
+     "t": 100.1
+    },
+    {
+     "w": "Mount",
+     "t": 100.5
+    },
+    {
+     "w": "Everest,",
+     "t": 100.9
+    },
+    {
+     "w": "the",
+     "t": 101.3
+    },
+    {
+     "w": "tallest",
+     "t": 101.7
+    },
+    {
+     "w": "mountain",
+     "t": 102.1
+    },
+    {
+     "w": "in",
+     "t": 102.5
+    },
+    {
+     "w": "the",
+     "t": 102.9
+    },
+    {
+     "w": "world.",
+     "t": 103.3
+    },
+    {
+     "w": "Guided",
+     "t": 103.7
+    },
+    {
+     "w": "by",
+     "t": 104.1
+    },
+    {
+     "w": "his",
+     "t": 104.5
+    },
+    {
+     "w": "friends'",
+     "t": 104.9
+    },
+    {
+     "w": "voices",
+     "t": 105.3
+    },
+    {
+     "w": "and",
+     "t": 105.7
+    },
+    {
+     "w": "bells,",
+     "t": 106.1
+    },
+    {
+     "w": "Erik",
+     "t": 106.5
+    },
+    {
+     "w": "reached",
+     "t": 106.9
+    },
+    {
+     "w": "the",
+     "t": 107.3
+    },
+    {
+     "w": "top",
+     "t": 107.69
+    },
+    {
+     "w": "—",
+     "t": 108.09
+    },
+    {
+     "w": "the",
+     "t": 108.49
+    },
+    {
+     "w": "first",
+     "t": 108.89
+    },
+    {
+     "w": "blind",
+     "t": 109.29
+    },
+    {
+     "w": "person",
+     "t": 109.69
+    },
+    {
+     "w": "ever",
+     "t": 110.09
+    },
+    {
+     "w": "to",
+     "t": 110.49
+    },
+    {
+     "w": "do",
+     "t": 110.89
+    },
+    {
+     "w": "it,",
+     "t": 111.29
+    },
+    {
+     "w": "to",
+     "t": 111.69
+    },
+    {
+     "w": "the",
+     "t": 112.09
+    },
+    {
+     "w": "delight",
+     "t": 112.49
+    },
+    {
+     "w": "of",
+     "t": 112.89
+    },
+    {
+     "w": "his",
+     "t": 113.29
+    },
+    {
+     "w": "whole",
+     "t": 113.69
+    },
+    {
+     "w": "team,",
+     "t": 114.09
+    },
+    {
+     "w": "who",
+     "t": 114.49
+    },
+    {
+     "w": "erupted",
+     "t": 114.89
+    },
+    {
+     "w": "with",
+     "t": 115.28
+    },
+    {
+     "w": "cheers.",
+     "t": 115.68
+    }
+   ]
+  },
+  {
+   "start": 116.08,
+   "end": 133.66,
+   "en": "He did not stop there. He went on to climb the highest peak on every continent, seven mountains in all. Touch was his primary guide, and courage was his engine. Erik says what is inside you is stronger than what stands in your way.",
+   "title": "看不见的登山家",
+   "cn": "他没有就此停下。后来他又登上了每个大洲的最高峰，一共七座大山。触摸是他最主要的向导，勇气是他的发动机。埃里克说：你内心的力量，比挡在你面前的任何东西都强大。",
+   "words": [
+    {
+     "w": "He",
+     "t": 116.08
+    },
+    {
+     "w": "did",
+     "t": 116.48
+    },
+    {
+     "w": "not",
+     "t": 116.88
+    },
+    {
+     "w": "stop",
+     "t": 117.28
+    },
+    {
+     "w": "there.",
+     "t": 117.68
+    },
+    {
+     "w": "He",
+     "t": 118.08
+    },
+    {
+     "w": "went",
+     "t": 118.48
+    },
+    {
+     "w": "on",
+     "t": 118.88
+    },
+    {
+     "w": "to",
+     "t": 119.28
+    },
+    {
+     "w": "climb",
+     "t": 119.68
+    },
+    {
+     "w": "the",
+     "t": 120.08
+    },
+    {
+     "w": "highest",
+     "t": 120.48
+    },
+    {
+     "w": "peak",
+     "t": 120.88
+    },
+    {
+     "w": "on",
+     "t": 121.28
+    },
+    {
+     "w": "every",
+     "t": 121.68
+    },
+    {
+     "w": "continent,",
+     "t": 122.08
+    },
+    {
+     "w": "seven",
+     "t": 122.47
+    },
+    {
+     "w": "mountains",
+     "t": 122.87
+    },
+    {
+     "w": "in",
+     "t": 123.27
+    },
+    {
+     "w": "all.",
+     "t": 123.67
+    },
+    {
+     "w": "Touch",
+     "t": 124.07
+    },
+    {
+     "w": "was",
+     "t": 124.47
+    },
+    {
+     "w": "his",
+     "t": 124.87
+    },
+    {
+     "w": "primary",
+     "t": 125.27
+    },
+    {
+     "w": "guide,",
+     "t": 125.67
+    },
+    {
+     "w": "and",
+     "t": 126.07
+    },
+    {
+     "w": "courage",
+     "t": 126.47
+    },
+    {
+     "w": "was",
+     "t": 126.87
+    },
+    {
+     "w": "his",
+     "t": 127.27
+    },
+    {
+     "w": "engine.",
+     "t": 127.67
+    },
+    {
+     "w": "Erik",
+     "t": 128.07
+    },
+    {
+     "w": "says",
+     "t": 128.47
+    },
+    {
+     "w": "what",
+     "t": 128.87
+    },
+    {
+     "w": "is",
+     "t": 129.27
+    },
+    {
+     "w": "inside",
+     "t": 129.67
+    },
+    {
+     "w": "you",
+     "t": 130.06
+    },
+    {
+     "w": "is",
+     "t": 130.46
+    },
+    {
+     "w": "stronger",
+     "t": 130.86
+    },
+    {
+     "w": "than",
+     "t": 131.26
+    },
+    {
+     "w": "what",
+     "t": 131.66
+    },
+    {
+     "w": "stands",
+     "t": 132.06
+    },
+    {
+     "w": "in",
+     "t": 132.46
+    },
+    {
+     "w": "your",
+     "t": 132.86
+    },
+    {
+     "w": "way.",
+     "t": 133.26
+    }
+   ]
+  },
+  {
+   "start": 147.56,
+   "end": 173.29,
+   "en": "Now dive with me into the sea and meet the octopus, a soft animal with no bones at all. It has not one heart, but three! Two small hearts, called branchial hearts, push blood to its gills, where the blood picks up oxygen from the water. Then a third, bigger heart, the systemic heart, sends the oxygen-rich blood around the body, to every cell.",
+   "title": "三颗心脏的章鱼",
+   "cn": "现在跟我一起潜入大海，认识一下章鱼吧——它是一种软软的动物，全身没有一根骨头。它不是只有一颗心脏，而是有三颗！两颗小小的心脏叫鳃心，负责把血液送到鳃里，让血液从水中吸取氧气。然后第三颗更大的心脏——体循环心脏，把富含氧气的血液送往全身，送到每一个细胞。",
+   "words": [
+    {
+     "w": "Now",
+     "t": 147.56
+    },
+    {
+     "w": "dive",
+     "t": 147.96
+    },
+    {
+     "w": "with",
+     "t": 148.36
+    },
+    {
+     "w": "me",
+     "t": 148.77
+    },
+    {
+     "w": "into",
+     "t": 149.17
+    },
+    {
+     "w": "the",
+     "t": 149.57
+    },
+    {
+     "w": "sea",
+     "t": 149.97
+    },
+    {
+     "w": "and",
+     "t": 150.37
+    },
+    {
+     "w": "meet",
+     "t": 150.78
+    },
+    {
+     "w": "the",
+     "t": 151.18
+    },
+    {
+     "w": "octopus,",
+     "t": 151.58
+    },
+    {
+     "w": "a",
+     "t": 151.98
+    },
+    {
+     "w": "soft",
+     "t": 152.39
+    },
+    {
+     "w": "animal",
+     "t": 152.79
+    },
+    {
+     "w": "with",
+     "t": 153.19
+    },
+    {
+     "w": "no",
+     "t": 153.59
+    },
+    {
+     "w": "bones",
+     "t": 153.99
+    },
+    {
+     "w": "at",
+     "t": 154.4
+    },
+    {
+     "w": "all.",
+     "t": 154.8
+    },
+    {
+     "w": "It",
+     "t": 155.2
+    },
+    {
+     "w": "has",
+     "t": 155.6
+    },
+    {
+     "w": "not",
+     "t": 156.0
+    },
+    {
+     "w": "one",
+     "t": 156.41
+    },
+    {
+     "w": "heart,",
+     "t": 156.81
+    },
+    {
+     "w": "but",
+     "t": 157.21
+    },
+    {
+     "w": "three!",
+     "t": 157.61
+    },
+    {
+     "w": "Two",
+     "t": 158.01
+    },
+    {
+     "w": "small",
+     "t": 158.42
+    },
+    {
+     "w": "hearts,",
+     "t": 158.82
+    },
+    {
+     "w": "called",
+     "t": 159.22
+    },
+    {
+     "w": "branchial",
+     "t": 159.62
+    },
+    {
+     "w": "hearts,",
+     "t": 160.03
+    },
+    {
+     "w": "push",
+     "t": 160.43
+    },
+    {
+     "w": "blood",
+     "t": 160.83
+    },
+    {
+     "w": "to",
+     "t": 161.23
+    },
+    {
+     "w": "its",
+     "t": 161.63
+    },
+    {
+     "w": "gills,",
+     "t": 162.04
+    },
+    {
+     "w": "where",
+     "t": 162.44
+    },
+    {
+     "w": "the",
+     "t": 162.84
+    },
+    {
+     "w": "blood",
+     "t": 163.24
+    },
+    {
+     "w": "picks",
+     "t": 163.64
+    },
+    {
+     "w": "up",
+     "t": 164.05
+    },
+    {
+     "w": "oxygen",
+     "t": 164.45
+    },
+    {
+     "w": "from",
+     "t": 164.85
+    },
+    {
+     "w": "the",
+     "t": 165.25
+    },
+    {
+     "w": "water.",
+     "t": 165.65
+    },
+    {
+     "w": "Then",
+     "t": 166.06
+    },
+    {
+     "w": "a",
+     "t": 166.46
+    },
+    {
+     "w": "third,",
+     "t": 166.86
+    },
+    {
+     "w": "bigger",
+     "t": 167.26
+    },
+    {
+     "w": "heart,",
+     "t": 167.67
+    },
+    {
+     "w": "the",
+     "t": 168.07
+    },
+    {
+     "w": "systemic",
+     "t": 168.47
+    },
+    {
+     "w": "heart,",
+     "t": 168.87
+    },
+    {
+     "w": "sends",
+     "t": 169.27
+    },
+    {
+     "w": "the",
+     "t": 169.68
+    },
+    {
+     "w": "oxygen-rich",
+     "t": 170.08
+    },
+    {
+     "w": "blood",
+     "t": 170.48
+    },
+    {
+     "w": "around",
+     "t": 170.88
+    },
+    {
+     "w": "the",
+     "t": 171.28
+    },
+    {
+     "w": "body,",
+     "t": 171.69
+    },
+    {
+     "w": "to",
+     "t": 172.09
+    },
+    {
+     "w": "every",
+     "t": 172.49
+    },
+    {
+     "w": "cell.",
+     "t": 172.89
+    }
+   ]
+  },
+  {
+   "start": 173.29,
+   "end": 184.96,
+   "en": "And here is the strangest part: the octopus's blood is blue! Our blood is red because it uses iron, but octopus blood uses copper, and copper turns it blue.",
+   "title": "三颗心脏的章鱼",
+   "cn": "最奇怪的地方来了：章鱼的血是蓝色的！我们的血是红色的，因为里面有铁；章鱼的血里用的是铜，铜让它的血变成了蓝色。",
+   "words": [
+    {
+     "w": "And",
+     "t": 173.29
+    },
+    {
+     "w": "here",
+     "t": 173.7
+    },
+    {
+     "w": "is",
+     "t": 174.1
+    },
+    {
+     "w": "the",
+     "t": 174.5
+    },
+    {
+     "w": "strangest",
+     "t": 174.9
+    },
+    {
+     "w": "part:",
+     "t": 175.31
+    },
+    {
+     "w": "the",
+     "t": 175.71
+    },
+    {
+     "w": "octopus's",
+     "t": 176.11
+    },
+    {
+     "w": "blood",
+     "t": 176.51
+    },
+    {
+     "w": "is",
+     "t": 176.91
+    },
+    {
+     "w": "blue!",
+     "t": 177.32
+    },
+    {
+     "w": "Our",
+     "t": 177.72
+    },
+    {
+     "w": "blood",
+     "t": 178.12
+    },
+    {
+     "w": "is",
+     "t": 178.52
+    },
+    {
+     "w": "red",
+     "t": 178.92
+    },
+    {
+     "w": "because",
+     "t": 179.33
+    },
+    {
+     "w": "it",
+     "t": 179.73
+    },
+    {
+     "w": "uses",
+     "t": 180.13
+    },
+    {
+     "w": "iron,",
+     "t": 180.53
+    },
+    {
+     "w": "but",
+     "t": 180.93
+    },
+    {
+     "w": "octopus",
+     "t": 181.34
+    },
+    {
+     "w": "blood",
+     "t": 181.74
+    },
+    {
+     "w": "uses",
+     "t": 182.14
+    },
+    {
+     "w": "copper,",
+     "t": 182.54
+    },
+    {
+     "w": "and",
+     "t": 182.95
+    },
+    {
+     "w": "copper",
+     "t": 183.35
+    },
+    {
+     "w": "turns",
+     "t": 183.75
+    },
+    {
+     "w": "it",
+     "t": 184.15
+    },
+    {
+     "w": "blue.",
+     "t": 184.55
+    }
+   ]
+  },
+  {
+   "start": 184.96,
+   "end": 201.84,
+   "en": "When the octopus swims fast, its big heart stops for a while. Do not worry — the octopus is not dead. It just gets too tired to keep pumping. That is why octopuses usually crawl along the sea floor instead of swimming.",
+   "title": "三颗心脏的章鱼",
+   "cn": "当章鱼快速游动时，它的大心脏会停跳一会儿。别担心——章鱼并没有死。它只是累得泵不动血了。所以章鱼平时更喜欢在海底爬行，而不是游泳。",
+   "words": [
+    {
+     "w": "When",
+     "t": 184.96
+    },
+    {
+     "w": "the",
+     "t": 185.36
+    },
+    {
+     "w": "octopus",
+     "t": 185.76
+    },
+    {
+     "w": "swims",
+     "t": 186.16
+    },
+    {
+     "w": "fast,",
+     "t": 186.56
+    },
+    {
+     "w": "its",
+     "t": 186.97
+    },
+    {
+     "w": "big",
+     "t": 187.37
+    },
+    {
+     "w": "heart",
+     "t": 187.77
+    },
+    {
+     "w": "stops",
+     "t": 188.17
+    },
+    {
+     "w": "for",
+     "t": 188.57
+    },
+    {
+     "w": "a",
+     "t": 188.98
+    },
+    {
+     "w": "while.",
+     "t": 189.38
+    },
+    {
+     "w": "Do",
+     "t": 189.78
+    },
+    {
+     "w": "not",
+     "t": 190.18
+    },
+    {
+     "w": "worry",
+     "t": 190.58
+    },
+    {
+     "w": "—",
+     "t": 190.99
+    },
+    {
+     "w": "the",
+     "t": 191.39
+    },
+    {
+     "w": "octopus",
+     "t": 191.79
+    },
+    {
+     "w": "is",
+     "t": 192.19
+    },
+    {
+     "w": "not",
+     "t": 192.6
+    },
+    {
+     "w": "dead.",
+     "t": 193.0
+    },
+    {
+     "w": "It",
+     "t": 193.4
+    },
+    {
+     "w": "just",
+     "t": 193.8
+    },
+    {
+     "w": "gets",
+     "t": 194.2
+    },
+    {
+     "w": "too",
+     "t": 194.61
+    },
+    {
+     "w": "tired",
+     "t": 195.01
+    },
+    {
+     "w": "to",
+     "t": 195.41
+    },
+    {
+     "w": "keep",
+     "t": 195.81
+    },
+    {
+     "w": "pumping.",
+     "t": 196.21
+    },
+    {
+     "w": "That",
+     "t": 196.62
+    },
+    {
+     "w": "is",
+     "t": 197.02
+    },
+    {
+     "w": "why",
+     "t": 197.42
+    },
+    {
+     "w": "octopuses",
+     "t": 197.82
+    },
+    {
+     "w": "usually",
+     "t": 198.22
+    },
+    {
+     "w": "crawl",
+     "t": 198.63
+    },
+    {
+     "w": "along",
+     "t": 199.03
+    },
+    {
+     "w": "the",
+     "t": 199.43
+    },
+    {
+     "w": "sea",
+     "t": 199.83
+    },
+    {
+     "w": "floor",
+     "t": 200.24
+    },
+    {
+     "w": "instead",
+     "t": 200.64
+    },
+    {
+     "w": "of",
+     "t": 201.04
+    },
+    {
+     "w": "swimming.",
+     "t": 201.44
+    }
+   ]
+  },
+  {
+   "start": 201.84,
+   "end": 225.97,
+   "en": "It is no coincidence that they are such good crawlers: eight soft arms, covered in suckers, can grip rocks and squeeze the whole body through tiny gaps. One octopus slipped out of its pen in an aquarium and escaped back to the sea! With three hearts, blue blood, and a body of soft flesh, the octopus is alive with surprises.",
+   "title": "三颗心脏的章鱼",
+   "cn": "它们这么会爬绝不是巧合：八条软软的手臂上长满了吸盘，能抓住岩石，还能把整个身体挤过小小的缝隙。有一只章鱼甚至从水族馆的围栏里溜了出来，逃回了大海！三颗心脏、蓝色的血、一身软软的肉——章鱼浑身都是惊喜。",
+   "words": [
+    {
+     "w": "It",
+     "t": 201.84
+    },
+    {
+     "w": "is",
+     "t": 202.25
+    },
+    {
+     "w": "no",
+     "t": 202.65
+    },
+    {
+     "w": "coincidence",
+     "t": 203.05
+    },
+    {
+     "w": "that",
+     "t": 203.45
+    },
+    {
+     "w": "they",
+     "t": 203.85
+    },
+    {
+     "w": "are",
+     "t": 204.26
+    },
+    {
+     "w": "such",
+     "t": 204.66
+    },
+    {
+     "w": "good",
+     "t": 205.06
+    },
+    {
+     "w": "crawlers:",
+     "t": 205.46
+    },
+    {
+     "w": "eight",
+     "t": 205.86
+    },
+    {
+     "w": "soft",
+     "t": 206.27
+    },
+    {
+     "w": "arms,",
+     "t": 206.67
+    },
+    {
+     "w": "covered",
+     "t": 207.07
+    },
+    {
+     "w": "in",
+     "t": 207.47
+    },
+    {
+     "w": "suckers,",
+     "t": 207.88
+    },
+    {
+     "w": "can",
+     "t": 208.28
+    },
+    {
+     "w": "grip",
+     "t": 208.68
+    },
+    {
+     "w": "rocks",
+     "t": 209.08
+    },
+    {
+     "w": "and",
+     "t": 209.48
+    },
+    {
+     "w": "squeeze",
+     "t": 209.89
+    },
+    {
+     "w": "the",
+     "t": 210.29
+    },
+    {
+     "w": "whole",
+     "t": 210.69
+    },
+    {
+     "w": "body",
+     "t": 211.09
+    },
+    {
+     "w": "through",
+     "t": 211.49
+    },
+    {
+     "w": "tiny",
+     "t": 211.9
+    },
+    {
+     "w": "gaps.",
+     "t": 212.3
+    },
+    {
+     "w": "One",
+     "t": 212.7
+    },
+    {
+     "w": "octopus",
+     "t": 213.1
+    },
+    {
+     "w": "slipped",
+     "t": 213.5
+    },
+    {
+     "w": "out",
+     "t": 213.91
+    },
+    {
+     "w": "of",
+     "t": 214.31
+    },
+    {
+     "w": "its",
+     "t": 214.71
+    },
+    {
+     "w": "pen",
+     "t": 215.11
+    },
+    {
+     "w": "in",
+     "t": 215.52
+    },
+    {
+     "w": "an",
+     "t": 215.92
+    },
+    {
+     "w": "aquarium",
+     "t": 216.32
+    },
+    {
+     "w": "and",
+     "t": 216.72
+    },
+    {
+     "w": "escaped",
+     "t": 217.12
+    },
+    {
+     "w": "back",
+     "t": 217.53
+    },
+    {
+     "w": "to",
+     "t": 217.93
+    },
+    {
+     "w": "the",
+     "t": 218.33
+    },
+    {
+     "w": "sea!",
+     "t": 218.73
+    },
+    {
+     "w": "With",
+     "t": 219.13
+    },
+    {
+     "w": "three",
+     "t": 219.54
+    },
+    {
+     "w": "hearts,",
+     "t": 219.94
+    },
+    {
+     "w": "blue",
+     "t": 220.34
+    },
+    {
+     "w": "blood,",
+     "t": 220.74
+    },
+    {
+     "w": "and",
+     "t": 221.14
+    },
+    {
+     "w": "a",
+     "t": 221.55
+    },
+    {
+     "w": "body",
+     "t": 221.95
+    },
+    {
+     "w": "of",
+     "t": 222.35
+    },
+    {
+     "w": "soft",
+     "t": 222.75
+    },
+    {
+     "w": "flesh,",
+     "t": 223.16
+    },
+    {
+     "w": "the",
+     "t": 223.56
+    },
+    {
+     "w": "octopus",
+     "t": 223.96
+    },
+    {
+     "w": "is",
+     "t": 224.36
+    },
+    {
+     "w": "alive",
+     "t": 224.76
+    },
+    {
+     "w": "with",
+     "t": 225.17
+    },
+    {
+     "w": "surprises.",
+     "t": 225.57
+    }
+   ]
+  },
+  {
+   "start": 240.11,
+   "end": 268.57,
+   "en": "Here's today's idiom: \"pull someone's leg.\" It does not mean you really pull a leg! It means you tease someone with a joke. Listen to this: Tom told his friend Sam that a shark lived in the school swimming pool. Sam put on his swimming hat and ran to look. Then Tom laughed and said, \"I was only pulling your leg!\" When someone pulls your leg, they are joking, not telling the truth.",
+   "title": "今日俚语",
+   "cn": "今天的俚语是“pull someone's leg”（开某人的玩笑）。它不是真的去拉别人的腿！它的意思是拿别人开玩笑、逗别人。听这个小故事：汤姆告诉他的朋友萨姆，说学校游泳池里住着一条鲨鱼。萨姆戴上泳帽就跑去看。接着汤姆笑着说：“我只是跟你开玩笑啦！”当有人 pull your leg 的时候，他是在开玩笑，不是在说真话。",
+   "words": [
+    {
+     "w": "Here's",
+     "t": 240.11
+    },
+    {
+     "w": "today's",
+     "t": 240.5
+    },
+    {
+     "w": "idiom:",
+     "t": 240.89
+    },
+    {
+     "w": "\"pull",
+     "t": 241.28
+    },
+    {
+     "w": "someone's",
+     "t": 241.67
+    },
+    {
+     "w": "leg.\"",
+     "t": 242.06
+    },
+    {
+     "w": "It",
+     "t": 242.45
+    },
+    {
+     "w": "does",
+     "t": 242.84
+    },
+    {
+     "w": "not",
+     "t": 243.23
+    },
+    {
+     "w": "mean",
+     "t": 243.62
+    },
+    {
+     "w": "you",
+     "t": 244.01
+    },
+    {
+     "w": "really",
+     "t": 244.4
+    },
+    {
+     "w": "pull",
+     "t": 244.79
+    },
+    {
+     "w": "a",
+     "t": 245.18
+    },
+    {
+     "w": "leg!",
+     "t": 245.57
+    },
+    {
+     "w": "It",
+     "t": 245.96
+    },
+    {
+     "w": "means",
+     "t": 246.35
+    },
+    {
+     "w": "you",
+     "t": 246.74
+    },
+    {
+     "w": "tease",
+     "t": 247.13
+    },
+    {
+     "w": "someone",
+     "t": 247.52
+    },
+    {
+     "w": "with",
+     "t": 247.91
+    },
+    {
+     "w": "a",
+     "t": 248.3
+    },
+    {
+     "w": "joke.",
+     "t": 248.69
+    },
+    {
+     "w": "Listen",
+     "t": 249.08
+    },
+    {
+     "w": "to",
+     "t": 249.47
+    },
+    {
+     "w": "this:",
+     "t": 249.86
+    },
+    {
+     "w": "Tom",
+     "t": 250.25
+    },
+    {
+     "w": "told",
+     "t": 250.64
+    },
+    {
+     "w": "his",
+     "t": 251.03
+    },
+    {
+     "w": "friend",
+     "t": 251.42
+    },
+    {
+     "w": "Sam",
+     "t": 251.81
+    },
+    {
+     "w": "that",
+     "t": 252.2
+    },
+    {
+     "w": "a",
+     "t": 252.59
+    },
+    {
+     "w": "shark",
+     "t": 252.98
+    },
+    {
+     "w": "lived",
+     "t": 253.37
+    },
+    {
+     "w": "in",
+     "t": 253.76
+    },
+    {
+     "w": "the",
+     "t": 254.15
+    },
+    {
+     "w": "school",
+     "t": 254.53
+    },
+    {
+     "w": "swimming",
+     "t": 254.92
+    },
+    {
+     "w": "pool.",
+     "t": 255.31
+    },
+    {
+     "w": "Sam",
+     "t": 255.7
+    },
+    {
+     "w": "put",
+     "t": 256.09
+    },
+    {
+     "w": "on",
+     "t": 256.48
+    },
+    {
+     "w": "his",
+     "t": 256.87
+    },
+    {
+     "w": "swimming",
+     "t": 257.26
+    },
+    {
+     "w": "hat",
+     "t": 257.65
+    },
+    {
+     "w": "and",
+     "t": 258.04
+    },
+    {
+     "w": "ran",
+     "t": 258.43
+    },
+    {
+     "w": "to",
+     "t": 258.82
+    },
+    {
+     "w": "look.",
+     "t": 259.21
+    },
+    {
+     "w": "Then",
+     "t": 259.6
+    },
+    {
+     "w": "Tom",
+     "t": 259.99
+    },
+    {
+     "w": "laughed",
+     "t": 260.38
+    },
+    {
+     "w": "and",
+     "t": 260.77
+    },
+    {
+     "w": "said,",
+     "t": 261.16
+    },
+    {
+     "w": "\"I",
+     "t": 261.55
+    },
+    {
+     "w": "was",
+     "t": 261.94
+    },
+    {
+     "w": "only",
+     "t": 262.33
+    },
+    {
+     "w": "pulling",
+     "t": 262.72
+    },
+    {
+     "w": "your",
+     "t": 263.11
+    },
+    {
+     "w": "leg!\"",
+     "t": 263.5
+    },
+    {
+     "w": "When",
+     "t": 263.89
+    },
+    {
+     "w": "someone",
+     "t": 264.28
+    },
+    {
+     "w": "pulls",
+     "t": 264.67
+    },
+    {
+     "w": "your",
+     "t": 265.06
+    },
+    {
+     "w": "leg,",
+     "t": 265.45
+    },
+    {
+     "w": "they",
+     "t": 265.84
+    },
+    {
+     "w": "are",
+     "t": 266.23
+    },
+    {
+     "w": "joking,",
+     "t": 266.62
+    },
+    {
+     "w": "not",
+     "t": 267.01
+    },
+    {
+     "w": "telling",
+     "t": 267.4
+    },
+    {
+     "w": "the",
+     "t": 267.79
+    },
+    {
+     "w": "truth.",
+     "t": 268.18
+    }
+   ]
+  },
+  {
+   "start": 282.87,
+   "end": 313.33,
+   "en": "Let's think about our stories. A blind climber reached the top of the world, and an octopus carries three hearts in its soft body. Two questions for you. First: Erik climbed by touch and by listening. If you could not see, what would help you most — touch, sound, or smell? Second: if you had three hearts like an octopus, what would you do with the extra one? Talk about it with your father and mother!",
+   "title": "结束语与互动问题",
+   "cn": "我们来想想今天的故事。一位盲人登山家登上了世界之巅，一只章鱼的身体里带着三颗心脏。轮到回答两个问题。第一：埃里克靠触摸和听觉登山。如果你看不见，什么对你的帮助最大——触摸、声音，还是气味？第二：如果你像章鱼一样有三颗心脏，多出来的那颗你会用来做什么？和爸爸妈妈聊聊吧！",
+   "words": [
+    {
+     "w": "Let's",
+     "t": 282.87
+    },
+    {
+     "w": "think",
+     "t": 283.27
+    },
+    {
+     "w": "about",
+     "t": 283.67
+    },
+    {
+     "w": "our",
+     "t": 284.07
+    },
+    {
+     "w": "stories.",
+     "t": 284.47
+    },
+    {
+     "w": "A",
+     "t": 284.87
+    },
+    {
+     "w": "blind",
+     "t": 285.27
+    },
+    {
+     "w": "climber",
+     "t": 285.68
+    },
+    {
+     "w": "reached",
+     "t": 286.08
+    },
+    {
+     "w": "the",
+     "t": 286.48
+    },
+    {
+     "w": "top",
+     "t": 286.88
+    },
+    {
+     "w": "of",
+     "t": 287.28
+    },
+    {
+     "w": "the",
+     "t": 287.68
+    },
+    {
+     "w": "world,",
+     "t": 288.08
+    },
+    {
+     "w": "and",
+     "t": 288.48
+    },
+    {
+     "w": "an",
+     "t": 288.88
+    },
+    {
+     "w": "octopus",
+     "t": 289.28
+    },
+    {
+     "w": "carries",
+     "t": 289.68
+    },
+    {
+     "w": "three",
+     "t": 290.08
+    },
+    {
+     "w": "hearts",
+     "t": 290.49
+    },
+    {
+     "w": "in",
+     "t": 290.89
+    },
+    {
+     "w": "its",
+     "t": 291.29
+    },
+    {
+     "w": "soft",
+     "t": 291.69
+    },
+    {
+     "w": "body.",
+     "t": 292.09
+    },
+    {
+     "w": "Two",
+     "t": 292.49
+    },
+    {
+     "w": "questions",
+     "t": 292.89
+    },
+    {
+     "w": "for",
+     "t": 293.29
+    },
+    {
+     "w": "you.",
+     "t": 293.69
+    },
+    {
+     "w": "First:",
+     "t": 294.09
+    },
+    {
+     "w": "Erik",
+     "t": 294.49
+    },
+    {
+     "w": "climbed",
+     "t": 294.89
+    },
+    {
+     "w": "by",
+     "t": 295.29
+    },
+    {
+     "w": "touch",
+     "t": 295.7
+    },
+    {
+     "w": "and",
+     "t": 296.1
+    },
+    {
+     "w": "by",
+     "t": 296.5
+    },
+    {
+     "w": "listening.",
+     "t": 296.9
+    },
+    {
+     "w": "If",
+     "t": 297.3
+    },
+    {
+     "w": "you",
+     "t": 297.7
+    },
+    {
+     "w": "could",
+     "t": 298.1
+    },
+    {
+     "w": "not",
+     "t": 298.5
+    },
+    {
+     "w": "see,",
+     "t": 298.9
+    },
+    {
+     "w": "what",
+     "t": 299.3
+    },
+    {
+     "w": "would",
+     "t": 299.7
+    },
+    {
+     "w": "help",
+     "t": 300.1
+    },
+    {
+     "w": "you",
+     "t": 300.5
+    },
+    {
+     "w": "most",
+     "t": 300.91
+    },
+    {
+     "w": "—",
+     "t": 301.31
+    },
+    {
+     "w": "touch,",
+     "t": 301.71
+    },
+    {
+     "w": "sound,",
+     "t": 302.11
+    },
+    {
+     "w": "or",
+     "t": 302.51
+    },
+    {
+     "w": "smell?",
+     "t": 302.91
+    },
+    {
+     "w": "Second:",
+     "t": 303.31
+    },
+    {
+     "w": "if",
+     "t": 303.71
+    },
+    {
+     "w": "you",
+     "t": 304.11
+    },
+    {
+     "w": "had",
+     "t": 304.51
+    },
+    {
+     "w": "three",
+     "t": 304.91
+    },
+    {
+     "w": "hearts",
+     "t": 305.31
+    },
+    {
+     "w": "like",
+     "t": 305.71
+    },
+    {
+     "w": "an",
+     "t": 306.12
+    },
+    {
+     "w": "octopus,",
+     "t": 306.52
+    },
+    {
+     "w": "what",
+     "t": 306.92
+    },
+    {
+     "w": "would",
+     "t": 307.32
+    },
+    {
+     "w": "you",
+     "t": 307.72
+    },
+    {
+     "w": "do",
+     "t": 308.12
+    },
+    {
+     "w": "with",
+     "t": 308.52
+    },
+    {
+     "w": "the",
+     "t": 308.92
+    },
+    {
+     "w": "extra",
+     "t": 309.32
+    },
+    {
+     "w": "one?",
+     "t": 309.72
+    },
+    {
+     "w": "Talk",
+     "t": 310.12
+    },
+    {
+     "w": "about",
+     "t": 310.52
+    },
+    {
+     "w": "it",
+     "t": 310.93
+    },
+    {
+     "w": "with",
+     "t": 311.33
+    },
+    {
+     "w": "your",
+     "t": 311.73
+    },
+    {
+     "w": "father",
+     "t": 312.13
+    },
+    {
+     "w": "and",
+     "t": 312.53
+    },
+    {
+     "w": "mother!",
+     "t": 312.93
+    }
+   ]
+  },
+  {
+   "start": 324.51,
+   "end": 335.81,
+   "en": "That's all for today, young explorers. Remember: courage can carry you up any mountain, and a joke is only fun when everyone laughs. Stay curious! See you tomorrow morning!",
+   "title": "告别",
+   "cn": "今天的节目就到这里，小小探险家们。记住：勇气能带你登上任何一座高山，开玩笑也要大家一起笑才好玩。保持好奇心！明天早上见！",
+   "words": [
+    {
+     "w": "That's",
+     "t": 324.51
+    },
+    {
+     "w": "all",
+     "t": 324.9
+    },
+    {
+     "w": "for",
+     "t": 325.29
+    },
+    {
+     "w": "today,",
+     "t": 325.68
+    },
+    {
+     "w": "young",
+     "t": 326.07
+    },
+    {
+     "w": "explorers.",
+     "t": 326.46
+    },
+    {
+     "w": "Remember:",
+     "t": 326.85
+    },
+    {
+     "w": "courage",
+     "t": 327.24
+    },
+    {
+     "w": "can",
+     "t": 327.63
+    },
+    {
+     "w": "carry",
+     "t": 328.02
+    },
+    {
+     "w": "you",
+     "t": 328.41
+    },
+    {
+     "w": "up",
+     "t": 328.8
+    },
+    {
+     "w": "any",
+     "t": 329.19
+    },
+    {
+     "w": "mountain,",
+     "t": 329.58
+    },
+    {
+     "w": "and",
+     "t": 329.97
+    },
+    {
+     "w": "a",
+     "t": 330.35
+    },
+    {
+     "w": "joke",
+     "t": 330.74
+    },
+    {
+     "w": "is",
+     "t": 331.13
+    },
+    {
+     "w": "only",
+     "t": 331.52
+    },
+    {
+     "w": "fun",
+     "t": 331.91
+    },
+    {
+     "w": "when",
+     "t": 332.3
+    },
+    {
+     "w": "everyone",
+     "t": 332.69
+    },
+    {
+     "w": "laughs.",
+     "t": 333.08
+    },
+    {
+     "w": "Stay",
+     "t": 333.47
+    },
+    {
+     "w": "curious!",
+     "t": 333.86
+    },
+    {
+     "w": "See",
+     "t": 334.25
+    },
+    {
+     "w": "you",
+     "t": 334.64
+    },
+    {
+     "w": "tomorrow",
+     "t": 335.03
+    },
+    {
+     "w": "morning!",
+     "t": 335.42
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "pull someone's leg",
+    "phon": "/pʊl ˈsʌmwʌnz leɡ/",
+    "meaning": "(习语) 开某人的玩笑；逗别人",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: Tom laughed and said, \"I was only pulling your leg!\""
+   },
+   {
+    "word": "courage",
+    "phon": "/ˈkʌrɪdʒ/",
+    "meaning": "(n.) 勇气；胆量",
+    "tags": [],
+    "example": "Example: Step by step, his courage grew."
+   },
+   {
+    "word": "delight",
+    "phon": "/dɪˈlaɪt/",
+    "meaning": "(n.) 高兴；喜悦",
+    "tags": [],
+    "example": "Example: Erik reached the top, to the delight of his whole team."
+   },
+   {
+    "word": "erupt",
+    "phon": "/ɪˈrʌpt/",
+    "meaning": "(v.) 爆发；喷发",
+    "tags": [],
+    "example": "Example: His team erupted with cheers."
+   },
+   {
+    "word": "garment",
+    "phon": "/ˈɡɑːmənt/",
+    "meaning": "(n.) 衣服；服装",
+    "tags": [],
+    "example": "Example: He wore thick garments against the cold wind."
+   },
+   {
+    "word": "wound",
+    "phon": "/wuːnd/",
+    "meaning": "(n.) 伤口；创伤",
+    "tags": [],
+    "example": "Example: His hands got small wounds from ice and stone."
+   },
+   {
+    "word": "fade",
+    "phon": "/feɪd/",
+    "meaning": "(v.) 渐渐消失；褪色",
+    "tags": [],
+    "example": "Example: His eyesight faded slowly."
+   },
+   {
+    "word": "primary",
+    "phon": "/ˈpraɪməri/",
+    "meaning": "(adj.) 主要的；首要的",
+    "tags": [],
+    "example": "Example: Touch was his primary guide."
+   },
+   {
+    "word": "coincidence",
+    "phon": "/kəʊˈɪnsɪdəns/",
+    "meaning": "(n.) 巧合；碰巧",
+    "tags": [],
+    "example": "Example: It is no coincidence that they are such good crawlers."
+   },
+   {
+    "word": "flesh",
+    "phon": "/fleʃ/",
+    "meaning": "(n.) 肉；肉体",
+    "tags": [],
+    "example": "Example: A body of soft flesh."
+   },
+   {
+    "word": "branchial",
+    "phon": "/ˈbræŋkiəl/",
+    "meaning": "(adj.) 鳃的",
+    "tags": [],
+    "example": "Example: Two small hearts, called branchial hearts, push blood to its gills."
+   },
+   {
+    "word": "systemic",
+    "phon": "/sɪˈstemɪk/",
+    "meaning": "(adj.) 体循环的；全身的",
+    "tags": [],
+    "example": "Example: The systemic heart sends blood around the body."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "How did Erik climb mountains?\nA. He followed maps with big pictures\nB. He climbed by touch and by listening to his friends\nC. He used a robot guide\nD. He climbed only in summer",
+     "What is special about octopus blood?\nA. It is red because it uses iron\nB. It is green because it uses leaves\nC. It is blue because it uses copper\nD. It is black because it uses ink",
+     "Why do octopuses usually crawl instead of swim?\nA. They have no arms\nB. Their big heart stops when they swim fast, so they get tired\nC. They are afraid of water\nD. Crawling is faster than swimming",
+     "What does \"pull someone's leg\" mean?\nA. To help someone walk\nB. To tease someone with a joke\nC. To pull someone out of a pool\nD. To dance with a friend"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "Guided"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " by his friends' voices and bells, Erik reached the top — "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "the first blind person ever to do it"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": ", "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "to the delight of"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " his whole team, who erupted with cheers."
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "句首 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "Guided by his friends' voices and bells"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "过去分词短语作状语"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：它省略了主语和 be 动词，完整意思是 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "(After he was) guided by his friends' voices and bells"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（在朋友们的声音和铃铛声指引下）。分词短语的逻辑主语必须和主句主语是同一个——这里都是 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "Erik"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，所以可以放心省略。读到句首的分词短语，先在心里把它补全。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "the first blind person ever to do it"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "Erik"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 的"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "同位语"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：它不是新动作，而是对 Erik 的补充说明，用逗号隔开，意思是\"有史以来第一个做到这件事的盲人\"。其中的 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "ever"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是加强语气，相当于\"在历史上从来没有过\"。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "句尾 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "to the delight of his whole team"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "介词短语表结果"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "to one's delight"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 的固定意思是\"令某人高兴的是\"，这里交代了登顶带来的结果——整个团队都高兴极了。类似的结构还有 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "to one's surprise"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（令某人惊讶的是）。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句逻辑链："
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "在指引下登顶（分词短语交代方式）→ 他是史上第一位盲人登顶者（同位语点明意义）→ 团队欢呼（to the delight of 收尾点睛）"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。一句话讲完一次登顶、一个纪录、一片欢呼。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "FLESH"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（肉；肉体）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "GARMENT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（服装）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SYSTEMIC"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（体循环的）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "FADE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（渐渐消失）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "COURAGE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（勇气）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "DELIGHT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（喜悦）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "BRANCHIAL"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（鳃的）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ERUPT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（爆发）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PRIMARY"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（主要的）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "COINCIDENCE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（巧合）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says Erik "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"learned to climb rocks by touch\""
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": " and listened "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"to the voices of his friends.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"octopus blood uses copper, and copper turns it blue.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"its big heart stops for a while\""
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": " when the octopus swims fast, so "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"it just gets too tired to keep pumping.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The idiom means "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"you tease someone with a joke.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. Guided  2. Wrapped"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. the first blind person ever to do it  2. the tallest mountain in the world"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. to the delight of  2. To the surprise of"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "B",
+    "C",
+    "B",
+    "B"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. 过去分词短语作状语：选出正确的词填入空格",
+     "items": [
+      {
+       "prompt": "____ by his friends' voices, Erik found his way up the mountain.",
+       "options": [
+        "Guided",
+        "Guiding",
+        "Guides"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "____ in thick garments, the climbers stayed warm in the wind.",
+       "options": [
+        "Wrapping",
+        "Wrapped",
+        "Wraps"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. 同位语：选出正确的短语填入空格",
+     "items": [
+      {
+       "prompt": "Erik, ____, reached the top of Everest.",
+       "options": [
+        "a first blind person ever to do it",
+        "the first blind person never to do it",
+        "the first blind person ever to do it"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "Mount Everest, ____, is the tallest mountain in the world.",
+       "options": [
+        "the tallest mountain in the world",
+        "a tallest mountain in the world",
+        "the taller mountain in the world"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. to the delight/surprise of（令某人高兴/惊讶的是）：选出正确的短语填入空格",
+     "items": [
+      {
+       "prompt": "Erik reached the top, ____ his whole team.",
+       "options": [
+        "to the delight for",
+        "to the delight of",
+        "to the delightful of"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "____ everyone, the octopus crawled away quietly.",
+       "options": [
+        "To the surprise for",
+        "To the surprising of",
+        "To the surprise of"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "Guided by the sound of the bell, the blind climber found the top of the hill, as if his hands could see.",
+    "The octopus crawled across the rocks, yet its three hearts beat on quietly, as if nothing were wrong."
+   ]
+  },
+  "crossword": {
+   "nrows": 15,
+   "ncols": 11,
+   "words": [
+    {
+     "word": "FLESH",
+     "row": 0,
+     "col": 8,
+     "dir": "D",
+     "num": 1,
+     "cn": "肉；肉体",
+     "clue": "A body of soft ___."
+    },
+    {
+     "word": "GARMENT",
+     "row": 1,
+     "col": 6,
+     "dir": "D",
+     "num": 2,
+     "cn": "服装",
+     "clue": "He wore thick ___s against the cold wind."
+    },
+    {
+     "word": "SYSTEMIC",
+     "row": 2,
+     "col": 0,
+     "dir": "D",
+     "num": 3,
+     "cn": "体循环的",
+     "clue": "The ___ heart sends blood around the body."
+    },
+    {
+     "word": "FADE",
+     "row": 2,
+     "col": 5,
+     "dir": "A",
+     "num": 4,
+     "cn": "渐渐消失",
+     "clue": "His eyesight ___d slowly."
+    },
+    {
+     "word": "COURAGE",
+     "row": 3,
+     "col": 10,
+     "dir": "D",
+     "num": 5,
+     "cn": "勇气",
+     "clue": "Step by step, his ___ grew."
+    },
+    {
+     "word": "DELIGHT",
+     "row": 6,
+     "col": 2,
+     "dir": "D",
+     "num": 6,
+     "cn": "喜悦",
+     "clue": "Erik reached the top, to the ___ of his whole team."
+    },
+    {
+     "word": "BRANCHIAL",
+     "row": 6,
+     "col": 8,
+     "dir": "D",
+     "num": 7,
+     "cn": "鳃的",
+     "clue": "Two small hearts, called ___ hearts, push blood to its gills."
+    },
+    {
+     "word": "ERUPT",
+     "row": 7,
+     "col": 2,
+     "dir": "A",
+     "num": 8,
+     "cn": "爆发",
+     "clue": "His team ___ed with cheers. (past form in the text)"
+    },
+    {
+     "word": "PRIMARY",
+     "row": 7,
+     "col": 5,
+     "dir": "D",
+     "num": 9,
+     "cn": "主要的",
+     "clue": "Touch was his ___ guide."
+    },
+    {
+     "word": "COINCIDENCE",
+     "row": 9,
+     "col": 0,
+     "dir": "A",
+     "num": 10,
+     "cn": "巧合",
+     "clue": "It is no ___ that they are such good crawlers."
+    }
+   ]
+  }
+ }
+}
