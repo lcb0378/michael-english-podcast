@@ -1,0 +1,3621 @@
+{
+ "id": "vol11",
+ "title": "机器人跑半马与章鱼的梦",
+ "words": 599,
+ "duration": "6分00秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol11/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol11/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol11/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol11/Vol11_晚读讲义_机器人跑半马与章鱼的梦_v1.pdf",
+ "pdfName": "Vol11_晚读讲义_机器人跑半马与章鱼的梦_v1.pdf",
+ "blocks": [
+  {
+   "start": 27.47,
+   "end": 51.66,
+   "en": "Hello, explorers, and welcome back to Michael's Morning Listening! This is our eleventh show together — keep going for a fortnight, and we'll hit twenty! Today we meet a runner with legs of metal in Beijing. Then we dive under the sea, to watch an octopus paint dreams on its skin. No flying saucers today — but there will be running and dreams. Ready? Let's go!",
+   "title": "开场白",
+   "cn": "你好，探险家们，欢迎回到 Michael 的早听晚读！这是我们在一起的第十一期节目——再坚持两周，我们就到二十期啦！今天我们先认识一位在北京跑步的金属腿选手；然后潜入海底，看一只章鱼把梦画在自己的皮肤上。今天没有飞碟——但会有奔跑，会有美梦。准备好了吗？出发！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 27.47
+    },
+    {
+     "w": "explorers,",
+     "t": 27.84
+    },
+    {
+     "w": "and",
+     "t": 28.2
+    },
+    {
+     "w": "welcome",
+     "t": 28.57
+    },
+    {
+     "w": "back",
+     "t": 28.94
+    },
+    {
+     "w": "to",
+     "t": 29.3
+    },
+    {
+     "w": "Michael's",
+     "t": 29.67
+    },
+    {
+     "w": "Morning",
+     "t": 30.04
+    },
+    {
+     "w": "Listening!",
+     "t": 30.4
+    },
+    {
+     "w": "This",
+     "t": 30.77
+    },
+    {
+     "w": "is",
+     "t": 31.14
+    },
+    {
+     "w": "our",
+     "t": 31.5
+    },
+    {
+     "w": "eleventh",
+     "t": 31.87
+    },
+    {
+     "w": "show",
+     "t": 32.23
+    },
+    {
+     "w": "together",
+     "t": 32.6
+    },
+    {
+     "w": "—",
+     "t": 32.97
+    },
+    {
+     "w": "keep",
+     "t": 33.33
+    },
+    {
+     "w": "going",
+     "t": 33.7
+    },
+    {
+     "w": "for",
+     "t": 34.07
+    },
+    {
+     "w": "a",
+     "t": 34.43
+    },
+    {
+     "w": "fortnight,",
+     "t": 34.8
+    },
+    {
+     "w": "and",
+     "t": 35.17
+    },
+    {
+     "w": "we'll",
+     "t": 35.53
+    },
+    {
+     "w": "hit",
+     "t": 35.9
+    },
+    {
+     "w": "twenty!",
+     "t": 36.27
+    },
+    {
+     "w": "Today",
+     "t": 36.63
+    },
+    {
+     "w": "we",
+     "t": 37.0
+    },
+    {
+     "w": "meet",
+     "t": 37.37
+    },
+    {
+     "w": "a",
+     "t": 37.73
+    },
+    {
+     "w": "runner",
+     "t": 38.1
+    },
+    {
+     "w": "with",
+     "t": 38.47
+    },
+    {
+     "w": "legs",
+     "t": 38.83
+    },
+    {
+     "w": "of",
+     "t": 39.2
+    },
+    {
+     "w": "metal",
+     "t": 39.56
+    },
+    {
+     "w": "in",
+     "t": 39.93
+    },
+    {
+     "w": "Beijing.",
+     "t": 40.3
+    },
+    {
+     "w": "Then",
+     "t": 40.66
+    },
+    {
+     "w": "we",
+     "t": 41.03
+    },
+    {
+     "w": "dive",
+     "t": 41.4
+    },
+    {
+     "w": "under",
+     "t": 41.76
+    },
+    {
+     "w": "the",
+     "t": 42.13
+    },
+    {
+     "w": "sea,",
+     "t": 42.5
+    },
+    {
+     "w": "to",
+     "t": 42.86
+    },
+    {
+     "w": "watch",
+     "t": 43.23
+    },
+    {
+     "w": "an",
+     "t": 43.6
+    },
+    {
+     "w": "octopus",
+     "t": 43.96
+    },
+    {
+     "w": "paint",
+     "t": 44.33
+    },
+    {
+     "w": "dreams",
+     "t": 44.7
+    },
+    {
+     "w": "on",
+     "t": 45.06
+    },
+    {
+     "w": "its",
+     "t": 45.43
+    },
+    {
+     "w": "skin.",
+     "t": 45.8
+    },
+    {
+     "w": "No",
+     "t": 46.16
+    },
+    {
+     "w": "flying",
+     "t": 46.53
+    },
+    {
+     "w": "saucers",
+     "t": 46.9
+    },
+    {
+     "w": "today",
+     "t": 47.26
+    },
+    {
+     "w": "—",
+     "t": 47.63
+    },
+    {
+     "w": "but",
+     "t": 47.99
+    },
+    {
+     "w": "there",
+     "t": 48.36
+    },
+    {
+     "w": "will",
+     "t": 48.73
+    },
+    {
+     "w": "be",
+     "t": 49.09
+    },
+    {
+     "w": "running",
+     "t": 49.46
+    },
+    {
+     "w": "and",
+     "t": 49.83
+    },
+    {
+     "w": "dreams.",
+     "t": 50.19
+    },
+    {
+     "w": "Ready?",
+     "t": 50.56
+    },
+    {
+     "w": "Let's",
+     "t": 50.93
+    },
+    {
+     "w": "go!",
+     "t": 51.29
+    }
+   ]
+  },
+  {
+   "start": 69.0,
+   "end": 103.88,
+   "en": "On your marks, get set... go! In Beijing, twenty-one humanoid robots lined up for a race: the world's first half-marathon for robots — twenty-one kilometres beside thousands of human runners. The robots came in all sizes: some no taller than a small child, others as tall as a basketball player. Thousands of fans came to observe. One robot wore running shoes. One wore boxing gloves! One robot fell on its face, waved its arms, and got up again.",
+   "title": "机器人跑半程马拉松",
+   "cn": "各就各位，预备……跑！在北京，二十一个机器人排成一排，参加一场比赛：世界上第一场机器人半程马拉松——二十一公里的路，旁边是几千名人类跑者。这些机器人个头各异：有的还没小朋友高，有的像篮球运动员一样高。几千名观众赶来围观。一台机器人穿着跑鞋，一台戴着拳击手套！还有一台机器人脸朝下摔了一跤，它挥挥胳膊，又爬了起来。",
+   "words": [
+    {
+     "w": "On",
+     "t": 69.0
+    },
+    {
+     "w": "your",
+     "t": 69.45
+    },
+    {
+     "w": "marks,",
+     "t": 69.89
+    },
+    {
+     "w": "get",
+     "t": 70.34
+    },
+    {
+     "w": "set...",
+     "t": 70.79
+    },
+    {
+     "w": "go!",
+     "t": 71.24
+    },
+    {
+     "w": "In",
+     "t": 71.68
+    },
+    {
+     "w": "Beijing,",
+     "t": 72.13
+    },
+    {
+     "w": "twenty-one",
+     "t": 72.58
+    },
+    {
+     "w": "humanoid",
+     "t": 73.02
+    },
+    {
+     "w": "robots",
+     "t": 73.47
+    },
+    {
+     "w": "lined",
+     "t": 73.92
+    },
+    {
+     "w": "up",
+     "t": 74.37
+    },
+    {
+     "w": "for",
+     "t": 74.81
+    },
+    {
+     "w": "a",
+     "t": 75.26
+    },
+    {
+     "w": "race:",
+     "t": 75.71
+    },
+    {
+     "w": "the",
+     "t": 76.16
+    },
+    {
+     "w": "world's",
+     "t": 76.6
+    },
+    {
+     "w": "first",
+     "t": 77.05
+    },
+    {
+     "w": "half-marathon",
+     "t": 77.5
+    },
+    {
+     "w": "for",
+     "t": 77.94
+    },
+    {
+     "w": "robots",
+     "t": 78.39
+    },
+    {
+     "w": "—",
+     "t": 78.84
+    },
+    {
+     "w": "twenty-one",
+     "t": 79.29
+    },
+    {
+     "w": "kilometres",
+     "t": 79.73
+    },
+    {
+     "w": "beside",
+     "t": 80.18
+    },
+    {
+     "w": "thousands",
+     "t": 80.63
+    },
+    {
+     "w": "of",
+     "t": 81.07
+    },
+    {
+     "w": "human",
+     "t": 81.52
+    },
+    {
+     "w": "runners.",
+     "t": 81.97
+    },
+    {
+     "w": "The",
+     "t": 82.42
+    },
+    {
+     "w": "robots",
+     "t": 82.86
+    },
+    {
+     "w": "came",
+     "t": 83.31
+    },
+    {
+     "w": "in",
+     "t": 83.76
+    },
+    {
+     "w": "all",
+     "t": 84.2
+    },
+    {
+     "w": "sizes:",
+     "t": 84.65
+    },
+    {
+     "w": "some",
+     "t": 85.1
+    },
+    {
+     "w": "no",
+     "t": 85.55
+    },
+    {
+     "w": "taller",
+     "t": 85.99
+    },
+    {
+     "w": "than",
+     "t": 86.44
+    },
+    {
+     "w": "a",
+     "t": 86.89
+    },
+    {
+     "w": "small",
+     "t": 87.34
+    },
+    {
+     "w": "child,",
+     "t": 87.78
+    },
+    {
+     "w": "others",
+     "t": 88.23
+    },
+    {
+     "w": "as",
+     "t": 88.68
+    },
+    {
+     "w": "tall",
+     "t": 89.12
+    },
+    {
+     "w": "as",
+     "t": 89.57
+    },
+    {
+     "w": "a",
+     "t": 90.02
+    },
+    {
+     "w": "basketball",
+     "t": 90.47
+    },
+    {
+     "w": "player.",
+     "t": 90.91
+    },
+    {
+     "w": "Thousands",
+     "t": 91.36
+    },
+    {
+     "w": "of",
+     "t": 91.81
+    },
+    {
+     "w": "fans",
+     "t": 92.25
+    },
+    {
+     "w": "came",
+     "t": 92.7
+    },
+    {
+     "w": "to",
+     "t": 93.15
+    },
+    {
+     "w": "observe.",
+     "t": 93.6
+    },
+    {
+     "w": "One",
+     "t": 94.04
+    },
+    {
+     "w": "robot",
+     "t": 94.49
+    },
+    {
+     "w": "wore",
+     "t": 94.94
+    },
+    {
+     "w": "running",
+     "t": 95.38
+    },
+    {
+     "w": "shoes.",
+     "t": 95.83
+    },
+    {
+     "w": "One",
+     "t": 96.28
+    },
+    {
+     "w": "wore",
+     "t": 96.73
+    },
+    {
+     "w": "boxing",
+     "t": 97.17
+    },
+    {
+     "w": "gloves!",
+     "t": 97.62
+    },
+    {
+     "w": "One",
+     "t": 98.07
+    },
+    {
+     "w": "robot",
+     "t": 98.52
+    },
+    {
+     "w": "fell",
+     "t": 98.96
+    },
+    {
+     "w": "on",
+     "t": 99.41
+    },
+    {
+     "w": "its",
+     "t": 99.86
+    },
+    {
+     "w": "face,",
+     "t": 100.3
+    },
+    {
+     "w": "waved",
+     "t": 100.75
+    },
+    {
+     "w": "its",
+     "t": 101.2
+    },
+    {
+     "w": "arms,",
+     "t": 101.65
+    },
+    {
+     "w": "and",
+     "t": 102.09
+    },
+    {
+     "w": "got",
+     "t": 102.54
+    },
+    {
+     "w": "up",
+     "t": 102.99
+    },
+    {
+     "w": "again.",
+     "t": 103.43
+    }
+   ]
+  },
+  {
+   "start": 103.88,
+   "end": 150.39,
+   "en": "The winner was a tall robot called Tiangong Ultra: one point eight metres of metal and wires, fifty-five kilograms. It crossed the finish line in two hours, forty minutes and forty-two seconds, stopping only three times for a new battery. The fastest human needed one hour and two minutes — so the robots have homework to do! Building a running robot means compromise: long legs run fast, but they drink power. The engineers were determined anyway. Why race? Not for medals, and not for justice — every robot that finished was a hero. When Tiangong Ultra crossed the line, the crowd erupted with cheers.",
+   "title": "机器人跑半程马拉松",
+   "cn": "冠军是一台高大的机器人，叫“天工Ultra”：一米八的金属和电线，重五十五公斤。它用两小时四十分四十二秒冲过终点线，中途只停了三次换新电池。最快的人类跑者只用了一小时零两分钟——所以机器人还有“家庭作业”要做呢！造一台会跑步的机器人，处处都要折中：腿长跑得快，可腿长也费电。不过工程师们还是下定了决心。为什么要比赛呢？不是为了奖牌，也不是为了争输赢——每一台跑到终点的机器人都是英雄。当天工Ultra冲过终点线时，人群爆发出一阵欢呼。",
+   "words": [
+    {
+     "w": "The",
+     "t": 103.88
+    },
+    {
+     "w": "winner",
+     "t": 104.33
+    },
+    {
+     "w": "was",
+     "t": 104.78
+    },
+    {
+     "w": "a",
+     "t": 105.22
+    },
+    {
+     "w": "tall",
+     "t": 105.67
+    },
+    {
+     "w": "robot",
+     "t": 106.12
+    },
+    {
+     "w": "called",
+     "t": 106.56
+    },
+    {
+     "w": "Tiangong",
+     "t": 107.01
+    },
+    {
+     "w": "Ultra:",
+     "t": 107.46
+    },
+    {
+     "w": "one",
+     "t": 107.91
+    },
+    {
+     "w": "point",
+     "t": 108.35
+    },
+    {
+     "w": "eight",
+     "t": 108.8
+    },
+    {
+     "w": "metres",
+     "t": 109.25
+    },
+    {
+     "w": "of",
+     "t": 109.69
+    },
+    {
+     "w": "metal",
+     "t": 110.14
+    },
+    {
+     "w": "and",
+     "t": 110.59
+    },
+    {
+     "w": "wires,",
+     "t": 111.04
+    },
+    {
+     "w": "fifty-five",
+     "t": 111.48
+    },
+    {
+     "w": "kilograms.",
+     "t": 111.93
+    },
+    {
+     "w": "It",
+     "t": 112.38
+    },
+    {
+     "w": "crossed",
+     "t": 112.83
+    },
+    {
+     "w": "the",
+     "t": 113.27
+    },
+    {
+     "w": "finish",
+     "t": 113.72
+    },
+    {
+     "w": "line",
+     "t": 114.17
+    },
+    {
+     "w": "in",
+     "t": 114.61
+    },
+    {
+     "w": "two",
+     "t": 115.06
+    },
+    {
+     "w": "hours,",
+     "t": 115.51
+    },
+    {
+     "w": "forty",
+     "t": 115.96
+    },
+    {
+     "w": "minutes",
+     "t": 116.4
+    },
+    {
+     "w": "and",
+     "t": 116.85
+    },
+    {
+     "w": "forty-two",
+     "t": 117.3
+    },
+    {
+     "w": "seconds,",
+     "t": 117.74
+    },
+    {
+     "w": "stopping",
+     "t": 118.19
+    },
+    {
+     "w": "only",
+     "t": 118.64
+    },
+    {
+     "w": "three",
+     "t": 119.09
+    },
+    {
+     "w": "times",
+     "t": 119.53
+    },
+    {
+     "w": "for",
+     "t": 119.98
+    },
+    {
+     "w": "a",
+     "t": 120.43
+    },
+    {
+     "w": "new",
+     "t": 120.87
+    },
+    {
+     "w": "battery.",
+     "t": 121.32
+    },
+    {
+     "w": "The",
+     "t": 121.77
+    },
+    {
+     "w": "fastest",
+     "t": 122.22
+    },
+    {
+     "w": "human",
+     "t": 122.66
+    },
+    {
+     "w": "needed",
+     "t": 123.11
+    },
+    {
+     "w": "one",
+     "t": 123.56
+    },
+    {
+     "w": "hour",
+     "t": 124.01
+    },
+    {
+     "w": "and",
+     "t": 124.45
+    },
+    {
+     "w": "two",
+     "t": 124.9
+    },
+    {
+     "w": "minutes",
+     "t": 125.35
+    },
+    {
+     "w": "—",
+     "t": 125.79
+    },
+    {
+     "w": "so",
+     "t": 126.24
+    },
+    {
+     "w": "the",
+     "t": 126.69
+    },
+    {
+     "w": "robots",
+     "t": 127.14
+    },
+    {
+     "w": "have",
+     "t": 127.58
+    },
+    {
+     "w": "homework",
+     "t": 128.03
+    },
+    {
+     "w": "to",
+     "t": 128.48
+    },
+    {
+     "w": "do!",
+     "t": 128.92
+    },
+    {
+     "w": "Building",
+     "t": 129.37
+    },
+    {
+     "w": "a",
+     "t": 129.82
+    },
+    {
+     "w": "running",
+     "t": 130.27
+    },
+    {
+     "w": "robot",
+     "t": 130.71
+    },
+    {
+     "w": "means",
+     "t": 131.16
+    },
+    {
+     "w": "compromise:",
+     "t": 131.61
+    },
+    {
+     "w": "long",
+     "t": 132.05
+    },
+    {
+     "w": "legs",
+     "t": 132.5
+    },
+    {
+     "w": "run",
+     "t": 132.95
+    },
+    {
+     "w": "fast,",
+     "t": 133.4
+    },
+    {
+     "w": "but",
+     "t": 133.84
+    },
+    {
+     "w": "they",
+     "t": 134.29
+    },
+    {
+     "w": "drink",
+     "t": 134.74
+    },
+    {
+     "w": "power.",
+     "t": 135.19
+    },
+    {
+     "w": "The",
+     "t": 135.63
+    },
+    {
+     "w": "engineers",
+     "t": 136.08
+    },
+    {
+     "w": "were",
+     "t": 136.53
+    },
+    {
+     "w": "determined",
+     "t": 136.97
+    },
+    {
+     "w": "anyway.",
+     "t": 137.42
+    },
+    {
+     "w": "Why",
+     "t": 137.87
+    },
+    {
+     "w": "race?",
+     "t": 138.32
+    },
+    {
+     "w": "Not",
+     "t": 138.76
+    },
+    {
+     "w": "for",
+     "t": 139.21
+    },
+    {
+     "w": "medals,",
+     "t": 139.66
+    },
+    {
+     "w": "and",
+     "t": 140.1
+    },
+    {
+     "w": "not",
+     "t": 140.55
+    },
+    {
+     "w": "for",
+     "t": 141.0
+    },
+    {
+     "w": "justice",
+     "t": 141.45
+    },
+    {
+     "w": "—",
+     "t": 141.89
+    },
+    {
+     "w": "every",
+     "t": 142.34
+    },
+    {
+     "w": "robot",
+     "t": 142.79
+    },
+    {
+     "w": "that",
+     "t": 143.23
+    },
+    {
+     "w": "finished",
+     "t": 143.68
+    },
+    {
+     "w": "was",
+     "t": 144.13
+    },
+    {
+     "w": "a",
+     "t": 144.58
+    },
+    {
+     "w": "hero.",
+     "t": 145.02
+    },
+    {
+     "w": "When",
+     "t": 145.47
+    },
+    {
+     "w": "Tiangong",
+     "t": 145.92
+    },
+    {
+     "w": "Ultra",
+     "t": 146.37
+    },
+    {
+     "w": "crossed",
+     "t": 146.81
+    },
+    {
+     "w": "the",
+     "t": 147.26
+    },
+    {
+     "w": "line,",
+     "t": 147.71
+    },
+    {
+     "w": "the",
+     "t": 148.15
+    },
+    {
+     "w": "crowd",
+     "t": 148.6
+    },
+    {
+     "w": "erupted",
+     "t": 149.05
+    },
+    {
+     "w": "with",
+     "t": 149.5
+    },
+    {
+     "w": "cheers.",
+     "t": 149.94
+    }
+   ]
+  },
+  {
+   "start": 164.85,
+   "end": 207.21,
+   "en": "Now, from the noisy road to a quiet sea. In Japan, scientists watched twenty-nine sleeping octopuses — and found a surprise. An octopus sleeps in two ways. In quiet sleep, it lies pale and still, like a stone. But about once an hour, it slips into active sleep for one minute — and the show begins! Its skin flashes red, brown and gold. Its eyes roll. Its eight arms, like the branches of a tree, twitch and wave as it breathes faster. Under the skin sit tiny colour cells called chromatophores, turning the colours up and down like a dial.",
+   "title": "会做梦的章鱼",
+   "cn": "现在，从热闹的马路来到安静的大海。在日本，科学家观察了二十九只正在睡觉的章鱼——发现了一个惊喜。章鱼有两种睡眠。在安静睡眠时，它趴着不动，皮肤苍白，像一块石头。但大约每隔一小时，它会滑进活跃睡眠，持续一分钟——表演开始了！它的皮肤闪烁着红色、棕色和金色，眼睛转动，八条像树枝一样的胳膊轻轻抽动、挥舞，呼吸也变快了。皮肤下面藏着微小的色素细胞，能像拧表盘一样把颜色调亮、调暗。",
+   "words": [
+    {
+     "w": "Now,",
+     "t": 164.85
+    },
+    {
+     "w": "from",
+     "t": 165.27
+    },
+    {
+     "w": "the",
+     "t": 165.7
+    },
+    {
+     "w": "noisy",
+     "t": 166.12
+    },
+    {
+     "w": "road",
+     "t": 166.54
+    },
+    {
+     "w": "to",
+     "t": 166.97
+    },
+    {
+     "w": "a",
+     "t": 167.39
+    },
+    {
+     "w": "quiet",
+     "t": 167.82
+    },
+    {
+     "w": "sea.",
+     "t": 168.24
+    },
+    {
+     "w": "In",
+     "t": 168.66
+    },
+    {
+     "w": "Japan,",
+     "t": 169.09
+    },
+    {
+     "w": "scientists",
+     "t": 169.51
+    },
+    {
+     "w": "watched",
+     "t": 169.93
+    },
+    {
+     "w": "twenty-nine",
+     "t": 170.36
+    },
+    {
+     "w": "sleeping",
+     "t": 170.78
+    },
+    {
+     "w": "octopuses",
+     "t": 171.2
+    },
+    {
+     "w": "—",
+     "t": 171.63
+    },
+    {
+     "w": "and",
+     "t": 172.05
+    },
+    {
+     "w": "found",
+     "t": 172.47
+    },
+    {
+     "w": "a",
+     "t": 172.9
+    },
+    {
+     "w": "surprise.",
+     "t": 173.32
+    },
+    {
+     "w": "An",
+     "t": 173.75
+    },
+    {
+     "w": "octopus",
+     "t": 174.17
+    },
+    {
+     "w": "sleeps",
+     "t": 174.59
+    },
+    {
+     "w": "in",
+     "t": 175.02
+    },
+    {
+     "w": "two",
+     "t": 175.44
+    },
+    {
+     "w": "ways.",
+     "t": 175.86
+    },
+    {
+     "w": "In",
+     "t": 176.29
+    },
+    {
+     "w": "quiet",
+     "t": 176.71
+    },
+    {
+     "w": "sleep,",
+     "t": 177.13
+    },
+    {
+     "w": "it",
+     "t": 177.56
+    },
+    {
+     "w": "lies",
+     "t": 177.98
+    },
+    {
+     "w": "pale",
+     "t": 178.41
+    },
+    {
+     "w": "and",
+     "t": 178.83
+    },
+    {
+     "w": "still,",
+     "t": 179.25
+    },
+    {
+     "w": "like",
+     "t": 179.68
+    },
+    {
+     "w": "a",
+     "t": 180.1
+    },
+    {
+     "w": "stone.",
+     "t": 180.52
+    },
+    {
+     "w": "But",
+     "t": 180.95
+    },
+    {
+     "w": "about",
+     "t": 181.37
+    },
+    {
+     "w": "once",
+     "t": 181.79
+    },
+    {
+     "w": "an",
+     "t": 182.22
+    },
+    {
+     "w": "hour,",
+     "t": 182.64
+    },
+    {
+     "w": "it",
+     "t": 183.06
+    },
+    {
+     "w": "slips",
+     "t": 183.49
+    },
+    {
+     "w": "into",
+     "t": 183.91
+    },
+    {
+     "w": "active",
+     "t": 184.34
+    },
+    {
+     "w": "sleep",
+     "t": 184.76
+    },
+    {
+     "w": "for",
+     "t": 185.18
+    },
+    {
+     "w": "one",
+     "t": 185.61
+    },
+    {
+     "w": "minute",
+     "t": 186.03
+    },
+    {
+     "w": "—",
+     "t": 186.45
+    },
+    {
+     "w": "and",
+     "t": 186.88
+    },
+    {
+     "w": "the",
+     "t": 187.3
+    },
+    {
+     "w": "show",
+     "t": 187.72
+    },
+    {
+     "w": "begins!",
+     "t": 188.15
+    },
+    {
+     "w": "Its",
+     "t": 188.57
+    },
+    {
+     "w": "skin",
+     "t": 188.99
+    },
+    {
+     "w": "flashes",
+     "t": 189.42
+    },
+    {
+     "w": "red,",
+     "t": 189.84
+    },
+    {
+     "w": "brown",
+     "t": 190.27
+    },
+    {
+     "w": "and",
+     "t": 190.69
+    },
+    {
+     "w": "gold.",
+     "t": 191.11
+    },
+    {
+     "w": "Its",
+     "t": 191.54
+    },
+    {
+     "w": "eyes",
+     "t": 191.96
+    },
+    {
+     "w": "roll.",
+     "t": 192.38
+    },
+    {
+     "w": "Its",
+     "t": 192.81
+    },
+    {
+     "w": "eight",
+     "t": 193.23
+    },
+    {
+     "w": "arms,",
+     "t": 193.65
+    },
+    {
+     "w": "like",
+     "t": 194.08
+    },
+    {
+     "w": "the",
+     "t": 194.5
+    },
+    {
+     "w": "branches",
+     "t": 194.93
+    },
+    {
+     "w": "of",
+     "t": 195.35
+    },
+    {
+     "w": "a",
+     "t": 195.77
+    },
+    {
+     "w": "tree,",
+     "t": 196.2
+    },
+    {
+     "w": "twitch",
+     "t": 196.62
+    },
+    {
+     "w": "and",
+     "t": 197.04
+    },
+    {
+     "w": "wave",
+     "t": 197.47
+    },
+    {
+     "w": "as",
+     "t": 197.89
+    },
+    {
+     "w": "it",
+     "t": 198.31
+    },
+    {
+     "w": "breathes",
+     "t": 198.74
+    },
+    {
+     "w": "faster.",
+     "t": 199.16
+    },
+    {
+     "w": "Under",
+     "t": 199.58
+    },
+    {
+     "w": "the",
+     "t": 200.01
+    },
+    {
+     "w": "skin",
+     "t": 200.43
+    },
+    {
+     "w": "sit",
+     "t": 200.86
+    },
+    {
+     "w": "tiny",
+     "t": 201.28
+    },
+    {
+     "w": "colour",
+     "t": 201.7
+    },
+    {
+     "w": "cells",
+     "t": 202.13
+    },
+    {
+     "w": "called",
+     "t": 202.55
+    },
+    {
+     "w": "chromatophores,",
+     "t": 202.97
+    },
+    {
+     "w": "turning",
+     "t": 203.4
+    },
+    {
+     "w": "the",
+     "t": 203.82
+    },
+    {
+     "w": "colours",
+     "t": 204.24
+    },
+    {
+     "w": "up",
+     "t": 204.67
+    },
+    {
+     "w": "and",
+     "t": 205.09
+    },
+    {
+     "w": "down",
+     "t": 205.51
+    },
+    {
+     "w": "like",
+     "t": 205.94
+    },
+    {
+     "w": "a",
+     "t": 206.36
+    },
+    {
+     "w": "dial.",
+     "t": 206.79
+    }
+   ]
+  },
+  {
+   "start": 207.21,
+   "end": 246.18,
+   "en": "Stranger still, its brain buzzes with the patterns it uses when awake and hiding — or hunting. So scientists think the octopus may be replaying its day: it may be dreaming! When the team kept the octopuses awake too long, they fell into active sleep sooner, and more often — like you after a busy day. And after a meal, an octopus rests to digest its food... and perhaps to dream about it. The team hopes this helps conservation: the better we understand sea animals, the better we can protect their homes.",
+   "title": "会做梦的章鱼",
+   "cn": "更奇怪的是，它睡觉时的大脑会活跃地“嗡嗡”作响，发出和它清醒时一样的忙碌信号——那正是它躲藏或者捕猎时用的信号。所以科学家认为，章鱼可能在重播白天发生的事：它可能在做梦！当研究人员让章鱼太久不睡觉时，它们会更快、更频繁地进入活跃睡眠——就像你忙了一整天之后那样。吃完饭后，章鱼会休息一下，消化食物……说不定，还顺便梦一梦那顿饭。研究团队希望，这项工作也能帮助保护海洋：我们越了解海里的动物，就越能保护好它们的家。",
+   "words": [
+    {
+     "w": "Stranger",
+     "t": 207.21
+    },
+    {
+     "w": "still,",
+     "t": 207.63
+    },
+    {
+     "w": "its",
+     "t": 208.06
+    },
+    {
+     "w": "brain",
+     "t": 208.48
+    },
+    {
+     "w": "buzzes",
+     "t": 208.9
+    },
+    {
+     "w": "with",
+     "t": 209.33
+    },
+    {
+     "w": "the",
+     "t": 209.75
+    },
+    {
+     "w": "patterns",
+     "t": 210.17
+    },
+    {
+     "w": "it",
+     "t": 210.6
+    },
+    {
+     "w": "uses",
+     "t": 211.02
+    },
+    {
+     "w": "when",
+     "t": 211.45
+    },
+    {
+     "w": "awake",
+     "t": 211.87
+    },
+    {
+     "w": "and",
+     "t": 212.29
+    },
+    {
+     "w": "hiding",
+     "t": 212.72
+    },
+    {
+     "w": "—",
+     "t": 213.14
+    },
+    {
+     "w": "or",
+     "t": 213.56
+    },
+    {
+     "w": "hunting.",
+     "t": 213.99
+    },
+    {
+     "w": "So",
+     "t": 214.41
+    },
+    {
+     "w": "scientists",
+     "t": 214.83
+    },
+    {
+     "w": "think",
+     "t": 215.26
+    },
+    {
+     "w": "the",
+     "t": 215.68
+    },
+    {
+     "w": "octopus",
+     "t": 216.1
+    },
+    {
+     "w": "may",
+     "t": 216.53
+    },
+    {
+     "w": "be",
+     "t": 216.95
+    },
+    {
+     "w": "replaying",
+     "t": 217.38
+    },
+    {
+     "w": "its",
+     "t": 217.8
+    },
+    {
+     "w": "day:",
+     "t": 218.22
+    },
+    {
+     "w": "it",
+     "t": 218.65
+    },
+    {
+     "w": "may",
+     "t": 219.07
+    },
+    {
+     "w": "be",
+     "t": 219.49
+    },
+    {
+     "w": "dreaming!",
+     "t": 219.92
+    },
+    {
+     "w": "When",
+     "t": 220.34
+    },
+    {
+     "w": "the",
+     "t": 220.76
+    },
+    {
+     "w": "team",
+     "t": 221.19
+    },
+    {
+     "w": "kept",
+     "t": 221.61
+    },
+    {
+     "w": "the",
+     "t": 222.04
+    },
+    {
+     "w": "octopuses",
+     "t": 222.46
+    },
+    {
+     "w": "awake",
+     "t": 222.88
+    },
+    {
+     "w": "too",
+     "t": 223.31
+    },
+    {
+     "w": "long,",
+     "t": 223.73
+    },
+    {
+     "w": "they",
+     "t": 224.15
+    },
+    {
+     "w": "fell",
+     "t": 224.58
+    },
+    {
+     "w": "into",
+     "t": 225.0
+    },
+    {
+     "w": "active",
+     "t": 225.42
+    },
+    {
+     "w": "sleep",
+     "t": 225.85
+    },
+    {
+     "w": "sooner,",
+     "t": 226.27
+    },
+    {
+     "w": "and",
+     "t": 226.69
+    },
+    {
+     "w": "more",
+     "t": 227.12
+    },
+    {
+     "w": "often",
+     "t": 227.54
+    },
+    {
+     "w": "—",
+     "t": 227.97
+    },
+    {
+     "w": "like",
+     "t": 228.39
+    },
+    {
+     "w": "you",
+     "t": 228.81
+    },
+    {
+     "w": "after",
+     "t": 229.24
+    },
+    {
+     "w": "a",
+     "t": 229.66
+    },
+    {
+     "w": "busy",
+     "t": 230.08
+    },
+    {
+     "w": "day.",
+     "t": 230.51
+    },
+    {
+     "w": "And",
+     "t": 230.93
+    },
+    {
+     "w": "after",
+     "t": 231.35
+    },
+    {
+     "w": "a",
+     "t": 231.78
+    },
+    {
+     "w": "meal,",
+     "t": 232.2
+    },
+    {
+     "w": "an",
+     "t": 232.62
+    },
+    {
+     "w": "octopus",
+     "t": 233.05
+    },
+    {
+     "w": "rests",
+     "t": 233.47
+    },
+    {
+     "w": "to",
+     "t": 233.9
+    },
+    {
+     "w": "digest",
+     "t": 234.32
+    },
+    {
+     "w": "its",
+     "t": 234.74
+    },
+    {
+     "w": "food...",
+     "t": 235.17
+    },
+    {
+     "w": "and",
+     "t": 235.59
+    },
+    {
+     "w": "perhaps",
+     "t": 236.01
+    },
+    {
+     "w": "to",
+     "t": 236.44
+    },
+    {
+     "w": "dream",
+     "t": 236.86
+    },
+    {
+     "w": "about",
+     "t": 237.28
+    },
+    {
+     "w": "it.",
+     "t": 237.71
+    },
+    {
+     "w": "The",
+     "t": 238.13
+    },
+    {
+     "w": "team",
+     "t": 238.56
+    },
+    {
+     "w": "hopes",
+     "t": 238.98
+    },
+    {
+     "w": "this",
+     "t": 239.4
+    },
+    {
+     "w": "helps",
+     "t": 239.83
+    },
+    {
+     "w": "conservation:",
+     "t": 240.25
+    },
+    {
+     "w": "the",
+     "t": 240.67
+    },
+    {
+     "w": "better",
+     "t": 241.1
+    },
+    {
+     "w": "we",
+     "t": 241.52
+    },
+    {
+     "w": "understand",
+     "t": 241.94
+    },
+    {
+     "w": "sea",
+     "t": 242.37
+    },
+    {
+     "w": "animals,",
+     "t": 242.79
+    },
+    {
+     "w": "the",
+     "t": 243.21
+    },
+    {
+     "w": "better",
+     "t": 243.64
+    },
+    {
+     "w": "we",
+     "t": 244.06
+    },
+    {
+     "w": "can",
+     "t": 244.49
+    },
+    {
+     "w": "protect",
+     "t": 244.91
+    },
+    {
+     "w": "their",
+     "t": 245.33
+    },
+    {
+     "w": "homes.",
+     "t": 245.76
+    }
+   ]
+  },
+  {
+   "start": 259.84,
+   "end": 287.87,
+   "en": "Here's today's idiom: 'break the ice.' Long ago, ships broke the ice on frozen rivers so other boats could pass. Today, when strangers meet, things can feel cold and quiet — until someone tells a joke or asks a question. That breaks the ice! Example: 'At my new school, I broke the ice by sharing my sandwiches.' Who will you break the ice with this week?",
+   "title": "今日俚语",
+   "cn": "今天的俚语是“break the ice”（打破僵局）：很久以前，坚固的船会破开冻河上的冰，让别的船通过。今天，陌生人刚见面时，气氛可能又冷又安静——直到有人讲个笑话，或者问一个问题。那就把“冰”打破啦！举个例子：“在新学校，我靠分享我的三明治打破了僵局。”这一周，你想和谁打破僵局呢？",
+   "words": [
+    {
+     "w": "Here's",
+     "t": 259.84
+    },
+    {
+     "w": "today's",
+     "t": 260.26
+    },
+    {
+     "w": "idiom:",
+     "t": 260.69
+    },
+    {
+     "w": "'break",
+     "t": 261.11
+    },
+    {
+     "w": "the",
+     "t": 261.54
+    },
+    {
+     "w": "ice.'",
+     "t": 261.96
+    },
+    {
+     "w": "Long",
+     "t": 262.39
+    },
+    {
+     "w": "ago,",
+     "t": 262.81
+    },
+    {
+     "w": "ships",
+     "t": 263.24
+    },
+    {
+     "w": "broke",
+     "t": 263.66
+    },
+    {
+     "w": "the",
+     "t": 264.09
+    },
+    {
+     "w": "ice",
+     "t": 264.51
+    },
+    {
+     "w": "on",
+     "t": 264.94
+    },
+    {
+     "w": "frozen",
+     "t": 265.36
+    },
+    {
+     "w": "rivers",
+     "t": 265.79
+    },
+    {
+     "w": "so",
+     "t": 266.21
+    },
+    {
+     "w": "other",
+     "t": 266.64
+    },
+    {
+     "w": "boats",
+     "t": 267.06
+    },
+    {
+     "w": "could",
+     "t": 267.48
+    },
+    {
+     "w": "pass.",
+     "t": 267.91
+    },
+    {
+     "w": "Today,",
+     "t": 268.33
+    },
+    {
+     "w": "when",
+     "t": 268.76
+    },
+    {
+     "w": "strangers",
+     "t": 269.18
+    },
+    {
+     "w": "meet,",
+     "t": 269.61
+    },
+    {
+     "w": "things",
+     "t": 270.03
+    },
+    {
+     "w": "can",
+     "t": 270.46
+    },
+    {
+     "w": "feel",
+     "t": 270.88
+    },
+    {
+     "w": "cold",
+     "t": 271.31
+    },
+    {
+     "w": "and",
+     "t": 271.73
+    },
+    {
+     "w": "quiet",
+     "t": 272.16
+    },
+    {
+     "w": "—",
+     "t": 272.58
+    },
+    {
+     "w": "until",
+     "t": 273.01
+    },
+    {
+     "w": "someone",
+     "t": 273.43
+    },
+    {
+     "w": "tells",
+     "t": 273.86
+    },
+    {
+     "w": "a",
+     "t": 274.28
+    },
+    {
+     "w": "joke",
+     "t": 274.7
+    },
+    {
+     "w": "or",
+     "t": 275.13
+    },
+    {
+     "w": "asks",
+     "t": 275.55
+    },
+    {
+     "w": "a",
+     "t": 275.98
+    },
+    {
+     "w": "question.",
+     "t": 276.4
+    },
+    {
+     "w": "That",
+     "t": 276.83
+    },
+    {
+     "w": "breaks",
+     "t": 277.25
+    },
+    {
+     "w": "the",
+     "t": 277.68
+    },
+    {
+     "w": "ice!",
+     "t": 278.1
+    },
+    {
+     "w": "Example:",
+     "t": 278.53
+    },
+    {
+     "w": "'At",
+     "t": 278.95
+    },
+    {
+     "w": "my",
+     "t": 279.38
+    },
+    {
+     "w": "new",
+     "t": 279.8
+    },
+    {
+     "w": "school,",
+     "t": 280.23
+    },
+    {
+     "w": "I",
+     "t": 280.65
+    },
+    {
+     "w": "broke",
+     "t": 281.07
+    },
+    {
+     "w": "the",
+     "t": 281.5
+    },
+    {
+     "w": "ice",
+     "t": 281.92
+    },
+    {
+     "w": "by",
+     "t": 282.35
+    },
+    {
+     "w": "sharing",
+     "t": 282.77
+    },
+    {
+     "w": "my",
+     "t": 283.2
+    },
+    {
+     "w": "sandwiches.'",
+     "t": 283.62
+    },
+    {
+     "w": "Who",
+     "t": 284.05
+    },
+    {
+     "w": "will",
+     "t": 284.47
+    },
+    {
+     "w": "you",
+     "t": 284.9
+    },
+    {
+     "w": "break",
+     "t": 285.32
+    },
+    {
+     "w": "the",
+     "t": 285.75
+    },
+    {
+     "w": "ice",
+     "t": 286.17
+    },
+    {
+     "w": "with",
+     "t": 286.6
+    },
+    {
+     "w": "this",
+     "t": 287.02
+    },
+    {
+     "w": "week?",
+     "t": 287.45
+    }
+   ]
+  },
+  {
+   "start": 302.49,
+   "end": 331.53,
+   "en": "Let's think about the stories. A robot ran a half-marathon, and an octopus dreamed in colours. Two questions for you. First: is a robot race relevant to your life? The legs that run today may carry bags and help grandparents tomorrow — would you like to race a robot? Second: tonight, watch your cat on the kitchen floor. Do you think it dreams, like the octopus? Talk with your family!",
+   "title": "结束语与互动问题",
+   "cn": "我们来想想今天的故事。一台机器人跑完了半程马拉松，一只章鱼在梦里闪烁着颜色。现在有两个问题。第一：机器人比赛和你的生活相关吗？今天奔跑的腿，将来可能帮我们提重物、照顾爷爷奶奶——你想和机器人赛跑吗？第二：今晚，看看你家睡在厨房地板上的猫。你觉得它会像章鱼一样做梦吗？和家人聊一聊吧！",
+   "words": [
+    {
+     "w": "Let's",
+     "t": 302.49
+    },
+    {
+     "w": "think",
+     "t": 302.9
+    },
+    {
+     "w": "about",
+     "t": 303.32
+    },
+    {
+     "w": "the",
+     "t": 303.73
+    },
+    {
+     "w": "stories.",
+     "t": 304.15
+    },
+    {
+     "w": "A",
+     "t": 304.56
+    },
+    {
+     "w": "robot",
+     "t": 304.98
+    },
+    {
+     "w": "ran",
+     "t": 305.39
+    },
+    {
+     "w": "a",
+     "t": 305.81
+    },
+    {
+     "w": "half-marathon,",
+     "t": 306.22
+    },
+    {
+     "w": "and",
+     "t": 306.64
+    },
+    {
+     "w": "an",
+     "t": 307.05
+    },
+    {
+     "w": "octopus",
+     "t": 307.47
+    },
+    {
+     "w": "dreamed",
+     "t": 307.88
+    },
+    {
+     "w": "in",
+     "t": 308.3
+    },
+    {
+     "w": "colours.",
+     "t": 308.71
+    },
+    {
+     "w": "Two",
+     "t": 309.13
+    },
+    {
+     "w": "questions",
+     "t": 309.54
+    },
+    {
+     "w": "for",
+     "t": 309.96
+    },
+    {
+     "w": "you.",
+     "t": 310.37
+    },
+    {
+     "w": "First:",
+     "t": 310.79
+    },
+    {
+     "w": "is",
+     "t": 311.2
+    },
+    {
+     "w": "a",
+     "t": 311.62
+    },
+    {
+     "w": "robot",
+     "t": 312.03
+    },
+    {
+     "w": "race",
+     "t": 312.45
+    },
+    {
+     "w": "relevant",
+     "t": 312.86
+    },
+    {
+     "w": "to",
+     "t": 313.28
+    },
+    {
+     "w": "your",
+     "t": 313.69
+    },
+    {
+     "w": "life?",
+     "t": 314.11
+    },
+    {
+     "w": "The",
+     "t": 314.52
+    },
+    {
+     "w": "legs",
+     "t": 314.94
+    },
+    {
+     "w": "that",
+     "t": 315.35
+    },
+    {
+     "w": "run",
+     "t": 315.77
+    },
+    {
+     "w": "today",
+     "t": 316.18
+    },
+    {
+     "w": "may",
+     "t": 316.6
+    },
+    {
+     "w": "carry",
+     "t": 317.01
+    },
+    {
+     "w": "bags",
+     "t": 317.42
+    },
+    {
+     "w": "and",
+     "t": 317.84
+    },
+    {
+     "w": "help",
+     "t": 318.25
+    },
+    {
+     "w": "grandparents",
+     "t": 318.67
+    },
+    {
+     "w": "tomorrow",
+     "t": 319.08
+    },
+    {
+     "w": "—",
+     "t": 319.5
+    },
+    {
+     "w": "would",
+     "t": 319.91
+    },
+    {
+     "w": "you",
+     "t": 320.33
+    },
+    {
+     "w": "like",
+     "t": 320.74
+    },
+    {
+     "w": "to",
+     "t": 321.16
+    },
+    {
+     "w": "race",
+     "t": 321.57
+    },
+    {
+     "w": "a",
+     "t": 321.99
+    },
+    {
+     "w": "robot?",
+     "t": 322.4
+    },
+    {
+     "w": "Second:",
+     "t": 322.82
+    },
+    {
+     "w": "tonight,",
+     "t": 323.23
+    },
+    {
+     "w": "watch",
+     "t": 323.65
+    },
+    {
+     "w": "your",
+     "t": 324.06
+    },
+    {
+     "w": "cat",
+     "t": 324.48
+    },
+    {
+     "w": "on",
+     "t": 324.89
+    },
+    {
+     "w": "the",
+     "t": 325.31
+    },
+    {
+     "w": "kitchen",
+     "t": 325.72
+    },
+    {
+     "w": "floor.",
+     "t": 326.14
+    },
+    {
+     "w": "Do",
+     "t": 326.55
+    },
+    {
+     "w": "you",
+     "t": 326.97
+    },
+    {
+     "w": "think",
+     "t": 327.38
+    },
+    {
+     "w": "it",
+     "t": 327.8
+    },
+    {
+     "w": "dreams,",
+     "t": 328.21
+    },
+    {
+     "w": "like",
+     "t": 328.63
+    },
+    {
+     "w": "the",
+     "t": 329.04
+    },
+    {
+     "w": "octopus?",
+     "t": 329.46
+    },
+    {
+     "w": "Talk",
+     "t": 329.87
+    },
+    {
+     "w": "with",
+     "t": 330.29
+    },
+    {
+     "w": "your",
+     "t": 330.7
+    },
+    {
+     "w": "family!",
+     "t": 331.12
+    }
+   ]
+  },
+  {
+   "start": 341.75,
+   "end": 351.47,
+   "en": "That's all for today, explorers. Run like the robot, dream like the octopus, and break the ice wherever you go. See you tomorrow morning!",
+   "title": "告别",
+   "cn": "今天的节目就到这里啦，探险家们。像机器人一样奔跑，像章鱼一样做梦，到哪里都去打破坚冰。明天早上见！",
+   "words": [
+    {
+     "w": "That's",
+     "t": 341.75
+    },
+    {
+     "w": "all",
+     "t": 342.15
+    },
+    {
+     "w": "for",
+     "t": 342.56
+    },
+    {
+     "w": "today,",
+     "t": 342.97
+    },
+    {
+     "w": "explorers.",
+     "t": 343.37
+    },
+    {
+     "w": "Run",
+     "t": 343.77
+    },
+    {
+     "w": "like",
+     "t": 344.18
+    },
+    {
+     "w": "the",
+     "t": 344.59
+    },
+    {
+     "w": "robot,",
+     "t": 344.99
+    },
+    {
+     "w": "dream",
+     "t": 345.39
+    },
+    {
+     "w": "like",
+     "t": 345.8
+    },
+    {
+     "w": "the",
+     "t": 346.21
+    },
+    {
+     "w": "octopus,",
+     "t": 346.61
+    },
+    {
+     "w": "and",
+     "t": 347.01
+    },
+    {
+     "w": "break",
+     "t": 347.42
+    },
+    {
+     "w": "the",
+     "t": 347.83
+    },
+    {
+     "w": "ice",
+     "t": 348.23
+    },
+    {
+     "w": "wherever",
+     "t": 348.63
+    },
+    {
+     "w": "you",
+     "t": 349.04
+    },
+    {
+     "w": "go.",
+     "t": 349.45
+    },
+    {
+     "w": "See",
+     "t": 349.85
+    },
+    {
+     "w": "you",
+     "t": 350.25
+    },
+    {
+     "w": "tomorrow",
+     "t": 350.66
+    },
+    {
+     "w": "morning!",
+     "t": 351.07
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "break the ice",
+    "phon": "/breɪk ðiː aɪs/",
+    "meaning": "(习语) 打破僵局；让初次见面的人放松下来、开始交谈",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: At my new school, I broke the ice by sharing my sandwiches."
+   },
+   {
+    "word": "half-marathon",
+    "phon": "/ˌhɑːf ˈmærəθɒn/",
+    "meaning": "(n.) 半程马拉松（21 公里）",
+    "tags": [],
+    "example": "Example: Twenty-one robots lined up for the world's first half-marathon for robots."
+   },
+   {
+    "word": "erupt",
+    "phon": "/ɪˈrʌpt/",
+    "meaning": "(v.) 爆发；喷发",
+    "tags": [],
+    "example": "Example: When Tiangong Ultra crossed the line, the crowd erupted with cheers."
+   },
+   {
+    "word": "observe",
+    "phon": "/əbˈzɜːv/",
+    "meaning": "(v.) 观察；观看",
+    "tags": [],
+    "example": "Example: Thousands of fans came to observe the race."
+   },
+   {
+    "word": "determined",
+    "phon": "/dɪˈtɜːmɪnd/",
+    "meaning": "(adj.) 下定决心的",
+    "tags": [],
+    "example": "Example: The engineers were determined anyway."
+   },
+   {
+    "word": "compromise",
+    "phon": "/ˈkɒmprəmaɪz/",
+    "meaning": "(n.) 折中；妥协",
+    "tags": [],
+    "example": "Example: Building a running robot means compromise: long legs run fast, but they drink power."
+   },
+   {
+    "word": "fortnight",
+    "phon": "/ˈfɔːtnaɪt/",
+    "meaning": "(n.) 两周；十四天",
+    "tags": [],
+    "example": "Example: Keep going for a fortnight, and we'll hit twenty!"
+   },
+   {
+    "word": "conservation",
+    "phon": "/ˌkɒnsəˈveɪʃn/",
+    "meaning": "(n.) （对自然、动物的）保护",
+    "tags": [],
+    "example": "Example: The team hopes this helps conservation."
+   },
+   {
+    "word": "dial",
+    "phon": "/ˈdaɪəl/",
+    "meaning": "(n.) 刻度盘；表盘",
+    "tags": [],
+    "example": "Example: Tiny colour cells turn the colours up and down like a dial."
+   },
+   {
+    "word": "chromatophore",
+    "phon": "/krəˈmætəfɔː/",
+    "meaning": "(n.) 色素细胞（动物皮肤里能变色的细胞）",
+    "tags": [],
+    "example": "Example: Under the skin sit tiny colour cells called chromatophores."
+   },
+   {
+    "word": "digest",
+    "phon": "/daɪˈdʒest/",
+    "meaning": "(v.) 消化",
+    "tags": [
+     "复习词"
+    ],
+    "example": "Example: After a meal, an octopus rests to digest its food."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "How long was the robot race in Beijing?\nA. Five kilometres\nB. Twenty-one kilometres\nC. Forty-two kilometres\nD. One hundred kilometres",
+     "What did Tiangong Ultra do three times during the race?\nA. Fall on its face\nB. Wave to the fans\nC. Stop for a new battery\nD. Sing a song",
+     "In active sleep, what does the octopus's skin do?\nA. Turns hard like a shell\nB. Flashes red, brown and gold\nC. Falls off\nD. Grows longer arms",
+     "What does \"break the ice\" mean?\nA. Help new people feel friendly and start talking\nB. Smash the ice on a river\nC. Win a running race\nD. Sleep for a long time"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "type": "text",
+        "text": "Its eight arms, "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "like"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " the branches of a tree, "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "twitch"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " and "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "wave"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "as"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " it breathes faster."
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "先把主干拎出来："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "Its eight arms twitch and wave."
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（它的八条胳膊轻轻抽动、挥舞）主语 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "Its eight arms"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，后面跟着两个并列动词 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "twitch"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 和 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "wave"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，共用同一个主语，中间用 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "and"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 连接——这是英语里“一个主语做两个动作”的标准写法。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "中间插进来的 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "like the branches of a tree"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "比喻插入语"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "like"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " ＝“像……一样”，把八条胳膊比作树枝。两个逗号把它和主干隔开——读到这里可以先跳过它，读完主干再回头看比喻，句子一下就通了。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "句尾的 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "as it breathes faster"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 里，"
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "as"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 表示“"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "当……时；随着"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "”：胳膊抽动挥舞，和呼吸变快是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "同时发生"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "的。注意这不是原因，只是“同一时间”。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句逻辑链："
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "胳膊抽动又挥舞（主干）→ 像树枝一样（like 插入比喻，描样子）→ 同时它呼吸变快了（as 补出同时发生的另一件事）"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。一句话同时拍下了章鱼活跃睡眠里三个一起出现的动作。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "MARATHON"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（马拉松（长跑比赛））"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "DREAM"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（梦）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "BATTERY"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（电池）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "FORTNIGHT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（两周；十四天）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "DIAL"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（刻度盘；表盘）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "OBSERVE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（观察）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SAUCER"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（飞碟；茶托）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "OCTOPUS"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（章鱼）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "COMPROMISE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（折中；妥协）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ERUPT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（爆发；喷发）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"the world's first half-marathon for robots — twenty-one kilometres beside thousands of human runners.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The winner "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"crossed the finish line in two hours, forty minutes and forty-two seconds, stopping only three times for a new battery.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". In active sleep, "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"its skin flashes red, brown and gold. Its eyes roll.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "A"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". When strangers meet, "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"things can feel cold and quiet — until someone tells a joke or asks a question. That breaks the ice!\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. like  2. like"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. As  2. as"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. wave  2. waved"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 8pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "B",
+    "C",
+    "B",
+    "A"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. like（像……一样）：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "The little robot waved its arms ____ the branches of a tree.",
+       "options": [
+        "like",
+        "likely",
+        "alike"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "At night, the octopus flashed colours ____ pictures in a dream.",
+       "options": [
+        "likes",
+        "like",
+        "likely"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. as（当……时；随着）：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "____ the winner crossed the line, the crowd erupted with cheers.",
+       "options": [
+        "Until",
+        "Because",
+        "As"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "Its colours changed ____ it slept.",
+       "options": [
+        "as",
+        "until",
+        "because"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. 动词并列：用括号里的词补全（形式和前面的动词对齐）",
+     "items": [
+      {
+       "prompt": "Its eight arms twitch and ____.",
+       "options": [
+        "waves",
+        "wave",
+        "waving"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "The robots lined up, stretched their arms, and ____.",
+       "options": [
+        "wave",
+        "waving",
+        "waved"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "The robot waved its long arms like the branches of a tree as the crowd cheered.",
+    "While the octopus slept, its skin flashed like pictures from a dream."
+   ]
+  },
+  "crossword": {
+   "nrows": 10,
+   "ncols": 15,
+   "words": [
+    {
+     "word": "MARATHON",
+     "row": 0,
+     "col": 12,
+     "dir": "D",
+     "num": 1,
+     "cn": "马拉松（长跑比赛）",
+     "clue": "A very long running race — our robots ran a half one, twenty-one kilometres."
+    },
+    {
+     "word": "DREAM",
+     "row": 0,
+     "col": 14,
+     "dir": "D",
+     "num": 2,
+     "cn": "梦",
+     "clue": "Pictures your brain shows you while you sleep; the octopus may have them too."
+    },
+    {
+     "word": "BATTERY",
+     "row": 1,
+     "col": 5,
+     "dir": "D",
+     "num": 3,
+     "cn": "电池",
+     "clue": "It stores power; the winning robot stopped three times for a fresh one."
+    },
+    {
+     "word": "FORTNIGHT",
+     "row": 1,
+     "col": 8,
+     "dir": "D",
+     "num": 4,
+     "cn": "两周；十四天",
+     "clue": "A period of two weeks: 'Keep going for a ____, and we'll hit twenty!'"
+    },
+    {
+     "word": "DIAL",
+     "row": 2,
+     "col": 3,
+     "dir": "A",
+     "num": 5,
+     "cn": "刻度盘；表盘",
+     "clue": "The round face of a clock; the octopus turns its colours up and down like one."
+    },
+    {
+     "word": "OBSERVE",
+     "row": 2,
+     "col": 8,
+     "dir": "A",
+     "num": 6,
+     "cn": "观察",
+     "clue": "To watch something carefully — thousands of fans came to do this at the race."
+    },
+    {
+     "word": "SAUCER",
+     "row": 2,
+     "col": 10,
+     "dir": "D",
+     "num": 7,
+     "cn": "飞碟；茶托",
+     "clue": "People once thought they saw flying ones in the sky. 'No flying ____ today!'"
+    },
+    {
+     "word": "OCTOPUS",
+     "row": 3,
+     "col": 2,
+     "dir": "D",
+     "num": 8,
+     "cn": "章鱼",
+     "clue": "A sea animal with eight arms that can change the colour of its skin."
+    },
+    {
+     "word": "COMPROMISE",
+     "row": 6,
+     "col": 1,
+     "dir": "A",
+     "num": 9,
+     "cn": "折中；妥协",
+     "clue": "A middle way between two wants: long legs run fast, but they drink power."
+    },
+    {
+     "word": "ERUPT",
+     "row": 8,
+     "col": 0,
+     "dir": "A",
+     "num": 10,
+     "cn": "爆发；喷发",
+     "clue": "To burst out suddenly — the crowd did this with cheers at the finish line."
+    }
+   ]
+  }
+ }
+}
