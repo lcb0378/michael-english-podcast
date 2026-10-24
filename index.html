@@ -1,6 +1,39 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Michael的早听晚读</title></head>
-<body style="font-family:sans-serif;text-align:center;padding:60px 20px;">
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Michael的早听晚读 · 全部节目</title>
+<style>
+body { font-family: sans-serif; background: #f7f5f0; color: #333; margin: 0; padding: 24px 16px 60px; }
+.container { max-width: 720px; margin: 0 auto; }
+h1 { text-align: center; font-size: 1.6rem; margin: 12px 0 4px; }
+.sub { text-align: center; color: #888; font-size: 0.9rem; margin: 0 0 24px; }
+.ep { display: flex; align-items: center; gap: 14px; background: #fff; border-radius: 14px; padding: 12px 14px; margin-bottom: 12px; text-decoration: none; color: inherit; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+.ep img { width: 64px; height: 64px; object-fit: cover; border-radius: 10px; flex-shrink: 0; }
+.ep .t { font-size: 1.02rem; line-height: 1.4; }
+.ep .m { color: #888; font-size: 0.85rem; margin-top: 4px; }
+.ep .go { margin-left: auto; color: #ff8c42; font-size: 1.2rem; flex-shrink: 0; }
+#status { text-align: center; color: #888; padding: 40px 0; }
+</style></head>
+<body>
+<div class="container">
 <h1>🎧 Michael的早听晚读</h1>
-<p><a href="vol01/" style="font-size:1.2rem;">Vol.01 · 会飞的汽车与194岁的乌龟 →</a></p>
+<p class="sub">每天一期 · 双语精读 · 最新一期在最上面</p>
+<div id="list"><div id="status">节目目录加载中…</div></div>
+</div>
+<script>
+function fmtVol(id) { return 'Vol.' + String(id || '').replace(/\D/g, '').padStart(2, '0'); }
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+fetch('data/episodes.json').then(function (r) { return r.json(); }).then(function (d) {
+  var eps = Array.isArray(d) ? d : (d.episodes || []);
+  if (!eps.length) throw new Error('empty');
+  document.getElementById('list').innerHTML = eps.map(function (e) {
+    return '<a class="ep" href="' + esc(e.id) + '/">'
+      + (e.cover ? '<img src="' + esc(e.cover) + '" alt="">' : '')
+      + '<div><div class="t">' + esc(fmtVol(e.id)) + ' · ' + esc(e.title) + '</div>'
+      + '<div class="m">英文 ' + esc(e.words) + ' 词 ｜ 音频 ' + esc(e.duration) + '</div></div>'
+      + '<span class="go">→</span></a>';
+  }).join('');
+}).catch(function () {
+  document.getElementById('status').textContent = '目录加载失败，请刷新重试。';
+});
+</script>
 </body></html>
