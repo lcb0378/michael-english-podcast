@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.49 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol49/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol49/cover.png" controls playsinline preload="metadata"></video>
+<h1>🐶 Vol.49 · 搜救犬退役与狗狗的超级鼻子</h1>
+<div class="meta">英文 596 词 ｜ 音频 5分38秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol49/story-dog1.png" alt="搜救犬退役">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol49/story-dog2.png" alt="狗狗的超级鼻子">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">off the hook</span> <span class="phon">/ɒf ðə hʊk/</span> (习语) 不用再负责；解脱了<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: Gaia worked for seven years, and now she is <b>off the hook</b>!</div>
+</div>
+<div class="vocab">
+  <span class="word">approach</span> <span class="phon">/əˈproʊtʃ/</span> (n.) 方法；途径<br>
+  
+  <div class="example">Example: their <b>approach</b> was simple: follow the nose, never give up.</div>
+</div>
+<div class="vocab">
+  <span class="word">aspect</span> <span class="phon">/ˈæspekt/</span> (n.) 方面；一面<br>
+  
+  <div class="example">Example: Here is one amazing <b>aspect</b>: a dog's sense of smell is 10,000 to 100,000 times more sensitive than ours.</div>
+</div>
+<div class="vocab">
+  <span class="word">pulse</span> <span class="phon">/pʌls/</span> (n.) 脉搏<br>
+  
+  <div class="example">Example: the rescuers could feel the person's <b>pulse</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">conduct</span> <span class="phon">/kənˈdʌkt/</span> (v.) 进行；实施<br>
+  
+  <div class="example">Example: Scientists <b>conducted</b> an experiment.</div>
+</div>
+<div class="vocab">
+  <span class="word">tissue</span> <span class="phon">/ˈtɪʃuː/</span> (n.) 组织<br>
+  
+  <div class="example">Example: The smelling room is full of soft <b>tissue</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">forehead</span> <span class="phon">/ˈfɔːrhed/</span> (n.) 额；前额<br>
+  
+  <div class="example">Example: your dog wrinkles its <b>forehead</b> and sniffs the air.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 9, "ncols": 15, "words": [{"word": "SNIFF", "row": 0, "col": 0, "dir": "D", "num": 1, "cn": "嗅", "clue": "When a dog ___s, air goes into two rooms."}, {"word": "RESCUE", "row": 0, "col": 3, "dir": "D", "num": 2, "cn": "救援", "clue": "five ___ dogs have just retired."}, {"word": "NOSE", "row": 1, "col": 0, "dir": "A", "num": 3, "cn": "鼻子", "clue": "the secret inside a dog's ___."}, {"word": "FOREHEAD", "row": 1, "col": 6, "dir": "D", "num": 4, "cn": "额头", "clue": "your dog wrinkles its ___ and sniffs the air."}, {"word": "HOOK", "row": 2, "col": 5, "dir": "A", "num": 5, "cn": "钩", "clue": "off the ___."}, {"word": "GAIA", "row": 2, "col": 10, "dir": "D", "num": 6, "cn": "盖娅", "clue": "___'s new owner, Valeria."}, {"word": "ASPECT", "row": 3, "col": 12, "dir": "D", "num": 7, "cn": "方面", "clue": "Here is one amazing ___."}, {"word": "PULSE", "row": 4, "col": 2, "dir": "A", "num": 8, "cn": "脉搏", "clue": "the rescuers could feel the person's ___."}, {"word": "TISSUE", "row": 4, "col": 9, "dir": "A", "num": 9, "cn": "组织", "clue": "The smelling room is full of soft ___."}, {"word": "APPROACH", "row": 7, "col": 6, "dir": "A", "num": 10, "cn": "方法", "clue": "their ___ was simple: follow the nose."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. How many rescue dogs retired in Ecuador?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. Three</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. Four</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. Five</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. Six</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. What did the rescuers feel after a dog found a person under the stones?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. The person&#x27;s pulse</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. The dog&#x27;s collar</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. A broken stone</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. A water bottle</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：A</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. How many smell receptors does a dog have at most?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. About six million</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. About 300 million</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. About 40 million</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. About 10,000</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does &quot;off the hook&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. A hook on the wall</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. Free from a job or trouble</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. A dog game</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. A loud noise</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：B</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [2, 0, 1, 1];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">The smelling room is full of soft tissue that traps scent, so the smell stays after the dog breathes out.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li><i>is full of</i> 是<b>固定搭配</b>：is（是）+ full of（装满了……），意思是“里面装满了……”。full of 后面常常跟 soft tissue（柔软的组织）、water（水）、books（书）这类名词。</li>
+  <li><i>that traps scent</i> 是<b>定语从句</b>：that（……的）+ traps scent（留住气味），修饰前面的 tissue（组织），意思是“能留住气味的组织”。that 在这里代替 tissue，在从句里做主语。</li>
+  <li><i>so the smell stays</i> 是<b>结果状语</b>：so（所以）+ the smell stays（气味留下来），意思是“所以气味就留下来了”。前面是原因（组织留住气味），so 后面是结果。</li>
+  <li>整句逻辑链：<b>装满组织（is full of）→ 组织留气味（that traps scent）→ 所以气味留下（so the smell stays）</b>。一句话里藏着固定搭配、定语从句和结果关系三个机关。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. be full of 固定搭配：用括号里的词补全</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">The smelling room is ____ of soft tissue.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">full</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">much</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">many</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：full</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">The box is ____ of toys.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">lot</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">full</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">all</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：full</p>
+</div>
+<p class="p4-gname">B. that 定语从句：用括号里的词补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">The tissue ____ traps scent is soft.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">what</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">who</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">that</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：that</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">The dog ____ found the man is a hero.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">that</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">which</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">when</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：that</p>
+</div>
+<p class="p4-gname">C. so 结果关系：用括号里的词补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">The room traps scent, ____ the smell stays.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">but</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">so</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">and</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：so</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">Gaia worked hard, ____ she sleeps well now.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">or</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">yet</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">so</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：so</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>The smelling room is full of soft tissue that traps scent, so the smell stays after the dog breathes out.</li>
+<li>After years of hard work, these heroes have earned their rest.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwc"><span class="cwn">1</span><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">2</span><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">3</span><span class="cwl">N</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">F</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">5</span><span class="cwl">H</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">K</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">6</span><span class="cwl">G</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">F</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">7</span><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">F</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">8</span><span class="cwl">P</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">9</span><span class="cwl">T</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">E</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">P</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">10</span><span class="cwl">A</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td></tr></table></div>1 竖 → <b>SNIFF</b>（嗅）<br>2 竖 → <b>RESCUE</b>（救援）<br>3 横 → <b>NOSE</b>（鼻子）<br>4 竖 → <b>FOREHEAD</b>（额头）<br>5 横 → <b>HOOK</b>（钩）<br>6 竖 → <b>GAIA</b>（盖娅）<br>7 竖 → <b>ASPECT</b>（方面）<br>8 横 → <b>PULSE</b>（脉搏）<br>9 横 → <b>TISSUE</b>（组织）<br>10 横 → <b>APPROACH</b>（方法）<br><br><b>B. Single Choice:</b><br>
+1 → <b>C</b>. The text says: <i>"five rescue dogs have just retired."</i><br>
+2 → <b>A</b>. The text says: <i>"the rescuers could feel the person's pulse."</i><br>
+3 → <b>B</b>. The text says: <i>"up to 300 million smell receptors."</i><br>
+4 → <b>B</b>. The text says: <i>"It means you are free from a job or a trouble."</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. full&nbsp;&nbsp;2. full<br>
+B. 1. that&nbsp;&nbsp;2. that<br>
+C. 1. so&nbsp;&nbsp;2. so<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol49/Vol49_晚读讲义_搜救犬退役与狗狗的超级鼻子_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 22.11, "end": 46.3, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we meet heroes with four legs and wet noses. First, five rescue dogs who have retired — and found new families. Then, the secret inside a dog's nose: why can it smell things we cannot even imagine? Ready? Let's go!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天，我们认识长着四条腿、湿鼻子的英雄。首先，五只已经退役的搜救犬——它们找到了新家。然后，狗狗鼻子里的秘密：为什么它能闻到我们根本想象不到的东西？准备好了吗？出发！", "words": [{"w": "Hello,", "t": 22.11}, {"w": "young", "t": 22.58}, {"w": "explorers,", "t": 23.06}, {"w": "and", "t": 23.53}, {"w": "welcome", "t": 24.01}, {"w": "back", "t": 24.48}, {"w": "to", "t": 24.96}, {"w": "Michael's", "t": 25.43}, {"w": "Morning", "t": 25.9}, {"w": "Listening!", "t": 26.38}, {"w": "Today", "t": 26.85}, {"w": "we", "t": 27.33}, {"w": "meet", "t": 27.8}, {"w": "heroes", "t": 28.28}, {"w": "with", "t": 28.75}, {"w": "four", "t": 29.22}, {"w": "legs", "t": 29.7}, {"w": "and", "t": 30.17}, {"w": "wet", "t": 30.65}, {"w": "noses.", "t": 31.12}, {"w": "First,", "t": 31.6}, {"w": "five", "t": 32.07}, {"w": "rescue", "t": 32.54}, {"w": "dogs", "t": 33.02}, {"w": "who", "t": 33.49}, {"w": "have", "t": 33.97}, {"w": "retired", "t": 34.44}, {"w": "—", "t": 34.92}, {"w": "and", "t": 35.39}, {"w": "found", "t": 35.87}, {"w": "new", "t": 36.34}, {"w": "families.", "t": 36.81}, {"w": "Then,", "t": 37.29}, {"w": "the", "t": 37.76}, {"w": "secret", "t": 38.24}, {"w": "inside", "t": 38.71}, {"w": "a", "t": 39.19}, {"w": "dog's", "t": 39.66}, {"w": "nose:", "t": 40.13}, {"w": "why", "t": 40.61}, {"w": "can", "t": 41.08}, {"w": "it", "t": 41.56}, {"w": "smell", "t": 42.03}, {"w": "things", "t": 42.51}, {"w": "we", "t": 42.98}, {"w": "cannot", "t": 43.45}, {"w": "even", "t": 43.93}, {"w": "imagine?", "t": 44.4}, {"w": "Ready?", "t": 44.88}, {"w": "Let's", "t": 45.35}, {"w": "go!", "t": 45.83}]}, {"start": 60.44, "end": 82.2, "en": "In Ecuador, five rescue dogs have just retired. Their names are Ares, Kratos, Zeus, Titan and Gaia. For seven years, they worked with firefighters, looking for people after earthquakes and landslides. They were German shepherds and golden retrievers, and their approach was simple: follow the nose, never give up.", "title": "退役搜救犬的新生活", "cn": "在厄瓜多尔，五只搜救犬刚刚退役。它们的名字是阿瑞斯、克拉托斯、宙斯、泰坦和盖娅。七年来，它们和消防员一起，在地震和山体滑坡后寻找人们。它们是德国牧羊犬和金毛寻回犬，方法很简单：跟着鼻子走，永不放弃。", "words": [{"w": "In", "t": 60.44}, {"w": "Ecuador,", "t": 60.88}, {"w": "five", "t": 61.33}, {"w": "rescue", "t": 61.77}, {"w": "dogs", "t": 62.22}, {"w": "have", "t": 62.66}, {"w": "just", "t": 63.1}, {"w": "retired.", "t": 63.55}, {"w": "Their", "t": 63.99}, {"w": "names", "t": 64.44}, {"w": "are", "t": 64.88}, {"w": "Ares,", "t": 65.32}, {"w": "Kratos,", "t": 65.77}, {"w": "Zeus,", "t": 66.21}, {"w": "Titan", "t": 66.66}, {"w": "and", "t": 67.1}, {"w": "Gaia.", "t": 67.55}, {"w": "For", "t": 67.99}, {"w": "seven", "t": 68.43}, {"w": "years,", "t": 68.88}, {"w": "they", "t": 69.32}, {"w": "worked", "t": 69.77}, {"w": "with", "t": 70.21}, {"w": "firefighters,", "t": 70.65}, {"w": "looking", "t": 71.1}, {"w": "for", "t": 71.54}, {"w": "people", "t": 71.99}, {"w": "after", "t": 72.43}, {"w": "earthquakes", "t": 72.87}, {"w": "and", "t": 73.32}, {"w": "landslides.", "t": 73.76}, {"w": "They", "t": 74.21}, {"w": "were", "t": 74.65}, {"w": "German", "t": 75.09}, {"w": "shepherds", "t": 75.54}, {"w": "and", "t": 75.98}, {"w": "golden", "t": 76.43}, {"w": "retrievers,", "t": 76.87}, {"w": "and", "t": 77.32}, {"w": "their", "t": 77.76}, {"w": "approach", "t": 78.2}, {"w": "was", "t": 78.65}, {"w": "simple:", "t": 79.09}, {"w": "follow", "t": 79.54}, {"w": "the", "t": 79.98}, {"w": "nose,", "t": 80.42}, {"w": "never", "t": 80.87}, {"w": "give", "t": 81.31}, {"w": "up.", "t": 81.76}]}, {"start": 82.2, "end": 104.84, "en": "It was not easy. They climbed over broken stones and searched through dust, rain and heat. More than once, a dog found a person under the stones — and the rescuers could feel the person's pulse. He was alive! The dogs did not just save lives; they gave families hope again.", "title": "退役搜救犬的新生活", "cn": "这可不是轻松的活儿。它们爬过破碎的石块，在尘土、雨水和高温中搜寻。不止一次，一只狗狗在石块下找到了人——救援人员摸到了这个人的脉搏。他还活着！狗狗们不只是救了命，还让一个个家庭重新有了希望。", "words": [{"w": "It", "t": 82.2}, {"w": "was", "t": 82.64}, {"w": "not", "t": 83.09}, {"w": "easy.", "t": 83.53}, {"w": "They", "t": 83.98}, {"w": "climbed", "t": 84.42}, {"w": "over", "t": 84.86}, {"w": "broken", "t": 85.31}, {"w": "stones", "t": 85.75}, {"w": "and", "t": 86.2}, {"w": "searched", "t": 86.64}, {"w": "through", "t": 87.08}, {"w": "dust,", "t": 87.53}, {"w": "rain", "t": 87.97}, {"w": "and", "t": 88.41}, {"w": "heat.", "t": 88.86}, {"w": "More", "t": 89.3}, {"w": "than", "t": 89.75}, {"w": "once,", "t": 90.19}, {"w": "a", "t": 90.63}, {"w": "dog", "t": 91.08}, {"w": "found", "t": 91.52}, {"w": "a", "t": 91.97}, {"w": "person", "t": 92.41}, {"w": "under", "t": 92.85}, {"w": "the", "t": 93.3}, {"w": "stones", "t": 93.74}, {"w": "—", "t": 94.19}, {"w": "and", "t": 94.63}, {"w": "the", "t": 95.07}, {"w": "rescuers", "t": 95.52}, {"w": "could", "t": 95.96}, {"w": "feel", "t": 96.41}, {"w": "the", "t": 96.85}, {"w": "person's", "t": 97.29}, {"w": "pulse.", "t": 97.74}, {"w": "He", "t": 98.18}, {"w": "was", "t": 98.63}, {"w": "alive!", "t": 99.07}, {"w": "The", "t": 99.51}, {"w": "dogs", "t": 99.96}, {"w": "did", "t": 100.4}, {"w": "not", "t": 100.84}, {"w": "just", "t": 101.29}, {"w": "save", "t": 101.73}, {"w": "lives;", "t": 102.18}, {"w": "they", "t": 102.62}, {"w": "gave", "t": 103.06}, {"w": "families", "t": 103.51}, {"w": "hope", "t": 103.95}, {"w": "again.", "t": 104.4}]}, {"start": 104.84, "end": 133.26, "en": "Now the five heroes are off duty. At a ceremony, the firefighters said thank you, and each dog went home with a new family. Gaia's new owner, Valeria, said she could not believe her new pet used to save lives. Now Gaia's job is easier: long walks, good food, and a soft bed. After years of hard work, these heroes have earned their rest.", "title": "退役搜救犬的新生活", "cn": "现在，五位英雄卸任了。在一个仪式上，消防员们说了谢谢，每只狗狗都跟着新家庭回了家。盖娅的新主人瓦莱里娅说，她简直不敢相信自己的新宠物曾经救过人。现在盖娅的日子轻松多了：长长的散步、好吃的食物，还有一张软软的床。经过多年的辛苦工作，这些英雄值得好好休息。", "words": [{"w": "Now", "t": 104.84}, {"w": "the", "t": 105.28}, {"w": "five", "t": 105.73}, {"w": "heroes", "t": 106.17}, {"w": "are", "t": 106.62}, {"w": "off", "t": 107.06}, {"w": "duty.", "t": 107.5}, {"w": "At", "t": 107.95}, {"w": "a", "t": 108.39}, {"w": "ceremony,", "t": 108.84}, {"w": "the", "t": 109.28}, {"w": "firefighters", "t": 109.72}, {"w": "said", "t": 110.17}, {"w": "thank", "t": 110.61}, {"w": "you,", "t": 111.06}, {"w": "and", "t": 111.5}, {"w": "each", "t": 111.94}, {"w": "dog", "t": 112.39}, {"w": "went", "t": 112.83}, {"w": "home", "t": 113.28}, {"w": "with", "t": 113.72}, {"w": "a", "t": 114.17}, {"w": "new", "t": 114.61}, {"w": "family.", "t": 115.05}, {"w": "Gaia's", "t": 115.5}, {"w": "new", "t": 115.94}, {"w": "owner,", "t": 116.39}, {"w": "Valeria,", "t": 116.83}, {"w": "said", "t": 117.27}, {"w": "she", "t": 117.72}, {"w": "could", "t": 118.16}, {"w": "not", "t": 118.61}, {"w": "believe", "t": 119.05}, {"w": "her", "t": 119.49}, {"w": "new", "t": 119.94}, {"w": "pet", "t": 120.38}, {"w": "used", "t": 120.83}, {"w": "to", "t": 121.27}, {"w": "save", "t": 121.71}, {"w": "lives.", "t": 122.16}, {"w": "Now", "t": 122.6}, {"w": "Gaia's", "t": 123.05}, {"w": "job", "t": 123.49}, {"w": "is", "t": 123.93}, {"w": "easier:", "t": 124.38}, {"w": "long", "t": 124.82}, {"w": "walks,", "t": 125.27}, {"w": "good", "t": 125.71}, {"w": "food,", "t": 126.16}, {"w": "and", "t": 126.6}, {"w": "a", "t": 127.04}, {"w": "soft", "t": 127.49}, {"w": "bed.", "t": 127.93}, {"w": "After", "t": 128.38}, {"w": "years", "t": 128.82}, {"w": "of", "t": 129.26}, {"w": "hard", "t": 129.71}, {"w": "work,", "t": 130.15}, {"w": "these", "t": 130.6}, {"w": "heroes", "t": 131.04}, {"w": "have", "t": 131.48}, {"w": "earned", "t": 131.93}, {"w": "their", "t": 132.37}, {"w": "rest.", "t": 132.82}]}, {"start": 144.68, "end": 171.81, "en": "So how does a dog's nose do such amazing work? Here is one amazing aspect: a dog's sense of smell is 10,000 to 100,000 times more sensitive than ours. Inside a dog's nose there are up to 300 million smell receptors — tiny scent sensors. We humans have only about six million. And the part of a dog's brain that reads smells is about 40 times bigger than ours.", "title": "狗狗鼻子的秘密", "cn": "那么，狗狗的鼻子是怎么做到的呢？先说一个了不起的方面：狗狗的嗅觉比我们灵敏一万到十万倍。狗狗的鼻子里有多达三亿个嗅觉感受器——小小的气味传感器。而我们人类只有大约六百万个。而且狗狗大脑里负责读气味的部分，比我们的大约大四十倍。", "words": [{"w": "So", "t": 144.68}, {"w": "how", "t": 145.07}, {"w": "does", "t": 145.47}, {"w": "a", "t": 145.86}, {"w": "dog's", "t": 146.25}, {"w": "nose", "t": 146.65}, {"w": "do", "t": 147.04}, {"w": "such", "t": 147.43}, {"w": "amazing", "t": 147.83}, {"w": "work?", "t": 148.22}, {"w": "Here", "t": 148.61}, {"w": "is", "t": 149.01}, {"w": "one", "t": 149.4}, {"w": "amazing", "t": 149.79}, {"w": "aspect:", "t": 150.18}, {"w": "a", "t": 150.58}, {"w": "dog's", "t": 150.97}, {"w": "sense", "t": 151.36}, {"w": "of", "t": 151.76}, {"w": "smell", "t": 152.15}, {"w": "is", "t": 152.54}, {"w": "10,000", "t": 152.94}, {"w": "to", "t": 153.33}, {"w": "100,000", "t": 153.72}, {"w": "times", "t": 154.12}, {"w": "more", "t": 154.51}, {"w": "sensitive", "t": 154.9}, {"w": "than", "t": 155.3}, {"w": "ours.", "t": 155.69}, {"w": "Inside", "t": 156.08}, {"w": "a", "t": 156.48}, {"w": "dog's", "t": 156.87}, {"w": "nose", "t": 157.26}, {"w": "there", "t": 157.66}, {"w": "are", "t": 158.05}, {"w": "up", "t": 158.44}, {"w": "to", "t": 158.83}, {"w": "300", "t": 159.23}, {"w": "million", "t": 159.62}, {"w": "smell", "t": 160.01}, {"w": "receptors", "t": 160.41}, {"w": "—", "t": 160.8}, {"w": "tiny", "t": 161.19}, {"w": "scent", "t": 161.59}, {"w": "sensors.", "t": 161.98}, {"w": "We", "t": 162.37}, {"w": "humans", "t": 162.77}, {"w": "have", "t": 163.16}, {"w": "only", "t": 163.55}, {"w": "about", "t": 163.95}, {"w": "six", "t": 164.34}, {"w": "million.", "t": 164.73}, {"w": "And", "t": 165.13}, {"w": "the", "t": 165.52}, {"w": "part", "t": 165.91}, {"w": "of", "t": 166.31}, {"w": "a", "t": 166.7}, {"w": "dog's", "t": 167.09}, {"w": "brain", "t": 167.48}, {"w": "that", "t": 167.88}, {"w": "reads", "t": 168.27}, {"w": "smells", "t": 168.66}, {"w": "is", "t": 169.06}, {"w": "about", "t": 169.45}, {"w": "40", "t": 169.84}, {"w": "times", "t": 170.24}, {"w": "bigger", "t": 170.63}, {"w": "than", "t": 171.02}, {"w": "ours.", "t": 171.42}]}, {"start": 171.81, "end": 197.37, "en": "How does it work? When a dog sniffs, air goes into two rooms inside its nose: one for breathing, one for smelling. The smelling room is full of soft tissue that traps scent, so the smell stays after the dog breathes out. That is why a dog can follow a trail hours later — and tell which way a person walked, sniffing left, then right.", "title": "狗狗鼻子的秘密", "cn": "它是怎么工作的呢？狗狗一吸气，空气进入鼻子里的两个小房间：一个用来呼吸，一个用来闻气味。闻气味的房间里长满了柔软的组织，能留住气味，所以狗狗呼气后气味还在。这就是为什么狗狗几个小时后还能追踪气味——还能分辨一个人往哪个方向走，先闻左边，再闻右边。", "words": [{"w": "How", "t": 171.81}, {"w": "does", "t": 172.2}, {"w": "it", "t": 172.6}, {"w": "work?", "t": 172.99}, {"w": "When", "t": 173.38}, {"w": "a", "t": 173.78}, {"w": "dog", "t": 174.17}, {"w": "sniffs,", "t": 174.56}, {"w": "air", "t": 174.96}, {"w": "goes", "t": 175.35}, {"w": "into", "t": 175.74}, {"w": "two", "t": 176.14}, {"w": "rooms", "t": 176.53}, {"w": "inside", "t": 176.92}, {"w": "its", "t": 177.32}, {"w": "nose:", "t": 177.71}, {"w": "one", "t": 178.1}, {"w": "for", "t": 178.49}, {"w": "breathing,", "t": 178.89}, {"w": "one", "t": 179.28}, {"w": "for", "t": 179.67}, {"w": "smelling.", "t": 180.07}, {"w": "The", "t": 180.46}, {"w": "smelling", "t": 180.85}, {"w": "room", "t": 181.25}, {"w": "is", "t": 181.64}, {"w": "full", "t": 182.03}, {"w": "of", "t": 182.43}, {"w": "soft", "t": 182.82}, {"w": "tissue", "t": 183.21}, {"w": "that", "t": 183.61}, {"w": "traps", "t": 184.0}, {"w": "scent,", "t": 184.39}, {"w": "so", "t": 184.79}, {"w": "the", "t": 185.18}, {"w": "smell", "t": 185.57}, {"w": "stays", "t": 185.97}, {"w": "after", "t": 186.36}, {"w": "the", "t": 186.75}, {"w": "dog", "t": 187.15}, {"w": "breathes", "t": 187.54}, {"w": "out.", "t": 187.93}, {"w": "That", "t": 188.33}, {"w": "is", "t": 188.72}, {"w": "why", "t": 189.11}, {"w": "a", "t": 189.51}, {"w": "dog", "t": 189.9}, {"w": "can", "t": 190.29}, {"w": "follow", "t": 190.69}, {"w": "a", "t": 191.08}, {"w": "trail", "t": 191.47}, {"w": "hours", "t": 191.86}, {"w": "later", "t": 192.26}, {"w": "—", "t": 192.65}, {"w": "and", "t": 193.04}, {"w": "tell", "t": 193.44}, {"w": "which", "t": 193.83}, {"w": "way", "t": 194.22}, {"w": "a", "t": 194.62}, {"w": "person", "t": 195.01}, {"w": "walked,", "t": 195.4}, {"w": "sniffing", "t": 195.8}, {"w": "left,", "t": 196.19}, {"w": "then", "t": 196.58}, {"w": "right.", "t": 196.98}]}, {"start": 197.37, "end": 223.71, "en": "Scientists conducted an experiment: they trained dogs to smell sickness in people's breath — and the dogs could do it! Dogs can smell things at one part in a trillion. Imagine one drop in twenty swimming pools — that is how tiny a smell a dog can catch. When your dog wrinkles its forehead and sniffs the air, it is reading a whole world you cannot see.", "title": "狗狗鼻子的秘密", "cn": "科学家做过一个实验：他们训练狗狗闻出人呼气里的疾病——狗狗真的做到了！狗狗能闻到万亿分之一浓度的东西。想象一下，二十个游泳池里的一滴水——狗狗能闻到的气味就是这么微小。当你的狗狗皱起额头、嗅着空气时，它正在读一个你看不见的世界。", "words": [{"w": "Scientists", "t": 197.37}, {"w": "conducted", "t": 197.76}, {"w": "an", "t": 198.16}, {"w": "experiment:", "t": 198.55}, {"w": "they", "t": 198.94}, {"w": "trained", "t": 199.34}, {"w": "dogs", "t": 199.73}, {"w": "to", "t": 200.12}, {"w": "smell", "t": 200.52}, {"w": "sickness", "t": 200.91}, {"w": "in", "t": 201.3}, {"w": "people's", "t": 201.69}, {"w": "breath", "t": 202.09}, {"w": "—", "t": 202.48}, {"w": "and", "t": 202.87}, {"w": "the", "t": 203.27}, {"w": "dogs", "t": 203.66}, {"w": "could", "t": 204.05}, {"w": "do", "t": 204.45}, {"w": "it!", "t": 204.84}, {"w": "Dogs", "t": 205.23}, {"w": "can", "t": 205.63}, {"w": "smell", "t": 206.02}, {"w": "things", "t": 206.41}, {"w": "at", "t": 206.81}, {"w": "one", "t": 207.2}, {"w": "part", "t": 207.59}, {"w": "in", "t": 207.98}, {"w": "a", "t": 208.38}, {"w": "trillion.", "t": 208.77}, {"w": "Imagine", "t": 209.16}, {"w": "one", "t": 209.56}, {"w": "drop", "t": 209.95}, {"w": "in", "t": 210.34}, {"w": "twenty", "t": 210.74}, {"w": "swimming", "t": 211.13}, {"w": "pools", "t": 211.52}, {"w": "—", "t": 211.92}, {"w": "that", "t": 212.31}, {"w": "is", "t": 212.7}, {"w": "how", "t": 213.1}, {"w": "tiny", "t": 213.49}, {"w": "a", "t": 213.88}, {"w": "smell", "t": 214.27}, {"w": "a", "t": 214.67}, {"w": "dog", "t": 215.06}, {"w": "can", "t": 215.45}, {"w": "catch.", "t": 215.85}, {"w": "When", "t": 216.24}, {"w": "your", "t": 216.63}, {"w": "dog", "t": 217.03}, {"w": "wrinkles", "t": 217.42}, {"w": "its", "t": 217.81}, {"w": "forehead", "t": 218.21}, {"w": "and", "t": 218.6}, {"w": "sniffs", "t": 218.99}, {"w": "the", "t": 219.39}, {"w": "air,", "t": 219.78}, {"w": "it", "t": 220.17}, {"w": "is", "t": 220.56}, {"w": "reading", "t": 220.96}, {"w": "a", "t": 221.35}, {"w": "whole", "t": 221.74}, {"w": "world", "t": 222.14}, {"w": "you", "t": 222.53}, {"w": "cannot", "t": 222.92}, {"w": "see.", "t": 223.32}]}, {"start": 237.61, "end": 266.94, "en": "Today's idiom is \"off the hook.\" It means you are free from a job or a trouble — you do not have to do it anymore. For example: Gaia worked for seven years, and now she is off the hook — no more rescues, naps and games! In your life: you thought you had to clean your room, but Mum says, \"You are off the hook today!\" Try it this week: tell your family about a time you were off the hook!", "title": "今日俚语", "cn": "今天的俚语是“off the hook”（脱钩）。它的意思是不用再做一件工作或不再有麻烦——你不用再做它了。举个例子：盖娅工作了七年，现在她 off the hook 了——不用再救援，只有午睡和游戏！再说说你的生活：你以为要打扫房间了，但妈妈说你今天 off the hook！这周试试用它：跟家人说说你曾经 off the hook 的一次经历！", "words": [{"w": "Today's", "t": 237.61}, {"w": "idiom", "t": 237.97}, {"w": "is", "t": 238.33}, {"w": "\"off", "t": 238.68}, {"w": "the", "t": 239.04}, {"w": "hook.\"", "t": 239.4}, {"w": "It", "t": 239.76}, {"w": "means", "t": 240.11}, {"w": "you", "t": 240.47}, {"w": "are", "t": 240.83}, {"w": "free", "t": 241.19}, {"w": "from", "t": 241.54}, {"w": "a", "t": 241.9}, {"w": "job", "t": 242.26}, {"w": "or", "t": 242.62}, {"w": "a", "t": 242.98}, {"w": "trouble", "t": 243.33}, {"w": "—", "t": 243.69}, {"w": "you", "t": 244.05}, {"w": "do", "t": 244.41}, {"w": "not", "t": 244.76}, {"w": "have", "t": 245.12}, {"w": "to", "t": 245.48}, {"w": "do", "t": 245.84}, {"w": "it", "t": 246.19}, {"w": "anymore.", "t": 246.55}, {"w": "For", "t": 246.91}, {"w": "example:", "t": 247.27}, {"w": "Gaia", "t": 247.63}, {"w": "worked", "t": 247.98}, {"w": "for", "t": 248.34}, {"w": "seven", "t": 248.7}, {"w": "years,", "t": 249.06}, {"w": "and", "t": 249.41}, {"w": "now", "t": 249.77}, {"w": "she", "t": 250.13}, {"w": "is", "t": 250.49}, {"w": "off", "t": 250.84}, {"w": "the", "t": 251.2}, {"w": "hook", "t": 251.56}, {"w": "—", "t": 251.92}, {"w": "no", "t": 252.28}, {"w": "more", "t": 252.63}, {"w": "rescues,", "t": 252.99}, {"w": "naps", "t": 253.35}, {"w": "and", "t": 253.71}, {"w": "games!", "t": 254.06}, {"w": "In", "t": 254.42}, {"w": "your", "t": 254.78}, {"w": "life:", "t": 255.14}, {"w": "you", "t": 255.49}, {"w": "thought", "t": 255.85}, {"w": "you", "t": 256.21}, {"w": "had", "t": 256.57}, {"w": "to", "t": 256.92}, {"w": "clean", "t": 257.28}, {"w": "your", "t": 257.64}, {"w": "room,", "t": 258.0}, {"w": "but", "t": 258.36}, {"w": "Mum", "t": 258.71}, {"w": "says,", "t": 259.07}, {"w": "\"You", "t": 259.43}, {"w": "are", "t": 259.79}, {"w": "off", "t": 260.14}, {"w": "the", "t": 260.5}, {"w": "hook", "t": 260.86}, {"w": "today!\"", "t": 261.22}, {"w": "Try", "t": 261.57}, {"w": "it", "t": 261.93}, {"w": "this", "t": 262.29}, {"w": "week:", "t": 262.65}, {"w": "tell", "t": 263.01}, {"w": "your", "t": 263.36}, {"w": "family", "t": 263.72}, {"w": "about", "t": 264.08}, {"w": "a", "t": 264.44}, {"w": "time", "t": 264.79}, {"w": "you", "t": 265.15}, {"w": "were", "t": 265.51}, {"w": "off", "t": 265.87}, {"w": "the", "t": 266.22}, {"w": "hook!", "t": 266.58}]}, {"start": 280.76, "end": 304.16, "en": "Now it is your turn! Two questions for you. One: Gaia's new life is long walks and soft beds. If you adopted a hero dog, what would you do on its first day at home? Two: a dog can smell one drop in twenty swimming pools. What smell would you most like to have a dog's nose for? Talk about it with your family!", "title": "结束语与互动问题", "cn": "现在轮到你们啦！两个问题考考你。第一：盖娅的新生活是长长的散步和软软的床。如果你领养了一只英雄狗狗，它到家的第一天你会带它做什么？第二：狗狗能闻到二十个游泳池里的一滴水。如果你有狗狗的鼻子，你最想闻到什么气味？和家人聊聊吧！", "words": [{"w": "Now", "t": 280.76}, {"w": "it", "t": 281.13}, {"w": "is", "t": 281.49}, {"w": "your", "t": 281.86}, {"w": "turn!", "t": 282.22}, {"w": "Two", "t": 282.59}, {"w": "questions", "t": 282.95}, {"w": "for", "t": 283.32}, {"w": "you.", "t": 283.69}, {"w": "One:", "t": 284.05}, {"w": "Gaia's", "t": 284.42}, {"w": "new", "t": 284.78}, {"w": "life", "t": 285.15}, {"w": "is", "t": 285.51}, {"w": "long", "t": 285.88}, {"w": "walks", "t": 286.24}, {"w": "and", "t": 286.61}, {"w": "soft", "t": 286.98}, {"w": "beds.", "t": 287.34}, {"w": "If", "t": 287.71}, {"w": "you", "t": 288.07}, {"w": "adopted", "t": 288.44}, {"w": "a", "t": 288.8}, {"w": "hero", "t": 289.17}, {"w": "dog,", "t": 289.54}, {"w": "what", "t": 289.9}, {"w": "would", "t": 290.27}, {"w": "you", "t": 290.63}, {"w": "do", "t": 291.0}, {"w": "on", "t": 291.36}, {"w": "its", "t": 291.73}, {"w": "first", "t": 292.09}, {"w": "day", "t": 292.46}, {"w": "at", "t": 292.83}, {"w": "home?", "t": 293.19}, {"w": "Two:", "t": 293.56}, {"w": "a", "t": 293.92}, {"w": "dog", "t": 294.29}, {"w": "can", "t": 294.65}, {"w": "smell", "t": 295.02}, {"w": "one", "t": 295.38}, {"w": "drop", "t": 295.75}, {"w": "in", "t": 296.12}, {"w": "twenty", "t": 296.48}, {"w": "swimming", "t": 296.85}, {"w": "pools.", "t": 297.21}, {"w": "What", "t": 297.58}, {"w": "smell", "t": 297.94}, {"w": "would", "t": 298.31}, {"w": "you", "t": 298.68}, {"w": "most", "t": 299.04}, {"w": "like", "t": 299.41}, {"w": "to", "t": 299.77}, {"w": "have", "t": 300.14}, {"w": "a", "t": 300.5}, {"w": "dog's", "t": 300.87}, {"w": "nose", "t": 301.24}, {"w": "for?", "t": 301.6}, {"w": "Talk", "t": 301.97}, {"w": "about", "t": 302.33}, {"w": "it", "t": 302.7}, {"w": "with", "t": 303.06}, {"w": "your", "t": 303.43}, {"w": "family!", "t": 303.79}]}, {"start": 315.58, "end": 328.92, "en": "That is all for today, young explorers. We appreciate you listening and learning with us. Keep your eyes open, keep asking questions, and we will meet tomorrow morning. Goodbye, and have a wonderful day!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。感谢你们和我们一起听、一起学。保持好奇，继续提问，我们明天早上再见。再见，祝你度过美好的一天！", "words": [{"w": "That", "t": 315.58}, {"w": "is", "t": 315.97}, {"w": "all", "t": 316.36}, {"w": "for", "t": 316.76}, {"w": "today,", "t": 317.15}, {"w": "young", "t": 317.54}, {"w": "explorers.", "t": 317.93}, {"w": "We", "t": 318.33}, {"w": "appreciate", "t": 318.72}, {"w": "you", "t": 319.11}, {"w": "listening", "t": 319.5}, {"w": "and", "t": 319.9}, {"w": "learning", "t": 320.29}, {"w": "with", "t": 320.68}, {"w": "us.", "t": 321.07}, {"w": "Keep", "t": 321.47}, {"w": "your", "t": 321.86}, {"w": "eyes", "t": 322.25}, {"w": "open,", "t": 322.64}, {"w": "keep", "t": 323.03}, {"w": "asking", "t": 323.43}, {"w": "questions,", "t": 323.82}, {"w": "and", "t": 324.21}, {"w": "we", "t": 324.6}, {"w": "will", "t": 325.0}, {"w": "meet", "t": 325.39}, {"w": "tomorrow", "t": 325.78}, {"w": "morning.", "t": 326.17}, {"w": "Goodbye,", "t": 326.57}, {"w": "and", "t": 326.96}, {"w": "have", "t": 327.35}, {"w": "a", "t": 327.74}, {"w": "wonderful", "t": 328.14}, {"w": "day!", "t": 328.53}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol49/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
