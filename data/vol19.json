@@ -1,0 +1,3859 @@
+{
+ "id": "vol19",
+ "title": "百岁跳伞与袋熊的方块便便",
+ "words": 598,
+ "duration": "6分17秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol19/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol19/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol19/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol19/Vol19_晚读讲义_百岁跳伞与袋熊的方块便便_v1.pdf",
+ "pdfName": "Vol19_晚读讲义_百岁跳伞与袋熊的方块便便_v1.pdf",
+ "blocks": [
+  {
+   "start": 29.15,
+   "end": 54.06,
+   "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! This is our nineteenth show together! Today we meet two record-breakers. One will astonish you: he is one hundred and six years old, and he jumps out of planes. The other is small, round, and furry — and it makes the world's strangest poop. Ready? Let's go!",
+   "title": "开场白",
+   "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！这是我们在一起的第十九期节目啦！今天我们要认识两位纪录创造者。一位会让你大吃一惊：他已经一百零六岁了，还在从飞机上往下跳。另一位个头小小的、圆滚滚、毛茸茸——它拉的便便是全世界最奇怪的。准备好了吗？出发吧！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 29.15
+    },
+    {
+     "w": "young",
+     "t": 29.59
+    },
+    {
+     "w": "explorers,",
+     "t": 30.02
+    },
+    {
+     "w": "and",
+     "t": 30.46
+    },
+    {
+     "w": "welcome",
+     "t": 30.9
+    },
+    {
+     "w": "back",
+     "t": 31.34
+    },
+    {
+     "w": "to",
+     "t": 31.77
+    },
+    {
+     "w": "Michael's",
+     "t": 32.21
+    },
+    {
+     "w": "Morning",
+     "t": 32.65
+    },
+    {
+     "w": "Listening!",
+     "t": 33.08
+    },
+    {
+     "w": "This",
+     "t": 33.52
+    },
+    {
+     "w": "is",
+     "t": 33.96
+    },
+    {
+     "w": "our",
+     "t": 34.39
+    },
+    {
+     "w": "nineteenth",
+     "t": 34.83
+    },
+    {
+     "w": "show",
+     "t": 35.27
+    },
+    {
+     "w": "together!",
+     "t": 35.71
+    },
+    {
+     "w": "Today",
+     "t": 36.14
+    },
+    {
+     "w": "we",
+     "t": 36.58
+    },
+    {
+     "w": "meet",
+     "t": 37.02
+    },
+    {
+     "w": "two",
+     "t": 37.45
+    },
+    {
+     "w": "record-breakers.",
+     "t": 37.89
+    },
+    {
+     "w": "One",
+     "t": 38.33
+    },
+    {
+     "w": "will",
+     "t": 38.76
+    },
+    {
+     "w": "astonish",
+     "t": 39.2
+    },
+    {
+     "w": "you:",
+     "t": 39.64
+    },
+    {
+     "w": "he",
+     "t": 40.08
+    },
+    {
+     "w": "is",
+     "t": 40.51
+    },
+    {
+     "w": "one",
+     "t": 40.95
+    },
+    {
+     "w": "hundred",
+     "t": 41.39
+    },
+    {
+     "w": "and",
+     "t": 41.82
+    },
+    {
+     "w": "six",
+     "t": 42.26
+    },
+    {
+     "w": "years",
+     "t": 42.7
+    },
+    {
+     "w": "old,",
+     "t": 43.13
+    },
+    {
+     "w": "and",
+     "t": 43.57
+    },
+    {
+     "w": "he",
+     "t": 44.01
+    },
+    {
+     "w": "jumps",
+     "t": 44.45
+    },
+    {
+     "w": "out",
+     "t": 44.88
+    },
+    {
+     "w": "of",
+     "t": 45.32
+    },
+    {
+     "w": "planes.",
+     "t": 45.76
+    },
+    {
+     "w": "The",
+     "t": 46.19
+    },
+    {
+     "w": "other",
+     "t": 46.63
+    },
+    {
+     "w": "is",
+     "t": 47.07
+    },
+    {
+     "w": "small,",
+     "t": 47.5
+    },
+    {
+     "w": "round,",
+     "t": 47.94
+    },
+    {
+     "w": "and",
+     "t": 48.38
+    },
+    {
+     "w": "furry",
+     "t": 48.82
+    },
+    {
+     "w": "—",
+     "t": 49.25
+    },
+    {
+     "w": "and",
+     "t": 49.69
+    },
+    {
+     "w": "it",
+     "t": 50.13
+    },
+    {
+     "w": "makes",
+     "t": 50.56
+    },
+    {
+     "w": "the",
+     "t": 51.0
+    },
+    {
+     "w": "world's",
+     "t": 51.44
+    },
+    {
+     "w": "strangest",
+     "t": 51.87
+    },
+    {
+     "w": "poop.",
+     "t": 52.31
+    },
+    {
+     "w": "Ready?",
+     "t": 52.75
+    },
+    {
+     "w": "Let's",
+     "t": 53.19
+    },
+    {
+     "w": "go!",
+     "t": 53.62
+    }
+   ]
+  },
+  {
+   "start": 75.32,
+   "end": 94.54,
+   "en": "Meet Al Blaschke from Texas — the world's bravest great-grandpa. At one hundred and six, Al climbed into a plane, rose nine thousand feet, and jumped out, strapped to an instructor, to win back the record for the oldest tandem skydiver. Below, his family held their breath.",
+   "title": "一百零六岁的跳伞爷爷",
+   "cn": "来认识一下来自得克萨斯州的阿尔·布拉什克——全世界最勇敢的老爷爷。一百零六岁的他爬进一架飞机，升到九千英尺高空，然后绑在教练身上跳了出去，要赢回“最年长双人跳伞者”的世界纪录。地面上，他的家人屏住了呼吸。",
+   "words": [
+    {
+     "w": "Meet",
+     "t": 75.32
+    },
+    {
+     "w": "Al",
+     "t": 75.73
+    },
+    {
+     "w": "Blaschke",
+     "t": 76.14
+    },
+    {
+     "w": "from",
+     "t": 76.55
+    },
+    {
+     "w": "Texas",
+     "t": 76.96
+    },
+    {
+     "w": "—",
+     "t": 77.36
+    },
+    {
+     "w": "the",
+     "t": 77.77
+    },
+    {
+     "w": "world's",
+     "t": 78.18
+    },
+    {
+     "w": "bravest",
+     "t": 78.59
+    },
+    {
+     "w": "great-grandpa.",
+     "t": 79.0
+    },
+    {
+     "w": "At",
+     "t": 79.41
+    },
+    {
+     "w": "one",
+     "t": 79.82
+    },
+    {
+     "w": "hundred",
+     "t": 80.23
+    },
+    {
+     "w": "and",
+     "t": 80.63
+    },
+    {
+     "w": "six,",
+     "t": 81.04
+    },
+    {
+     "w": "Al",
+     "t": 81.45
+    },
+    {
+     "w": "climbed",
+     "t": 81.86
+    },
+    {
+     "w": "into",
+     "t": 82.27
+    },
+    {
+     "w": "a",
+     "t": 82.68
+    },
+    {
+     "w": "plane,",
+     "t": 83.09
+    },
+    {
+     "w": "rose",
+     "t": 83.5
+    },
+    {
+     "w": "nine",
+     "t": 83.91
+    },
+    {
+     "w": "thousand",
+     "t": 84.31
+    },
+    {
+     "w": "feet,",
+     "t": 84.72
+    },
+    {
+     "w": "and",
+     "t": 85.13
+    },
+    {
+     "w": "jumped",
+     "t": 85.54
+    },
+    {
+     "w": "out,",
+     "t": 85.95
+    },
+    {
+     "w": "strapped",
+     "t": 86.36
+    },
+    {
+     "w": "to",
+     "t": 86.77
+    },
+    {
+     "w": "an",
+     "t": 87.18
+    },
+    {
+     "w": "instructor,",
+     "t": 87.59
+    },
+    {
+     "w": "to",
+     "t": 87.99
+    },
+    {
+     "w": "win",
+     "t": 88.4
+    },
+    {
+     "w": "back",
+     "t": 88.81
+    },
+    {
+     "w": "the",
+     "t": 89.22
+    },
+    {
+     "w": "record",
+     "t": 89.63
+    },
+    {
+     "w": "for",
+     "t": 90.04
+    },
+    {
+     "w": "the",
+     "t": 90.45
+    },
+    {
+     "w": "oldest",
+     "t": 90.86
+    },
+    {
+     "w": "tandem",
+     "t": 91.26
+    },
+    {
+     "w": "skydiver.",
+     "t": 91.67
+    },
+    {
+     "w": "Below,",
+     "t": 92.08
+    },
+    {
+     "w": "his",
+     "t": 92.49
+    },
+    {
+     "w": "family",
+     "t": 92.9
+    },
+    {
+     "w": "held",
+     "t": 93.31
+    },
+    {
+     "w": "their",
+     "t": 93.72
+    },
+    {
+     "w": "breath.",
+     "t": 94.13
+    }
+   ]
+  },
+  {
+   "start": 94.54,
+   "end": 112.52,
+   "en": "Then his parachute opened, and the field erupted in cheers. The media filmed him floating down. At one hundred and three, he had jumped from fourteen thousand feet for his twin grandsons' graduation — and set the record. \"That was my dream,\" he said.",
+   "title": "一百零六岁的跳伞爷爷",
+   "cn": "随后，他的降落伞打开了，整个场地爆发出欢呼声。媒体拍下了他缓缓飘落的画面。一百零三岁时，他曾从一万四千英尺高空跳下，庆祝他的双胞胎孙子大学毕业——并创下了世界纪录。他说：“那是我的梦想。”",
+   "words": [
+    {
+     "w": "Then",
+     "t": 94.54
+    },
+    {
+     "w": "his",
+     "t": 94.94
+    },
+    {
+     "w": "parachute",
+     "t": 95.35
+    },
+    {
+     "w": "opened,",
+     "t": 95.76
+    },
+    {
+     "w": "and",
+     "t": 96.17
+    },
+    {
+     "w": "the",
+     "t": 96.58
+    },
+    {
+     "w": "field",
+     "t": 96.99
+    },
+    {
+     "w": "erupted",
+     "t": 97.4
+    },
+    {
+     "w": "in",
+     "t": 97.81
+    },
+    {
+     "w": "cheers.",
+     "t": 98.21
+    },
+    {
+     "w": "The",
+     "t": 98.62
+    },
+    {
+     "w": "media",
+     "t": 99.03
+    },
+    {
+     "w": "filmed",
+     "t": 99.44
+    },
+    {
+     "w": "him",
+     "t": 99.85
+    },
+    {
+     "w": "floating",
+     "t": 100.26
+    },
+    {
+     "w": "down.",
+     "t": 100.67
+    },
+    {
+     "w": "At",
+     "t": 101.08
+    },
+    {
+     "w": "one",
+     "t": 101.49
+    },
+    {
+     "w": "hundred",
+     "t": 101.89
+    },
+    {
+     "w": "and",
+     "t": 102.3
+    },
+    {
+     "w": "three,",
+     "t": 102.71
+    },
+    {
+     "w": "he",
+     "t": 103.12
+    },
+    {
+     "w": "had",
+     "t": 103.53
+    },
+    {
+     "w": "jumped",
+     "t": 103.94
+    },
+    {
+     "w": "from",
+     "t": 104.35
+    },
+    {
+     "w": "fourteen",
+     "t": 104.76
+    },
+    {
+     "w": "thousand",
+     "t": 105.17
+    },
+    {
+     "w": "feet",
+     "t": 105.57
+    },
+    {
+     "w": "for",
+     "t": 105.98
+    },
+    {
+     "w": "his",
+     "t": 106.39
+    },
+    {
+     "w": "twin",
+     "t": 106.8
+    },
+    {
+     "w": "grandsons'",
+     "t": 107.21
+    },
+    {
+     "w": "graduation",
+     "t": 107.62
+    },
+    {
+     "w": "—",
+     "t": 108.03
+    },
+    {
+     "w": "and",
+     "t": 108.44
+    },
+    {
+     "w": "set",
+     "t": 108.84
+    },
+    {
+     "w": "the",
+     "t": 109.25
+    },
+    {
+     "w": "record.",
+     "t": 109.66
+    },
+    {
+     "w": "\"That",
+     "t": 110.07
+    },
+    {
+     "w": "was",
+     "t": 110.48
+    },
+    {
+     "w": "my",
+     "t": 110.89
+    },
+    {
+     "w": "dream,\"",
+     "t": 111.3
+    },
+    {
+     "w": "he",
+     "t": 111.71
+    },
+    {
+     "w": "said.",
+     "t": 112.12
+    }
+   ]
+  },
+  {
+   "start": 112.52,
+   "end": 136.65,
+   "en": "But a Swedish grandmother named Rut took the record away. Al smiled and promised to win it back; the governor of Texas, Greg Abbott, promised to jump beside him. It was a close shave: bad weather cancelled the jump four times. Climbing out is awkward work at any age — the service crew checked his straps a dozen times!",
+   "title": "一百零六岁的跳伞爷爷",
+   "cn": "但是一位名叫鲁特的瑞典奶奶把纪录抢走了。阿尔微微一笑，许诺要把它赢回来；得克萨斯州州长格雷格·阿博特也许诺要陪他一起跳。这真是有惊无险：坏天气让跳伞取消了四次。爬出机舱在任何年纪都是件笨拙费劲的活儿——服务团队把他的绑带检查了一遍又一遍！",
+   "words": [
+    {
+     "w": "But",
+     "t": 112.52
+    },
+    {
+     "w": "a",
+     "t": 112.93
+    },
+    {
+     "w": "Swedish",
+     "t": 113.34
+    },
+    {
+     "w": "grandmother",
+     "t": 113.75
+    },
+    {
+     "w": "named",
+     "t": 114.16
+    },
+    {
+     "w": "Rut",
+     "t": 114.57
+    },
+    {
+     "w": "took",
+     "t": 114.98
+    },
+    {
+     "w": "the",
+     "t": 115.39
+    },
+    {
+     "w": "record",
+     "t": 115.8
+    },
+    {
+     "w": "away.",
+     "t": 116.2
+    },
+    {
+     "w": "Al",
+     "t": 116.61
+    },
+    {
+     "w": "smiled",
+     "t": 117.02
+    },
+    {
+     "w": "and",
+     "t": 117.43
+    },
+    {
+     "w": "promised",
+     "t": 117.84
+    },
+    {
+     "w": "to",
+     "t": 118.25
+    },
+    {
+     "w": "win",
+     "t": 118.66
+    },
+    {
+     "w": "it",
+     "t": 119.07
+    },
+    {
+     "w": "back;",
+     "t": 119.47
+    },
+    {
+     "w": "the",
+     "t": 119.88
+    },
+    {
+     "w": "governor",
+     "t": 120.29
+    },
+    {
+     "w": "of",
+     "t": 120.7
+    },
+    {
+     "w": "Texas,",
+     "t": 121.11
+    },
+    {
+     "w": "Greg",
+     "t": 121.52
+    },
+    {
+     "w": "Abbott,",
+     "t": 121.93
+    },
+    {
+     "w": "promised",
+     "t": 122.34
+    },
+    {
+     "w": "to",
+     "t": 122.75
+    },
+    {
+     "w": "jump",
+     "t": 123.15
+    },
+    {
+     "w": "beside",
+     "t": 123.56
+    },
+    {
+     "w": "him.",
+     "t": 123.97
+    },
+    {
+     "w": "It",
+     "t": 124.38
+    },
+    {
+     "w": "was",
+     "t": 124.79
+    },
+    {
+     "w": "a",
+     "t": 125.2
+    },
+    {
+     "w": "close",
+     "t": 125.61
+    },
+    {
+     "w": "shave:",
+     "t": 126.02
+    },
+    {
+     "w": "bad",
+     "t": 126.42
+    },
+    {
+     "w": "weather",
+     "t": 126.83
+    },
+    {
+     "w": "cancelled",
+     "t": 127.24
+    },
+    {
+     "w": "the",
+     "t": 127.65
+    },
+    {
+     "w": "jump",
+     "t": 128.06
+    },
+    {
+     "w": "four",
+     "t": 128.47
+    },
+    {
+     "w": "times.",
+     "t": 128.88
+    },
+    {
+     "w": "Climbing",
+     "t": 129.29
+    },
+    {
+     "w": "out",
+     "t": 129.7
+    },
+    {
+     "w": "is",
+     "t": 130.1
+    },
+    {
+     "w": "awkward",
+     "t": 130.51
+    },
+    {
+     "w": "work",
+     "t": 130.92
+    },
+    {
+     "w": "at",
+     "t": 131.33
+    },
+    {
+     "w": "any",
+     "t": 131.74
+    },
+    {
+     "w": "age",
+     "t": 132.15
+    },
+    {
+     "w": "—",
+     "t": 132.56
+    },
+    {
+     "w": "the",
+     "t": 132.97
+    },
+    {
+     "w": "service",
+     "t": 133.38
+    },
+    {
+     "w": "crew",
+     "t": 133.78
+    },
+    {
+     "w": "checked",
+     "t": 134.19
+    },
+    {
+     "w": "his",
+     "t": 134.6
+    },
+    {
+     "w": "straps",
+     "t": 135.01
+    },
+    {
+     "w": "a",
+     "t": 135.42
+    },
+    {
+     "w": "dozen",
+     "t": 135.83
+    },
+    {
+     "w": "times!",
+     "t": 136.24
+    }
+   ]
+  },
+  {
+   "start": 136.65,
+   "end": 156.27,
+   "en": "At last, a clear morning came. Al and the governor jumped together, and the record belonged to Al again. Reporters asked his secret. \"If you think you can't, you are underestimating yourself,\" he said. \"Everyone is more capable than they think. They just need to decide to try.\"",
+   "title": "一百零六岁的跳伞爷爷",
+   "cn": "终于，一个晴朗的早晨来了。阿尔和州长一起跳下，纪录再次属于阿尔。记者们问他秘诀是什么。他说：“如果你觉得自己不行，那是低估了自己。每个人都比自己以为的更有能力，只需要下定决心去试一试。”",
+   "words": [
+    {
+     "w": "At",
+     "t": 136.65
+    },
+    {
+     "w": "last,",
+     "t": 137.05
+    },
+    {
+     "w": "a",
+     "t": 137.46
+    },
+    {
+     "w": "clear",
+     "t": 137.87
+    },
+    {
+     "w": "morning",
+     "t": 138.28
+    },
+    {
+     "w": "came.",
+     "t": 138.69
+    },
+    {
+     "w": "Al",
+     "t": 139.1
+    },
+    {
+     "w": "and",
+     "t": 139.51
+    },
+    {
+     "w": "the",
+     "t": 139.92
+    },
+    {
+     "w": "governor",
+     "t": 140.33
+    },
+    {
+     "w": "jumped",
+     "t": 140.73
+    },
+    {
+     "w": "together,",
+     "t": 141.14
+    },
+    {
+     "w": "and",
+     "t": 141.55
+    },
+    {
+     "w": "the",
+     "t": 141.96
+    },
+    {
+     "w": "record",
+     "t": 142.37
+    },
+    {
+     "w": "belonged",
+     "t": 142.78
+    },
+    {
+     "w": "to",
+     "t": 143.19
+    },
+    {
+     "w": "Al",
+     "t": 143.6
+    },
+    {
+     "w": "again.",
+     "t": 144.0
+    },
+    {
+     "w": "Reporters",
+     "t": 144.41
+    },
+    {
+     "w": "asked",
+     "t": 144.82
+    },
+    {
+     "w": "his",
+     "t": 145.23
+    },
+    {
+     "w": "secret.",
+     "t": 145.64
+    },
+    {
+     "w": "\"If",
+     "t": 146.05
+    },
+    {
+     "w": "you",
+     "t": 146.46
+    },
+    {
+     "w": "think",
+     "t": 146.87
+    },
+    {
+     "w": "you",
+     "t": 147.28
+    },
+    {
+     "w": "can't,",
+     "t": 147.68
+    },
+    {
+     "w": "you",
+     "t": 148.09
+    },
+    {
+     "w": "are",
+     "t": 148.5
+    },
+    {
+     "w": "underestimating",
+     "t": 148.91
+    },
+    {
+     "w": "yourself,\"",
+     "t": 149.32
+    },
+    {
+     "w": "he",
+     "t": 149.73
+    },
+    {
+     "w": "said.",
+     "t": 150.14
+    },
+    {
+     "w": "\"Everyone",
+     "t": 150.55
+    },
+    {
+     "w": "is",
+     "t": 150.96
+    },
+    {
+     "w": "more",
+     "t": 151.36
+    },
+    {
+     "w": "capable",
+     "t": 151.77
+    },
+    {
+     "w": "than",
+     "t": 152.18
+    },
+    {
+     "w": "they",
+     "t": 152.59
+    },
+    {
+     "w": "think.",
+     "t": 153.0
+    },
+    {
+     "w": "They",
+     "t": 153.41
+    },
+    {
+     "w": "just",
+     "t": 153.82
+    },
+    {
+     "w": "need",
+     "t": 154.23
+    },
+    {
+     "w": "to",
+     "t": 154.63
+    },
+    {
+     "w": "decide",
+     "t": 155.04
+    },
+    {
+     "w": "to",
+     "t": 155.45
+    },
+    {
+     "w": "try.\"",
+     "t": 155.86
+    }
+   ]
+  },
+  {
+   "start": 176.65,
+   "end": 197.83,
+   "en": "Now shrink down to Australia, to meet the wombat: a round, furry marsupial with short legs. The wombat's dynasty is ancient — its cousins once included giants as big as a rhinoceros. Today's wombats are smaller, but they hold a record no other animal can claim: they make cube-shaped poop.",
+   "title": "袋熊的方块便便",
+   "cn": "现在我们缩小身体，来到澳大利亚，认识一下袋熊：一种圆滚滚、毛茸茸、腿短短的有袋动物。袋熊的家族非常古老——它的远房亲戚里，曾经有像犀牛那么大的巨兽。今天的袋熊个头小多了，但它们有一项其他任何动物都没有的纪录：它们会拉方块形的便便。",
+   "words": [
+    {
+     "w": "Now",
+     "t": 176.65
+    },
+    {
+     "w": "shrink",
+     "t": 177.07
+    },
+    {
+     "w": "down",
+     "t": 177.5
+    },
+    {
+     "w": "to",
+     "t": 177.92
+    },
+    {
+     "w": "Australia,",
+     "t": 178.34
+    },
+    {
+     "w": "to",
+     "t": 178.77
+    },
+    {
+     "w": "meet",
+     "t": 179.19
+    },
+    {
+     "w": "the",
+     "t": 179.62
+    },
+    {
+     "w": "wombat:",
+     "t": 180.04
+    },
+    {
+     "w": "a",
+     "t": 180.46
+    },
+    {
+     "w": "round,",
+     "t": 180.89
+    },
+    {
+     "w": "furry",
+     "t": 181.31
+    },
+    {
+     "w": "marsupial",
+     "t": 181.73
+    },
+    {
+     "w": "with",
+     "t": 182.16
+    },
+    {
+     "w": "short",
+     "t": 182.58
+    },
+    {
+     "w": "legs.",
+     "t": 183.01
+    },
+    {
+     "w": "The",
+     "t": 183.43
+    },
+    {
+     "w": "wombat's",
+     "t": 183.85
+    },
+    {
+     "w": "dynasty",
+     "t": 184.28
+    },
+    {
+     "w": "is",
+     "t": 184.7
+    },
+    {
+     "w": "ancient",
+     "t": 185.12
+    },
+    {
+     "w": "—",
+     "t": 185.55
+    },
+    {
+     "w": "its",
+     "t": 185.97
+    },
+    {
+     "w": "cousins",
+     "t": 186.4
+    },
+    {
+     "w": "once",
+     "t": 186.82
+    },
+    {
+     "w": "included",
+     "t": 187.24
+    },
+    {
+     "w": "giants",
+     "t": 187.67
+    },
+    {
+     "w": "as",
+     "t": 188.09
+    },
+    {
+     "w": "big",
+     "t": 188.51
+    },
+    {
+     "w": "as",
+     "t": 188.94
+    },
+    {
+     "w": "a",
+     "t": 189.36
+    },
+    {
+     "w": "rhinoceros.",
+     "t": 189.78
+    },
+    {
+     "w": "Today's",
+     "t": 190.21
+    },
+    {
+     "w": "wombats",
+     "t": 190.63
+    },
+    {
+     "w": "are",
+     "t": 191.06
+    },
+    {
+     "w": "smaller,",
+     "t": 191.48
+    },
+    {
+     "w": "but",
+     "t": 191.9
+    },
+    {
+     "w": "they",
+     "t": 192.33
+    },
+    {
+     "w": "hold",
+     "t": 192.75
+    },
+    {
+     "w": "a",
+     "t": 193.17
+    },
+    {
+     "w": "record",
+     "t": 193.6
+    },
+    {
+     "w": "no",
+     "t": 194.02
+    },
+    {
+     "w": "other",
+     "t": 194.45
+    },
+    {
+     "w": "animal",
+     "t": 194.87
+    },
+    {
+     "w": "can",
+     "t": 195.29
+    },
+    {
+     "w": "claim:",
+     "t": 195.72
+    },
+    {
+     "w": "they",
+     "t": 196.14
+    },
+    {
+     "w": "make",
+     "t": 196.56
+    },
+    {
+     "w": "cube-shaped",
+     "t": 196.99
+    },
+    {
+     "w": "poop.",
+     "t": 197.41
+    }
+   ]
+  },
+  {
+   "start": 197.83,
+   "end": 219.87,
+   "en": "A wombat's intestine is about ten metres long, and a meal may take fourteen days to cross it, growing drier and drier. Near the end of the tube, the wall is stretchy in some places and stiff in others, so the dry waste is slowly pressed into flat sides and square corners.",
+   "title": "袋熊的方块便便",
+   "cn": "袋熊的肠道大约有十米长，一顿饭可能要花十四天才能走完这条路，越走越干。快到肠道末端时，肠壁有些地方有弹性、有些地方却硬邦邦的，于是干燥的便便被慢慢压出平整的面和方正的棱角。",
+   "words": [
+    {
+     "w": "A",
+     "t": 197.83
+    },
+    {
+     "w": "wombat's",
+     "t": 198.26
+    },
+    {
+     "w": "intestine",
+     "t": 198.68
+    },
+    {
+     "w": "is",
+     "t": 199.11
+    },
+    {
+     "w": "about",
+     "t": 199.53
+    },
+    {
+     "w": "ten",
+     "t": 199.95
+    },
+    {
+     "w": "metres",
+     "t": 200.38
+    },
+    {
+     "w": "long,",
+     "t": 200.8
+    },
+    {
+     "w": "and",
+     "t": 201.22
+    },
+    {
+     "w": "a",
+     "t": 201.65
+    },
+    {
+     "w": "meal",
+     "t": 202.07
+    },
+    {
+     "w": "may",
+     "t": 202.5
+    },
+    {
+     "w": "take",
+     "t": 202.92
+    },
+    {
+     "w": "fourteen",
+     "t": 203.34
+    },
+    {
+     "w": "days",
+     "t": 203.77
+    },
+    {
+     "w": "to",
+     "t": 204.19
+    },
+    {
+     "w": "cross",
+     "t": 204.61
+    },
+    {
+     "w": "it,",
+     "t": 205.04
+    },
+    {
+     "w": "growing",
+     "t": 205.46
+    },
+    {
+     "w": "drier",
+     "t": 205.89
+    },
+    {
+     "w": "and",
+     "t": 206.31
+    },
+    {
+     "w": "drier.",
+     "t": 206.73
+    },
+    {
+     "w": "Near",
+     "t": 207.16
+    },
+    {
+     "w": "the",
+     "t": 207.58
+    },
+    {
+     "w": "end",
+     "t": 208.0
+    },
+    {
+     "w": "of",
+     "t": 208.43
+    },
+    {
+     "w": "the",
+     "t": 208.85
+    },
+    {
+     "w": "tube,",
+     "t": 209.27
+    },
+    {
+     "w": "the",
+     "t": 209.7
+    },
+    {
+     "w": "wall",
+     "t": 210.12
+    },
+    {
+     "w": "is",
+     "t": 210.55
+    },
+    {
+     "w": "stretchy",
+     "t": 210.97
+    },
+    {
+     "w": "in",
+     "t": 211.39
+    },
+    {
+     "w": "some",
+     "t": 211.82
+    },
+    {
+     "w": "places",
+     "t": 212.24
+    },
+    {
+     "w": "and",
+     "t": 212.66
+    },
+    {
+     "w": "stiff",
+     "t": 213.09
+    },
+    {
+     "w": "in",
+     "t": 213.51
+    },
+    {
+     "w": "others,",
+     "t": 213.94
+    },
+    {
+     "w": "so",
+     "t": 214.36
+    },
+    {
+     "w": "the",
+     "t": 214.78
+    },
+    {
+     "w": "dry",
+     "t": 215.21
+    },
+    {
+     "w": "waste",
+     "t": 215.63
+    },
+    {
+     "w": "is",
+     "t": 216.05
+    },
+    {
+     "w": "slowly",
+     "t": 216.48
+    },
+    {
+     "w": "pressed",
+     "t": 216.9
+    },
+    {
+     "w": "into",
+     "t": 217.32
+    },
+    {
+     "w": "flat",
+     "t": 217.75
+    },
+    {
+     "w": "sides",
+     "t": 218.17
+    },
+    {
+     "w": "and",
+     "t": 218.6
+    },
+    {
+     "w": "square",
+     "t": 219.02
+    },
+    {
+     "w": "corners.",
+     "t": 219.44
+    }
+   ]
+  },
+  {
+   "start": 219.87,
+   "end": 239.36,
+   "en": "Scientists Patricia Yang and David Hu solved the mystery: nobody cuts or moulds the cubes — the intestine squeezes them into shape with tens of thousands of tiny squeezes. The significance reached far beyond poop: the discovery won a funny science prize, the Ig Nobel Prize.",
+   "title": "袋熊的方块便便",
+   "cn": "科学家帕特里夏·杨和戴维·胡解开了这个谜：没有人切割或用模具做这些方块——是肠道用成千上万次小小的挤压，把它们捏成了形。这个发现的意义远远超出了便便本身：它赢得了一个有趣的科学奖——搞笑诺贝尔奖。",
+   "words": [
+    {
+     "w": "Scientists",
+     "t": 219.87
+    },
+    {
+     "w": "Patricia",
+     "t": 220.29
+    },
+    {
+     "w": "Yang",
+     "t": 220.71
+    },
+    {
+     "w": "and",
+     "t": 221.14
+    },
+    {
+     "w": "David",
+     "t": 221.56
+    },
+    {
+     "w": "Hu",
+     "t": 221.99
+    },
+    {
+     "w": "solved",
+     "t": 222.41
+    },
+    {
+     "w": "the",
+     "t": 222.83
+    },
+    {
+     "w": "mystery:",
+     "t": 223.26
+    },
+    {
+     "w": "nobody",
+     "t": 223.68
+    },
+    {
+     "w": "cuts",
+     "t": 224.1
+    },
+    {
+     "w": "or",
+     "t": 224.53
+    },
+    {
+     "w": "moulds",
+     "t": 224.95
+    },
+    {
+     "w": "the",
+     "t": 225.38
+    },
+    {
+     "w": "cubes",
+     "t": 225.8
+    },
+    {
+     "w": "—",
+     "t": 226.22
+    },
+    {
+     "w": "the",
+     "t": 226.65
+    },
+    {
+     "w": "intestine",
+     "t": 227.07
+    },
+    {
+     "w": "squeezes",
+     "t": 227.49
+    },
+    {
+     "w": "them",
+     "t": 227.92
+    },
+    {
+     "w": "into",
+     "t": 228.34
+    },
+    {
+     "w": "shape",
+     "t": 228.76
+    },
+    {
+     "w": "with",
+     "t": 229.19
+    },
+    {
+     "w": "tens",
+     "t": 229.61
+    },
+    {
+     "w": "of",
+     "t": 230.04
+    },
+    {
+     "w": "thousands",
+     "t": 230.46
+    },
+    {
+     "w": "of",
+     "t": 230.88
+    },
+    {
+     "w": "tiny",
+     "t": 231.31
+    },
+    {
+     "w": "squeezes.",
+     "t": 231.73
+    },
+    {
+     "w": "The",
+     "t": 232.15
+    },
+    {
+     "w": "significance",
+     "t": 232.58
+    },
+    {
+     "w": "reached",
+     "t": 233.0
+    },
+    {
+     "w": "far",
+     "t": 233.43
+    },
+    {
+     "w": "beyond",
+     "t": 233.85
+    },
+    {
+     "w": "poop:",
+     "t": 234.27
+    },
+    {
+     "w": "the",
+     "t": 234.7
+    },
+    {
+     "w": "discovery",
+     "t": 235.12
+    },
+    {
+     "w": "won",
+     "t": 235.54
+    },
+    {
+     "w": "a",
+     "t": 235.97
+    },
+    {
+     "w": "funny",
+     "t": 236.39
+    },
+    {
+     "w": "science",
+     "t": 236.81
+    },
+    {
+     "w": "prize,",
+     "t": 237.24
+    },
+    {
+     "w": "the",
+     "t": 237.66
+    },
+    {
+     "w": "Ig",
+     "t": 238.09
+    },
+    {
+     "w": "Nobel",
+     "t": 238.51
+    },
+    {
+     "w": "Prize.",
+     "t": 238.93
+    }
+   ]
+  },
+  {
+   "start": 239.36,
+   "end": 254.61,
+   "en": "Why cubes? Wombats talk by smell. They stack the cubes on rocks and logs by their burrows, like little flags: \"This home is taken!\" A cube cannot roll away, and rain cannot easily damage the message.",
+   "title": "袋熊的方块便便",
+   "cn": "为什么要是方块呢？袋熊用气味交流。它们把方块摞在洞口附近的石头和木头上，像一面面小旗子：“这个家已经有人住啦！”方块不会滚走，雨水也不容易把这条信息冲坏。",
+   "words": [
+    {
+     "w": "Why",
+     "t": 239.36
+    },
+    {
+     "w": "cubes?",
+     "t": 239.78
+    },
+    {
+     "w": "Wombats",
+     "t": 240.2
+    },
+    {
+     "w": "talk",
+     "t": 240.63
+    },
+    {
+     "w": "by",
+     "t": 241.05
+    },
+    {
+     "w": "smell.",
+     "t": 241.48
+    },
+    {
+     "w": "They",
+     "t": 241.9
+    },
+    {
+     "w": "stack",
+     "t": 242.32
+    },
+    {
+     "w": "the",
+     "t": 242.75
+    },
+    {
+     "w": "cubes",
+     "t": 243.17
+    },
+    {
+     "w": "on",
+     "t": 243.59
+    },
+    {
+     "w": "rocks",
+     "t": 244.02
+    },
+    {
+     "w": "and",
+     "t": 244.44
+    },
+    {
+     "w": "logs",
+     "t": 244.87
+    },
+    {
+     "w": "by",
+     "t": 245.29
+    },
+    {
+     "w": "their",
+     "t": 245.71
+    },
+    {
+     "w": "burrows,",
+     "t": 246.14
+    },
+    {
+     "w": "like",
+     "t": 246.56
+    },
+    {
+     "w": "little",
+     "t": 246.98
+    },
+    {
+     "w": "flags:",
+     "t": 247.41
+    },
+    {
+     "w": "\"This",
+     "t": 247.83
+    },
+    {
+     "w": "home",
+     "t": 248.25
+    },
+    {
+     "w": "is",
+     "t": 248.68
+    },
+    {
+     "w": "taken!\"",
+     "t": 249.1
+    },
+    {
+     "w": "A",
+     "t": 249.53
+    },
+    {
+     "w": "cube",
+     "t": 249.95
+    },
+    {
+     "w": "cannot",
+     "t": 250.37
+    },
+    {
+     "w": "roll",
+     "t": 250.8
+    },
+    {
+     "w": "away,",
+     "t": 251.22
+    },
+    {
+     "w": "and",
+     "t": 251.64
+    },
+    {
+     "w": "rain",
+     "t": 252.07
+    },
+    {
+     "w": "cannot",
+     "t": 252.49
+    },
+    {
+     "w": "easily",
+     "t": 252.92
+    },
+    {
+     "w": "damage",
+     "t": 253.34
+    },
+    {
+     "w": "the",
+     "t": 253.76
+    },
+    {
+     "w": "message.",
+     "t": 254.19
+    }
+   ]
+  },
+  {
+   "start": 276.67,
+   "end": 306.28,
+   "en": "Here's today's idiom: \"down to earth.\" It describes someone practical, honest, and friendly, who never shows off. Think of Al: he flies nine thousand feet up, yet stays down to earth, telling everyone, \"You can do it too.\" Here's an example: \"Our teacher is really down to earth — she jokes with us and never acts like a star.\" That's the appeal: simple words for real, honest people.",
+   "title": "今日俚语",
+   "cn": "今天的俚语是“down to earth”（脚踏实地）：它形容一个人务实、诚恳、友善，从不炫耀。想想阿尔：他飞到九千英尺的高空，却依然脚踏实地，告诉每个人：“你也可以做到。”举个例子：“我们的老师特别平易近人——她和我们开玩笑，从不摆明星架子。”这就是它的魅力：简单的话，形容真实、诚恳的人。",
+   "words": [
+    {
+     "w": "Here's",
+     "t": 276.67
+    },
+    {
+     "w": "today's",
+     "t": 277.11
+    },
+    {
+     "w": "idiom:",
+     "t": 277.54
+    },
+    {
+     "w": "\"down",
+     "t": 277.98
+    },
+    {
+     "w": "to",
+     "t": 278.41
+    },
+    {
+     "w": "earth.\"",
+     "t": 278.85
+    },
+    {
+     "w": "It",
+     "t": 279.28
+    },
+    {
+     "w": "describes",
+     "t": 279.72
+    },
+    {
+     "w": "someone",
+     "t": 280.15
+    },
+    {
+     "w": "practical,",
+     "t": 280.59
+    },
+    {
+     "w": "honest,",
+     "t": 281.02
+    },
+    {
+     "w": "and",
+     "t": 281.46
+    },
+    {
+     "w": "friendly,",
+     "t": 281.9
+    },
+    {
+     "w": "who",
+     "t": 282.33
+    },
+    {
+     "w": "never",
+     "t": 282.77
+    },
+    {
+     "w": "shows",
+     "t": 283.2
+    },
+    {
+     "w": "off.",
+     "t": 283.64
+    },
+    {
+     "w": "Think",
+     "t": 284.07
+    },
+    {
+     "w": "of",
+     "t": 284.51
+    },
+    {
+     "w": "Al:",
+     "t": 284.94
+    },
+    {
+     "w": "he",
+     "t": 285.38
+    },
+    {
+     "w": "flies",
+     "t": 285.81
+    },
+    {
+     "w": "nine",
+     "t": 286.25
+    },
+    {
+     "w": "thousand",
+     "t": 286.69
+    },
+    {
+     "w": "feet",
+     "t": 287.12
+    },
+    {
+     "w": "up,",
+     "t": 287.56
+    },
+    {
+     "w": "yet",
+     "t": 287.99
+    },
+    {
+     "w": "stays",
+     "t": 288.43
+    },
+    {
+     "w": "down",
+     "t": 288.86
+    },
+    {
+     "w": "to",
+     "t": 289.3
+    },
+    {
+     "w": "earth,",
+     "t": 289.73
+    },
+    {
+     "w": "telling",
+     "t": 290.17
+    },
+    {
+     "w": "everyone,",
+     "t": 290.6
+    },
+    {
+     "w": "\"You",
+     "t": 291.04
+    },
+    {
+     "w": "can",
+     "t": 291.48
+    },
+    {
+     "w": "do",
+     "t": 291.91
+    },
+    {
+     "w": "it",
+     "t": 292.35
+    },
+    {
+     "w": "too.\"",
+     "t": 292.78
+    },
+    {
+     "w": "Here's",
+     "t": 293.22
+    },
+    {
+     "w": "an",
+     "t": 293.65
+    },
+    {
+     "w": "example:",
+     "t": 294.09
+    },
+    {
+     "w": "\"Our",
+     "t": 294.52
+    },
+    {
+     "w": "teacher",
+     "t": 294.96
+    },
+    {
+     "w": "is",
+     "t": 295.39
+    },
+    {
+     "w": "really",
+     "t": 295.83
+    },
+    {
+     "w": "down",
+     "t": 296.26
+    },
+    {
+     "w": "to",
+     "t": 296.7
+    },
+    {
+     "w": "earth",
+     "t": 297.14
+    },
+    {
+     "w": "—",
+     "t": 297.57
+    },
+    {
+     "w": "she",
+     "t": 298.01
+    },
+    {
+     "w": "jokes",
+     "t": 298.44
+    },
+    {
+     "w": "with",
+     "t": 298.88
+    },
+    {
+     "w": "us",
+     "t": 299.31
+    },
+    {
+     "w": "and",
+     "t": 299.75
+    },
+    {
+     "w": "never",
+     "t": 300.18
+    },
+    {
+     "w": "acts",
+     "t": 300.62
+    },
+    {
+     "w": "like",
+     "t": 301.05
+    },
+    {
+     "w": "a",
+     "t": 301.49
+    },
+    {
+     "w": "star.\"",
+     "t": 301.93
+    },
+    {
+     "w": "That's",
+     "t": 302.36
+    },
+    {
+     "w": "the",
+     "t": 302.8
+    },
+    {
+     "w": "appeal:",
+     "t": 303.23
+    },
+    {
+     "w": "simple",
+     "t": 303.67
+    },
+    {
+     "w": "words",
+     "t": 304.1
+    },
+    {
+     "w": "for",
+     "t": 304.54
+    },
+    {
+     "w": "real,",
+     "t": 304.97
+    },
+    {
+     "w": "honest",
+     "t": 305.41
+    },
+    {
+     "w": "people.",
+     "t": 305.84
+    }
+   ]
+  },
+  {
+   "start": 322.74,
+   "end": 347.22,
+   "en": "Let's think about our stories. A great-grandpa of one hundred and six jumped out of a plane, and a wombat makes perfect cubes. Now, two questions for you. First: what brave thing would you like to try when you are very, very old? Second: if you could leave one special mark on the world, what would it be? Talk about it with your family!",
+   "title": "结束语与互动问题",
+   "cn": "我们来想想今天的故事。一位一百零六岁的老爷爷从飞机上跳了下来，一只袋熊会拉完美的方块便便。现在，轮到回答两个问题。第一：等你很老很老的时候，你想勇敢地尝试什么事？第二：如果你能在这个世界上留下一个特别的印记，你希望它是什么？和家人聊聊吧！",
+   "words": [
+    {
+     "w": "Let's",
+     "t": 322.74
+    },
+    {
+     "w": "think",
+     "t": 323.12
+    },
+    {
+     "w": "about",
+     "t": 323.5
+    },
+    {
+     "w": "our",
+     "t": 323.89
+    },
+    {
+     "w": "stories.",
+     "t": 324.27
+    },
+    {
+     "w": "A",
+     "t": 324.65
+    },
+    {
+     "w": "great-grandpa",
+     "t": 325.04
+    },
+    {
+     "w": "of",
+     "t": 325.42
+    },
+    {
+     "w": "one",
+     "t": 325.8
+    },
+    {
+     "w": "hundred",
+     "t": 326.18
+    },
+    {
+     "w": "and",
+     "t": 326.56
+    },
+    {
+     "w": "six",
+     "t": 326.95
+    },
+    {
+     "w": "jumped",
+     "t": 327.33
+    },
+    {
+     "w": "out",
+     "t": 327.71
+    },
+    {
+     "w": "of",
+     "t": 328.1
+    },
+    {
+     "w": "a",
+     "t": 328.48
+    },
+    {
+     "w": "plane,",
+     "t": 328.86
+    },
+    {
+     "w": "and",
+     "t": 329.24
+    },
+    {
+     "w": "a",
+     "t": 329.62
+    },
+    {
+     "w": "wombat",
+     "t": 330.01
+    },
+    {
+     "w": "makes",
+     "t": 330.39
+    },
+    {
+     "w": "perfect",
+     "t": 330.77
+    },
+    {
+     "w": "cubes.",
+     "t": 331.16
+    },
+    {
+     "w": "Now,",
+     "t": 331.54
+    },
+    {
+     "w": "two",
+     "t": 331.92
+    },
+    {
+     "w": "questions",
+     "t": 332.3
+    },
+    {
+     "w": "for",
+     "t": 332.69
+    },
+    {
+     "w": "you.",
+     "t": 333.07
+    },
+    {
+     "w": "First:",
+     "t": 333.45
+    },
+    {
+     "w": "what",
+     "t": 333.83
+    },
+    {
+     "w": "brave",
+     "t": 334.22
+    },
+    {
+     "w": "thing",
+     "t": 334.6
+    },
+    {
+     "w": "would",
+     "t": 334.98
+    },
+    {
+     "w": "you",
+     "t": 335.36
+    },
+    {
+     "w": "like",
+     "t": 335.75
+    },
+    {
+     "w": "to",
+     "t": 336.13
+    },
+    {
+     "w": "try",
+     "t": 336.51
+    },
+    {
+     "w": "when",
+     "t": 336.89
+    },
+    {
+     "w": "you",
+     "t": 337.28
+    },
+    {
+     "w": "are",
+     "t": 337.66
+    },
+    {
+     "w": "very,",
+     "t": 338.04
+    },
+    {
+     "w": "very",
+     "t": 338.42
+    },
+    {
+     "w": "old?",
+     "t": 338.81
+    },
+    {
+     "w": "Second:",
+     "t": 339.19
+    },
+    {
+     "w": "if",
+     "t": 339.57
+    },
+    {
+     "w": "you",
+     "t": 339.95
+    },
+    {
+     "w": "could",
+     "t": 340.34
+    },
+    {
+     "w": "leave",
+     "t": 340.72
+    },
+    {
+     "w": "one",
+     "t": 341.1
+    },
+    {
+     "w": "special",
+     "t": 341.48
+    },
+    {
+     "w": "mark",
+     "t": 341.87
+    },
+    {
+     "w": "on",
+     "t": 342.25
+    },
+    {
+     "w": "the",
+     "t": 342.63
+    },
+    {
+     "w": "world,",
+     "t": 343.01
+    },
+    {
+     "w": "what",
+     "t": 343.4
+    },
+    {
+     "w": "would",
+     "t": 343.78
+    },
+    {
+     "w": "it",
+     "t": 344.16
+    },
+    {
+     "w": "be?",
+     "t": 344.54
+    },
+    {
+     "w": "Talk",
+     "t": 344.93
+    },
+    {
+     "w": "about",
+     "t": 345.31
+    },
+    {
+     "w": "it",
+     "t": 345.69
+    },
+    {
+     "w": "with",
+     "t": 346.07
+    },
+    {
+     "w": "your",
+     "t": 346.46
+    },
+    {
+     "w": "family!",
+     "t": 346.84
+    }
+   ]
+  },
+  {
+   "start": 357.92,
+   "end": 368.55,
+   "en": "That's all for today, young explorers. Be brave like Al, stay down to earth like the wombat — and never say \"I can't.\" See you tomorrow morning!",
+   "title": "告别",
+   "cn": "今天的节目就到这里啦，小小探险家们。像阿尔一样勇敢，像袋熊一样脚踏实地——永远不要说“我不行”。明天早上见！",
+   "words": [
+    {
+     "w": "That's",
+     "t": 357.92
+    },
+    {
+     "w": "all",
+     "t": 358.31
+    },
+    {
+     "w": "for",
+     "t": 358.71
+    },
+    {
+     "w": "today,",
+     "t": 359.1
+    },
+    {
+     "w": "young",
+     "t": 359.49
+    },
+    {
+     "w": "explorers.",
+     "t": 359.89
+    },
+    {
+     "w": "Be",
+     "t": 360.28
+    },
+    {
+     "w": "brave",
+     "t": 360.68
+    },
+    {
+     "w": "like",
+     "t": 361.07
+    },
+    {
+     "w": "Al,",
+     "t": 361.46
+    },
+    {
+     "w": "stay",
+     "t": 361.86
+    },
+    {
+     "w": "down",
+     "t": 362.25
+    },
+    {
+     "w": "to",
+     "t": 362.64
+    },
+    {
+     "w": "earth",
+     "t": 363.04
+    },
+    {
+     "w": "like",
+     "t": 363.43
+    },
+    {
+     "w": "the",
+     "t": 363.83
+    },
+    {
+     "w": "wombat",
+     "t": 364.22
+    },
+    {
+     "w": "—",
+     "t": 364.61
+    },
+    {
+     "w": "and",
+     "t": 365.01
+    },
+    {
+     "w": "never",
+     "t": 365.4
+    },
+    {
+     "w": "say",
+     "t": 365.79
+    },
+    {
+     "w": "\"I",
+     "t": 366.19
+    },
+    {
+     "w": "can't.\"",
+     "t": 366.58
+    },
+    {
+     "w": "See",
+     "t": 366.98
+    },
+    {
+     "w": "you",
+     "t": 367.37
+    },
+    {
+     "w": "tomorrow",
+     "t": 367.76
+    },
+    {
+     "w": "morning!",
+     "t": 368.16
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "down to earth",
+    "phon": "/daʊn tuː ɜːθ/",
+    "meaning": "(习语) 脚踏实地；务实、诚恳、不炫耀",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: He flies nine thousand feet up, yet he stays down to earth."
+   },
+   {
+    "word": "astonish",
+    "phon": "/əˈstɒnɪʃ/",
+    "meaning": "(v.) 使惊讶；使吃惊",
+    "tags": [],
+    "example": "Example: One hero will astonish you: he is one hundred and six, and he jumps out of planes."
+   },
+   {
+    "word": "erupt",
+    "phon": "/ɪˈrʌpt/",
+    "meaning": "(v.) 爆发；突然发生",
+    "tags": [],
+    "example": "Example: The field erupted in cheers when his parachute opened."
+   },
+   {
+    "word": "media",
+    "phon": "/ˈmiːdiə/",
+    "meaning": "(n.) 媒体（电视、报纸、网络等）",
+    "tags": [],
+    "example": "Example: The media filmed him floating down."
+   },
+   {
+    "word": "awkward",
+    "phon": "/ˈɔːkwəd/",
+    "meaning": "(adj.) 笨拙的；费劲的；尴尬的",
+    "tags": [],
+    "example": "Example: Climbing out is awkward work at any age."
+   },
+   {
+    "word": "appeal",
+    "phon": "/əˈpiːl/",
+    "meaning": "(n.) 吸引力；魅力",
+    "tags": [],
+    "example": "Example: That's the appeal: simple words for real, honest people."
+   },
+   {
+    "word": "significance",
+    "phon": "/sɪɡˈnɪfɪkəns/",
+    "meaning": "(n.) 意义；重要性",
+    "tags": [],
+    "example": "Example: The significance reached far beyond poop."
+   },
+   {
+    "word": "damage",
+    "phon": "/ˈdæmɪdʒ/",
+    "meaning": "(v.) 损害；破坏",
+    "tags": [],
+    "example": "Example: Rain cannot easily damage the message."
+   },
+   {
+    "word": "governor",
+    "phon": "/ˈɡʌvənə/",
+    "meaning": "(n.) 州长；总督",
+    "tags": [],
+    "example": "Example: The governor of Texas promised to jump beside him."
+   },
+   {
+    "word": "marsupial",
+    "phon": "/mɑːˈsuːpiəl/",
+    "meaning": "(n.) 有袋动物",
+    "tags": [],
+    "example": "Example: The wombat is a round, furry marsupial with short legs."
+   },
+   {
+    "word": "intestine",
+    "phon": "/ɪnˈtestɪn/",
+    "meaning": "(n.) 肠；肠道",
+    "tags": [],
+    "example": "Example: A wombat's intestine is about ten metres long."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "How old was Al when he won back the skydiving record?\nA. One hundred years old\nB. One hundred and three years old\nC. One hundred and six years old\nD. Ninety-six years old",
+     "Why was the big jump put off four times?\nA. Bad weather\nB. The plane was broken\nC. Al felt sick\nD. The governor forgot the day",
+     "What shapes a wombat's poop into cubes?\nA. A square bone near its tail\nB. The dry grass it eats\nC. Its strong back legs\nD. The uneven wall of its intestine",
+     "What does \"down to earth\" mean?\nA. Flying very low\nB. Digging holes in the ground\nC. Practical, honest and friendly\nD. Feeling sad and tired"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "type": "text",
+        "text": "Near the end of the tube, the wall "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "is"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " stretchy "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "in some places"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " and stiff "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "in others"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": ", "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "so"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " the dry waste "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "is"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " slowly "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "pressed"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " into flat sides and square corners."
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "Near the end of the tube"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是地点状语，先交代位置：故事发生在肠道快到末端的地方。英语长句常把“在哪里”先摆出来，再说正事。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "主干是 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "the wall is stretchy ... and stiff"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：主语 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "the wall"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（肠壁）、系动词 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "is"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "、两个表语形容词 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "stretchy"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（有弹性的）和 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "stiff"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（硬邦邦的）由 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "and"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 并列——同一面肠壁，两种相反的脾气。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "in some places"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 和 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "in others"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "对照结构"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：英语爱用 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "some ... others ..."
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 把一件事的两面摆在一起：“有些地方……，另一些地方……”。看到 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "some"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，就要准备好迎接后面的 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "others"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "so"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "结果连词"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（所以、于是）：前面是原因（肠壁软硬不均），"
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "so"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 后面是结果（便便被压成方块）。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "is slowly pressed"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "被动语态"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "be"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 动词 + 过去分词 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "pressed"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。主语 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "the dry waste"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（干燥的便便）是“被压”的一方，谁压的不用说、也不重要，所以用被动。"
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "slowly"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 插在 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "is"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 和 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "pressed"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 中间，修饰动作的方式。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句逻辑链："
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "定位（肠道末端）→ 肠壁软硬对照（some ... others）→ so 引出结果 → 便便被慢慢压出平面和方角（被动）"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。一句话把方块便便的成因讲完了。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "RECORD"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（纪录）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "INTESTINE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（肠道）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SQUEEZE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（挤压）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "GOVERNOR"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（州长）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "CUBES"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（方块）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "STRETCHY"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（有弹性的）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "MARSUPIAL"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（有袋动物）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "WOMBAT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（袋熊）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "BURROW"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（洞穴）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PARACHUTE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（降落伞）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"At one hundred and six, Al climbed into a plane... to win back the record for the oldest tandem skydiver.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "A"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"It was a close shave: bad weather cancelled the jump four times.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "D"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The wall "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"is stretchy in some places and stiff in others, so the dry waste is slowly pressed into flat sides and square corners.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says the idiom "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"describes someone practical, honest, and friendly, who never shows off.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. others  2. others"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. so  2. so"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. is shaped  2. are stacked"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "C",
+    "A",
+    "D",
+    "C"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. 对照结构 some ... others：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "Some parts of the wall are stretchy, and ____ are stiff.",
+       "options": [
+        "others",
+        "another",
+        "other"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "Some wombats live in the hills, and ____ live by the sea.",
+       "options": [
+        "another",
+        "others",
+        "the other"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. so（结果连词）：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "The wall squeezes unevenly, ____ the waste grows flat sides.",
+       "options": [
+        "because",
+        "but",
+        "so"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "The poop is dry and hard, ____ it keeps its shape on a rock.",
+       "options": [
+        "so",
+        "although",
+        "because"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. 被动语态（be + 过去分词）：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "Each cube ____ by thousands of tiny squeezes.",
+       "options": [
+        "shapes",
+        "is shaped",
+        "shaping"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "The cubes ____ on rocks near the burrow.",
+       "options": [
+        "stack",
+        "stacking",
+        "are stacked"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "Some students walk to school, and others ride a bike, so everyone arrives hungry for lunch.",
+    "The names are written on the board by the teacher, so every student can read them."
+   ]
+  },
+  "crossword": {
+   "nrows": 17,
+   "ncols": 9,
+   "words": [
+    {
+     "word": "RECORD",
+     "row": 0,
+     "col": 8,
+     "dir": "D",
+     "num": 1,
+     "cn": "纪录",
+     "clue": "The best result ever — Al won this back at one hundred and six."
+    },
+    {
+     "word": "INTESTINE",
+     "row": 1,
+     "col": 0,
+     "dir": "A",
+     "num": 2,
+     "cn": "肠道",
+     "clue": "The long tube inside the body that food travels through."
+    },
+    {
+     "word": "SQUEEZE",
+     "row": 1,
+     "col": 4,
+     "dir": "D",
+     "num": 3,
+     "cn": "挤压",
+     "clue": "To press something hard from two sides."
+    },
+    {
+     "word": "GOVERNOR",
+     "row": 4,
+     "col": 1,
+     "dir": "A",
+     "num": 4,
+     "cn": "州长",
+     "clue": "The leader of a state, like Greg Abbott of Texas."
+    },
+    {
+     "word": "CUBES",
+     "row": 7,
+     "col": 1,
+     "dir": "A",
+     "num": 5,
+     "cn": "方块",
+     "clue": "Little square blocks — a wombat makes them as poop!"
+    },
+    {
+     "word": "STRETCHY",
+     "row": 7,
+     "col": 5,
+     "dir": "D",
+     "num": 6,
+     "cn": "有弹性的",
+     "clue": "Easy to pull longer, like a rubber band; the opposite of stiff."
+    },
+    {
+     "word": "MARSUPIAL",
+     "row": 8,
+     "col": 0,
+     "dir": "D",
+     "num": 7,
+     "cn": "有袋动物",
+     "clue": "An animal that carries its babies in a pouch."
+    },
+    {
+     "word": "WOMBAT",
+     "row": 8,
+     "col": 7,
+     "dir": "D",
+     "num": 8,
+     "cn": "袋熊",
+     "clue": "A round, furry Australian animal with short legs."
+    },
+    {
+     "word": "BURROW",
+     "row": 9,
+     "col": 3,
+     "dir": "A",
+     "num": 9,
+     "cn": "洞穴",
+     "clue": "A hole in the ground where an animal lives."
+    },
+    {
+     "word": "PARACHUTE",
+     "row": 13,
+     "col": 0,
+     "dir": "A",
+     "num": 10,
+     "cn": "降落伞",
+     "clue": "It opens in the sky and helps you float down slowly and safely."
+    }
+   ]
+  }
+ }
+}

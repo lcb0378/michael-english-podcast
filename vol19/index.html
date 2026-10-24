@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.19 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol19/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol19/cover.png" controls playsinline preload="metadata"></video>
+<h1>🪂 Vol.19 · 百岁跳伞与袋熊的方块便便</h1>
+<div class="meta">英文 598 词 ｜ 音频 6分17秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol19/story-skydive.png" alt="百岁跳伞">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol19/story-wombat.png" alt="袋熊的方块便便">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">down to earth</span> <span class="phon">/daʊn tuː ɜːθ/</span> (习语) 脚踏实地；务实、诚恳、不炫耀<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: He flies nine thousand feet up, yet he stays <b>down to earth</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">astonish</span> <span class="phon">/əˈstɒnɪʃ/</span> (v.) 使惊讶；使吃惊<br>
+  
+  <div class="example">Example: One hero will <b>astonish</b> you: he is one hundred and six, and he jumps out of planes.</div>
+</div>
+<div class="vocab">
+  <span class="word">erupt</span> <span class="phon">/ɪˈrʌpt/</span> (v.) 爆发；突然发生<br>
+  
+  <div class="example">Example: The field <b>erupted</b> in cheers when his parachute opened.</div>
+</div>
+<div class="vocab">
+  <span class="word">media</span> <span class="phon">/ˈmiːdiə/</span> (n.) 媒体（电视、报纸、网络等）<br>
+  
+  <div class="example">Example: The <b>media</b> filmed him floating down.</div>
+</div>
+<div class="vocab">
+  <span class="word">awkward</span> <span class="phon">/ˈɔːkwəd/</span> (adj.) 笨拙的；费劲的；尴尬的<br>
+  
+  <div class="example">Example: Climbing out is <b>awkward</b> work at any age.</div>
+</div>
+<div class="vocab">
+  <span class="word">appeal</span> <span class="phon">/əˈpiːl/</span> (n.) 吸引力；魅力<br>
+  
+  <div class="example">Example: That's the <b>appeal</b>: simple words for real, honest people.</div>
+</div>
+<div class="vocab">
+  <span class="word">significance</span> <span class="phon">/sɪɡˈnɪfɪkəns/</span> (n.) 意义；重要性<br>
+  
+  <div class="example">Example: The <b>significance</b> reached far beyond poop.</div>
+</div>
+<div class="vocab">
+  <span class="word">damage</span> <span class="phon">/ˈdæmɪdʒ/</span> (v.) 损害；破坏<br>
+  
+  <div class="example">Example: Rain cannot easily <b>damage</b> the message.</div>
+</div>
+<div class="vocab">
+  <span class="word">governor</span> <span class="phon">/ˈɡʌvənə/</span> (n.) 州长；总督<br>
+  
+  <div class="example">Example: The <b>governor</b> of Texas promised to jump beside him.</div>
+</div>
+<div class="vocab">
+  <span class="word">marsupial</span> <span class="phon">/mɑːˈsuːpiəl/</span> (n.) 有袋动物<br>
+  
+  <div class="example">Example: The wombat is a round, furry <b>marsupial</b> with short legs.</div>
+</div>
+<div class="vocab">
+  <span class="word">intestine</span> <span class="phon">/ɪnˈtestɪn/</span> (n.) 肠；肠道<br>
+  
+  <div class="example">Example: A wombat's <b>intestine</b> is about ten metres long.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 17, "ncols": 9, "words": [{"word": "RECORD", "row": 0, "col": 8, "dir": "D", "num": 1, "cn": "纪录", "clue": "The best result ever — Al won this back at one hundred and six."}, {"word": "INTESTINE", "row": 1, "col": 0, "dir": "A", "num": 2, "cn": "肠道", "clue": "The long tube inside the body that food travels through."}, {"word": "SQUEEZE", "row": 1, "col": 4, "dir": "D", "num": 3, "cn": "挤压", "clue": "To press something hard from two sides."}, {"word": "GOVERNOR", "row": 4, "col": 1, "dir": "A", "num": 4, "cn": "州长", "clue": "The leader of a state, like Greg Abbott of Texas."}, {"word": "CUBES", "row": 7, "col": 1, "dir": "A", "num": 5, "cn": "方块", "clue": "Little square blocks — a wombat makes them as poop!"}, {"word": "STRETCHY", "row": 7, "col": 5, "dir": "D", "num": 6, "cn": "有弹性的", "clue": "Easy to pull longer, like a rubber band; the opposite of stiff."}, {"word": "MARSUPIAL", "row": 8, "col": 0, "dir": "D", "num": 7, "cn": "有袋动物", "clue": "An animal that carries its babies in a pouch."}, {"word": "WOMBAT", "row": 8, "col": 7, "dir": "D", "num": 8, "cn": "袋熊", "clue": "A round, furry Australian animal with short legs."}, {"word": "BURROW", "row": 9, "col": 3, "dir": "A", "num": 9, "cn": "洞穴", "clue": "A hole in the ground where an animal lives."}, {"word": "PARACHUTE", "row": 13, "col": 0, "dir": "A", "num": 10, "cn": "降落伞", "clue": "It opens in the sky and helps you float down slowly and safely."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. How old was Al when he won back the skydiving record?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. One hundred years old</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. One hundred and three years old</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. One hundred and six years old</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. Ninety-six years old</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. Why was the big jump put off four times?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. Bad weather</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. The plane was broken</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. Al felt sick</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. The governor forgot the day</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：A</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. What shapes a wombat&#x27;s poop into cubes?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. A square bone near its tail</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. The dry grass it eats</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. Its strong back legs</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. The uneven wall of its intestine</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：D</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does &quot;down to earth&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. Flying very low</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. Digging holes in the ground</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. Practical, honest and friendly</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. Feeling sad and tired</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：C</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [2, 0, 3, 2];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">Near the end of the tube, the wall <b class="kw">is</b> stretchy <b class="kw">in some places</b> and stiff <b class="kw">in others</b>, <b class="kw">so</b> the dry waste <b class="kw">is</b> slowly <b class="kw">pressed</b> into flat sides and square corners.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li><i>Near the end of the tube</i> 是地点状语，先交代位置：故事发生在肠道快到末端的地方。英语长句常把“在哪里”先摆出来，再说正事。</li>
+  <li>主干是 <i>the wall is stretchy ... and stiff</i>：主语 <i>the wall</i>（肠壁）、系动词 <i>is</i>、两个表语形容词 <i>stretchy</i>（有弹性的）和 <i>stiff</i>（硬邦邦的）由 <i>and</i> 并列——同一面肠壁，两种相反的脾气。</li>
+  <li><i>in some places</i> 和 <i>in others</i> 是<b>对照结构</b>：英语爱用 <i>some ... others ...</i> 把一件事的两面摆在一起：“有些地方……，另一些地方……”。看到 <i>some</i>，就要准备好迎接后面的 <i>others</i>。</li>
+  <li><i>so</i> 是<b>结果连词</b>（所以、于是）：前面是原因（肠壁软硬不均），<i>so</i> 后面是结果（便便被压成方块）。</li>
+  <li><i>is slowly pressed</i> 是<b>被动语态</b>：<i>be</i> 动词 + 过去分词 <i>pressed</i>。主语 <i>the dry waste</i>（干燥的便便）是“被压”的一方，谁压的不用说、也不重要，所以用被动。<i>slowly</i> 插在 <i>is</i> 和 <i>pressed</i> 中间，修饰动作的方式。</li>
+  <li>整句逻辑链：<b>定位（肠道末端）→ 肠壁软硬对照（some ... others）→ so 引出结果 → 便便被慢慢压出平面和方角（被动）</b>。一句话把方块便便的成因讲完了。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. 对照结构 some ... others：用括号里的词补全</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">Some parts of the wall are stretchy, and ____ are stiff.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">others</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">another</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">other</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：others</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">Some wombats live in the hills, and ____ live by the sea.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">another</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">others</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">the other</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：others</p>
+</div>
+<p class="p4-gname">B. so（结果连词）：用括号里的词补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">The wall squeezes unevenly, ____ the waste grows flat sides.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">because</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">but</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">so</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：so</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">The poop is dry and hard, ____ it keeps its shape on a rock.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">so</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">although</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">because</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：so</p>
+</div>
+<p class="p4-gname">C. 被动语态（be + 过去分词）：用括号里的词补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">Each cube ____ by thousands of tiny squeezes.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">shapes</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">is shaped</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">shaping</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：is shaped</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">The cubes ____ on rocks near the burrow.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">stack</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">stacking</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">are stacked</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：are stacked</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>Some students walk to school, and others ride a bike, so everyone arrives hungry for lunch.</li>
+<li>The names are written on the board by the teacher, so every student can read them.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">1</span><span class="cwl">R</span></td></tr><tr><td class="cwc"><span class="cwn">2</span><span class="cwl">I</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwn">3</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">E</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">Q</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">G</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">V</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">R</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">D</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">Z</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">5</span><span class="cwl">C</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">B</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwn">6</span><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">7</span><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">8</span><span class="cwl">W</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">9</span><span class="cwl">B</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">W</span></td></tr><tr><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">M</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">B</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">10</span><span class="cwl">P</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">H</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">E</span></td></tr><tr><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">Y</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr></table></div>1 竖 → <b>RECORD</b>（纪录）<br>2 横 → <b>INTESTINE</b>（肠道）<br>3 竖 → <b>SQUEEZE</b>（挤压）<br>4 横 → <b>GOVERNOR</b>（州长）<br>5 横 → <b>CUBES</b>（方块）<br>6 竖 → <b>STRETCHY</b>（有弹性的）<br>7 竖 → <b>MARSUPIAL</b>（有袋动物）<br>8 竖 → <b>WOMBAT</b>（袋熊）<br>9 横 → <b>BURROW</b>（洞穴）<br>10 横 → <b>PARACHUTE</b>（降落伞）<br><br><b>B. Single Choice:</b><br>
+1 → <b>C</b>. The text says: <i>"At one hundred and six, Al climbed into a plane... to win back the record for the oldest tandem skydiver."</i><br>
+2 → <b>A</b>. The text says: <i>"It was a close shave: bad weather cancelled the jump four times."</i><br>
+3 → <b>D</b>. The wall <i>"is stretchy in some places and stiff in others, so the dry waste is slowly pressed into flat sides and square corners."</i><br>
+4 → <b>C</b>. The text says the idiom <i>"describes someone practical, honest, and friendly, who never shows off."</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. others&nbsp;&nbsp;2. others<br>
+B. 1. so&nbsp;&nbsp;2. so<br>
+C. 1. is shaped&nbsp;&nbsp;2. are stacked<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol19/Vol19_晚读讲义_百岁跳伞与袋熊的方块便便_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 29.15, "end": 54.06, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! This is our nineteenth show together! Today we meet two record-breakers. One will astonish you: he is one hundred and six years old, and he jumps out of planes. The other is small, round, and furry — and it makes the world's strangest poop. Ready? Let's go!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！这是我们在一起的第十九期节目啦！今天我们要认识两位纪录创造者。一位会让你大吃一惊：他已经一百零六岁了，还在从飞机上往下跳。另一位个头小小的、圆滚滚、毛茸茸——它拉的便便是全世界最奇怪的。准备好了吗？出发吧！", "words": [{"w": "Hello,", "t": 29.15}, {"w": "young", "t": 29.59}, {"w": "explorers,", "t": 30.02}, {"w": "and", "t": 30.46}, {"w": "welcome", "t": 30.9}, {"w": "back", "t": 31.34}, {"w": "to", "t": 31.77}, {"w": "Michael's", "t": 32.21}, {"w": "Morning", "t": 32.65}, {"w": "Listening!", "t": 33.08}, {"w": "This", "t": 33.52}, {"w": "is", "t": 33.96}, {"w": "our", "t": 34.39}, {"w": "nineteenth", "t": 34.83}, {"w": "show", "t": 35.27}, {"w": "together!", "t": 35.71}, {"w": "Today", "t": 36.14}, {"w": "we", "t": 36.58}, {"w": "meet", "t": 37.02}, {"w": "two", "t": 37.45}, {"w": "record-breakers.", "t": 37.89}, {"w": "One", "t": 38.33}, {"w": "will", "t": 38.76}, {"w": "astonish", "t": 39.2}, {"w": "you:", "t": 39.64}, {"w": "he", "t": 40.08}, {"w": "is", "t": 40.51}, {"w": "one", "t": 40.95}, {"w": "hundred", "t": 41.39}, {"w": "and", "t": 41.82}, {"w": "six", "t": 42.26}, {"w": "years", "t": 42.7}, {"w": "old,", "t": 43.13}, {"w": "and", "t": 43.57}, {"w": "he", "t": 44.01}, {"w": "jumps", "t": 44.45}, {"w": "out", "t": 44.88}, {"w": "of", "t": 45.32}, {"w": "planes.", "t": 45.76}, {"w": "The", "t": 46.19}, {"w": "other", "t": 46.63}, {"w": "is", "t": 47.07}, {"w": "small,", "t": 47.5}, {"w": "round,", "t": 47.94}, {"w": "and", "t": 48.38}, {"w": "furry", "t": 48.82}, {"w": "—", "t": 49.25}, {"w": "and", "t": 49.69}, {"w": "it", "t": 50.13}, {"w": "makes", "t": 50.56}, {"w": "the", "t": 51.0}, {"w": "world's", "t": 51.44}, {"w": "strangest", "t": 51.87}, {"w": "poop.", "t": 52.31}, {"w": "Ready?", "t": 52.75}, {"w": "Let's", "t": 53.19}, {"w": "go!", "t": 53.62}]}, {"start": 75.32, "end": 94.54, "en": "Meet Al Blaschke from Texas — the world's bravest great-grandpa. At one hundred and six, Al climbed into a plane, rose nine thousand feet, and jumped out, strapped to an instructor, to win back the record for the oldest tandem skydiver. Below, his family held their breath.", "title": "一百零六岁的跳伞爷爷", "cn": "来认识一下来自得克萨斯州的阿尔·布拉什克——全世界最勇敢的老爷爷。一百零六岁的他爬进一架飞机，升到九千英尺高空，然后绑在教练身上跳了出去，要赢回“最年长双人跳伞者”的世界纪录。地面上，他的家人屏住了呼吸。", "words": [{"w": "Meet", "t": 75.32}, {"w": "Al", "t": 75.73}, {"w": "Blaschke", "t": 76.14}, {"w": "from", "t": 76.55}, {"w": "Texas", "t": 76.96}, {"w": "—", "t": 77.36}, {"w": "the", "t": 77.77}, {"w": "world's", "t": 78.18}, {"w": "bravest", "t": 78.59}, {"w": "great-grandpa.", "t": 79.0}, {"w": "At", "t": 79.41}, {"w": "one", "t": 79.82}, {"w": "hundred", "t": 80.23}, {"w": "and", "t": 80.64}, {"w": "six,", "t": 81.05}, {"w": "Al", "t": 81.45}, {"w": "climbed", "t": 81.86}, {"w": "into", "t": 82.27}, {"w": "a", "t": 82.68}, {"w": "plane,", "t": 83.09}, {"w": "rose", "t": 83.5}, {"w": "nine", "t": 83.91}, {"w": "thousand", "t": 84.32}, {"w": "feet,", "t": 84.73}, {"w": "and", "t": 85.13}, {"w": "jumped", "t": 85.54}, {"w": "out,", "t": 85.95}, {"w": "strapped", "t": 86.36}, {"w": "to", "t": 86.77}, {"w": "an", "t": 87.18}, {"w": "instructor,", "t": 87.59}, {"w": "to", "t": 88.0}, {"w": "win", "t": 88.41}, {"w": "back", "t": 88.81}, {"w": "the", "t": 89.22}, {"w": "record", "t": 89.63}, {"w": "for", "t": 90.04}, {"w": "the", "t": 90.45}, {"w": "oldest", "t": 90.86}, {"w": "tandem", "t": 91.27}, {"w": "skydiver.", "t": 91.68}, {"w": "Below,", "t": 92.09}, {"w": "his", "t": 92.5}, {"w": "family", "t": 92.9}, {"w": "held", "t": 93.31}, {"w": "their", "t": 93.72}, {"w": "breath.", "t": 94.13}]}, {"start": 94.54, "end": 112.52, "en": "Then his parachute opened, and the field erupted in cheers. The media filmed him floating down. At one hundred and three, he had jumped from fourteen thousand feet for his twin grandsons' graduation — and set the record. \"That was my dream,\" he said.", "title": "一百零六岁的跳伞爷爷", "cn": "随后，他的降落伞打开了，整个场地爆发出欢呼声。媒体拍下了他缓缓飘落的画面。一百零三岁时，他曾从一万四千英尺高空跳下，庆祝他的双胞胎孙子大学毕业——并创下了世界纪录。他说：“那是我的梦想。”", "words": [{"w": "Then", "t": 94.54}, {"w": "his", "t": 94.95}, {"w": "parachute", "t": 95.36}, {"w": "opened,", "t": 95.77}, {"w": "and", "t": 96.17}, {"w": "the", "t": 96.58}, {"w": "field", "t": 96.99}, {"w": "erupted", "t": 97.4}, {"w": "in", "t": 97.81}, {"w": "cheers.", "t": 98.22}, {"w": "The", "t": 98.63}, {"w": "media", "t": 99.03}, {"w": "filmed", "t": 99.44}, {"w": "him", "t": 99.85}, {"w": "floating", "t": 100.26}, {"w": "down.", "t": 100.67}, {"w": "At", "t": 101.08}, {"w": "one", "t": 101.49}, {"w": "hundred", "t": 101.9}, {"w": "and", "t": 102.3}, {"w": "three,", "t": 102.71}, {"w": "he", "t": 103.12}, {"w": "had", "t": 103.53}, {"w": "jumped", "t": 103.94}, {"w": "from", "t": 104.35}, {"w": "fourteen", "t": 104.76}, {"w": "thousand", "t": 105.16}, {"w": "feet", "t": 105.57}, {"w": "for", "t": 105.98}, {"w": "his", "t": 106.39}, {"w": "twin", "t": 106.8}, {"w": "grandsons'", "t": 107.21}, {"w": "graduation", "t": 107.62}, {"w": "—", "t": 108.03}, {"w": "and", "t": 108.43}, {"w": "set", "t": 108.84}, {"w": "the", "t": 109.25}, {"w": "record.", "t": 109.66}, {"w": "\"That", "t": 110.07}, {"w": "was", "t": 110.48}, {"w": "my", "t": 110.89}, {"w": "dream,\"", "t": 111.29}, {"w": "he", "t": 111.7}, {"w": "said.", "t": 112.11}]}, {"start": 112.52, "end": 136.65, "en": "But a Swedish grandmother named Rut took the record away. Al smiled and promised to win it back; the governor of Texas, Greg Abbott, promised to jump beside him. It was a close shave: bad weather cancelled the jump four times. Climbing out is awkward work at any age — the service crew checked his straps a dozen times!", "title": "一百零六岁的跳伞爷爷", "cn": "但是一位名叫鲁特的瑞典奶奶把纪录抢走了。阿尔微微一笑，许诺要把它赢回来；得克萨斯州州长格雷格·阿博特也许诺要陪他一起跳。这真是有惊无险：坏天气让跳伞取消了四次。爬出机舱在任何年纪都是件笨拙费劲的活儿——服务团队把他的绑带检查了一遍又一遍！", "words": [{"w": "But", "t": 112.52}, {"w": "a", "t": 112.93}, {"w": "Swedish", "t": 113.34}, {"w": "grandmother", "t": 113.75}, {"w": "named", "t": 114.16}, {"w": "Rut", "t": 114.56}, {"w": "took", "t": 114.97}, {"w": "the", "t": 115.38}, {"w": "record", "t": 115.79}, {"w": "away.", "t": 116.2}, {"w": "Al", "t": 116.61}, {"w": "smiled", "t": 117.02}, {"w": "and", "t": 117.43}, {"w": "promised", "t": 117.84}, {"w": "to", "t": 118.25}, {"w": "win", "t": 118.65}, {"w": "it", "t": 119.06}, {"w": "back;", "t": 119.47}, {"w": "the", "t": 119.88}, {"w": "governor", "t": 120.29}, {"w": "of", "t": 120.7}, {"w": "Texas,", "t": 121.11}, {"w": "Greg", "t": 121.52}, {"w": "Abbott,", "t": 121.93}, {"w": "promised", "t": 122.34}, {"w": "to", "t": 122.74}, {"w": "jump", "t": 123.15}, {"w": "beside", "t": 123.56}, {"w": "him.", "t": 123.97}, {"w": "It", "t": 124.38}, {"w": "was", "t": 124.79}, {"w": "a", "t": 125.2}, {"w": "close", "t": 125.61}, {"w": "shave:", "t": 126.02}, {"w": "bad", "t": 126.43}, {"w": "weather", "t": 126.83}, {"w": "cancelled", "t": 127.24}, {"w": "the", "t": 127.65}, {"w": "jump", "t": 128.06}, {"w": "four", "t": 128.47}, {"w": "times.", "t": 128.88}, {"w": "Climbing", "t": 129.29}, {"w": "out", "t": 129.7}, {"w": "is", "t": 130.11}, {"w": "awkward", "t": 130.52}, {"w": "work", "t": 130.92}, {"w": "at", "t": 131.33}, {"w": "any", "t": 131.74}, {"w": "age", "t": 132.15}, {"w": "—", "t": 132.56}, {"w": "the", "t": 132.97}, {"w": "service", "t": 133.38}, {"w": "crew", "t": 133.79}, {"w": "checked", "t": 134.2}, {"w": "his", "t": 134.61}, {"w": "straps", "t": 135.01}, {"w": "a", "t": 135.42}, {"w": "dozen", "t": 135.83}, {"w": "times!", "t": 136.24}]}, {"start": 136.65, "end": 156.27, "en": "At last, a clear morning came. Al and the governor jumped together, and the record belonged to Al again. Reporters asked his secret. \"If you think you can't, you are underestimating yourself,\" he said. \"Everyone is more capable than they think. They just need to decide to try.\"", "title": "一百零六岁的跳伞爷爷", "cn": "终于，一个晴朗的早晨来了。阿尔和州长一起跳下，纪录再次属于阿尔。记者们问他秘诀是什么。他说：“如果你觉得自己不行，那是低估了自己。每个人都比自己以为的更有能力，只需要下定决心去试一试。”", "words": [{"w": "At", "t": 136.65}, {"w": "last,", "t": 137.06}, {"w": "a", "t": 137.47}, {"w": "clear", "t": 137.88}, {"w": "morning", "t": 138.28}, {"w": "came.", "t": 138.69}, {"w": "Al", "t": 139.1}, {"w": "and", "t": 139.51}, {"w": "the", "t": 139.92}, {"w": "governor", "t": 140.33}, {"w": "jumped", "t": 140.74}, {"w": "together,", "t": 141.15}, {"w": "and", "t": 141.56}, {"w": "the", "t": 141.96}, {"w": "record", "t": 142.37}, {"w": "belonged", "t": 142.78}, {"w": "to", "t": 143.19}, {"w": "Al", "t": 143.6}, {"w": "again.", "t": 144.01}, {"w": "Reporters", "t": 144.42}, {"w": "asked", "t": 144.83}, {"w": "his", "t": 145.23}, {"w": "secret.", "t": 145.64}, {"w": "\"If", "t": 146.05}, {"w": "you", "t": 146.46}, {"w": "think", "t": 146.87}, {"w": "you", "t": 147.28}, {"w": "can't,", "t": 147.69}, {"w": "you", "t": 148.09}, {"w": "are", "t": 148.5}, {"w": "underestimating", "t": 148.91}, {"w": "yourself,\"", "t": 149.32}, {"w": "he", "t": 149.73}, {"w": "said.", "t": 150.14}, {"w": "\"Everyone", "t": 150.55}, {"w": "is", "t": 150.96}, {"w": "more", "t": 151.37}, {"w": "capable", "t": 151.77}, {"w": "than", "t": 152.18}, {"w": "they", "t": 152.59}, {"w": "think.", "t": 153.0}, {"w": "They", "t": 153.41}, {"w": "just", "t": 153.82}, {"w": "need", "t": 154.23}, {"w": "to", "t": 154.64}, {"w": "decide", "t": 155.04}, {"w": "to", "t": 155.45}, {"w": "try.\"", "t": 155.86}]}, {"start": 176.65, "end": 197.83, "en": "Now shrink down to Australia, to meet the wombat: a round, furry marsupial with short legs. The wombat's dynasty is ancient — its cousins once included giants as big as a rhinoceros. Today's wombats are smaller, but they hold a record no other animal can claim: they make cube-shaped poop.", "title": "袋熊的方块便便", "cn": "现在我们缩小身体，来到澳大利亚，认识一下袋熊：一种圆滚滚、毛茸茸、腿短短的有袋动物。袋熊的家族非常古老——它的远房亲戚里，曾经有像犀牛那么大的巨兽。今天的袋熊个头小多了，但它们有一项其他任何动物都没有的纪录：它们会拉方块形的便便。", "words": [{"w": "Now", "t": 176.65}, {"w": "shrink", "t": 177.07}, {"w": "down", "t": 177.5}, {"w": "to", "t": 177.92}, {"w": "Australia,", "t": 178.34}, {"w": "to", "t": 178.77}, {"w": "meet", "t": 179.19}, {"w": "the", "t": 179.62}, {"w": "wombat:", "t": 180.04}, {"w": "a", "t": 180.46}, {"w": "round,", "t": 180.89}, {"w": "furry", "t": 181.31}, {"w": "marsupial", "t": 181.73}, {"w": "with", "t": 182.16}, {"w": "short", "t": 182.58}, {"w": "legs.", "t": 183.0}, {"w": "The", "t": 183.43}, {"w": "wombat's", "t": 183.85}, {"w": "dynasty", "t": 184.27}, {"w": "is", "t": 184.7}, {"w": "ancient", "t": 185.12}, {"w": "—", "t": 185.55}, {"w": "its", "t": 185.97}, {"w": "cousins", "t": 186.39}, {"w": "once", "t": 186.82}, {"w": "included", "t": 187.24}, {"w": "giants", "t": 187.66}, {"w": "as", "t": 188.09}, {"w": "big", "t": 188.51}, {"w": "as", "t": 188.93}, {"w": "a", "t": 189.36}, {"w": "rhinoceros.", "t": 189.78}, {"w": "Today's", "t": 190.21}, {"w": "wombats", "t": 190.63}, {"w": "are", "t": 191.05}, {"w": "smaller,", "t": 191.48}, {"w": "but", "t": 191.9}, {"w": "they", "t": 192.32}, {"w": "hold", "t": 192.75}, {"w": "a", "t": 193.17}, {"w": "record", "t": 193.59}, {"w": "no", "t": 194.02}, {"w": "other", "t": 194.44}, {"w": "animal", "t": 194.86}, {"w": "can", "t": 195.29}, {"w": "claim:", "t": 195.71}, {"w": "they", "t": 196.14}, {"w": "make", "t": 196.56}, {"w": "cube-shaped", "t": 196.98}, {"w": "poop.", "t": 197.41}]}, {"start": 197.83, "end": 219.87, "en": "A wombat's intestine is about ten metres long, and a meal may take fourteen days to cross it, growing drier and drier. Near the end of the tube, the wall is stretchy in some places and stiff in others, so the dry waste is slowly pressed into flat sides and square corners.", "title": "袋熊的方块便便", "cn": "袋熊的肠道大约有十米长，一顿饭可能要花十四天才能走完这条路，越走越干。快到肠道末端时，肠壁有些地方有弹性、有些地方却硬邦邦的，于是干燥的便便被慢慢压出平整的面和方正的棱角。", "words": [{"w": "A", "t": 197.83}, {"w": "wombat's", "t": 198.25}, {"w": "intestine", "t": 198.68}, {"w": "is", "t": 199.1}, {"w": "about", "t": 199.53}, {"w": "ten", "t": 199.95}, {"w": "metres", "t": 200.37}, {"w": "long,", "t": 200.8}, {"w": "and", "t": 201.22}, {"w": "a", "t": 201.64}, {"w": "meal", "t": 202.07}, {"w": "may", "t": 202.49}, {"w": "take", "t": 202.92}, {"w": "fourteen", "t": 203.34}, {"w": "days", "t": 203.76}, {"w": "to", "t": 204.19}, {"w": "cross", "t": 204.61}, {"w": "it,", "t": 205.04}, {"w": "growing", "t": 205.46}, {"w": "drier", "t": 205.88}, {"w": "and", "t": 206.31}, {"w": "drier.", "t": 206.73}, {"w": "Near", "t": 207.15}, {"w": "the", "t": 207.58}, {"w": "end", "t": 208.0}, {"w": "of", "t": 208.43}, {"w": "the", "t": 208.85}, {"w": "tube,", "t": 209.27}, {"w": "the", "t": 209.7}, {"w": "wall", "t": 210.12}, {"w": "is", "t": 210.55}, {"w": "stretchy", "t": 210.97}, {"w": "in", "t": 211.39}, {"w": "some", "t": 211.82}, {"w": "places", "t": 212.24}, {"w": "and", "t": 212.66}, {"w": "stiff", "t": 213.09}, {"w": "in", "t": 213.51}, {"w": "others,", "t": 213.94}, {"w": "so", "t": 214.36}, {"w": "the", "t": 214.78}, {"w": "dry", "t": 215.21}, {"w": "waste", "t": 215.63}, {"w": "is", "t": 216.06}, {"w": "slowly", "t": 216.48}, {"w": "pressed", "t": 216.9}, {"w": "into", "t": 217.33}, {"w": "flat", "t": 217.75}, {"w": "sides", "t": 218.17}, {"w": "and", "t": 218.6}, {"w": "square", "t": 219.02}, {"w": "corners.", "t": 219.45}]}, {"start": 219.87, "end": 239.36, "en": "Scientists Patricia Yang and David Hu solved the mystery: nobody cuts or moulds the cubes — the intestine squeezes them into shape with tens of thousands of tiny squeezes. The significance reached far beyond poop: the discovery won a funny science prize, the Ig Nobel Prize.", "title": "袋熊的方块便便", "cn": "科学家帕特里夏·杨和戴维·胡解开了这个谜：没有人切割或用模具做这些方块——是肠道用成千上万次小小的挤压，把它们捏成了形。这个发现的意义远远超出了便便本身：它赢得了一个有趣的科学奖——搞笑诺贝尔奖。", "words": [{"w": "Scientists", "t": 219.87}, {"w": "Patricia", "t": 220.29}, {"w": "Yang", "t": 220.72}, {"w": "and", "t": 221.14}, {"w": "David", "t": 221.56}, {"w": "Hu", "t": 221.99}, {"w": "solved", "t": 222.41}, {"w": "the", "t": 222.84}, {"w": "mystery:", "t": 223.26}, {"w": "nobody", "t": 223.68}, {"w": "cuts", "t": 224.11}, {"w": "or", "t": 224.53}, {"w": "moulds", "t": 224.95}, {"w": "the", "t": 225.38}, {"w": "cubes", "t": 225.8}, {"w": "—", "t": 226.23}, {"w": "the", "t": 226.65}, {"w": "intestine", "t": 227.07}, {"w": "squeezes", "t": 227.5}, {"w": "them", "t": 227.92}, {"w": "into", "t": 228.34}, {"w": "shape", "t": 228.77}, {"w": "with", "t": 229.19}, {"w": "tens", "t": 229.62}, {"w": "of", "t": 230.04}, {"w": "thousands", "t": 230.46}, {"w": "of", "t": 230.89}, {"w": "tiny", "t": 231.31}, {"w": "squeezes.", "t": 231.73}, {"w": "The", "t": 232.16}, {"w": "significance", "t": 232.58}, {"w": "reached", "t": 233.0}, {"w": "far", "t": 233.43}, {"w": "beyond", "t": 233.85}, {"w": "poop:", "t": 234.28}, {"w": "the", "t": 234.7}, {"w": "discovery", "t": 235.12}, {"w": "won", "t": 235.55}, {"w": "a", "t": 235.97}, {"w": "funny", "t": 236.39}, {"w": "science", "t": 236.82}, {"w": "prize,", "t": 237.24}, {"w": "the", "t": 237.67}, {"w": "Ig", "t": 238.09}, {"w": "Nobel", "t": 238.51}, {"w": "Prize.", "t": 238.94}]}, {"start": 239.36, "end": 254.61, "en": "Why cubes? Wombats talk by smell. They stack the cubes on rocks and logs by their burrows, like little flags: \"This home is taken!\" A cube cannot roll away, and rain cannot easily damage the message.", "title": "袋熊的方块便便", "cn": "为什么要是方块呢？袋熊用气味交流。它们把方块摞在洞口附近的石头和木头上，像一面面小旗子：“这个家已经有人住啦！”方块不会滚走，雨水也不容易把这条信息冲坏。", "words": [{"w": "Why", "t": 239.36}, {"w": "cubes?", "t": 239.78}, {"w": "Wombats", "t": 240.21}, {"w": "talk", "t": 240.63}, {"w": "by", "t": 241.05}, {"w": "smell.", "t": 241.48}, {"w": "They", "t": 241.9}, {"w": "stack", "t": 242.33}, {"w": "the", "t": 242.75}, {"w": "cubes", "t": 243.17}, {"w": "on", "t": 243.6}, {"w": "rocks", "t": 244.02}, {"w": "and", "t": 244.44}, {"w": "logs", "t": 244.87}, {"w": "by", "t": 245.29}, {"w": "their", "t": 245.71}, {"w": "burrows,", "t": 246.14}, {"w": "like", "t": 246.56}, {"w": "little", "t": 246.99}, {"w": "flags:", "t": 247.41}, {"w": "\"This", "t": 247.83}, {"w": "home", "t": 248.26}, {"w": "is", "t": 248.68}, {"w": "taken!\"", "t": 249.1}, {"w": "A", "t": 249.53}, {"w": "cube", "t": 249.95}, {"w": "cannot", "t": 250.37}, {"w": "roll", "t": 250.8}, {"w": "away,", "t": 251.22}, {"w": "and", "t": 251.64}, {"w": "rain", "t": 252.07}, {"w": "cannot", "t": 252.49}, {"w": "easily", "t": 252.92}, {"w": "damage", "t": 253.34}, {"w": "the", "t": 253.76}, {"w": "message.", "t": 254.19}]}, {"start": 276.67, "end": 306.28, "en": "Here's today's idiom: \"down to earth.\" It describes someone practical, honest, and friendly, who never shows off. Think of Al: he flies nine thousand feet up, yet stays down to earth, telling everyone, \"You can do it too.\" Here's an example: \"Our teacher is really down to earth — she jokes with us and never acts like a star.\" That's the appeal: simple words for real, honest people.", "title": "今日俚语", "cn": "今天的俚语是“down to earth”（脚踏实地）：它形容一个人务实、诚恳、友善，从不炫耀。想想阿尔：他飞到九千英尺的高空，却依然脚踏实地，告诉每个人：“你也可以做到。”举个例子：“我们的老师特别平易近人——她和我们开玩笑，从不摆明星架子。”这就是它的魅力：简单的话，形容真实、诚恳的人。", "words": [{"w": "Here's", "t": 276.67}, {"w": "today's", "t": 277.11}, {"w": "idiom:", "t": 277.54}, {"w": "\"down", "t": 277.98}, {"w": "to", "t": 278.41}, {"w": "earth.\"", "t": 278.85}, {"w": "It", "t": 279.28}, {"w": "describes", "t": 279.72}, {"w": "someone", "t": 280.15}, {"w": "practical,", "t": 280.59}, {"w": "honest,", "t": 281.02}, {"w": "and", "t": 281.46}, {"w": "friendly,", "t": 281.9}, {"w": "who", "t": 282.33}, {"w": "never", "t": 282.77}, {"w": "shows", "t": 283.2}, {"w": "off.", "t": 283.64}, {"w": "Think", "t": 284.07}, {"w": "of", "t": 284.51}, {"w": "Al:", "t": 284.94}, {"w": "he", "t": 285.38}, {"w": "flies", "t": 285.81}, {"w": "nine", "t": 286.25}, {"w": "thousand", "t": 286.69}, {"w": "feet", "t": 287.12}, {"w": "up,", "t": 287.56}, {"w": "yet", "t": 287.99}, {"w": "stays", "t": 288.43}, {"w": "down", "t": 288.86}, {"w": "to", "t": 289.3}, {"w": "earth,", "t": 289.73}, {"w": "telling", "t": 290.17}, {"w": "everyone,", "t": 290.6}, {"w": "\"You", "t": 291.04}, {"w": "can", "t": 291.48}, {"w": "do", "t": 291.91}, {"w": "it", "t": 292.35}, {"w": "too.\"", "t": 292.78}, {"w": "Here's", "t": 293.22}, {"w": "an", "t": 293.65}, {"w": "example:", "t": 294.09}, {"w": "\"Our", "t": 294.52}, {"w": "teacher", "t": 294.96}, {"w": "is", "t": 295.39}, {"w": "really", "t": 295.83}, {"w": "down", "t": 296.26}, {"w": "to", "t": 296.7}, {"w": "earth", "t": 297.14}, {"w": "—", "t": 297.57}, {"w": "she", "t": 298.01}, {"w": "jokes", "t": 298.44}, {"w": "with", "t": 298.88}, {"w": "us", "t": 299.31}, {"w": "and", "t": 299.75}, {"w": "never", "t": 300.18}, {"w": "acts", "t": 300.62}, {"w": "like", "t": 301.05}, {"w": "a", "t": 301.49}, {"w": "star.\"", "t": 301.93}, {"w": "That's", "t": 302.36}, {"w": "the", "t": 302.8}, {"w": "appeal:", "t": 303.23}, {"w": "simple", "t": 303.67}, {"w": "words", "t": 304.1}, {"w": "for", "t": 304.54}, {"w": "real,", "t": 304.97}, {"w": "honest", "t": 305.41}, {"w": "people.", "t": 305.84}]}, {"start": 322.74, "end": 347.22, "en": "Let's think about our stories. A great-grandpa of one hundred and six jumped out of a plane, and a wombat makes perfect cubes. Now, two questions for you. First: what brave thing would you like to try when you are very, very old? Second: if you could leave one special mark on the world, what would it be? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事。一位一百零六岁的老爷爷从飞机上跳了下来，一只袋熊会拉完美的方块便便。现在，轮到回答两个问题。第一：等你很老很老的时候，你想勇敢地尝试什么事？第二：如果你能在这个世界上留下一个特别的印记，你希望它是什么？和家人聊聊吧！", "words": [{"w": "Let's", "t": 322.74}, {"w": "think", "t": 323.12}, {"w": "about", "t": 323.5}, {"w": "our", "t": 323.89}, {"w": "stories.", "t": 324.27}, {"w": "A", "t": 324.65}, {"w": "great-grandpa", "t": 325.04}, {"w": "of", "t": 325.42}, {"w": "one", "t": 325.8}, {"w": "hundred", "t": 326.18}, {"w": "and", "t": 326.56}, {"w": "six", "t": 326.95}, {"w": "jumped", "t": 327.33}, {"w": "out", "t": 327.71}, {"w": "of", "t": 328.1}, {"w": "a", "t": 328.48}, {"w": "plane,", "t": 328.86}, {"w": "and", "t": 329.24}, {"w": "a", "t": 329.62}, {"w": "wombat", "t": 330.01}, {"w": "makes", "t": 330.39}, {"w": "perfect", "t": 330.77}, {"w": "cubes.", "t": 331.16}, {"w": "Now,", "t": 331.54}, {"w": "two", "t": 331.92}, {"w": "questions", "t": 332.3}, {"w": "for", "t": 332.69}, {"w": "you.", "t": 333.07}, {"w": "First:", "t": 333.45}, {"w": "what", "t": 333.83}, {"w": "brave", "t": 334.22}, {"w": "thing", "t": 334.6}, {"w": "would", "t": 334.98}, {"w": "you", "t": 335.36}, {"w": "like", "t": 335.75}, {"w": "to", "t": 336.13}, {"w": "try", "t": 336.51}, {"w": "when", "t": 336.89}, {"w": "you", "t": 337.28}, {"w": "are", "t": 337.66}, {"w": "very,", "t": 338.04}, {"w": "very", "t": 338.42}, {"w": "old?", "t": 338.81}, {"w": "Second:", "t": 339.19}, {"w": "if", "t": 339.57}, {"w": "you", "t": 339.95}, {"w": "could", "t": 340.34}, {"w": "leave", "t": 340.72}, {"w": "one", "t": 341.1}, {"w": "special", "t": 341.48}, {"w": "mark", "t": 341.87}, {"w": "on", "t": 342.25}, {"w": "the", "t": 342.63}, {"w": "world,", "t": 343.01}, {"w": "what", "t": 343.4}, {"w": "would", "t": 343.78}, {"w": "it", "t": 344.16}, {"w": "be?", "t": 344.54}, {"w": "Talk", "t": 344.93}, {"w": "about", "t": 345.31}, {"w": "it", "t": 345.69}, {"w": "with", "t": 346.07}, {"w": "your", "t": 346.46}, {"w": "family!", "t": 346.84}]}, {"start": 357.92, "end": 368.55, "en": "That's all for today, young explorers. Be brave like Al, stay down to earth like the wombat — and never say \"I can't.\" See you tomorrow morning!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。像阿尔一样勇敢，像袋熊一样脚踏实地——永远不要说“我不行”。明天早上见！", "words": [{"w": "That's", "t": 357.92}, {"w": "all", "t": 358.31}, {"w": "for", "t": 358.71}, {"w": "today,", "t": 359.1}, {"w": "young", "t": 359.49}, {"w": "explorers.", "t": 359.89}, {"w": "Be", "t": 360.28}, {"w": "brave", "t": 360.68}, {"w": "like", "t": 361.07}, {"w": "Al,", "t": 361.46}, {"w": "stay", "t": 361.86}, {"w": "down", "t": 362.25}, {"w": "to", "t": 362.64}, {"w": "earth", "t": 363.04}, {"w": "like", "t": 363.43}, {"w": "the", "t": 363.83}, {"w": "wombat", "t": 364.22}, {"w": "—", "t": 364.61}, {"w": "and", "t": 365.01}, {"w": "never", "t": 365.4}, {"w": "say", "t": 365.79}, {"w": "\"I", "t": 366.19}, {"w": "can't.\"", "t": 366.58}, {"w": "See", "t": 366.98}, {"w": "you", "t": 367.37}, {"w": "tomorrow", "t": 367.76}, {"w": "morning!", "t": 368.16}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol19/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
