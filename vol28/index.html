@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.28 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol28/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol28/cover.png" controls playsinline preload="metadata"></video>
+<h1>🚁 Vol.28 · 种树的无人机与森林的地下网络</h1>
+<div class="meta">英文 599 词 ｜ 音频 5分51秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol28/story-drone.png" alt="种树的无人机">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol28/story-fungus.png" alt="森林的地下网络">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">barking up the wrong tree</span> <span class="phon"></span> (习语) 对着错的树狂吠；找错对象、怪错人<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: When Tom lost his keys, he blamed his sister — but he was <b>barking up the wrong tree</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">erupt</span> <span class="phon">/ɪˈrʌpt/</span> (v.) 喷发；突然冒出<br>
+  
+  <div class="example">Example: After rain, mushrooms <b>erupt</b> from the ground.</div>
+</div>
+<div class="vocab">
+  <span class="word">spray</span> <span class="phon">/spreɪ/</span> (v.) 喷洒<br>
+  
+  <div class="example">Example: Other drones <b>spray</b> water and food over the young trees.</div>
+</div>
+<div class="vocab">
+  <span class="word">patience</span> <span class="phon">/ˈpeɪʃns/</span> (n.) 耐心<br>
+  
+  <div class="example">Example: It takes <b>patience</b> — a seed needs years to become a tall tree.</div>
+</div>
+<div class="vocab">
+  <span class="word">vivid</span> <span class="phon">/ˈvɪvɪd/</span> (adj.) 鲜艳的；生动的<br>
+  
+  <div class="example">Example: Soon, <b>vivid</b> green shoots rise from the ground.</div>
+</div>
+<div class="vocab">
+  <span class="word">network</span> <span class="phon">/ˈnetwɜːk/</span> (n.) 网络；网<br>
+  
+  <div class="example">Example: Under every forest floor hides a secret <b>network</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">fungi</span> <span class="phon">/ˈfʌŋɡaɪ/</span> (n.) 真菌（fungus 的复数）<br>
+  
+  <div class="example">Example: It is made by <b>fungi</b> — the same family as mushrooms.</div>
+</div>
+<div class="vocab">
+  <span class="word">thread</span> <span class="phon">/θred/</span> (n.) 丝线<br>
+  
+  <div class="example">Example: Thin white <b>threads</b> spread through the soil.</div>
+</div>
+<div class="vocab">
+  <span class="word">mineral</span> <span class="phon">/ˈmɪnərəl/</span> (n.) 矿物质<br>
+  
+  <div class="example">Example: The fungi give the trees water and <b>minerals</b> from the soil.</div>
+</div>
+<div class="vocab">
+  <span class="word">bitter</span> <span class="phon">/ˈbɪtə/</span> (adj.) 苦的<br>
+  
+  <div class="example">Example: Make their leaves taste <b>bitter</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">drone</span> <span class="phon">/drəʊn/</span> (n.) 无人机<br>
+  
+  <div class="example">Example: A company called Flash Forest sends <b>drones</b> to plant trees.</div>
+</div>
+<div class="vocab">
+  <span class="word">pod</span> <span class="phon">/pɒd/</span> (n.) 荚；豆荚<br>
+  
+  <div class="example">Example: The planting drones take off, carrying tiny seed <b>pods</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">shade</span> <span class="phon">/ʃeɪd/</span> (n.) 阴凉处<br>
+  
+  <div class="example">Example: They send extra food to young trees growing in the <b>shade</b>.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 14, "ncols": 8, "words": [{"word": "VIVID", "row": 0, "col": 0, "dir": "D", "num": 1, "cn": "鲜艳的", "clue": "Soon, ___ green shoots rise from the ground."}, {"word": "MOTHER", "row": 0, "col": 4, "dir": "D", "num": 2, "cn": "母树", "clue": "Big old ___ trees sit at the centre of the web."}, {"word": "ROOTS", "row": 1, "col": 2, "dir": "A", "num": 3, "cn": "树根", "clue": "Thin threads wrap around tree ___."}, {"word": "SEED", "row": 1, "col": 6, "dir": "D", "num": 4, "cn": "种子", "clue": "Every forest starts with one small ___."}, {"word": "FOREST", "row": 3, "col": 2, "dir": "D", "num": 5, "cn": "森林", "clue": "Under every ___ floor hides a secret network."}, {"word": "DRONE", "row": 4, "col": 0, "dir": "A", "num": 6, "cn": "无人机", "clue": "Flash Forest sends ___ to plant trees."}, {"word": "FUNGUS", "row": 6, "col": 5, "dir": "D", "num": 7, "cn": "真菌", "clue": "The real body of the ___ lives at the bottom of the soil."}, {"word": "SPRAY", "row": 7, "col": 0, "dir": "D", "num": 8, "cn": "喷洒", "clue": "Other drones ___ water and food over the young trees."}, {"word": "NETWORK", "row": 7, "col": 7, "dir": "D", "num": 9, "cn": "网络", "clue": "Scientists call this the Wood Wide ___."}, {"word": "PATIENCE", "row": 8, "col": 0, "dir": "A", "num": 10, "cn": "耐心", "clue": "It takes ___ — a seed needs years to become a tall tree."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. How does Flash Forest find the best places for new trees?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. Workers walk the land with shovels</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. Mapping drones fly over the land and take pictures</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. Birds carry the seeds</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. Farmers plant by hand</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. How many trees can one drone plant in a day?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. About one hundred</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. About one thousand five hundred</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. More than ten thousand</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. One billion</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. What do fungi give to trees?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. Sunlight</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. Water and minerals from the soil</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. Seeds</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. Leaves</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does &quot;barking up the wrong tree&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. Shouting at a tree</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. Climbing the wrong tree</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. Looking in the wrong place or blaming the wrong person</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. Planting a tree</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：C</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [1, 2, 1, 2];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">They send extra food <b class="kw">to</b> young trees <b class="kw">growing in the shade</b>.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li><i>send … to …</i> 是<b>双宾语结构</b>：send + 直接宾语（extra food，送的东西）+ to + 间接宾语（young trees，送给谁）。也可以换顺序说成 send + 间接宾语 + 直接宾语：send young trees extra food。看到 send，要立刻问：送什么、送给谁。</li>
+  <li><i>growing in the shade</i> 是<b>现在分词短语作后置定语</b>：growing（生长着的）修饰 young trees，说明是哪种幼树——长在阴凉里的幼树。分词的逻辑主语就是它修饰的名词（trees 在生长），所以用 growing 而不是 grown。</li>
+  <li><i>in the shade</i> 是<b>介词短语</b>：in + the shade（阴凉处），在这里说明幼树生长的地点。介词短语放在名词后面作定语，放在动词后面作状语，位置不同、作用不同，读的时候要看它紧跟谁。</li>
+  <li>整句逻辑链：<b>动作（送）→ 东西（多余的食物）→ 对象（阴凉里的幼树）</b>。一句话里藏着双宾语、分词定语和介词短语三个机关。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. send … to …：用括号里的词补全</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">Mother trees send extra food ____ young trees.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">to</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">in</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">at</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：to</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">The postman sends letters ____ every house.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">in</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">to</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">for</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：to</p>
+</div>
+<p class="p4-gname">B. 分词后置定语：用括号里的词补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">Young trees ____ in the shade need extra food.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">grows</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">grown</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">growing</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：growing</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">Leaves ____ in the sun look bright green.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">shining</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">shines</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">shone</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：shining</p>
+</div>
+<p class="p4-gname">C. 介词短语 in …：用括号里的词补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">Young trees grow slowly ____ the shade.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">on</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">in</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">at</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：in</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">Birds sing ____ the morning.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">on</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">under</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">in</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：in</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>When rain comes, mushrooms erupt from the ground and make the forest look alive.</li>
+<li>Old trees send water to small plants growing in the dark.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwc"><span class="cwn">1</span><span class="cwl">V</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">2</span><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">3</span><span class="cwl">R</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwn">4</span><span class="cwl">S</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">V</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">5</span><span class="cwl">F</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">6</span><span class="cwl">D</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">7</span><span class="cwl">F</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">8</span><span class="cwl">S</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">9</span><span class="cwl">N</span></td></tr><tr><td class="cwc"><span class="cwn">10</span><span class="cwl">P</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">E</span></td></tr><tr><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">G</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td></tr><tr><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">W</span></td></tr><tr><td class="cwc"><span class="cwl">Y</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">K</span></td></tr></table></div>1 竖 → <b>VIVID</b>（鲜艳的）<br>2 竖 → <b>MOTHER</b>（母树）<br>3 横 → <b>ROOTS</b>（树根）<br>4 竖 → <b>SEED</b>（种子）<br>5 竖 → <b>FOREST</b>（森林）<br>6 横 → <b>DRONE</b>（无人机）<br>7 竖 → <b>FUNGUS</b>（真菌）<br>8 竖 → <b>SPRAY</b>（喷洒）<br>9 竖 → <b>NETWORK</b>（网络）<br>10 横 → <b>PATIENCE</b>（耐心）<br><br><b>B. Single Choice:</b><br>
+1 → <b>B</b>. The text says <i>"small mapping drones fly over land … and find the best places for new trees."</i><br>
+2 → <b>C</b>. The text says <i>"One drone can plant more than ten thousand trees in a day."</i><br>
+3 → <b>B</b>. The text says <i>"The fungi give the trees water and minerals from the soil."</i><br>
+4 → <b>C</b>. The text says: <i>"If you are barking up the wrong tree, you are looking in the wrong place or blaming the wrong person."</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. to&nbsp;&nbsp;2. to<br>
+B. 1. growing&nbsp;&nbsp;2. shining<br>
+C. 1. in&nbsp;&nbsp;2. in<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol28/Vol28_晚读讲义_种树的无人机与森林的地下网络_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 26.83, "end": 54.53, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we fly over a forest with a buzzing robot, then dig underground to find a secret internet made by mushrooms. Our first hero has no hands — but it can plant ten thousand trees in a single day. Our second hero never speaks a word — yet it helps whole forests share food. Let's go!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天我们要坐着嗡嗡响的机器人飞越森林，再钻进地下，去找一张蘑菇织成的秘密网络。第一位主角没有手，却能在一天里种下一万棵树；第二位主角一句话也不说，却能帮整片森林分享食物。出发吧！", "words": [{"w": "Hello,", "t": 26.83}, {"w": "young", "t": 27.25}, {"w": "explorers,", "t": 27.67}, {"w": "and", "t": 28.09}, {"w": "welcome", "t": 28.51}, {"w": "back", "t": 28.93}, {"w": "to", "t": 29.35}, {"w": "Michael's", "t": 29.77}, {"w": "Morning", "t": 30.19}, {"w": "Listening!", "t": 30.61}, {"w": "Today", "t": 31.03}, {"w": "we", "t": 31.45}, {"w": "fly", "t": 31.87}, {"w": "over", "t": 32.29}, {"w": "a", "t": 32.71}, {"w": "forest", "t": 33.13}, {"w": "with", "t": 33.55}, {"w": "a", "t": 33.96}, {"w": "buzzing", "t": 34.38}, {"w": "robot,", "t": 34.8}, {"w": "then", "t": 35.22}, {"w": "dig", "t": 35.64}, {"w": "underground", "t": 36.06}, {"w": "to", "t": 36.48}, {"w": "find", "t": 36.9}, {"w": "a", "t": 37.32}, {"w": "secret", "t": 37.74}, {"w": "internet", "t": 38.16}, {"w": "made", "t": 38.58}, {"w": "by", "t": 39.0}, {"w": "mushrooms.", "t": 39.42}, {"w": "Our", "t": 39.84}, {"w": "first", "t": 40.26}, {"w": "hero", "t": 40.68}, {"w": "has", "t": 41.1}, {"w": "no", "t": 41.52}, {"w": "hands", "t": 41.94}, {"w": "—", "t": 42.36}, {"w": "but", "t": 42.78}, {"w": "it", "t": 43.2}, {"w": "can", "t": 43.62}, {"w": "plant", "t": 44.04}, {"w": "ten", "t": 44.46}, {"w": "thousand", "t": 44.88}, {"w": "trees", "t": 45.3}, {"w": "in", "t": 45.72}, {"w": "a", "t": 46.14}, {"w": "single", "t": 46.56}, {"w": "day.", "t": 46.98}, {"w": "Our", "t": 47.4}, {"w": "second", "t": 47.81}, {"w": "hero", "t": 48.23}, {"w": "never", "t": 48.65}, {"w": "speaks", "t": 49.07}, {"w": "a", "t": 49.49}, {"w": "word", "t": 49.91}, {"w": "—", "t": 50.33}, {"w": "yet", "t": 50.75}, {"w": "it", "t": 51.17}, {"w": "helps", "t": 51.59}, {"w": "whole", "t": 52.01}, {"w": "forests", "t": 52.43}, {"w": "share", "t": 52.85}, {"w": "food.", "t": 53.27}, {"w": "Let's", "t": 53.69}, {"w": "go!", "t": 54.11}]}, {"start": 69.23, "end": 95.55, "en": "In Canada, a company called Flash Forest sends drones to plant trees. First, small mapping drones fly over land where fires or cutting have left the ground bare, and find the best places for new trees. Then the planting drones take off, carrying tiny seed pods. Each pod holds a seed that has already started to grow, wrapped in food and soil.", "title": "种树的无人机", "cn": "在加拿大，有一家叫 Flash Forest 的公司派无人机去种树。首先，小型测绘无人机飞越被大火或砍伐弄得光秃秃的土地，找出最适合种新树的地方。接着，种树无人机起飞，带着小小的种子荚。每个种子荚里都有一颗已经开始发芽的种子，包着食物和泥土。", "words": [{"w": "In", "t": 69.23}, {"w": "Canada,", "t": 69.65}, {"w": "a", "t": 70.08}, {"w": "company", "t": 70.5}, {"w": "called", "t": 70.93}, {"w": "Flash", "t": 71.35}, {"w": "Forest", "t": 71.78}, {"w": "sends", "t": 72.2}, {"w": "drones", "t": 72.63}, {"w": "to", "t": 73.05}, {"w": "plant", "t": 73.48}, {"w": "trees.", "t": 73.9}, {"w": "First,", "t": 74.32}, {"w": "small", "t": 74.75}, {"w": "mapping", "t": 75.17}, {"w": "drones", "t": 75.6}, {"w": "fly", "t": 76.02}, {"w": "over", "t": 76.45}, {"w": "land", "t": 76.87}, {"w": "where", "t": 77.3}, {"w": "fires", "t": 77.72}, {"w": "or", "t": 78.14}, {"w": "cutting", "t": 78.57}, {"w": "have", "t": 78.99}, {"w": "left", "t": 79.42}, {"w": "the", "t": 79.84}, {"w": "ground", "t": 80.27}, {"w": "bare,", "t": 80.69}, {"w": "and", "t": 81.12}, {"w": "find", "t": 81.54}, {"w": "the", "t": 81.97}, {"w": "best", "t": 82.39}, {"w": "places", "t": 82.81}, {"w": "for", "t": 83.24}, {"w": "new", "t": 83.66}, {"w": "trees.", "t": 84.09}, {"w": "Then", "t": 84.51}, {"w": "the", "t": 84.94}, {"w": "planting", "t": 85.36}, {"w": "drones", "t": 85.79}, {"w": "take", "t": 86.21}, {"w": "off,", "t": 86.64}, {"w": "carrying", "t": 87.06}, {"w": "tiny", "t": 87.48}, {"w": "seed", "t": 87.91}, {"w": "pods.", "t": 88.33}, {"w": "Each", "t": 88.76}, {"w": "pod", "t": 89.18}, {"w": "holds", "t": 89.61}, {"w": "a", "t": 90.03}, {"w": "seed", "t": 90.46}, {"w": "that", "t": 90.88}, {"w": "has", "t": 91.3}, {"w": "already", "t": 91.73}, {"w": "started", "t": 92.15}, {"w": "to", "t": 92.58}, {"w": "grow,", "t": 93.0}, {"w": "wrapped", "t": 93.43}, {"w": "in", "t": 93.85}, {"w": "food", "t": 94.28}, {"w": "and", "t": 94.7}, {"w": "soil.", "t": 95.13}]}, {"start": 95.55, "end": 120.6, "en": "The drone fires the pods into the ground, one every second. One drone can plant more than ten thousand trees in a day. By hand, a worker plants about one thousand five hundred trees a day. After planting, other drones spray water and food over the young trees and watch from the sky to see which ones grow well.", "title": "种树的无人机", "cn": "无人机把种子荚射进土里，每秒一颗。一架无人机一天能种一万多棵树。靠人工的话，一个工人一天大约种一千五百棵。种完之后，另外的无人机还会给小树喷水、喷营养液，并从天上观察它们长得好不好。", "words": [{"w": "The", "t": 95.55}, {"w": "drone", "t": 95.97}, {"w": "fires", "t": 96.4}, {"w": "the", "t": 96.82}, {"w": "pods", "t": 97.25}, {"w": "into", "t": 97.67}, {"w": "the", "t": 98.1}, {"w": "ground,", "t": 98.52}, {"w": "one", "t": 98.95}, {"w": "every", "t": 99.37}, {"w": "second.", "t": 99.8}, {"w": "One", "t": 100.22}, {"w": "drone", "t": 100.64}, {"w": "can", "t": 101.07}, {"w": "plant", "t": 101.49}, {"w": "more", "t": 101.92}, {"w": "than", "t": 102.34}, {"w": "ten", "t": 102.77}, {"w": "thousand", "t": 103.19}, {"w": "trees", "t": 103.62}, {"w": "in", "t": 104.04}, {"w": "a", "t": 104.47}, {"w": "day.", "t": 104.89}, {"w": "By", "t": 105.32}, {"w": "hand,", "t": 105.74}, {"w": "a", "t": 106.16}, {"w": "worker", "t": 106.59}, {"w": "plants", "t": 107.01}, {"w": "about", "t": 107.44}, {"w": "one", "t": 107.86}, {"w": "thousand", "t": 108.29}, {"w": "five", "t": 108.71}, {"w": "hundred", "t": 109.14}, {"w": "trees", "t": 109.56}, {"w": "a", "t": 109.99}, {"w": "day.", "t": 110.41}, {"w": "After", "t": 110.83}, {"w": "planting,", "t": 111.26}, {"w": "other", "t": 111.68}, {"w": "drones", "t": 112.11}, {"w": "spray", "t": 112.53}, {"w": "water", "t": 112.96}, {"w": "and", "t": 113.38}, {"w": "food", "t": 113.81}, {"w": "over", "t": 114.23}, {"w": "the", "t": 114.66}, {"w": "young", "t": 115.08}, {"w": "trees", "t": 115.51}, {"w": "and", "t": 115.93}, {"w": "watch", "t": 116.35}, {"w": "from", "t": 116.78}, {"w": "the", "t": 117.2}, {"w": "sky", "t": 117.63}, {"w": "to", "t": 118.05}, {"w": "see", "t": 118.48}, {"w": "which", "t": 118.9}, {"w": "ones", "t": 119.33}, {"w": "grow", "t": 119.75}, {"w": "well.", "t": 120.18}]}, {"start": 120.6, "end": 135.03, "en": "It takes patience — a seed needs years to become a tall tree. Soon, vivid green shoots rise from the ground. Every forest starts with one small seed. And now, the seeds can fly.", "title": "种树的无人机", "cn": "种树需要耐心——一颗种子要好几年才能长成大树。不过很快，鲜绿的嫩芽就会破土而出。每一片森林，都是从一颗小小的种子开始的。而现在，种子也会飞了。", "words": [{"w": "It", "t": 120.6}, {"w": "takes", "t": 121.02}, {"w": "patience", "t": 121.45}, {"w": "—", "t": 121.87}, {"w": "a", "t": 122.3}, {"w": "seed", "t": 122.72}, {"w": "needs", "t": 123.15}, {"w": "years", "t": 123.57}, {"w": "to", "t": 124.0}, {"w": "become", "t": 124.42}, {"w": "a", "t": 124.84}, {"w": "tall", "t": 125.27}, {"w": "tree.", "t": 125.69}, {"w": "Soon,", "t": 126.12}, {"w": "vivid", "t": 126.54}, {"w": "green", "t": 126.97}, {"w": "shoots", "t": 127.39}, {"w": "rise", "t": 127.81}, {"w": "from", "t": 128.24}, {"w": "the", "t": 128.66}, {"w": "ground.", "t": 129.09}, {"w": "Every", "t": 129.51}, {"w": "forest", "t": 129.94}, {"w": "starts", "t": 130.36}, {"w": "with", "t": 130.79}, {"w": "one", "t": 131.21}, {"w": "small", "t": 131.63}, {"w": "seed.", "t": 132.06}, {"w": "And", "t": 132.48}, {"w": "now,", "t": 132.91}, {"w": "the", "t": 133.33}, {"w": "seeds", "t": 133.76}, {"w": "can", "t": 134.18}, {"w": "fly.", "t": 134.61}]}, {"start": 151.89, "end": 177.39, "en": "Under every forest floor hides a secret network. It is made by fungi — the same family as mushrooms. Thin white threads, called hyphae, spread through the soil and wrap around tree roots. The fungi give the trees water and minerals from the soil. In return, the trees give the fungi sugars they make from sunlight. Scientists call this the Wood Wide Web.", "title": "森林的地下网络", "cn": "每一片森林的地面下，都藏着一张秘密网络。它是由真菌织成的——真菌就是蘑菇的亲戚。细细的白色丝线叫菌丝，它们在泥土里蔓延，缠绕住树根。真菌从土壤里给树木送去水分和矿物质。作为回报，树木把自己用阳光制造的糖分送给真菌。科学家把这叫作“木联网”。", "words": [{"w": "Under", "t": 151.89}, {"w": "every", "t": 152.29}, {"w": "forest", "t": 152.7}, {"w": "floor", "t": 153.1}, {"w": "hides", "t": 153.51}, {"w": "a", "t": 153.91}, {"w": "secret", "t": 154.32}, {"w": "network.", "t": 154.72}, {"w": "It", "t": 155.13}, {"w": "is", "t": 155.53}, {"w": "made", "t": 155.94}, {"w": "by", "t": 156.34}, {"w": "fungi", "t": 156.75}, {"w": "—", "t": 157.15}, {"w": "the", "t": 157.56}, {"w": "same", "t": 157.96}, {"w": "family", "t": 158.37}, {"w": "as", "t": 158.77}, {"w": "mushrooms.", "t": 159.18}, {"w": "Thin", "t": 159.58}, {"w": "white", "t": 159.99}, {"w": "threads,", "t": 160.39}, {"w": "called", "t": 160.79}, {"w": "hyphae,", "t": 161.2}, {"w": "spread", "t": 161.6}, {"w": "through", "t": 162.01}, {"w": "the", "t": 162.41}, {"w": "soil", "t": 162.82}, {"w": "and", "t": 163.22}, {"w": "wrap", "t": 163.63}, {"w": "around", "t": 164.03}, {"w": "tree", "t": 164.44}, {"w": "roots.", "t": 164.84}, {"w": "The", "t": 165.25}, {"w": "fungi", "t": 165.65}, {"w": "give", "t": 166.06}, {"w": "the", "t": 166.46}, {"w": "trees", "t": 166.87}, {"w": "water", "t": 167.27}, {"w": "and", "t": 167.68}, {"w": "minerals", "t": 168.08}, {"w": "from", "t": 168.49}, {"w": "the", "t": 168.89}, {"w": "soil.", "t": 169.29}, {"w": "In", "t": 169.7}, {"w": "return,", "t": 170.1}, {"w": "the", "t": 170.51}, {"w": "trees", "t": 170.91}, {"w": "give", "t": 171.32}, {"w": "the", "t": 171.72}, {"w": "fungi", "t": 172.13}, {"w": "sugars", "t": 172.53}, {"w": "they", "t": 172.94}, {"w": "make", "t": 173.34}, {"w": "from", "t": 173.75}, {"w": "sunlight.", "t": 174.15}, {"w": "Scientists", "t": 174.56}, {"w": "call", "t": 174.96}, {"w": "this", "t": 175.37}, {"w": "the", "t": 175.77}, {"w": "Wood", "t": 176.18}, {"w": "Wide", "t": 176.58}, {"w": "Web.", "t": 176.99}]}, {"start": 177.39, "end": 203.29, "en": "Big old mother trees sit at the centre of the web. They send extra food to young trees growing in the shade. In one famous test, birch trees shared food with fir trees when the firs needed it most, and the firs shared back in another season. When insects attack one tree, its neighbours can notice the warning and make their leaves taste bitter.", "title": "森林的地下网络", "cn": "高大的老树是这张网的中心，人们叫它们“母树”。它们会把多余的食物送给长在阴凉里的幼树。在一次著名的试验里，白桦树在冷杉最需要的时候和它们分享食物，到了另一个季节，冷杉也回赠白桦。当昆虫攻击一棵树时，邻近的树能察觉到警告，让自己的叶子变苦。", "words": [{"w": "Big", "t": 177.39}, {"w": "old", "t": 177.79}, {"w": "mother", "t": 178.2}, {"w": "trees", "t": 178.6}, {"w": "sit", "t": 179.01}, {"w": "at", "t": 179.41}, {"w": "the", "t": 179.82}, {"w": "centre", "t": 180.22}, {"w": "of", "t": 180.63}, {"w": "the", "t": 181.03}, {"w": "web.", "t": 181.44}, {"w": "They", "t": 181.84}, {"w": "send", "t": 182.25}, {"w": "extra", "t": 182.65}, {"w": "food", "t": 183.06}, {"w": "to", "t": 183.46}, {"w": "young", "t": 183.86}, {"w": "trees", "t": 184.27}, {"w": "growing", "t": 184.67}, {"w": "in", "t": 185.08}, {"w": "the", "t": 185.48}, {"w": "shade.", "t": 185.89}, {"w": "In", "t": 186.29}, {"w": "one", "t": 186.7}, {"w": "famous", "t": 187.1}, {"w": "test,", "t": 187.51}, {"w": "birch", "t": 187.91}, {"w": "trees", "t": 188.32}, {"w": "shared", "t": 188.72}, {"w": "food", "t": 189.13}, {"w": "with", "t": 189.53}, {"w": "fir", "t": 189.94}, {"w": "trees", "t": 190.34}, {"w": "when", "t": 190.74}, {"w": "the", "t": 191.15}, {"w": "firs", "t": 191.55}, {"w": "needed", "t": 191.96}, {"w": "it", "t": 192.36}, {"w": "most,", "t": 192.77}, {"w": "and", "t": 193.17}, {"w": "the", "t": 193.58}, {"w": "firs", "t": 193.98}, {"w": "shared", "t": 194.39}, {"w": "back", "t": 194.79}, {"w": "in", "t": 195.2}, {"w": "another", "t": 195.6}, {"w": "season.", "t": 196.01}, {"w": "When", "t": 196.41}, {"w": "insects", "t": 196.81}, {"w": "attack", "t": 197.22}, {"w": "one", "t": 197.62}, {"w": "tree,", "t": 198.03}, {"w": "its", "t": 198.43}, {"w": "neighbours", "t": 198.84}, {"w": "can", "t": 199.24}, {"w": "notice", "t": 199.65}, {"w": "the", "t": 200.05}, {"w": "warning", "t": 200.46}, {"w": "and", "t": 200.86}, {"w": "make", "t": 201.27}, {"w": "their", "t": 201.67}, {"w": "leaves", "t": 202.08}, {"w": "taste", "t": 202.48}, {"w": "bitter.", "t": 202.89}]}, {"start": 203.29, "end": 224.33, "en": "After rain, mushrooms erupt from the ground — just the fruits of the fungi, like apples on a tree. The real body of the fungus lives at the bottom of the soil, quietly feeding the forest. So trees are not lonely fighters — under the ground, they share, warn, and grow together.", "title": "森林的地下网络", "cn": "雨后，蘑菇从地里冒出来——它们只是真菌的果实，就像树上的苹果。真菌真正的身体住在土壤的底部，静静地喂养着整片森林。所以，树木并不是孤单的战士——在地下，它们分享、报警、一起长大。", "words": [{"w": "After", "t": 203.29}, {"w": "rain,", "t": 203.69}, {"w": "mushrooms", "t": 204.1}, {"w": "erupt", "t": 204.5}, {"w": "from", "t": 204.91}, {"w": "the", "t": 205.31}, {"w": "ground", "t": 205.72}, {"w": "—", "t": 206.12}, {"w": "just", "t": 206.53}, {"w": "the", "t": 206.93}, {"w": "fruits", "t": 207.34}, {"w": "of", "t": 207.74}, {"w": "the", "t": 208.15}, {"w": "fungi,", "t": 208.55}, {"w": "like", "t": 208.95}, {"w": "apples", "t": 209.36}, {"w": "on", "t": 209.76}, {"w": "a", "t": 210.17}, {"w": "tree.", "t": 210.57}, {"w": "The", "t": 210.98}, {"w": "real", "t": 211.38}, {"w": "body", "t": 211.79}, {"w": "of", "t": 212.19}, {"w": "the", "t": 212.6}, {"w": "fungus", "t": 213.0}, {"w": "lives", "t": 213.41}, {"w": "at", "t": 213.81}, {"w": "the", "t": 214.21}, {"w": "bottom", "t": 214.62}, {"w": "of", "t": 215.02}, {"w": "the", "t": 215.43}, {"w": "soil,", "t": 215.83}, {"w": "quietly", "t": 216.24}, {"w": "feeding", "t": 216.64}, {"w": "the", "t": 217.05}, {"w": "forest.", "t": 217.45}, {"w": "So", "t": 217.86}, {"w": "trees", "t": 218.26}, {"w": "are", "t": 218.67}, {"w": "not", "t": 219.07}, {"w": "lonely", "t": 219.47}, {"w": "fighters", "t": 219.88}, {"w": "—", "t": 220.28}, {"w": "under", "t": 220.69}, {"w": "the", "t": 221.09}, {"w": "ground,", "t": 221.5}, {"w": "they", "t": 221.9}, {"w": "share,", "t": 222.31}, {"w": "warn,", "t": 222.71}, {"w": "and", "t": 223.12}, {"w": "grow", "t": 223.52}, {"w": "together.", "t": 223.93}]}, {"start": 239.35, "end": 280.77, "en": "Here's today's idiom: \"barking up the wrong tree.\" Imagine a dog barking at a tree — but the squirrel hides in a different tree! If you are barking up the wrong tree, you are looking in the wrong place or blaming the wrong person. For a long time, people thought trees only fought each other for sunlight. They were barking up the wrong tree — under the ground, trees share and help each other. Here's an example: \"When Tom lost his keys, he blamed his sister — but he was barking up the wrong tree. The keys were in his own pocket!\" So, next time something goes wrong, check: are you barking up the right tree?", "title": "今日俚语", "cn": "今天的俚语是“barking up the wrong tree”（对着错的树狂吠）：想象一只狗对着一棵树大叫，可松鼠明明藏在另一棵树上！如果你 barking up the wrong tree，就是找错了地方，或者怪错了人。很长一段时间，人们以为树木只会为阳光互相争斗——他们找错了对象：在地下，树木会分享、会互相帮助。举个例子：汤姆丢了钥匙，怪到妹妹头上——可他怪错了人，钥匙就在他自己的口袋里！所以，下次出了问题，先检查一下：你有没有找错树？", "words": [{"w": "Here's", "t": 239.35}, {"w": "today's", "t": 239.71}, {"w": "idiom:", "t": 240.06}, {"w": "\"barking", "t": 240.42}, {"w": "up", "t": 240.78}, {"w": "the", "t": 241.14}, {"w": "wrong", "t": 241.49}, {"w": "tree.\"", "t": 241.85}, {"w": "Imagine", "t": 242.21}, {"w": "a", "t": 242.56}, {"w": "dog", "t": 242.92}, {"w": "barking", "t": 243.28}, {"w": "at", "t": 243.63}, {"w": "a", "t": 243.99}, {"w": "tree", "t": 244.35}, {"w": "—", "t": 244.71}, {"w": "but", "t": 245.06}, {"w": "the", "t": 245.42}, {"w": "squirrel", "t": 245.78}, {"w": "hides", "t": 246.13}, {"w": "in", "t": 246.49}, {"w": "a", "t": 246.85}, {"w": "different", "t": 247.21}, {"w": "tree!", "t": 247.56}, {"w": "If", "t": 247.92}, {"w": "you", "t": 248.28}, {"w": "are", "t": 248.63}, {"w": "barking", "t": 248.99}, {"w": "up", "t": 249.35}, {"w": "the", "t": 249.7}, {"w": "wrong", "t": 250.06}, {"w": "tree,", "t": 250.42}, {"w": "you", "t": 250.78}, {"w": "are", "t": 251.13}, {"w": "looking", "t": 251.49}, {"w": "in", "t": 251.85}, {"w": "the", "t": 252.2}, {"w": "wrong", "t": 252.56}, {"w": "place", "t": 252.92}, {"w": "or", "t": 253.28}, {"w": "blaming", "t": 253.63}, {"w": "the", "t": 253.99}, {"w": "wrong", "t": 254.35}, {"w": "person.", "t": 254.7}, {"w": "For", "t": 255.06}, {"w": "a", "t": 255.42}, {"w": "long", "t": 255.78}, {"w": "time,", "t": 256.13}, {"w": "people", "t": 256.49}, {"w": "thought", "t": 256.85}, {"w": "trees", "t": 257.2}, {"w": "only", "t": 257.56}, {"w": "fought", "t": 257.92}, {"w": "each", "t": 258.27}, {"w": "other", "t": 258.63}, {"w": "for", "t": 258.99}, {"w": "sunlight.", "t": 259.35}, {"w": "They", "t": 259.7}, {"w": "were", "t": 260.06}, {"w": "barking", "t": 260.42}, {"w": "up", "t": 260.77}, {"w": "the", "t": 261.13}, {"w": "wrong", "t": 261.49}, {"w": "tree", "t": 261.85}, {"w": "—", "t": 262.2}, {"w": "under", "t": 262.56}, {"w": "the", "t": 262.92}, {"w": "ground,", "t": 263.27}, {"w": "trees", "t": 263.63}, {"w": "share", "t": 263.99}, {"w": "and", "t": 264.34}, {"w": "help", "t": 264.7}, {"w": "each", "t": 265.06}, {"w": "other.", "t": 265.42}, {"w": "Here's", "t": 265.77}, {"w": "an", "t": 266.13}, {"w": "example:", "t": 266.49}, {"w": "\"When", "t": 266.84}, {"w": "Tom", "t": 267.2}, {"w": "lost", "t": 267.56}, {"w": "his", "t": 267.92}, {"w": "keys,", "t": 268.27}, {"w": "he", "t": 268.63}, {"w": "blamed", "t": 268.99}, {"w": "his", "t": 269.34}, {"w": "sister", "t": 269.7}, {"w": "—", "t": 270.06}, {"w": "but", "t": 270.41}, {"w": "he", "t": 270.77}, {"w": "was", "t": 271.13}, {"w": "barking", "t": 271.49}, {"w": "up", "t": 271.84}, {"w": "the", "t": 272.2}, {"w": "wrong", "t": 272.56}, {"w": "tree.", "t": 272.91}, {"w": "The", "t": 273.27}, {"w": "keys", "t": 273.63}, {"w": "were", "t": 273.99}, {"w": "in", "t": 274.34}, {"w": "his", "t": 274.7}, {"w": "own", "t": 275.06}, {"w": "pocket!\"", "t": 275.41}, {"w": "So,", "t": 275.77}, {"w": "next", "t": 276.13}, {"w": "time", "t": 276.49}, {"w": "something", "t": 276.84}, {"w": "goes", "t": 277.2}, {"w": "wrong,", "t": 277.56}, {"w": "check:", "t": 277.91}, {"w": "are", "t": 278.27}, {"w": "you", "t": 278.63}, {"w": "barking", "t": 278.98}, {"w": "up", "t": 279.34}, {"w": "the", "t": 279.7}, {"w": "right", "t": 280.06}, {"w": "tree?", "t": 280.41}]}, {"start": 296.35, "end": 322.56, "en": "Let's think about our stories: flying robots that plant trees, and a hidden web of fungi that feeds a forest. Now, two questions for you. First: if you had a tree-planting drone, where would you send it first? Second: if trees could really share food like a family, what would you share with your friends? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事：会种树的飞行机器人，还有一张在地下喂养森林的真菌大网。现在，轮到回答两个问题。第一：如果你有一架种树无人机，你最先会派它去哪里？第二：如果树木真的能像一家人一样分享食物，你会和朋友们分享什么？和家人聊聊吧！", "words": [{"w": "Let's", "t": 296.35}, {"w": "think", "t": 296.78}, {"w": "about", "t": 297.21}, {"w": "our", "t": 297.64}, {"w": "stories:", "t": 298.07}, {"w": "flying", "t": 298.5}, {"w": "robots", "t": 298.93}, {"w": "that", "t": 299.36}, {"w": "plant", "t": 299.79}, {"w": "trees,", "t": 300.22}, {"w": "and", "t": 300.65}, {"w": "a", "t": 301.08}, {"w": "hidden", "t": 301.51}, {"w": "web", "t": 301.94}, {"w": "of", "t": 302.37}, {"w": "fungi", "t": 302.8}, {"w": "that", "t": 303.22}, {"w": "feeds", "t": 303.65}, {"w": "a", "t": 304.08}, {"w": "forest.", "t": 304.51}, {"w": "Now,", "t": 304.94}, {"w": "two", "t": 305.37}, {"w": "questions", "t": 305.8}, {"w": "for", "t": 306.23}, {"w": "you.", "t": 306.66}, {"w": "First:", "t": 307.09}, {"w": "if", "t": 307.52}, {"w": "you", "t": 307.95}, {"w": "had", "t": 308.38}, {"w": "a", "t": 308.81}, {"w": "tree-planting", "t": 309.24}, {"w": "drone,", "t": 309.67}, {"w": "where", "t": 310.1}, {"w": "would", "t": 310.53}, {"w": "you", "t": 310.96}, {"w": "send", "t": 311.39}, {"w": "it", "t": 311.82}, {"w": "first?", "t": 312.25}, {"w": "Second:", "t": 312.68}, {"w": "if", "t": 313.11}, {"w": "trees", "t": 313.54}, {"w": "could", "t": 313.97}, {"w": "really", "t": 314.4}, {"w": "share", "t": 314.83}, {"w": "food", "t": 315.26}, {"w": "like", "t": 315.69}, {"w": "a", "t": 316.11}, {"w": "family,", "t": 316.54}, {"w": "what", "t": 316.97}, {"w": "would", "t": 317.4}, {"w": "you", "t": 317.83}, {"w": "share", "t": 318.26}, {"w": "with", "t": 318.69}, {"w": "your", "t": 319.12}, {"w": "friends?", "t": 319.55}, {"w": "Talk", "t": 319.98}, {"w": "about", "t": 320.41}, {"w": "it", "t": 320.84}, {"w": "with", "t": 321.27}, {"w": "your", "t": 321.7}, {"w": "family!", "t": 322.13}]}, {"start": 332.78, "end": 341.54, "en": "That's all for today, young explorers. Be patient like a tree planter — and share like a forest. See you tomorrow morning!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。像种树人一样有耐心，像森林一样懂得分享。明天早上见！", "words": [{"w": "That's", "t": 332.78}, {"w": "all", "t": 333.18}, {"w": "for", "t": 333.58}, {"w": "today,", "t": 333.97}, {"w": "young", "t": 334.37}, {"w": "explorers.", "t": 334.77}, {"w": "Be", "t": 335.17}, {"w": "patient", "t": 335.57}, {"w": "like", "t": 335.97}, {"w": "a", "t": 336.36}, {"w": "tree", "t": 336.76}, {"w": "planter", "t": 337.16}, {"w": "—", "t": 337.56}, {"w": "and", "t": 337.96}, {"w": "share", "t": 338.35}, {"w": "like", "t": 338.75}, {"w": "a", "t": 339.15}, {"w": "forest.", "t": 339.55}, {"w": "See", "t": 339.95}, {"w": "you", "t": 340.35}, {"w": "tomorrow", "t": 340.74}, {"w": "morning!", "t": 341.14}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol28/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>

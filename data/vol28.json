@@ -1,0 +1,3519 @@
+{
+ "id": "vol28",
+ "title": "种树的无人机与森林的地下网络",
+ "words": 599,
+ "duration": "5分51秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol28/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol28/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol28/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol28/Vol28_晚读讲义_种树的无人机与森林的地下网络_v1.pdf",
+ "pdfName": "Vol28_晚读讲义_种树的无人机与森林的地下网络_v1.pdf",
+ "blocks": [
+  {
+   "start": 26.83,
+   "end": 54.53,
+   "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we fly over a forest with a buzzing robot, then dig underground to find a secret internet made by mushrooms. Our first hero has no hands — but it can plant ten thousand trees in a single day. Our second hero never speaks a word — yet it helps whole forests share food. Let's go!",
+   "title": "开场白",
+   "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天我们要坐着嗡嗡响的机器人飞越森林，再钻进地下，去找一张蘑菇织成的秘密网络。第一位主角没有手，却能在一天里种下一万棵树；第二位主角一句话也不说，却能帮整片森林分享食物。出发吧！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 26.83
+    },
+    {
+     "w": "young",
+     "t": 27.25
+    },
+    {
+     "w": "explorers,",
+     "t": 27.67
+    },
+    {
+     "w": "and",
+     "t": 28.09
+    },
+    {
+     "w": "welcome",
+     "t": 28.51
+    },
+    {
+     "w": "back",
+     "t": 28.93
+    },
+    {
+     "w": "to",
+     "t": 29.35
+    },
+    {
+     "w": "Michael's",
+     "t": 29.77
+    },
+    {
+     "w": "Morning",
+     "t": 30.19
+    },
+    {
+     "w": "Listening!",
+     "t": 30.61
+    },
+    {
+     "w": "Today",
+     "t": 31.03
+    },
+    {
+     "w": "we",
+     "t": 31.45
+    },
+    {
+     "w": "fly",
+     "t": 31.87
+    },
+    {
+     "w": "over",
+     "t": 32.29
+    },
+    {
+     "w": "a",
+     "t": 32.71
+    },
+    {
+     "w": "forest",
+     "t": 33.13
+    },
+    {
+     "w": "with",
+     "t": 33.55
+    },
+    {
+     "w": "a",
+     "t": 33.96
+    },
+    {
+     "w": "buzzing",
+     "t": 34.38
+    },
+    {
+     "w": "robot,",
+     "t": 34.8
+    },
+    {
+     "w": "then",
+     "t": 35.22
+    },
+    {
+     "w": "dig",
+     "t": 35.64
+    },
+    {
+     "w": "underground",
+     "t": 36.06
+    },
+    {
+     "w": "to",
+     "t": 36.48
+    },
+    {
+     "w": "find",
+     "t": 36.9
+    },
+    {
+     "w": "a",
+     "t": 37.32
+    },
+    {
+     "w": "secret",
+     "t": 37.74
+    },
+    {
+     "w": "internet",
+     "t": 38.16
+    },
+    {
+     "w": "made",
+     "t": 38.58
+    },
+    {
+     "w": "by",
+     "t": 39.0
+    },
+    {
+     "w": "mushrooms.",
+     "t": 39.42
+    },
+    {
+     "w": "Our",
+     "t": 39.84
+    },
+    {
+     "w": "first",
+     "t": 40.26
+    },
+    {
+     "w": "hero",
+     "t": 40.68
+    },
+    {
+     "w": "has",
+     "t": 41.1
+    },
+    {
+     "w": "no",
+     "t": 41.52
+    },
+    {
+     "w": "hands",
+     "t": 41.94
+    },
+    {
+     "w": "—",
+     "t": 42.36
+    },
+    {
+     "w": "but",
+     "t": 42.78
+    },
+    {
+     "w": "it",
+     "t": 43.2
+    },
+    {
+     "w": "can",
+     "t": 43.62
+    },
+    {
+     "w": "plant",
+     "t": 44.04
+    },
+    {
+     "w": "ten",
+     "t": 44.46
+    },
+    {
+     "w": "thousand",
+     "t": 44.88
+    },
+    {
+     "w": "trees",
+     "t": 45.3
+    },
+    {
+     "w": "in",
+     "t": 45.72
+    },
+    {
+     "w": "a",
+     "t": 46.14
+    },
+    {
+     "w": "single",
+     "t": 46.56
+    },
+    {
+     "w": "day.",
+     "t": 46.98
+    },
+    {
+     "w": "Our",
+     "t": 47.4
+    },
+    {
+     "w": "second",
+     "t": 47.81
+    },
+    {
+     "w": "hero",
+     "t": 48.23
+    },
+    {
+     "w": "never",
+     "t": 48.65
+    },
+    {
+     "w": "speaks",
+     "t": 49.07
+    },
+    {
+     "w": "a",
+     "t": 49.49
+    },
+    {
+     "w": "word",
+     "t": 49.91
+    },
+    {
+     "w": "—",
+     "t": 50.33
+    },
+    {
+     "w": "yet",
+     "t": 50.75
+    },
+    {
+     "w": "it",
+     "t": 51.17
+    },
+    {
+     "w": "helps",
+     "t": 51.59
+    },
+    {
+     "w": "whole",
+     "t": 52.01
+    },
+    {
+     "w": "forests",
+     "t": 52.43
+    },
+    {
+     "w": "share",
+     "t": 52.85
+    },
+    {
+     "w": "food.",
+     "t": 53.27
+    },
+    {
+     "w": "Let's",
+     "t": 53.69
+    },
+    {
+     "w": "go!",
+     "t": 54.11
+    }
+   ]
+  },
+  {
+   "start": 69.23,
+   "end": 95.55,
+   "en": "In Canada, a company called Flash Forest sends drones to plant trees. First, small mapping drones fly over land where fires or cutting have left the ground bare, and find the best places for new trees. Then the planting drones take off, carrying tiny seed pods. Each pod holds a seed that has already started to grow, wrapped in food and soil.",
+   "title": "种树的无人机",
+   "cn": "在加拿大，有一家叫 Flash Forest 的公司派无人机去种树。首先，小型测绘无人机飞越被大火或砍伐弄得光秃秃的土地，找出最适合种新树的地方。接着，种树无人机起飞，带着小小的种子荚。每个种子荚里都有一颗已经开始发芽的种子，包着食物和泥土。",
+   "words": [
+    {
+     "w": "In",
+     "t": 69.23
+    },
+    {
+     "w": "Canada,",
+     "t": 69.65
+    },
+    {
+     "w": "a",
+     "t": 70.08
+    },
+    {
+     "w": "company",
+     "t": 70.5
+    },
+    {
+     "w": "called",
+     "t": 70.93
+    },
+    {
+     "w": "Flash",
+     "t": 71.35
+    },
+    {
+     "w": "Forest",
+     "t": 71.78
+    },
+    {
+     "w": "sends",
+     "t": 72.2
+    },
+    {
+     "w": "drones",
+     "t": 72.63
+    },
+    {
+     "w": "to",
+     "t": 73.05
+    },
+    {
+     "w": "plant",
+     "t": 73.48
+    },
+    {
+     "w": "trees.",
+     "t": 73.9
+    },
+    {
+     "w": "First,",
+     "t": 74.32
+    },
+    {
+     "w": "small",
+     "t": 74.75
+    },
+    {
+     "w": "mapping",
+     "t": 75.17
+    },
+    {
+     "w": "drones",
+     "t": 75.6
+    },
+    {
+     "w": "fly",
+     "t": 76.02
+    },
+    {
+     "w": "over",
+     "t": 76.45
+    },
+    {
+     "w": "land",
+     "t": 76.87
+    },
+    {
+     "w": "where",
+     "t": 77.3
+    },
+    {
+     "w": "fires",
+     "t": 77.72
+    },
+    {
+     "w": "or",
+     "t": 78.14
+    },
+    {
+     "w": "cutting",
+     "t": 78.57
+    },
+    {
+     "w": "have",
+     "t": 78.99
+    },
+    {
+     "w": "left",
+     "t": 79.42
+    },
+    {
+     "w": "the",
+     "t": 79.84
+    },
+    {
+     "w": "ground",
+     "t": 80.27
+    },
+    {
+     "w": "bare,",
+     "t": 80.69
+    },
+    {
+     "w": "and",
+     "t": 81.12
+    },
+    {
+     "w": "find",
+     "t": 81.54
+    },
+    {
+     "w": "the",
+     "t": 81.97
+    },
+    {
+     "w": "best",
+     "t": 82.39
+    },
+    {
+     "w": "places",
+     "t": 82.81
+    },
+    {
+     "w": "for",
+     "t": 83.24
+    },
+    {
+     "w": "new",
+     "t": 83.66
+    },
+    {
+     "w": "trees.",
+     "t": 84.09
+    },
+    {
+     "w": "Then",
+     "t": 84.51
+    },
+    {
+     "w": "the",
+     "t": 84.94
+    },
+    {
+     "w": "planting",
+     "t": 85.36
+    },
+    {
+     "w": "drones",
+     "t": 85.79
+    },
+    {
+     "w": "take",
+     "t": 86.21
+    },
+    {
+     "w": "off,",
+     "t": 86.64
+    },
+    {
+     "w": "carrying",
+     "t": 87.06
+    },
+    {
+     "w": "tiny",
+     "t": 87.48
+    },
+    {
+     "w": "seed",
+     "t": 87.91
+    },
+    {
+     "w": "pods.",
+     "t": 88.33
+    },
+    {
+     "w": "Each",
+     "t": 88.76
+    },
+    {
+     "w": "pod",
+     "t": 89.18
+    },
+    {
+     "w": "holds",
+     "t": 89.61
+    },
+    {
+     "w": "a",
+     "t": 90.03
+    },
+    {
+     "w": "seed",
+     "t": 90.46
+    },
+    {
+     "w": "that",
+     "t": 90.88
+    },
+    {
+     "w": "has",
+     "t": 91.3
+    },
+    {
+     "w": "already",
+     "t": 91.73
+    },
+    {
+     "w": "started",
+     "t": 92.15
+    },
+    {
+     "w": "to",
+     "t": 92.58
+    },
+    {
+     "w": "grow,",
+     "t": 93.0
+    },
+    {
+     "w": "wrapped",
+     "t": 93.43
+    },
+    {
+     "w": "in",
+     "t": 93.85
+    },
+    {
+     "w": "food",
+     "t": 94.28
+    },
+    {
+     "w": "and",
+     "t": 94.7
+    },
+    {
+     "w": "soil.",
+     "t": 95.13
+    }
+   ]
+  },
+  {
+   "start": 95.55,
+   "end": 120.6,
+   "en": "The drone fires the pods into the ground, one every second. One drone can plant more than ten thousand trees in a day. By hand, a worker plants about one thousand five hundred trees a day. After planting, other drones spray water and food over the young trees and watch from the sky to see which ones grow well.",
+   "title": "种树的无人机",
+   "cn": "无人机把种子荚射进土里，每秒一颗。一架无人机一天能种一万多棵树。靠人工的话，一个工人一天大约种一千五百棵。种完之后，另外的无人机还会给小树喷水、喷营养液，并从天上观察它们长得好不好。",
+   "words": [
+    {
+     "w": "The",
+     "t": 95.55
+    },
+    {
+     "w": "drone",
+     "t": 95.97
+    },
+    {
+     "w": "fires",
+     "t": 96.4
+    },
+    {
+     "w": "the",
+     "t": 96.82
+    },
+    {
+     "w": "pods",
+     "t": 97.25
+    },
+    {
+     "w": "into",
+     "t": 97.67
+    },
+    {
+     "w": "the",
+     "t": 98.1
+    },
+    {
+     "w": "ground,",
+     "t": 98.52
+    },
+    {
+     "w": "one",
+     "t": 98.95
+    },
+    {
+     "w": "every",
+     "t": 99.37
+    },
+    {
+     "w": "second.",
+     "t": 99.8
+    },
+    {
+     "w": "One",
+     "t": 100.22
+    },
+    {
+     "w": "drone",
+     "t": 100.64
+    },
+    {
+     "w": "can",
+     "t": 101.07
+    },
+    {
+     "w": "plant",
+     "t": 101.49
+    },
+    {
+     "w": "more",
+     "t": 101.92
+    },
+    {
+     "w": "than",
+     "t": 102.34
+    },
+    {
+     "w": "ten",
+     "t": 102.77
+    },
+    {
+     "w": "thousand",
+     "t": 103.19
+    },
+    {
+     "w": "trees",
+     "t": 103.62
+    },
+    {
+     "w": "in",
+     "t": 104.04
+    },
+    {
+     "w": "a",
+     "t": 104.46
+    },
+    {
+     "w": "day.",
+     "t": 104.89
+    },
+    {
+     "w": "By",
+     "t": 105.31
+    },
+    {
+     "w": "hand,",
+     "t": 105.74
+    },
+    {
+     "w": "a",
+     "t": 106.16
+    },
+    {
+     "w": "worker",
+     "t": 106.59
+    },
+    {
+     "w": "plants",
+     "t": 107.01
+    },
+    {
+     "w": "about",
+     "t": 107.44
+    },
+    {
+     "w": "one",
+     "t": 107.86
+    },
+    {
+     "w": "thousand",
+     "t": 108.29
+    },
+    {
+     "w": "five",
+     "t": 108.71
+    },
+    {
+     "w": "hundred",
+     "t": 109.13
+    },
+    {
+     "w": "trees",
+     "t": 109.56
+    },
+    {
+     "w": "a",
+     "t": 109.98
+    },
+    {
+     "w": "day.",
+     "t": 110.41
+    },
+    {
+     "w": "After",
+     "t": 110.83
+    },
+    {
+     "w": "planting,",
+     "t": 111.26
+    },
+    {
+     "w": "other",
+     "t": 111.68
+    },
+    {
+     "w": "drones",
+     "t": 112.11
+    },
+    {
+     "w": "spray",
+     "t": 112.53
+    },
+    {
+     "w": "water",
+     "t": 112.96
+    },
+    {
+     "w": "and",
+     "t": 113.38
+    },
+    {
+     "w": "food",
+     "t": 113.8
+    },
+    {
+     "w": "over",
+     "t": 114.23
+    },
+    {
+     "w": "the",
+     "t": 114.65
+    },
+    {
+     "w": "young",
+     "t": 115.08
+    },
+    {
+     "w": "trees",
+     "t": 115.5
+    },
+    {
+     "w": "and",
+     "t": 115.93
+    },
+    {
+     "w": "watch",
+     "t": 116.35
+    },
+    {
+     "w": "from",
+     "t": 116.78
+    },
+    {
+     "w": "the",
+     "t": 117.2
+    },
+    {
+     "w": "sky",
+     "t": 117.62
+    },
+    {
+     "w": "to",
+     "t": 118.05
+    },
+    {
+     "w": "see",
+     "t": 118.47
+    },
+    {
+     "w": "which",
+     "t": 118.9
+    },
+    {
+     "w": "ones",
+     "t": 119.32
+    },
+    {
+     "w": "grow",
+     "t": 119.75
+    },
+    {
+     "w": "well.",
+     "t": 120.17
+    }
+   ]
+  },
+  {
+   "start": 120.6,
+   "end": 135.03,
+   "en": "It takes patience — a seed needs years to become a tall tree. Soon, vivid green shoots rise from the ground. Every forest starts with one small seed. And now, the seeds can fly.",
+   "title": "种树的无人机",
+   "cn": "种树需要耐心——一颗种子要好几年才能长成大树。不过很快，鲜绿的嫩芽就会破土而出。每一片森林，都是从一颗小小的种子开始的。而现在，种子也会飞了。",
+   "words": [
+    {
+     "w": "It",
+     "t": 120.6
+    },
+    {
+     "w": "takes",
+     "t": 121.02
+    },
+    {
+     "w": "patience",
+     "t": 121.45
+    },
+    {
+     "w": "—",
+     "t": 121.87
+    },
+    {
+     "w": "a",
+     "t": 122.29
+    },
+    {
+     "w": "seed",
+     "t": 122.72
+    },
+    {
+     "w": "needs",
+     "t": 123.14
+    },
+    {
+     "w": "years",
+     "t": 123.57
+    },
+    {
+     "w": "to",
+     "t": 123.99
+    },
+    {
+     "w": "become",
+     "t": 124.42
+    },
+    {
+     "w": "a",
+     "t": 124.84
+    },
+    {
+     "w": "tall",
+     "t": 125.27
+    },
+    {
+     "w": "tree.",
+     "t": 125.69
+    },
+    {
+     "w": "Soon,",
+     "t": 126.12
+    },
+    {
+     "w": "vivid",
+     "t": 126.54
+    },
+    {
+     "w": "green",
+     "t": 126.96
+    },
+    {
+     "w": "shoots",
+     "t": 127.39
+    },
+    {
+     "w": "rise",
+     "t": 127.81
+    },
+    {
+     "w": "from",
+     "t": 128.24
+    },
+    {
+     "w": "the",
+     "t": 128.66
+    },
+    {
+     "w": "ground.",
+     "t": 129.09
+    },
+    {
+     "w": "Every",
+     "t": 129.51
+    },
+    {
+     "w": "forest",
+     "t": 129.94
+    },
+    {
+     "w": "starts",
+     "t": 130.36
+    },
+    {
+     "w": "with",
+     "t": 130.78
+    },
+    {
+     "w": "one",
+     "t": 131.21
+    },
+    {
+     "w": "small",
+     "t": 131.63
+    },
+    {
+     "w": "seed.",
+     "t": 132.06
+    },
+    {
+     "w": "And",
+     "t": 132.48
+    },
+    {
+     "w": "now,",
+     "t": 132.91
+    },
+    {
+     "w": "the",
+     "t": 133.33
+    },
+    {
+     "w": "seeds",
+     "t": 133.76
+    },
+    {
+     "w": "can",
+     "t": 134.18
+    },
+    {
+     "w": "fly.",
+     "t": 134.61
+    }
+   ]
+  },
+  {
+   "start": 151.89,
+   "end": 177.39,
+   "en": "Under every forest floor hides a secret network. It is made by fungi — the same family as mushrooms. Thin white threads, called hyphae, spread through the soil and wrap around tree roots. The fungi give the trees water and minerals from the soil. In return, the trees give the fungi sugars they make from sunlight. Scientists call this the Wood Wide Web.",
+   "title": "森林的地下网络",
+   "cn": "每一片森林的地面下，都藏着一张秘密网络。它是由真菌织成的——真菌就是蘑菇的亲戚。细细的白色丝线叫菌丝，它们在泥土里蔓延，缠绕住树根。真菌从土壤里给树木送去水分和矿物质。作为回报，树木把自己用阳光制造的糖分送给真菌。科学家把这叫作“木联网”。",
+   "words": [
+    {
+     "w": "Under",
+     "t": 151.89
+    },
+    {
+     "w": "every",
+     "t": 152.29
+    },
+    {
+     "w": "forest",
+     "t": 152.7
+    },
+    {
+     "w": "floor",
+     "t": 153.1
+    },
+    {
+     "w": "hides",
+     "t": 153.51
+    },
+    {
+     "w": "a",
+     "t": 153.91
+    },
+    {
+     "w": "secret",
+     "t": 154.32
+    },
+    {
+     "w": "network.",
+     "t": 154.72
+    },
+    {
+     "w": "It",
+     "t": 155.13
+    },
+    {
+     "w": "is",
+     "t": 155.53
+    },
+    {
+     "w": "made",
+     "t": 155.94
+    },
+    {
+     "w": "by",
+     "t": 156.34
+    },
+    {
+     "w": "fungi",
+     "t": 156.75
+    },
+    {
+     "w": "—",
+     "t": 157.15
+    },
+    {
+     "w": "the",
+     "t": 157.56
+    },
+    {
+     "w": "same",
+     "t": 157.96
+    },
+    {
+     "w": "family",
+     "t": 158.37
+    },
+    {
+     "w": "as",
+     "t": 158.77
+    },
+    {
+     "w": "mushrooms.",
+     "t": 159.17
+    },
+    {
+     "w": "Thin",
+     "t": 159.58
+    },
+    {
+     "w": "white",
+     "t": 159.98
+    },
+    {
+     "w": "threads,",
+     "t": 160.39
+    },
+    {
+     "w": "called",
+     "t": 160.79
+    },
+    {
+     "w": "hyphae,",
+     "t": 161.2
+    },
+    {
+     "w": "spread",
+     "t": 161.6
+    },
+    {
+     "w": "through",
+     "t": 162.01
+    },
+    {
+     "w": "the",
+     "t": 162.41
+    },
+    {
+     "w": "soil",
+     "t": 162.82
+    },
+    {
+     "w": "and",
+     "t": 163.22
+    },
+    {
+     "w": "wrap",
+     "t": 163.63
+    },
+    {
+     "w": "around",
+     "t": 164.03
+    },
+    {
+     "w": "tree",
+     "t": 164.44
+    },
+    {
+     "w": "roots.",
+     "t": 164.84
+    },
+    {
+     "w": "The",
+     "t": 165.24
+    },
+    {
+     "w": "fungi",
+     "t": 165.65
+    },
+    {
+     "w": "give",
+     "t": 166.05
+    },
+    {
+     "w": "the",
+     "t": 166.46
+    },
+    {
+     "w": "trees",
+     "t": 166.86
+    },
+    {
+     "w": "water",
+     "t": 167.27
+    },
+    {
+     "w": "and",
+     "t": 167.67
+    },
+    {
+     "w": "minerals",
+     "t": 168.08
+    },
+    {
+     "w": "from",
+     "t": 168.48
+    },
+    {
+     "w": "the",
+     "t": 168.89
+    },
+    {
+     "w": "soil.",
+     "t": 169.29
+    },
+    {
+     "w": "In",
+     "t": 169.7
+    },
+    {
+     "w": "return,",
+     "t": 170.1
+    },
+    {
+     "w": "the",
+     "t": 170.51
+    },
+    {
+     "w": "trees",
+     "t": 170.91
+    },
+    {
+     "w": "give",
+     "t": 171.32
+    },
+    {
+     "w": "the",
+     "t": 171.72
+    },
+    {
+     "w": "fungi",
+     "t": 172.12
+    },
+    {
+     "w": "sugars",
+     "t": 172.53
+    },
+    {
+     "w": "they",
+     "t": 172.93
+    },
+    {
+     "w": "make",
+     "t": 173.34
+    },
+    {
+     "w": "from",
+     "t": 173.74
+    },
+    {
+     "w": "sunlight.",
+     "t": 174.15
+    },
+    {
+     "w": "Scientists",
+     "t": 174.55
+    },
+    {
+     "w": "call",
+     "t": 174.96
+    },
+    {
+     "w": "this",
+     "t": 175.36
+    },
+    {
+     "w": "the",
+     "t": 175.77
+    },
+    {
+     "w": "Wood",
+     "t": 176.17
+    },
+    {
+     "w": "Wide",
+     "t": 176.58
+    },
+    {
+     "w": "Web.",
+     "t": 176.98
+    }
+   ]
+  },
+  {
+   "start": 177.39,
+   "end": 203.29,
+   "en": "Big old mother trees sit at the centre of the web. They send extra food to young trees growing in the shade. In one famous test, birch trees shared food with fir trees when the firs needed it most, and the firs shared back in another season. When insects attack one tree, its neighbours can notice the warning and make their leaves taste bitter.",
+   "title": "森林的地下网络",
+   "cn": "高大的老树是这张网的中心，人们叫它们“母树”。它们会把多余的食物送给长在阴凉里的幼树。在一次著名的试验里，白桦树在冷杉最需要的时候和它们分享食物，到了另一个季节，冷杉也回赠白桦。当昆虫攻击一棵树时，邻近的树能察觉到警告，让自己的叶子变苦。",
+   "words": [
+    {
+     "w": "Big",
+     "t": 177.39
+    },
+    {
+     "w": "old",
+     "t": 177.79
+    },
+    {
+     "w": "mother",
+     "t": 178.2
+    },
+    {
+     "w": "trees",
+     "t": 178.6
+    },
+    {
+     "w": "sit",
+     "t": 179.0
+    },
+    {
+     "w": "at",
+     "t": 179.41
+    },
+    {
+     "w": "the",
+     "t": 179.81
+    },
+    {
+     "w": "centre",
+     "t": 180.22
+    },
+    {
+     "w": "of",
+     "t": 180.62
+    },
+    {
+     "w": "the",
+     "t": 181.03
+    },
+    {
+     "w": "web.",
+     "t": 181.43
+    },
+    {
+     "w": "They",
+     "t": 181.84
+    },
+    {
+     "w": "send",
+     "t": 182.24
+    },
+    {
+     "w": "extra",
+     "t": 182.65
+    },
+    {
+     "w": "food",
+     "t": 183.05
+    },
+    {
+     "w": "to",
+     "t": 183.46
+    },
+    {
+     "w": "young",
+     "t": 183.86
+    },
+    {
+     "w": "trees",
+     "t": 184.27
+    },
+    {
+     "w": "growing",
+     "t": 184.67
+    },
+    {
+     "w": "in",
+     "t": 185.07
+    },
+    {
+     "w": "the",
+     "t": 185.48
+    },
+    {
+     "w": "shade.",
+     "t": 185.88
+    },
+    {
+     "w": "In",
+     "t": 186.29
+    },
+    {
+     "w": "one",
+     "t": 186.69
+    },
+    {
+     "w": "famous",
+     "t": 187.1
+    },
+    {
+     "w": "test,",
+     "t": 187.5
+    },
+    {
+     "w": "birch",
+     "t": 187.91
+    },
+    {
+     "w": "trees",
+     "t": 188.31
+    },
+    {
+     "w": "shared",
+     "t": 188.72
+    },
+    {
+     "w": "food",
+     "t": 189.12
+    },
+    {
+     "w": "with",
+     "t": 189.53
+    },
+    {
+     "w": "fir",
+     "t": 189.93
+    },
+    {
+     "w": "trees",
+     "t": 190.34
+    },
+    {
+     "w": "when",
+     "t": 190.74
+    },
+    {
+     "w": "the",
+     "t": 191.15
+    },
+    {
+     "w": "firs",
+     "t": 191.55
+    },
+    {
+     "w": "needed",
+     "t": 191.95
+    },
+    {
+     "w": "it",
+     "t": 192.36
+    },
+    {
+     "w": "most,",
+     "t": 192.76
+    },
+    {
+     "w": "and",
+     "t": 193.17
+    },
+    {
+     "w": "the",
+     "t": 193.57
+    },
+    {
+     "w": "firs",
+     "t": 193.98
+    },
+    {
+     "w": "shared",
+     "t": 194.38
+    },
+    {
+     "w": "back",
+     "t": 194.79
+    },
+    {
+     "w": "in",
+     "t": 195.19
+    },
+    {
+     "w": "another",
+     "t": 195.6
+    },
+    {
+     "w": "season.",
+     "t": 196.0
+    },
+    {
+     "w": "When",
+     "t": 196.41
+    },
+    {
+     "w": "insects",
+     "t": 196.81
+    },
+    {
+     "w": "attack",
+     "t": 197.22
+    },
+    {
+     "w": "one",
+     "t": 197.62
+    },
+    {
+     "w": "tree,",
+     "t": 198.02
+    },
+    {
+     "w": "its",
+     "t": 198.43
+    },
+    {
+     "w": "neighbours",
+     "t": 198.83
+    },
+    {
+     "w": "can",
+     "t": 199.24
+    },
+    {
+     "w": "notice",
+     "t": 199.64
+    },
+    {
+     "w": "the",
+     "t": 200.05
+    },
+    {
+     "w": "warning",
+     "t": 200.45
+    },
+    {
+     "w": "and",
+     "t": 200.86
+    },
+    {
+     "w": "make",
+     "t": 201.26
+    },
+    {
+     "w": "their",
+     "t": 201.67
+    },
+    {
+     "w": "leaves",
+     "t": 202.07
+    },
+    {
+     "w": "taste",
+     "t": 202.48
+    },
+    {
+     "w": "bitter.",
+     "t": 202.88
+    }
+   ]
+  },
+  {
+   "start": 203.29,
+   "end": 224.33,
+   "en": "After rain, mushrooms erupt from the ground — just the fruits of the fungi, like apples on a tree. The real body of the fungus lives at the bottom of the soil, quietly feeding the forest. So trees are not lonely fighters — under the ground, they share, warn, and grow together.",
+   "title": "森林的地下网络",
+   "cn": "雨后，蘑菇从地里冒出来——它们只是真菌的果实，就像树上的苹果。真菌真正的身体住在土壤的底部，静静地喂养着整片森林。所以，树木并不是孤单的战士——在地下，它们分享、报警、一起长大。",
+   "words": [
+    {
+     "w": "After",
+     "t": 203.29
+    },
+    {
+     "w": "rain,",
+     "t": 203.69
+    },
+    {
+     "w": "mushrooms",
+     "t": 204.1
+    },
+    {
+     "w": "erupt",
+     "t": 204.5
+    },
+    {
+     "w": "from",
+     "t": 204.9
+    },
+    {
+     "w": "the",
+     "t": 205.31
+    },
+    {
+     "w": "ground",
+     "t": 205.71
+    },
+    {
+     "w": "—",
+     "t": 206.12
+    },
+    {
+     "w": "just",
+     "t": 206.52
+    },
+    {
+     "w": "the",
+     "t": 206.93
+    },
+    {
+     "w": "fruits",
+     "t": 207.33
+    },
+    {
+     "w": "of",
+     "t": 207.74
+    },
+    {
+     "w": "the",
+     "t": 208.14
+    },
+    {
+     "w": "fungi,",
+     "t": 208.55
+    },
+    {
+     "w": "like",
+     "t": 208.95
+    },
+    {
+     "w": "apples",
+     "t": 209.36
+    },
+    {
+     "w": "on",
+     "t": 209.76
+    },
+    {
+     "w": "a",
+     "t": 210.17
+    },
+    {
+     "w": "tree.",
+     "t": 210.57
+    },
+    {
+     "w": "The",
+     "t": 210.98
+    },
+    {
+     "w": "real",
+     "t": 211.38
+    },
+    {
+     "w": "body",
+     "t": 211.78
+    },
+    {
+     "w": "of",
+     "t": 212.19
+    },
+    {
+     "w": "the",
+     "t": 212.59
+    },
+    {
+     "w": "fungus",
+     "t": 213.0
+    },
+    {
+     "w": "lives",
+     "t": 213.4
+    },
+    {
+     "w": "at",
+     "t": 213.81
+    },
+    {
+     "w": "the",
+     "t": 214.21
+    },
+    {
+     "w": "bottom",
+     "t": 214.62
+    },
+    {
+     "w": "of",
+     "t": 215.02
+    },
+    {
+     "w": "the",
+     "t": 215.43
+    },
+    {
+     "w": "soil,",
+     "t": 215.83
+    },
+    {
+     "w": "quietly",
+     "t": 216.24
+    },
+    {
+     "w": "feeding",
+     "t": 216.64
+    },
+    {
+     "w": "the",
+     "t": 217.05
+    },
+    {
+     "w": "forest.",
+     "t": 217.45
+    },
+    {
+     "w": "So",
+     "t": 217.85
+    },
+    {
+     "w": "trees",
+     "t": 218.26
+    },
+    {
+     "w": "are",
+     "t": 218.66
+    },
+    {
+     "w": "not",
+     "t": 219.07
+    },
+    {
+     "w": "lonely",
+     "t": 219.47
+    },
+    {
+     "w": "fighters",
+     "t": 219.88
+    },
+    {
+     "w": "—",
+     "t": 220.28
+    },
+    {
+     "w": "under",
+     "t": 220.69
+    },
+    {
+     "w": "the",
+     "t": 221.09
+    },
+    {
+     "w": "ground,",
+     "t": 221.5
+    },
+    {
+     "w": "they",
+     "t": 221.9
+    },
+    {
+     "w": "share,",
+     "t": 222.31
+    },
+    {
+     "w": "warn,",
+     "t": 222.71
+    },
+    {
+     "w": "and",
+     "t": 223.12
+    },
+    {
+     "w": "grow",
+     "t": 223.52
+    },
+    {
+     "w": "together.",
+     "t": 223.93
+    }
+   ]
+  },
+  {
+   "start": 239.35,
+   "end": 280.77,
+   "en": "Here's today's idiom: \"barking up the wrong tree.\" Imagine a dog barking at a tree — but the squirrel hides in a different tree! If you are barking up the wrong tree, you are looking in the wrong place or blaming the wrong person. For a long time, people thought trees only fought each other for sunlight. They were barking up the wrong tree — under the ground, trees share and help each other. Here's an example: \"When Tom lost his keys, he blamed his sister — but he was barking up the wrong tree. The keys were in his own pocket!\" So, next time something goes wrong, check: are you barking up the right tree?",
+   "title": "今日俚语",
+   "cn": "今天的俚语是“barking up the wrong tree”（对着错的树狂吠）：想象一只狗对着一棵树大叫，可松鼠明明藏在另一棵树上！如果你 barking up the wrong tree，就是找错了地方，或者怪错了人。很长一段时间，人们以为树木只会为阳光互相争斗——他们找错了对象：在地下，树木会分享、会互相帮助。举个例子：汤姆丢了钥匙，怪到妹妹头上——可他怪错了人，钥匙就在他自己的口袋里！所以，下次出了问题，先检查一下：你有没有找错树？",
+   "words": [
+    {
+     "w": "Here's",
+     "t": 239.35
+    },
+    {
+     "w": "today's",
+     "t": 239.71
+    },
+    {
+     "w": "idiom:",
+     "t": 240.06
+    },
+    {
+     "w": "\"barking",
+     "t": 240.42
+    },
+    {
+     "w": "up",
+     "t": 240.78
+    },
+    {
+     "w": "the",
+     "t": 241.14
+    },
+    {
+     "w": "wrong",
+     "t": 241.49
+    },
+    {
+     "w": "tree.\"",
+     "t": 241.85
+    },
+    {
+     "w": "Imagine",
+     "t": 242.21
+    },
+    {
+     "w": "a",
+     "t": 242.56
+    },
+    {
+     "w": "dog",
+     "t": 242.92
+    },
+    {
+     "w": "barking",
+     "t": 243.28
+    },
+    {
+     "w": "at",
+     "t": 243.63
+    },
+    {
+     "w": "a",
+     "t": 243.99
+    },
+    {
+     "w": "tree",
+     "t": 244.35
+    },
+    {
+     "w": "—",
+     "t": 244.71
+    },
+    {
+     "w": "but",
+     "t": 245.06
+    },
+    {
+     "w": "the",
+     "t": 245.42
+    },
+    {
+     "w": "squirrel",
+     "t": 245.78
+    },
+    {
+     "w": "hides",
+     "t": 246.13
+    },
+    {
+     "w": "in",
+     "t": 246.49
+    },
+    {
+     "w": "a",
+     "t": 246.85
+    },
+    {
+     "w": "different",
+     "t": 247.21
+    },
+    {
+     "w": "tree!",
+     "t": 247.56
+    },
+    {
+     "w": "If",
+     "t": 247.92
+    },
+    {
+     "w": "you",
+     "t": 248.28
+    },
+    {
+     "w": "are",
+     "t": 248.63
+    },
+    {
+     "w": "barking",
+     "t": 248.99
+    },
+    {
+     "w": "up",
+     "t": 249.35
+    },
+    {
+     "w": "the",
+     "t": 249.7
+    },
+    {
+     "w": "wrong",
+     "t": 250.06
+    },
+    {
+     "w": "tree,",
+     "t": 250.42
+    },
+    {
+     "w": "you",
+     "t": 250.78
+    },
+    {
+     "w": "are",
+     "t": 251.13
+    },
+    {
+     "w": "looking",
+     "t": 251.49
+    },
+    {
+     "w": "in",
+     "t": 251.85
+    },
+    {
+     "w": "the",
+     "t": 252.2
+    },
+    {
+     "w": "wrong",
+     "t": 252.56
+    },
+    {
+     "w": "place",
+     "t": 252.92
+    },
+    {
+     "w": "or",
+     "t": 253.28
+    },
+    {
+     "w": "blaming",
+     "t": 253.63
+    },
+    {
+     "w": "the",
+     "t": 253.99
+    },
+    {
+     "w": "wrong",
+     "t": 254.35
+    },
+    {
+     "w": "person.",
+     "t": 254.7
+    },
+    {
+     "w": "For",
+     "t": 255.06
+    },
+    {
+     "w": "a",
+     "t": 255.42
+    },
+    {
+     "w": "long",
+     "t": 255.78
+    },
+    {
+     "w": "time,",
+     "t": 256.13
+    },
+    {
+     "w": "people",
+     "t": 256.49
+    },
+    {
+     "w": "thought",
+     "t": 256.85
+    },
+    {
+     "w": "trees",
+     "t": 257.2
+    },
+    {
+     "w": "only",
+     "t": 257.56
+    },
+    {
+     "w": "fought",
+     "t": 257.92
+    },
+    {
+     "w": "each",
+     "t": 258.27
+    },
+    {
+     "w": "other",
+     "t": 258.63
+    },
+    {
+     "w": "for",
+     "t": 258.99
+    },
+    {
+     "w": "sunlight.",
+     "t": 259.35
+    },
+    {
+     "w": "They",
+     "t": 259.7
+    },
+    {
+     "w": "were",
+     "t": 260.06
+    },
+    {
+     "w": "barking",
+     "t": 260.42
+    },
+    {
+     "w": "up",
+     "t": 260.77
+    },
+    {
+     "w": "the",
+     "t": 261.13
+    },
+    {
+     "w": "wrong",
+     "t": 261.49
+    },
+    {
+     "w": "tree",
+     "t": 261.85
+    },
+    {
+     "w": "—",
+     "t": 262.2
+    },
+    {
+     "w": "under",
+     "t": 262.56
+    },
+    {
+     "w": "the",
+     "t": 262.92
+    },
+    {
+     "w": "ground,",
+     "t": 263.27
+    },
+    {
+     "w": "trees",
+     "t": 263.63
+    },
+    {
+     "w": "share",
+     "t": 263.99
+    },
+    {
+     "w": "and",
+     "t": 264.34
+    },
+    {
+     "w": "help",
+     "t": 264.7
+    },
+    {
+     "w": "each",
+     "t": 265.06
+    },
+    {
+     "w": "other.",
+     "t": 265.42
+    },
+    {
+     "w": "Here's",
+     "t": 265.77
+    },
+    {
+     "w": "an",
+     "t": 266.13
+    },
+    {
+     "w": "example:",
+     "t": 266.49
+    },
+    {
+     "w": "\"When",
+     "t": 266.84
+    },
+    {
+     "w": "Tom",
+     "t": 267.2
+    },
+    {
+     "w": "lost",
+     "t": 267.56
+    },
+    {
+     "w": "his",
+     "t": 267.92
+    },
+    {
+     "w": "keys,",
+     "t": 268.27
+    },
+    {
+     "w": "he",
+     "t": 268.63
+    },
+    {
+     "w": "blamed",
+     "t": 268.99
+    },
+    {
+     "w": "his",
+     "t": 269.34
+    },
+    {
+     "w": "sister",
+     "t": 269.7
+    },
+    {
+     "w": "—",
+     "t": 270.06
+    },
+    {
+     "w": "but",
+     "t": 270.41
+    },
+    {
+     "w": "he",
+     "t": 270.77
+    },
+    {
+     "w": "was",
+     "t": 271.13
+    },
+    {
+     "w": "barking",
+     "t": 271.49
+    },
+    {
+     "w": "up",
+     "t": 271.84
+    },
+    {
+     "w": "the",
+     "t": 272.2
+    },
+    {
+     "w": "wrong",
+     "t": 272.56
+    },
+    {
+     "w": "tree.",
+     "t": 272.91
+    },
+    {
+     "w": "The",
+     "t": 273.27
+    },
+    {
+     "w": "keys",
+     "t": 273.63
+    },
+    {
+     "w": "were",
+     "t": 273.99
+    },
+    {
+     "w": "in",
+     "t": 274.34
+    },
+    {
+     "w": "his",
+     "t": 274.7
+    },
+    {
+     "w": "own",
+     "t": 275.06
+    },
+    {
+     "w": "pocket!\"",
+     "t": 275.41
+    },
+    {
+     "w": "So,",
+     "t": 275.77
+    },
+    {
+     "w": "next",
+     "t": 276.13
+    },
+    {
+     "w": "time",
+     "t": 276.49
+    },
+    {
+     "w": "something",
+     "t": 276.84
+    },
+    {
+     "w": "goes",
+     "t": 277.2
+    },
+    {
+     "w": "wrong,",
+     "t": 277.56
+    },
+    {
+     "w": "check:",
+     "t": 277.91
+    },
+    {
+     "w": "are",
+     "t": 278.27
+    },
+    {
+     "w": "you",
+     "t": 278.63
+    },
+    {
+     "w": "barking",
+     "t": 278.98
+    },
+    {
+     "w": "up",
+     "t": 279.34
+    },
+    {
+     "w": "the",
+     "t": 279.7
+    },
+    {
+     "w": "right",
+     "t": 280.06
+    },
+    {
+     "w": "tree?",
+     "t": 280.41
+    }
+   ]
+  },
+  {
+   "start": 296.35,
+   "end": 322.56,
+   "en": "Let's think about our stories: flying robots that plant trees, and a hidden web of fungi that feeds a forest. Now, two questions for you. First: if you had a tree-planting drone, where would you send it first? Second: if trees could really share food like a family, what would you share with your friends? Talk about it with your family!",
+   "title": "结束语与互动问题",
+   "cn": "我们来想想今天的故事：会种树的飞行机器人，还有一张在地下喂养森林的真菌大网。现在，轮到回答两个问题。第一：如果你有一架种树无人机，你最先会派它去哪里？第二：如果树木真的能像一家人一样分享食物，你会和朋友们分享什么？和家人聊聊吧！",
+   "words": [
+    {
+     "w": "Let's",
+     "t": 296.35
+    },
+    {
+     "w": "think",
+     "t": 296.78
+    },
+    {
+     "w": "about",
+     "t": 297.21
+    },
+    {
+     "w": "our",
+     "t": 297.64
+    },
+    {
+     "w": "stories:",
+     "t": 298.07
+    },
+    {
+     "w": "flying",
+     "t": 298.5
+    },
+    {
+     "w": "robots",
+     "t": 298.93
+    },
+    {
+     "w": "that",
+     "t": 299.36
+    },
+    {
+     "w": "plant",
+     "t": 299.79
+    },
+    {
+     "w": "trees,",
+     "t": 300.22
+    },
+    {
+     "w": "and",
+     "t": 300.65
+    },
+    {
+     "w": "a",
+     "t": 301.08
+    },
+    {
+     "w": "hidden",
+     "t": 301.51
+    },
+    {
+     "w": "web",
+     "t": 301.94
+    },
+    {
+     "w": "of",
+     "t": 302.37
+    },
+    {
+     "w": "fungi",
+     "t": 302.8
+    },
+    {
+     "w": "that",
+     "t": 303.22
+    },
+    {
+     "w": "feeds",
+     "t": 303.65
+    },
+    {
+     "w": "a",
+     "t": 304.08
+    },
+    {
+     "w": "forest.",
+     "t": 304.51
+    },
+    {
+     "w": "Now,",
+     "t": 304.94
+    },
+    {
+     "w": "two",
+     "t": 305.37
+    },
+    {
+     "w": "questions",
+     "t": 305.8
+    },
+    {
+     "w": "for",
+     "t": 306.23
+    },
+    {
+     "w": "you.",
+     "t": 306.66
+    },
+    {
+     "w": "First:",
+     "t": 307.09
+    },
+    {
+     "w": "if",
+     "t": 307.52
+    },
+    {
+     "w": "you",
+     "t": 307.95
+    },
+    {
+     "w": "had",
+     "t": 308.38
+    },
+    {
+     "w": "a",
+     "t": 308.81
+    },
+    {
+     "w": "tree-planting",
+     "t": 309.24
+    },
+    {
+     "w": "drone,",
+     "t": 309.67
+    },
+    {
+     "w": "where",
+     "t": 310.1
+    },
+    {
+     "w": "would",
+     "t": 310.53
+    },
+    {
+     "w": "you",
+     "t": 310.96
+    },
+    {
+     "w": "send",
+     "t": 311.39
+    },
+    {
+     "w": "it",
+     "t": 311.82
+    },
+    {
+     "w": "first?",
+     "t": 312.25
+    },
+    {
+     "w": "Second:",
+     "t": 312.68
+    },
+    {
+     "w": "if",
+     "t": 313.11
+    },
+    {
+     "w": "trees",
+     "t": 313.54
+    },
+    {
+     "w": "could",
+     "t": 313.97
+    },
+    {
+     "w": "really",
+     "t": 314.4
+    },
+    {
+     "w": "share",
+     "t": 314.83
+    },
+    {
+     "w": "food",
+     "t": 315.26
+    },
+    {
+     "w": "like",
+     "t": 315.69
+    },
+    {
+     "w": "a",
+     "t": 316.11
+    },
+    {
+     "w": "family,",
+     "t": 316.54
+    },
+    {
+     "w": "what",
+     "t": 316.97
+    },
+    {
+     "w": "would",
+     "t": 317.4
+    },
+    {
+     "w": "you",
+     "t": 317.83
+    },
+    {
+     "w": "share",
+     "t": 318.26
+    },
+    {
+     "w": "with",
+     "t": 318.69
+    },
+    {
+     "w": "your",
+     "t": 319.12
+    },
+    {
+     "w": "friends?",
+     "t": 319.55
+    },
+    {
+     "w": "Talk",
+     "t": 319.98
+    },
+    {
+     "w": "about",
+     "t": 320.41
+    },
+    {
+     "w": "it",
+     "t": 320.84
+    },
+    {
+     "w": "with",
+     "t": 321.27
+    },
+    {
+     "w": "your",
+     "t": 321.7
+    },
+    {
+     "w": "family!",
+     "t": 322.13
+    }
+   ]
+  },
+  {
+   "start": 332.78,
+   "end": 341.54,
+   "en": "That's all for today, young explorers. Be patient like a tree planter — and share like a forest. See you tomorrow morning!",
+   "title": "告别",
+   "cn": "今天的节目就到这里啦，小小探险家们。像种树人一样有耐心，像森林一样懂得分享。明天早上见！",
+   "words": [
+    {
+     "w": "That's",
+     "t": 332.78
+    },
+    {
+     "w": "all",
+     "t": 333.18
+    },
+    {
+     "w": "for",
+     "t": 333.58
+    },
+    {
+     "w": "today,",
+     "t": 333.97
+    },
+    {
+     "w": "young",
+     "t": 334.37
+    },
+    {
+     "w": "explorers.",
+     "t": 334.77
+    },
+    {
+     "w": "Be",
+     "t": 335.17
+    },
+    {
+     "w": "patient",
+     "t": 335.57
+    },
+    {
+     "w": "like",
+     "t": 335.97
+    },
+    {
+     "w": "a",
+     "t": 336.36
+    },
+    {
+     "w": "tree",
+     "t": 336.76
+    },
+    {
+     "w": "planter",
+     "t": 337.16
+    },
+    {
+     "w": "—",
+     "t": 337.56
+    },
+    {
+     "w": "and",
+     "t": 337.96
+    },
+    {
+     "w": "share",
+     "t": 338.35
+    },
+    {
+     "w": "like",
+     "t": 338.75
+    },
+    {
+     "w": "a",
+     "t": 339.15
+    },
+    {
+     "w": "forest.",
+     "t": 339.55
+    },
+    {
+     "w": "See",
+     "t": 339.95
+    },
+    {
+     "w": "you",
+     "t": 340.35
+    },
+    {
+     "w": "tomorrow",
+     "t": 340.74
+    },
+    {
+     "w": "morning!",
+     "t": 341.14
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "barking up the wrong tree",
+    "phon": "",
+    "meaning": "(习语) 对着错的树狂吠；找错对象、怪错人",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: When Tom lost his keys, he blamed his sister — but he was barking up the wrong tree."
+   },
+   {
+    "word": "erupt",
+    "phon": "/ɪˈrʌpt/",
+    "meaning": "(v.) 喷发；突然冒出",
+    "tags": [],
+    "example": "Example: After rain, mushrooms erupt from the ground."
+   },
+   {
+    "word": "spray",
+    "phon": "/spreɪ/",
+    "meaning": "(v.) 喷洒",
+    "tags": [],
+    "example": "Example: Other drones spray water and food over the young trees."
+   },
+   {
+    "word": "patience",
+    "phon": "/ˈpeɪʃns/",
+    "meaning": "(n.) 耐心",
+    "tags": [],
+    "example": "Example: It takes patience — a seed needs years to become a tall tree."
+   },
+   {
+    "word": "vivid",
+    "phon": "/ˈvɪvɪd/",
+    "meaning": "(adj.) 鲜艳的；生动的",
+    "tags": [],
+    "example": "Example: Soon, vivid green shoots rise from the ground."
+   },
+   {
+    "word": "network",
+    "phon": "/ˈnetwɜːk/",
+    "meaning": "(n.) 网络；网",
+    "tags": [],
+    "example": "Example: Under every forest floor hides a secret network."
+   },
+   {
+    "word": "fungi",
+    "phon": "/ˈfʌŋɡaɪ/",
+    "meaning": "(n.) 真菌（fungus 的复数）",
+    "tags": [],
+    "example": "Example: It is made by fungi — the same family as mushrooms."
+   },
+   {
+    "word": "thread",
+    "phon": "/θred/",
+    "meaning": "(n.) 丝线",
+    "tags": [],
+    "example": "Example: Thin white threads spread through the soil."
+   },
+   {
+    "word": "mineral",
+    "phon": "/ˈmɪnərəl/",
+    "meaning": "(n.) 矿物质",
+    "tags": [],
+    "example": "Example: The fungi give the trees water and minerals from the soil."
+   },
+   {
+    "word": "bitter",
+    "phon": "/ˈbɪtə/",
+    "meaning": "(adj.) 苦的",
+    "tags": [],
+    "example": "Example: Make their leaves taste bitter."
+   },
+   {
+    "word": "drone",
+    "phon": "/drəʊn/",
+    "meaning": "(n.) 无人机",
+    "tags": [],
+    "example": "Example: A company called Flash Forest sends drones to plant trees."
+   },
+   {
+    "word": "pod",
+    "phon": "/pɒd/",
+    "meaning": "(n.) 荚；豆荚",
+    "tags": [],
+    "example": "Example: The planting drones take off, carrying tiny seed pods."
+   },
+   {
+    "word": "shade",
+    "phon": "/ʃeɪd/",
+    "meaning": "(n.) 阴凉处",
+    "tags": [],
+    "example": "Example: They send extra food to young trees growing in the shade."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "How does Flash Forest find the best places for new trees?\nA. Workers walk the land with shovels\nB. Mapping drones fly over the land and take pictures\nC. Birds carry the seeds\nD. Farmers plant by hand",
+     "How many trees can one drone plant in a day?\nA. About one hundred\nB. About one thousand five hundred\nC. More than ten thousand\nD. One billion",
+     "What do fungi give to trees?\nA. Sunlight\nB. Water and minerals from the soil\nC. Seeds\nD. Leaves",
+     "What does \"barking up the wrong tree\" mean?\nA. Shouting at a tree\nB. Climbing the wrong tree\nC. Looking in the wrong place or blaming the wrong person\nD. Planting a tree"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "type": "text",
+        "text": "They send extra food "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "to"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " young trees "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "growing in the shade"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "."
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "send … to …"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "双宾语结构"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：send + 直接宾语（extra food，送的东西）+ to + 间接宾语（young trees，送给谁）。也可以换顺序说成 send + 间接宾语 + 直接宾语：send young trees extra food。看到 send，要立刻问：送什么、送给谁。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "growing in the shade"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "现在分词短语作后置定语"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：growing（生长着的）修饰 young trees，说明是哪种幼树——长在阴凉里的幼树。分词的逻辑主语就是它修饰的名词（trees 在生长），所以用 growing 而不是 grown。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "in the shade"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "介词短语"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：in + the shade（阴凉处），在这里说明幼树生长的地点。介词短语放在名词后面作定语，放在动词后面作状语，位置不同、作用不同，读的时候要看它紧跟谁。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句逻辑链："
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "动作（送）→ 东西（多余的食物）→ 对象（阴凉里的幼树）"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。一句话里藏着双宾语、分词定语和介词短语三个机关。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "VIVID"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（鲜艳的）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "MOTHER"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（母树）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ROOTS"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（树根）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SEED"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（种子）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "FOREST"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（森林）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "DRONE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（无人机）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "FUNGUS"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（真菌）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SPRAY"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（喷洒）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "NETWORK"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（网络）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PATIENCE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（耐心）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"small mapping drones fly over land … and find the best places for new trees.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"One drone can plant more than ten thousand trees in a day.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"The fungi give the trees water and minerals from the soil.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"If you are barking up the wrong tree, you are looking in the wrong place or blaming the wrong person.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. to  2. to"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. growing  2. shining"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. in  2. in"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "B",
+    "C",
+    "B",
+    "C"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. send … to …：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "Mother trees send extra food ____ young trees.",
+       "options": [
+        "to",
+        "in",
+        "at"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "The postman sends letters ____ every house.",
+       "options": [
+        "in",
+        "to",
+        "for"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. 分词后置定语：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "Young trees ____ in the shade need extra food.",
+       "options": [
+        "grows",
+        "grown",
+        "growing"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "Leaves ____ in the sun look bright green.",
+       "options": [
+        "shining",
+        "shines",
+        "shone"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. 介词短语 in …：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "Young trees grow slowly ____ the shade.",
+       "options": [
+        "on",
+        "in",
+        "at"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "Birds sing ____ the morning.",
+       "options": [
+        "on",
+        "under",
+        "in"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "When rain comes, mushrooms erupt from the ground and make the forest look alive.",
+    "Old trees send water to small plants growing in the dark."
+   ]
+  },
+  "crossword": {
+   "nrows": 14,
+   "ncols": 8,
+   "words": [
+    {
+     "word": "VIVID",
+     "row": 0,
+     "col": 0,
+     "dir": "D",
+     "num": 1,
+     "cn": "鲜艳的",
+     "clue": "Soon, ___ green shoots rise from the ground."
+    },
+    {
+     "word": "MOTHER",
+     "row": 0,
+     "col": 4,
+     "dir": "D",
+     "num": 2,
+     "cn": "母树",
+     "clue": "Big old ___ trees sit at the centre of the web."
+    },
+    {
+     "word": "ROOTS",
+     "row": 1,
+     "col": 2,
+     "dir": "A",
+     "num": 3,
+     "cn": "树根",
+     "clue": "Thin threads wrap around tree ___."
+    },
+    {
+     "word": "SEED",
+     "row": 1,
+     "col": 6,
+     "dir": "D",
+     "num": 4,
+     "cn": "种子",
+     "clue": "Every forest starts with one small ___."
+    },
+    {
+     "word": "FOREST",
+     "row": 3,
+     "col": 2,
+     "dir": "D",
+     "num": 5,
+     "cn": "森林",
+     "clue": "Under every ___ floor hides a secret network."
+    },
+    {
+     "word": "DRONE",
+     "row": 4,
+     "col": 0,
+     "dir": "A",
+     "num": 6,
+     "cn": "无人机",
+     "clue": "Flash Forest sends ___ to plant trees."
+    },
+    {
+     "word": "FUNGUS",
+     "row": 6,
+     "col": 5,
+     "dir": "D",
+     "num": 7,
+     "cn": "真菌",
+     "clue": "The real body of the ___ lives at the bottom of the soil."
+    },
+    {
+     "word": "SPRAY",
+     "row": 7,
+     "col": 0,
+     "dir": "D",
+     "num": 8,
+     "cn": "喷洒",
+     "clue": "Other drones ___ water and food over the young trees."
+    },
+    {
+     "word": "NETWORK",
+     "row": 7,
+     "col": 7,
+     "dir": "D",
+     "num": 9,
+     "cn": "网络",
+     "clue": "Scientists call this the Wood Wide ___."
+    },
+    {
+     "word": "PATIENCE",
+     "row": 8,
+     "col": 0,
+     "dir": "A",
+     "num": 10,
+     "cn": "耐心",
+     "clue": "It takes ___ — a seed needs years to become a tall tree."
+    }
+   ]
+  }
+ }
+}
