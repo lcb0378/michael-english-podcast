@@ -1,0 +1,288 @@
+[
+ {
+  "id": 1,
+  "title": "开场白",
+  "blocks": [
+   {
+    "start": 25.71,
+    "end": 28.98,
+    "en": "Hello, explorers, welcome back to Michael's Morning Listening!"
+   },
+   {
+    "start": 28.98,
+    "end": 31.02,
+    "en": "This is our fifteenth show!"
+   },
+   {
+    "start": 31.02,
+    "end": 35.51,
+    "en": "Today we visit a library whose star worker was a cat."
+   },
+   {
+    "start": 35.51,
+    "end": 44.09,
+    "en": "Then we look up at the Moon and learn a secret: our oldest friend in the sky is quietly walking away."
+   },
+   {
+    "start": 44.09,
+    "end": 47.77,
+    "en": "A cat, books, and the Moon — let's go!"
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "title": "图书馆的猫馆长",
+  "blocks": [
+   {
+    "start": 62.71,
+    "end": 72.06,
+    "en": "On the coldest night of the year, somebody pushed a tiny kitten through the book-return slot of a library in Iowa, America."
+   },
+   {
+    "start": 72.06,
+    "end": 81.4,
+    "en": "In the morning, librarian Vicki opened the metal box — and found a baby cat, eight weeks old, shaking like a leaf."
+   },
+   {
+    "start": 81.4,
+    "end": 86.07,
+    "en": "She gave him a warm bath and a saucer of milk."
+   },
+   {
+    "start": 86.07,
+    "end": 91.17,
+    "en": "The staff had a decision: could a cat live in a library?"
+   },
+   {
+    "start": 91.17,
+    "end": 94.57,
+    "en": "They named him Dewey — Dewey Readmore Books!"
+   },
+   {
+    "start": 94.57,
+    "end": 102.21,
+    "en": "'Dewey' comes from the Dewey Decimal System, the code that gives every book a place on the shelf."
+   },
+   {
+    "start": 102.21,
+    "end": 107.74,
+    "en": "And 'read more books' — what a perfect name for a library cat!"
+   },
+   {
+    "start": 107.74,
+    "end": 110.71,
+    "en": "Dewey soon had a job: official greeter."
+   },
+   {
+    "start": 110.71,
+    "end": 118.36,
+    "en": "Every morning he waited by the door, walked readers between the shelves, and slept in the sunniest chair."
+   },
+   {
+    "start": 118.36,
+    "end": 121.33,
+    "en": "Within a fortnight, the town knew him."
+   },
+   {
+    "start": 121.33,
+    "end": 126.0,
+    "en": "Children read to him, and lonely people came to hold him."
+   },
+   {
+    "start": 126.0,
+    "end": 128.98,
+    "en": "He always knew who needed a friend."
+   },
+   {
+    "start": 128.98,
+    "end": 133.65,
+    "en": "Soon visitors drove hundreds of miles to meet the famous cat."
+   },
+   {
+    "start": 133.65,
+    "end": 138.32,
+    "en": "One day the quiet library erupted with camera flashes — reporters!"
+   },
+   {
+    "start": 138.32,
+    "end": 142.57,
+    "en": "Dewey's story travelled the world and became a much-loved book."
+   },
+   {
+    "start": 142.57,
+    "end": 145.97,
+    "en": "For nineteen years he lived among the books."
+   },
+   {
+    "start": 145.97,
+    "end": 150.64,
+    "en": "That tiny kitten was now the world's most famous library cat."
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "title": "远去的月亮",
+  "blocks": [
+   {
+    "start": 167.58,
+    "end": 176.56,
+    "en": "Now look up: our second story stars the Moon — and here is its secret: the Moon is leaving us."
+   },
+   {
+    "start": 176.56,
+    "end": 185.53,
+    "en": "Do not worry: it leaves slowly — about three point eight centimetres a year, as fast as your fingernails grow."
+   },
+   {
+    "start": 185.53,
+    "end": 187.78,
+    "en": "How can scientists be sure?"
+   },
+   {
+    "start": 187.78,
+    "end": 190.92,
+    "en": "Astronauts left mirrors behind on the Moon."
+   },
+   {
+    "start": 190.92,
+    "end": 196.75,
+    "en": "Scientists fire laser beams at the mirrors and time the light's return trip."
+   },
+   {
+    "start": 196.75,
+    "end": 204.83,
+    "en": "Light's speed never changes, so the time tells the distance — about three hundred and eighty-four thousand kilometres."
+   },
+   {
+    "start": 204.83,
+    "end": 210.66,
+    "en": "That is how they observe and determine the Moon's escape, millimetre by millimetre."
+   },
+   {
+    "start": 210.66,
+    "end": 213.36,
+    "en": "Why does the Moon drift away?"
+   },
+   {
+    "start": 213.36,
+    "end": 214.7,
+    "en": "Blame the tides."
+   },
+   {
+    "start": 214.7,
+    "end": 218.29,
+    "en": "The Moon pulls Earth's oceans into two bulges."
+   },
+   {
+    "start": 218.29,
+    "end": 229.51,
+    "en": "Our planet spins fast and drags those bulges ahead of the Moon, and the bulges pull the Moon forward, like a hand pushing a swing."
+   },
+   {
+    "start": 229.51,
+    "end": 237.59,
+    "en": "So the Moon climbs into a wider orbit, Earth spins a little slower, and our days grow longer."
+   },
+   {
+    "start": 237.59,
+    "end": 240.29,
+    "en": "Long ago, the Moon hung closer."
+   },
+   {
+    "start": 240.29,
+    "end": 247.02,
+    "en": "It looked enormous, the tides were giant, and a day was shorter than twenty-four hours."
+   },
+   {
+    "start": 247.02,
+    "end": 255.1,
+    "en": "The Moon will drift for millions of years — but tonight it is still our big, bright neighbour."
+   },
+   {
+    "start": 255.1,
+    "end": 257.34,
+    "en": "Wave when you see it!"
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "title": "今日俚语",
+  "blocks": [
+   {
+    "start": 272.12,
+    "end": 282.04,
+    "en": "Here's today's idiom: 'over the moon.' If you are over the moon, you are extremely happy — so happy you could jump over the Moon!"
+   },
+   {
+    "start": 282.04,
+    "end": 289.18,
+    "en": "When Dewey's librarians heard that people drove for hours to meet their cat, they were over the moon."
+   },
+   {
+    "start": 289.18,
+    "end": 297.51,
+    "en": "Here's an example: 'I won the reading contest, and I was over the moon!' What makes you feel over the moon?"
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "title": "结束语与互动问题",
+  "blocks": [
+   {
+    "start": 313.25,
+    "end": 315.02,
+    "en": "Let's think about our stories."
+   },
+   {
+    "start": 315.02,
+    "end": 319.96,
+    "en": "A kitten found a home among the books, and the Moon is drifting away."
+   },
+   {
+    "start": 319.96,
+    "end": 321.72,
+    "en": "Now, two questions for you."
+   },
+   {
+    "start": 321.72,
+    "end": 327.02,
+    "en": "First: if a cat lived in your school library, what job would you give it?"
+   },
+   {
+    "start": 327.02,
+    "end": 331.61,
+    "en": "Second: if you could send the Moon one message, what would you say?"
+   },
+   {
+    "start": 331.61,
+    "end": 333.73,
+    "en": "Talk about it with your family!"
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "title": "告别",
+  "blocks": [
+   {
+    "start": 345.23,
+    "end": 347.64,
+    "en": "That's all for today, young explorers."
+   },
+   {
+    "start": 347.64,
+    "end": 350.46,
+    "en": "Read like Dewey, and keep looking up."
+   },
+   {
+    "start": 350.46,
+    "end": 352.07,
+    "en": "See you tomorrow morning!"
+   }
+  ]
+ }
+]

@@ -1,0 +1,3779 @@
+{
+ "id": "vol15",
+ "title": "图书馆的猫馆长与远去的月亮",
+ "words": 600,
+ "duration": "6分01秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol15/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol15/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol15/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol15/Vol15_晚读讲义_图书馆的猫馆长与远去的月亮_v1.pdf",
+ "pdfName": "Vol15_晚读讲义_图书馆的猫馆长与远去的月亮_v1.pdf",
+ "blocks": [
+  {
+   "start": 25.71,
+   "end": 47.77,
+   "en": "Hello, explorers, welcome back to Michael's Morning Listening! This is our fifteenth show! Today we visit a library whose star worker was a cat. Then we look up at the Moon and learn a secret: our oldest friend in the sky is quietly walking away. A cat, books, and the Moon — let's go!",
+   "title": "开场白",
+   "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！这是我们在一起的第十五期节目啦！今天我们先去一座图书馆，那里的大明星员工是一只猫。然后我们抬头望向月亮，知道了一个秘密：我们天空中最老的朋友，正在悄悄走远。一只猫、书和月亮——出发吧！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 25.71
+    },
+    {
+     "w": "explorers,",
+     "t": 26.12
+    },
+    {
+     "w": "welcome",
+     "t": 26.53
+    },
+    {
+     "w": "back",
+     "t": 26.94
+    },
+    {
+     "w": "to",
+     "t": 27.34
+    },
+    {
+     "w": "Michael's",
+     "t": 27.75
+    },
+    {
+     "w": "Morning",
+     "t": 28.16
+    },
+    {
+     "w": "Listening!",
+     "t": 28.57
+    },
+    {
+     "w": "This",
+     "t": 28.98
+    },
+    {
+     "w": "is",
+     "t": 29.39
+    },
+    {
+     "w": "our",
+     "t": 29.8
+    },
+    {
+     "w": "fifteenth",
+     "t": 30.2
+    },
+    {
+     "w": "show!",
+     "t": 30.61
+    },
+    {
+     "w": "Today",
+     "t": 31.02
+    },
+    {
+     "w": "we",
+     "t": 31.43
+    },
+    {
+     "w": "visit",
+     "t": 31.84
+    },
+    {
+     "w": "a",
+     "t": 32.25
+    },
+    {
+     "w": "library",
+     "t": 32.65
+    },
+    {
+     "w": "whose",
+     "t": 33.06
+    },
+    {
+     "w": "star",
+     "t": 33.47
+    },
+    {
+     "w": "worker",
+     "t": 33.88
+    },
+    {
+     "w": "was",
+     "t": 34.29
+    },
+    {
+     "w": "a",
+     "t": 34.7
+    },
+    {
+     "w": "cat.",
+     "t": 35.11
+    },
+    {
+     "w": "Then",
+     "t": 35.51
+    },
+    {
+     "w": "we",
+     "t": 35.92
+    },
+    {
+     "w": "look",
+     "t": 36.33
+    },
+    {
+     "w": "up",
+     "t": 36.74
+    },
+    {
+     "w": "at",
+     "t": 37.15
+    },
+    {
+     "w": "the",
+     "t": 37.56
+    },
+    {
+     "w": "Moon",
+     "t": 37.97
+    },
+    {
+     "w": "and",
+     "t": 38.37
+    },
+    {
+     "w": "learn",
+     "t": 38.78
+    },
+    {
+     "w": "a",
+     "t": 39.19
+    },
+    {
+     "w": "secret:",
+     "t": 39.6
+    },
+    {
+     "w": "our",
+     "t": 40.01
+    },
+    {
+     "w": "oldest",
+     "t": 40.42
+    },
+    {
+     "w": "friend",
+     "t": 40.83
+    },
+    {
+     "w": "in",
+     "t": 41.23
+    },
+    {
+     "w": "the",
+     "t": 41.64
+    },
+    {
+     "w": "sky",
+     "t": 42.05
+    },
+    {
+     "w": "is",
+     "t": 42.46
+    },
+    {
+     "w": "quietly",
+     "t": 42.87
+    },
+    {
+     "w": "walking",
+     "t": 43.28
+    },
+    {
+     "w": "away.",
+     "t": 43.68
+    },
+    {
+     "w": "A",
+     "t": 44.09
+    },
+    {
+     "w": "cat,",
+     "t": 44.5
+    },
+    {
+     "w": "books,",
+     "t": 44.91
+    },
+    {
+     "w": "and",
+     "t": 45.32
+    },
+    {
+     "w": "the",
+     "t": 45.73
+    },
+    {
+     "w": "Moon",
+     "t": 46.14
+    },
+    {
+     "w": "—",
+     "t": 46.54
+    },
+    {
+     "w": "let's",
+     "t": 46.95
+    },
+    {
+     "w": "go!",
+     "t": 47.36
+    }
+   ]
+  },
+  {
+   "start": 62.71,
+   "end": 86.07,
+   "en": "On the coldest night of the year, somebody pushed a tiny kitten through the book-return slot of a library in Iowa, America. In the morning, librarian Vicki opened the metal box — and found a baby cat, eight weeks old, shaking like a leaf. She gave him a warm bath and a saucer of milk.",
+   "title": "图书馆的猫馆长",
+   "cn": "在一年里最冷的那天晚上，有人把一只小猫从还书口塞进了一座图书馆，那是在美国的爱荷华州。第二天早上，图书管理员薇姬打开那个金属箱子——发现了一只小猫宝宝，才八周大，抖得像一片叶子。她给它洗了个热水澡，又端来一小碟牛奶。",
+   "words": [
+    {
+     "w": "On",
+     "t": 62.71
+    },
+    {
+     "w": "the",
+     "t": 63.13
+    },
+    {
+     "w": "coldest",
+     "t": 63.56
+    },
+    {
+     "w": "night",
+     "t": 63.98
+    },
+    {
+     "w": "of",
+     "t": 64.41
+    },
+    {
+     "w": "the",
+     "t": 64.83
+    },
+    {
+     "w": "year,",
+     "t": 65.26
+    },
+    {
+     "w": "somebody",
+     "t": 65.68
+    },
+    {
+     "w": "pushed",
+     "t": 66.11
+    },
+    {
+     "w": "a",
+     "t": 66.53
+    },
+    {
+     "w": "tiny",
+     "t": 66.96
+    },
+    {
+     "w": "kitten",
+     "t": 67.38
+    },
+    {
+     "w": "through",
+     "t": 67.81
+    },
+    {
+     "w": "the",
+     "t": 68.23
+    },
+    {
+     "w": "book-return",
+     "t": 68.66
+    },
+    {
+     "w": "slot",
+     "t": 69.08
+    },
+    {
+     "w": "of",
+     "t": 69.51
+    },
+    {
+     "w": "a",
+     "t": 69.93
+    },
+    {
+     "w": "library",
+     "t": 70.36
+    },
+    {
+     "w": "in",
+     "t": 70.78
+    },
+    {
+     "w": "Iowa,",
+     "t": 71.21
+    },
+    {
+     "w": "America.",
+     "t": 71.63
+    },
+    {
+     "w": "In",
+     "t": 72.06
+    },
+    {
+     "w": "the",
+     "t": 72.48
+    },
+    {
+     "w": "morning,",
+     "t": 72.9
+    },
+    {
+     "w": "librarian",
+     "t": 73.33
+    },
+    {
+     "w": "Vicki",
+     "t": 73.75
+    },
+    {
+     "w": "opened",
+     "t": 74.18
+    },
+    {
+     "w": "the",
+     "t": 74.6
+    },
+    {
+     "w": "metal",
+     "t": 75.03
+    },
+    {
+     "w": "box",
+     "t": 75.45
+    },
+    {
+     "w": "—",
+     "t": 75.88
+    },
+    {
+     "w": "and",
+     "t": 76.3
+    },
+    {
+     "w": "found",
+     "t": 76.73
+    },
+    {
+     "w": "a",
+     "t": 77.15
+    },
+    {
+     "w": "baby",
+     "t": 77.58
+    },
+    {
+     "w": "cat,",
+     "t": 78.0
+    },
+    {
+     "w": "eight",
+     "t": 78.43
+    },
+    {
+     "w": "weeks",
+     "t": 78.85
+    },
+    {
+     "w": "old,",
+     "t": 79.28
+    },
+    {
+     "w": "shaking",
+     "t": 79.7
+    },
+    {
+     "w": "like",
+     "t": 80.13
+    },
+    {
+     "w": "a",
+     "t": 80.55
+    },
+    {
+     "w": "leaf.",
+     "t": 80.98
+    },
+    {
+     "w": "She",
+     "t": 81.4
+    },
+    {
+     "w": "gave",
+     "t": 81.83
+    },
+    {
+     "w": "him",
+     "t": 82.25
+    },
+    {
+     "w": "a",
+     "t": 82.67
+    },
+    {
+     "w": "warm",
+     "t": 83.1
+    },
+    {
+     "w": "bath",
+     "t": 83.52
+    },
+    {
+     "w": "and",
+     "t": 83.95
+    },
+    {
+     "w": "a",
+     "t": 84.37
+    },
+    {
+     "w": "saucer",
+     "t": 84.8
+    },
+    {
+     "w": "of",
+     "t": 85.22
+    },
+    {
+     "w": "milk.",
+     "t": 85.65
+    }
+   ]
+  },
+  {
+   "start": 86.07,
+   "end": 107.74,
+   "en": "The staff had a decision: could a cat live in a library? They named him Dewey — Dewey Readmore Books! 'Dewey' comes from the Dewey Decimal System, the code that gives every book a place on the shelf. And 'read more books' — what a perfect name for a library cat!",
+   "title": "图书馆的猫馆长",
+   "cn": "工作人员要做一个决定：图书馆里能住一只猫吗？他们给它起名叫 Dewey——Dewey Readmore Books！“Dewey”来自杜威十进制分类法，就是那个给每本书都在书架上安排好位置的编号系统。而“read more books”就是“多读书”——给图书馆的猫起这个名字，简直太合适了！",
+   "words": [
+    {
+     "w": "The",
+     "t": 86.07
+    },
+    {
+     "w": "staff",
+     "t": 86.5
+    },
+    {
+     "w": "had",
+     "t": 86.92
+    },
+    {
+     "w": "a",
+     "t": 87.35
+    },
+    {
+     "w": "decision:",
+     "t": 87.77
+    },
+    {
+     "w": "could",
+     "t": 88.2
+    },
+    {
+     "w": "a",
+     "t": 88.62
+    },
+    {
+     "w": "cat",
+     "t": 89.05
+    },
+    {
+     "w": "live",
+     "t": 89.47
+    },
+    {
+     "w": "in",
+     "t": 89.9
+    },
+    {
+     "w": "a",
+     "t": 90.32
+    },
+    {
+     "w": "library?",
+     "t": 90.75
+    },
+    {
+     "w": "They",
+     "t": 91.17
+    },
+    {
+     "w": "named",
+     "t": 91.6
+    },
+    {
+     "w": "him",
+     "t": 92.02
+    },
+    {
+     "w": "Dewey",
+     "t": 92.44
+    },
+    {
+     "w": "—",
+     "t": 92.87
+    },
+    {
+     "w": "Dewey",
+     "t": 93.29
+    },
+    {
+     "w": "Readmore",
+     "t": 93.72
+    },
+    {
+     "w": "Books!",
+     "t": 94.14
+    },
+    {
+     "w": "'Dewey'",
+     "t": 94.57
+    },
+    {
+     "w": "comes",
+     "t": 94.99
+    },
+    {
+     "w": "from",
+     "t": 95.42
+    },
+    {
+     "w": "the",
+     "t": 95.84
+    },
+    {
+     "w": "Dewey",
+     "t": 96.27
+    },
+    {
+     "w": "Decimal",
+     "t": 96.69
+    },
+    {
+     "w": "System,",
+     "t": 97.12
+    },
+    {
+     "w": "the",
+     "t": 97.54
+    },
+    {
+     "w": "code",
+     "t": 97.97
+    },
+    {
+     "w": "that",
+     "t": 98.39
+    },
+    {
+     "w": "gives",
+     "t": 98.82
+    },
+    {
+     "w": "every",
+     "t": 99.24
+    },
+    {
+     "w": "book",
+     "t": 99.67
+    },
+    {
+     "w": "a",
+     "t": 100.09
+    },
+    {
+     "w": "place",
+     "t": 100.52
+    },
+    {
+     "w": "on",
+     "t": 100.94
+    },
+    {
+     "w": "the",
+     "t": 101.37
+    },
+    {
+     "w": "shelf.",
+     "t": 101.79
+    },
+    {
+     "w": "And",
+     "t": 102.21
+    },
+    {
+     "w": "'read",
+     "t": 102.64
+    },
+    {
+     "w": "more",
+     "t": 103.06
+    },
+    {
+     "w": "books'",
+     "t": 103.49
+    },
+    {
+     "w": "—",
+     "t": 103.91
+    },
+    {
+     "w": "what",
+     "t": 104.34
+    },
+    {
+     "w": "a",
+     "t": 104.76
+    },
+    {
+     "w": "perfect",
+     "t": 105.19
+    },
+    {
+     "w": "name",
+     "t": 105.61
+    },
+    {
+     "w": "for",
+     "t": 106.04
+    },
+    {
+     "w": "a",
+     "t": 106.46
+    },
+    {
+     "w": "library",
+     "t": 106.89
+    },
+    {
+     "w": "cat!",
+     "t": 107.31
+    }
+   ]
+  },
+  {
+   "start": 107.74,
+   "end": 128.98,
+   "en": "Dewey soon had a job: official greeter. Every morning he waited by the door, walked readers between the shelves, and slept in the sunniest chair. Within a fortnight, the town knew him. Children read to him, and lonely people came to hold him. He always knew who needed a friend.",
+   "title": "图书馆的猫馆长",
+   "cn": "Dewey 很快有了一份工作：官方迎宾员。每天早上，它守在门口，陪着读者在书架间散步，还睡在阳光最暖的那把椅子上。不到两个星期，全镇人都认识它了。小朋友们读故事给它听，孤单的人们专程来抱抱它。它总是准确地知道，谁最需要一个朋友。",
+   "words": [
+    {
+     "w": "Dewey",
+     "t": 107.74
+    },
+    {
+     "w": "soon",
+     "t": 108.16
+    },
+    {
+     "w": "had",
+     "t": 108.59
+    },
+    {
+     "w": "a",
+     "t": 109.01
+    },
+    {
+     "w": "job:",
+     "t": 109.44
+    },
+    {
+     "w": "official",
+     "t": 109.86
+    },
+    {
+     "w": "greeter.",
+     "t": 110.29
+    },
+    {
+     "w": "Every",
+     "t": 110.71
+    },
+    {
+     "w": "morning",
+     "t": 111.14
+    },
+    {
+     "w": "he",
+     "t": 111.56
+    },
+    {
+     "w": "waited",
+     "t": 111.98
+    },
+    {
+     "w": "by",
+     "t": 112.41
+    },
+    {
+     "w": "the",
+     "t": 112.83
+    },
+    {
+     "w": "door,",
+     "t": 113.26
+    },
+    {
+     "w": "walked",
+     "t": 113.68
+    },
+    {
+     "w": "readers",
+     "t": 114.11
+    },
+    {
+     "w": "between",
+     "t": 114.53
+    },
+    {
+     "w": "the",
+     "t": 114.96
+    },
+    {
+     "w": "shelves,",
+     "t": 115.38
+    },
+    {
+     "w": "and",
+     "t": 115.81
+    },
+    {
+     "w": "slept",
+     "t": 116.23
+    },
+    {
+     "w": "in",
+     "t": 116.66
+    },
+    {
+     "w": "the",
+     "t": 117.08
+    },
+    {
+     "w": "sunniest",
+     "t": 117.51
+    },
+    {
+     "w": "chair.",
+     "t": 117.93
+    },
+    {
+     "w": "Within",
+     "t": 118.36
+    },
+    {
+     "w": "a",
+     "t": 118.78
+    },
+    {
+     "w": "fortnight,",
+     "t": 119.21
+    },
+    {
+     "w": "the",
+     "t": 119.63
+    },
+    {
+     "w": "town",
+     "t": 120.06
+    },
+    {
+     "w": "knew",
+     "t": 120.48
+    },
+    {
+     "w": "him.",
+     "t": 120.91
+    },
+    {
+     "w": "Children",
+     "t": 121.33
+    },
+    {
+     "w": "read",
+     "t": 121.75
+    },
+    {
+     "w": "to",
+     "t": 122.18
+    },
+    {
+     "w": "him,",
+     "t": 122.6
+    },
+    {
+     "w": "and",
+     "t": 123.03
+    },
+    {
+     "w": "lonely",
+     "t": 123.45
+    },
+    {
+     "w": "people",
+     "t": 123.88
+    },
+    {
+     "w": "came",
+     "t": 124.3
+    },
+    {
+     "w": "to",
+     "t": 124.73
+    },
+    {
+     "w": "hold",
+     "t": 125.15
+    },
+    {
+     "w": "him.",
+     "t": 125.58
+    },
+    {
+     "w": "He",
+     "t": 126.0
+    },
+    {
+     "w": "always",
+     "t": 126.43
+    },
+    {
+     "w": "knew",
+     "t": 126.85
+    },
+    {
+     "w": "who",
+     "t": 127.28
+    },
+    {
+     "w": "needed",
+     "t": 127.7
+    },
+    {
+     "w": "a",
+     "t": 128.13
+    },
+    {
+     "w": "friend.",
+     "t": 128.55
+    }
+   ]
+  },
+  {
+   "start": 128.98,
+   "end": 150.64,
+   "en": "Soon visitors drove hundreds of miles to meet the famous cat. One day the quiet library erupted with camera flashes — reporters! Dewey's story travelled the world and became a much-loved book. For nineteen years he lived among the books. That tiny kitten was now the world's most famous library cat.",
+   "title": "图书馆的猫馆长",
+   "cn": "很快，游客们开车几百英里，就为了见见这只有名的猫。有一天，安静的图书馆突然被相机闪光灯点亮了——记者们来了！Dewey 的故事传遍了全世界，后来还变成了一本深受喜爱的书。十九年里，它一直住在书丛中。那只小猫，如今成了世界上最有名的图书馆猫。",
+   "words": [
+    {
+     "w": "Soon",
+     "t": 128.98
+    },
+    {
+     "w": "visitors",
+     "t": 129.4
+    },
+    {
+     "w": "drove",
+     "t": 129.83
+    },
+    {
+     "w": "hundreds",
+     "t": 130.25
+    },
+    {
+     "w": "of",
+     "t": 130.68
+    },
+    {
+     "w": "miles",
+     "t": 131.1
+    },
+    {
+     "w": "to",
+     "t": 131.52
+    },
+    {
+     "w": "meet",
+     "t": 131.95
+    },
+    {
+     "w": "the",
+     "t": 132.37
+    },
+    {
+     "w": "famous",
+     "t": 132.8
+    },
+    {
+     "w": "cat.",
+     "t": 133.22
+    },
+    {
+     "w": "One",
+     "t": 133.65
+    },
+    {
+     "w": "day",
+     "t": 134.07
+    },
+    {
+     "w": "the",
+     "t": 134.5
+    },
+    {
+     "w": "quiet",
+     "t": 134.92
+    },
+    {
+     "w": "library",
+     "t": 135.35
+    },
+    {
+     "w": "erupted",
+     "t": 135.77
+    },
+    {
+     "w": "with",
+     "t": 136.2
+    },
+    {
+     "w": "camera",
+     "t": 136.62
+    },
+    {
+     "w": "flashes",
+     "t": 137.05
+    },
+    {
+     "w": "—",
+     "t": 137.47
+    },
+    {
+     "w": "reporters!",
+     "t": 137.9
+    },
+    {
+     "w": "Dewey's",
+     "t": 138.32
+    },
+    {
+     "w": "story",
+     "t": 138.75
+    },
+    {
+     "w": "travelled",
+     "t": 139.17
+    },
+    {
+     "w": "the",
+     "t": 139.6
+    },
+    {
+     "w": "world",
+     "t": 140.02
+    },
+    {
+     "w": "and",
+     "t": 140.45
+    },
+    {
+     "w": "became",
+     "t": 140.87
+    },
+    {
+     "w": "a",
+     "t": 141.29
+    },
+    {
+     "w": "much-loved",
+     "t": 141.72
+    },
+    {
+     "w": "book.",
+     "t": 142.14
+    },
+    {
+     "w": "For",
+     "t": 142.57
+    },
+    {
+     "w": "nineteen",
+     "t": 142.99
+    },
+    {
+     "w": "years",
+     "t": 143.42
+    },
+    {
+     "w": "he",
+     "t": 143.84
+    },
+    {
+     "w": "lived",
+     "t": 144.27
+    },
+    {
+     "w": "among",
+     "t": 144.69
+    },
+    {
+     "w": "the",
+     "t": 145.12
+    },
+    {
+     "w": "books.",
+     "t": 145.54
+    },
+    {
+     "w": "That",
+     "t": 145.97
+    },
+    {
+     "w": "tiny",
+     "t": 146.39
+    },
+    {
+     "w": "kitten",
+     "t": 146.82
+    },
+    {
+     "w": "was",
+     "t": 147.24
+    },
+    {
+     "w": "now",
+     "t": 147.67
+    },
+    {
+     "w": "the",
+     "t": 148.09
+    },
+    {
+     "w": "world's",
+     "t": 148.52
+    },
+    {
+     "w": "most",
+     "t": 148.94
+    },
+    {
+     "w": "famous",
+     "t": 149.37
+    },
+    {
+     "w": "library",
+     "t": 149.79
+    },
+    {
+     "w": "cat.",
+     "t": 150.22
+    }
+   ]
+  },
+  {
+   "start": 167.58,
+   "end": 185.53,
+   "en": "Now look up: our second story stars the Moon — and here is its secret: the Moon is leaving us. Do not worry: it leaves slowly — about three point eight centimetres a year, as fast as your fingernails grow.",
+   "title": "远去的月亮",
+   "cn": "现在抬起头，我们的第二个故事主角是月亮——它还藏着一个秘密：月亮正在离开我们。别担心：它离开得很慢——每年大约三点八厘米，差不多和你的指甲生长的速度一样。",
+   "words": [
+    {
+     "w": "Now",
+     "t": 167.58
+    },
+    {
+     "w": "look",
+     "t": 168.03
+    },
+    {
+     "w": "up:",
+     "t": 168.48
+    },
+    {
+     "w": "our",
+     "t": 168.93
+    },
+    {
+     "w": "second",
+     "t": 169.38
+    },
+    {
+     "w": "story",
+     "t": 169.82
+    },
+    {
+     "w": "stars",
+     "t": 170.27
+    },
+    {
+     "w": "the",
+     "t": 170.72
+    },
+    {
+     "w": "Moon",
+     "t": 171.17
+    },
+    {
+     "w": "—",
+     "t": 171.62
+    },
+    {
+     "w": "and",
+     "t": 172.07
+    },
+    {
+     "w": "here",
+     "t": 172.52
+    },
+    {
+     "w": "is",
+     "t": 172.97
+    },
+    {
+     "w": "its",
+     "t": 173.41
+    },
+    {
+     "w": "secret:",
+     "t": 173.86
+    },
+    {
+     "w": "the",
+     "t": 174.31
+    },
+    {
+     "w": "Moon",
+     "t": 174.76
+    },
+    {
+     "w": "is",
+     "t": 175.21
+    },
+    {
+     "w": "leaving",
+     "t": 175.66
+    },
+    {
+     "w": "us.",
+     "t": 176.11
+    },
+    {
+     "w": "Do",
+     "t": 176.56
+    },
+    {
+     "w": "not",
+     "t": 177.0
+    },
+    {
+     "w": "worry:",
+     "t": 177.45
+    },
+    {
+     "w": "it",
+     "t": 177.9
+    },
+    {
+     "w": "leaves",
+     "t": 178.35
+    },
+    {
+     "w": "slowly",
+     "t": 178.8
+    },
+    {
+     "w": "—",
+     "t": 179.25
+    },
+    {
+     "w": "about",
+     "t": 179.7
+    },
+    {
+     "w": "three",
+     "t": 180.15
+    },
+    {
+     "w": "point",
+     "t": 180.6
+    },
+    {
+     "w": "eight",
+     "t": 181.04
+    },
+    {
+     "w": "centimetres",
+     "t": 181.49
+    },
+    {
+     "w": "a",
+     "t": 181.94
+    },
+    {
+     "w": "year,",
+     "t": 182.39
+    },
+    {
+     "w": "as",
+     "t": 182.84
+    },
+    {
+     "w": "fast",
+     "t": 183.29
+    },
+    {
+     "w": "as",
+     "t": 183.74
+    },
+    {
+     "w": "your",
+     "t": 184.19
+    },
+    {
+     "w": "fingernails",
+     "t": 184.63
+    },
+    {
+     "w": "grow.",
+     "t": 185.08
+    }
+   ]
+  },
+  {
+   "start": 185.53,
+   "end": 210.66,
+   "en": "How can scientists be sure? Astronauts left mirrors behind on the Moon. Scientists fire laser beams at the mirrors and time the light's return trip. Light's speed never changes, so the time tells the distance — about three hundred and eighty-four thousand kilometres. That is how they observe and determine the Moon's escape, millimetre by millimetre.",
+   "title": "远去的月亮",
+   "cn": "科学家怎么能这么肯定呢？宇航员在月亮上留下了镜子。科学家向这些镜子发射激光束，再给光往返一趟计时。光的速度永远不变，所以用时间就能算出距离——大约三十八万四千公里。这就是他们观测并测定月亮“出逃”的方法，精确到毫米。",
+   "words": [
+    {
+     "w": "How",
+     "t": 185.53
+    },
+    {
+     "w": "can",
+     "t": 185.98
+    },
+    {
+     "w": "scientists",
+     "t": 186.43
+    },
+    {
+     "w": "be",
+     "t": 186.88
+    },
+    {
+     "w": "sure?",
+     "t": 187.33
+    },
+    {
+     "w": "Astronauts",
+     "t": 187.78
+    },
+    {
+     "w": "left",
+     "t": 188.22
+    },
+    {
+     "w": "mirrors",
+     "t": 188.67
+    },
+    {
+     "w": "behind",
+     "t": 189.12
+    },
+    {
+     "w": "on",
+     "t": 189.57
+    },
+    {
+     "w": "the",
+     "t": 190.02
+    },
+    {
+     "w": "Moon.",
+     "t": 190.47
+    },
+    {
+     "w": "Scientists",
+     "t": 190.92
+    },
+    {
+     "w": "fire",
+     "t": 191.37
+    },
+    {
+     "w": "laser",
+     "t": 191.82
+    },
+    {
+     "w": "beams",
+     "t": 192.26
+    },
+    {
+     "w": "at",
+     "t": 192.71
+    },
+    {
+     "w": "the",
+     "t": 193.16
+    },
+    {
+     "w": "mirrors",
+     "t": 193.61
+    },
+    {
+     "w": "and",
+     "t": 194.06
+    },
+    {
+     "w": "time",
+     "t": 194.51
+    },
+    {
+     "w": "the",
+     "t": 194.96
+    },
+    {
+     "w": "light's",
+     "t": 195.41
+    },
+    {
+     "w": "return",
+     "t": 195.85
+    },
+    {
+     "w": "trip.",
+     "t": 196.3
+    },
+    {
+     "w": "Light's",
+     "t": 196.75
+    },
+    {
+     "w": "speed",
+     "t": 197.2
+    },
+    {
+     "w": "never",
+     "t": 197.65
+    },
+    {
+     "w": "changes,",
+     "t": 198.1
+    },
+    {
+     "w": "so",
+     "t": 198.55
+    },
+    {
+     "w": "the",
+     "t": 199.0
+    },
+    {
+     "w": "time",
+     "t": 199.44
+    },
+    {
+     "w": "tells",
+     "t": 199.89
+    },
+    {
+     "w": "the",
+     "t": 200.34
+    },
+    {
+     "w": "distance",
+     "t": 200.79
+    },
+    {
+     "w": "—",
+     "t": 201.24
+    },
+    {
+     "w": "about",
+     "t": 201.69
+    },
+    {
+     "w": "three",
+     "t": 202.14
+    },
+    {
+     "w": "hundred",
+     "t": 202.59
+    },
+    {
+     "w": "and",
+     "t": 203.04
+    },
+    {
+     "w": "eighty-four",
+     "t": 203.48
+    },
+    {
+     "w": "thousand",
+     "t": 203.93
+    },
+    {
+     "w": "kilometres.",
+     "t": 204.38
+    },
+    {
+     "w": "That",
+     "t": 204.83
+    },
+    {
+     "w": "is",
+     "t": 205.28
+    },
+    {
+     "w": "how",
+     "t": 205.73
+    },
+    {
+     "w": "they",
+     "t": 206.18
+    },
+    {
+     "w": "observe",
+     "t": 206.63
+    },
+    {
+     "w": "and",
+     "t": 207.07
+    },
+    {
+     "w": "determine",
+     "t": 207.52
+    },
+    {
+     "w": "the",
+     "t": 207.97
+    },
+    {
+     "w": "Moon's",
+     "t": 208.42
+    },
+    {
+     "w": "escape,",
+     "t": 208.87
+    },
+    {
+     "w": "millimetre",
+     "t": 209.32
+    },
+    {
+     "w": "by",
+     "t": 209.77
+    },
+    {
+     "w": "millimetre.",
+     "t": 210.22
+    }
+   ]
+  },
+  {
+   "start": 210.66,
+   "end": 237.59,
+   "en": "Why does the Moon drift away? Blame the tides. The Moon pulls Earth's oceans into two bulges. Our planet spins fast and drags those bulges ahead of the Moon, and the bulges pull the Moon forward, like a hand pushing a swing. So the Moon climbs into a wider orbit, Earth spins a little slower, and our days grow longer.",
+   "title": "远去的月亮",
+   "cn": "月亮为什么会漂走呢？怪潮汐。月亮把地球的海洋拉成两个水包。我们的星球转得快，把这两个水包拖到了月亮的前头，而水包又把月亮往前拉，就像一只手在推秋千。于是月亮爬上了越来越宽的轨道，地球转得慢了一点点，我们的白天就变长了。",
+   "words": [
+    {
+     "w": "Why",
+     "t": 210.66
+    },
+    {
+     "w": "does",
+     "t": 211.11
+    },
+    {
+     "w": "the",
+     "t": 211.56
+    },
+    {
+     "w": "Moon",
+     "t": 212.01
+    },
+    {
+     "w": "drift",
+     "t": 212.46
+    },
+    {
+     "w": "away?",
+     "t": 212.91
+    },
+    {
+     "w": "Blame",
+     "t": 213.36
+    },
+    {
+     "w": "the",
+     "t": 213.81
+    },
+    {
+     "w": "tides.",
+     "t": 214.26
+    },
+    {
+     "w": "The",
+     "t": 214.7
+    },
+    {
+     "w": "Moon",
+     "t": 215.15
+    },
+    {
+     "w": "pulls",
+     "t": 215.6
+    },
+    {
+     "w": "Earth's",
+     "t": 216.05
+    },
+    {
+     "w": "oceans",
+     "t": 216.5
+    },
+    {
+     "w": "into",
+     "t": 216.95
+    },
+    {
+     "w": "two",
+     "t": 217.4
+    },
+    {
+     "w": "bulges.",
+     "t": 217.85
+    },
+    {
+     "w": "Our",
+     "t": 218.29
+    },
+    {
+     "w": "planet",
+     "t": 218.74
+    },
+    {
+     "w": "spins",
+     "t": 219.19
+    },
+    {
+     "w": "fast",
+     "t": 219.64
+    },
+    {
+     "w": "and",
+     "t": 220.09
+    },
+    {
+     "w": "drags",
+     "t": 220.54
+    },
+    {
+     "w": "those",
+     "t": 220.99
+    },
+    {
+     "w": "bulges",
+     "t": 221.44
+    },
+    {
+     "w": "ahead",
+     "t": 221.88
+    },
+    {
+     "w": "of",
+     "t": 222.33
+    },
+    {
+     "w": "the",
+     "t": 222.78
+    },
+    {
+     "w": "Moon,",
+     "t": 223.23
+    },
+    {
+     "w": "and",
+     "t": 223.68
+    },
+    {
+     "w": "the",
+     "t": 224.13
+    },
+    {
+     "w": "bulges",
+     "t": 224.58
+    },
+    {
+     "w": "pull",
+     "t": 225.03
+    },
+    {
+     "w": "the",
+     "t": 225.48
+    },
+    {
+     "w": "Moon",
+     "t": 225.92
+    },
+    {
+     "w": "forward,",
+     "t": 226.37
+    },
+    {
+     "w": "like",
+     "t": 226.82
+    },
+    {
+     "w": "a",
+     "t": 227.27
+    },
+    {
+     "w": "hand",
+     "t": 227.72
+    },
+    {
+     "w": "pushing",
+     "t": 228.17
+    },
+    {
+     "w": "a",
+     "t": 228.62
+    },
+    {
+     "w": "swing.",
+     "t": 229.07
+    },
+    {
+     "w": "So",
+     "t": 229.51
+    },
+    {
+     "w": "the",
+     "t": 229.96
+    },
+    {
+     "w": "Moon",
+     "t": 230.41
+    },
+    {
+     "w": "climbs",
+     "t": 230.86
+    },
+    {
+     "w": "into",
+     "t": 231.31
+    },
+    {
+     "w": "a",
+     "t": 231.76
+    },
+    {
+     "w": "wider",
+     "t": 232.21
+    },
+    {
+     "w": "orbit,",
+     "t": 232.66
+    },
+    {
+     "w": "Earth",
+     "t": 233.1
+    },
+    {
+     "w": "spins",
+     "t": 233.55
+    },
+    {
+     "w": "a",
+     "t": 234.0
+    },
+    {
+     "w": "little",
+     "t": 234.45
+    },
+    {
+     "w": "slower,",
+     "t": 234.9
+    },
+    {
+     "w": "and",
+     "t": 235.35
+    },
+    {
+     "w": "our",
+     "t": 235.8
+    },
+    {
+     "w": "days",
+     "t": 236.25
+    },
+    {
+     "w": "grow",
+     "t": 236.7
+    },
+    {
+     "w": "longer.",
+     "t": 237.14
+    }
+   ]
+  },
+  {
+   "start": 237.59,
+   "end": 257.34,
+   "en": "Long ago, the Moon hung closer. It looked enormous, the tides were giant, and a day was shorter than twenty-four hours. The Moon will drift for millions of years — but tonight it is still our big, bright neighbour. Wave when you see it!",
+   "title": "远去的月亮",
+   "cn": "很久以前，月亮挂得近得多。它看起来巨大无比，潮汐也大得惊人，一天比二十四小时短得多。月亮还会这样漂移几百万年——但今晚，它仍然是我们又大又亮的邻居。看到它时，记得挥挥手！",
+   "words": [
+    {
+     "w": "Long",
+     "t": 237.59
+    },
+    {
+     "w": "ago,",
+     "t": 238.04
+    },
+    {
+     "w": "the",
+     "t": 238.49
+    },
+    {
+     "w": "Moon",
+     "t": 238.94
+    },
+    {
+     "w": "hung",
+     "t": 239.39
+    },
+    {
+     "w": "closer.",
+     "t": 239.84
+    },
+    {
+     "w": "It",
+     "t": 240.29
+    },
+    {
+     "w": "looked",
+     "t": 240.73
+    },
+    {
+     "w": "enormous,",
+     "t": 241.18
+    },
+    {
+     "w": "the",
+     "t": 241.63
+    },
+    {
+     "w": "tides",
+     "t": 242.08
+    },
+    {
+     "w": "were",
+     "t": 242.53
+    },
+    {
+     "w": "giant,",
+     "t": 242.98
+    },
+    {
+     "w": "and",
+     "t": 243.43
+    },
+    {
+     "w": "a",
+     "t": 243.88
+    },
+    {
+     "w": "day",
+     "t": 244.32
+    },
+    {
+     "w": "was",
+     "t": 244.77
+    },
+    {
+     "w": "shorter",
+     "t": 245.22
+    },
+    {
+     "w": "than",
+     "t": 245.67
+    },
+    {
+     "w": "twenty-four",
+     "t": 246.12
+    },
+    {
+     "w": "hours.",
+     "t": 246.57
+    },
+    {
+     "w": "The",
+     "t": 247.02
+    },
+    {
+     "w": "Moon",
+     "t": 247.47
+    },
+    {
+     "w": "will",
+     "t": 247.92
+    },
+    {
+     "w": "drift",
+     "t": 248.36
+    },
+    {
+     "w": "for",
+     "t": 248.81
+    },
+    {
+     "w": "millions",
+     "t": 249.26
+    },
+    {
+     "w": "of",
+     "t": 249.71
+    },
+    {
+     "w": "years",
+     "t": 250.16
+    },
+    {
+     "w": "—",
+     "t": 250.61
+    },
+    {
+     "w": "but",
+     "t": 251.06
+    },
+    {
+     "w": "tonight",
+     "t": 251.51
+    },
+    {
+     "w": "it",
+     "t": 251.95
+    },
+    {
+     "w": "is",
+     "t": 252.4
+    },
+    {
+     "w": "still",
+     "t": 252.85
+    },
+    {
+     "w": "our",
+     "t": 253.3
+    },
+    {
+     "w": "big,",
+     "t": 253.75
+    },
+    {
+     "w": "bright",
+     "t": 254.2
+    },
+    {
+     "w": "neighbour.",
+     "t": 254.65
+    },
+    {
+     "w": "Wave",
+     "t": 255.1
+    },
+    {
+     "w": "when",
+     "t": 255.54
+    },
+    {
+     "w": "you",
+     "t": 255.99
+    },
+    {
+     "w": "see",
+     "t": 256.44
+    },
+    {
+     "w": "it!",
+     "t": 256.89
+    }
+   ]
+  },
+  {
+   "start": 272.12,
+   "end": 297.51,
+   "en": "Here's today's idiom: 'over the moon.' If you are over the moon, you are extremely happy — so happy you could jump over the Moon! When Dewey's librarians heard that people drove for hours to meet their cat, they were over the moon. Here's an example: 'I won the reading contest, and I was over the moon!' What makes you feel over the moon?",
+   "title": "今日俚语",
+   "cn": "今天的俚语是“over the moon”。如果你 over the moon，就是开心到了极点——开心得感觉能一跳跳过月亮！当 Dewey 的图书管理员们听说，人们开好几个小时的车就为了见见他们的猫时，他们简直开心飞了。再听个例句：“我赢了朗读比赛，开心得飞起来啦！”什么事会让你开心得飞起呢？",
+   "words": [
+    {
+     "w": "Here's",
+     "t": 272.12
+    },
+    {
+     "w": "today's",
+     "t": 272.52
+    },
+    {
+     "w": "idiom:",
+     "t": 272.91
+    },
+    {
+     "w": "'over",
+     "t": 273.31
+    },
+    {
+     "w": "the",
+     "t": 273.71
+    },
+    {
+     "w": "moon.'",
+     "t": 274.1
+    },
+    {
+     "w": "If",
+     "t": 274.5
+    },
+    {
+     "w": "you",
+     "t": 274.9
+    },
+    {
+     "w": "are",
+     "t": 275.29
+    },
+    {
+     "w": "over",
+     "t": 275.69
+    },
+    {
+     "w": "the",
+     "t": 276.09
+    },
+    {
+     "w": "moon,",
+     "t": 276.48
+    },
+    {
+     "w": "you",
+     "t": 276.88
+    },
+    {
+     "w": "are",
+     "t": 277.28
+    },
+    {
+     "w": "extremely",
+     "t": 277.67
+    },
+    {
+     "w": "happy",
+     "t": 278.07
+    },
+    {
+     "w": "—",
+     "t": 278.47
+    },
+    {
+     "w": "so",
+     "t": 278.86
+    },
+    {
+     "w": "happy",
+     "t": 279.26
+    },
+    {
+     "w": "you",
+     "t": 279.66
+    },
+    {
+     "w": "could",
+     "t": 280.05
+    },
+    {
+     "w": "jump",
+     "t": 280.45
+    },
+    {
+     "w": "over",
+     "t": 280.85
+    },
+    {
+     "w": "the",
+     "t": 281.24
+    },
+    {
+     "w": "Moon!",
+     "t": 281.64
+    },
+    {
+     "w": "When",
+     "t": 282.04
+    },
+    {
+     "w": "Dewey's",
+     "t": 282.43
+    },
+    {
+     "w": "librarians",
+     "t": 282.83
+    },
+    {
+     "w": "heard",
+     "t": 283.23
+    },
+    {
+     "w": "that",
+     "t": 283.62
+    },
+    {
+     "w": "people",
+     "t": 284.02
+    },
+    {
+     "w": "drove",
+     "t": 284.42
+    },
+    {
+     "w": "for",
+     "t": 284.81
+    },
+    {
+     "w": "hours",
+     "t": 285.21
+    },
+    {
+     "w": "to",
+     "t": 285.61
+    },
+    {
+     "w": "meet",
+     "t": 286.01
+    },
+    {
+     "w": "their",
+     "t": 286.4
+    },
+    {
+     "w": "cat,",
+     "t": 286.8
+    },
+    {
+     "w": "they",
+     "t": 287.2
+    },
+    {
+     "w": "were",
+     "t": 287.59
+    },
+    {
+     "w": "over",
+     "t": 287.99
+    },
+    {
+     "w": "the",
+     "t": 288.39
+    },
+    {
+     "w": "moon.",
+     "t": 288.78
+    },
+    {
+     "w": "Here's",
+     "t": 289.18
+    },
+    {
+     "w": "an",
+     "t": 289.58
+    },
+    {
+     "w": "example:",
+     "t": 289.97
+    },
+    {
+     "w": "'I",
+     "t": 290.37
+    },
+    {
+     "w": "won",
+     "t": 290.77
+    },
+    {
+     "w": "the",
+     "t": 291.16
+    },
+    {
+     "w": "reading",
+     "t": 291.56
+    },
+    {
+     "w": "contest,",
+     "t": 291.96
+    },
+    {
+     "w": "and",
+     "t": 292.35
+    },
+    {
+     "w": "I",
+     "t": 292.75
+    },
+    {
+     "w": "was",
+     "t": 293.15
+    },
+    {
+     "w": "over",
+     "t": 293.54
+    },
+    {
+     "w": "the",
+     "t": 293.94
+    },
+    {
+     "w": "moon!'",
+     "t": 294.34
+    },
+    {
+     "w": "What",
+     "t": 294.73
+    },
+    {
+     "w": "makes",
+     "t": 295.13
+    },
+    {
+     "w": "you",
+     "t": 295.53
+    },
+    {
+     "w": "feel",
+     "t": 295.92
+    },
+    {
+     "w": "over",
+     "t": 296.32
+    },
+    {
+     "w": "the",
+     "t": 296.72
+    },
+    {
+     "w": "moon?",
+     "t": 297.11
+    }
+   ]
+  },
+  {
+   "start": 313.25,
+   "end": 333.73,
+   "en": "Let's think about our stories. A kitten found a home among the books, and the Moon is drifting away. Now, two questions for you. First: if a cat lived in your school library, what job would you give it? Second: if you could send the Moon one message, what would you say? Talk about it with your family!",
+   "title": "结束语与互动问题",
+   "cn": "我们来想想今天的故事。一只小猫在书丛中找到了家，月亮正在静静地远行。现在，轮到回答两个问题。第一：如果一只猫住在你们学校的图书馆里，你会给它安排什么工作？第二：如果你能给月亮捎一句话，你会说什么？和家人聊聊吧！",
+   "words": [
+    {
+     "w": "Let's",
+     "t": 313.25
+    },
+    {
+     "w": "think",
+     "t": 313.6
+    },
+    {
+     "w": "about",
+     "t": 313.96
+    },
+    {
+     "w": "our",
+     "t": 314.31
+    },
+    {
+     "w": "stories.",
+     "t": 314.66
+    },
+    {
+     "w": "A",
+     "t": 315.02
+    },
+    {
+     "w": "kitten",
+     "t": 315.37
+    },
+    {
+     "w": "found",
+     "t": 315.72
+    },
+    {
+     "w": "a",
+     "t": 316.07
+    },
+    {
+     "w": "home",
+     "t": 316.43
+    },
+    {
+     "w": "among",
+     "t": 316.78
+    },
+    {
+     "w": "the",
+     "t": 317.13
+    },
+    {
+     "w": "books,",
+     "t": 317.49
+    },
+    {
+     "w": "and",
+     "t": 317.84
+    },
+    {
+     "w": "the",
+     "t": 318.19
+    },
+    {
+     "w": "Moon",
+     "t": 318.55
+    },
+    {
+     "w": "is",
+     "t": 318.9
+    },
+    {
+     "w": "drifting",
+     "t": 319.25
+    },
+    {
+     "w": "away.",
+     "t": 319.61
+    },
+    {
+     "w": "Now,",
+     "t": 319.96
+    },
+    {
+     "w": "two",
+     "t": 320.31
+    },
+    {
+     "w": "questions",
+     "t": 320.67
+    },
+    {
+     "w": "for",
+     "t": 321.02
+    },
+    {
+     "w": "you.",
+     "t": 321.37
+    },
+    {
+     "w": "First:",
+     "t": 321.72
+    },
+    {
+     "w": "if",
+     "t": 322.08
+    },
+    {
+     "w": "a",
+     "t": 322.43
+    },
+    {
+     "w": "cat",
+     "t": 322.78
+    },
+    {
+     "w": "lived",
+     "t": 323.14
+    },
+    {
+     "w": "in",
+     "t": 323.49
+    },
+    {
+     "w": "your",
+     "t": 323.84
+    },
+    {
+     "w": "school",
+     "t": 324.2
+    },
+    {
+     "w": "library,",
+     "t": 324.55
+    },
+    {
+     "w": "what",
+     "t": 324.9
+    },
+    {
+     "w": "job",
+     "t": 325.26
+    },
+    {
+     "w": "would",
+     "t": 325.61
+    },
+    {
+     "w": "you",
+     "t": 325.96
+    },
+    {
+     "w": "give",
+     "t": 326.31
+    },
+    {
+     "w": "it?",
+     "t": 326.67
+    },
+    {
+     "w": "Second:",
+     "t": 327.02
+    },
+    {
+     "w": "if",
+     "t": 327.37
+    },
+    {
+     "w": "you",
+     "t": 327.73
+    },
+    {
+     "w": "could",
+     "t": 328.08
+    },
+    {
+     "w": "send",
+     "t": 328.43
+    },
+    {
+     "w": "the",
+     "t": 328.79
+    },
+    {
+     "w": "Moon",
+     "t": 329.14
+    },
+    {
+     "w": "one",
+     "t": 329.49
+    },
+    {
+     "w": "message,",
+     "t": 329.85
+    },
+    {
+     "w": "what",
+     "t": 330.2
+    },
+    {
+     "w": "would",
+     "t": 330.55
+    },
+    {
+     "w": "you",
+     "t": 330.91
+    },
+    {
+     "w": "say?",
+     "t": 331.26
+    },
+    {
+     "w": "Talk",
+     "t": 331.61
+    },
+    {
+     "w": "about",
+     "t": 331.96
+    },
+    {
+     "w": "it",
+     "t": 332.32
+    },
+    {
+     "w": "with",
+     "t": 332.67
+    },
+    {
+     "w": "your",
+     "t": 333.02
+    },
+    {
+     "w": "family!",
+     "t": 333.38
+    }
+   ]
+  },
+  {
+   "start": 345.23,
+   "end": 352.07,
+   "en": "That's all for today, young explorers. Read like Dewey, and keep looking up. See you tomorrow morning!",
+   "title": "告别",
+   "cn": "今天的节目就到这里啦，小小探险家们。像 Dewey 一样读书，永远保持好奇地抬头看天。明天早上见！",
+   "words": [
+    {
+     "w": "That's",
+     "t": 345.23
+    },
+    {
+     "w": "all",
+     "t": 345.63
+    },
+    {
+     "w": "for",
+     "t": 346.03
+    },
+    {
+     "w": "today,",
+     "t": 346.44
+    },
+    {
+     "w": "young",
+     "t": 346.84
+    },
+    {
+     "w": "explorers.",
+     "t": 347.24
+    },
+    {
+     "w": "Read",
+     "t": 347.64
+    },
+    {
+     "w": "like",
+     "t": 348.05
+    },
+    {
+     "w": "Dewey,",
+     "t": 348.45
+    },
+    {
+     "w": "and",
+     "t": 348.85
+    },
+    {
+     "w": "keep",
+     "t": 349.25
+    },
+    {
+     "w": "looking",
+     "t": 349.66
+    },
+    {
+     "w": "up.",
+     "t": 350.06
+    },
+    {
+     "w": "See",
+     "t": 350.46
+    },
+    {
+     "w": "you",
+     "t": 350.86
+    },
+    {
+     "w": "tomorrow",
+     "t": 351.27
+    },
+    {
+     "w": "morning!",
+     "t": 351.67
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "over the moon",
+    "phon": "/ˈəʊvə ðə muːn/",
+    "meaning": "(习语) 开心到了极点；高兴得飞起",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: I won the reading contest, and I was over the moon!"
+   },
+   {
+    "word": "saucer",
+    "phon": "/ˈsɔːsə/",
+    "meaning": "(n.) 茶托；小浅碟",
+    "tags": [],
+    "example": "Example: She gave him a warm bath and a saucer of milk."
+   },
+   {
+    "word": "fortnight",
+    "phon": "/ˈfɔːtnaɪt/",
+    "meaning": "(n.) 两星期",
+    "tags": [],
+    "example": "Example: Within a fortnight, the town knew him."
+   },
+   {
+    "word": "observe",
+    "phon": "/əbˈzɜːv/",
+    "meaning": "(v.) 观察；观测",
+    "tags": [],
+    "example": "Example: That is how they observe and determine the Moon's escape."
+   },
+   {
+    "word": "determine",
+    "phon": "/dɪˈtɜːmɪn/",
+    "meaning": "(v.) 测定；确定；下决心",
+    "tags": [],
+    "example": "Example: That is how they observe and determine the Moon's escape."
+   },
+   {
+    "word": "erupt",
+    "phon": "/ɪˈrʌpt/",
+    "meaning": "(v.) 爆发；突然发生",
+    "tags": [],
+    "example": "Example: One day the quiet library erupted with camera flashes."
+   },
+   {
+    "word": "drift",
+    "phon": "/drɪft/",
+    "meaning": "(v.) 漂移；缓缓移动",
+    "tags": [],
+    "example": "Example: Why does the Moon drift away?"
+   },
+   {
+    "word": "bulge",
+    "phon": "/bʌldʒ/",
+    "meaning": "(n.) 隆起；鼓起的部分",
+    "tags": [],
+    "example": "Example: The Moon pulls Earth's oceans into two bulges."
+   },
+   {
+    "word": "decimal",
+    "phon": "/ˈdesɪml/",
+    "meaning": "(adj.) 十进制的",
+    "tags": [],
+    "example": "Example: The name comes from the Dewey Decimal System."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "Where was the tiny kitten found on that cold morning?\nA. In a bookshop window\nB. In the book-return slot of a library\nC. On a park bench\nD. Inside a school bag",
+     "Why is \"Readmore Books\" a clever name for the cat?\nA. It sounds like \"read more books\"\nB. It was the librarian's own name\nC. It means \"orange cat\" in French\nD. It is the title of a famous book",
+     "How do scientists measure the Moon's distance so exactly?\nA. With a ruler dropped from a rocket\nB. By counting the Moon's steps\nC. By timing laser light bouncing off mirrors on the Moon\nD. By asking the astronauts",
+     "What does \"over the moon\" mean?\nA. Extremely happy\nB. Very tired\nC. Lost and far from home\nD. Ready for bed"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "type": "text",
+        "text": "Our planet "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "spins"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " fast and "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "drags"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " those bulges ahead of the Moon, "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "and"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " the bulges "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "pull"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " the Moon forward, "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "like"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " a hand "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "pushing"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " a swing."
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "这是一个由 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "and"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 连接的"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "并列复合句"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，前后是两个完整分句：前半 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "Our planet spins fast and drags those bulges ahead of the Moon"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（我们的星球转得飞快，并把那些水包拖到了月亮前头），后半 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "the bulges pull the Moon forward"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（水包把月亮往前拉）。注意两个分句的主语不同：前面是 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "Our planet"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，后面换成了 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "the bulges"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "——读到第二个 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "and"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，要在脑子里切换主角。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "前半句内部还有一层"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "动词并列"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "spins"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 和 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "drags"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 共用同一个主语 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "Our planet"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，由第一个 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "and"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 连接。一个句子里出现了两个 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "and"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，先分清它们各连什么：第一个连动词，第二个连分句。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "句尾的 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "like a hand pushing a swing"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "like"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 引导的"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "明喻"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：把水包拉月亮，比作一只手推秋千。"
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "pushing"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是现在分词作定语，修饰 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "a hand"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（一只正在推秋千的手）——分词短语放在名词后面，相当于一个缩短的定语从句 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "which is pushing"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句的因果链："
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "地球转得快（原因）→ 把水包拖到月亮前头 → 水包反过来拉月亮（结果）→ 月亮被\"推\"向更远的轨道"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。就像推秋千：手每给一下力，秋千就荡得更高、更远一点。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ERUPT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（爆发；突然发生）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "DETERMINE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（测定；确定）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "LASER"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（激光）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SAUCER"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（茶托；小浅碟）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "OBSERVE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（观察）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "DRIFT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（漂移；缓缓移动）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "KITTEN"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（小猫）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ORBIT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（轨道）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "LIBRARY"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（图书馆）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "FORTNIGHT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（两星期）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"somebody pushed a tiny kitten through the book-return slot of a library in Iowa, America.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "A"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"And 'read more books' — what a perfect name for a library cat!\""
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": " The name sounds exactly like the words \"read more books.\""
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"Scientists fire laser beams at the mirrors and time the light's return trip.\""
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": " Light's speed never changes, so the time gives the exact distance."
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "A"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"If you are over the moon, you are extremely happy.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. drags  2. time"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. like  2. like"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. and  2. and"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "B",
+    "A",
+    "C",
+    "A"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. 动词并列：用括号里的词补全（与前面的动词共用主语、形式对齐）",
+     "items": [
+      {
+       "prompt": "Our planet spins fast and ____ those bulges ahead of the Moon.",
+       "options": [
+        "drags",
+        "drag",
+        "dragged"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "Scientists fire laser beams at the mirrors and ____ the light's return trip.",
+       "options": [
+        "times",
+        "time",
+        "timed"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. like 明喻：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "The bulges pull the Moon forward, ____ a hand pushing a swing.",
+       "options": [
+        "as",
+        "than",
+        "like"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "The kitten was shaking ____ a leaf in the cold wind.",
+       "options": [
+        "like",
+        "as",
+        "with"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. and 连接并列分句：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "The Moon climbs into a wider orbit, ____ our days grow longer.",
+       "options": [
+        "but",
+        "and",
+        "so"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "Vicki opened the metal box, ____ a tiny kitten looked up at her.",
+       "options": [
+        "but",
+        "or",
+        "and"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "The river slows and bends, like a tired runner near home.",
+    "She opened the window, and the cool air came in like a soft song."
+   ]
+  },
+  "crossword": {
+   "nrows": 9,
+   "ncols": 14,
+   "words": [
+    {
+     "word": "ERUPT",
+     "row": 0,
+     "col": 4,
+     "dir": "D",
+     "num": 1,
+     "cn": "爆发；突然发生",
+     "clue": "To burst out suddenly — the quiet library did this with camera flashes."
+    },
+    {
+     "word": "DETERMINE",
+     "row": 0,
+     "col": 12,
+     "dir": "D",
+     "num": 2,
+     "cn": "测定；确定",
+     "clue": "To measure and find out exactly."
+    },
+    {
+     "word": "LASER",
+     "row": 1,
+     "col": 0,
+     "dir": "A",
+     "num": 3,
+     "cn": "激光",
+     "clue": "A very thin, strong beam of light."
+    },
+    {
+     "word": "SAUCER",
+     "row": 1,
+     "col": 2,
+     "dir": "D",
+     "num": 4,
+     "cn": "茶托；小浅碟",
+     "clue": "A small, shallow plate — Dewey drank his milk from one like it."
+    },
+    {
+     "word": "OBSERVE",
+     "row": 1,
+     "col": 6,
+     "dir": "A",
+     "num": 5,
+     "cn": "观察",
+     "clue": "To watch something carefully, the way scientists watch the Moon."
+    },
+    {
+     "word": "DRIFT",
+     "row": 3,
+     "col": 0,
+     "dir": "D",
+     "num": 6,
+     "cn": "漂移；缓缓移动",
+     "clue": "To move slowly away, little by little."
+    },
+    {
+     "word": "KITTEN",
+     "row": 3,
+     "col": 8,
+     "dir": "D",
+     "num": 7,
+     "cn": "小猫",
+     "clue": "A baby cat."
+    },
+    {
+     "word": "ORBIT",
+     "row": 3,
+     "col": 10,
+     "dir": "D",
+     "num": 8,
+     "cn": "轨道",
+     "clue": "The path the Moon follows around the Earth."
+    },
+    {
+     "word": "LIBRARY",
+     "row": 4,
+     "col": 7,
+     "dir": "A",
+     "num": 9,
+     "cn": "图书馆",
+     "clue": "A building full of books, where Dewey lived and worked."
+    },
+    {
+     "word": "FORTNIGHT",
+     "row": 6,
+     "col": 0,
+     "dir": "A",
+     "num": 10,
+     "cn": "两星期",
+     "clue": "Two weeks."
+    }
+   ]
+  }
+ }
+}
