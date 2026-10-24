@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.21 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol21/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol21/cover.png" controls playsinline preload="metadata"></video>
+<h1>🌱 Vol.21 · 空间站的菜园与树懒的花园</h1>
+<div class="meta">英文 596 词 ｜ 音频 5分54秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol21/story-lettuce.png" alt="空间站的菜园">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol21/story-sloth.png" alt="树懒的花园">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">head in the clouds</span> <span class="phon"></span> (习语) 脑袋在云里；心不在焉；发白日梦<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: Mia had her <b>head in the clouds</b>, dreaming about growing lettuce in space.</div>
+</div>
+<div class="vocab">
+  <span class="word">erupt</span> <span class="phon">/ɪˈrʌpt/</span> (v.) 爆发；喷发<br>
+  
+  <div class="example">Example: Cheers <b>erupted</b> around the table.</div>
+</div>
+<div class="vocab">
+  <span class="word">courage</span> <span class="phon">/ˈkʌrɪdʒ/</span> (n.) 勇气；胆量<br>
+  
+  <div class="example">Example: It takes <b>courage</b> to taste food grown where no food has ever grown.</div>
+</div>
+<div class="vocab">
+  <span class="word">delight</span> <span class="phon">/dɪˈlaɪt/</span> (n.) 欣喜；高兴<br>
+  
+  <div class="example">Example: Everyone said it tasted good, to everyone's <b>delight</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">garment</span> <span class="phon">/ˈɡɑːmənt/</span> (n.) 衣服；外衣<br>
+  
+  <div class="example">Example: The algae turns the sloth's coat into a green <b>garment</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">primary</span> <span class="phon">/ˈpraɪməri/</span> (adj.) 首要的；主要的<br>
+  
+  <div class="example">Example: Light, water and air are the <b>primary</b> needs of every plant.</div>
+</div>
+<div class="vocab">
+  <span class="word">astonishing</span> <span class="phon">/əˈstɒnɪʃɪŋ/</span> (adj.) 令人惊讶的<br>
+  
+  <div class="example">Example: Here is the <b>astonishing</b> part: the sloth eats its own garden.</div>
+</div>
+<div class="vocab">
+  <span class="word">coincidence</span> <span class="phon">/kəʊˈɪnsɪdəns/</span> (n.) 巧合<br>
+  
+  <div class="example">Example: It is no <b>coincidence</b> that sloths with more moths grow more algae.</div>
+</div>
+<div class="vocab">
+  <span class="word">fade</span> <span class="phon">/feɪd/</span> (v.) 褪去；变淡<br>
+  
+  <div class="example">Example: In the dry season, the green <b>fades</b> a little.</div>
+</div>
+<div class="vocab">
+  <span class="word">camouflage</span> <span class="phon">/ˈkæməflɑːʒ/</span> (n.) 伪装；保护色<br>
+  
+  <div class="example">Example: The green is perfect <b>camouflage</b> among the leaves.</div>
+</div>
+<div class="vocab">
+  <span class="word">algae</span> <span class="phon">/ˈældʒiː/</span> (n.) 藻类；水藻<br>
+  
+  <div class="example">Example: Green <b>algae</b> grows in the sloth's wet fur.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 14, "ncols": 10, "words": [{"word": "GARMENT", "row": 0, "col": 0, "dir": "A", "num": 1, "cn": "外衣", "clue": "The algae turns the sloth's coat into a green ___."}, {"word": "ALGAE", "row": 0, "col": 1, "dir": "D", "num": 2, "cn": "绿藻", "clue": "Green ___ grows in the sloth's wet fur."}, {"word": "LETTUCE", "row": 2, "col": 4, "dir": "D", "num": 3, "cn": "生菜；莴苣", "clue": "The crew picked red romaine ___, a variety called Outredgeous."}, {"word": "GARDEN", "row": 3, "col": 0, "dir": "A", "num": 4, "cn": "花园", "clue": "A place where plants grow. The sloth carries a ___ in its fur."}, {"word": "VEGGIE", "row": 5, "col": 9, "dir": "D", "num": 5, "cn": "空间站蔬菜种植箱", "clue": "NASA built a small garden box called ___."}, {"word": "COURAGE", "row": 6, "col": 1, "dir": "D", "num": 6, "cn": "勇气", "clue": "It takes ___ to taste food grown where no food has ever grown."}, {"word": "CLOUDS", "row": 6, "col": 1, "dir": "A", "num": 7, "cn": "云", "clue": "If your head is in the ___, your thoughts are far away."}, {"word": "MOTH", "row": 9, "col": 3, "dir": "D", "num": 8, "cn": "蛾", "clue": "Tiny sloth ___s live in the fur."}, {"word": "SLOTH", "row": 9, "col": 6, "dir": "D", "num": 9, "cn": "树懒", "clue": "The slowest mammal in the world is the three-toed ___."}, {"word": "CAMOUFLAGE", "row": 10, "col": 0, "dir": "A", "num": 10, "cn": "伪装；保护色", "clue": "The green is perfect ___: among the leaves, the sloth almost disappears."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. How did the astronauts water their space plants?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. They used rain</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. They sprayed the plants with hoses</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. Water moved along small wicks</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. They poured water from bottles</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. What did the first space salad taste like?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. Like spinach</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. Like arugula</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. Like carrots</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. Like tomatoes</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. Why does the sloth&#x27;s fur look green?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. Algae grows in its wet fur</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. It paints its fur green</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. It eats green leaves all day</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. The sun turns its fur green</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：A</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does &quot;head in the clouds&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. Sleeping on a cloud</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. Flying in an airplane</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. Climbing a tall mountain</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. Daydreaming, not paying attention</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：D</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [2, 1, 0, 3];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">In that wet fur, green algae <b class="kw">grows</b>, <b class="kw">turning</b> the sloth's coat <b class="kw">into</b> a green garment.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li>句首 <i>In that wet fur</i> 是<b>介词短语作地点状语</b>，被提前到了句首：它交代整件事发生的地点——"在那身潮湿的毛里"。英语里地点状语放句首很常见，读的时候先抓住"在哪里"，再看"发生了什么"。</li>
+  <li>主干是 <i>green algae grows</i>（绿藻生长）。注意：<i>algae</i> 虽然以 -ae 结尾、看起来像复数，但在这里作不可数名词看待，所以动词用单数 <i>grows</i>，不是 grow。</li>
+  <li>句尾 <i>turning the sloth's coat into a green garment</i> 是<b>现在分词短语作结果状语</b>：它表示主句动作带来的结果——绿藻一长，结果就是树懒的外衣"变成了"绿外套。分词短语的逻辑主语和主句主语一致（都是 green algae），所以可以直接挂在句尾。</li>
+  <li><i>turn...into...</i> 是固定搭配，意思是"把……变成……"：<i>turn A into B</i>，A 是原来的东西，B 是变成之后的样子。这里 A = the sloth's coat（树懒的外衣），B = a green garment（一件绿外套）。</li>
+  <li>整句逻辑链：<b>地点（潮湿的毛里）→ 生长（绿藻长起来）→ 结果（外衣变成绿外套）</b>。一句话讲完树懒"穿上绿外套"的全过程。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. 现在分词短语作结果状语：选出正确的词填入空格</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">The rain fell all night, ____ the streets into rivers.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">turning</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">turned</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">turns</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：turning</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">The wind blew hard, ____ the old tree down.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">knocked</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">knocking</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">knock</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：knocking</p>
+</div>
+<p class="p4-gname">B. turn...into...（把……变成……）：选出正确的词填入空格</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">The cook turned the milk ____ cheese.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">to</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">at</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">into</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：into</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">Magic turned the pumpkin ____ a carriage.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">into</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">on</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">for</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：into</p>
+</div>
+<p class="p4-gname">C. 介词短语前置表地点：选出正确的词填入空格</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">____ the wet fur, green algae grows.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">On</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">In</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">At</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：In</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">____ the forest floor, the sloth moves slowly.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">In</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">At</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">On</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：On</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>In the warm garden, red tomatoes grow, turning the whole yard red.</li>
+<li>The girl sang softly, turning the quiet room into a concert hall.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwc"><span class="cwn">1</span><span class="cwl">G</span></td><td class="cwc"><span class="cwn">2</span><span class="cwl">A</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">M</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">G</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">3</span><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">4</span><span class="cwl">G</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">D</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">5</span><span class="cwl">V</span></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">7</span><span class="cwl">C</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">D</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">G</span></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">G</span></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">8</span><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">9</span><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td></tr><tr><td class="cwc"><span class="cwn">10</span><span class="cwl">C</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">M</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">F</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">G</span></td><td class="cwc"><span class="cwl">E</span></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">G</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr></table></div>1 横 → <b>GARMENT</b>（外衣）<br>2 竖 → <b>ALGAE</b>（绿藻）<br>3 竖 → <b>LETTUCE</b>（生菜；莴苣）<br>4 横 → <b>GARDEN</b>（花园）<br>5 竖 → <b>VEGGIE</b>（空间站蔬菜种植箱）<br>6 竖 → <b>COURAGE</b>（勇气）<br>7 横 → <b>CLOUDS</b>（云）<br>8 竖 → <b>MOTH</b>（蛾）<br>9 竖 → <b>SLOTH</b>（树懒）<br>10 横 → <b>CAMOUFLAGE</b>（伪装；保护色）<br><br><b>B. Single Choice:</b><br>
+1 → <b>C</b>. The text says: <i>"Water moved along small wicks, because in space water does not fall — it floats."</i><br>
+2 → <b>B</b>. The astronaut said: <i>"It tastes like arugula."</i><br>
+3 → <b>A</b>. The text says: <i>"In that wet fur, green algae grows, turning the sloth's coat into a green garment."</i><br>
+4 → <b>D</b>. The idiom means you are <i>"daydreaming, not paying attention."</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. turning&nbsp;&nbsp;2. knocking<br>
+B. 1. into&nbsp;&nbsp;2. into<br>
+C. 1. In&nbsp;&nbsp;2. On<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol21/Vol21_晚读讲义_空间站的菜园与树懒的花园_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 23.71, "end": 44.81, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! This is our twenty-first show together! Today we visit a garden floating high above Earth, and an animal that wears a garden on its back. One grows dinner in space. One grows a forest in its fur. Let's go!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！这是我们在一起的第二十一期节目啦！今天我们要去参观一座漂浮在地球高空之上的花园，还要认识一只把花园穿在背上的动物。一个在太空里种晚餐，一个在毛里种森林。出发吧！", "words": [{"w": "Hello,", "t": 23.71}, {"w": "young", "t": 24.14}, {"w": "explorers,", "t": 24.57}, {"w": "and", "t": 25.0}, {"w": "welcome", "t": 25.43}, {"w": "back", "t": 25.86}, {"w": "to", "t": 26.29}, {"w": "Michael's", "t": 26.72}, {"w": "Morning", "t": 27.15}, {"w": "Listening!", "t": 27.59}, {"w": "This", "t": 28.02}, {"w": "is", "t": 28.45}, {"w": "our", "t": 28.88}, {"w": "twenty-first", "t": 29.31}, {"w": "show", "t": 29.74}, {"w": "together!", "t": 30.17}, {"w": "Today", "t": 30.6}, {"w": "we", "t": 31.03}, {"w": "visit", "t": 31.46}, {"w": "a", "t": 31.89}, {"w": "garden", "t": 32.32}, {"w": "floating", "t": 32.75}, {"w": "high", "t": 33.18}, {"w": "above", "t": 33.61}, {"w": "Earth,", "t": 34.04}, {"w": "and", "t": 34.48}, {"w": "an", "t": 34.91}, {"w": "animal", "t": 35.34}, {"w": "that", "t": 35.77}, {"w": "wears", "t": 36.2}, {"w": "a", "t": 36.63}, {"w": "garden", "t": 37.06}, {"w": "on", "t": 37.49}, {"w": "its", "t": 37.92}, {"w": "back.", "t": 38.35}, {"w": "One", "t": 38.78}, {"w": "grows", "t": 39.21}, {"w": "dinner", "t": 39.64}, {"w": "in", "t": 40.07}, {"w": "space.", "t": 40.5}, {"w": "One", "t": 40.93}, {"w": "grows", "t": 41.37}, {"w": "a", "t": 41.8}, {"w": "forest", "t": 42.23}, {"w": "in", "t": 42.66}, {"w": "its", "t": 43.09}, {"w": "fur.", "t": 43.52}, {"w": "Let's", "t": 43.95}, {"w": "go!", "t": 44.38}]}, {"start": 58.79, "end": 73.24, "en": "High above Earth, inside the International Space Station, astronauts decided to grow salad. But space has no soil, and no up or down. So NASA built a small garden box called Veggie.", "title": "空间站的菜园", "cn": "在地球的高空之上，在国际空间站里面，宇航员们决定种沙拉。可太空里没有土壤，也分不清上下左右。于是，美国国家航空航天局（NASA）造了一个名叫 Veggie 的小菜园箱子。", "words": [{"w": "High", "t": 58.79}, {"w": "above", "t": 59.24}, {"w": "Earth,", "t": 59.69}, {"w": "inside", "t": 60.14}, {"w": "the", "t": 60.6}, {"w": "International", "t": 61.05}, {"w": "Space", "t": 61.5}, {"w": "Station,", "t": 61.95}, {"w": "astronauts", "t": 62.4}, {"w": "decided", "t": 62.85}, {"w": "to", "t": 63.31}, {"w": "grow", "t": 63.76}, {"w": "salad.", "t": 64.21}, {"w": "But", "t": 64.66}, {"w": "space", "t": 65.11}, {"w": "has", "t": 65.56}, {"w": "no", "t": 66.02}, {"w": "soil,", "t": 66.47}, {"w": "and", "t": 66.92}, {"w": "no", "t": 67.37}, {"w": "up", "t": 67.82}, {"w": "or", "t": 68.27}, {"w": "down.", "t": 68.72}, {"w": "So", "t": 69.18}, {"w": "NASA", "t": 69.63}, {"w": "built", "t": 70.08}, {"w": "a", "t": 70.53}, {"w": "small", "t": 70.98}, {"w": "garden", "t": 71.43}, {"w": "box", "t": 71.89}, {"w": "called", "t": 72.34}, {"w": "Veggie.", "t": 72.79}]}, {"start": 73.24, "end": 94.45, "en": "The seeds slept in little bags called plant pillows, under lamps of red and blue light. Water moved along small wicks, because in space water does not fall — it floats. Light, water and air are the primary needs of every plant, in space or on Earth.", "title": "空间站的菜园", "cn": "种子睡在名叫“植物枕头”的小袋子里，头顶是红色和蓝色的灯光。水沿着细细的灯芯流动，因为在太空里水不会往下掉——它会飘起来。光、水和空气，是每一株植物最首要的需求，不管在太空还是在地球上都一样。", "words": [{"w": "The", "t": 73.24}, {"w": "seeds", "t": 73.69}, {"w": "slept", "t": 74.14}, {"w": "in", "t": 74.59}, {"w": "little", "t": 75.05}, {"w": "bags", "t": 75.5}, {"w": "called", "t": 75.95}, {"w": "plant", "t": 76.4}, {"w": "pillows,", "t": 76.85}, {"w": "under", "t": 77.3}, {"w": "lamps", "t": 77.75}, {"w": "of", "t": 78.2}, {"w": "red", "t": 78.66}, {"w": "and", "t": 79.11}, {"w": "blue", "t": 79.56}, {"w": "light.", "t": 80.01}, {"w": "Water", "t": 80.46}, {"w": "moved", "t": 80.91}, {"w": "along", "t": 81.36}, {"w": "small", "t": 81.81}, {"w": "wicks,", "t": 82.27}, {"w": "because", "t": 82.72}, {"w": "in", "t": 83.17}, {"w": "space", "t": 83.62}, {"w": "water", "t": 84.07}, {"w": "does", "t": 84.52}, {"w": "not", "t": 84.97}, {"w": "fall", "t": 85.42}, {"w": "—", "t": 85.88}, {"w": "it", "t": 86.33}, {"w": "floats.", "t": 86.78}, {"w": "Light,", "t": 87.23}, {"w": "water", "t": 87.68}, {"w": "and", "t": 88.13}, {"w": "air", "t": 88.58}, {"w": "are", "t": 89.03}, {"w": "the", "t": 89.49}, {"w": "primary", "t": 89.94}, {"w": "needs", "t": 90.39}, {"w": "of", "t": 90.84}, {"w": "every", "t": 91.29}, {"w": "plant,", "t": 91.74}, {"w": "in", "t": 92.19}, {"w": "space", "t": 92.64}, {"w": "or", "t": 93.1}, {"w": "on", "t": 93.55}, {"w": "Earth.", "t": 94.0}]}, {"start": 94.45, "end": 112.06, "en": "After about a month, the crew picked red romaine lettuce, a variety called \"Outredgeous.\" They cleaned each leaf with a wipe, then tasted it. \"It tastes like arugula,\" one astronaut said, to everyone's delight. Cheers erupted around the table.", "title": "空间站的菜园", "cn": "大约一个月之后，乘组摘下了红叶生菜，一个名叫“Outredgeous”的品种。他们把每一片叶子擦干净，然后尝了一口。“吃起来像芝麻菜，”一位宇航员说，大家都欣喜不已。餐桌周围爆发出一阵欢呼。", "words": [{"w": "After", "t": 94.45}, {"w": "about", "t": 94.9}, {"w": "a", "t": 95.35}, {"w": "month,", "t": 95.8}, {"w": "the", "t": 96.26}, {"w": "crew", "t": 96.71}, {"w": "picked", "t": 97.16}, {"w": "red", "t": 97.61}, {"w": "romaine", "t": 98.06}, {"w": "lettuce,", "t": 98.51}, {"w": "a", "t": 98.97}, {"w": "variety", "t": 99.42}, {"w": "called", "t": 99.87}, {"w": "\"Outredgeous.\"", "t": 100.32}, {"w": "They", "t": 100.77}, {"w": "cleaned", "t": 101.22}, {"w": "each", "t": 101.67}, {"w": "leaf", "t": 102.13}, {"w": "with", "t": 102.58}, {"w": "a", "t": 103.03}, {"w": "wipe,", "t": 103.48}, {"w": "then", "t": 103.93}, {"w": "tasted", "t": 104.38}, {"w": "it.", "t": 104.84}, {"w": "\"It", "t": 105.29}, {"w": "tastes", "t": 105.74}, {"w": "like", "t": 106.19}, {"w": "arugula,\"", "t": 106.64}, {"w": "one", "t": 107.09}, {"w": "astronaut", "t": 107.54}, {"w": "said,", "t": 108.0}, {"w": "to", "t": 108.45}, {"w": "everyone's", "t": 108.9}, {"w": "delight.", "t": 109.35}, {"w": "Cheers", "t": 109.8}, {"w": "erupted", "t": 110.25}, {"w": "around", "t": 110.71}, {"w": "the", "t": 111.16}, {"w": "table.", "t": 111.61}]}, {"start": 112.06, "end": 132.37, "en": "It takes courage to taste food grown where no food has ever grown. Half the leaves were saved and frozen for study back on Earth. The rest was eaten with olive oil and vinegar — the first space salad, grown high above the dinner table.", "title": "空间站的菜园", "cn": "品尝从来没有人种过的地方长出来的食物，是需要勇气的。一半的叶子被留下来、冷冻好，带回地球做研究。剩下的拌上橄榄油和醋吃掉了——这是第一份太空沙拉，种在离餐桌很远很远的高空。", "words": [{"w": "It", "t": 112.06}, {"w": "takes", "t": 112.51}, {"w": "courage", "t": 112.96}, {"w": "to", "t": 113.41}, {"w": "taste", "t": 113.87}, {"w": "food", "t": 114.32}, {"w": "grown", "t": 114.77}, {"w": "where", "t": 115.22}, {"w": "no", "t": 115.67}, {"w": "food", "t": 116.12}, {"w": "has", "t": 116.57}, {"w": "ever", "t": 117.02}, {"w": "grown.", "t": 117.48}, {"w": "Half", "t": 117.93}, {"w": "the", "t": 118.38}, {"w": "leaves", "t": 118.83}, {"w": "were", "t": 119.28}, {"w": "saved", "t": 119.73}, {"w": "and", "t": 120.18}, {"w": "frozen", "t": 120.64}, {"w": "for", "t": 121.09}, {"w": "study", "t": 121.54}, {"w": "back", "t": 121.99}, {"w": "on", "t": 122.44}, {"w": "Earth.", "t": 122.89}, {"w": "The", "t": 123.34}, {"w": "rest", "t": 123.79}, {"w": "was", "t": 124.25}, {"w": "eaten", "t": 124.7}, {"w": "with", "t": 125.15}, {"w": "olive", "t": 125.6}, {"w": "oil", "t": 126.05}, {"w": "and", "t": 126.5}, {"w": "vinegar", "t": 126.95}, {"w": "—", "t": 127.41}, {"w": "the", "t": 127.86}, {"w": "first", "t": 128.31}, {"w": "space", "t": 128.76}, {"w": "salad,", "t": 129.21}, {"w": "grown", "t": 129.66}, {"w": "high", "t": 130.11}, {"w": "above", "t": 130.56}, {"w": "the", "t": 131.02}, {"w": "dinner", "t": 131.47}, {"w": "table.", "t": 131.92}]}, {"start": 149.07, "end": 159.17, "en": "Now meet the three-toed sloth, the slowest mammal in the world. It sleeps, eats leaves and barely moves — but look at its shaggy fur.", "title": "树懒毛里的小花园", "cn": "现在来认识一下三趾树懒，它是世界上最慢的哺乳动物。它睡觉、吃树叶，几乎一动不动——可是请仔细看看它那身蓬松的毛。", "words": [{"w": "Now", "t": 149.07}, {"w": "meet", "t": 149.47}, {"w": "the", "t": 149.88}, {"w": "three-toed", "t": 150.28}, {"w": "sloth,", "t": 150.69}, {"w": "the", "t": 151.09}, {"w": "slowest", "t": 151.49}, {"w": "mammal", "t": 151.9}, {"w": "in", "t": 152.3}, {"w": "the", "t": 152.71}, {"w": "world.", "t": 153.11}, {"w": "It", "t": 153.51}, {"w": "sleeps,", "t": 153.92}, {"w": "eats", "t": 154.32}, {"w": "leaves", "t": 154.73}, {"w": "and", "t": 155.13}, {"w": "barely", "t": 155.53}, {"w": "moves", "t": 155.94}, {"w": "—", "t": 156.34}, {"w": "but", "t": 156.75}, {"w": "look", "t": 157.15}, {"w": "at", "t": 157.55}, {"w": "its", "t": 157.96}, {"w": "shaggy", "t": 158.36}, {"w": "fur.", "t": 158.77}]}, {"start": 159.17, "end": 173.31, "en": "Each hair has tiny grooves that hold rainwater. In that wet fur, green algae grows, turning the sloth's coat into a green garment. The green is perfect camouflage: among the leaves, the sloth almost disappears.", "title": "树懒毛里的小花园", "cn": "每一根毛上都有细细的沟槽，能留住雨水。在这身潮湿的毛里，绿藻生长起来，把树懒的外衣变成了一件绿外套。这绿色是完美的伪装：在树叶之间，树懒几乎就消失不见了。", "words": [{"w": "Each", "t": 159.17}, {"w": "hair", "t": 159.57}, {"w": "has", "t": 159.98}, {"w": "tiny", "t": 160.38}, {"w": "grooves", "t": 160.79}, {"w": "that", "t": 161.19}, {"w": "hold", "t": 161.59}, {"w": "rainwater.", "t": 162.0}, {"w": "In", "t": 162.4}, {"w": "that", "t": 162.81}, {"w": "wet", "t": 163.21}, {"w": "fur,", "t": 163.61}, {"w": "green", "t": 164.02}, {"w": "algae", "t": 164.42}, {"w": "grows,", "t": 164.83}, {"w": "turning", "t": 165.23}, {"w": "the", "t": 165.63}, {"w": "sloth's", "t": 166.04}, {"w": "coat", "t": 166.44}, {"w": "into", "t": 166.85}, {"w": "a", "t": 167.25}, {"w": "green", "t": 167.65}, {"w": "garment.", "t": 168.06}, {"w": "The", "t": 168.46}, {"w": "green", "t": 168.87}, {"w": "is", "t": 169.27}, {"w": "perfect", "t": 169.67}, {"w": "camouflage:", "t": 170.08}, {"w": "among", "t": 170.48}, {"w": "the", "t": 170.89}, {"w": "leaves,", "t": 171.29}, {"w": "the", "t": 171.69}, {"w": "sloth", "t": 172.1}, {"w": "almost", "t": 172.5}, {"w": "disappears.", "t": 172.91}]}, {"start": 173.31, "end": 200.78, "en": "But the garden has more tenants: tiny sloth moths live in the fur. Once a week, the sloth climbs slowly down to the forest floor — a long and risky trip — and the moths lay their eggs in its droppings. When the young moths grow up, they fly back into the fur. When old moths die there, their bodies break down and feed the algae, like fertilizer.", "title": "树懒毛里的小花园", "cn": "可是这座花园里还有更多的住客：小小的树懒蛾就住在毛里。每星期一次，树懒慢吞吞地爬下树，来到森林地面——这是一段漫长而冒险的旅程——蛾子们趁机把卵产在它的粪便里。等小蛾子长大了，它们又飞回毛里。老蛾子死在毛里之后，身体分解开来，给绿藻施肥，就像肥料一样。", "words": [{"w": "But", "t": 173.31}, {"w": "the", "t": 173.71}, {"w": "garden", "t": 174.12}, {"w": "has", "t": 174.52}, {"w": "more", "t": 174.93}, {"w": "tenants:", "t": 175.33}, {"w": "tiny", "t": 175.73}, {"w": "sloth", "t": 176.14}, {"w": "moths", "t": 176.54}, {"w": "live", "t": 176.95}, {"w": "in", "t": 177.35}, {"w": "the", "t": 177.75}, {"w": "fur.", "t": 178.16}, {"w": "Once", "t": 178.56}, {"w": "a", "t": 178.97}, {"w": "week,", "t": 179.37}, {"w": "the", "t": 179.77}, {"w": "sloth", "t": 180.18}, {"w": "climbs", "t": 180.58}, {"w": "slowly", "t": 180.99}, {"w": "down", "t": 181.39}, {"w": "to", "t": 181.79}, {"w": "the", "t": 182.2}, {"w": "forest", "t": 182.6}, {"w": "floor", "t": 183.01}, {"w": "—", "t": 183.41}, {"w": "a", "t": 183.81}, {"w": "long", "t": 184.22}, {"w": "and", "t": 184.62}, {"w": "risky", "t": 185.03}, {"w": "trip", "t": 185.43}, {"w": "—", "t": 185.83}, {"w": "and", "t": 186.24}, {"w": "the", "t": 186.64}, {"w": "moths", "t": 187.05}, {"w": "lay", "t": 187.45}, {"w": "their", "t": 187.85}, {"w": "eggs", "t": 188.26}, {"w": "in", "t": 188.66}, {"w": "its", "t": 189.06}, {"w": "droppings.", "t": 189.47}, {"w": "When", "t": 189.87}, {"w": "the", "t": 190.28}, {"w": "young", "t": 190.68}, {"w": "moths", "t": 191.08}, {"w": "grow", "t": 191.49}, {"w": "up,", "t": 191.89}, {"w": "they", "t": 192.3}, {"w": "fly", "t": 192.7}, {"w": "back", "t": 193.1}, {"w": "into", "t": 193.51}, {"w": "the", "t": 193.91}, {"w": "fur.", "t": 194.32}, {"w": "When", "t": 194.72}, {"w": "old", "t": 195.12}, {"w": "moths", "t": 195.53}, {"w": "die", "t": 195.93}, {"w": "there,", "t": 196.34}, {"w": "their", "t": 196.74}, {"w": "bodies", "t": 197.14}, {"w": "break", "t": 197.55}, {"w": "down", "t": 197.95}, {"w": "and", "t": 198.36}, {"w": "feed", "t": 198.76}, {"w": "the", "t": 199.16}, {"w": "algae,", "t": 199.57}, {"w": "like", "t": 199.97}, {"w": "fertilizer.", "t": 200.38}]}, {"start": 200.78, "end": 229.06, "en": "It is no coincidence that sloths with more moths grow more algae. And here is the astonishing part: scientists think the sloth sometimes licks its own fur and eats the algae for extra food. In the dry season, when rain is rare, the green fades a little — but the garden waits for the next rain. A sloth is not just one animal — it is a whole small world.", "title": "树懒毛里的小花园", "cn": "身上蛾子越多的树懒，绿藻就长得越多，这可不是巧合。还有更令人惊讶的部分：科学家认为，树懒有时候会舔自己的毛、吃掉绿藻，给自己加餐。在旱季、雨水稀少的时候，绿色会稍微褪去一点——但这座花园会等着下一场雨。一只树懒可不只是一只动物——它就是一个小小的世界。", "words": [{"w": "It", "t": 200.78}, {"w": "is", "t": 201.18}, {"w": "no", "t": 201.59}, {"w": "coincidence", "t": 201.99}, {"w": "that", "t": 202.4}, {"w": "sloths", "t": 202.8}, {"w": "with", "t": 203.2}, {"w": "more", "t": 203.61}, {"w": "moths", "t": 204.01}, {"w": "grow", "t": 204.42}, {"w": "more", "t": 204.82}, {"w": "algae.", "t": 205.22}, {"w": "And", "t": 205.63}, {"w": "here", "t": 206.03}, {"w": "is", "t": 206.44}, {"w": "the", "t": 206.84}, {"w": "astonishing", "t": 207.24}, {"w": "part:", "t": 207.65}, {"w": "scientists", "t": 208.05}, {"w": "think", "t": 208.46}, {"w": "the", "t": 208.86}, {"w": "sloth", "t": 209.26}, {"w": "sometimes", "t": 209.67}, {"w": "licks", "t": 210.07}, {"w": "its", "t": 210.48}, {"w": "own", "t": 210.88}, {"w": "fur", "t": 211.28}, {"w": "and", "t": 211.69}, {"w": "eats", "t": 212.09}, {"w": "the", "t": 212.5}, {"w": "algae", "t": 212.9}, {"w": "for", "t": 213.3}, {"w": "extra", "t": 213.71}, {"w": "food.", "t": 214.11}, {"w": "In", "t": 214.52}, {"w": "the", "t": 214.92}, {"w": "dry", "t": 215.32}, {"w": "season,", "t": 215.73}, {"w": "when", "t": 216.13}, {"w": "rain", "t": 216.54}, {"w": "is", "t": 216.94}, {"w": "rare,", "t": 217.34}, {"w": "the", "t": 217.75}, {"w": "green", "t": 218.15}, {"w": "fades", "t": 218.56}, {"w": "a", "t": 218.96}, {"w": "little", "t": 219.36}, {"w": "—", "t": 219.77}, {"w": "but", "t": 220.17}, {"w": "the", "t": 220.58}, {"w": "garden", "t": 220.98}, {"w": "waits", "t": 221.38}, {"w": "for", "t": 221.79}, {"w": "the", "t": 222.19}, {"w": "next", "t": 222.6}, {"w": "rain.", "t": 223.0}, {"w": "A", "t": 223.4}, {"w": "sloth", "t": 223.81}, {"w": "is", "t": 224.21}, {"w": "not", "t": 224.62}, {"w": "just", "t": 225.02}, {"w": "one", "t": 225.42}, {"w": "animal", "t": 225.83}, {"w": "—", "t": 226.23}, {"w": "it", "t": 226.64}, {"w": "is", "t": 227.04}, {"w": "a", "t": 227.44}, {"w": "whole", "t": 227.85}, {"w": "small", "t": 228.25}, {"w": "world.", "t": 228.66}]}, {"start": 243.92, "end": 283.23, "en": "Here's today's idiom: \"head in the clouds.\" Your head is where you think, and clouds are high in the sky, far away. So if your head is in the clouds, your thoughts are far away — you are daydreaming, not paying attention. Listen to this: During science class, Mia had her head in the clouds, dreaming about growing lettuce in space. The teacher asked, \"Mia, what do plants need?\" Mia blinked and said, \"Light, water, and... a rocket?\" The whole class laughed. Mia's head had been in the clouds — but her dream was a good one!", "title": "今日俚语", "cn": "今天的俚语是“head in the clouds”（脑袋在云里）。你的脑袋是用来思考的地方，而云朵高高地飘在天上、离得很远。所以，如果你的脑袋在云里，你的思绪就飘远了——你就是在发白日梦、没有专心听讲。听这个小故事：科学课上，Mia 的脑袋在云里，正梦想着在太空种生菜呢。老师问：“Mia，植物需要什么？”Mia 眨了眨眼，说：“光、水，还有……一枚火箭？”全班都笑了。Mia 的脑袋刚才确实在云里——不过她的梦想可不坏！", "words": [{"w": "Here's", "t": 243.92}, {"w": "today's", "t": 244.33}, {"w": "idiom:", "t": 244.73}, {"w": "\"head", "t": 245.14}, {"w": "in", "t": 245.54}, {"w": "the", "t": 245.95}, {"w": "clouds.\"", "t": 246.35}, {"w": "Your", "t": 246.76}, {"w": "head", "t": 247.16}, {"w": "is", "t": 247.57}, {"w": "where", "t": 247.97}, {"w": "you", "t": 248.38}, {"w": "think,", "t": 248.78}, {"w": "and", "t": 249.19}, {"w": "clouds", "t": 249.59}, {"w": "are", "t": 250.0}, {"w": "high", "t": 250.4}, {"w": "in", "t": 250.81}, {"w": "the", "t": 251.21}, {"w": "sky,", "t": 251.62}, {"w": "far", "t": 252.03}, {"w": "away.", "t": 252.43}, {"w": "So", "t": 252.84}, {"w": "if", "t": 253.24}, {"w": "your", "t": 253.65}, {"w": "head", "t": 254.05}, {"w": "is", "t": 254.46}, {"w": "in", "t": 254.86}, {"w": "the", "t": 255.27}, {"w": "clouds,", "t": 255.67}, {"w": "your", "t": 256.08}, {"w": "thoughts", "t": 256.48}, {"w": "are", "t": 256.89}, {"w": "far", "t": 257.29}, {"w": "away", "t": 257.7}, {"w": "—", "t": 258.1}, {"w": "you", "t": 258.51}, {"w": "are", "t": 258.91}, {"w": "daydreaming,", "t": 259.32}, {"w": "not", "t": 259.73}, {"w": "paying", "t": 260.13}, {"w": "attention.", "t": 260.54}, {"w": "Listen", "t": 260.94}, {"w": "to", "t": 261.35}, {"w": "this:", "t": 261.75}, {"w": "During", "t": 262.16}, {"w": "science", "t": 262.56}, {"w": "class,", "t": 262.97}, {"w": "Mia", "t": 263.37}, {"w": "had", "t": 263.78}, {"w": "her", "t": 264.18}, {"w": "head", "t": 264.59}, {"w": "in", "t": 264.99}, {"w": "the", "t": 265.4}, {"w": "clouds,", "t": 265.8}, {"w": "dreaming", "t": 266.21}, {"w": "about", "t": 266.61}, {"w": "growing", "t": 267.02}, {"w": "lettuce", "t": 267.42}, {"w": "in", "t": 267.83}, {"w": "space.", "t": 268.24}, {"w": "The", "t": 268.64}, {"w": "teacher", "t": 269.05}, {"w": "asked,", "t": 269.45}, {"w": "\"Mia,", "t": 269.86}, {"w": "what", "t": 270.26}, {"w": "do", "t": 270.67}, {"w": "plants", "t": 271.07}, {"w": "need?\"", "t": 271.48}, {"w": "Mia", "t": 271.88}, {"w": "blinked", "t": 272.29}, {"w": "and", "t": 272.69}, {"w": "said,", "t": 273.1}, {"w": "\"Light,", "t": 273.5}, {"w": "water,", "t": 273.91}, {"w": "and...", "t": 274.31}, {"w": "a", "t": 274.72}, {"w": "rocket?\"", "t": 275.12}, {"w": "The", "t": 275.53}, {"w": "whole", "t": 275.94}, {"w": "class", "t": 276.34}, {"w": "laughed.", "t": 276.75}, {"w": "Mia's", "t": 277.15}, {"w": "head", "t": 277.56}, {"w": "had", "t": 277.96}, {"w": "been", "t": 278.37}, {"w": "in", "t": 278.77}, {"w": "the", "t": 279.18}, {"w": "clouds", "t": 279.58}, {"w": "—", "t": 279.99}, {"w": "but", "t": 280.39}, {"w": "her", "t": 280.8}, {"w": "dream", "t": 281.2}, {"w": "was", "t": 281.61}, {"w": "a", "t": 282.01}, {"w": "good", "t": 282.42}, {"w": "one!", "t": 282.82}]}, {"start": 296.81, "end": 321.82, "en": "Let's think about our stories. Astronauts grew salad in space, and a sloth carries a garden in its fur. Two questions for you. First: if you could grow one food in space, what would it be, and why? Second: the sloth's fur garden helps it hide and find food. If you could wear a garden, what would you grow in it? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事。宇航员在太空种出了沙拉，树懒在毛里随身带着一座花园。轮到回答两个问题。第一：如果你能在太空种一种食物，你会种什么，为什么？第二：树懒毛里的小花园既能帮它藏身、又能帮它找食物。如果你能穿上一座花园，你会在里面种什么？和家人聊聊吧！", "words": [{"w": "Let's", "t": 296.81}, {"w": "think", "t": 297.18}, {"w": "about", "t": 297.56}, {"w": "our", "t": 297.93}, {"w": "stories.", "t": 298.3}, {"w": "Astronauts", "t": 298.68}, {"w": "grew", "t": 299.05}, {"w": "salad", "t": 299.42}, {"w": "in", "t": 299.8}, {"w": "space,", "t": 300.17}, {"w": "and", "t": 300.54}, {"w": "a", "t": 300.92}, {"w": "sloth", "t": 301.29}, {"w": "carries", "t": 301.66}, {"w": "a", "t": 302.04}, {"w": "garden", "t": 302.41}, {"w": "in", "t": 302.78}, {"w": "its", "t": 303.16}, {"w": "fur.", "t": 303.53}, {"w": "Two", "t": 303.9}, {"w": "questions", "t": 304.28}, {"w": "for", "t": 304.65}, {"w": "you.", "t": 305.02}, {"w": "First:", "t": 305.4}, {"w": "if", "t": 305.77}, {"w": "you", "t": 306.14}, {"w": "could", "t": 306.52}, {"w": "grow", "t": 306.89}, {"w": "one", "t": 307.26}, {"w": "food", "t": 307.64}, {"w": "in", "t": 308.01}, {"w": "space,", "t": 308.38}, {"w": "what", "t": 308.76}, {"w": "would", "t": 309.13}, {"w": "it", "t": 309.5}, {"w": "be,", "t": 309.87}, {"w": "and", "t": 310.25}, {"w": "why?", "t": 310.62}, {"w": "Second:", "t": 310.99}, {"w": "the", "t": 311.37}, {"w": "sloth's", "t": 311.74}, {"w": "fur", "t": 312.11}, {"w": "garden", "t": 312.49}, {"w": "helps", "t": 312.86}, {"w": "it", "t": 313.23}, {"w": "hide", "t": 313.61}, {"w": "and", "t": 313.98}, {"w": "find", "t": 314.35}, {"w": "food.", "t": 314.73}, {"w": "If", "t": 315.1}, {"w": "you", "t": 315.47}, {"w": "could", "t": 315.85}, {"w": "wear", "t": 316.22}, {"w": "a", "t": 316.59}, {"w": "garden,", "t": 316.97}, {"w": "what", "t": 317.34}, {"w": "would", "t": 317.71}, {"w": "you", "t": 318.09}, {"w": "grow", "t": 318.46}, {"w": "in", "t": 318.83}, {"w": "it?", "t": 319.21}, {"w": "Talk", "t": 319.58}, {"w": "about", "t": 319.95}, {"w": "it", "t": 320.33}, {"w": "with", "t": 320.7}, {"w": "your", "t": 321.07}, {"w": "family!", "t": 321.45}]}, {"start": 333.48, "end": 345.07, "en": "That's all for today, young explorers. Remember: keep your feet on the ground, but let your dreams reach the stars. Stay curious, and keep exploring. See you tomorrow morning!", "title": "告别", "cn": "今天的节目就到这里，小小探险家们。记住：脚要踏踏实实地踩在地上，但梦想可以够到星星。保持好奇心，继续探索吧。明天早上见！", "words": [{"w": "That's", "t": 333.48}, {"w": "all", "t": 333.88}, {"w": "for", "t": 334.28}, {"w": "today,", "t": 334.68}, {"w": "young", "t": 335.08}, {"w": "explorers.", "t": 335.48}, {"w": "Remember:", "t": 335.88}, {"w": "keep", "t": 336.28}, {"w": "your", "t": 336.68}, {"w": "feet", "t": 337.08}, {"w": "on", "t": 337.48}, {"w": "the", "t": 337.88}, {"w": "ground,", "t": 338.28}, {"w": "but", "t": 338.68}, {"w": "let", "t": 339.08}, {"w": "your", "t": 339.47}, {"w": "dreams", "t": 339.87}, {"w": "reach", "t": 340.27}, {"w": "the", "t": 340.67}, {"w": "stars.", "t": 341.07}, {"w": "Stay", "t": 341.47}, {"w": "curious,", "t": 341.87}, {"w": "and", "t": 342.27}, {"w": "keep", "t": 342.67}, {"w": "exploring.", "t": 343.07}, {"w": "See", "t": 343.47}, {"w": "you", "t": 343.87}, {"w": "tomorrow", "t": 344.27}, {"w": "morning!", "t": 344.67}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol21/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
