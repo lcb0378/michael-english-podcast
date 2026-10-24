@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.34 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol34/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol34/cover.png" controls playsinline preload="metadata"></video>
+<h1>⚡ Vol.34 · 爷爷奶奶的电竞队与比太阳还热的闪电</h1>
+<div class="meta">英文 600 词 ｜ 音频 5分42秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol34/story-esports.png" alt="爷爷奶奶的电竞队">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol34/story-lightning.png" alt="比太阳还热的闪电">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">hit the road</span> <span class="phon">/hɪt ðə rəʊd/</span> (习语) 出发；上路<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: The senior team <b>hit the road</b> early in the morning to play their match in another city.</div>
+</div>
+<div class="vocab">
+  <span class="word">awesome</span> <span class="phon">/ˈɔːsəm/</span> (adj.) 了不起的；令人惊叹的<br>
+  
+  <div class="example">Example: Grandpas and grandmas can be <b>awesome</b> players too.</div>
+</div>
+<div class="vocab">
+  <span class="word">instruct</span> <span class="phon">/ɪnˈstrʌkt/</span> (v.) 指导；教授<br>
+  
+  <div class="example">Example: Their coach <b>instructed</b> them step by step.</div>
+</div>
+<div class="vocab">
+  <span class="word">valid</span> <span class="phon">/ˈvælɪd/</span> (adj.) 有效的；正当的<br>
+  
+  <div class="example">Example: Their win was <b>valid</b> — no cheating, just skill.</div>
+</div>
+<div class="vocab">
+  <span class="word">choke</span> <span class="phon">/tʃəʊk/</span> (v.) （因紧张而）失常；掉链子<br>
+  
+  <div class="example">Example: "Do not <b>choke</b> under pressure," their coach told them.</div>
+</div>
+<div class="vocab">
+  <span class="word">absent</span> <span class="phon">/ˈæbsənt/</span> (adj.) 缺席的；不在场的<br>
+  
+  <div class="example">Example: One player was <b>absent</b> that day.</div>
+</div>
+<div class="vocab">
+  <span class="word">expose</span> <span class="phon">/ɪkˈspoʊz/</span> (v.) 照亮；使显露<br>
+  
+  <div class="example">Example: For a tiny moment, the flash <b>exposes</b> the whole sky.</div>
+</div>
+<div class="vocab">
+  <span class="word">delicate</span> <span class="phon">/ˈdelɪkət/</span> (adj.) 精密的；精细的<br>
+  
+  <div class="example">Example: Scientists use <b>delicate</b> instruments to measure lightning.</div>
+</div>
+<div class="vocab">
+  <span class="word">plasma</span> <span class="phon">/ˈplæzmə/</span> (n.) 等离子体<br>
+  
+  <div class="example">Example: It turns the air around it into <b>plasma</b>, a super-hot gas.</div>
+</div>
+<div class="vocab">
+  <span class="word">charge</span> <span class="phon">/tʃɑːdʒ/</span> (n.) 电荷<br>
+  
+  <div class="example">Example: The crashes build up electric <b>charge</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">esports</span> <span class="phon">/ˈiːspɔːts/</span> (n.) 电子竞技<br>
+  
+  <div class="example">Example: There is a senior <b>esports</b> team called the Matagi Snipers.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 11, "ncols": 13, "words": [{"word": "LIGHTNING", "row": 6, "col": 4, "dir": "A", "num": 1, "cn": "闪电", "clue": "___ hotter than the surface of the Sun."}, {"word": "THUNDER", "row": 3, "col": 9, "dir": "D", "num": 2, "cn": "雷声", "clue": "a moment later comes ___."}, {"word": "PLASMA", "row": 5, "col": 4, "dir": "D", "num": 3, "cn": "等离子体", "clue": "it turns the air around it into ___."}, {"word": "ESPORTS", "row": 3, "col": 4, "dir": "A", "num": 4, "cn": "电子竞技", "clue": "a senior ___ team called the Matagi Snipers."}, {"word": "SENIOR", "row": 4, "col": 11, "dir": "D", "num": 5, "cn": "老年的", "clue": "a ___ esports team called the Matagi Snipers."}, {"word": "COACH", "row": 2, "col": 7, "dir": "D", "num": 6, "cn": "教练", "clue": "their ___ told them not to choke under pressure."}, {"word": "PRESSURE", "row": 8, "col": 0, "dir": "A", "num": 7, "cn": "压力", "clue": "Do not choke under ___."}, {"word": "PATIENCE", "row": 1, "col": 2, "dir": "D", "num": 8, "cn": "耐心", "clue": "with ___ and practice, grandpas and grandmas can be awesome players too."}, {"word": "ROAD", "row": 2, "col": 0, "dir": "A", "num": 9, "cn": "公路", "clue": "hit the ___ early in the morning to play their match."}, {"word": "FLASH", "row": 0, "col": 5, "dir": "D", "num": 10, "cn": "闪光", "clue": "that ___ is lightning."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. How old is the oldest player on the Matagi Snipers?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. 55</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. 67</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. 75</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. 88</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. What did the Japanese team do in their match against Malaysia?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. They lost two games to one</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. They won two games to one</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. They did not play</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. They played only one game</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. How hot can the air around a lightning bolt get?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. About 5,500 degrees</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. About 30,000 degrees</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. About 1,000 degrees</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. About 100 degrees</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does &quot;hit the road&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. To hit a road with a stick</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. To start a trip</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. To run away</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. To build a road</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：B</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [2, 1, 1, 1];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">When the <b class="kw">charge</b> grows too big, it has to <b class="kw">escape</b>.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li><i>When the charge grows too big</i> 是<b>时间状语从句</b>：When（当……的时候）+ 句子，放在句首，先告诉你“什么时候”——当电荷变得太大的时候。英语里这种时间状语可以前置，让句子先有时间背景，再出主句。</li>
+  <li><i>has to escape</i> 是<b>have to 表必要</b>：have to + 动词原形，表示“必须、不得不”。电荷太大，就“不得不”释放出来——不是想不想的问题，是非做不可。</li>
+  <li><i>grows too big</i> 是<b>程度结构</b>：too（太）+ 形容词 big，表示程度超过了界限。电荷不是“有点大”，而是“太大了”，大到装不下，所以才要释放。</li>
+  <li>整句逻辑链：<b>时间（电荷太大时）→ 必要（不得不）→ 动作（释放出来）</b>。一句话里藏着时间从句、have to 和程度结构三个机关。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. When 时间状语从句：用括号里的词补全</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">____ the charge grows too big, it has to escape.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">When</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">While</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">Because</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：When</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">____ you see lightning, count the seconds before thunder.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">While</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">When</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">Because</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：When</p>
+</div>
+<p class="p4-gname">B. have to 表必要：用括号里的词补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">It ____ escape.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">have to</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">had to</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">has to</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：has to</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">The team ____ practice every week.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">has to</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">have to</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">had to</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：has to</p>
+</div>
+<p class="p4-gname">C. 介词短语：用括号里的词补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">They practice together ____ weekday afternoons.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">in</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">on</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">at</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：on</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">Do not choke ____ pressure.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">over</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">above</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">under</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：under</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>When the charge grows too big, it has to escape.</li>
+<li>With patience and practice, grandpas and grandmas can be awesome players too.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">10</span><span class="cwl">F</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">8</span><span class="cwl">P</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">9</span><span class="cwl">R</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">6</span><span class="cwl">C</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">E</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwn">2</span><span class="cwl">T</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">5</span><span class="cwl">S</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">3</span><span class="cwl">P</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">1</span><span class="cwl">L</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">G</span></td><td class="cwc"><span class="cwl">H</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">G</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">7</span><span class="cwl">P</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr></table></div>1 横 → <b>LIGHTNING</b>（闪电）<br>2 竖 → <b>THUNDER</b>（雷声）<br>3 竖 → <b>PLASMA</b>（等离子体）<br>4 横 → <b>ESPORTS</b>（电子竞技）<br>5 竖 → <b>SENIOR</b>（老年的）<br>6 竖 → <b>COACH</b>（教练）<br>7 横 → <b>PRESSURE</b>（压力）<br>8 竖 → <b>PATIENCE</b>（耐心）<br>9 横 → <b>ROAD</b>（公路）<br>10 竖 → <b>FLASH</b>（闪光）<br><br><b>B. Single Choice:</b><br>
+1 → <b>C</b>. The text says the oldest player is <i>"seventy-five"</i>.<br>
+2 → <b>B</b>. <i>"The team still won two games to one!"</i><br>
+3 → <b>B</b>. The text says the air <i>"can reach about thirty thousand degrees"</i>.<br>
+4 → <b>B</b>. The text says: <i>"When you hit the road, you start a trip — you leave and go!"</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. When&nbsp;&nbsp;2. When<br>
+B. 1. has to&nbsp;&nbsp;2. has to<br>
+C. 1. on&nbsp;&nbsp;2. under<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol34/Vol34_晚读讲义_爷爷奶奶的电竞队与比太阳还热的闪电_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 19.31, "end": 35.82, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we meet two awesome surprises: grandparent gamers who play like pros, and lightning hotter than the surface of the Sun. Ready? Let's go!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天我们要认识两个了不起的惊喜：像职业选手一样打游戏的爷爷奶奶玩家，和比太阳表面还热的闪电。准备好了吗？出发吧！", "words": [{"w": "Hello,", "t": 19.31}, {"w": "young", "t": 19.8}, {"w": "explorers,", "t": 20.28}, {"w": "and", "t": 20.77}, {"w": "welcome", "t": 21.25}, {"w": "back", "t": 21.74}, {"w": "to", "t": 22.22}, {"w": "Michael's", "t": 22.71}, {"w": "Morning", "t": 23.19}, {"w": "Listening!", "t": 23.68}, {"w": "Today", "t": 24.17}, {"w": "we", "t": 24.65}, {"w": "meet", "t": 25.14}, {"w": "two", "t": 25.62}, {"w": "awesome", "t": 26.11}, {"w": "surprises:", "t": 26.59}, {"w": "grandparent", "t": 27.08}, {"w": "gamers", "t": 27.56}, {"w": "who", "t": 28.05}, {"w": "play", "t": 28.54}, {"w": "like", "t": 29.02}, {"w": "pros,", "t": 29.51}, {"w": "and", "t": 29.99}, {"w": "lightning", "t": 30.48}, {"w": "hotter", "t": 30.96}, {"w": "than", "t": 31.45}, {"w": "the", "t": 31.94}, {"w": "surface", "t": 32.42}, {"w": "of", "t": 32.91}, {"w": "the", "t": 33.39}, {"w": "Sun.", "t": 33.88}, {"w": "Ready?", "t": 34.36}, {"w": "Let's", "t": 34.85}, {"w": "go!", "t": 35.33}]}, {"start": 53.48, "end": 72.0, "en": "In Japan, there is a senior esports team called the Matagi Snipers. Every player is over sixty years old. The oldest is seventy-five, and the average age is sixty-seven. They play a team shooting game called VALORANT, and they practice together on weekday afternoons.", "title": "银发电竞队", "cn": "在日本，有一支老年电竞战队，叫作 Matagi Snipers。每一位队员都超过六十岁。最年长的队员七十五岁，平均年龄六十七岁。他们玩一款叫作 VALORANT 的团队射击游戏，每个工作日的下午一起练习。", "words": [{"w": "In", "t": 53.48}, {"w": "Japan,", "t": 53.9}, {"w": "there", "t": 54.32}, {"w": "is", "t": 54.74}, {"w": "a", "t": 55.16}, {"w": "senior", "t": 55.58}, {"w": "esports", "t": 56.01}, {"w": "team", "t": 56.43}, {"w": "called", "t": 56.85}, {"w": "the", "t": 57.27}, {"w": "Matagi", "t": 57.69}, {"w": "Snipers.", "t": 58.11}, {"w": "Every", "t": 58.53}, {"w": "player", "t": 58.95}, {"w": "is", "t": 59.37}, {"w": "over", "t": 59.79}, {"w": "sixty", "t": 60.21}, {"w": "years", "t": 60.64}, {"w": "old.", "t": 61.06}, {"w": "The", "t": 61.48}, {"w": "oldest", "t": 61.9}, {"w": "is", "t": 62.32}, {"w": "seventy-five,", "t": 62.74}, {"w": "and", "t": 63.16}, {"w": "the", "t": 63.58}, {"w": "average", "t": 64.0}, {"w": "age", "t": 64.42}, {"w": "is", "t": 64.84}, {"w": "sixty-seven.", "t": 65.27}, {"w": "They", "t": 65.69}, {"w": "play", "t": 66.11}, {"w": "a", "t": 66.53}, {"w": "team", "t": 66.95}, {"w": "shooting", "t": 67.37}, {"w": "game", "t": 67.79}, {"w": "called", "t": 68.21}, {"w": "VALORANT,", "t": 68.63}, {"w": "and", "t": 69.05}, {"w": "they", "t": 69.47}, {"w": "practice", "t": 69.9}, {"w": "together", "t": 70.32}, {"w": "on", "t": 70.74}, {"w": "weekday", "t": 71.16}, {"w": "afternoons.", "t": 71.58}]}, {"start": 72.0, "end": 90.53, "en": "At first, many players did not even know how to use a computer. Their coach instructed them step by step, starting with how to turn the machine on. But they did not give up. They practiced hard and grew stronger after every lost round.", "title": "银发电竞队", "cn": "一开始，许多队员甚至不知道怎么用电脑。他们的教练一步一步地指导他们，从怎么开机开始教起。可是他们没有放弃。他们努力练习，每输一局之后都变得更强。", "words": [{"w": "At", "t": 72.0}, {"w": "first,", "t": 72.42}, {"w": "many", "t": 72.84}, {"w": "players", "t": 73.26}, {"w": "did", "t": 73.68}, {"w": "not", "t": 74.11}, {"w": "even", "t": 74.53}, {"w": "know", "t": 74.95}, {"w": "how", "t": 75.37}, {"w": "to", "t": 75.79}, {"w": "use", "t": 76.21}, {"w": "a", "t": 76.63}, {"w": "computer.", "t": 77.05}, {"w": "Their", "t": 77.47}, {"w": "coach", "t": 77.9}, {"w": "instructed", "t": 78.32}, {"w": "them", "t": 78.74}, {"w": "step", "t": 79.16}, {"w": "by", "t": 79.58}, {"w": "step,", "t": 80.0}, {"w": "starting", "t": 80.42}, {"w": "with", "t": 80.84}, {"w": "how", "t": 81.27}, {"w": "to", "t": 81.69}, {"w": "turn", "t": 82.11}, {"w": "the", "t": 82.53}, {"w": "machine", "t": 82.95}, {"w": "on.", "t": 83.37}, {"w": "But", "t": 83.79}, {"w": "they", "t": 84.21}, {"w": "did", "t": 84.63}, {"w": "not", "t": 85.06}, {"w": "give", "t": 85.48}, {"w": "up.", "t": 85.9}, {"w": "They", "t": 86.32}, {"w": "practiced", "t": 86.74}, {"w": "hard", "t": 87.16}, {"w": "and", "t": 87.58}, {"w": "grew", "t": 88.0}, {"w": "stronger", "t": 88.42}, {"w": "after", "t": 88.85}, {"w": "every", "t": 89.27}, {"w": "lost", "t": 89.69}, {"w": "round.", "t": 90.11}]}, {"start": 90.53, "end": 114.94, "en": "Then came the big test: a match against a senior team from Malaysia. The Japanese team played calmly, with clever teamwork. Their win was valid — no cheating, just skill. \"Do not choke under pressure,\" their coach told them, and they did not. One player was absent that day, but the team still won two games to one!", "title": "银发电竞队", "cn": "然后，大考验来了：和一支来自马来西亚的老年战队比赛。日本队打得沉着，配合巧妙。他们的胜利是实至名归的——没有作弊，全凭本事。“压力之下不要掉链子，”教练告诉他们，而他们真的没有掉链子。那天有一位队员缺席了，但全队还是以二比一赢下了比赛！", "words": [{"w": "Then", "t": 90.53}, {"w": "came", "t": 90.95}, {"w": "the", "t": 91.37}, {"w": "big", "t": 91.79}, {"w": "test:", "t": 92.21}, {"w": "a", "t": 92.63}, {"w": "match", "t": 93.06}, {"w": "against", "t": 93.48}, {"w": "a", "t": 93.9}, {"w": "senior", "t": 94.32}, {"w": "team", "t": 94.74}, {"w": "from", "t": 95.16}, {"w": "Malaysia.", "t": 95.58}, {"w": "The", "t": 96.0}, {"w": "Japanese", "t": 96.42}, {"w": "team", "t": 96.84}, {"w": "played", "t": 97.26}, {"w": "calmly,", "t": 97.68}, {"w": "with", "t": 98.11}, {"w": "clever", "t": 98.53}, {"w": "teamwork.", "t": 98.95}, {"w": "Their", "t": 99.37}, {"w": "win", "t": 99.79}, {"w": "was", "t": 100.21}, {"w": "valid", "t": 100.63}, {"w": "—", "t": 101.05}, {"w": "no", "t": 101.47}, {"w": "cheating,", "t": 101.89}, {"w": "just", "t": 102.31}, {"w": "skill.", "t": 102.73}, {"w": "\"Do", "t": 103.16}, {"w": "not", "t": 103.58}, {"w": "choke", "t": 104.0}, {"w": "under", "t": 104.42}, {"w": "pressure,\"", "t": 104.84}, {"w": "their", "t": 105.26}, {"w": "coach", "t": 105.68}, {"w": "told", "t": 106.1}, {"w": "them,", "t": 106.52}, {"w": "and", "t": 106.94}, {"w": "they", "t": 107.36}, {"w": "did", "t": 107.79}, {"w": "not.", "t": 108.21}, {"w": "One", "t": 108.63}, {"w": "player", "t": 109.05}, {"w": "was", "t": 109.47}, {"w": "absent", "t": 109.89}, {"w": "that", "t": 110.31}, {"w": "day,", "t": 110.73}, {"w": "but", "t": 111.15}, {"w": "the", "t": 111.57}, {"w": "team", "t": 111.99}, {"w": "still", "t": 112.41}, {"w": "won", "t": 112.84}, {"w": "two", "t": 113.26}, {"w": "games", "t": 113.68}, {"w": "to", "t": 114.1}, {"w": "one!", "t": 114.52}]}, {"start": 114.94, "end": 135.15, "en": "Senior gaming is growing everywhere. In Taiwan, over three hundred and fifty players over fifty-five joined a senior esports contest. The oldest player there was eighty-eight! So remember: games are not only for the young — with patience and practice, grandpas and grandmas can be awesome players too.", "title": "银发电竞队", "cn": "老年电竞正在各地兴起。在台湾，三百五十多位五十五岁以上的选手参加了一场老年电竞比赛。最年长的选手已经八十八岁了！所以记住：游戏不只是年轻人的事——只要有耐心、多练习，爷爷奶奶也能成为了不起的选手。", "words": [{"w": "Senior", "t": 114.94}, {"w": "gaming", "t": 115.36}, {"w": "is", "t": 115.78}, {"w": "growing", "t": 116.2}, {"w": "everywhere.", "t": 116.62}, {"w": "In", "t": 117.05}, {"w": "Taiwan,", "t": 117.47}, {"w": "over", "t": 117.89}, {"w": "three", "t": 118.31}, {"w": "hundred", "t": 118.73}, {"w": "and", "t": 119.15}, {"w": "fifty", "t": 119.57}, {"w": "players", "t": 119.99}, {"w": "over", "t": 120.41}, {"w": "fifty-five", "t": 120.83}, {"w": "joined", "t": 121.26}, {"w": "a", "t": 121.68}, {"w": "senior", "t": 122.1}, {"w": "esports", "t": 122.52}, {"w": "contest.", "t": 122.94}, {"w": "The", "t": 123.36}, {"w": "oldest", "t": 123.78}, {"w": "player", "t": 124.2}, {"w": "there", "t": 124.62}, {"w": "was", "t": 125.05}, {"w": "eighty-eight!", "t": 125.47}, {"w": "So", "t": 125.89}, {"w": "remember:", "t": 126.31}, {"w": "games", "t": 126.73}, {"w": "are", "t": 127.15}, {"w": "not", "t": 127.57}, {"w": "only", "t": 127.99}, {"w": "for", "t": 128.41}, {"w": "the", "t": 128.83}, {"w": "young", "t": 129.26}, {"w": "—", "t": 129.68}, {"w": "with", "t": 130.1}, {"w": "patience", "t": 130.52}, {"w": "and", "t": 130.94}, {"w": "practice,", "t": 131.36}, {"w": "grandpas", "t": 131.78}, {"w": "and", "t": 132.2}, {"w": "grandmas", "t": 132.62}, {"w": "can", "t": 133.04}, {"w": "be", "t": 133.47}, {"w": "awesome", "t": 133.89}, {"w": "players", "t": 134.31}, {"w": "too.", "t": 134.73}]}, {"start": 149.05, "end": 171.56, "en": "Now look up at a summer storm. A lightning bolt flashes across the sky, and a moment later comes thunder. Here is the amazing fact: the air around a lightning bolt can reach about thirty thousand degrees — about five times hotter than the surface of the Sun, which is only about five thousand five hundred degrees!", "title": "比太阳还热的闪电", "cn": "现在，抬头看看夏天的暴风雨。一道闪电划破天空，片刻之后就传来了雷声。这里有一个惊人的事实：闪电周围的空气可以达到大约三万度——大约是太阳表面的五倍，而太阳表面只有大约五千五百度！", "words": [{"w": "Now", "t": 149.05}, {"w": "look", "t": 149.44}, {"w": "up", "t": 149.84}, {"w": "at", "t": 150.23}, {"w": "a", "t": 150.63}, {"w": "summer", "t": 151.02}, {"w": "storm.", "t": 151.42}, {"w": "A", "t": 151.81}, {"w": "lightning", "t": 152.21}, {"w": "bolt", "t": 152.6}, {"w": "flashes", "t": 153.0}, {"w": "across", "t": 153.39}, {"w": "the", "t": 153.79}, {"w": "sky,", "t": 154.18}, {"w": "and", "t": 154.58}, {"w": "a", "t": 154.97}, {"w": "moment", "t": 155.37}, {"w": "later", "t": 155.76}, {"w": "comes", "t": 156.16}, {"w": "thunder.", "t": 156.55}, {"w": "Here", "t": 156.95}, {"w": "is", "t": 157.34}, {"w": "the", "t": 157.74}, {"w": "amazing", "t": 158.13}, {"w": "fact:", "t": 158.53}, {"w": "the", "t": 158.92}, {"w": "air", "t": 159.32}, {"w": "around", "t": 159.71}, {"w": "a", "t": 160.11}, {"w": "lightning", "t": 160.5}, {"w": "bolt", "t": 160.9}, {"w": "can", "t": 161.29}, {"w": "reach", "t": 161.69}, {"w": "about", "t": 162.08}, {"w": "thirty", "t": 162.48}, {"w": "thousand", "t": 162.87}, {"w": "degrees", "t": 163.27}, {"w": "—", "t": 163.66}, {"w": "about", "t": 164.06}, {"w": "five", "t": 164.45}, {"w": "times", "t": 164.85}, {"w": "hotter", "t": 165.24}, {"w": "than", "t": 165.64}, {"w": "the", "t": 166.03}, {"w": "surface", "t": 166.43}, {"w": "of", "t": 166.82}, {"w": "the", "t": 167.22}, {"w": "Sun,", "t": 167.61}, {"w": "which", "t": 168.01}, {"w": "is", "t": 168.4}, {"w": "only", "t": 168.8}, {"w": "about", "t": 169.19}, {"w": "five", "t": 169.59}, {"w": "thousand", "t": 169.98}, {"w": "five", "t": 170.38}, {"w": "hundred", "t": 170.77}, {"w": "degrees!", "t": 171.17}]}, {"start": 171.56, "end": 192.88, "en": "How does it happen? Inside a storm cloud, tiny ice crystals crash into each other again and again, building up electric charge, like rubbing a balloon on your hair. When the charge grows too big, it has to escape. It rushes down to the ground in a flash — and that flash is lightning.", "title": "比太阳还热的闪电", "cn": "这是怎么发生的呢？在暴风云里，微小的冰晶一次又一次地相互碰撞，积累起电荷，就像把气球在头发上摩擦一样。当电荷变得太大时，它必须释放出来。它猛地冲向地面，化作一道闪光——那就是闪电。", "words": [{"w": "How", "t": 171.56}, {"w": "does", "t": 171.95}, {"w": "it", "t": 172.35}, {"w": "happen?", "t": 172.74}, {"w": "Inside", "t": 173.14}, {"w": "a", "t": 173.53}, {"w": "storm", "t": 173.93}, {"w": "cloud,", "t": 174.32}, {"w": "tiny", "t": 174.72}, {"w": "ice", "t": 175.11}, {"w": "crystals", "t": 175.51}, {"w": "crash", "t": 175.9}, {"w": "into", "t": 176.3}, {"w": "each", "t": 176.69}, {"w": "other", "t": 177.09}, {"w": "again", "t": 177.48}, {"w": "and", "t": 177.88}, {"w": "again,", "t": 178.27}, {"w": "building", "t": 178.67}, {"w": "up", "t": 179.06}, {"w": "electric", "t": 179.46}, {"w": "charge,", "t": 179.85}, {"w": "like", "t": 180.25}, {"w": "rubbing", "t": 180.64}, {"w": "a", "t": 181.04}, {"w": "balloon", "t": 181.43}, {"w": "on", "t": 181.83}, {"w": "your", "t": 182.22}, {"w": "hair.", "t": 182.61}, {"w": "When", "t": 183.01}, {"w": "the", "t": 183.4}, {"w": "charge", "t": 183.8}, {"w": "grows", "t": 184.19}, {"w": "too", "t": 184.59}, {"w": "big,", "t": 184.98}, {"w": "it", "t": 185.38}, {"w": "has", "t": 185.77}, {"w": "to", "t": 186.17}, {"w": "escape.", "t": 186.56}, {"w": "It", "t": 186.96}, {"w": "rushes", "t": 187.35}, {"w": "down", "t": 187.75}, {"w": "to", "t": 188.14}, {"w": "the", "t": 188.54}, {"w": "ground", "t": 188.93}, {"w": "in", "t": 189.33}, {"w": "a", "t": 189.72}, {"w": "flash", "t": 190.12}, {"w": "—", "t": 190.51}, {"w": "and", "t": 190.91}, {"w": "that", "t": 191.3}, {"w": "flash", "t": 191.7}, {"w": "is", "t": 192.09}, {"w": "lightning.", "t": 192.49}]}, {"start": 192.88, "end": 220.13, "en": "The flash is so hot that it turns the air around it into plasma, a super-hot gas. For a tiny moment, the flash exposes the whole sky. Then the super-hot air expands fast, and that expansion is the thunder you hear. Scientists use delicate instruments to measure lightning. They say one flash lasts less than a second — but in that second, it is hotter than the Sun's surface!", "title": "比太阳还热的闪电", "cn": "闪电非常热，能把周围的空气变成等离子体，一种超高温气体。有一瞬间，闪光照亮了整个天空。接着，超高温的空气迅速膨胀，那种膨胀就是你听到的雷声。科学家们用精密的仪器测量闪电。他们说，一道闪电持续不到一秒——但在那一秒里，它比太阳表面还要热！", "words": [{"w": "The", "t": 192.88}, {"w": "flash", "t": 193.27}, {"w": "is", "t": 193.67}, {"w": "so", "t": 194.06}, {"w": "hot", "t": 194.46}, {"w": "that", "t": 194.85}, {"w": "it", "t": 195.25}, {"w": "turns", "t": 195.64}, {"w": "the", "t": 196.04}, {"w": "air", "t": 196.43}, {"w": "around", "t": 196.83}, {"w": "it", "t": 197.22}, {"w": "into", "t": 197.62}, {"w": "plasma,", "t": 198.01}, {"w": "a", "t": 198.41}, {"w": "super-hot", "t": 198.8}, {"w": "gas.", "t": 199.2}, {"w": "For", "t": 199.59}, {"w": "a", "t": 199.99}, {"w": "tiny", "t": 200.38}, {"w": "moment,", "t": 200.78}, {"w": "the", "t": 201.17}, {"w": "flash", "t": 201.57}, {"w": "exposes", "t": 201.96}, {"w": "the", "t": 202.36}, {"w": "whole", "t": 202.75}, {"w": "sky.", "t": 203.15}, {"w": "Then", "t": 203.54}, {"w": "the", "t": 203.94}, {"w": "super-hot", "t": 204.33}, {"w": "air", "t": 204.73}, {"w": "expands", "t": 205.12}, {"w": "fast,", "t": 205.52}, {"w": "and", "t": 205.91}, {"w": "that", "t": 206.31}, {"w": "expansion", "t": 206.7}, {"w": "is", "t": 207.1}, {"w": "the", "t": 207.49}, {"w": "thunder", "t": 207.89}, {"w": "you", "t": 208.28}, {"w": "hear.", "t": 208.68}, {"w": "Scientists", "t": 209.07}, {"w": "use", "t": 209.47}, {"w": "delicate", "t": 209.86}, {"w": "instruments", "t": 210.26}, {"w": "to", "t": 210.65}, {"w": "measure", "t": 211.05}, {"w": "lightning.", "t": 211.44}, {"w": "They", "t": 211.84}, {"w": "say", "t": 212.23}, {"w": "one", "t": 212.63}, {"w": "flash", "t": 213.02}, {"w": "lasts", "t": 213.42}, {"w": "less", "t": 213.81}, {"w": "than", "t": 214.21}, {"w": "a", "t": 214.6}, {"w": "second", "t": 215.0}, {"w": "—", "t": 215.39}, {"w": "but", "t": 215.79}, {"w": "in", "t": 216.18}, {"w": "that", "t": 216.58}, {"w": "second,", "t": 216.97}, {"w": "it", "t": 217.37}, {"w": "is", "t": 217.76}, {"w": "hotter", "t": 218.16}, {"w": "than", "t": 218.55}, {"w": "the", "t": 218.95}, {"w": "Sun's", "t": 219.34}, {"w": "surface!", "t": 219.74}]}, {"start": 220.13, "end": 238.29, "en": "Of course, the Sun's center is far hotter than any lightning bolt. But the part of the Sun we see — its surface — is cooler than a lightning flash. So next time you see lightning, remember: you are watching sky fire, hotter than sunshine itself.", "title": "比太阳还热的闪电", "cn": "当然，太阳的中心比任何闪电都要热得多。但是我们看到的太阳的那一部分——它的表面——却比一道闪电要凉。所以下次你看到闪电时，记住：你正在看天上的火，比阳光本身还要热。", "words": [{"w": "Of", "t": 220.13}, {"w": "course,", "t": 220.52}, {"w": "the", "t": 220.92}, {"w": "Sun's", "t": 221.31}, {"w": "center", "t": 221.71}, {"w": "is", "t": 222.1}, {"w": "far", "t": 222.5}, {"w": "hotter", "t": 222.89}, {"w": "than", "t": 223.29}, {"w": "any", "t": 223.68}, {"w": "lightning", "t": 224.08}, {"w": "bolt.", "t": 224.47}, {"w": "But", "t": 224.87}, {"w": "the", "t": 225.26}, {"w": "part", "t": 225.66}, {"w": "of", "t": 226.05}, {"w": "the", "t": 226.45}, {"w": "Sun", "t": 226.84}, {"w": "we", "t": 227.24}, {"w": "see", "t": 227.63}, {"w": "—", "t": 228.03}, {"w": "its", "t": 228.42}, {"w": "surface", "t": 228.82}, {"w": "—", "t": 229.21}, {"w": "is", "t": 229.6}, {"w": "cooler", "t": 230.0}, {"w": "than", "t": 230.39}, {"w": "a", "t": 230.79}, {"w": "lightning", "t": 231.18}, {"w": "flash.", "t": 231.58}, {"w": "So", "t": 231.97}, {"w": "next", "t": 232.37}, {"w": "time", "t": 232.76}, {"w": "you", "t": 233.16}, {"w": "see", "t": 233.55}, {"w": "lightning,", "t": 233.95}, {"w": "remember:", "t": 234.34}, {"w": "you", "t": 234.74}, {"w": "are", "t": 235.13}, {"w": "watching", "t": 235.53}, {"w": "sky", "t": 235.92}, {"w": "fire,", "t": 236.32}, {"w": "hotter", "t": 236.71}, {"w": "than", "t": 237.11}, {"w": "sunshine", "t": 237.5}, {"w": "itself.", "t": 237.9}]}, {"start": 252.83, "end": 270.25, "en": "Here's today's idiom: 'hit the road.' When you hit the road, you start a trip — you leave and go! Here's an example: 'The senior team hit the road early in the morning to play their match in another city.' When did you last hit the road for something exciting?", "title": "今日俚语", "cn": "今天的俚语是“hit the road”（出发，上路）。当你 hit the road 时，你就开始了一段旅程——你离开，出发了！举个例子：“老年战队一大早就出发了，要去另一个城市打比赛。”你上一次为了什么激动人心的事而出发，是什么时候？", "words": [{"w": "Here's", "t": 252.83}, {"w": "today's", "t": 253.18}, {"w": "idiom:", "t": 253.53}, {"w": "'hit", "t": 253.88}, {"w": "the", "t": 254.22}, {"w": "road.'", "t": 254.57}, {"w": "When", "t": 254.92}, {"w": "you", "t": 255.27}, {"w": "hit", "t": 255.62}, {"w": "the", "t": 255.97}, {"w": "road,", "t": 256.31}, {"w": "you", "t": 256.66}, {"w": "start", "t": 257.01}, {"w": "a", "t": 257.36}, {"w": "trip", "t": 257.71}, {"w": "—", "t": 258.06}, {"w": "you", "t": 258.4}, {"w": "leave", "t": 258.75}, {"w": "and", "t": 259.1}, {"w": "go!", "t": 259.45}, {"w": "Here's", "t": 259.8}, {"w": "an", "t": 260.15}, {"w": "example:", "t": 260.49}, {"w": "'The", "t": 260.84}, {"w": "senior", "t": 261.19}, {"w": "team", "t": 261.54}, {"w": "hit", "t": 261.89}, {"w": "the", "t": 262.24}, {"w": "road", "t": 262.59}, {"w": "early", "t": 262.93}, {"w": "in", "t": 263.28}, {"w": "the", "t": 263.63}, {"w": "morning", "t": 263.98}, {"w": "to", "t": 264.33}, {"w": "play", "t": 264.68}, {"w": "their", "t": 265.02}, {"w": "match", "t": 265.37}, {"w": "in", "t": 265.72}, {"w": "another", "t": 266.07}, {"w": "city.'", "t": 266.42}, {"w": "When", "t": 266.77}, {"w": "did", "t": 267.11}, {"w": "you", "t": 267.46}, {"w": "last", "t": 267.81}, {"w": "hit", "t": 268.16}, {"w": "the", "t": 268.51}, {"w": "road", "t": 268.86}, {"w": "for", "t": 269.2}, {"w": "something", "t": 269.55}, {"w": "exciting?", "t": 269.9}]}, {"start": 284.15, "end": 311.17, "en": "Let's think about our stories: grandparent gamers, and lightning hotter than the Sun's surface. First: if your grandparents hit the road to play in a game contest, which game would you teach them first? Second: lightning is hotter than the Sun's surface but lasts less than a second — why does thunder come after the flash, not at the same time? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事：爷爷奶奶玩家，和比太阳表面还热的闪电。第一：如果你的爷爷奶奶要出发去参加游戏比赛，你会先教他们玩哪款游戏？第二：闪电比太阳表面还热，却持续不到一秒——你觉得为什么雷声总是在闪光之后才来，而不是同时到来？和家人聊聊吧！", "words": [{"w": "Let's", "t": 284.15}, {"w": "think", "t": 284.55}, {"w": "about", "t": 284.96}, {"w": "our", "t": 285.36}, {"w": "stories:", "t": 285.76}, {"w": "grandparent", "t": 286.17}, {"w": "gamers,", "t": 286.57}, {"w": "and", "t": 286.97}, {"w": "lightning", "t": 287.38}, {"w": "hotter", "t": 287.78}, {"w": "than", "t": 288.18}, {"w": "the", "t": 288.59}, {"w": "Sun's", "t": 288.99}, {"w": "surface.", "t": 289.39}, {"w": "First:", "t": 289.8}, {"w": "if", "t": 290.2}, {"w": "your", "t": 290.6}, {"w": "grandparents", "t": 291.01}, {"w": "hit", "t": 291.41}, {"w": "the", "t": 291.81}, {"w": "road", "t": 292.22}, {"w": "to", "t": 292.62}, {"w": "play", "t": 293.02}, {"w": "in", "t": 293.43}, {"w": "a", "t": 293.83}, {"w": "game", "t": 294.23}, {"w": "contest,", "t": 294.64}, {"w": "which", "t": 295.04}, {"w": "game", "t": 295.44}, {"w": "would", "t": 295.85}, {"w": "you", "t": 296.25}, {"w": "teach", "t": 296.65}, {"w": "them", "t": 297.06}, {"w": "first?", "t": 297.46}, {"w": "Second:", "t": 297.86}, {"w": "lightning", "t": 298.26}, {"w": "is", "t": 298.67}, {"w": "hotter", "t": 299.07}, {"w": "than", "t": 299.47}, {"w": "the", "t": 299.88}, {"w": "Sun's", "t": 300.28}, {"w": "surface", "t": 300.68}, {"w": "but", "t": 301.09}, {"w": "lasts", "t": 301.49}, {"w": "less", "t": 301.89}, {"w": "than", "t": 302.3}, {"w": "a", "t": 302.7}, {"w": "second", "t": 303.1}, {"w": "—", "t": 303.51}, {"w": "why", "t": 303.91}, {"w": "does", "t": 304.31}, {"w": "thunder", "t": 304.72}, {"w": "come", "t": 305.12}, {"w": "after", "t": 305.52}, {"w": "the", "t": 305.93}, {"w": "flash,", "t": 306.33}, {"w": "not", "t": 306.73}, {"w": "at", "t": 307.14}, {"w": "the", "t": 307.54}, {"w": "same", "t": 307.94}, {"w": "time?", "t": 308.35}, {"w": "Talk", "t": 308.75}, {"w": "about", "t": 309.15}, {"w": "it", "t": 309.56}, {"w": "with", "t": 309.96}, {"w": "your", "t": 310.36}, {"w": "family!", "t": 310.77}]}, {"start": 322.83, "end": 332.94, "en": "That's all for today, young explorers. Be brave like the senior gamers — and when it is time for your next adventure, just hit the road! See you tomorrow!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。像老年玩家一样勇敢——当你下一次冒险的时候到了，就出发吧！明天见！", "words": [{"w": "That's", "t": 322.83}, {"w": "all", "t": 323.18}, {"w": "for", "t": 323.53}, {"w": "today,", "t": 323.88}, {"w": "young", "t": 324.22}, {"w": "explorers.", "t": 324.57}, {"w": "Be", "t": 324.92}, {"w": "brave", "t": 325.27}, {"w": "like", "t": 325.62}, {"w": "the", "t": 325.97}, {"w": "senior", "t": 326.32}, {"w": "gamers", "t": 326.66}, {"w": "—", "t": 327.01}, {"w": "and", "t": 327.36}, {"w": "when", "t": 327.71}, {"w": "it", "t": 328.06}, {"w": "is", "t": 328.41}, {"w": "time", "t": 328.76}, {"w": "for", "t": 329.11}, {"w": "your", "t": 329.45}, {"w": "next", "t": 329.8}, {"w": "adventure,", "t": 330.15}, {"w": "just", "t": 330.5}, {"w": "hit", "t": 330.85}, {"w": "the", "t": 331.2}, {"w": "road!", "t": 331.55}, {"w": "See", "t": 331.89}, {"w": "you", "t": 332.24}, {"w": "tomorrow!", "t": 332.59}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol34/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
