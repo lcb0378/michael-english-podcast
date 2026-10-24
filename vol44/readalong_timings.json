@@ -1,0 +1,283 @@
+[
+ {
+  "id": 1,
+  "title": "开场白",
+  "blocks": [
+   {
+    "start": 21.63,
+    "end": 25.94,
+    "en": "Hello, young explorers, and welcome back to Michael's Morning Listening!"
+   },
+   {
+    "start": 25.94,
+    "end": 30.69,
+    "en": "Today's stories are about love and courage in the animal world."
+   },
+   {
+    "start": 30.69,
+    "end": 34.57,
+    "en": "First, a talking parrot who became a fire hero."
+   },
+   {
+    "start": 34.57,
+    "end": 39.32,
+    "en": "Then, penguins — do they stay with one partner for life?"
+   },
+   {
+    "start": 39.32,
+    "end": 40.61,
+    "en": "Let's find out!"
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "title": "鹦鹉小英雄",
+  "blocks": [
+   {
+    "start": 55.79,
+    "end": 60.94,
+    "en": "In a small town in France, there lives a parrot named Baby."
+   },
+   {
+    "start": 60.94,
+    "end": 67.39,
+    "en": "Baby is an African grey parrot, and like many parrots, he can copy human words."
+   },
+   {
+    "start": 67.39,
+    "end": 72.11,
+    "en": "But Baby does something very special at night: he stays quiet."
+   },
+   {
+    "start": 72.11,
+    "end": 75.98,
+    "en": "His owners say they never hear him after bedtime."
+   },
+   {
+    "start": 75.98,
+    "end": 77.69,
+    "en": "One night, everything changed."
+   },
+   {
+    "start": 77.69,
+    "end": 83.28,
+    "en": "Baby started to cough, again and again, and then he yelled, 'It's hot!"
+   },
+   {
+    "start": 83.28,
+    "end": 86.71,
+    "en": "It's hot!' His owners woke up at once."
+   },
+   {
+    "start": 86.71,
+    "end": 91.44,
+    "en": "They knew something was wrong, because Baby never talks at night."
+   },
+   {
+    "start": 91.44,
+    "end": 98.31,
+    "en": "They followed the smell through a curtain of smoke and found a fire behind their dishwasher."
+   },
+   {
+    "start": 98.31,
+    "end": 102.17,
+    "en": "They turned it off quickly and called the firefighters."
+   },
+   {
+    "start": 102.17,
+    "end": 109.9,
+    "en": "The firefighters remarked that without Baby's warning, the family might have breathed in dangerous smoke in their sleep."
+   },
+   {
+    "start": 109.9,
+    "end": 111.62,
+    "en": "Baby became a hero!"
+   },
+   {
+    "start": 111.62,
+    "end": 113.34,
+    "en": "Parrots are clever birds."
+   },
+   {
+    "start": 113.34,
+    "end": 120.64,
+    "en": "Scientists have found that African grey parrots can learn many words and even understand some simple ideas."
+   },
+   {
+    "start": 120.64,
+    "end": 129.23,
+    "en": "Baby did not just copy sounds — he used his words at the right moment, and that made the difference."
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "title": "企鹅伴侣之谜",
+  "blocks": [
+   {
+    "start": 141.37,
+    "end": 147.51,
+    "en": "Now, from a talking hero, let's waddle down to the cold south, where penguins live."
+   },
+   {
+    "start": 147.51,
+    "end": 151.61,
+    "en": "People often say penguins stay with one partner for life."
+   },
+   {
+    "start": 151.61,
+    "end": 152.84,
+    "en": "Is that true?"
+   },
+   {
+    "start": 152.84,
+    "end": 154.89,
+    "en": "Let me clarify: it depends!"
+   },
+   {
+    "start": 154.89,
+    "end": 158.98,
+    "en": "Most penguins stay with one partner for a breeding season."
+   },
+   {
+    "start": 158.98,
+    "end": 164.72,
+    "en": "They share the work: keeping the egg warm, finding food, and protecting the chick."
+   },
+   {
+    "start": 164.72,
+    "end": 166.36,
+    "en": "Some penguins are faithful."
+   },
+   {
+    "start": 166.36,
+    "end": 175.37,
+    "en": "Gentoo penguins return to the same partner about nine times out of ten, and Magellanic penguins also stay together year after year."
+   },
+   {
+    "start": 175.37,
+    "end": 177.42,
+    "en": "But other penguins are different."
+   },
+   {
+    "start": 177.42,
+    "end": 184.38,
+    "en": "Emperor penguins usually find a new partner each year, and king penguins change partners even more often."
+   },
+   {
+    "start": 184.38,
+    "end": 194.62,
+    "en": "Scientists studied twelve kinds of penguins and found that, in total, about seven out of ten pairs stay together from one year to the next."
+   },
+   {
+    "start": 194.62,
+    "end": 196.67,
+    "en": "Why do penguins change partners?"
+   },
+   {
+    "start": 196.67,
+    "end": 206.09,
+    "en": "Sometimes the old partner comes back too late, or the pair fails to raise a chick, so they try again with someone new."
+   },
+   {
+    "start": 206.09,
+    "end": 213.87,
+    "en": "And here is a lovely detail: a male penguin often brings his partner a smooth pebble as a gift."
+   },
+   {
+    "start": 213.87,
+    "end": 217.56,
+    "en": "If she accepts it, they build a nest together."
+   },
+   {
+    "start": 217.56,
+    "end": 227.39,
+    "en": "So penguins may not always stay together for life, but they take their family duties very seriously — and that is something to appreciate."
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "title": "今日俚语",
+  "blocks": [
+   {
+    "start": 245.37,
+    "end": 254.7,
+    "en": "Here's today's idiom: 'the ball is in your court.' In a ball game, when the ball is in your court, it is your turn to play."
+   },
+   {
+    "start": 254.7,
+    "end": 259.72,
+    "en": "In everyday life, it means it is your turn to act or to decide."
+   },
+   {
+    "start": 259.72,
+    "end": 263.67,
+    "en": "Here's an example: 'The firefighters showed us how to stay safe."
+   },
+   {
+    "start": 263.67,
+    "end": 274.79,
+    "en": "Now the ball is in your court — check the smoke alarm in your home with your parents!' So, young explorers, the ball is in your court: what will you do?"
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "title": "结束语与互动问题",
+  "blocks": [
+   {
+    "start": 288.53,
+    "end": 290.56,
+    "en": "Let's think about our stories."
+   },
+   {
+    "start": 290.56,
+    "end": 295.03,
+    "en": "First: Baby the parrot used his words to save his family."
+   },
+   {
+    "start": 295.03,
+    "end": 301.53,
+    "en": "If your pet could say one sentence to you, what would you want it to say?"
+   },
+   {
+    "start": 301.53,
+    "end": 305.59,
+    "en": "Second: penguins share their family work and sometimes change partners."
+   },
+   {
+    "start": 305.59,
+    "end": 313.31,
+    "en": "Do you think staying together for life matters most, or is taking good care of the family more important?"
+   },
+   {
+    "start": 313.31,
+    "end": 315.75,
+    "en": "Talk about it with your family!"
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "title": "告别",
+  "blocks": [
+   {
+    "start": 325.97,
+    "end": 328.25,
+    "en": "That's all for today, young explorers."
+   },
+   {
+    "start": 328.25,
+    "end": 335.08,
+    "en": "Keep listening, keep caring, and remember: when someone gives you a chance, the ball is in your court!"
+   },
+   {
+    "start": 335.08,
+    "end": 336.22,
+    "en": "See you tomorrow!"
+   }
+  ]
+ }
+]
