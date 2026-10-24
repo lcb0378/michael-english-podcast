@@ -1,5 +1,16 @@
 [
  {
+  "id": "vol38",
+  "title": "会画画的大象与夜里会飞的蝙蝠",
+  "words": 557,
+  "duration": "5分03秒",
+  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol38/cover.png",
+  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol38/audio.mp3",
+  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol38/video_v1.mp4",
+  "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol38/Vol38_晚读讲义_会画画的大象与夜里会飞的蝙蝠_v1.pdf",
+  "pdfName": "Vol38_晚读讲义_会画画的大象与夜里会飞的蝙蝠_v1.pdf"
+ },
+ {
   "id": "vol37",
   "title": "沙漠滑雪场与热水里的小鱼",
   "words": 598,

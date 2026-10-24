@@ -1,0 +1,213 @@
+[
+ {
+  "id": 1,
+  "title": "开场白",
+  "blocks": [
+   {
+    "start": 18.59,
+    "end": 22.66,
+    "en": "Hello, young explorers, and welcome back to Michael's Morning Listening!"
+   },
+   {
+    "start": 22.66,
+    "end": 32.83,
+    "en": "Today we meet two amazing animals: an elephant who paints pictures with her trunk, and a bat — the only mammal that can truly fly."
+   },
+   {
+    "start": 32.83,
+    "end": 33.24,
+    "en": "Ready?"
+   },
+   {
+    "start": 33.24,
+    "end": 34.05,
+    "en": "Let's go!"
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "title": "会画画的大象",
+  "blocks": [
+   {
+    "start": 47.71,
+    "end": 54.13,
+    "en": "In Thailand, in a camp in the hills near Chiang Mai, some elephants learned to paint."
+   },
+   {
+    "start": 54.13,
+    "end": 62.97,
+    "en": "An elephant holds a brush with the tip of her trunk, moved by strong facial muscles, and sweeps colors across the paper."
+   },
+   {
+    "start": 62.97,
+    "end": 69.79,
+    "en": "One painted a bunch of flowers, another painted a tree, and the crowd approved with loud cheers."
+   },
+   {
+    "start": 69.79,
+    "end": 75.01,
+    "en": "Little by little, their paintings accumulated on the walls, and visitors loved them."
+   },
+   {
+    "start": 75.01,
+    "end": 80.23,
+    "en": "The most famous work was a giant painting made by eight elephants together."
+   },
+   {
+    "start": 80.23,
+    "end": 84.64,
+    "en": "It was twelve meters long — longer than a school bus!"
+   },
+   {
+    "start": 84.64,
+    "end": 93.48,
+    "en": "It showed the green hills and soft mist of their home, and it won a place in a book of world records."
+   },
+   {
+    "start": 93.48,
+    "end": 100.3,
+    "en": "The elephants did not choose the pictures all by themselves; their trainers stood beside them and helped."
+   },
+   {
+    "start": 100.3,
+    "end": 108.33,
+    "en": "Still, the paintings show the special bond between elephants and people, and how clever and gentle these giants can be."
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "title": "夜里会飞的蝙蝠",
+  "blocks": [
+   {
+    "start": 121.91,
+    "end": 127.89,
+    "en": "Meanwhile, high in the night sky, bats are waking up late, when the sun goes down."
+   },
+   {
+    "start": 127.89,
+    "end": 131.25,
+    "en": "Bats are the only mammals that can truly fly."
+   },
+   {
+    "start": 131.25,
+    "end": 139.09,
+    "en": "Flying squirrels can only glide, but a bat flaps its wings and stays in the air as long as it likes."
+   },
+   {
+    "start": 139.09,
+    "end": 146.94,
+    "en": "Its wings are really hands: long fingers joined by thin skin, like a hand with a kite stretched between the fingers."
+   },
+   {
+    "start": 146.94,
+    "end": 151.05,
+    "en": "But how does a bat fly in the dark without crashing?"
+   },
+   {
+    "start": 151.05,
+    "end": 158.52,
+    "en": "It uses echolocation — it calls out sounds so high that we cannot hear them, and listens for the echoes."
+   },
+   {
+    "start": 158.52,
+    "end": 164.12,
+    "en": "The echoes tell it where things are: a tree, a wall, or a tasty moth."
+   },
+   {
+    "start": 164.12,
+    "end": 174.95,
+    "en": "Statistics show that about one in every five mammal species in the world is a bat, and a single small bat can eat thousands of insects in one night."
+   },
+   {
+    "start": 174.95,
+    "end": 181.3,
+    "en": "That is good news for farmers, and for our health, too, because fewer insects means fewer bites."
+   },
+   {
+    "start": 181.3,
+    "end": 186.53,
+    "en": "Bats are not blind at all; they simply hear their way through the night."
+   },
+   {
+    "start": 186.53,
+    "end": 191.39,
+    "en": "Some bats even sleep upside down, hanging by their feet all day long."
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "title": "今日俚语",
+  "blocks": [
+   {
+    "start": 206.33,
+    "end": 214.5,
+    "en": "Here's today's idiom: 'let the cat out of the bag.' When you let the cat out of the bag, you tell a secret by mistake!"
+   },
+   {
+    "start": 214.5,
+    "end": 228.55,
+    "en": "Here's an example: 'Dad was cooking bacon on Sunday morning when he almost let the cat out of the bag about Mum's surprise party!' A secret is like a cat in a bag — once it leaks out, you cannot put it back."
+   },
+   {
+    "start": 228.55,
+    "end": 232.15,
+    "en": "So, have you ever let the cat out of the bag?"
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "title": "结束语与互动问题",
+  "blocks": [
+   {
+    "start": 245.57,
+    "end": 250.93,
+    "en": "Let's think about our stories: elephants who paint, and bats who fly by sound."
+   },
+   {
+    "start": 250.93,
+    "end": 256.68,
+    "en": "First: if you could paint with an elephant, what would you ask her to paint?"
+   },
+   {
+    "start": 256.68,
+    "end": 264.73,
+    "en": "Second: if you had echolocation for one night, what would you do first — catch moths, or explore a dark cave?"
+   },
+   {
+    "start": 264.73,
+    "end": 273.54,
+    "en": "And one last question: bats are the bosses of the night sky, so which animal would you call the boss of the day?"
+   },
+   {
+    "start": 273.54,
+    "end": 275.84,
+    "en": "Talk about it with your family!"
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "title": "告别",
+  "blocks": [
+   {
+    "start": 285.5,
+    "end": 287.36,
+    "en": "That's all for today, young explorers."
+   },
+   {
+    "start": 287.36,
+    "end": 293.23,
+    "en": "Be creative like an elephant, brave like a bat — and never let the cat out of the bag!"
+   },
+   {
+    "start": 293.23,
+    "end": 294.16,
+    "en": "See you tomorrow!"
+   }
+  ]
+ }
+]

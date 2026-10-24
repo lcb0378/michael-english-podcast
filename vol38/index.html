@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.38 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol38/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol38/cover.png" controls playsinline preload="metadata"></video>
+<h1>🐘🦇 Vol.38 · 会画画的大象与夜里会飞的蝙蝠</h1>
+<div class="meta">英文 557 词 ｜ 音频 5分03秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol38/story-elephant.png" alt="会画画的大象">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol38/story-bat.png" alt="夜里会飞的蝙蝠">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">let the cat out of the bag</span> <span class="phon">/let ðə kæt aʊt əv ðə bæɡ/</span> (习语) 说漏嘴；不小心泄露秘密<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: Dad almost <b>let the cat out of the bag</b> about Mum's surprise party.</div>
+</div>
+<div class="vocab">
+  <span class="word">echolocation</span> <span class="phon">/ˌekəʊləʊˈkeɪʃn/</span> (n.) 回声定位<br>
+  
+  <div class="example">Example: It uses <b>echolocation</b> to fly in the dark.</div>
+</div>
+<div class="vocab">
+  <span class="word">mammal</span> <span class="phon">/ˈmæməl/</span> (n.) 哺乳动物<br>
+  
+  <div class="example">Example: Bats are the only <b>mammals</b> that can truly fly.</div>
+</div>
+<div class="vocab">
+  <span class="word">trunk</span> <span class="phon">/trʌŋk/</span> (n.) （大象的）长鼻子<br>
+  
+  <div class="example">Example: An elephant holds a brush with the tip of her <b>trunk</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">meanwhile</span> <span class="phon">/ˈmiːnwaɪl/</span> (adv.) 与此同时<br>
+  
+  <div class="example">Example: <b>Meanwhile</b>, high in the night sky, bats are waking up.</div>
+</div>
+<div class="vocab">
+  <span class="word">bond</span> <span class="phon">/bɒnd/</span> (n.) 纽带；联系<br>
+  
+  <div class="example">Example: The paintings show the special <b>bond</b> between elephants and people.</div>
+</div>
+<div class="vocab">
+  <span class="word">accumulate</span> <span class="phon">/əˈkjuːmjəleɪt/</span> (v.) 逐渐积累；积聚<br>
+  
+  <div class="example">Example: Little by little, their paintings <b>accumulated</b> on the walls.</div>
+</div>
+<div class="vocab">
+  <span class="word">statistics</span> <span class="phon">/stəˈtɪstɪks/</span> (n.) 统计数字<br>
+  
+  <div class="example">Example: <b>Statistics</b> show that about one in five mammal species is a bat.</div>
+</div>
+<div class="vocab">
+  <span class="word">approve</span> <span class="phon">/əˈpruːv/</span> (v.) 赞许；赞成<br>
+  
+  <div class="example">Example: The crowd <b>approved</b> with loud cheers.</div>
+</div>
+<div class="vocab">
+  <span class="word">glide</span> <span class="phon">/ɡlaɪd/</span> (v.) 滑翔<br>
+  
+  <div class="example">Example: Flying squirrels can only <b>glide</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">leak</span> <span class="phon">/liːk/</span> (v.) 泄露；漏出<br>
+  
+  <div class="example">Example: Once it <b>leaks</b> out, you cannot put it back.</div>
+</div>
+<div class="vocab">
+  <span class="word">facial</span> <span class="phon">/ˈfeɪʃl/</span> (adj.) 面部的<br>
+  
+  <div class="example">Example: Moved by strong <b>facial</b> muscles.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 8, "ncols": 16, "words": [{"word": "ELEPHANT", "row": 0, "col": 14, "dir": "D", "num": 1, "cn": "大象", "clue": "An ___ who paints pictures with her trunk."}, {"word": "TRUNK", "row": 3, "col": 11, "dir": "D", "num": 2, "cn": "长鼻子", "clue": "Holds a brush with the tip of her ___."}, {"word": "PAINTING", "row": 2, "col": 3, "dir": "A", "num": 3, "cn": "画", "clue": "A giant ___ made by eight elephants."}, {"word": "BAT", "row": 4, "col": 8, "dir": "D", "num": 4, "cn": "蝙蝠", "clue": "A ___ — the only mammal that can truly fly."}, {"word": "ECHOLOCATION", "row": 6, "col": 0, "dir": "A", "num": 5, "cn": "回声定位", "clue": "It uses ___ to fly in the dark."}, {"word": "MAMMAL", "row": 1, "col": 4, "dir": "D", "num": 6, "cn": "哺乳动物", "clue": "About one in every five ___ species is a bat."}, {"word": "SECRET", "row": 0, "col": 10, "dir": "A", "num": 7, "cn": "秘密", "clue": "You tell a ___ by mistake."}, {"word": "BRUSH", "row": 4, "col": 10, "dir": "A", "num": 8, "cn": "画笔", "clue": "Holds a ___ with the tip of her trunk."}, {"word": "CAVE", "row": 3, "col": 0, "dir": "D", "num": 9, "cn": "洞穴", "clue": "Explore a dark ___."}, {"word": "MOTH", "row": 3, "col": 2, "dir": "D", "num": 10, "cn": "飞蛾", "clue": "A tree, a wall, or a tasty ___."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. What do elephants at the camp paint with?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. Their feet</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. The tip of their trunk</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. Their ears</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. A machine</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. How long was the giant painting made by eight elephants?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. Two meters</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. Eight meters</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. Twelve meters</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. Twenty meters</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. What is special about a bat&#x27;s wings?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. They are really hands with skin between long fingers</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. They are made of feathers</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. They never move</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. They are made of wood</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：A</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does &quot;let the cat out of the bag&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. To buy a cat</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. To feed a cat</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. To put a cat in a bag</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. To tell a secret by mistake</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：D</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [1, 2, 0, 3];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">It calls out sounds <b class="kw">so high that</b> we cannot hear them, and <b class="kw">listens for</b> the echoes.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li><i>so high that we cannot hear them</i> 是<b>so + 形容词 + that 结果句型</b>：so（如此）+ high（高的）+ that（以至于）+ 结果——声音高到了我们听不见的程度。英语里 so + 形容词 + that 专门表示“如此……以至于……”的结果。</li>
+  <li><i>calls out ... and listens ...</i> 是<b>并列动词</b>：and 把两个动词连起来，主语都是 It——蝙蝠先喊出声音，再听回声，两个动作一前一后，同一个主语不用重复。</li>
+  <li><i>listens for the echoes</i> 是<b>动词短语 listen for</b>：listen（听）+ for（为了等到）——不是随便听听，而是留神听、等着回声回来。for 在这里表示听的目的对象。</li>
+  <li>整句逻辑链：<b>发出超声（高到听不见）→ 并列动作（喊出→听）→ 听的对象（回声）</b>。一句话里藏着结果句型、并列动词和动词短语三个机关。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. 动词短语 call out / listen for：用括号里的词补全</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">The bat ____ out high sounds.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">calls</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">call</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">called</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：calls</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">It ____ for the echoes.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">listening</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">listens</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">listened</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：listens</p>
+</div>
+<p class="p4-gname">B. so + 形容词 + that 结果句型：用括号里的词补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">The sounds are ____ high that we cannot hear them.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">very</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">too</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">so</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：so</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">The cave is ____ dark that we cannot see.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">so</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">very</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">too</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：so</p>
+</div>
+<p class="p4-gname">C. and 并列动词：用括号里的词补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">It calls out sounds and ____ for echoes.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">listening</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">listens</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">listened</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：listens</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">Bats fly and ____ insects at night.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">catching</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">caught</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">catch</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：catch</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>It calls out sounds so high that we cannot hear them, and listens for the echoes.</li>
+<li>Bats are the only mammals that can truly fly.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">7</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwn">1</span><span class="cwl">E</span></td><td class="cwc"><span class="cwl">T</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">6</span><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">3</span><span class="cwl">P</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">G</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">9</span><span class="cwl">C</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">10</span><span class="cwl">M</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">2</span><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">P</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">B</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">8</span><span class="cwl">B</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">V</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">5</span><span class="cwl">E</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">H</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">K</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td></tr></table></div>1 竖 → <b>ELEPHANT</b>（大象）<br>2 竖 → <b>TRUNK</b>（长鼻子）<br>3 横 → <b>PAINTING</b>（画）<br>4 竖 → <b>BAT</b>（蝙蝠）<br>5 横 → <b>ECHOLOCATION</b>（回声定位）<br>6 竖 → <b>MAMMAL</b>（哺乳动物）<br>7 横 → <b>SECRET</b>（秘密）<br>8 横 → <b>BRUSH</b>（画笔）<br>9 竖 → <b>CAVE</b>（洞穴）<br>10 竖 → <b>MOTH</b>（飞蛾）<br><br><b>B. Single Choice:</b><br>
+1 → <b>B</b>. <i>"An elephant holds a brush with the tip of her trunk."</i><br>
+2 → <b>C</b>. <i>"It was twelve meters long — longer than a school bus!"</i><br>
+3 → <b>A</b>. <i>"Its wings are really hands: long fingers joined by thin skin."</i><br>
+4 → <b>D</b>. <i>"When you let the cat out of the bag, you tell a secret by mistake!"</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. calls&nbsp;&nbsp;2. listens<br>
+B. 1. so&nbsp;&nbsp;2. so<br>
+C. 1. listens&nbsp;&nbsp;2. catch<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol38/Vol38_晚读讲义_会画画的大象与夜里会飞的蝙蝠_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 18.59, "end": 34.05, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we meet two amazing animals: an elephant who paints pictures with her trunk, and a bat — the only mammal that can truly fly. Ready? Let's go!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天我们要认识两种神奇的动物：一位是用鼻子画画的大象，另一位是唯一真正会飞的哺乳动物——蝙蝠。准备好了吗？出发！", "words": [{"w": "Hello,", "t": 18.59}, {"w": "young", "t": 19.0}, {"w": "explorers,", "t": 19.4}, {"w": "and", "t": 19.81}, {"w": "welcome", "t": 20.22}, {"w": "back", "t": 20.62}, {"w": "to", "t": 21.03}, {"w": "Michael's", "t": 21.44}, {"w": "Morning", "t": 21.84}, {"w": "Listening!", "t": 22.25}, {"w": "Today", "t": 22.66}, {"w": "we", "t": 23.07}, {"w": "meet", "t": 23.47}, {"w": "two", "t": 23.88}, {"w": "amazing", "t": 24.29}, {"w": "animals:", "t": 24.69}, {"w": "an", "t": 25.1}, {"w": "elephant", "t": 25.51}, {"w": "who", "t": 25.91}, {"w": "paints", "t": 26.32}, {"w": "pictures", "t": 26.73}, {"w": "with", "t": 27.13}, {"w": "her", "t": 27.54}, {"w": "trunk,", "t": 27.95}, {"w": "and", "t": 28.35}, {"w": "a", "t": 28.76}, {"w": "bat", "t": 29.17}, {"w": "—", "t": 29.57}, {"w": "the", "t": 29.98}, {"w": "only", "t": 30.39}, {"w": "mammal", "t": 30.8}, {"w": "that", "t": 31.2}, {"w": "can", "t": 31.61}, {"w": "truly", "t": 32.02}, {"w": "fly.", "t": 32.42}, {"w": "Ready?", "t": 32.83}, {"w": "Let's", "t": 33.24}, {"w": "go!", "t": 33.64}]}, {"start": 47.71, "end": 75.01, "en": "In Thailand, in a camp in the hills near Chiang Mai, some elephants learned to paint. An elephant holds a brush with the tip of her trunk, moved by strong facial muscles, and sweeps colors across the paper. One painted a bunch of flowers, another painted a tree, and the crowd approved with loud cheers. Little by little, their paintings accumulated on the walls, and visitors loved them.", "title": "会画画的大象", "cn": "在泰国清迈山区的一座大象营地里，有几头大象学会了画画。大象用鼻子尖卷着画笔，在强壮的面部肌肉带动下，把颜色扫到纸上。一头画了一束花，另一头画了一棵树，观众们大声欢呼表示赞许。慢慢地，它们的画作积满了墙壁，游客们都非常喜欢。", "words": [{"w": "In", "t": 47.71}, {"w": "Thailand,", "t": 48.11}, {"w": "in", "t": 48.51}, {"w": "a", "t": 48.91}, {"w": "camp", "t": 49.32}, {"w": "in", "t": 49.72}, {"w": "the", "t": 50.12}, {"w": "hills", "t": 50.52}, {"w": "near", "t": 50.92}, {"w": "Chiang", "t": 51.32}, {"w": "Mai,", "t": 51.72}, {"w": "some", "t": 52.13}, {"w": "elephants", "t": 52.53}, {"w": "learned", "t": 52.93}, {"w": "to", "t": 53.33}, {"w": "paint.", "t": 53.73}, {"w": "An", "t": 54.13}, {"w": "elephant", "t": 54.54}, {"w": "holds", "t": 54.94}, {"w": "a", "t": 55.34}, {"w": "brush", "t": 55.74}, {"w": "with", "t": 56.14}, {"w": "the", "t": 56.54}, {"w": "tip", "t": 56.94}, {"w": "of", "t": 57.35}, {"w": "her", "t": 57.75}, {"w": "trunk,", "t": 58.15}, {"w": "moved", "t": 58.55}, {"w": "by", "t": 58.95}, {"w": "strong", "t": 59.35}, {"w": "facial", "t": 59.75}, {"w": "muscles,", "t": 60.16}, {"w": "and", "t": 60.56}, {"w": "sweeps", "t": 60.96}, {"w": "colors", "t": 61.36}, {"w": "across", "t": 61.76}, {"w": "the", "t": 62.16}, {"w": "paper.", "t": 62.56}, {"w": "One", "t": 62.97}, {"w": "painted", "t": 63.37}, {"w": "a", "t": 63.77}, {"w": "bunch", "t": 64.17}, {"w": "of", "t": 64.57}, {"w": "flowers,", "t": 64.97}, {"w": "another", "t": 65.37}, {"w": "painted", "t": 65.78}, {"w": "a", "t": 66.18}, {"w": "tree,", "t": 66.58}, {"w": "and", "t": 66.98}, {"w": "the", "t": 67.38}, {"w": "crowd", "t": 67.78}, {"w": "approved", "t": 68.19}, {"w": "with", "t": 68.59}, {"w": "loud", "t": 68.99}, {"w": "cheers.", "t": 69.39}, {"w": "Little", "t": 69.79}, {"w": "by", "t": 70.19}, {"w": "little,", "t": 70.59}, {"w": "their", "t": 71.0}, {"w": "paintings", "t": 71.4}, {"w": "accumulated", "t": 71.8}, {"w": "on", "t": 72.2}, {"w": "the", "t": 72.6}, {"w": "walls,", "t": 73.0}, {"w": "and", "t": 73.4}, {"w": "visitors", "t": 73.81}, {"w": "loved", "t": 74.21}, {"w": "them.", "t": 74.61}]}, {"start": 75.01, "end": 108.33, "en": "The most famous work was a giant painting made by eight elephants together. It was twelve meters long — longer than a school bus! It showed the green hills and soft mist of their home, and it won a place in a book of world records. The elephants did not choose the pictures all by themselves; their trainers stood beside them and helped. Still, the paintings show the special bond between elephants and people, and how clever and gentle these giants can be.", "title": "会画画的大象", "cn": "最有名的一幅作品，是八头大象一起画的巨画。它有十二米长——比一辆校车还长！画的是它们家乡的青山和薄雾，还进了一本世界纪录的书。大象们并不是完全自己选画什么；驯象师站在它们身边帮忙。尽管如此，这些画展现了大象和人类之间特殊的纽带，也展现了这些庞然大物有多聪明、多温柔。", "words": [{"w": "The", "t": 75.01}, {"w": "most", "t": 75.41}, {"w": "famous", "t": 75.81}, {"w": "work", "t": 76.21}, {"w": "was", "t": 76.62}, {"w": "a", "t": 77.02}, {"w": "giant", "t": 77.42}, {"w": "painting", "t": 77.82}, {"w": "made", "t": 78.22}, {"w": "by", "t": 78.62}, {"w": "eight", "t": 79.02}, {"w": "elephants", "t": 79.43}, {"w": "together.", "t": 79.83}, {"w": "It", "t": 80.23}, {"w": "was", "t": 80.63}, {"w": "twelve", "t": 81.03}, {"w": "meters", "t": 81.43}, {"w": "long", "t": 81.83}, {"w": "—", "t": 82.24}, {"w": "longer", "t": 82.64}, {"w": "than", "t": 83.04}, {"w": "a", "t": 83.44}, {"w": "school", "t": 83.84}, {"w": "bus!", "t": 84.24}, {"w": "It", "t": 84.64}, {"w": "showed", "t": 85.05}, {"w": "the", "t": 85.45}, {"w": "green", "t": 85.85}, {"w": "hills", "t": 86.25}, {"w": "and", "t": 86.65}, {"w": "soft", "t": 87.05}, {"w": "mist", "t": 87.45}, {"w": "of", "t": 87.86}, {"w": "their", "t": 88.26}, {"w": "home,", "t": 88.66}, {"w": "and", "t": 89.06}, {"w": "it", "t": 89.46}, {"w": "won", "t": 89.86}, {"w": "a", "t": 90.26}, {"w": "place", "t": 90.67}, {"w": "in", "t": 91.07}, {"w": "a", "t": 91.47}, {"w": "book", "t": 91.87}, {"w": "of", "t": 92.27}, {"w": "world", "t": 92.67}, {"w": "records.", "t": 93.08}, {"w": "The", "t": 93.48}, {"w": "elephants", "t": 93.88}, {"w": "did", "t": 94.28}, {"w": "not", "t": 94.68}, {"w": "choose", "t": 95.08}, {"w": "the", "t": 95.48}, {"w": "pictures", "t": 95.89}, {"w": "all", "t": 96.29}, {"w": "by", "t": 96.69}, {"w": "themselves;", "t": 97.09}, {"w": "their", "t": 97.49}, {"w": "trainers", "t": 97.89}, {"w": "stood", "t": 98.29}, {"w": "beside", "t": 98.7}, {"w": "them", "t": 99.1}, {"w": "and", "t": 99.5}, {"w": "helped.", "t": 99.9}, {"w": "Still,", "t": 100.3}, {"w": "the", "t": 100.7}, {"w": "paintings", "t": 101.1}, {"w": "show", "t": 101.51}, {"w": "the", "t": 101.91}, {"w": "special", "t": 102.31}, {"w": "bond", "t": 102.71}, {"w": "between", "t": 103.11}, {"w": "elephants", "t": 103.51}, {"w": "and", "t": 103.91}, {"w": "people,", "t": 104.32}, {"w": "and", "t": 104.72}, {"w": "how", "t": 105.12}, {"w": "clever", "t": 105.52}, {"w": "and", "t": 105.92}, {"w": "gentle", "t": 106.32}, {"w": "these", "t": 106.72}, {"w": "giants", "t": 107.13}, {"w": "can", "t": 107.53}, {"w": "be.", "t": 107.93}]}, {"start": 121.91, "end": 146.94, "en": "Meanwhile, high in the night sky, bats are waking up late, when the sun goes down. Bats are the only mammals that can truly fly. Flying squirrels can only glide, but a bat flaps its wings and stays in the air as long as it likes. Its wings are really hands: long fingers joined by thin skin, like a hand with a kite stretched between the fingers.", "title": "夜里会飞的蝙蝠", "cn": "与此同时，在高高的夜空中，蝙蝠们在太阳落山后醒来了。蝙蝠是唯一真正会飞的哺乳动物。鼯鼠只能滑翔，而蝙蝠扇动翅膀，想在空中待多久就待多久。它的翅膀其实是手：长长的手指之间连着薄薄的皮肤，就像手指间撑开的风筝。", "words": [{"w": "Meanwhile,", "t": 121.91}, {"w": "high", "t": 122.28}, {"w": "in", "t": 122.66}, {"w": "the", "t": 123.03}, {"w": "night", "t": 123.4}, {"w": "sky,", "t": 123.78}, {"w": "bats", "t": 124.15}, {"w": "are", "t": 124.53}, {"w": "waking", "t": 124.9}, {"w": "up", "t": 125.27}, {"w": "late,", "t": 125.65}, {"w": "when", "t": 126.02}, {"w": "the", "t": 126.39}, {"w": "sun", "t": 126.77}, {"w": "goes", "t": 127.14}, {"w": "down.", "t": 127.51}, {"w": "Bats", "t": 127.89}, {"w": "are", "t": 128.26}, {"w": "the", "t": 128.63}, {"w": "only", "t": 129.01}, {"w": "mammals", "t": 129.38}, {"w": "that", "t": 129.76}, {"w": "can", "t": 130.13}, {"w": "truly", "t": 130.5}, {"w": "fly.", "t": 130.88}, {"w": "Flying", "t": 131.25}, {"w": "squirrels", "t": 131.62}, {"w": "can", "t": 132.0}, {"w": "only", "t": 132.37}, {"w": "glide,", "t": 132.74}, {"w": "but", "t": 133.12}, {"w": "a", "t": 133.49}, {"w": "bat", "t": 133.86}, {"w": "flaps", "t": 134.24}, {"w": "its", "t": 134.61}, {"w": "wings", "t": 134.99}, {"w": "and", "t": 135.36}, {"w": "stays", "t": 135.73}, {"w": "in", "t": 136.11}, {"w": "the", "t": 136.48}, {"w": "air", "t": 136.85}, {"w": "as", "t": 137.23}, {"w": "long", "t": 137.6}, {"w": "as", "t": 137.97}, {"w": "it", "t": 138.35}, {"w": "likes.", "t": 138.72}, {"w": "Its", "t": 139.09}, {"w": "wings", "t": 139.47}, {"w": "are", "t": 139.84}, {"w": "really", "t": 140.22}, {"w": "hands:", "t": 140.59}, {"w": "long", "t": 140.96}, {"w": "fingers", "t": 141.34}, {"w": "joined", "t": 141.71}, {"w": "by", "t": 142.08}, {"w": "thin", "t": 142.46}, {"w": "skin,", "t": 142.83}, {"w": "like", "t": 143.2}, {"w": "a", "t": 143.58}, {"w": "hand", "t": 143.95}, {"w": "with", "t": 144.32}, {"w": "a", "t": 144.7}, {"w": "kite", "t": 145.07}, {"w": "stretched", "t": 145.45}, {"w": "between", "t": 145.82}, {"w": "the", "t": 146.19}, {"w": "fingers.", "t": 146.57}]}, {"start": 146.94, "end": 191.39, "en": "But how does a bat fly in the dark without crashing? It uses echolocation — it calls out sounds so high that we cannot hear them, and listens for the echoes. The echoes tell it where things are: a tree, a wall, or a tasty moth. Statistics show that about one in every five mammal species in the world is a bat, and a single small bat can eat thousands of insects in one night. That is good news for farmers, and for our health, too, because fewer insects means fewer bites. Bats are not blind at all; they simply hear their way through the night. Some bats even sleep upside down, hanging by their feet all day long.", "title": "夜里会飞的蝙蝠", "cn": "可是，蝙蝠在黑暗中飞行怎么不撞墙呢？它用的是回声定位——发出高到我们听不见的声音，再听回声。回声会告诉它东西在哪里：一棵树、一面墙，或者一只美味的飞蛾。统计数字显示，世界上大约每五种哺乳动物中就有一种是蝙蝠，而一只小蝙蝠一夜就能吃掉几千只昆虫。这对农民是好消息，对我们的健康也有好处，因为昆虫少了，被咬的次数就少了。蝙蝠一点也不瞎；它们只是靠听觉在夜里穿行。有些蝙蝠甚至整天倒挂着睡觉，用脚挂着。", "words": [{"w": "But", "t": 146.94}, {"w": "how", "t": 147.31}, {"w": "does", "t": 147.69}, {"w": "a", "t": 148.06}, {"w": "bat", "t": 148.43}, {"w": "fly", "t": 148.81}, {"w": "in", "t": 149.18}, {"w": "the", "t": 149.55}, {"w": "dark", "t": 149.93}, {"w": "without", "t": 150.3}, {"w": "crashing?", "t": 150.68}, {"w": "It", "t": 151.05}, {"w": "uses", "t": 151.42}, {"w": "echolocation", "t": 151.8}, {"w": "—", "t": 152.17}, {"w": "it", "t": 152.54}, {"w": "calls", "t": 152.92}, {"w": "out", "t": 153.29}, {"w": "sounds", "t": 153.66}, {"w": "so", "t": 154.04}, {"w": "high", "t": 154.41}, {"w": "that", "t": 154.78}, {"w": "we", "t": 155.16}, {"w": "cannot", "t": 155.53}, {"w": "hear", "t": 155.9}, {"w": "them,", "t": 156.28}, {"w": "and", "t": 156.65}, {"w": "listens", "t": 157.03}, {"w": "for", "t": 157.4}, {"w": "the", "t": 157.77}, {"w": "echoes.", "t": 158.15}, {"w": "The", "t": 158.52}, {"w": "echoes", "t": 158.89}, {"w": "tell", "t": 159.27}, {"w": "it", "t": 159.64}, {"w": "where", "t": 160.01}, {"w": "things", "t": 160.39}, {"w": "are:", "t": 160.76}, {"w": "a", "t": 161.13}, {"w": "tree,", "t": 161.51}, {"w": "a", "t": 161.88}, {"w": "wall,", "t": 162.25}, {"w": "or", "t": 162.63}, {"w": "a", "t": 163.0}, {"w": "tasty", "t": 163.38}, {"w": "moth.", "t": 163.75}, {"w": "Statistics", "t": 164.12}, {"w": "show", "t": 164.5}, {"w": "that", "t": 164.87}, {"w": "about", "t": 165.24}, {"w": "one", "t": 165.62}, {"w": "in", "t": 165.99}, {"w": "every", "t": 166.36}, {"w": "five", "t": 166.74}, {"w": "mammal", "t": 167.11}, {"w": "species", "t": 167.48}, {"w": "in", "t": 167.86}, {"w": "the", "t": 168.23}, {"w": "world", "t": 168.6}, {"w": "is", "t": 168.98}, {"w": "a", "t": 169.35}, {"w": "bat,", "t": 169.73}, {"w": "and", "t": 170.1}, {"w": "a", "t": 170.47}, {"w": "single", "t": 170.85}, {"w": "small", "t": 171.22}, {"w": "bat", "t": 171.59}, {"w": "can", "t": 171.97}, {"w": "eat", "t": 172.34}, {"w": "thousands", "t": 172.71}, {"w": "of", "t": 173.09}, {"w": "insects", "t": 173.46}, {"w": "in", "t": 173.83}, {"w": "one", "t": 174.21}, {"w": "night.", "t": 174.58}, {"w": "That", "t": 174.95}, {"w": "is", "t": 175.33}, {"w": "good", "t": 175.7}, {"w": "news", "t": 176.08}, {"w": "for", "t": 176.45}, {"w": "farmers,", "t": 176.82}, {"w": "and", "t": 177.2}, {"w": "for", "t": 177.57}, {"w": "our", "t": 177.94}, {"w": "health,", "t": 178.32}, {"w": "too,", "t": 178.69}, {"w": "because", "t": 179.06}, {"w": "fewer", "t": 179.44}, {"w": "insects", "t": 179.81}, {"w": "means", "t": 180.18}, {"w": "fewer", "t": 180.56}, {"w": "bites.", "t": 180.93}, {"w": "Bats", "t": 181.3}, {"w": "are", "t": 181.68}, {"w": "not", "t": 182.05}, {"w": "blind", "t": 182.43}, {"w": "at", "t": 182.8}, {"w": "all;", "t": 183.17}, {"w": "they", "t": 183.55}, {"w": "simply", "t": 183.92}, {"w": "hear", "t": 184.29}, {"w": "their", "t": 184.67}, {"w": "way", "t": 185.04}, {"w": "through", "t": 185.41}, {"w": "the", "t": 185.79}, {"w": "night.", "t": 186.16}, {"w": "Some", "t": 186.53}, {"w": "bats", "t": 186.91}, {"w": "even", "t": 187.28}, {"w": "sleep", "t": 187.65}, {"w": "upside", "t": 188.03}, {"w": "down,", "t": 188.4}, {"w": "hanging", "t": 188.78}, {"w": "by", "t": 189.15}, {"w": "their", "t": 189.52}, {"w": "feet", "t": 189.9}, {"w": "all", "t": 190.27}, {"w": "day", "t": 190.64}, {"w": "long.", "t": 191.02}]}, {"start": 206.33, "end": 232.15, "en": "Here's today's idiom: 'let the cat out of the bag.' When you let the cat out of the bag, you tell a secret by mistake! Here's an example: 'Dad was cooking bacon on Sunday morning when he almost let the cat out of the bag about Mum's surprise party!' A secret is like a cat in a bag — once it leaks out, you cannot put it back. So, have you ever let the cat out of the bag?", "title": "今日俚语", "cn": "今天的俚语是“let the cat out of the bag”（把猫从袋子里放出来）。当你 let the cat out of the bag 时，你就是不小心说漏了秘密！举个例子：“爸爸在周日早上煮培根的时候，差点把妈妈惊喜派对的事说漏了嘴！”秘密就像袋子里的猫——一旦漏出去，就再也塞不回来了。那么，你有没有说漏过嘴呢？", "words": [{"w": "Here's", "t": 206.33}, {"w": "today's", "t": 206.66}, {"w": "idiom:", "t": 206.98}, {"w": "'let", "t": 207.31}, {"w": "the", "t": 207.64}, {"w": "cat", "t": 207.96}, {"w": "out", "t": 208.29}, {"w": "of", "t": 208.62}, {"w": "the", "t": 208.94}, {"w": "bag.'", "t": 209.27}, {"w": "When", "t": 209.6}, {"w": "you", "t": 209.93}, {"w": "let", "t": 210.25}, {"w": "the", "t": 210.58}, {"w": "cat", "t": 210.91}, {"w": "out", "t": 211.23}, {"w": "of", "t": 211.56}, {"w": "the", "t": 211.89}, {"w": "bag,", "t": 212.21}, {"w": "you", "t": 212.54}, {"w": "tell", "t": 212.87}, {"w": "a", "t": 213.19}, {"w": "secret", "t": 213.52}, {"w": "by", "t": 213.85}, {"w": "mistake!", "t": 214.17}, {"w": "Here's", "t": 214.5}, {"w": "an", "t": 214.83}, {"w": "example:", "t": 215.15}, {"w": "'Dad", "t": 215.48}, {"w": "was", "t": 215.81}, {"w": "cooking", "t": 216.14}, {"w": "bacon", "t": 216.46}, {"w": "on", "t": 216.79}, {"w": "Sunday", "t": 217.12}, {"w": "morning", "t": 217.44}, {"w": "when", "t": 217.77}, {"w": "he", "t": 218.1}, {"w": "almost", "t": 218.42}, {"w": "let", "t": 218.75}, {"w": "the", "t": 219.08}, {"w": "cat", "t": 219.4}, {"w": "out", "t": 219.73}, {"w": "of", "t": 220.06}, {"w": "the", "t": 220.38}, {"w": "bag", "t": 220.71}, {"w": "about", "t": 221.04}, {"w": "Mum's", "t": 221.36}, {"w": "surprise", "t": 221.69}, {"w": "party!'", "t": 222.02}, {"w": "A", "t": 222.34}, {"w": "secret", "t": 222.67}, {"w": "is", "t": 223.0}, {"w": "like", "t": 223.33}, {"w": "a", "t": 223.65}, {"w": "cat", "t": 223.98}, {"w": "in", "t": 224.31}, {"w": "a", "t": 224.63}, {"w": "bag", "t": 224.96}, {"w": "—", "t": 225.29}, {"w": "once", "t": 225.61}, {"w": "it", "t": 225.94}, {"w": "leaks", "t": 226.27}, {"w": "out,", "t": 226.59}, {"w": "you", "t": 226.92}, {"w": "cannot", "t": 227.25}, {"w": "put", "t": 227.57}, {"w": "it", "t": 227.9}, {"w": "back.", "t": 228.23}, {"w": "So,", "t": 228.55}, {"w": "have", "t": 228.88}, {"w": "you", "t": 229.21}, {"w": "ever", "t": 229.54}, {"w": "let", "t": 229.86}, {"w": "the", "t": 230.19}, {"w": "cat", "t": 230.52}, {"w": "out", "t": 230.84}, {"w": "of", "t": 231.17}, {"w": "the", "t": 231.5}, {"w": "bag?", "t": 231.82}]}, {"start": 245.57, "end": 275.84, "en": "Let's think about our stories: elephants who paint, and bats who fly by sound. First: if you could paint with an elephant, what would you ask her to paint? Second: if you had echolocation for one night, what would you do first — catch moths, or explore a dark cave? And one last question: bats are the bosses of the night sky, so which animal would you call the boss of the day? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事：会画画的大象，和靠声音飞行的蝙蝠。第一：如果你能和大象一起画画，你会请它画什么？第二：如果你有一夜的回声定位，你会先做什么——抓飞蛾，还是探索黑暗的洞穴？还有最后一个问题：蝙蝠是夜空的老大，那你会把哪种动物叫做白天的老大呢？和家人聊聊吧！", "words": [{"w": "Let's", "t": 245.57}, {"w": "think", "t": 245.95}, {"w": "about", "t": 246.34}, {"w": "our", "t": 246.72}, {"w": "stories:", "t": 247.1}, {"w": "elephants", "t": 247.49}, {"w": "who", "t": 247.87}, {"w": "paint,", "t": 248.25}, {"w": "and", "t": 248.64}, {"w": "bats", "t": 249.02}, {"w": "who", "t": 249.4}, {"w": "fly", "t": 249.78}, {"w": "by", "t": 250.17}, {"w": "sound.", "t": 250.55}, {"w": "First:", "t": 250.93}, {"w": "if", "t": 251.32}, {"w": "you", "t": 251.7}, {"w": "could", "t": 252.08}, {"w": "paint", "t": 252.47}, {"w": "with", "t": 252.85}, {"w": "an", "t": 253.23}, {"w": "elephant,", "t": 253.62}, {"w": "what", "t": 254.0}, {"w": "would", "t": 254.38}, {"w": "you", "t": 254.77}, {"w": "ask", "t": 255.15}, {"w": "her", "t": 255.53}, {"w": "to", "t": 255.92}, {"w": "paint?", "t": 256.3}, {"w": "Second:", "t": 256.68}, {"w": "if", "t": 257.06}, {"w": "you", "t": 257.45}, {"w": "had", "t": 257.83}, {"w": "echolocation", "t": 258.21}, {"w": "for", "t": 258.6}, {"w": "one", "t": 258.98}, {"w": "night,", "t": 259.36}, {"w": "what", "t": 259.75}, {"w": "would", "t": 260.13}, {"w": "you", "t": 260.51}, {"w": "do", "t": 260.9}, {"w": "first", "t": 261.28}, {"w": "—", "t": 261.66}, {"w": "catch", "t": 262.05}, {"w": "moths,", "t": 262.43}, {"w": "or", "t": 262.81}, {"w": "explore", "t": 263.2}, {"w": "a", "t": 263.58}, {"w": "dark", "t": 263.96}, {"w": "cave?", "t": 264.35}, {"w": "And", "t": 264.73}, {"w": "one", "t": 265.11}, {"w": "last", "t": 265.49}, {"w": "question:", "t": 265.88}, {"w": "bats", "t": 266.26}, {"w": "are", "t": 266.64}, {"w": "the", "t": 267.03}, {"w": "bosses", "t": 267.41}, {"w": "of", "t": 267.79}, {"w": "the", "t": 268.18}, {"w": "night", "t": 268.56}, {"w": "sky,", "t": 268.94}, {"w": "so", "t": 269.33}, {"w": "which", "t": 269.71}, {"w": "animal", "t": 270.09}, {"w": "would", "t": 270.48}, {"w": "you", "t": 270.86}, {"w": "call", "t": 271.24}, {"w": "the", "t": 271.63}, {"w": "boss", "t": 272.01}, {"w": "of", "t": 272.39}, {"w": "the", "t": 272.77}, {"w": "day?", "t": 273.16}, {"w": "Talk", "t": 273.54}, {"w": "about", "t": 273.92}, {"w": "it", "t": 274.31}, {"w": "with", "t": 274.69}, {"w": "your", "t": 275.07}, {"w": "family!", "t": 275.46}]}, {"start": 285.5, "end": 294.16, "en": "That's all for today, young explorers. Be creative like an elephant, brave like a bat — and never let the cat out of the bag! See you tomorrow!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。像大象一样有创意，像蝙蝠一样勇敢——千万别说漏嘴！明天见！", "words": [{"w": "That's", "t": 285.5}, {"w": "all", "t": 285.81}, {"w": "for", "t": 286.12}, {"w": "today,", "t": 286.43}, {"w": "young", "t": 286.74}, {"w": "explorers.", "t": 287.05}, {"w": "Be", "t": 287.36}, {"w": "creative", "t": 287.67}, {"w": "like", "t": 287.97}, {"w": "an", "t": 288.28}, {"w": "elephant,", "t": 288.59}, {"w": "brave", "t": 288.9}, {"w": "like", "t": 289.21}, {"w": "a", "t": 289.52}, {"w": "bat", "t": 289.83}, {"w": "—", "t": 290.14}, {"w": "and", "t": 290.45}, {"w": "never", "t": 290.76}, {"w": "let", "t": 291.07}, {"w": "the", "t": 291.38}, {"w": "cat", "t": 291.69}, {"w": "out", "t": 292.0}, {"w": "of", "t": 292.3}, {"w": "the", "t": 292.61}, {"w": "bag!", "t": 292.92}, {"w": "See", "t": 293.23}, {"w": "you", "t": 293.54}, {"w": "tomorrow!", "t": 293.85}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol38/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
