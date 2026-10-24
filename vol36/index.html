@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.36 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol36/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol36/cover.png" controls playsinline preload="metadata"></video>
+<h1>♟️ Vol.36 · 少年棋手与变色龙的超级舌头</h1>
+<div class="meta">英文 598 词 ｜ 音频 5分32秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol36/story-chess.png" alt="少年棋手">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol36/story-chameleon.png" alt="变色龙的超级舌头">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">zip your lips</span> <span class="phon">/zɪp jɔːr lɪps/</span> (习语) 拉上嘴唇的拉链；保守秘密，什么都不说<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: Mom made bacon sandwiches for the picnic, and she told us to <b>zip our lips</b>, or everyone would want one!</div>
+</div>
+<div class="vocab">
+  <span class="word">mourn</span> <span class="phon">/mɔːrn/</span> (v.) 难过；哀悼<br>
+  
+  <div class="example">Example: When he lost, he did not <b>mourn</b> for long.</div>
+</div>
+<div class="vocab">
+  <span class="word">bond</span> <span class="phon">/bɑːnd/</span> (n.) 纽带；联结<br>
+  
+  <div class="example">Example: The <b>bond</b> between father and son grew with every game.</div>
+</div>
+<div class="vocab">
+  <span class="word">accumulate</span> <span class="phon">/əˈkjuːmjəleɪt/</span> (v.) 积攒；积累<br>
+  
+  <div class="example">Example: Win by win, he <b>accumulated</b> points and climbed higher.</div>
+</div>
+<div class="vocab">
+  <span class="word">accountant</span> <span class="phon">/əˈkaʊntənt/</span> (n.) 会计<br>
+  
+  <div class="example">Example: He studies the board like an <b>accountant</b>: every piece counts.</div>
+</div>
+<div class="vocab">
+  <span class="word">statistics</span> <span class="phon">/stəˈtɪstɪks/</span> (n.) 数据；统计<br>
+  
+  <div class="example">Example: The <b>statistics</b> tell the story.</div>
+</div>
+<div class="vocab">
+  <span class="word">approve</span> <span class="phon">/əˈpruːv/</span> (v.) 批准；认可<br>
+  
+  <div class="example">Example: The chess federation <b>approved</b> his title.</div>
+</div>
+<div class="vocab">
+  <span class="word">leak</span> <span class="phon">/liːk/</span> (v.) 泄露；漏出<br>
+  
+  <div class="example">Example: Zip your lips, and the secret will not <b>leak</b> out.</div>
+</div>
+<div class="vocab">
+  <span class="word">facial</span> <span class="phon">/ˈfeɪʃl/</span> (adj.) 面部的<br>
+  
+  <div class="example">Example: His <b>facial</b> expression stayed calm.</div>
+</div>
+<div class="vocab">
+  <span class="word">chameleon</span> <span class="phon">/kəˈmiːliən/</span> (n.) 变色龙<br>
+  
+  <div class="example">Example: Meet the <b>chameleon</b>, the quiet king of hide-and-seek.</div>
+</div>
+<div class="vocab">
+  <span class="word">mucus</span> <span class="phon">/ˈmjuːkəs/</span> (n.) 黏液<br>
+  
+  <div class="example">Example: The tip is covered with sticky <b>mucus</b>, thicker than honey.</div>
+</div>
+<div class="vocab">
+  <span class="word">Grandmaster</span> <span class="phon">/ˈɡrændmɑːstər/</span> (n.) 特级大师（国际象棋最高头衔）<br>
+  
+  <div class="example">Example: At twelve, he is a <b>Grandmaster</b>.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 11, "ncols": 13, "words": [{"word": "CHESS", "row": 6, "col": 7, "dir": "D", "num": 1, "cn": "国际象棋", "clue": "called the 'Messi of ___.'"}, {"word": "GRANDMASTER", "row": 10, "col": 0, "dir": "A", "num": 2, "cn": "特级大师", "clue": "at twelve, he is a ___."}, {"word": "CHAMELEON", "row": 0, "col": 9, "dir": "D", "num": 3, "cn": "变色龙", "clue": "meet the ___, the quiet king of hide-and-seek."}, {"word": "TONGUE", "row": 8, "col": 2, "dir": "A", "num": 4, "cn": "舌头", "clue": "its greatest trick is its ___."}, {"word": "CRICKET", "row": 0, "col": 6, "dir": "A", "num": 5, "cn": "蟋蟀", "clue": "when it sees a ___, muscles pull back slowly."}, {"word": "SECRET", "row": 6, "col": 5, "dir": "A", "num": 6, "cn": "秘密", "clue": "you keep a ___ and say nothing at all!"}, {"word": "LIGHTNING", "row": 2, "col": 0, "dir": "D", "num": 7, "cn": "闪电", "clue": "the tongue shoots out faster than ___."}, {"word": "BALLOON", "row": 4, "col": 3, "dir": "D", "num": 8, "cn": "气球", "clue": "faster than a ___ rising."}, {"word": "MUCUS", "row": 2, "col": 5, "dir": "D", "num": 9, "cn": "黏液", "clue": "covered with sticky ___."}, {"word": "LIPS", "row": 2, "col": 0, "dir": "A", "num": 10, "cn": "嘴唇", "clue": "zip your ___."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. How did Faustino Oro first learn chess?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. At school with his teacher</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. By playing online games at home</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. From a book about Messi</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. At a chess club in Madrid</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. What happened when ten-year-old Faustino played Magnus Carlsen in a fast online game?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. He lost very quickly</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. The game was a draw</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. He beat the former world champion</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. He fell asleep at the board</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. How does a chameleon catch a cricket?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. It runs after the cricket</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. It shoots out its long, sticky tongue</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. It changes color to scare the cricket</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. It waits for the cricket to fall asleep</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does &quot;zip your lips&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. To close a bag</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. To sing very loudly</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. To keep a secret and say nothing</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. To eat very quickly</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：C</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [1, 2, 1, 2];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">When it sees a cricket, muscles pull back slowly, like drawing a bow.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li><i>When it sees a cricket</i> 是<b>when 引导的时间状语从句</b>：when（当……的时候）+ 一个完整的小句子，放在主句前面，告诉你主句的动作发生在什么时候——看到蟋蟀的那一刻，肌肉才开始向后拉。英语里 when 从句可以放句首（后面加逗号），也可以放句尾。</li>
+  <li><i>like drawing a bow</i> 是<b>like + 动名词短语作比较</b>：like（像……一样）+ drawing（动名词），把肌肉向后拉的动作比作拉开一张弓，让你一下子就能想象出那个慢动作。like 后面跟动名词，表示“像做某事一样”。</li>
+  <li><i>pull back</i> 是<b>短语动词</b>：pull（拉）+ back（向后），两个词合起来才是一个完整的意思——向后拉。英语里很多动词都要和小品词搭伙，才表示得出方向和结果。</li>
+  <li>整句逻辑链：<b>时间（看到蟋蟀时）→ 动作（肌肉向后拉）→ 画面（像拉弓一样慢）</b>。一句话里藏着时间状语从句、like 比较和短语动词三个机关。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. when 时间状语从句：用括号里的词补全</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">____ it sees a cricket, muscles pull back slowly.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">when</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">while</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">where</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：when</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">Muscles pull back slowly ____ it sees a cricket.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">while</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">when</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">where</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：when</p>
+</div>
+<p class="p4-gname">B. like + 动名词表比较：用括号里的词补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">Muscles pull back slowly, ____ drawing a bow.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">as</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">likes</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">like</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：like</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">Stretchy tissues work ____ a spring.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">like</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">as</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">likes</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：like</p>
+</div>
+<p class="p4-gname">C. pull back 短语动词：用括号里的词补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">Muscles ____ back slowly, like drawing a bow.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">push</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">pull</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">pulls</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：pull</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">Then the tongue ____ the meal back.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">pull</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">pushes</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">pulls</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：pulls</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>When it sees a cricket, muscles pull back slowly, like drawing a bow.</li>
+<li>Stretchy tissues work like a spring, storing power and letting go all at once.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">5</span><span class="cwl">C</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwn">3</span><span class="cwl">C</span></td><td class="cwc"><span class="cwl">K</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">T</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">10</span><span class="cwl">L</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">9</span><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">G</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">8</span><span class="cwl">B</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">6</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwn">1</span><span class="cwl">C</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">T</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">G</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">2</span><span class="cwl">G</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">D</span></td><td class="cwc"><span class="cwl">M</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td></tr></table></div>1 竖 → <b>CHESS</b>（国际象棋）<br>2 横 → <b>GRANDMASTER</b>（特级大师）<br>3 竖 → <b>CHAMELEON</b>（变色龙）<br>4 横 → <b>TONGUE</b>（舌头）<br>5 横 → <b>CRICKET</b>（蟋蟀）<br>6 横 → <b>SECRET</b>（秘密）<br>7 竖 → <b>LIGHTNING</b>（闪电）<br>8 竖 → <b>BALLOON</b>（气球）<br>9 竖 → <b>MUCUS</b>（黏液）<br>10 横 → <b>LIPS</b>（嘴唇）<br><br><b>B. Single Choice:</b><br>
+1 → <b>B</b>. The text says he <i>"started playing online games at home at seven."</i><br>
+2 → <b>C</b>. <i>"Ten-year-old Faustino beat Magnus Carlsen, a former world champion!"</i><br>
+3 → <b>B</b>. <i>"The tongue shoots out faster than lightning."</i><br>
+4 → <b>C</b>. The text says: <i>"When you zip your lips, you keep a secret and say nothing at all!"</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. when&nbsp;&nbsp;2. when<br>
+B. 1. like&nbsp;&nbsp;2. like<br>
+C. 1. pull&nbsp;&nbsp;2. pulls<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol36/Vol36_晚读讲义_少年棋手与变色龙的超级舌头_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 21.23, "end": 36.97, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today, two stars: a boy who beat a chess legend at ten, and a chameleon with a tongue longer than its body. Ready? Let's play!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天有两位明星：一位是十岁就打败国际象棋传奇的男孩，另一位是舌头比身体还长的变色龙。准备好了吗？开始吧！", "words": [{"w": "Hello,", "t": 21.23}, {"w": "young", "t": 21.68}, {"w": "explorers,", "t": 22.13}, {"w": "and", "t": 22.58}, {"w": "welcome", "t": 23.03}, {"w": "back", "t": 23.48}, {"w": "to", "t": 23.93}, {"w": "Michael's", "t": 24.38}, {"w": "Morning", "t": 24.83}, {"w": "Listening!", "t": 25.28}, {"w": "Today,", "t": 25.73}, {"w": "two", "t": 26.18}, {"w": "stars:", "t": 26.63}, {"w": "a", "t": 27.08}, {"w": "boy", "t": 27.53}, {"w": "who", "t": 27.98}, {"w": "beat", "t": 28.43}, {"w": "a", "t": 28.88}, {"w": "chess", "t": 29.32}, {"w": "legend", "t": 29.77}, {"w": "at", "t": 30.22}, {"w": "ten,", "t": 30.67}, {"w": "and", "t": 31.12}, {"w": "a", "t": 31.57}, {"w": "chameleon", "t": 32.02}, {"w": "with", "t": 32.47}, {"w": "a", "t": 32.92}, {"w": "tongue", "t": 33.37}, {"w": "longer", "t": 33.82}, {"w": "than", "t": 34.27}, {"w": "its", "t": 34.72}, {"w": "body.", "t": 35.17}, {"w": "Ready?", "t": 35.62}, {"w": "Let's", "t": 36.07}, {"w": "play!", "t": 36.52}]}, {"start": 50.87, "end": 77.27, "en": "In Argentina, there is a boy named Faustino Oro, called the \"Messi of chess.\" He did not learn it at school. He started playing online games at home at seven, while everyone stayed home. His father made an account for him, and soon he played everywhere — after breakfast and before bed. The bond between father and son grew with every game they watched together.", "title": "少年棋手", "cn": "在阿根廷，有个男孩叫福斯蒂诺·奥罗，大家叫他“国际象棋界的梅西”。他不是在学校学会下棋的。七岁那年，大家都待在家里的时候，他开始在家里玩网络国际象棋。爸爸给他注册了一个账号，很快他走到哪儿下到哪儿——早饭后下，睡前也下。父子之间的纽带，随着一起看过的每一盘棋越系越紧。", "words": [{"w": "In", "t": 50.87}, {"w": "Argentina,", "t": 51.28}, {"w": "there", "t": 51.68}, {"w": "is", "t": 52.09}, {"w": "a", "t": 52.49}, {"w": "boy", "t": 52.9}, {"w": "named", "t": 53.31}, {"w": "Faustino", "t": 53.71}, {"w": "Oro,", "t": 54.12}, {"w": "called", "t": 54.53}, {"w": "the", "t": 54.93}, {"w": "\"Messi", "t": 55.34}, {"w": "of", "t": 55.74}, {"w": "chess.\"", "t": 56.15}, {"w": "He", "t": 56.56}, {"w": "did", "t": 56.96}, {"w": "not", "t": 57.37}, {"w": "learn", "t": 57.77}, {"w": "it", "t": 58.18}, {"w": "at", "t": 58.59}, {"w": "school.", "t": 58.99}, {"w": "He", "t": 59.4}, {"w": "started", "t": 59.81}, {"w": "playing", "t": 60.21}, {"w": "online", "t": 60.62}, {"w": "games", "t": 61.02}, {"w": "at", "t": 61.43}, {"w": "home", "t": 61.84}, {"w": "at", "t": 62.24}, {"w": "seven,", "t": 62.65}, {"w": "while", "t": 63.05}, {"w": "everyone", "t": 63.46}, {"w": "stayed", "t": 63.87}, {"w": "home.", "t": 64.27}, {"w": "His", "t": 64.68}, {"w": "father", "t": 65.09}, {"w": "made", "t": 65.49}, {"w": "an", "t": 65.9}, {"w": "account", "t": 66.3}, {"w": "for", "t": 66.71}, {"w": "him,", "t": 67.12}, {"w": "and", "t": 67.52}, {"w": "soon", "t": 67.93}, {"w": "he", "t": 68.33}, {"w": "played", "t": 68.74}, {"w": "everywhere", "t": 69.15}, {"w": "—", "t": 69.55}, {"w": "after", "t": 69.96}, {"w": "breakfast", "t": 70.37}, {"w": "and", "t": 70.77}, {"w": "before", "t": 71.18}, {"w": "bed.", "t": 71.58}, {"w": "The", "t": 71.99}, {"w": "bond", "t": 72.4}, {"w": "between", "t": 72.8}, {"w": "father", "t": 73.21}, {"w": "and", "t": 73.61}, {"w": "son", "t": 74.02}, {"w": "grew", "t": 74.43}, {"w": "with", "t": 74.83}, {"w": "every", "t": 75.24}, {"w": "game", "t": 75.65}, {"w": "they", "t": 76.05}, {"w": "watched", "t": 76.46}, {"w": "together.", "t": 76.86}]}, {"start": 77.27, "end": 113.43, "en": "Every weekday, homework first, then chess. He learned fast — faster than a balloon rising. He studies the board like an accountant: every piece counts. In the course of a year, he played hundreds of games online. Win by win, he accumulated points and climbed higher. Meanwhile, older players noticed him. The statistics tell the story: he became the youngest player ever to pass 2300 points, and at only ten, he became the youngest International Master ever. The chess federation approved his title, and fans everywhere knew his name.", "title": "少年棋手", "cn": "每个工作日，先做完作业，再下棋。他学得很快——比升空的气球还快。他像会计研究数字一样研究棋盘：每一颗棋子都重要。一年里，他在网上就下了几百盘棋。一盘一盘赢下来，他积攒了积分，越爬越高。同时，年纪更大的棋手们开始注意到他。数据说明了一切：他成了有史以来最年轻的 2300 分棋手，而仅仅十岁时，他就成了有史以来最年轻的国际大师。国际象棋联合会批准了他的头衔，全世界的棋迷都知道了他的名字。", "words": [{"w": "Every", "t": 77.27}, {"w": "weekday,", "t": 77.68}, {"w": "homework", "t": 78.08}, {"w": "first,", "t": 78.49}, {"w": "then", "t": 78.9}, {"w": "chess.", "t": 79.3}, {"w": "He", "t": 79.71}, {"w": "learned", "t": 80.11}, {"w": "fast", "t": 80.52}, {"w": "—", "t": 80.93}, {"w": "faster", "t": 81.33}, {"w": "than", "t": 81.74}, {"w": "a", "t": 82.15}, {"w": "balloon", "t": 82.55}, {"w": "rising.", "t": 82.96}, {"w": "He", "t": 83.36}, {"w": "studies", "t": 83.77}, {"w": "the", "t": 84.18}, {"w": "board", "t": 84.58}, {"w": "like", "t": 84.99}, {"w": "an", "t": 85.4}, {"w": "accountant:", "t": 85.8}, {"w": "every", "t": 86.21}, {"w": "piece", "t": 86.61}, {"w": "counts.", "t": 87.02}, {"w": "In", "t": 87.43}, {"w": "the", "t": 87.83}, {"w": "course", "t": 88.24}, {"w": "of", "t": 88.65}, {"w": "a", "t": 89.05}, {"w": "year,", "t": 89.46}, {"w": "he", "t": 89.87}, {"w": "played", "t": 90.27}, {"w": "hundreds", "t": 90.68}, {"w": "of", "t": 91.08}, {"w": "games", "t": 91.49}, {"w": "online.", "t": 91.9}, {"w": "Win", "t": 92.3}, {"w": "by", "t": 92.71}, {"w": "win,", "t": 93.12}, {"w": "he", "t": 93.52}, {"w": "accumulated", "t": 93.93}, {"w": "points", "t": 94.33}, {"w": "and", "t": 94.74}, {"w": "climbed", "t": 95.15}, {"w": "higher.", "t": 95.55}, {"w": "Meanwhile,", "t": 95.96}, {"w": "older", "t": 96.37}, {"w": "players", "t": 96.77}, {"w": "noticed", "t": 97.18}, {"w": "him.", "t": 97.58}, {"w": "The", "t": 97.99}, {"w": "statistics", "t": 98.4}, {"w": "tell", "t": 98.8}, {"w": "the", "t": 99.21}, {"w": "story:", "t": 99.62}, {"w": "he", "t": 100.02}, {"w": "became", "t": 100.43}, {"w": "the", "t": 100.83}, {"w": "youngest", "t": 101.24}, {"w": "player", "t": 101.65}, {"w": "ever", "t": 102.05}, {"w": "to", "t": 102.46}, {"w": "pass", "t": 102.87}, {"w": "2300", "t": 103.27}, {"w": "points,", "t": 103.68}, {"w": "and", "t": 104.09}, {"w": "at", "t": 104.49}, {"w": "only", "t": 104.9}, {"w": "ten,", "t": 105.3}, {"w": "he", "t": 105.71}, {"w": "became", "t": 106.12}, {"w": "the", "t": 106.52}, {"w": "youngest", "t": 106.93}, {"w": "International", "t": 107.34}, {"w": "Master", "t": 107.74}, {"w": "ever.", "t": 108.15}, {"w": "The", "t": 108.55}, {"w": "chess", "t": 108.96}, {"w": "federation", "t": 109.37}, {"w": "approved", "t": 109.77}, {"w": "his", "t": 110.18}, {"w": "title,", "t": 110.59}, {"w": "and", "t": 110.99}, {"w": "fans", "t": 111.4}, {"w": "everywhere", "t": 111.8}, {"w": "knew", "t": 112.21}, {"w": "his", "t": 112.62}, {"w": "name.", "t": 113.02}]}, {"start": 113.43, "end": 148.36, "en": "But his most famous game was on a computer screen. In a fast online game, ten-year-old Faustino beat Magnus Carlsen, a former world champion! His facial expression stayed calm. His coach says: a calm mind wins more games than fast hands. When he lost, he did not mourn for long — he looked at the board and asked, \"What can I learn?\" The road was not always easy, but game after game, he kept going. And now, at twelve, he is a Grandmaster. What a star!", "title": "少年棋手", "cn": "但他最出名的一盘棋是在电脑屏幕上下出来的。在一场快棋网络对局里，十岁的福斯蒂诺打败了前世界冠军芒努斯·卡尔森！他的面部表情始终平静。他的教练说：冷静的头脑比快手赢得更多棋局。输棋的时候，他不会难过太久——他看看棋盘，问自己：“我能学到什么？”这条路并不总是一帆风顺，但一盘接一盘，他坚持了下来。而现在，十二岁的他已经是一位特级大师了。真是一颗明星！", "words": [{"w": "But", "t": 113.43}, {"w": "his", "t": 113.84}, {"w": "most", "t": 114.24}, {"w": "famous", "t": 114.65}, {"w": "game", "t": 115.05}, {"w": "was", "t": 115.46}, {"w": "on", "t": 115.87}, {"w": "a", "t": 116.27}, {"w": "computer", "t": 116.68}, {"w": "screen.", "t": 117.09}, {"w": "In", "t": 117.49}, {"w": "a", "t": 117.9}, {"w": "fast", "t": 118.3}, {"w": "online", "t": 118.71}, {"w": "game,", "t": 119.12}, {"w": "ten-year-old", "t": 119.52}, {"w": "Faustino", "t": 119.93}, {"w": "beat", "t": 120.33}, {"w": "Magnus", "t": 120.74}, {"w": "Carlsen,", "t": 121.15}, {"w": "a", "t": 121.55}, {"w": "former", "t": 121.96}, {"w": "world", "t": 122.37}, {"w": "champion!", "t": 122.77}, {"w": "His", "t": 123.18}, {"w": "facial", "t": 123.58}, {"w": "expression", "t": 123.99}, {"w": "stayed", "t": 124.4}, {"w": "calm.", "t": 124.8}, {"w": "His", "t": 125.21}, {"w": "coach", "t": 125.61}, {"w": "says:", "t": 126.02}, {"w": "a", "t": 126.43}, {"w": "calm", "t": 126.83}, {"w": "mind", "t": 127.24}, {"w": "wins", "t": 127.65}, {"w": "more", "t": 128.05}, {"w": "games", "t": 128.46}, {"w": "than", "t": 128.86}, {"w": "fast", "t": 129.27}, {"w": "hands.", "t": 129.68}, {"w": "When", "t": 130.08}, {"w": "he", "t": 130.49}, {"w": "lost,", "t": 130.9}, {"w": "he", "t": 131.3}, {"w": "did", "t": 131.71}, {"w": "not", "t": 132.11}, {"w": "mourn", "t": 132.52}, {"w": "for", "t": 132.93}, {"w": "long", "t": 133.33}, {"w": "—", "t": 133.74}, {"w": "he", "t": 134.14}, {"w": "looked", "t": 134.55}, {"w": "at", "t": 134.96}, {"w": "the", "t": 135.36}, {"w": "board", "t": 135.77}, {"w": "and", "t": 136.18}, {"w": "asked,", "t": 136.58}, {"w": "\"What", "t": 136.99}, {"w": "can", "t": 137.39}, {"w": "I", "t": 137.8}, {"w": "learn?\"", "t": 138.21}, {"w": "The", "t": 138.61}, {"w": "road", "t": 139.02}, {"w": "was", "t": 139.42}, {"w": "not", "t": 139.83}, {"w": "always", "t": 140.24}, {"w": "easy,", "t": 140.64}, {"w": "but", "t": 141.05}, {"w": "game", "t": 141.46}, {"w": "after", "t": 141.86}, {"w": "game,", "t": 142.27}, {"w": "he", "t": 142.67}, {"w": "kept", "t": 143.08}, {"w": "going.", "t": 143.49}, {"w": "And", "t": 143.89}, {"w": "now,", "t": 144.3}, {"w": "at", "t": 144.7}, {"w": "twelve,", "t": 145.11}, {"w": "he", "t": 145.52}, {"w": "is", "t": 145.92}, {"w": "a", "t": 146.33}, {"w": "Grandmaster.", "t": 146.74}, {"w": "What", "t": 147.14}, {"w": "a", "t": 147.55}, {"w": "star!", "t": 147.95}]}, {"start": 159.46, "end": 184.67, "en": "Now climb into the trees and meet the chameleon, the quiet king of hide-and-seek. A chameleon changes color and moves its eyes in two directions at once. But its greatest trick is its tongue. A big chameleon's tongue can be twice its body length, and a tiny one's two and a half times! Imagine your tongue reaching across the whole classroom!", "title": "变色龙的超级舌头", "cn": "现在爬到树上，认识变色龙——这位安静的捉迷藏之王。变色龙会变色，两只眼睛还能同时朝两个方向转。但它最厉害的本领是舌头。大变色龙的舌头可以达到体长的两倍，小变色龙的甚至能达到两倍半！想象一下，你的舌头能伸到整间教室那么远！", "words": [{"w": "Now", "t": 159.46}, {"w": "climb", "t": 159.87}, {"w": "into", "t": 160.29}, {"w": "the", "t": 160.7}, {"w": "trees", "t": 161.11}, {"w": "and", "t": 161.53}, {"w": "meet", "t": 161.94}, {"w": "the", "t": 162.35}, {"w": "chameleon,", "t": 162.77}, {"w": "the", "t": 163.18}, {"w": "quiet", "t": 163.59}, {"w": "king", "t": 164.01}, {"w": "of", "t": 164.42}, {"w": "hide-and-seek.", "t": 164.83}, {"w": "A", "t": 165.25}, {"w": "chameleon", "t": 165.66}, {"w": "changes", "t": 166.07}, {"w": "color", "t": 166.49}, {"w": "and", "t": 166.9}, {"w": "moves", "t": 167.31}, {"w": "its", "t": 167.73}, {"w": "eyes", "t": 168.14}, {"w": "in", "t": 168.55}, {"w": "two", "t": 168.97}, {"w": "directions", "t": 169.38}, {"w": "at", "t": 169.79}, {"w": "once.", "t": 170.21}, {"w": "But", "t": 170.62}, {"w": "its", "t": 171.03}, {"w": "greatest", "t": 171.45}, {"w": "trick", "t": 171.86}, {"w": "is", "t": 172.27}, {"w": "its", "t": 172.68}, {"w": "tongue.", "t": 173.1}, {"w": "A", "t": 173.51}, {"w": "big", "t": 173.92}, {"w": "chameleon's", "t": 174.34}, {"w": "tongue", "t": 174.75}, {"w": "can", "t": 175.16}, {"w": "be", "t": 175.58}, {"w": "twice", "t": 175.99}, {"w": "its", "t": 176.4}, {"w": "body", "t": 176.82}, {"w": "length,", "t": 177.23}, {"w": "and", "t": 177.64}, {"w": "a", "t": 178.06}, {"w": "tiny", "t": 178.47}, {"w": "one's", "t": 178.88}, {"w": "two", "t": 179.3}, {"w": "and", "t": 179.71}, {"w": "a", "t": 180.12}, {"w": "half", "t": 180.54}, {"w": "times!", "t": 180.95}, {"w": "Imagine", "t": 181.36}, {"w": "your", "t": 181.78}, {"w": "tongue", "t": 182.19}, {"w": "reaching", "t": 182.6}, {"w": "across", "t": 183.02}, {"w": "the", "t": 183.43}, {"w": "whole", "t": 183.84}, {"w": "classroom!", "t": 184.26}]}, {"start": 184.67, "end": 221.46, "en": "How does it work? The tongue sits folded like an accordion over a small bone. When it sees a cricket, muscles pull back slowly, like drawing a bow. Then — snap! The tongue shoots out faster than lightning, in less than a tenth of a second. Stretchy tissues work like a spring, storing power and letting go all at once. The tip is covered with sticky mucus, thicker than honey, so the cricket sticks fast. It can even catch a bug as heavy as one-third of its own weight!", "title": "变色龙的超级舌头", "cn": "这是怎么做到的呢？舌头折叠起来，像手风琴一样搭在一块小骨头上。看到蟋蟀时，肌肉慢慢向后拉，就像拉开一张弓。然后——啪！舌头以比闪电还快的速度弹射出去，不到十分之一秒。有弹性的组织像弹簧一样工作，把力量储存起来，再一下子释放出去。舌尖上覆盖着黏黏的黏液，比蜂蜜还稠，所以蟋蟀一碰就被牢牢粘住。它甚至能抓住相当于自身体重三分之一的虫子！", "words": [{"w": "How", "t": 184.67}, {"w": "does", "t": 185.08}, {"w": "it", "t": 185.5}, {"w": "work?", "t": 185.91}, {"w": "The", "t": 186.32}, {"w": "tongue", "t": 186.74}, {"w": "sits", "t": 187.15}, {"w": "folded", "t": 187.56}, {"w": "like", "t": 187.98}, {"w": "an", "t": 188.39}, {"w": "accordion", "t": 188.8}, {"w": "over", "t": 189.22}, {"w": "a", "t": 189.63}, {"w": "small", "t": 190.04}, {"w": "bone.", "t": 190.46}, {"w": "When", "t": 190.87}, {"w": "it", "t": 191.28}, {"w": "sees", "t": 191.7}, {"w": "a", "t": 192.11}, {"w": "cricket,", "t": 192.52}, {"w": "muscles", "t": 192.94}, {"w": "pull", "t": 193.35}, {"w": "back", "t": 193.76}, {"w": "slowly,", "t": 194.18}, {"w": "like", "t": 194.59}, {"w": "drawing", "t": 195.0}, {"w": "a", "t": 195.42}, {"w": "bow.", "t": 195.83}, {"w": "Then", "t": 196.24}, {"w": "—", "t": 196.66}, {"w": "snap!", "t": 197.07}, {"w": "The", "t": 197.48}, {"w": "tongue", "t": 197.9}, {"w": "shoots", "t": 198.31}, {"w": "out", "t": 198.72}, {"w": "faster", "t": 199.14}, {"w": "than", "t": 199.55}, {"w": "lightning,", "t": 199.96}, {"w": "in", "t": 200.38}, {"w": "less", "t": 200.79}, {"w": "than", "t": 201.2}, {"w": "a", "t": 201.62}, {"w": "tenth", "t": 202.03}, {"w": "of", "t": 202.44}, {"w": "a", "t": 202.86}, {"w": "second.", "t": 203.27}, {"w": "Stretchy", "t": 203.69}, {"w": "tissues", "t": 204.1}, {"w": "work", "t": 204.51}, {"w": "like", "t": 204.93}, {"w": "a", "t": 205.34}, {"w": "spring,", "t": 205.75}, {"w": "storing", "t": 206.17}, {"w": "power", "t": 206.58}, {"w": "and", "t": 206.99}, {"w": "letting", "t": 207.41}, {"w": "go", "t": 207.82}, {"w": "all", "t": 208.23}, {"w": "at", "t": 208.65}, {"w": "once.", "t": 209.06}, {"w": "The", "t": 209.47}, {"w": "tip", "t": 209.89}, {"w": "is", "t": 210.3}, {"w": "covered", "t": 210.71}, {"w": "with", "t": 211.13}, {"w": "sticky", "t": 211.54}, {"w": "mucus,", "t": 211.95}, {"w": "thicker", "t": 212.37}, {"w": "than", "t": 212.78}, {"w": "honey,", "t": 213.19}, {"w": "so", "t": 213.61}, {"w": "the", "t": 214.02}, {"w": "cricket", "t": 214.43}, {"w": "sticks", "t": 214.85}, {"w": "fast.", "t": 215.26}, {"w": "It", "t": 215.67}, {"w": "can", "t": 216.09}, {"w": "even", "t": 216.5}, {"w": "catch", "t": 216.91}, {"w": "a", "t": 217.33}, {"w": "bug", "t": 217.74}, {"w": "as", "t": 218.15}, {"w": "heavy", "t": 218.57}, {"w": "as", "t": 218.98}, {"w": "one-third", "t": 219.39}, {"w": "of", "t": 219.81}, {"w": "its", "t": 220.22}, {"w": "own", "t": 220.63}, {"w": "weight!", "t": 221.05}]}, {"start": 221.46, "end": 237.17, "en": "Then the tongue pulls the meal back — dinner is served, without moving a step. Scientists love this trick: it works in hot deserts and cold mountains alike. So remember: slow feet, quick tongue — the chameleon's secret!", "title": "变色龙的超级舌头", "cn": "然后舌头把猎物拉回来——不用挪动一步，晚餐就上桌了。科学家们很喜欢这个本领：它在炎热的沙漠和寒冷的高山上都同样管用。所以记住：慢脚步，快舌头——这就是变色龙的秘密！", "words": [{"w": "Then", "t": 221.46}, {"w": "the", "t": 221.87}, {"w": "tongue", "t": 222.29}, {"w": "pulls", "t": 222.7}, {"w": "the", "t": 223.11}, {"w": "meal", "t": 223.53}, {"w": "back", "t": 223.94}, {"w": "—", "t": 224.35}, {"w": "dinner", "t": 224.77}, {"w": "is", "t": 225.18}, {"w": "served,", "t": 225.59}, {"w": "without", "t": 226.01}, {"w": "moving", "t": 226.42}, {"w": "a", "t": 226.83}, {"w": "step.", "t": 227.25}, {"w": "Scientists", "t": 227.66}, {"w": "love", "t": 228.07}, {"w": "this", "t": 228.49}, {"w": "trick:", "t": 228.9}, {"w": "it", "t": 229.31}, {"w": "works", "t": 229.73}, {"w": "in", "t": 230.14}, {"w": "hot", "t": 230.56}, {"w": "deserts", "t": 230.97}, {"w": "and", "t": 231.38}, {"w": "cold", "t": 231.8}, {"w": "mountains", "t": 232.21}, {"w": "alike.", "t": 232.62}, {"w": "So", "t": 233.04}, {"w": "remember:", "t": 233.45}, {"w": "slow", "t": 233.86}, {"w": "feet,", "t": 234.28}, {"w": "quick", "t": 234.69}, {"w": "tongue", "t": 235.1}, {"w": "—", "t": 235.52}, {"w": "the", "t": 235.93}, {"w": "chameleon's", "t": 236.34}, {"w": "secret!", "t": 236.76}]}, {"start": 252.59, "end": 273.98, "en": "Today's idiom: 'zip your lips.' When you zip your lips, you keep a secret and say nothing at all! Here's an example: 'Mom made bacon sandwiches for the picnic, and she told us to zip our lips, or everyone would want one!' Zip your lips, and the secret will not leak out. When do you need to zip your lips?", "title": "今日俚语", "cn": "今天的俚语是“zip your lips”（拉上嘴唇的拉链）。当你 zip your lips 时，你就是保守一个秘密，什么都不说！举个例子：“妈妈为野餐做了培根三明治，她让我们拉上嘴唇的拉链，不然人人都想要一个！”拉上嘴唇的拉链，秘密就不会泄露出去。你什么时候需要拉上嘴唇的拉链呢？", "words": [{"w": "Today's", "t": 252.59}, {"w": "idiom:", "t": 252.95}, {"w": "'zip", "t": 253.3}, {"w": "your", "t": 253.66}, {"w": "lips.'", "t": 254.02}, {"w": "When", "t": 254.37}, {"w": "you", "t": 254.73}, {"w": "zip", "t": 255.09}, {"w": "your", "t": 255.44}, {"w": "lips,", "t": 255.8}, {"w": "you", "t": 256.16}, {"w": "keep", "t": 256.51}, {"w": "a", "t": 256.87}, {"w": "secret", "t": 257.22}, {"w": "and", "t": 257.58}, {"w": "say", "t": 257.94}, {"w": "nothing", "t": 258.29}, {"w": "at", "t": 258.65}, {"w": "all!", "t": 259.01}, {"w": "Here's", "t": 259.36}, {"w": "an", "t": 259.72}, {"w": "example:", "t": 260.08}, {"w": "'Mom", "t": 260.43}, {"w": "made", "t": 260.79}, {"w": "bacon", "t": 261.15}, {"w": "sandwiches", "t": 261.5}, {"w": "for", "t": 261.86}, {"w": "the", "t": 262.22}, {"w": "picnic,", "t": 262.57}, {"w": "and", "t": 262.93}, {"w": "she", "t": 263.29}, {"w": "told", "t": 263.64}, {"w": "us", "t": 264.0}, {"w": "to", "t": 264.35}, {"w": "zip", "t": 264.71}, {"w": "our", "t": 265.07}, {"w": "lips,", "t": 265.42}, {"w": "or", "t": 265.78}, {"w": "everyone", "t": 266.14}, {"w": "would", "t": 266.49}, {"w": "want", "t": 266.85}, {"w": "one!'", "t": 267.21}, {"w": "Zip", "t": 267.56}, {"w": "your", "t": 267.92}, {"w": "lips,", "t": 268.28}, {"w": "and", "t": 268.63}, {"w": "the", "t": 268.99}, {"w": "secret", "t": 269.35}, {"w": "will", "t": 269.7}, {"w": "not", "t": 270.06}, {"w": "leak", "t": 270.42}, {"w": "out.", "t": 270.77}, {"w": "When", "t": 271.13}, {"w": "do", "t": 271.48}, {"w": "you", "t": 271.84}, {"w": "need", "t": 272.2}, {"w": "to", "t": 272.55}, {"w": "zip", "t": 272.91}, {"w": "your", "t": 273.27}, {"w": "lips?", "t": 273.62}]}, {"start": 284.84, "end": 304.11, "en": "Let's think: a chess star, and a chameleon with a super tongue. First: Faustino studies every lost game — what do you do when you lose a game? Second: if your tongue were twice as long as your body, what would you use it for? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想：一位国际象棋明星，和一只超级舌头的变色龙。第一：福斯蒂诺会研究每一盘输掉的棋——你输棋的时候会怎么做？第二：如果你的舌头有身体的两倍长，你会用它来做什么？和家人聊聊吧！", "words": [{"w": "Let's", "t": 284.84}, {"w": "think:", "t": 285.22}, {"w": "a", "t": 285.6}, {"w": "chess", "t": 285.97}, {"w": "star,", "t": 286.35}, {"w": "and", "t": 286.73}, {"w": "a", "t": 287.11}, {"w": "chameleon", "t": 287.48}, {"w": "with", "t": 287.86}, {"w": "a", "t": 288.24}, {"w": "super", "t": 288.62}, {"w": "tongue.", "t": 289.0}, {"w": "First:", "t": 289.37}, {"w": "Faustino", "t": 289.75}, {"w": "studies", "t": 290.13}, {"w": "every", "t": 290.51}, {"w": "lost", "t": 290.89}, {"w": "game", "t": 291.26}, {"w": "—", "t": 291.64}, {"w": "what", "t": 292.02}, {"w": "do", "t": 292.4}, {"w": "you", "t": 292.77}, {"w": "do", "t": 293.15}, {"w": "when", "t": 293.53}, {"w": "you", "t": 293.91}, {"w": "lose", "t": 294.29}, {"w": "a", "t": 294.66}, {"w": "game?", "t": 295.04}, {"w": "Second:", "t": 295.42}, {"w": "if", "t": 295.8}, {"w": "your", "t": 296.18}, {"w": "tongue", "t": 296.55}, {"w": "were", "t": 296.93}, {"w": "twice", "t": 297.31}, {"w": "as", "t": 297.69}, {"w": "long", "t": 298.06}, {"w": "as", "t": 298.44}, {"w": "your", "t": 298.82}, {"w": "body,", "t": 299.2}, {"w": "what", "t": 299.58}, {"w": "would", "t": 299.95}, {"w": "you", "t": 300.33}, {"w": "use", "t": 300.71}, {"w": "it", "t": 301.09}, {"w": "for?", "t": 301.47}, {"w": "Talk", "t": 301.84}, {"w": "about", "t": 302.22}, {"w": "it", "t": 302.6}, {"w": "with", "t": 302.98}, {"w": "your", "t": 303.35}, {"w": "family!", "t": 303.73}]}, {"start": 314.33, "end": 323.23, "en": "That's all for today, young explorers. Keep your mind sharp, and when it is time for a secret, zip your lips! See you tomorrow!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。保持头脑敏锐，当需要保守秘密的时候，拉上嘴唇的拉链！明天见！", "words": [{"w": "That's", "t": 314.33}, {"w": "all", "t": 314.7}, {"w": "for", "t": 315.07}, {"w": "today,", "t": 315.44}, {"w": "young", "t": 315.81}, {"w": "explorers.", "t": 316.18}, {"w": "Keep", "t": 316.56}, {"w": "your", "t": 316.93}, {"w": "mind", "t": 317.3}, {"w": "sharp,", "t": 317.67}, {"w": "and", "t": 318.04}, {"w": "when", "t": 318.41}, {"w": "it", "t": 318.78}, {"w": "is", "t": 319.15}, {"w": "time", "t": 319.52}, {"w": "for", "t": 319.89}, {"w": "a", "t": 320.26}, {"w": "secret,", "t": 320.63}, {"w": "zip", "t": 321.0}, {"w": "your", "t": 321.38}, {"w": "lips!", "t": 321.75}, {"w": "See", "t": 322.12}, {"w": "you", "t": 322.49}, {"w": "tomorrow!", "t": 322.86}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol36/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
