@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.14 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol14/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol14/cover.png" controls playsinline preload="metadata"></video>
+<h1>🏄 Vol.14 · 冲浪狗狗与牵手睡觉的海獭</h1>
+<div class="meta">英文 599 词 ｜ 音频 5分54秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol14/story-dog.png" alt="冲浪狗狗">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol14/story-otter.png" alt="牵手睡觉的海獭">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">in the same boat</span> <span class="phon">/ɪn ðə seɪm bəʊt/</span> (习语) 在同一条船上；处境相同、要互相帮助<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: On the waves or on the water, good friends stick together — <b>in the same boat</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">competition</span> <span class="phon">/ˌkɒmpəˈtɪʃn/</span> (n.) 比赛；竞赛<br>
+  
+  <div class="example">Example: This is the Surf City Surf Dog <b>competition</b>, where dogs ride real waves.</div>
+</div>
+<div class="vocab">
+  <span class="word">rescue</span> <span class="phon">/ˈreskjuː/</span> (adj.) 被救助的；(n./v.) 救援<br>
+  
+  <div class="example">Example: Sugar was a <b>rescue</b> dog, found on the street.</div>
+</div>
+<div class="vocab">
+  <span class="word">honour</span> <span class="phon">/ˈɒnə/</span> (n.) 荣誉；荣幸<br>
+  
+  <div class="example">Example: Sugar is the first dog to receive this <b>honour</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">anchor</span> <span class="phon">/ˈæŋkə/</span> (n.) 锚；起固定作用的东西<br>
+  
+  <div class="example">Example: The kelp is an <b>anchor</b>, holding the otter in one place.</div>
+</div>
+<div class="vocab">
+  <span class="word">drift</span> <span class="phon">/drɪft/</span> (v.) 漂流；漂移<br>
+  
+  <div class="example">Example: Otters hold hands so nobody <b>drifts</b> away.</div>
+</div>
+<div class="vocab">
+  <span class="word">raft</span> <span class="phon">/rɑːft/</span> (n.) 筏子；一群漂浮的海獭<br>
+  
+  <div class="example">Example: Otters sleep in groups called <b>rafts</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">groom</span> <span class="phon">/ɡruːm/</span> (v.) 梳理（毛发）；打理<br>
+  
+  <div class="example">Example: She <b>grooms</b> its fur to keep it warm.</div>
+</div>
+<div class="vocab">
+  <span class="word">conservation</span> <span class="phon">/ˌkɒnsəˈveɪʃn/</span> (n.) （对自然环境的）保护<br>
+  
+  <div class="example">Example: Thanks to <b>conservation</b>, otters are coming back to these waters.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 14, "ncols": 9, "words": [{"word": "OTTER", "row": 0, "col": 5, "dir": "D", "num": 1, "cn": "海獭", "clue": "A sea animal that holds hands while it sleeps."}, {"word": "DRIFT", "row": 1, "col": 1, "dir": "A", "num": 2, "cn": "漂走；漂流", "clue": "To float away slowly on the water."}, {"word": "SUPERSTAR", "row": 1, "col": 7, "dir": "D", "num": 3, "cn": "超级明星", "clue": "A very famous star. Sugar the surf dog is one!"}, {"word": "KELP", "row": 3, "col": 4, "dir": "A", "num": 4, "cn": "巨藻", "clue": "Giant seaweed — the otter's natural anchor rope."}, {"word": "PAW", "row": 4, "col": 1, "dir": "A", "num": 5, "cn": "爪子", "clue": "Otters float ____ in ____, holding on to each other."}, {"word": "ANCHOR", "row": 4, "col": 2, "dir": "D", "num": 6, "cn": "锚", "clue": "It holds a boat — or a sleepy otter — in one place."}, {"word": "WAVES", "row": 5, "col": 0, "dir": "D", "num": 7, "cn": "海浪", "clue": "Surf dogs ride them to the sand."}, {"word": "BOAT", "row": 7, "col": 4, "dir": "A", "num": 8, "cn": "小船", "clue": "You and your friends are all in the same ____."}, {"word": "SURFBOARD", "row": 9, "col": 0, "dir": "A", "num": 9, "cn": "冲浪板", "clue": "The long board that surfers — and surf dogs — stand on."}, {"word": "BELLY", "row": 9, "col": 4, "dir": "D", "num": 10, "cn": "肚子；腹部", "clue": "A baby otter rides on its mother's ____."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. How much time does each dog get to catch its best five waves?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. Five minutes</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. Twelve minutes</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. One hour</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. Two minutes</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. What is special about Sugar?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. She is the biggest dog on the beach</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. She is the fastest swimmer</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. She has won the competition five times and her paw prints are in the Hall of Fame</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. She surfs without a board</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. Why do sea otters hold hands when they sleep?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. To keep their paws warm</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. So nobody drifts away alone</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. To play a swimming game</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. To catch more fish</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does &quot;in the same boat&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. Sharing the same problem and helping each other</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. Riding a boat together for fun</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. Living in a house near the sea</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. Swimming in the same race</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：A</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [1, 2, 1, 0];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">A newborn pup <b class="kw">cannot</b> swim <b class="kw">or</b> dive, <b class="kw">so</b> it rides on its mother's belly <b class="kw">while</b> she floats on her back.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li>这句话其实是两个小句子用 <i>so</i> 拼起来的：前半句讲“做不到的事”，后半句讲“所以怎么办”。读长句先找连接词，就找到了骨架。</li>
+  <li><i>cannot swim or dive</i> 里藏着<b>否定句的并列规则</b>：在 <i>cannot / don't / never</i> 这类否定词后面，连接两个并列成分要用 <b><i>or</i></b>，不能用 <i>and</i>（肯定句才用 and）。记法：否定 or、肯定 and。</li>
+  <li>逗号后面的 <i>so</i> 是<b>结果连词</b>（所以、因此）：前面是原因（宝宝不会游泳也不会潜水），后面是结果（它骑在妈妈肚子上）。<i>so</i> 前面记得有逗号。</li>
+  <li>句尾的 <i>while she floats on her back</i> 里，<i>while</i> 表示“与此同时”：宝宝骑着、妈妈漂着，两个画面是同时发生的。读到 <i>while</i>，脑子里要同时摆出两个画面。</li>
+  <li>整句逻辑链：<b>宝宝不会游也不会潜（原因，cannot…or…）→ 所以骑在妈妈肚子上（so 引出结果）→ 而妈妈同时仰面漂着（while 摆出同时画面）</b>。一句话装下了海獭一家的睡觉智慧。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. so（结果连词）：用括号里的词补全</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">A pup cannot swim, ____ it rides on its mother&#x27;s belly.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">so</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">because</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">but</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：so</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">Every dog wears a life jacket, ____ everybody stays safe.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">although</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">so</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">because</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：so</p>
+</div>
+<p class="p4-gname">B. while（与此同时）：用括号里的词补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">It rides on its mother&#x27;s belly ____ she floats on her back.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">until</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">because</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">while</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：while</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">Otters hold hands ____ they sleep on the water.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">while</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">until</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">so</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：while</p>
+</div>
+<p class="p4-gname">C. cannot … or …（否定句并列）：用括号里的词补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">A newborn pup cannot swim ____ dive.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">and</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">or</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">but</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：or</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">In the deep sea, a young pup cannot hunt ____ hide alone.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">and</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">but</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">or</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：or</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>The kelp holds the sleepy otter, so it can dream while the waves move.</li>
+<li>The little dog cannot reach the shore, so it rests while its human paddles.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">1</span><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">2</span><span class="cwl">D</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">F</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">3</span><span class="cwl">S</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">K</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">5</span><span class="cwl">P</span></td><td class="cwc"><span class="cwn">6</span><span class="cwl">A</span></td><td class="cwc"><span class="cwl">W</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">7</span><span class="cwl">W</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">V</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">8</span><span class="cwl">B</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">9</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">F</span></td><td class="cwc"><span class="cwn">10</span><span class="cwl">B</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">D</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">Y</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr></table></div>1 竖 → <b>OTTER</b>（海獭）<br>2 横 → <b>DRIFT</b>（漂走；漂流）<br>3 竖 → <b>SUPERSTAR</b>（超级明星）<br>4 横 → <b>KELP</b>（巨藻）<br>5 横 → <b>PAW</b>（爪子）<br>6 竖 → <b>ANCHOR</b>（锚）<br>7 竖 → <b>WAVES</b>（海浪）<br>8 横 → <b>BOAT</b>（小船）<br>9 横 → <b>SURFBOARD</b>（冲浪板）<br>10 竖 → <b>BELLY</b>（肚子；腹部）<br><br><b>B. Single Choice:</b><br>
+1 → <b>B</b>. The text says: <i>"Each dog gets twelve minutes to catch its best five waves."</i><br>
+2 → <b>C</b>. <i>"She has won this competition five times! Her paw prints are in the concrete of the Surfers' Hall of Fame — the first dog to receive this honour."</i><br>
+3 → <b>B</b>. Otters sleep <i>"paw in paw, so nobody drifts away"</i> — holding hands keeps the raft together.<br>
+4 → <b>A</b>. The text says: <i>"It means you share one problem and help each other."</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. so&nbsp;&nbsp;2. so<br>
+B. 1. while&nbsp;&nbsp;2. while<br>
+C. 1. or&nbsp;&nbsp;2. or<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol14/Vol14_晚读讲义_冲浪狗狗与牵手睡觉的海獭_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 27.39, "end": 47.57, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! This is our fourteenth show together! Today we are going to the beach — and the surfers there are not people. They are dogs on surfboards! Later, we meet an animal that holds hands while it sleeps. Ready? Let's dive in!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！这是我们在一起的第十四期节目啦！今天我们要去海边——而且那里的冲浪选手根本不是人，它们是站在冲浪板上的狗狗！等会儿，我们还要去认识一种睡觉时牵着手的动物。准备好了吗？跳进水里吧！", "words": [{"w": "Hello,", "t": 27.39}, {"w": "young", "t": 27.79}, {"w": "explorers,", "t": 28.18}, {"w": "and", "t": 28.58}, {"w": "welcome", "t": 28.97}, {"w": "back", "t": 29.37}, {"w": "to", "t": 29.76}, {"w": "Michael's", "t": 30.16}, {"w": "Morning", "t": 30.56}, {"w": "Listening!", "t": 30.95}, {"w": "This", "t": 31.35}, {"w": "is", "t": 31.74}, {"w": "our", "t": 32.14}, {"w": "fourteenth", "t": 32.53}, {"w": "show", "t": 32.93}, {"w": "together!", "t": 33.33}, {"w": "Today", "t": 33.72}, {"w": "we", "t": 34.12}, {"w": "are", "t": 34.51}, {"w": "going", "t": 34.91}, {"w": "to", "t": 35.3}, {"w": "the", "t": 35.7}, {"w": "beach", "t": 36.1}, {"w": "—", "t": 36.49}, {"w": "and", "t": 36.89}, {"w": "the", "t": 37.28}, {"w": "surfers", "t": 37.68}, {"w": "there", "t": 38.07}, {"w": "are", "t": 38.47}, {"w": "not", "t": 38.86}, {"w": "people.", "t": 39.26}, {"w": "They", "t": 39.66}, {"w": "are", "t": 40.05}, {"w": "dogs", "t": 40.45}, {"w": "on", "t": 40.84}, {"w": "surfboards!", "t": 41.24}, {"w": "Later,", "t": 41.63}, {"w": "we", "t": 42.03}, {"w": "meet", "t": 42.43}, {"w": "an", "t": 42.82}, {"w": "animal", "t": 43.22}, {"w": "that", "t": 43.61}, {"w": "holds", "t": 44.01}, {"w": "hands", "t": 44.4}, {"w": "while", "t": 44.8}, {"w": "it", "t": 45.2}, {"w": "sleeps.", "t": 45.59}, {"w": "Ready?", "t": 45.99}, {"w": "Let's", "t": 46.38}, {"w": "dive", "t": 46.78}, {"w": "in!", "t": 47.17}]}, {"start": 64.11, "end": 82.95, "en": "On a sunny beach in Huntington Beach, California, crowds are cheering at the ocean. Why? A dog is surfing! This is the Surf City Surf Dog competition, where dogs ride real waves. Big dogs, small dogs, long dogs, round dogs — all standing on surfboards, ears flying!", "title": "冲浪狗狗大赛", "cn": "在加利福尼亚州亨廷顿海滩的一片阳光沙滩上，人群正对着大海欢呼。为什么呢？一只狗狗在冲浪！这就是“冲浪城冲浪狗”大赛——一场狗狗冲真浪的真实比赛。大狗、小狗、长狗、圆狗——全都站在冲浪板上，耳朵在风里飞！", "words": [{"w": "On", "t": 64.11}, {"w": "a", "t": 64.51}, {"w": "sunny", "t": 64.91}, {"w": "beach", "t": 65.31}, {"w": "in", "t": 65.71}, {"w": "Huntington", "t": 66.11}, {"w": "Beach,", "t": 66.52}, {"w": "California,", "t": 66.92}, {"w": "crowds", "t": 67.32}, {"w": "are", "t": 67.72}, {"w": "cheering", "t": 68.12}, {"w": "at", "t": 68.52}, {"w": "the", "t": 68.92}, {"w": "ocean.", "t": 69.32}, {"w": "Why?", "t": 69.72}, {"w": "A", "t": 70.12}, {"w": "dog", "t": 70.52}, {"w": "is", "t": 70.92}, {"w": "surfing!", "t": 71.33}, {"w": "This", "t": 71.73}, {"w": "is", "t": 72.13}, {"w": "the", "t": 72.53}, {"w": "Surf", "t": 72.93}, {"w": "City", "t": 73.33}, {"w": "Surf", "t": 73.73}, {"w": "Dog", "t": 74.13}, {"w": "competition,", "t": 74.53}, {"w": "where", "t": 74.93}, {"w": "dogs", "t": 75.33}, {"w": "ride", "t": 75.73}, {"w": "real", "t": 76.14}, {"w": "waves.", "t": 76.54}, {"w": "Big", "t": 76.94}, {"w": "dogs,", "t": 77.34}, {"w": "small", "t": 77.74}, {"w": "dogs,", "t": 78.14}, {"w": "long", "t": 78.54}, {"w": "dogs,", "t": 78.94}, {"w": "round", "t": 79.34}, {"w": "dogs", "t": 79.74}, {"w": "—", "t": 80.14}, {"w": "all", "t": 80.54}, {"w": "standing", "t": 80.95}, {"w": "on", "t": 81.35}, {"w": "surfboards,", "t": 81.75}, {"w": "ears", "t": 82.15}, {"w": "flying!", "t": 82.55}]}, {"start": 82.95, "end": 105.39, "en": "The rules are simple. Each dog gets twelve minutes to catch its best five waves. Judges watch: How long is the ride? How brave is the dog? A good surf dog rides the wave all the way to the sand, and walks off like a superstar. Every dog wears a life jacket, so everybody stays safe.", "title": "冲浪狗狗大赛", "cn": "规则很简单。每只狗狗有十二分钟，冲上自己最好的五道浪。评委会仔细看：这一浪冲了多久？狗狗有多勇敢？一只好的冲浪狗会稳稳地冲完整道浪，一路冲到沙滩上，然后像超级明星一样走下板。每只狗狗都穿着救生衣，所以大家都很安全。", "words": [{"w": "The", "t": 82.95}, {"w": "rules", "t": 83.35}, {"w": "are", "t": 83.75}, {"w": "simple.", "t": 84.15}, {"w": "Each", "t": 84.55}, {"w": "dog", "t": 84.95}, {"w": "gets", "t": 85.35}, {"w": "twelve", "t": 85.75}, {"w": "minutes", "t": 86.16}, {"w": "to", "t": 86.56}, {"w": "catch", "t": 86.96}, {"w": "its", "t": 87.36}, {"w": "best", "t": 87.76}, {"w": "five", "t": 88.16}, {"w": "waves.", "t": 88.56}, {"w": "Judges", "t": 88.96}, {"w": "watch:", "t": 89.36}, {"w": "How", "t": 89.76}, {"w": "long", "t": 90.16}, {"w": "is", "t": 90.56}, {"w": "the", "t": 90.96}, {"w": "ride?", "t": 91.37}, {"w": "How", "t": 91.77}, {"w": "brave", "t": 92.17}, {"w": "is", "t": 92.57}, {"w": "the", "t": 92.97}, {"w": "dog?", "t": 93.37}, {"w": "A", "t": 93.77}, {"w": "good", "t": 94.17}, {"w": "surf", "t": 94.57}, {"w": "dog", "t": 94.97}, {"w": "rides", "t": 95.37}, {"w": "the", "t": 95.77}, {"w": "wave", "t": 96.17}, {"w": "all", "t": 96.57}, {"w": "the", "t": 96.97}, {"w": "way", "t": 97.38}, {"w": "to", "t": 97.78}, {"w": "the", "t": 98.18}, {"w": "sand,", "t": 98.58}, {"w": "and", "t": 98.98}, {"w": "walks", "t": 99.38}, {"w": "off", "t": 99.78}, {"w": "like", "t": 100.18}, {"w": "a", "t": 100.58}, {"w": "superstar.", "t": 100.98}, {"w": "Every", "t": 101.38}, {"w": "dog", "t": 101.78}, {"w": "wears", "t": 102.18}, {"w": "a", "t": 102.59}, {"w": "life", "t": 102.99}, {"w": "jacket,", "t": 103.39}, {"w": "so", "t": 103.79}, {"w": "everybody", "t": 104.19}, {"w": "stays", "t": 104.59}, {"w": "safe.", "t": 104.99}]}, {"start": 105.39, "end": 126.64, "en": "The biggest superstar is a dog named Sugar. Sugar was a rescue dog, found on the street. But on a surfboard, she is pure gold: she has won this competition five times! Her paw prints are in the concrete of the Surfers' Hall of Fame — the first dog to receive this honour.", "title": "冲浪狗狗大赛", "cn": "最大的明星是一只叫 Sugar（小糖）的狗狗。Sugar 是一只被救助的狗，曾经流浪街头。但在冲浪板上，它就是纯金的冠军：它已经赢过这场比赛五次了！它的爪印被印进了冲浪名人堂的水泥地里——Sugar 是第一只获得这份荣誉的狗狗。", "words": [{"w": "The", "t": 105.39}, {"w": "biggest", "t": 105.79}, {"w": "superstar", "t": 106.19}, {"w": "is", "t": 106.59}, {"w": "a", "t": 106.99}, {"w": "dog", "t": 107.39}, {"w": "named", "t": 107.8}, {"w": "Sugar.", "t": 108.2}, {"w": "Sugar", "t": 108.6}, {"w": "was", "t": 109.0}, {"w": "a", "t": 109.4}, {"w": "rescue", "t": 109.8}, {"w": "dog,", "t": 110.2}, {"w": "found", "t": 110.6}, {"w": "on", "t": 111.0}, {"w": "the", "t": 111.4}, {"w": "street.", "t": 111.81}, {"w": "But", "t": 112.21}, {"w": "on", "t": 112.61}, {"w": "a", "t": 113.01}, {"w": "surfboard,", "t": 113.41}, {"w": "she", "t": 113.81}, {"w": "is", "t": 114.21}, {"w": "pure", "t": 114.61}, {"w": "gold:", "t": 115.01}, {"w": "she", "t": 115.41}, {"w": "has", "t": 115.81}, {"w": "won", "t": 116.22}, {"w": "this", "t": 116.62}, {"w": "competition", "t": 117.02}, {"w": "five", "t": 117.42}, {"w": "times!", "t": 117.82}, {"w": "Her", "t": 118.22}, {"w": "paw", "t": 118.62}, {"w": "prints", "t": 119.02}, {"w": "are", "t": 119.42}, {"w": "in", "t": 119.82}, {"w": "the", "t": 120.22}, {"w": "concrete", "t": 120.63}, {"w": "of", "t": 121.03}, {"w": "the", "t": 121.43}, {"w": "Surfers'", "t": 121.83}, {"w": "Hall", "t": 122.23}, {"w": "of", "t": 122.63}, {"w": "Fame", "t": 123.03}, {"w": "—", "t": 123.43}, {"w": "the", "t": 123.83}, {"w": "first", "t": 124.23}, {"w": "dog", "t": 124.64}, {"w": "to", "t": 125.04}, {"w": "receive", "t": 125.44}, {"w": "this", "t": 125.84}, {"w": "honour.", "t": 126.24}]}, {"start": 126.64, "end": 142.67, "en": "And it is not only about winning. Some dogs surf in pairs, two friends on one board; some surf with their humans. The party raises money to help dogs find new homes. Sun, waves and happy dogs: what a day!", "title": "冲浪狗狗大赛", "cn": "而且比赛不只是为了赢。有些狗狗成对冲浪——两个好朋友站同一块板；有些和主人一起冲。这个大派对还会筹钱帮助狗狗找到新家。阳光、海浪和快乐的狗狗：多棒的一天！", "words": [{"w": "And", "t": 126.64}, {"w": "it", "t": 127.04}, {"w": "is", "t": 127.44}, {"w": "not", "t": 127.84}, {"w": "only", "t": 128.24}, {"w": "about", "t": 128.64}, {"w": "winning.", "t": 129.04}, {"w": "Some", "t": 129.45}, {"w": "dogs", "t": 129.85}, {"w": "surf", "t": 130.25}, {"w": "in", "t": 130.65}, {"w": "pairs,", "t": 131.05}, {"w": "two", "t": 131.45}, {"w": "friends", "t": 131.85}, {"w": "on", "t": 132.25}, {"w": "one", "t": 132.65}, {"w": "board;", "t": 133.05}, {"w": "some", "t": 133.45}, {"w": "surf", "t": 133.85}, {"w": "with", "t": 134.25}, {"w": "their", "t": 134.66}, {"w": "humans.", "t": 135.06}, {"w": "The", "t": 135.46}, {"w": "party", "t": 135.86}, {"w": "raises", "t": 136.26}, {"w": "money", "t": 136.66}, {"w": "to", "t": 137.06}, {"w": "help", "t": 137.46}, {"w": "dogs", "t": 137.86}, {"w": "find", "t": 138.26}, {"w": "new", "t": 138.66}, {"w": "homes.", "t": 139.06}, {"w": "Sun,", "t": 139.46}, {"w": "waves", "t": 139.86}, {"w": "and", "t": 140.27}, {"w": "happy", "t": 140.67}, {"w": "dogs:", "t": 141.07}, {"w": "what", "t": 141.47}, {"w": "a", "t": 141.87}, {"w": "day!", "t": 142.27}]}, {"start": 162.25, "end": 177.91, "en": "Now let's float away to the quiet water where sea otters live. Sea otters spend their whole lives in the ocean. They eat, play — and yes, sleep — in the water, floating on their backs like little boats.", "title": "牵手睡觉的海獭", "cn": "现在我们漂离海滩，来到海獭生活的安静水面。海獭一辈子都生活在海里。它们在水里吃、在水里玩——对，也在水里睡，仰面漂着，像一只只小船。", "words": [{"w": "Now", "t": 162.25}, {"w": "let's", "t": 162.65}, {"w": "float", "t": 163.05}, {"w": "away", "t": 163.45}, {"w": "to", "t": 163.86}, {"w": "the", "t": 164.26}, {"w": "quiet", "t": 164.66}, {"w": "water", "t": 165.06}, {"w": "where", "t": 165.46}, {"w": "sea", "t": 165.86}, {"w": "otters", "t": 166.27}, {"w": "live.", "t": 166.67}, {"w": "Sea", "t": 167.07}, {"w": "otters", "t": 167.47}, {"w": "spend", "t": 167.87}, {"w": "their", "t": 168.27}, {"w": "whole", "t": 168.67}, {"w": "lives", "t": 169.08}, {"w": "in", "t": 169.48}, {"w": "the", "t": 169.88}, {"w": "ocean.", "t": 170.28}, {"w": "They", "t": 170.68}, {"w": "eat,", "t": 171.08}, {"w": "play", "t": 171.49}, {"w": "—", "t": 171.89}, {"w": "and", "t": 172.29}, {"w": "yes,", "t": 172.69}, {"w": "sleep", "t": 173.09}, {"w": "—", "t": 173.49}, {"w": "in", "t": 173.89}, {"w": "the", "t": 174.3}, {"w": "water,", "t": 174.7}, {"w": "floating", "t": 175.1}, {"w": "on", "t": 175.5}, {"w": "their", "t": 175.9}, {"w": "backs", "t": 176.3}, {"w": "like", "t": 176.71}, {"w": "little", "t": 177.11}, {"w": "boats.", "t": 177.51}]}, {"start": 177.91, "end": 197.18, "en": "But if you fall asleep on the sea, the waves will carry you away! Sea otters have two clever tricks. Trick one: hold hands. Otters sleep in groups called rafts, paw in paw, so nobody drifts away. One raft can hold dozens of otters, all hand in hand.", "title": "牵手睡觉的海獭", "cn": "可是，如果你在海上睡着，海浪会把你冲走！海獭有两个聪明的办法。办法一：牵手。海獭成群睡觉，这样的一群叫作“獭筏”，它们爪子牵着爪子漂着，谁也不会独自漂走。一个獭筏可以有几十只海獭，全部手牵着手。", "words": [{"w": "But", "t": 177.91}, {"w": "if", "t": 178.31}, {"w": "you", "t": 178.71}, {"w": "fall", "t": 179.11}, {"w": "asleep", "t": 179.52}, {"w": "on", "t": 179.92}, {"w": "the", "t": 180.32}, {"w": "sea,", "t": 180.72}, {"w": "the", "t": 181.12}, {"w": "waves", "t": 181.52}, {"w": "will", "t": 181.92}, {"w": "carry", "t": 182.33}, {"w": "you", "t": 182.73}, {"w": "away!", "t": 183.13}, {"w": "Sea", "t": 183.53}, {"w": "otters", "t": 183.93}, {"w": "have", "t": 184.33}, {"w": "two", "t": 184.73}, {"w": "clever", "t": 185.14}, {"w": "tricks.", "t": 185.54}, {"w": "Trick", "t": 185.94}, {"w": "one:", "t": 186.34}, {"w": "hold", "t": 186.74}, {"w": "hands.", "t": 187.14}, {"w": "Otters", "t": 187.55}, {"w": "sleep", "t": 187.95}, {"w": "in", "t": 188.35}, {"w": "groups", "t": 188.75}, {"w": "called", "t": 189.15}, {"w": "rafts,", "t": 189.55}, {"w": "paw", "t": 189.95}, {"w": "in", "t": 190.36}, {"w": "paw,", "t": 190.76}, {"w": "so", "t": 191.16}, {"w": "nobody", "t": 191.56}, {"w": "drifts", "t": 191.96}, {"w": "away.", "t": 192.36}, {"w": "One", "t": 192.76}, {"w": "raft", "t": 193.17}, {"w": "can", "t": 193.57}, {"w": "hold", "t": 193.97}, {"w": "dozens", "t": 194.37}, {"w": "of", "t": 194.77}, {"w": "otters,", "t": 195.17}, {"w": "all", "t": 195.57}, {"w": "hand", "t": 195.98}, {"w": "in", "t": 196.38}, {"w": "hand.", "t": 196.78}]}, {"start": 197.18, "end": 212.04, "en": "Trick two is even smarter. Near the shore grow forests of kelp, rooted in the sea floor. An otter wraps kelp around its body like a rope; the kelp is an anchor, holding it in one place.", "title": "牵手睡觉的海獭", "cn": "办法二更聪明。岸边长着巨藻森林，根扎在海底。海獭把巨藻像绳子一样缠在身上，巨藻就像一只锚，把它稳稳地固定在一个地方。", "words": [{"w": "Trick", "t": 197.18}, {"w": "two", "t": 197.58}, {"w": "is", "t": 197.98}, {"w": "even", "t": 198.38}, {"w": "smarter.", "t": 198.79}, {"w": "Near", "t": 199.19}, {"w": "the", "t": 199.59}, {"w": "shore", "t": 199.99}, {"w": "grow", "t": 200.39}, {"w": "forests", "t": 200.79}, {"w": "of", "t": 201.2}, {"w": "kelp,", "t": 201.6}, {"w": "rooted", "t": 202.0}, {"w": "in", "t": 202.4}, {"w": "the", "t": 202.8}, {"w": "sea", "t": 203.2}, {"w": "floor.", "t": 203.61}, {"w": "An", "t": 204.01}, {"w": "otter", "t": 204.41}, {"w": "wraps", "t": 204.81}, {"w": "kelp", "t": 205.21}, {"w": "around", "t": 205.61}, {"w": "its", "t": 206.02}, {"w": "body", "t": 206.42}, {"w": "like", "t": 206.82}, {"w": "a", "t": 207.22}, {"w": "rope;", "t": 207.62}, {"w": "the", "t": 208.02}, {"w": "kelp", "t": 208.43}, {"w": "is", "t": 208.83}, {"w": "an", "t": 209.23}, {"w": "anchor,", "t": 209.63}, {"w": "holding", "t": 210.03}, {"w": "it", "t": 210.43}, {"w": "in", "t": 210.84}, {"w": "one", "t": 211.24}, {"w": "place.", "t": 211.64}]}, {"start": 212.04, "end": 240.15, "en": "And the babies? A newborn pup cannot swim or dive, so it rides on its mother's belly while she floats on her back. She grooms its fur — the thickest coat of any animal on Earth — to keep it warm. When Mother dives for food, she wraps her baby in kelp first — like parking a tiny boat. And thanks to conservation, otters are coming back to these waters.", "title": "牵手睡觉的海獭", "cn": "那宝宝怎么办呢？刚出生的海獭宝宝不会游泳、也不会潜水，所以它就骑在妈妈的肚子上，妈妈仰面漂着。妈妈会给它梳理毛发保暖——海獭的毛是全世界所有动物中最厚的。妈妈潜水找食物时，会先把宝宝用巨藻缠好——就像停好一条小船。而且多亏了保护工作，海獭正在重新回到这片水域。", "words": [{"w": "And", "t": 212.04}, {"w": "the", "t": 212.44}, {"w": "babies?", "t": 212.84}, {"w": "A", "t": 213.24}, {"w": "newborn", "t": 213.65}, {"w": "pup", "t": 214.05}, {"w": "cannot", "t": 214.45}, {"w": "swim", "t": 214.85}, {"w": "or", "t": 215.25}, {"w": "dive,", "t": 215.65}, {"w": "so", "t": 216.06}, {"w": "it", "t": 216.46}, {"w": "rides", "t": 216.86}, {"w": "on", "t": 217.26}, {"w": "its", "t": 217.66}, {"w": "mother's", "t": 218.06}, {"w": "belly", "t": 218.47}, {"w": "while", "t": 218.87}, {"w": "she", "t": 219.27}, {"w": "floats", "t": 219.67}, {"w": "on", "t": 220.07}, {"w": "her", "t": 220.47}, {"w": "back.", "t": 220.87}, {"w": "She", "t": 221.28}, {"w": "grooms", "t": 221.68}, {"w": "its", "t": 222.08}, {"w": "fur", "t": 222.48}, {"w": "—", "t": 222.88}, {"w": "the", "t": 223.28}, {"w": "thickest", "t": 223.69}, {"w": "coat", "t": 224.09}, {"w": "of", "t": 224.49}, {"w": "any", "t": 224.89}, {"w": "animal", "t": 225.29}, {"w": "on", "t": 225.69}, {"w": "Earth", "t": 226.09}, {"w": "—", "t": 226.5}, {"w": "to", "t": 226.9}, {"w": "keep", "t": 227.3}, {"w": "it", "t": 227.7}, {"w": "warm.", "t": 228.1}, {"w": "When", "t": 228.5}, {"w": "Mother", "t": 228.91}, {"w": "dives", "t": 229.31}, {"w": "for", "t": 229.71}, {"w": "food,", "t": 230.11}, {"w": "she", "t": 230.51}, {"w": "wraps", "t": 230.91}, {"w": "her", "t": 231.32}, {"w": "baby", "t": 231.72}, {"w": "in", "t": 232.12}, {"w": "kelp", "t": 232.52}, {"w": "first", "t": 232.92}, {"w": "—", "t": 233.32}, {"w": "like", "t": 233.72}, {"w": "parking", "t": 234.13}, {"w": "a", "t": 234.53}, {"w": "tiny", "t": 234.93}, {"w": "boat.", "t": 235.33}, {"w": "And", "t": 235.73}, {"w": "thanks", "t": 236.13}, {"w": "to", "t": 236.54}, {"w": "conservation,", "t": 236.94}, {"w": "otters", "t": 237.34}, {"w": "are", "t": 237.74}, {"w": "coming", "t": 238.14}, {"w": "back", "t": 238.54}, {"w": "to", "t": 238.95}, {"w": "these", "t": 239.35}, {"w": "waters.", "t": 239.75}]}, {"start": 257.33, "end": 287.5, "en": "Here's today's idiom: \"in the same boat.\" You and your friends are in one small boat, and the waves grow bigger. You are safe together — or wet together! Nobody can climb out alone. It means you share one problem and help each other. Like surf dogs and humans: if a wave wins, everybody gets wet! Example: \"When rain stopped our picnic, we were all in the same boat, so we played games inside.\"", "title": "今日俚语", "cn": "今天的俚语是“in the same boat”（在同一条船上）。你和朋友们坐着一条小船，海浪越来越大。你们要么一起安全，要么一起湿透！没人能独自爬出去。它的意思是：你们面对同一个问题，要互相帮助。就像冲浪狗狗和它们的主人：如果海浪赢了，大家一起湿！举个例子：“下雨搅黄了我们的野餐，我们都在同一条船上，所以改在屋里玩游戏。”", "words": [{"w": "Here's", "t": 257.33}, {"w": "today's", "t": 257.74}, {"w": "idiom:", "t": 258.15}, {"w": "\"in", "t": 258.55}, {"w": "the", "t": 258.96}, {"w": "same", "t": 259.37}, {"w": "boat.\"", "t": 259.78}, {"w": "You", "t": 260.18}, {"w": "and", "t": 260.59}, {"w": "your", "t": 261.0}, {"w": "friends", "t": 261.41}, {"w": "are", "t": 261.81}, {"w": "in", "t": 262.22}, {"w": "one", "t": 262.63}, {"w": "small", "t": 263.04}, {"w": "boat,", "t": 263.45}, {"w": "and", "t": 263.85}, {"w": "the", "t": 264.26}, {"w": "waves", "t": 264.67}, {"w": "grow", "t": 265.08}, {"w": "bigger.", "t": 265.48}, {"w": "You", "t": 265.89}, {"w": "are", "t": 266.3}, {"w": "safe", "t": 266.71}, {"w": "together", "t": 267.11}, {"w": "—", "t": 267.52}, {"w": "or", "t": 267.93}, {"w": "wet", "t": 268.34}, {"w": "together!", "t": 268.75}, {"w": "Nobody", "t": 269.15}, {"w": "can", "t": 269.56}, {"w": "climb", "t": 269.97}, {"w": "out", "t": 270.38}, {"w": "alone.", "t": 270.78}, {"w": "It", "t": 271.19}, {"w": "means", "t": 271.6}, {"w": "you", "t": 272.01}, {"w": "share", "t": 272.41}, {"w": "one", "t": 272.82}, {"w": "problem", "t": 273.23}, {"w": "and", "t": 273.64}, {"w": "help", "t": 274.05}, {"w": "each", "t": 274.45}, {"w": "other.", "t": 274.86}, {"w": "Like", "t": 275.27}, {"w": "surf", "t": 275.68}, {"w": "dogs", "t": 276.08}, {"w": "and", "t": 276.49}, {"w": "humans:", "t": 276.9}, {"w": "if", "t": 277.31}, {"w": "a", "t": 277.72}, {"w": "wave", "t": 278.12}, {"w": "wins,", "t": 278.53}, {"w": "everybody", "t": 278.94}, {"w": "gets", "t": 279.35}, {"w": "wet!", "t": 279.75}, {"w": "Example:", "t": 280.16}, {"w": "\"When", "t": 280.57}, {"w": "rain", "t": 280.98}, {"w": "stopped", "t": 281.38}, {"w": "our", "t": 281.79}, {"w": "picnic,", "t": 282.2}, {"w": "we", "t": 282.61}, {"w": "were", "t": 283.02}, {"w": "all", "t": 283.42}, {"w": "in", "t": 283.83}, {"w": "the", "t": 284.24}, {"w": "same", "t": 284.65}, {"w": "boat,", "t": 285.05}, {"w": "so", "t": 285.46}, {"w": "we", "t": 285.87}, {"w": "played", "t": 286.28}, {"w": "games", "t": 286.68}, {"w": "inside.\"", "t": 287.09}]}, {"start": 300.2, "end": 324.39, "en": "Let's think about our stories. Dogs rode real waves; otters held hands in their sleep. Now, two questions for you. First: if you could teach a dog one sport, which sport would you choose? Second: otters hold hands so they never drift apart. On a big adventure, whose hand would you hold? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事。狗狗冲了真正的海浪，海獭牵着手睡觉。现在，轮到回答两个问题。第一：如果你能教一只狗狗一项运动，你会选哪一项？第二：海獭牵手是为了永远不漂散。如果去大冒险，你会牵住谁的手？和家人聊聊吧！", "words": [{"w": "Let's", "t": 300.2}, {"w": "think", "t": 300.62}, {"w": "about", "t": 301.03}, {"w": "our", "t": 301.45}, {"w": "stories.", "t": 301.87}, {"w": "Dogs", "t": 302.29}, {"w": "rode", "t": 302.7}, {"w": "real", "t": 303.12}, {"w": "waves;", "t": 303.54}, {"w": "otters", "t": 303.95}, {"w": "held", "t": 304.37}, {"w": "hands", "t": 304.79}, {"w": "in", "t": 305.2}, {"w": "their", "t": 305.62}, {"w": "sleep.", "t": 306.04}, {"w": "Now,", "t": 306.46}, {"w": "two", "t": 306.87}, {"w": "questions", "t": 307.29}, {"w": "for", "t": 307.71}, {"w": "you.", "t": 308.12}, {"w": "First:", "t": 308.54}, {"w": "if", "t": 308.96}, {"w": "you", "t": 309.38}, {"w": "could", "t": 309.79}, {"w": "teach", "t": 310.21}, {"w": "a", "t": 310.63}, {"w": "dog", "t": 311.04}, {"w": "one", "t": 311.46}, {"w": "sport,", "t": 311.88}, {"w": "which", "t": 312.29}, {"w": "sport", "t": 312.71}, {"w": "would", "t": 313.13}, {"w": "you", "t": 313.55}, {"w": "choose?", "t": 313.96}, {"w": "Second:", "t": 314.38}, {"w": "otters", "t": 314.8}, {"w": "hold", "t": 315.21}, {"w": "hands", "t": 315.63}, {"w": "so", "t": 316.05}, {"w": "they", "t": 316.47}, {"w": "never", "t": 316.88}, {"w": "drift", "t": 317.3}, {"w": "apart.", "t": 317.72}, {"w": "On", "t": 318.13}, {"w": "a", "t": 318.55}, {"w": "big", "t": 318.97}, {"w": "adventure,", "t": 319.39}, {"w": "whose", "t": 319.8}, {"w": "hand", "t": 320.22}, {"w": "would", "t": 320.64}, {"w": "you", "t": 321.05}, {"w": "hold?", "t": 321.47}, {"w": "Talk", "t": 321.89}, {"w": "about", "t": 322.3}, {"w": "it", "t": 322.72}, {"w": "with", "t": 323.14}, {"w": "your", "t": 323.56}, {"w": "family!", "t": 323.97}]}, {"start": 335.09, "end": 345.0, "en": "That's all for today, young explorers. On the waves or on the water, good friends stick together — in the same boat. See you tomorrow morning!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。在浪上还是在水上，好朋友都会紧紧在一起——同在一条船上。明天早上见！", "words": [{"w": "That's", "t": 335.09}, {"w": "all", "t": 335.47}, {"w": "for", "t": 335.85}, {"w": "today,", "t": 336.23}, {"w": "young", "t": 336.61}, {"w": "explorers.", "t": 337.0}, {"w": "On", "t": 337.38}, {"w": "the", "t": 337.76}, {"w": "waves", "t": 338.14}, {"w": "or", "t": 338.52}, {"w": "on", "t": 338.9}, {"w": "the", "t": 339.28}, {"w": "water,", "t": 339.66}, {"w": "good", "t": 340.04}, {"w": "friends", "t": 340.43}, {"w": "stick", "t": 340.81}, {"w": "together", "t": 341.19}, {"w": "—", "t": 341.57}, {"w": "in", "t": 341.95}, {"w": "the", "t": 342.33}, {"w": "same", "t": 342.71}, {"w": "boat.", "t": 343.09}, {"w": "See", "t": 343.48}, {"w": "you", "t": 343.86}, {"w": "tomorrow", "t": 344.24}, {"w": "morning!", "t": 344.62}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol14/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
