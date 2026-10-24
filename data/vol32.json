@@ -1,0 +1,3584 @@
+{
+ "id": "vol32",
+ "title": "猫站长与乌鸦的好记性",
+ "words": 600,
+ "duration": "5分50秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol32/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol32/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol32/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol32/Vol32_晚读讲义_猫站长与乌鸦的好记性_v1.pdf",
+ "pdfName": "Vol32_晚读讲义_猫站长与乌鸦的好记性_v1.pdf",
+ "blocks": [
+  {
+   "start": 21.15,
+   "end": 43.25,
+   "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we meet two amazing animals: a cat who ran a train station, and a bird that never forgets a face. One wears a tiny hat. The other keeps a list of friends — and enemies — in its head. Ready? Let's go!",
+   "title": "开场白",
+   "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天我们要认识两只了不起的动物：一只当过火车站站长的猫，和一只永远不会忘记一张脸的鸟。一只戴着一顶小帽子。另一只在脑子里记着一份朋友名单——还有一份“敌人”名单。准备好了吗？出发吧！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 21.15
+    },
+    {
+     "w": "young",
+     "t": 21.57
+    },
+    {
+     "w": "explorers,",
+     "t": 21.98
+    },
+    {
+     "w": "and",
+     "t": 22.4
+    },
+    {
+     "w": "welcome",
+     "t": 22.82
+    },
+    {
+     "w": "back",
+     "t": 23.23
+    },
+    {
+     "w": "to",
+     "t": 23.65
+    },
+    {
+     "w": "Michael's",
+     "t": 24.07
+    },
+    {
+     "w": "Morning",
+     "t": 24.49
+    },
+    {
+     "w": "Listening!",
+     "t": 24.9
+    },
+    {
+     "w": "Today",
+     "t": 25.32
+    },
+    {
+     "w": "we",
+     "t": 25.74
+    },
+    {
+     "w": "meet",
+     "t": 26.15
+    },
+    {
+     "w": "two",
+     "t": 26.57
+    },
+    {
+     "w": "amazing",
+     "t": 26.99
+    },
+    {
+     "w": "animals:",
+     "t": 27.4
+    },
+    {
+     "w": "a",
+     "t": 27.82
+    },
+    {
+     "w": "cat",
+     "t": 28.24
+    },
+    {
+     "w": "who",
+     "t": 28.66
+    },
+    {
+     "w": "ran",
+     "t": 29.07
+    },
+    {
+     "w": "a",
+     "t": 29.49
+    },
+    {
+     "w": "train",
+     "t": 29.91
+    },
+    {
+     "w": "station,",
+     "t": 30.32
+    },
+    {
+     "w": "and",
+     "t": 30.74
+    },
+    {
+     "w": "a",
+     "t": 31.16
+    },
+    {
+     "w": "bird",
+     "t": 31.57
+    },
+    {
+     "w": "that",
+     "t": 31.99
+    },
+    {
+     "w": "never",
+     "t": 32.41
+    },
+    {
+     "w": "forgets",
+     "t": 32.83
+    },
+    {
+     "w": "a",
+     "t": 33.24
+    },
+    {
+     "w": "face.",
+     "t": 33.66
+    },
+    {
+     "w": "One",
+     "t": 34.08
+    },
+    {
+     "w": "wears",
+     "t": 34.49
+    },
+    {
+     "w": "a",
+     "t": 34.91
+    },
+    {
+     "w": "tiny",
+     "t": 35.33
+    },
+    {
+     "w": "hat.",
+     "t": 35.74
+    },
+    {
+     "w": "The",
+     "t": 36.16
+    },
+    {
+     "w": "other",
+     "t": 36.58
+    },
+    {
+     "w": "keeps",
+     "t": 37.0
+    },
+    {
+     "w": "a",
+     "t": 37.41
+    },
+    {
+     "w": "list",
+     "t": 37.83
+    },
+    {
+     "w": "of",
+     "t": 38.25
+    },
+    {
+     "w": "friends",
+     "t": 38.66
+    },
+    {
+     "w": "—",
+     "t": 39.08
+    },
+    {
+     "w": "and",
+     "t": 39.5
+    },
+    {
+     "w": "enemies",
+     "t": 39.91
+    },
+    {
+     "w": "—",
+     "t": 40.33
+    },
+    {
+     "w": "in",
+     "t": 40.75
+    },
+    {
+     "w": "its",
+     "t": 41.17
+    },
+    {
+     "w": "head.",
+     "t": 41.58
+    },
+    {
+     "w": "Ready?",
+     "t": 42.0
+    },
+    {
+     "w": "Let's",
+     "t": 42.42
+    },
+    {
+     "w": "go!",
+     "t": 42.83
+    }
+   ]
+  },
+  {
+   "start": 58.83,
+   "end": 74.2,
+   "en": "In the Japanese countryside, there is a small train station called Kishi Station. The railway company was losing money, so it cut costs and took away all the station workers. The little station was almost empty.",
+   "title": "猫站长",
+   "cn": "在日本乡间，有一座叫贵志站的小火车站。铁路公司一直在亏钱，于是削减开支，撤走了车站所有的工作人员。小车站几乎空无一人。",
+   "words": [
+    {
+     "w": "In",
+     "t": 58.83
+    },
+    {
+     "w": "the",
+     "t": 59.26
+    },
+    {
+     "w": "Japanese",
+     "t": 59.68
+    },
+    {
+     "w": "countryside,",
+     "t": 60.11
+    },
+    {
+     "w": "there",
+     "t": 60.54
+    },
+    {
+     "w": "is",
+     "t": 60.96
+    },
+    {
+     "w": "a",
+     "t": 61.39
+    },
+    {
+     "w": "small",
+     "t": 61.82
+    },
+    {
+     "w": "train",
+     "t": 62.25
+    },
+    {
+     "w": "station",
+     "t": 62.67
+    },
+    {
+     "w": "called",
+     "t": 63.1
+    },
+    {
+     "w": "Kishi",
+     "t": 63.53
+    },
+    {
+     "w": "Station.",
+     "t": 63.95
+    },
+    {
+     "w": "The",
+     "t": 64.38
+    },
+    {
+     "w": "railway",
+     "t": 64.81
+    },
+    {
+     "w": "company",
+     "t": 65.23
+    },
+    {
+     "w": "was",
+     "t": 65.66
+    },
+    {
+     "w": "losing",
+     "t": 66.09
+    },
+    {
+     "w": "money,",
+     "t": 66.52
+    },
+    {
+     "w": "so",
+     "t": 66.94
+    },
+    {
+     "w": "it",
+     "t": 67.37
+    },
+    {
+     "w": "cut",
+     "t": 67.8
+    },
+    {
+     "w": "costs",
+     "t": 68.22
+    },
+    {
+     "w": "and",
+     "t": 68.65
+    },
+    {
+     "w": "took",
+     "t": 69.08
+    },
+    {
+     "w": "away",
+     "t": 69.5
+    },
+    {
+     "w": "all",
+     "t": 69.93
+    },
+    {
+     "w": "the",
+     "t": 70.36
+    },
+    {
+     "w": "station",
+     "t": 70.79
+    },
+    {
+     "w": "workers.",
+     "t": 71.21
+    },
+    {
+     "w": "The",
+     "t": 71.64
+    },
+    {
+     "w": "little",
+     "t": 72.07
+    },
+    {
+     "w": "station",
+     "t": 72.49
+    },
+    {
+     "w": "was",
+     "t": 72.92
+    },
+    {
+     "w": "almost",
+     "t": 73.35
+    },
+    {
+     "w": "empty.",
+     "t": 73.78
+    }
+   ]
+  },
+  {
+   "start": 74.2,
+   "end": 87.44,
+   "en": "But the station already had a very special resident: a calico cat named Tama. Tama lived in the station shop. The railway president had a wonderful idea: make Tama the stationmaster!",
+   "title": "猫站长",
+   "cn": "可车站里早就住着一位非常特别的居民：一只叫塔玛的三花猫。塔玛住在车站的小店里。铁路公司的社长想出了一个绝妙的主意：让塔玛当站长！",
+   "words": [
+    {
+     "w": "But",
+     "t": 74.2
+    },
+    {
+     "w": "the",
+     "t": 74.63
+    },
+    {
+     "w": "station",
+     "t": 75.06
+    },
+    {
+     "w": "already",
+     "t": 75.48
+    },
+    {
+     "w": "had",
+     "t": 75.91
+    },
+    {
+     "w": "a",
+     "t": 76.34
+    },
+    {
+     "w": "very",
+     "t": 76.76
+    },
+    {
+     "w": "special",
+     "t": 77.19
+    },
+    {
+     "w": "resident:",
+     "t": 77.62
+    },
+    {
+     "w": "a",
+     "t": 78.05
+    },
+    {
+     "w": "calico",
+     "t": 78.47
+    },
+    {
+     "w": "cat",
+     "t": 78.9
+    },
+    {
+     "w": "named",
+     "t": 79.33
+    },
+    {
+     "w": "Tama.",
+     "t": 79.75
+    },
+    {
+     "w": "Tama",
+     "t": 80.18
+    },
+    {
+     "w": "lived",
+     "t": 80.61
+    },
+    {
+     "w": "in",
+     "t": 81.03
+    },
+    {
+     "w": "the",
+     "t": 81.46
+    },
+    {
+     "w": "station",
+     "t": 81.89
+    },
+    {
+     "w": "shop.",
+     "t": 82.31
+    },
+    {
+     "w": "The",
+     "t": 82.74
+    },
+    {
+     "w": "railway",
+     "t": 83.17
+    },
+    {
+     "w": "president",
+     "t": 83.6
+    },
+    {
+     "w": "had",
+     "t": 84.02
+    },
+    {
+     "w": "a",
+     "t": 84.45
+    },
+    {
+     "w": "wonderful",
+     "t": 84.88
+    },
+    {
+     "w": "idea:",
+     "t": 85.3
+    },
+    {
+     "w": "make",
+     "t": 85.73
+    },
+    {
+     "w": "Tama",
+     "t": 86.16
+    },
+    {
+     "w": "the",
+     "t": 86.58
+    },
+    {
+     "w": "stationmaster!",
+     "t": 87.01
+    }
+   ]
+  },
+  {
+   "start": 87.44,
+   "end": 108.79,
+   "en": "So Tama got a delicate little hat and a shiny gold name tag. Her salary was a whole year of cat food! Her job was simple: greet every passenger with a smile. People laugh with delight when they meet her. Workers were instructed to build Tama her own little office.",
+   "title": "猫站长",
+   "cn": "于是塔玛得到了一顶精致的小帽子和一块闪亮的金色名牌。她的薪水不是钱——而是一整年的猫粮！她的工作很简单：微笑着迎接每一位乘客。见到她的人都会高兴地笑出来。工人们还接到指示，要给塔玛建一间属于她自己的小办公室。",
+   "words": [
+    {
+     "w": "So",
+     "t": 87.44
+    },
+    {
+     "w": "Tama",
+     "t": 87.87
+    },
+    {
+     "w": "got",
+     "t": 88.29
+    },
+    {
+     "w": "a",
+     "t": 88.72
+    },
+    {
+     "w": "delicate",
+     "t": 89.15
+    },
+    {
+     "w": "little",
+     "t": 89.57
+    },
+    {
+     "w": "hat",
+     "t": 90.0
+    },
+    {
+     "w": "and",
+     "t": 90.43
+    },
+    {
+     "w": "a",
+     "t": 90.85
+    },
+    {
+     "w": "shiny",
+     "t": 91.28
+    },
+    {
+     "w": "gold",
+     "t": 91.71
+    },
+    {
+     "w": "name",
+     "t": 92.14
+    },
+    {
+     "w": "tag.",
+     "t": 92.56
+    },
+    {
+     "w": "Her",
+     "t": 92.99
+    },
+    {
+     "w": "salary",
+     "t": 93.42
+    },
+    {
+     "w": "was",
+     "t": 93.84
+    },
+    {
+     "w": "a",
+     "t": 94.27
+    },
+    {
+     "w": "whole",
+     "t": 94.7
+    },
+    {
+     "w": "year",
+     "t": 95.12
+    },
+    {
+     "w": "of",
+     "t": 95.55
+    },
+    {
+     "w": "cat",
+     "t": 95.98
+    },
+    {
+     "w": "food!",
+     "t": 96.41
+    },
+    {
+     "w": "Her",
+     "t": 96.83
+    },
+    {
+     "w": "job",
+     "t": 97.26
+    },
+    {
+     "w": "was",
+     "t": 97.69
+    },
+    {
+     "w": "simple:",
+     "t": 98.11
+    },
+    {
+     "w": "greet",
+     "t": 98.54
+    },
+    {
+     "w": "every",
+     "t": 98.97
+    },
+    {
+     "w": "passenger",
+     "t": 99.39
+    },
+    {
+     "w": "with",
+     "t": 99.82
+    },
+    {
+     "w": "a",
+     "t": 100.25
+    },
+    {
+     "w": "smile.",
+     "t": 100.68
+    },
+    {
+     "w": "People",
+     "t": 101.1
+    },
+    {
+     "w": "laugh",
+     "t": 101.53
+    },
+    {
+     "w": "with",
+     "t": 101.96
+    },
+    {
+     "w": "delight",
+     "t": 102.38
+    },
+    {
+     "w": "when",
+     "t": 102.81
+    },
+    {
+     "w": "they",
+     "t": 103.24
+    },
+    {
+     "w": "meet",
+     "t": 103.66
+    },
+    {
+     "w": "her.",
+     "t": 104.09
+    },
+    {
+     "w": "Workers",
+     "t": 104.52
+    },
+    {
+     "w": "were",
+     "t": 104.95
+    },
+    {
+     "w": "instructed",
+     "t": 105.37
+    },
+    {
+     "w": "to",
+     "t": 105.8
+    },
+    {
+     "w": "build",
+     "t": 106.23
+    },
+    {
+     "w": "Tama",
+     "t": 106.65
+    },
+    {
+     "w": "her",
+     "t": 107.08
+    },
+    {
+     "w": "own",
+     "t": 107.51
+    },
+    {
+     "w": "little",
+     "t": 107.94
+    },
+    {
+     "w": "office.",
+     "t": 108.36
+    }
+   ]
+  },
+  {
+   "start": 108.79,
+   "end": 128.43,
+   "en": "And guess what? People came from all over Japan to meet her. The little line recovered. A study said Tama brought more than a billion yen to the local area. One small cat made a big difference to a whole town. That is one awesome cat!",
+   "title": "猫站长",
+   "cn": "猜猜结果怎么样？人们从日本各地赶来见她。这条小铁路线恢复了生机。有研究说，塔玛给当地带来了超过十亿日元的收入。一只小猫给一整座小镇带来了大大的不同。真是一只了不起的猫！",
+   "words": [
+    {
+     "w": "And",
+     "t": 108.79
+    },
+    {
+     "w": "guess",
+     "t": 109.22
+    },
+    {
+     "w": "what?",
+     "t": 109.64
+    },
+    {
+     "w": "People",
+     "t": 110.07
+    },
+    {
+     "w": "came",
+     "t": 110.5
+    },
+    {
+     "w": "from",
+     "t": 110.92
+    },
+    {
+     "w": "all",
+     "t": 111.35
+    },
+    {
+     "w": "over",
+     "t": 111.78
+    },
+    {
+     "w": "Japan",
+     "t": 112.2
+    },
+    {
+     "w": "to",
+     "t": 112.63
+    },
+    {
+     "w": "meet",
+     "t": 113.06
+    },
+    {
+     "w": "her.",
+     "t": 113.49
+    },
+    {
+     "w": "The",
+     "t": 113.91
+    },
+    {
+     "w": "little",
+     "t": 114.34
+    },
+    {
+     "w": "line",
+     "t": 114.77
+    },
+    {
+     "w": "recovered.",
+     "t": 115.19
+    },
+    {
+     "w": "A",
+     "t": 115.62
+    },
+    {
+     "w": "study",
+     "t": 116.05
+    },
+    {
+     "w": "said",
+     "t": 116.47
+    },
+    {
+     "w": "Tama",
+     "t": 116.9
+    },
+    {
+     "w": "brought",
+     "t": 117.33
+    },
+    {
+     "w": "more",
+     "t": 117.76
+    },
+    {
+     "w": "than",
+     "t": 118.18
+    },
+    {
+     "w": "a",
+     "t": 118.61
+    },
+    {
+     "w": "billion",
+     "t": 119.04
+    },
+    {
+     "w": "yen",
+     "t": 119.46
+    },
+    {
+     "w": "to",
+     "t": 119.89
+    },
+    {
+     "w": "the",
+     "t": 120.32
+    },
+    {
+     "w": "local",
+     "t": 120.74
+    },
+    {
+     "w": "area.",
+     "t": 121.17
+    },
+    {
+     "w": "One",
+     "t": 121.6
+    },
+    {
+     "w": "small",
+     "t": 122.03
+    },
+    {
+     "w": "cat",
+     "t": 122.45
+    },
+    {
+     "w": "made",
+     "t": 122.88
+    },
+    {
+     "w": "a",
+     "t": 123.31
+    },
+    {
+     "w": "big",
+     "t": 123.73
+    },
+    {
+     "w": "difference",
+     "t": 124.16
+    },
+    {
+     "w": "to",
+     "t": 124.59
+    },
+    {
+     "w": "a",
+     "t": 125.01
+    },
+    {
+     "w": "whole",
+     "t": 125.44
+    },
+    {
+     "w": "town.",
+     "t": 125.87
+    },
+    {
+     "w": "That",
+     "t": 126.3
+    },
+    {
+     "w": "is",
+     "t": 126.72
+    },
+    {
+     "w": "one",
+     "t": 127.15
+    },
+    {
+     "w": "awesome",
+     "t": 127.58
+    },
+    {
+     "w": "cat!",
+     "t": 128.0
+    }
+   ]
+  },
+  {
+   "start": 128.43,
+   "end": 136.97,
+   "en": "Tama is almost never absent from her post. Every passenger still needs a valid ticket, even to meet the stationmaster!",
+   "title": "猫站长",
+   "cn": "塔玛几乎从不缺岗。哪怕是来见站长的乘客，也仍然需要一张有效的车票！",
+   "words": [
+    {
+     "w": "Tama",
+     "t": 128.43
+    },
+    {
+     "w": "is",
+     "t": 128.86
+    },
+    {
+     "w": "almost",
+     "t": 129.28
+    },
+    {
+     "w": "never",
+     "t": 129.71
+    },
+    {
+     "w": "absent",
+     "t": 130.14
+    },
+    {
+     "w": "from",
+     "t": 130.57
+    },
+    {
+     "w": "her",
+     "t": 130.99
+    },
+    {
+     "w": "post.",
+     "t": 131.42
+    },
+    {
+     "w": "Every",
+     "t": 131.85
+    },
+    {
+     "w": "passenger",
+     "t": 132.27
+    },
+    {
+     "w": "still",
+     "t": 132.7
+    },
+    {
+     "w": "needs",
+     "t": 133.13
+    },
+    {
+     "w": "a",
+     "t": 133.56
+    },
+    {
+     "w": "valid",
+     "t": 133.98
+    },
+    {
+     "w": "ticket,",
+     "t": 134.41
+    },
+    {
+     "w": "even",
+     "t": 134.84
+    },
+    {
+     "w": "to",
+     "t": 135.26
+    },
+    {
+     "w": "meet",
+     "t": 135.69
+    },
+    {
+     "w": "the",
+     "t": 136.12
+    },
+    {
+     "w": "stationmaster!",
+     "t": 136.54
+    }
+   ]
+  },
+  {
+   "start": 136.97,
+   "end": 148.5,
+   "en": "Later, the station was rebuilt in the shape of a cat's face. When Tama passed away, the town mourned her, and another calico cat, Nitama, took over.",
+   "title": "猫站长",
+   "cn": "后来，车站按猫脸的形状重建了。塔玛去世后，全镇的人都为她哀悼，另一只三花猫二代塔玛接过了站长的工作。",
+   "words": [
+    {
+     "w": "Later,",
+     "t": 136.97
+    },
+    {
+     "w": "the",
+     "t": 137.4
+    },
+    {
+     "w": "station",
+     "t": 137.83
+    },
+    {
+     "w": "was",
+     "t": 138.25
+    },
+    {
+     "w": "rebuilt",
+     "t": 138.68
+    },
+    {
+     "w": "in",
+     "t": 139.11
+    },
+    {
+     "w": "the",
+     "t": 139.53
+    },
+    {
+     "w": "shape",
+     "t": 139.96
+    },
+    {
+     "w": "of",
+     "t": 140.39
+    },
+    {
+     "w": "a",
+     "t": 140.81
+    },
+    {
+     "w": "cat's",
+     "t": 141.24
+    },
+    {
+     "w": "face.",
+     "t": 141.67
+    },
+    {
+     "w": "When",
+     "t": 142.09
+    },
+    {
+     "w": "Tama",
+     "t": 142.52
+    },
+    {
+     "w": "passed",
+     "t": 142.95
+    },
+    {
+     "w": "away,",
+     "t": 143.38
+    },
+    {
+     "w": "the",
+     "t": 143.8
+    },
+    {
+     "w": "town",
+     "t": 144.23
+    },
+    {
+     "w": "mourned",
+     "t": 144.66
+    },
+    {
+     "w": "her,",
+     "t": 145.08
+    },
+    {
+     "w": "and",
+     "t": 145.51
+    },
+    {
+     "w": "another",
+     "t": 145.94
+    },
+    {
+     "w": "calico",
+     "t": 146.37
+    },
+    {
+     "w": "cat,",
+     "t": 146.79
+    },
+    {
+     "w": "Nitama,",
+     "t": 147.22
+    },
+    {
+     "w": "took",
+     "t": 147.65
+    },
+    {
+     "w": "over.",
+     "t": 148.07
+    }
+   ]
+  },
+  {
+   "start": 164.0,
+   "end": 171.62,
+   "en": "Now, from Japan we fly to America, to meet a bird with a brain like a detective: the crow.",
+   "title": "乌鸦的好记性",
+   "cn": "现在，我们从日本飞到美国，去见一种脑子像侦探一样的鸟：乌鸦。",
+   "words": [
+    {
+     "w": "Now,",
+     "t": 164.0
+    },
+    {
+     "w": "from",
+     "t": 164.4
+    },
+    {
+     "w": "Japan",
+     "t": 164.8
+    },
+    {
+     "w": "we",
+     "t": 165.2
+    },
+    {
+     "w": "fly",
+     "t": 165.6
+    },
+    {
+     "w": "to",
+     "t": 166.0
+    },
+    {
+     "w": "America,",
+     "t": 166.41
+    },
+    {
+     "w": "to",
+     "t": 166.81
+    },
+    {
+     "w": "meet",
+     "t": 167.21
+    },
+    {
+     "w": "a",
+     "t": 167.61
+    },
+    {
+     "w": "bird",
+     "t": 168.01
+    },
+    {
+     "w": "with",
+     "t": 168.41
+    },
+    {
+     "w": "a",
+     "t": 168.81
+    },
+    {
+     "w": "brain",
+     "t": 169.21
+    },
+    {
+     "w": "like",
+     "t": 169.61
+    },
+    {
+     "w": "a",
+     "t": 170.01
+    },
+    {
+     "w": "detective:",
+     "t": 170.41
+    },
+    {
+     "w": "the",
+     "t": 170.81
+    },
+    {
+     "w": "crow.",
+     "t": 171.22
+    }
+   ]
+  },
+  {
+   "start": 171.62,
+   "end": 186.85,
+   "en": "Scientists at a university wanted to test how good a crow's memory is. They wore a strange caveman mask, caught a few crows, and let them go again. The crows were not hurt, but they remembered that mask.",
+   "title": "乌鸦的好记性",
+   "cn": "一所大学的科学家想测试乌鸦的记性有多好。他们戴上一张奇怪的穴居人面具，抓了几只乌鸦，又把它们放了回去。乌鸦没有受伤，但它们记住了那张面具。",
+   "words": [
+    {
+     "w": "Scientists",
+     "t": 171.62
+    },
+    {
+     "w": "at",
+     "t": 172.02
+    },
+    {
+     "w": "a",
+     "t": 172.42
+    },
+    {
+     "w": "university",
+     "t": 172.82
+    },
+    {
+     "w": "wanted",
+     "t": 173.22
+    },
+    {
+     "w": "to",
+     "t": 173.62
+    },
+    {
+     "w": "test",
+     "t": 174.02
+    },
+    {
+     "w": "how",
+     "t": 174.42
+    },
+    {
+     "w": "good",
+     "t": 174.82
+    },
+    {
+     "w": "a",
+     "t": 175.22
+    },
+    {
+     "w": "crow's",
+     "t": 175.62
+    },
+    {
+     "w": "memory",
+     "t": 176.03
+    },
+    {
+     "w": "is.",
+     "t": 176.43
+    },
+    {
+     "w": "They",
+     "t": 176.83
+    },
+    {
+     "w": "wore",
+     "t": 177.23
+    },
+    {
+     "w": "a",
+     "t": 177.63
+    },
+    {
+     "w": "strange",
+     "t": 178.03
+    },
+    {
+     "w": "caveman",
+     "t": 178.43
+    },
+    {
+     "w": "mask,",
+     "t": 178.83
+    },
+    {
+     "w": "caught",
+     "t": 179.23
+    },
+    {
+     "w": "a",
+     "t": 179.63
+    },
+    {
+     "w": "few",
+     "t": 180.03
+    },
+    {
+     "w": "crows,",
+     "t": 180.44
+    },
+    {
+     "w": "and",
+     "t": 180.84
+    },
+    {
+     "w": "let",
+     "t": 181.24
+    },
+    {
+     "w": "them",
+     "t": 181.64
+    },
+    {
+     "w": "go",
+     "t": 182.04
+    },
+    {
+     "w": "again.",
+     "t": 182.44
+    },
+    {
+     "w": "The",
+     "t": 182.84
+    },
+    {
+     "w": "crows",
+     "t": 183.24
+    },
+    {
+     "w": "were",
+     "t": 183.64
+    },
+    {
+     "w": "not",
+     "t": 184.04
+    },
+    {
+     "w": "hurt,",
+     "t": 184.44
+    },
+    {
+     "w": "but",
+     "t": 184.84
+    },
+    {
+     "w": "they",
+     "t": 185.25
+    },
+    {
+     "w": "remembered",
+     "t": 185.65
+    },
+    {
+     "w": "that",
+     "t": 186.05
+    },
+    {
+     "w": "mask.",
+     "t": 186.45
+    }
+   ]
+  },
+  {
+   "start": 186.85,
+   "end": 206.49,
+   "en": "For years after that, crows scolded anyone who wore that mask — even young crows that were never caught. Their parents had taught them: that face means danger! The experiment exposed a surprising truth: crows can remember a single human face for years, and they teach their children, too.",
+   "title": "乌鸦的好记性",
+   "cn": "在那之后的很多年里，乌鸦都会责骂任何戴着那张面具的人——哪怕是那些从没被抓过的年轻乌鸦。它们的父母早就教过它们：那张脸意味着危险！这个实验揭示了一个惊人的事实：乌鸦能记住一张人脸很多年，还会把这件事教给自己的孩子。",
+   "words": [
+    {
+     "w": "For",
+     "t": 186.85
+    },
+    {
+     "w": "years",
+     "t": 187.25
+    },
+    {
+     "w": "after",
+     "t": 187.65
+    },
+    {
+     "w": "that,",
+     "t": 188.05
+    },
+    {
+     "w": "crows",
+     "t": 188.45
+    },
+    {
+     "w": "scolded",
+     "t": 188.85
+    },
+    {
+     "w": "anyone",
+     "t": 189.25
+    },
+    {
+     "w": "who",
+     "t": 189.65
+    },
+    {
+     "w": "wore",
+     "t": 190.06
+    },
+    {
+     "w": "that",
+     "t": 190.46
+    },
+    {
+     "w": "mask",
+     "t": 190.86
+    },
+    {
+     "w": "—",
+     "t": 191.26
+    },
+    {
+     "w": "even",
+     "t": 191.66
+    },
+    {
+     "w": "young",
+     "t": 192.06
+    },
+    {
+     "w": "crows",
+     "t": 192.46
+    },
+    {
+     "w": "that",
+     "t": 192.86
+    },
+    {
+     "w": "were",
+     "t": 193.26
+    },
+    {
+     "w": "never",
+     "t": 193.66
+    },
+    {
+     "w": "caught.",
+     "t": 194.06
+    },
+    {
+     "w": "Their",
+     "t": 194.47
+    },
+    {
+     "w": "parents",
+     "t": 194.87
+    },
+    {
+     "w": "had",
+     "t": 195.27
+    },
+    {
+     "w": "taught",
+     "t": 195.67
+    },
+    {
+     "w": "them:",
+     "t": 196.07
+    },
+    {
+     "w": "that",
+     "t": 196.47
+    },
+    {
+     "w": "face",
+     "t": 196.87
+    },
+    {
+     "w": "means",
+     "t": 197.27
+    },
+    {
+     "w": "danger!",
+     "t": 197.67
+    },
+    {
+     "w": "The",
+     "t": 198.07
+    },
+    {
+     "w": "experiment",
+     "t": 198.47
+    },
+    {
+     "w": "exposed",
+     "t": 198.87
+    },
+    {
+     "w": "a",
+     "t": 199.28
+    },
+    {
+     "w": "surprising",
+     "t": 199.68
+    },
+    {
+     "w": "truth:",
+     "t": 200.08
+    },
+    {
+     "w": "crows",
+     "t": 200.48
+    },
+    {
+     "w": "can",
+     "t": 200.88
+    },
+    {
+     "w": "remember",
+     "t": 201.28
+    },
+    {
+     "w": "a",
+     "t": 201.68
+    },
+    {
+     "w": "single",
+     "t": 202.08
+    },
+    {
+     "w": "human",
+     "t": 202.48
+    },
+    {
+     "w": "face",
+     "t": 202.88
+    },
+    {
+     "w": "for",
+     "t": 203.28
+    },
+    {
+     "w": "years,",
+     "t": 203.68
+    },
+    {
+     "w": "and",
+     "t": 204.09
+    },
+    {
+     "w": "they",
+     "t": 204.49
+    },
+    {
+     "w": "teach",
+     "t": 204.89
+    },
+    {
+     "w": "their",
+     "t": 205.29
+    },
+    {
+     "w": "children,",
+     "t": 205.69
+    },
+    {
+     "w": "too.",
+     "t": 206.09
+    }
+   ]
+  },
+  {
+   "start": 206.49,
+   "end": 228.94,
+   "en": "But crows do not only remember bad things. In Seattle, a young girl named Gabi fed the crows in her garden. The crows remembered her kindness — and they started to bring her gifts! Little beads, buttons, a paper clip, and even a pearl-colored heart. Anything shiny that could fit in a beak became a present.",
+   "title": "乌鸦的好记性",
+   "cn": "不过乌鸦记住的可不只有坏事。在西雅图，有个叫加比的小姑娘，经常在花园里喂乌鸦。乌鸦记住了她的善意——还开始给她带礼物！小珠子、纽扣、回形针，甚至一颗珍珠色的爱心。任何能塞进鸟嘴的闪亮小东西，都成了礼物。",
+   "words": [
+    {
+     "w": "But",
+     "t": 206.49
+    },
+    {
+     "w": "crows",
+     "t": 206.89
+    },
+    {
+     "w": "do",
+     "t": 207.29
+    },
+    {
+     "w": "not",
+     "t": 207.69
+    },
+    {
+     "w": "only",
+     "t": 208.09
+    },
+    {
+     "w": "remember",
+     "t": 208.5
+    },
+    {
+     "w": "bad",
+     "t": 208.9
+    },
+    {
+     "w": "things.",
+     "t": 209.3
+    },
+    {
+     "w": "In",
+     "t": 209.7
+    },
+    {
+     "w": "Seattle,",
+     "t": 210.1
+    },
+    {
+     "w": "a",
+     "t": 210.5
+    },
+    {
+     "w": "young",
+     "t": 210.9
+    },
+    {
+     "w": "girl",
+     "t": 211.3
+    },
+    {
+     "w": "named",
+     "t": 211.7
+    },
+    {
+     "w": "Gabi",
+     "t": 212.1
+    },
+    {
+     "w": "fed",
+     "t": 212.5
+    },
+    {
+     "w": "the",
+     "t": 212.9
+    },
+    {
+     "w": "crows",
+     "t": 213.31
+    },
+    {
+     "w": "in",
+     "t": 213.71
+    },
+    {
+     "w": "her",
+     "t": 214.11
+    },
+    {
+     "w": "garden.",
+     "t": 214.51
+    },
+    {
+     "w": "The",
+     "t": 214.91
+    },
+    {
+     "w": "crows",
+     "t": 215.31
+    },
+    {
+     "w": "remembered",
+     "t": 215.71
+    },
+    {
+     "w": "her",
+     "t": 216.11
+    },
+    {
+     "w": "kindness",
+     "t": 216.51
+    },
+    {
+     "w": "—",
+     "t": 216.91
+    },
+    {
+     "w": "and",
+     "t": 217.31
+    },
+    {
+     "w": "they",
+     "t": 217.71
+    },
+    {
+     "w": "started",
+     "t": 218.12
+    },
+    {
+     "w": "to",
+     "t": 218.52
+    },
+    {
+     "w": "bring",
+     "t": 218.92
+    },
+    {
+     "w": "her",
+     "t": 219.32
+    },
+    {
+     "w": "gifts!",
+     "t": 219.72
+    },
+    {
+     "w": "Little",
+     "t": 220.12
+    },
+    {
+     "w": "beads,",
+     "t": 220.52
+    },
+    {
+     "w": "buttons,",
+     "t": 220.92
+    },
+    {
+     "w": "a",
+     "t": 221.32
+    },
+    {
+     "w": "paper",
+     "t": 221.72
+    },
+    {
+     "w": "clip,",
+     "t": 222.12
+    },
+    {
+     "w": "and",
+     "t": 222.53
+    },
+    {
+     "w": "even",
+     "t": 222.93
+    },
+    {
+     "w": "a",
+     "t": 223.33
+    },
+    {
+     "w": "pearl-colored",
+     "t": 223.73
+    },
+    {
+     "w": "heart.",
+     "t": 224.13
+    },
+    {
+     "w": "Anything",
+     "t": 224.53
+    },
+    {
+     "w": "shiny",
+     "t": 224.93
+    },
+    {
+     "w": "that",
+     "t": 225.33
+    },
+    {
+     "w": "could",
+     "t": 225.73
+    },
+    {
+     "w": "fit",
+     "t": 226.13
+    },
+    {
+     "w": "in",
+     "t": 226.53
+    },
+    {
+     "w": "a",
+     "t": 226.93
+    },
+    {
+     "w": "beak",
+     "t": 227.34
+    },
+    {
+     "w": "became",
+     "t": 227.74
+    },
+    {
+     "w": "a",
+     "t": 228.14
+    },
+    {
+     "w": "present.",
+     "t": 228.54
+    }
+   ]
+  },
+  {
+   "start": 228.94,
+   "end": 234.15,
+   "en": "So remember: crows keep score. Be kind, and they will remember that, too.",
+   "title": "乌鸦的好记性",
+   "cn": "所以记住：乌鸦心里都有一本账。对它们好，它们也会记住的。",
+   "words": [
+    {
+     "w": "So",
+     "t": 228.94
+    },
+    {
+     "w": "remember:",
+     "t": 229.34
+    },
+    {
+     "w": "crows",
+     "t": 229.74
+    },
+    {
+     "w": "keep",
+     "t": 230.14
+    },
+    {
+     "w": "score.",
+     "t": 230.54
+    },
+    {
+     "w": "Be",
+     "t": 230.94
+    },
+    {
+     "w": "kind,",
+     "t": 231.34
+    },
+    {
+     "w": "and",
+     "t": 231.74
+    },
+    {
+     "w": "they",
+     "t": 232.15
+    },
+    {
+     "w": "will",
+     "t": 232.55
+    },
+    {
+     "w": "remember",
+     "t": 232.95
+    },
+    {
+     "w": "that,",
+     "t": 233.35
+    },
+    {
+     "w": "too.",
+     "t": 233.75
+    }
+   ]
+  },
+  {
+   "start": 251.57,
+   "end": 276.87,
+   "en": "Here's today's idiom: 'curiosity killed the cat.' It means being too curious can get you into trouble! Imagine a kitten who just has to know what is in a box — and falls in headfirst! Here's an example: 'Milo wanted to peek inside the beehive, but his mother said: careful — curiosity killed the cat!' So stay curious, young explorers — but stay safe, too!",
+   "title": "今日俚语",
+   "cn": "今天的俚语是“curiosity killed the cat”（好奇心害死了猫）。意思是说，太好奇会惹上麻烦！想象一只小猫，非要知道盒子里装着什么——结果一头栽了进去！举个例子：“米洛想偷看蜂箱里面，妈妈说：小心——好奇心害死了猫！”所以，小小探险家们，要保持好奇心——但也要注意安全哦！",
+   "words": [
+    {
+     "w": "Here's",
+     "t": 251.57
+    },
+    {
+     "w": "today's",
+     "t": 251.96
+    },
+    {
+     "w": "idiom:",
+     "t": 252.35
+    },
+    {
+     "w": "'curiosity",
+     "t": 252.74
+    },
+    {
+     "w": "killed",
+     "t": 253.13
+    },
+    {
+     "w": "the",
+     "t": 253.52
+    },
+    {
+     "w": "cat.'",
+     "t": 253.91
+    },
+    {
+     "w": "It",
+     "t": 254.29
+    },
+    {
+     "w": "means",
+     "t": 254.68
+    },
+    {
+     "w": "being",
+     "t": 255.07
+    },
+    {
+     "w": "too",
+     "t": 255.46
+    },
+    {
+     "w": "curious",
+     "t": 255.85
+    },
+    {
+     "w": "can",
+     "t": 256.24
+    },
+    {
+     "w": "get",
+     "t": 256.63
+    },
+    {
+     "w": "you",
+     "t": 257.02
+    },
+    {
+     "w": "into",
+     "t": 257.41
+    },
+    {
+     "w": "trouble!",
+     "t": 257.8
+    },
+    {
+     "w": "Imagine",
+     "t": 258.19
+    },
+    {
+     "w": "a",
+     "t": 258.58
+    },
+    {
+     "w": "kitten",
+     "t": 258.97
+    },
+    {
+     "w": "who",
+     "t": 259.35
+    },
+    {
+     "w": "just",
+     "t": 259.74
+    },
+    {
+     "w": "has",
+     "t": 260.13
+    },
+    {
+     "w": "to",
+     "t": 260.52
+    },
+    {
+     "w": "know",
+     "t": 260.91
+    },
+    {
+     "w": "what",
+     "t": 261.3
+    },
+    {
+     "w": "is",
+     "t": 261.69
+    },
+    {
+     "w": "in",
+     "t": 262.08
+    },
+    {
+     "w": "a",
+     "t": 262.47
+    },
+    {
+     "w": "box",
+     "t": 262.86
+    },
+    {
+     "w": "—",
+     "t": 263.25
+    },
+    {
+     "w": "and",
+     "t": 263.64
+    },
+    {
+     "w": "falls",
+     "t": 264.03
+    },
+    {
+     "w": "in",
+     "t": 264.41
+    },
+    {
+     "w": "headfirst!",
+     "t": 264.8
+    },
+    {
+     "w": "Here's",
+     "t": 265.19
+    },
+    {
+     "w": "an",
+     "t": 265.58
+    },
+    {
+     "w": "example:",
+     "t": 265.97
+    },
+    {
+     "w": "'Milo",
+     "t": 266.36
+    },
+    {
+     "w": "wanted",
+     "t": 266.75
+    },
+    {
+     "w": "to",
+     "t": 267.14
+    },
+    {
+     "w": "peek",
+     "t": 267.53
+    },
+    {
+     "w": "inside",
+     "t": 267.92
+    },
+    {
+     "w": "the",
+     "t": 268.31
+    },
+    {
+     "w": "beehive,",
+     "t": 268.7
+    },
+    {
+     "w": "but",
+     "t": 269.09
+    },
+    {
+     "w": "his",
+     "t": 269.47
+    },
+    {
+     "w": "mother",
+     "t": 269.86
+    },
+    {
+     "w": "said:",
+     "t": 270.25
+    },
+    {
+     "w": "careful",
+     "t": 270.64
+    },
+    {
+     "w": "—",
+     "t": 271.03
+    },
+    {
+     "w": "curiosity",
+     "t": 271.42
+    },
+    {
+     "w": "killed",
+     "t": 271.81
+    },
+    {
+     "w": "the",
+     "t": 272.2
+    },
+    {
+     "w": "cat!'",
+     "t": 272.59
+    },
+    {
+     "w": "So",
+     "t": 272.98
+    },
+    {
+     "w": "stay",
+     "t": 273.37
+    },
+    {
+     "w": "curious,",
+     "t": 273.76
+    },
+    {
+     "w": "young",
+     "t": 274.15
+    },
+    {
+     "w": "explorers",
+     "t": 274.53
+    },
+    {
+     "w": "—",
+     "t": 274.92
+    },
+    {
+     "w": "but",
+     "t": 275.31
+    },
+    {
+     "w": "stay",
+     "t": 275.7
+    },
+    {
+     "w": "safe,",
+     "t": 276.09
+    },
+    {
+     "w": "too!",
+     "t": 276.48
+    }
+   ]
+  },
+  {
+   "start": 289.81,
+   "end": 315.77,
+   "en": "Let's think about our stories. Tama saved a train station just by being herself, and crows remember faces for years. Two questions for you. First: if you could give any animal a job, which animal would you choose, and what job would it do? Second: if a crow brought you a gift, what would you hope it brings? Talk about it with your family!",
+   "title": "结束语与互动问题",
+   "cn": "我们来想想今天的故事。塔玛只是做自己，就救活了一座火车站；而乌鸦能记住人脸很多年。问你们两个问题。第一：如果你能给任何一种动物安排一份工作，你会选哪种动物、安排什么工作？第二：如果一只乌鸦给你带礼物，你希望它带什么来？和家人聊聊吧！",
+   "words": [
+    {
+     "w": "Let's",
+     "t": 289.81
+    },
+    {
+     "w": "think",
+     "t": 290.22
+    },
+    {
+     "w": "about",
+     "t": 290.62
+    },
+    {
+     "w": "our",
+     "t": 291.03
+    },
+    {
+     "w": "stories.",
+     "t": 291.43
+    },
+    {
+     "w": "Tama",
+     "t": 291.84
+    },
+    {
+     "w": "saved",
+     "t": 292.24
+    },
+    {
+     "w": "a",
+     "t": 292.65
+    },
+    {
+     "w": "train",
+     "t": 293.06
+    },
+    {
+     "w": "station",
+     "t": 293.46
+    },
+    {
+     "w": "just",
+     "t": 293.87
+    },
+    {
+     "w": "by",
+     "t": 294.27
+    },
+    {
+     "w": "being",
+     "t": 294.68
+    },
+    {
+     "w": "herself,",
+     "t": 295.08
+    },
+    {
+     "w": "and",
+     "t": 295.49
+    },
+    {
+     "w": "crows",
+     "t": 295.89
+    },
+    {
+     "w": "remember",
+     "t": 296.3
+    },
+    {
+     "w": "faces",
+     "t": 296.71
+    },
+    {
+     "w": "for",
+     "t": 297.11
+    },
+    {
+     "w": "years.",
+     "t": 297.52
+    },
+    {
+     "w": "Two",
+     "t": 297.92
+    },
+    {
+     "w": "questions",
+     "t": 298.33
+    },
+    {
+     "w": "for",
+     "t": 298.73
+    },
+    {
+     "w": "you.",
+     "t": 299.14
+    },
+    {
+     "w": "First:",
+     "t": 299.55
+    },
+    {
+     "w": "if",
+     "t": 299.95
+    },
+    {
+     "w": "you",
+     "t": 300.36
+    },
+    {
+     "w": "could",
+     "t": 300.76
+    },
+    {
+     "w": "give",
+     "t": 301.17
+    },
+    {
+     "w": "any",
+     "t": 301.57
+    },
+    {
+     "w": "animal",
+     "t": 301.98
+    },
+    {
+     "w": "a",
+     "t": 302.38
+    },
+    {
+     "w": "job,",
+     "t": 302.79
+    },
+    {
+     "w": "which",
+     "t": 303.2
+    },
+    {
+     "w": "animal",
+     "t": 303.6
+    },
+    {
+     "w": "would",
+     "t": 304.01
+    },
+    {
+     "w": "you",
+     "t": 304.41
+    },
+    {
+     "w": "choose,",
+     "t": 304.82
+    },
+    {
+     "w": "and",
+     "t": 305.22
+    },
+    {
+     "w": "what",
+     "t": 305.63
+    },
+    {
+     "w": "job",
+     "t": 306.03
+    },
+    {
+     "w": "would",
+     "t": 306.44
+    },
+    {
+     "w": "it",
+     "t": 306.85
+    },
+    {
+     "w": "do?",
+     "t": 307.25
+    },
+    {
+     "w": "Second:",
+     "t": 307.66
+    },
+    {
+     "w": "if",
+     "t": 308.06
+    },
+    {
+     "w": "a",
+     "t": 308.47
+    },
+    {
+     "w": "crow",
+     "t": 308.87
+    },
+    {
+     "w": "brought",
+     "t": 309.28
+    },
+    {
+     "w": "you",
+     "t": 309.69
+    },
+    {
+     "w": "a",
+     "t": 310.09
+    },
+    {
+     "w": "gift,",
+     "t": 310.5
+    },
+    {
+     "w": "what",
+     "t": 310.9
+    },
+    {
+     "w": "would",
+     "t": 311.31
+    },
+    {
+     "w": "you",
+     "t": 311.71
+    },
+    {
+     "w": "hope",
+     "t": 312.12
+    },
+    {
+     "w": "it",
+     "t": 312.52
+    },
+    {
+     "w": "brings?",
+     "t": 312.93
+    },
+    {
+     "w": "Talk",
+     "t": 313.34
+    },
+    {
+     "w": "about",
+     "t": 313.74
+    },
+    {
+     "w": "it",
+     "t": 314.15
+    },
+    {
+     "w": "with",
+     "t": 314.55
+    },
+    {
+     "w": "your",
+     "t": 314.96
+    },
+    {
+     "w": "family!",
+     "t": 315.36
+    }
+   ]
+  },
+  {
+   "start": 328.63,
+   "end": 340.51,
+   "en": "That's all for today, young explorers. Be as brave as Tama, as bright as a crow's memory — and remember, enjoy your curiosity, but don't let it kill the cat! See you tomorrow!",
+   "title": "告别",
+   "cn": "今天的节目就到这里啦，小小探险家们。像塔玛一样勇敢，像乌鸦的记性一样明亮——还要记住，享受你的好奇心，但别让它害死了猫！明天见！",
+   "words": [
+    {
+     "w": "That's",
+     "t": 328.63
+    },
+    {
+     "w": "all",
+     "t": 328.99
+    },
+    {
+     "w": "for",
+     "t": 329.35
+    },
+    {
+     "w": "today,",
+     "t": 329.71
+    },
+    {
+     "w": "young",
+     "t": 330.07
+    },
+    {
+     "w": "explorers.",
+     "t": 330.43
+    },
+    {
+     "w": "Be",
+     "t": 330.79
+    },
+    {
+     "w": "as",
+     "t": 331.15
+    },
+    {
+     "w": "brave",
+     "t": 331.51
+    },
+    {
+     "w": "as",
+     "t": 331.87
+    },
+    {
+     "w": "Tama,",
+     "t": 332.23
+    },
+    {
+     "w": "as",
+     "t": 332.59
+    },
+    {
+     "w": "bright",
+     "t": 332.95
+    },
+    {
+     "w": "as",
+     "t": 333.31
+    },
+    {
+     "w": "a",
+     "t": 333.67
+    },
+    {
+     "w": "crow's",
+     "t": 334.03
+    },
+    {
+     "w": "memory",
+     "t": 334.39
+    },
+    {
+     "w": "—",
+     "t": 334.75
+    },
+    {
+     "w": "and",
+     "t": 335.11
+    },
+    {
+     "w": "remember,",
+     "t": 335.47
+    },
+    {
+     "w": "enjoy",
+     "t": 335.83
+    },
+    {
+     "w": "your",
+     "t": 336.19
+    },
+    {
+     "w": "curiosity,",
+     "t": 336.55
+    },
+    {
+     "w": "but",
+     "t": 336.91
+    },
+    {
+     "w": "don't",
+     "t": 337.27
+    },
+    {
+     "w": "let",
+     "t": 337.63
+    },
+    {
+     "w": "it",
+     "t": 337.99
+    },
+    {
+     "w": "kill",
+     "t": 338.35
+    },
+    {
+     "w": "the",
+     "t": 338.71
+    },
+    {
+     "w": "cat!",
+     "t": 339.07
+    },
+    {
+     "w": "See",
+     "t": 339.43
+    },
+    {
+     "w": "you",
+     "t": 339.79
+    },
+    {
+     "w": "tomorrow!",
+     "t": 340.15
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "curiosity killed the cat",
+    "phon": "/ˌkjʊəriˈɒsəti kɪld ðə kæt/",
+    "meaning": "(习语) 好奇心害死了猫；太好奇会惹麻烦",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: Milo wanted to peek inside the beehive, but his mother said: careful — curiosity killed the cat!"
+   },
+   {
+    "word": "awesome",
+    "phon": "/ˈɔːsəm/",
+    "meaning": "(adj.) 棒极了；令人惊叹的",
+    "tags": [],
+    "example": "Example: That is one awesome cat!"
+   },
+   {
+    "word": "expose",
+    "phon": "/ɪkˈspoʊz/",
+    "meaning": "(v.) 揭露；揭示",
+    "tags": [],
+    "example": "Example: The experiment exposed a surprising truth."
+   },
+   {
+    "word": "delicate",
+    "phon": "/ˈdelɪkət/",
+    "meaning": "(adj.) 精致的；脆弱的",
+    "tags": [],
+    "example": "Example: Tama got a delicate little hat."
+   },
+   {
+    "word": "instruct",
+    "phon": "/ɪnˈstrʌkt/",
+    "meaning": "(v.) 指示；吩咐",
+    "tags": [],
+    "example": "Example: Workers were instructed to build Tama her own little office."
+   },
+   {
+    "word": "recover",
+    "phon": "/rɪˈkʌvər/",
+    "meaning": "(v.) 恢复；复苏",
+    "tags": [],
+    "example": "Example: The little line recovered."
+   },
+   {
+    "word": "valid",
+    "phon": "/ˈvælɪd/",
+    "meaning": "(adj.) 有效的",
+    "tags": [],
+    "example": "Example: Every passenger still needs a valid ticket."
+   },
+   {
+    "word": "mourn",
+    "phon": "/mɔːrn/",
+    "meaning": "(v.) 哀悼",
+    "tags": [],
+    "example": "Example: The town mourned her."
+   },
+   {
+    "word": "absent",
+    "phon": "/ˈæbsənt/",
+    "meaning": "(adj.) 缺席的；不在的",
+    "tags": [],
+    "example": "Example: Tama is almost never absent from her post."
+   },
+   {
+    "word": "calico",
+    "phon": "/ˈkælɪkoʊ/",
+    "meaning": "(n./adj.) 三花猫；花斑的",
+    "tags": [],
+    "example": "Example: a calico cat named Tama."
+   },
+   {
+    "word": "scold",
+    "phon": "/skoʊld/",
+    "meaning": "(v.) 责骂；呵斥",
+    "tags": [],
+    "example": "Example: crows scolded anyone who wore that mask."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "What was Tama's salary as stationmaster?\nA. A golden train\nB. A whole year of cat food\nC. Money every month\nD. A new hat",
+     "Why did the railway company take away the station workers?\nA. The workers moved away\nB. Tama asked them to leave\nC. The company was losing money and cut costs\nD. The station was too small",
+     "How did young crows that were never caught learn about the dangerous mask?\nA. Their parents taught them\nB. They read about it\nC. The scientists told them\nD. They watched TV",
+     "What did the crows bring Gabi?\nA. Fish and bread\nB. Flowers from the garden\nC. A new bike\nD. Little beads, buttons, and a pearl-colored heart"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "type": "text",
+        "text": "Workers were "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "instructed"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " to "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "build"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " Tama her "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "own"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " little office."
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "were instructed"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "被动语态"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：be 动词（were）+ 过去分词（instructed，指示）。主语 Workers（工人们）不是发出动作的人，而是接受指示的人——“工人们接到指示”。英语里不想说或不知道是谁下指示时，常用被动语态把动作的承受者放到句首。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "to build Tama her own little office"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "不定式作目的状语"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：to + 动词原形（build），说明“为什么接到指示”——为了给塔玛建一间办公室。不定式短语放在句末，回答“干什么”这个问题。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "her own little office"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 里 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "own"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "强调“自己的”"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：own 放在物主代词（her）和名词（office）之间，起强调作用——不是随便一间办公室，而是“属于她自己的”办公室。去掉 own 句子也通顺，加上 own 语气更强。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句逻辑链："
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "谁接到指示（工人们，被动）→ 接到什么指示（建办公室，目的）→ 给谁建（塔玛自己的）"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。一句话里藏着被动语态、目的状语和 own 强调三个机关。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "MASK"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（面具）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "STATION"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（火车站）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PEARL"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（珍珠）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "BUTTON"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（纽扣）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "BEAD"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（珠子）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "TICKET"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（车票）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "CALICO"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（三花猫）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "CROW"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（乌鸦）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "GIFT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（礼物）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "CURIOSITY"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（好奇心）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says her salary "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"was a whole year of cat food!\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says the company "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"was losing money, so it cut costs and took away all the station workers.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "A"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"Their parents had taught them: that face means danger!\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "D"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text lists "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"Little beads, buttons, a paper clip, and even a pearl-colored heart.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. were instructed  2. was made"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. to give  2. to meet"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. own  2. own"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "B",
+    "C",
+    "A",
+    "D"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. 被动语态：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "Workers ____ to build Tama her own little office.",
+       "options": [
+        "were instructed",
+        "are instructed",
+        "instructed"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "Tama ____ the stationmaster by the railway president.",
+       "options": [
+        "is made",
+        "was made",
+        "made"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. 不定式表目的：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "Workers built an office ____ Tama a place to work.",
+       "options": [
+        "give",
+        "giving",
+        "to give"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "People came from all over Japan ____ the cat stationmaster.",
+       "options": [
+        "to meet",
+        "meet",
+        "meeting"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. own 强调：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "Tama got her ____ little office.",
+       "options": [
+        "only",
+        "own",
+        "self"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "Every cat deserves its ____ home.",
+       "options": [
+        "very",
+        "single",
+        "own"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "Workers were instructed to build Tama her own little office.",
+    "Crows can remember a single human face for years, and they teach their children, too."
+   ]
+  },
+  "crossword": {
+   "nrows": 12,
+   "ncols": 10,
+   "words": [
+    {
+     "word": "MASK",
+     "row": 0,
+     "col": 0,
+     "dir": "A",
+     "num": 1,
+     "cn": "面具",
+     "clue": "They wore a strange caveman ___."
+    },
+    {
+     "word": "STATION",
+     "row": 0,
+     "col": 2,
+     "dir": "D",
+     "num": 2,
+     "cn": "火车站",
+     "clue": "there is a small train ___ called Kishi Station."
+    },
+    {
+     "word": "PEARL",
+     "row": 0,
+     "col": 8,
+     "dir": "D",
+     "num": 3,
+     "cn": "珍珠",
+     "clue": "and even a ___-colored heart."
+    },
+    {
+     "word": "BUTTON",
+     "row": 2,
+     "col": 6,
+     "dir": "D",
+     "num": 4,
+     "cn": "纽扣",
+     "clue": "Little beads, ___s, a paper clip, and even a pearl-colored heart."
+    },
+    {
+     "word": "BEAD",
+     "row": 2,
+     "col": 6,
+     "dir": "A",
+     "num": 5,
+     "cn": "珠子",
+     "clue": "Little ___s, buttons, a paper clip, and even a pearl-colored heart."
+    },
+    {
+     "word": "TICKET",
+     "row": 4,
+     "col": 1,
+     "dir": "A",
+     "num": 6,
+     "cn": "车票",
+     "clue": "Every passenger still needs a valid ___."
+    },
+    {
+     "word": "CALICO",
+     "row": 6,
+     "col": 4,
+     "dir": "D",
+     "num": 7,
+     "cn": "三花猫",
+     "clue": "a ___ cat named Tama."
+    },
+    {
+     "word": "CROW",
+     "row": 6,
+     "col": 4,
+     "dir": "A",
+     "num": 8,
+     "cn": "乌鸦",
+     "clue": "to meet a bird with a brain like a detective: the ___."
+    },
+    {
+     "word": "GIFT",
+     "row": 8,
+     "col": 7,
+     "dir": "D",
+     "num": 9,
+     "cn": "礼物",
+     "clue": "they started to bring her ___!"
+    },
+    {
+     "word": "CURIOSITY",
+     "row": 11,
+     "col": 0,
+     "dir": "A",
+     "num": 10,
+     "cn": "好奇心",
+     "clue": "enjoy your ___!"
+    }
+   ]
+  }
+ }
+}

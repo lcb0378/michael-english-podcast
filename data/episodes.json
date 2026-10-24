@@ -1,5 +1,16 @@
 [
  {
+  "id": "vol32",
+  "title": "猫站长与乌鸦的好记性",
+  "words": 600,
+  "duration": "5分50秒",
+  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol32/cover.png",
+  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol32/audio.mp3",
+  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol32/video_v1.mp4",
+  "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol32/Vol32_晚读讲义_猫站长与乌鸦的好记性_v1.pdf",
+  "pdfName": "Vol32_晚读讲义_猫站长与乌鸦的好记性_v1.pdf"
+ },
+ {
   "id": "vol31",
   "title": "送货机器人与皮皮虾的超级眼睛",
   "words": 599,
