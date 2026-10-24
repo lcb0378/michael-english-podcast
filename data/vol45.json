@@ -1,0 +1,3490 @@
+{
+ "id": "vol45",
+ "title": "长寿猫与蚕宝宝",
+ "words": 595,
+ "duration": "5分56秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol45/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol45/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol45/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol45/Vol45_晚读讲义_长寿猫与蚕宝宝_v1.pdf",
+ "pdfName": "Vol45_晚读讲义_长寿猫与蚕宝宝_v1.pdf",
+ "blocks": [
+  {
+   "start": 24.11,
+   "end": 48.25,
+   "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we celebrate a very special birthday, then follow a tiny worm that makes one of the most amazing threads in the world. First, meet the oldest living cat on the planet. Then, discover how long a single silkworm's silk thread can be. Ready? Let's go!",
+   "title": "开场白",
+   "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天，我们先庆祝一个非常特别的生日，再去认识一条小小的虫子，它能造出世界上最神奇的丝线。首先，见见地球上现存最长寿的猫。然后，看看一条蚕宝宝的丝线到底能有多长。准备好了吗？出发！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 24.11
+    },
+    {
+     "w": "young",
+     "t": 24.54
+    },
+    {
+     "w": "explorers,",
+     "t": 24.97
+    },
+    {
+     "w": "and",
+     "t": 25.4
+    },
+    {
+     "w": "welcome",
+     "t": 25.83
+    },
+    {
+     "w": "back",
+     "t": 26.27
+    },
+    {
+     "w": "to",
+     "t": 26.7
+    },
+    {
+     "w": "Michael's",
+     "t": 27.13
+    },
+    {
+     "w": "Morning",
+     "t": 27.56
+    },
+    {
+     "w": "Listening!",
+     "t": 27.99
+    },
+    {
+     "w": "Today",
+     "t": 28.42
+    },
+    {
+     "w": "we",
+     "t": 28.85
+    },
+    {
+     "w": "celebrate",
+     "t": 29.28
+    },
+    {
+     "w": "a",
+     "t": 29.71
+    },
+    {
+     "w": "very",
+     "t": 30.14
+    },
+    {
+     "w": "special",
+     "t": 30.58
+    },
+    {
+     "w": "birthday,",
+     "t": 31.01
+    },
+    {
+     "w": "then",
+     "t": 31.44
+    },
+    {
+     "w": "follow",
+     "t": 31.87
+    },
+    {
+     "w": "a",
+     "t": 32.3
+    },
+    {
+     "w": "tiny",
+     "t": 32.73
+    },
+    {
+     "w": "worm",
+     "t": 33.16
+    },
+    {
+     "w": "that",
+     "t": 33.59
+    },
+    {
+     "w": "makes",
+     "t": 34.02
+    },
+    {
+     "w": "one",
+     "t": 34.46
+    },
+    {
+     "w": "of",
+     "t": 34.89
+    },
+    {
+     "w": "the",
+     "t": 35.32
+    },
+    {
+     "w": "most",
+     "t": 35.75
+    },
+    {
+     "w": "amazing",
+     "t": 36.18
+    },
+    {
+     "w": "threads",
+     "t": 36.61
+    },
+    {
+     "w": "in",
+     "t": 37.04
+    },
+    {
+     "w": "the",
+     "t": 37.47
+    },
+    {
+     "w": "world.",
+     "t": 37.9
+    },
+    {
+     "w": "First,",
+     "t": 38.34
+    },
+    {
+     "w": "meet",
+     "t": 38.77
+    },
+    {
+     "w": "the",
+     "t": 39.2
+    },
+    {
+     "w": "oldest",
+     "t": 39.63
+    },
+    {
+     "w": "living",
+     "t": 40.06
+    },
+    {
+     "w": "cat",
+     "t": 40.49
+    },
+    {
+     "w": "on",
+     "t": 40.92
+    },
+    {
+     "w": "the",
+     "t": 41.35
+    },
+    {
+     "w": "planet.",
+     "t": 41.78
+    },
+    {
+     "w": "Then,",
+     "t": 42.22
+    },
+    {
+     "w": "discover",
+     "t": 42.65
+    },
+    {
+     "w": "how",
+     "t": 43.08
+    },
+    {
+     "w": "long",
+     "t": 43.51
+    },
+    {
+     "w": "a",
+     "t": 43.94
+    },
+    {
+     "w": "single",
+     "t": 44.37
+    },
+    {
+     "w": "silkworm's",
+     "t": 44.8
+    },
+    {
+     "w": "silk",
+     "t": 45.23
+    },
+    {
+     "w": "thread",
+     "t": 45.66
+    },
+    {
+     "w": "can",
+     "t": 46.09
+    },
+    {
+     "w": "be.",
+     "t": 46.53
+    },
+    {
+     "w": "Ready?",
+     "t": 46.96
+    },
+    {
+     "w": "Let's",
+     "t": 47.39
+    },
+    {
+     "w": "go!",
+     "t": 47.82
+    }
+   ]
+  },
+  {
+   "start": 61.51,
+   "end": 91.52,
+   "en": "In a quiet house in England lives a very special cat named Flossie. She is a tortoiseshell cat, black and brown, and she has just celebrated her 30th birthday. That makes her the oldest living cat in the world, confirmed by Guinness World Records. The standard lifespan of a pet cat is about 14 years, so Flossie has lived more than twice as long as most cats!",
+   "title": "长寿猫",
+   "cn": "在英国一座安静的房子里，住着一只非常特别的猫，名叫弗洛西。她是一只玳瑁猫，毛色黑棕相间，刚刚过了三十岁生日。这使她成为全世界现存最长寿的猫，这个纪录由吉尼斯世界纪录确认。宠物猫的标准寿命大约是 14 年，所以弗洛西活得比大多数猫长一倍还多！",
+   "words": [
+    {
+     "w": "In",
+     "t": 61.51
+    },
+    {
+     "w": "a",
+     "t": 61.96
+    },
+    {
+     "w": "quiet",
+     "t": 62.41
+    },
+    {
+     "w": "house",
+     "t": 62.85
+    },
+    {
+     "w": "in",
+     "t": 63.3
+    },
+    {
+     "w": "England",
+     "t": 63.75
+    },
+    {
+     "w": "lives",
+     "t": 64.2
+    },
+    {
+     "w": "a",
+     "t": 64.65
+    },
+    {
+     "w": "very",
+     "t": 65.09
+    },
+    {
+     "w": "special",
+     "t": 65.54
+    },
+    {
+     "w": "cat",
+     "t": 65.99
+    },
+    {
+     "w": "named",
+     "t": 66.44
+    },
+    {
+     "w": "Flossie.",
+     "t": 66.88
+    },
+    {
+     "w": "She",
+     "t": 67.33
+    },
+    {
+     "w": "is",
+     "t": 67.78
+    },
+    {
+     "w": "a",
+     "t": 68.23
+    },
+    {
+     "w": "tortoiseshell",
+     "t": 68.68
+    },
+    {
+     "w": "cat,",
+     "t": 69.12
+    },
+    {
+     "w": "black",
+     "t": 69.57
+    },
+    {
+     "w": "and",
+     "t": 70.02
+    },
+    {
+     "w": "brown,",
+     "t": 70.47
+    },
+    {
+     "w": "and",
+     "t": 70.92
+    },
+    {
+     "w": "she",
+     "t": 71.36
+    },
+    {
+     "w": "has",
+     "t": 71.81
+    },
+    {
+     "w": "just",
+     "t": 72.26
+    },
+    {
+     "w": "celebrated",
+     "t": 72.71
+    },
+    {
+     "w": "her",
+     "t": 73.15
+    },
+    {
+     "w": "30th",
+     "t": 73.6
+    },
+    {
+     "w": "birthday.",
+     "t": 74.05
+    },
+    {
+     "w": "That",
+     "t": 74.5
+    },
+    {
+     "w": "makes",
+     "t": 74.95
+    },
+    {
+     "w": "her",
+     "t": 75.39
+    },
+    {
+     "w": "the",
+     "t": 75.84
+    },
+    {
+     "w": "oldest",
+     "t": 76.29
+    },
+    {
+     "w": "living",
+     "t": 76.74
+    },
+    {
+     "w": "cat",
+     "t": 77.19
+    },
+    {
+     "w": "in",
+     "t": 77.63
+    },
+    {
+     "w": "the",
+     "t": 78.08
+    },
+    {
+     "w": "world,",
+     "t": 78.53
+    },
+    {
+     "w": "confirmed",
+     "t": 78.98
+    },
+    {
+     "w": "by",
+     "t": 79.42
+    },
+    {
+     "w": "Guinness",
+     "t": 79.87
+    },
+    {
+     "w": "World",
+     "t": 80.32
+    },
+    {
+     "w": "Records.",
+     "t": 80.77
+    },
+    {
+     "w": "The",
+     "t": 81.22
+    },
+    {
+     "w": "standard",
+     "t": 81.66
+    },
+    {
+     "w": "lifespan",
+     "t": 82.11
+    },
+    {
+     "w": "of",
+     "t": 82.56
+    },
+    {
+     "w": "a",
+     "t": 83.01
+    },
+    {
+     "w": "pet",
+     "t": 83.46
+    },
+    {
+     "w": "cat",
+     "t": 83.9
+    },
+    {
+     "w": "is",
+     "t": 84.35
+    },
+    {
+     "w": "about",
+     "t": 84.8
+    },
+    {
+     "w": "14",
+     "t": 85.25
+    },
+    {
+     "w": "years,",
+     "t": 85.69
+    },
+    {
+     "w": "so",
+     "t": 86.14
+    },
+    {
+     "w": "Flossie",
+     "t": 86.59
+    },
+    {
+     "w": "has",
+     "t": 87.04
+    },
+    {
+     "w": "lived",
+     "t": 87.49
+    },
+    {
+     "w": "more",
+     "t": 87.93
+    },
+    {
+     "w": "than",
+     "t": 88.38
+    },
+    {
+     "w": "twice",
+     "t": 88.83
+    },
+    {
+     "w": "as",
+     "t": 89.28
+    },
+    {
+     "w": "long",
+     "t": 89.73
+    },
+    {
+     "w": "as",
+     "t": 90.17
+    },
+    {
+     "w": "most",
+     "t": 90.62
+    },
+    {
+     "w": "cats!",
+     "t": 91.07
+    }
+   ]
+  },
+  {
+   "start": 91.52,
+   "end": 114.81,
+   "en": "Flossie did not have an easy start: found as a kitten near a hospital, she lived with several different owners. Some cats live in shops, some even in breweries, but Flossie finally found a quiet home with her owner Vicki, who calls it Flossie's retirement home, where she gets whatever she wants.",
+   "title": "长寿猫",
+   "cn": "弗洛西的起步并不容易：她还是小猫时在医院附近被发现，之后换过好几位主人。有的猫住在商店里，有的甚至住在啤酒厂里，但弗洛西最终在主人薇姬家里找到了一个安静的家，薇姬把这里叫做弗洛西的养老之家，在这里她想要什么就有什么。",
+   "words": [
+    {
+     "w": "Flossie",
+     "t": 91.52
+    },
+    {
+     "w": "did",
+     "t": 91.97
+    },
+    {
+     "w": "not",
+     "t": 92.41
+    },
+    {
+     "w": "have",
+     "t": 92.86
+    },
+    {
+     "w": "an",
+     "t": 93.31
+    },
+    {
+     "w": "easy",
+     "t": 93.76
+    },
+    {
+     "w": "start:",
+     "t": 94.2
+    },
+    {
+     "w": "found",
+     "t": 94.65
+    },
+    {
+     "w": "as",
+     "t": 95.1
+    },
+    {
+     "w": "a",
+     "t": 95.55
+    },
+    {
+     "w": "kitten",
+     "t": 96.0
+    },
+    {
+     "w": "near",
+     "t": 96.44
+    },
+    {
+     "w": "a",
+     "t": 96.89
+    },
+    {
+     "w": "hospital,",
+     "t": 97.34
+    },
+    {
+     "w": "she",
+     "t": 97.79
+    },
+    {
+     "w": "lived",
+     "t": 98.24
+    },
+    {
+     "w": "with",
+     "t": 98.68
+    },
+    {
+     "w": "several",
+     "t": 99.13
+    },
+    {
+     "w": "different",
+     "t": 99.58
+    },
+    {
+     "w": "owners.",
+     "t": 100.03
+    },
+    {
+     "w": "Some",
+     "t": 100.47
+    },
+    {
+     "w": "cats",
+     "t": 100.92
+    },
+    {
+     "w": "live",
+     "t": 101.37
+    },
+    {
+     "w": "in",
+     "t": 101.82
+    },
+    {
+     "w": "shops,",
+     "t": 102.27
+    },
+    {
+     "w": "some",
+     "t": 102.71
+    },
+    {
+     "w": "even",
+     "t": 103.16
+    },
+    {
+     "w": "in",
+     "t": 103.61
+    },
+    {
+     "w": "breweries,",
+     "t": 104.06
+    },
+    {
+     "w": "but",
+     "t": 104.51
+    },
+    {
+     "w": "Flossie",
+     "t": 104.95
+    },
+    {
+     "w": "finally",
+     "t": 105.4
+    },
+    {
+     "w": "found",
+     "t": 105.85
+    },
+    {
+     "w": "a",
+     "t": 106.3
+    },
+    {
+     "w": "quiet",
+     "t": 106.74
+    },
+    {
+     "w": "home",
+     "t": 107.19
+    },
+    {
+     "w": "with",
+     "t": 107.64
+    },
+    {
+     "w": "her",
+     "t": 108.09
+    },
+    {
+     "w": "owner",
+     "t": 108.54
+    },
+    {
+     "w": "Vicki,",
+     "t": 108.98
+    },
+    {
+     "w": "who",
+     "t": 109.43
+    },
+    {
+     "w": "calls",
+     "t": 109.88
+    },
+    {
+     "w": "it",
+     "t": 110.33
+    },
+    {
+     "w": "Flossie's",
+     "t": 110.78
+    },
+    {
+     "w": "retirement",
+     "t": 111.22
+    },
+    {
+     "w": "home,",
+     "t": 111.67
+    },
+    {
+     "w": "where",
+     "t": 112.12
+    },
+    {
+     "w": "she",
+     "t": 112.57
+    },
+    {
+     "w": "gets",
+     "t": 113.01
+    },
+    {
+     "w": "whatever",
+     "t": 113.46
+    },
+    {
+     "w": "she",
+     "t": 113.91
+    },
+    {
+     "w": "wants.",
+     "t": 114.36
+    }
+   ]
+  },
+  {
+   "start": 114.81,
+   "end": 143.47,
+   "en": "Flossie cannot hear well now, and her eyesight is weak, but she still enjoys her days: meals, long naps in sunny spots, sometimes peeking out from behind the curtain, and gentle play. Her owner remarked that Flossie is not treated like a record holder at all. She is simply loved, and her family appreciate every day with her. Imagine everyone yelling, \"Happy birthday, Flossie!\"",
+   "title": "长寿猫",
+   "cn": "弗洛西现在听力不太好，视力也很弱，但她依然享受每一天：吃饭、在阳光充足的地方睡长觉、有时从帘子后面探出头来看看，还有轻轻地玩耍。主人说，弗洛西完全没有被当作纪录保持者来对待。她只是被爱着，家人珍爱和她在一起的每一天。想象一下，大家一起大喊：“弗洛西，生日快乐！”",
+   "words": [
+    {
+     "w": "Flossie",
+     "t": 114.81
+    },
+    {
+     "w": "cannot",
+     "t": 115.25
+    },
+    {
+     "w": "hear",
+     "t": 115.7
+    },
+    {
+     "w": "well",
+     "t": 116.15
+    },
+    {
+     "w": "now,",
+     "t": 116.6
+    },
+    {
+     "w": "and",
+     "t": 117.05
+    },
+    {
+     "w": "her",
+     "t": 117.49
+    },
+    {
+     "w": "eyesight",
+     "t": 117.94
+    },
+    {
+     "w": "is",
+     "t": 118.39
+    },
+    {
+     "w": "weak,",
+     "t": 118.84
+    },
+    {
+     "w": "but",
+     "t": 119.29
+    },
+    {
+     "w": "she",
+     "t": 119.73
+    },
+    {
+     "w": "still",
+     "t": 120.18
+    },
+    {
+     "w": "enjoys",
+     "t": 120.63
+    },
+    {
+     "w": "her",
+     "t": 121.08
+    },
+    {
+     "w": "days:",
+     "t": 121.52
+    },
+    {
+     "w": "meals,",
+     "t": 121.97
+    },
+    {
+     "w": "long",
+     "t": 122.42
+    },
+    {
+     "w": "naps",
+     "t": 122.87
+    },
+    {
+     "w": "in",
+     "t": 123.32
+    },
+    {
+     "w": "sunny",
+     "t": 123.76
+    },
+    {
+     "w": "spots,",
+     "t": 124.21
+    },
+    {
+     "w": "sometimes",
+     "t": 124.66
+    },
+    {
+     "w": "peeking",
+     "t": 125.11
+    },
+    {
+     "w": "out",
+     "t": 125.56
+    },
+    {
+     "w": "from",
+     "t": 126.0
+    },
+    {
+     "w": "behind",
+     "t": 126.45
+    },
+    {
+     "w": "the",
+     "t": 126.9
+    },
+    {
+     "w": "curtain,",
+     "t": 127.35
+    },
+    {
+     "w": "and",
+     "t": 127.79
+    },
+    {
+     "w": "gentle",
+     "t": 128.24
+    },
+    {
+     "w": "play.",
+     "t": 128.69
+    },
+    {
+     "w": "Her",
+     "t": 129.14
+    },
+    {
+     "w": "owner",
+     "t": 129.59
+    },
+    {
+     "w": "remarked",
+     "t": 130.03
+    },
+    {
+     "w": "that",
+     "t": 130.48
+    },
+    {
+     "w": "Flossie",
+     "t": 130.93
+    },
+    {
+     "w": "is",
+     "t": 131.38
+    },
+    {
+     "w": "not",
+     "t": 131.83
+    },
+    {
+     "w": "treated",
+     "t": 132.27
+    },
+    {
+     "w": "like",
+     "t": 132.72
+    },
+    {
+     "w": "a",
+     "t": 133.17
+    },
+    {
+     "w": "record",
+     "t": 133.62
+    },
+    {
+     "w": "holder",
+     "t": 134.06
+    },
+    {
+     "w": "at",
+     "t": 134.51
+    },
+    {
+     "w": "all.",
+     "t": 134.96
+    },
+    {
+     "w": "She",
+     "t": 135.41
+    },
+    {
+     "w": "is",
+     "t": 135.86
+    },
+    {
+     "w": "simply",
+     "t": 136.3
+    },
+    {
+     "w": "loved,",
+     "t": 136.75
+    },
+    {
+     "w": "and",
+     "t": 137.2
+    },
+    {
+     "w": "her",
+     "t": 137.65
+    },
+    {
+     "w": "family",
+     "t": 138.1
+    },
+    {
+     "w": "appreciate",
+     "t": 138.54
+    },
+    {
+     "w": "every",
+     "t": 138.99
+    },
+    {
+     "w": "day",
+     "t": 139.44
+    },
+    {
+     "w": "with",
+     "t": 139.89
+    },
+    {
+     "w": "her.",
+     "t": 140.33
+    },
+    {
+     "w": "Imagine",
+     "t": 140.78
+    },
+    {
+     "w": "everyone",
+     "t": 141.23
+    },
+    {
+     "w": "yelling,",
+     "t": 141.68
+    },
+    {
+     "w": "\"Happy",
+     "t": 142.13
+    },
+    {
+     "w": "birthday,",
+     "t": 142.57
+    },
+    {
+     "w": "Flossie!\"",
+     "t": 143.02
+    }
+   ]
+  },
+  {
+   "start": 154.17,
+   "end": 173.41,
+   "en": "Now, from a birthday cat, let's meet a tiny worker with a giant talent: the silkworm, a moth's caterpillar, eating only mulberry leaves. When fully grown, it stops eating and spins its cocoon, a soft case where it will change into a moth.",
+   "title": "蚕宝宝",
+   "cn": "说完生日猫，让我们认识一位身怀绝技的小工人：蚕宝宝，也就是飞蛾的幼虫，只吃桑叶。长大后，它不再吃东西，开始织茧——一个柔软的外壳，它将在里面变成飞蛾。",
+   "words": [
+    {
+     "w": "Now,",
+     "t": 154.17
+    },
+    {
+     "w": "from",
+     "t": 154.62
+    },
+    {
+     "w": "a",
+     "t": 155.06
+    },
+    {
+     "w": "birthday",
+     "t": 155.51
+    },
+    {
+     "w": "cat,",
+     "t": 155.96
+    },
+    {
+     "w": "let's",
+     "t": 156.41
+    },
+    {
+     "w": "meet",
+     "t": 156.85
+    },
+    {
+     "w": "a",
+     "t": 157.3
+    },
+    {
+     "w": "tiny",
+     "t": 157.75
+    },
+    {
+     "w": "worker",
+     "t": 158.2
+    },
+    {
+     "w": "with",
+     "t": 158.64
+    },
+    {
+     "w": "a",
+     "t": 159.09
+    },
+    {
+     "w": "giant",
+     "t": 159.54
+    },
+    {
+     "w": "talent:",
+     "t": 159.99
+    },
+    {
+     "w": "the",
+     "t": 160.43
+    },
+    {
+     "w": "silkworm,",
+     "t": 160.88
+    },
+    {
+     "w": "a",
+     "t": 161.33
+    },
+    {
+     "w": "moth's",
+     "t": 161.77
+    },
+    {
+     "w": "caterpillar,",
+     "t": 162.22
+    },
+    {
+     "w": "eating",
+     "t": 162.67
+    },
+    {
+     "w": "only",
+     "t": 163.12
+    },
+    {
+     "w": "mulberry",
+     "t": 163.56
+    },
+    {
+     "w": "leaves.",
+     "t": 164.01
+    },
+    {
+     "w": "When",
+     "t": 164.46
+    },
+    {
+     "w": "fully",
+     "t": 164.91
+    },
+    {
+     "w": "grown,",
+     "t": 165.35
+    },
+    {
+     "w": "it",
+     "t": 165.8
+    },
+    {
+     "w": "stops",
+     "t": 166.25
+    },
+    {
+     "w": "eating",
+     "t": 166.7
+    },
+    {
+     "w": "and",
+     "t": 167.14
+    },
+    {
+     "w": "spins",
+     "t": 167.59
+    },
+    {
+     "w": "its",
+     "t": 168.04
+    },
+    {
+     "w": "cocoon,",
+     "t": 168.48
+    },
+    {
+     "w": "a",
+     "t": 168.93
+    },
+    {
+     "w": "soft",
+     "t": 169.38
+    },
+    {
+     "w": "case",
+     "t": 169.83
+    },
+    {
+     "w": "where",
+     "t": 170.27
+    },
+    {
+     "w": "it",
+     "t": 170.72
+    },
+    {
+     "w": "will",
+     "t": 171.17
+    },
+    {
+     "w": "change",
+     "t": 171.62
+    },
+    {
+     "w": "into",
+     "t": 172.06
+    },
+    {
+     "w": "a",
+     "t": 172.51
+    },
+    {
+     "w": "moth.",
+     "t": 172.96
+    }
+   ]
+  },
+  {
+   "start": 173.41,
+   "end": 193.98,
+   "en": "Here is the amazing part: the cocoon is spun from a single, unbroken thread of silk. Let me clarify: it is not many short pieces joined together. It is one continuous thread, at a minimum 300 metres long; some cocoons hold up to about 900 metres!",
+   "title": "蚕宝宝",
+   "cn": "最神奇的地方来了：蚕茧是由一根完整不断的丝线织成的。让我澄清一下：它不是很多短线接起来的。它是一根连续的丝线，最少也有 300 米长；有的茧甚至能达到大约 900 米！",
+   "words": [
+    {
+     "w": "Here",
+     "t": 173.41
+    },
+    {
+     "w": "is",
+     "t": 173.85
+    },
+    {
+     "w": "the",
+     "t": 174.3
+    },
+    {
+     "w": "amazing",
+     "t": 174.75
+    },
+    {
+     "w": "part:",
+     "t": 175.19
+    },
+    {
+     "w": "the",
+     "t": 175.64
+    },
+    {
+     "w": "cocoon",
+     "t": 176.09
+    },
+    {
+     "w": "is",
+     "t": 176.54
+    },
+    {
+     "w": "spun",
+     "t": 176.98
+    },
+    {
+     "w": "from",
+     "t": 177.43
+    },
+    {
+     "w": "a",
+     "t": 177.88
+    },
+    {
+     "w": "single,",
+     "t": 178.33
+    },
+    {
+     "w": "unbroken",
+     "t": 178.77
+    },
+    {
+     "w": "thread",
+     "t": 179.22
+    },
+    {
+     "w": "of",
+     "t": 179.67
+    },
+    {
+     "w": "silk.",
+     "t": 180.12
+    },
+    {
+     "w": "Let",
+     "t": 180.56
+    },
+    {
+     "w": "me",
+     "t": 181.01
+    },
+    {
+     "w": "clarify:",
+     "t": 181.46
+    },
+    {
+     "w": "it",
+     "t": 181.9
+    },
+    {
+     "w": "is",
+     "t": 182.35
+    },
+    {
+     "w": "not",
+     "t": 182.8
+    },
+    {
+     "w": "many",
+     "t": 183.25
+    },
+    {
+     "w": "short",
+     "t": 183.69
+    },
+    {
+     "w": "pieces",
+     "t": 184.14
+    },
+    {
+     "w": "joined",
+     "t": 184.59
+    },
+    {
+     "w": "together.",
+     "t": 185.04
+    },
+    {
+     "w": "It",
+     "t": 185.48
+    },
+    {
+     "w": "is",
+     "t": 185.93
+    },
+    {
+     "w": "one",
+     "t": 186.38
+    },
+    {
+     "w": "continuous",
+     "t": 186.83
+    },
+    {
+     "w": "thread,",
+     "t": 187.27
+    },
+    {
+     "w": "at",
+     "t": 187.72
+    },
+    {
+     "w": "a",
+     "t": 188.17
+    },
+    {
+     "w": "minimum",
+     "t": 188.61
+    },
+    {
+     "w": "300",
+     "t": 189.06
+    },
+    {
+     "w": "metres",
+     "t": 189.51
+    },
+    {
+     "w": "long;",
+     "t": 189.96
+    },
+    {
+     "w": "some",
+     "t": 190.4
+    },
+    {
+     "w": "cocoons",
+     "t": 190.85
+    },
+    {
+     "w": "hold",
+     "t": 191.3
+    },
+    {
+     "w": "up",
+     "t": 191.75
+    },
+    {
+     "w": "to",
+     "t": 192.19
+    },
+    {
+     "w": "about",
+     "t": 192.64
+    },
+    {
+     "w": "900",
+     "t": 193.09
+    },
+    {
+     "w": "metres!",
+     "t": 193.54
+    }
+   ]
+  },
+  {
+   "start": 193.98,
+   "end": 222.16,
+   "en": "How? Inside its body, the silkworm makes a liquid protein. It comes out through a tiny tube near its mouth and hardens in the air into a fine thread, about 10 micrometres wide, far thinner than a human hair. The worm moves its head in a figure-eight dance, laying down layer after layer for two or three days until the cocoon is finished.",
+   "title": "蚕宝宝",
+   "cn": "它是怎么做到的呢？在它的身体里，蚕宝宝会制造一种液体蛋白质。液体从它嘴边的一根小管子里出来，一接触空气就变硬，成为一根细丝，只有大约 10 微米宽，比人的头发细得多。蚕宝宝的头跳着“8”字舞，一层一层地织上两三天，直到茧完成。",
+   "words": [
+    {
+     "w": "How?",
+     "t": 193.98
+    },
+    {
+     "w": "Inside",
+     "t": 194.43
+    },
+    {
+     "w": "its",
+     "t": 194.88
+    },
+    {
+     "w": "body,",
+     "t": 195.32
+    },
+    {
+     "w": "the",
+     "t": 195.77
+    },
+    {
+     "w": "silkworm",
+     "t": 196.22
+    },
+    {
+     "w": "makes",
+     "t": 196.67
+    },
+    {
+     "w": "a",
+     "t": 197.11
+    },
+    {
+     "w": "liquid",
+     "t": 197.56
+    },
+    {
+     "w": "protein.",
+     "t": 198.01
+    },
+    {
+     "w": "It",
+     "t": 198.46
+    },
+    {
+     "w": "comes",
+     "t": 198.9
+    },
+    {
+     "w": "out",
+     "t": 199.35
+    },
+    {
+     "w": "through",
+     "t": 199.8
+    },
+    {
+     "w": "a",
+     "t": 200.25
+    },
+    {
+     "w": "tiny",
+     "t": 200.69
+    },
+    {
+     "w": "tube",
+     "t": 201.14
+    },
+    {
+     "w": "near",
+     "t": 201.59
+    },
+    {
+     "w": "its",
+     "t": 202.03
+    },
+    {
+     "w": "mouth",
+     "t": 202.48
+    },
+    {
+     "w": "and",
+     "t": 202.93
+    },
+    {
+     "w": "hardens",
+     "t": 203.38
+    },
+    {
+     "w": "in",
+     "t": 203.82
+    },
+    {
+     "w": "the",
+     "t": 204.27
+    },
+    {
+     "w": "air",
+     "t": 204.72
+    },
+    {
+     "w": "into",
+     "t": 205.17
+    },
+    {
+     "w": "a",
+     "t": 205.61
+    },
+    {
+     "w": "fine",
+     "t": 206.06
+    },
+    {
+     "w": "thread,",
+     "t": 206.51
+    },
+    {
+     "w": "about",
+     "t": 206.96
+    },
+    {
+     "w": "10",
+     "t": 207.4
+    },
+    {
+     "w": "micrometres",
+     "t": 207.85
+    },
+    {
+     "w": "wide,",
+     "t": 208.3
+    },
+    {
+     "w": "far",
+     "t": 208.74
+    },
+    {
+     "w": "thinner",
+     "t": 209.19
+    },
+    {
+     "w": "than",
+     "t": 209.64
+    },
+    {
+     "w": "a",
+     "t": 210.09
+    },
+    {
+     "w": "human",
+     "t": 210.53
+    },
+    {
+     "w": "hair.",
+     "t": 210.98
+    },
+    {
+     "w": "The",
+     "t": 211.43
+    },
+    {
+     "w": "worm",
+     "t": 211.88
+    },
+    {
+     "w": "moves",
+     "t": 212.32
+    },
+    {
+     "w": "its",
+     "t": 212.77
+    },
+    {
+     "w": "head",
+     "t": 213.22
+    },
+    {
+     "w": "in",
+     "t": 213.67
+    },
+    {
+     "w": "a",
+     "t": 214.11
+    },
+    {
+     "w": "figure-eight",
+     "t": 214.56
+    },
+    {
+     "w": "dance,",
+     "t": 215.01
+    },
+    {
+     "w": "laying",
+     "t": 215.45
+    },
+    {
+     "w": "down",
+     "t": 215.9
+    },
+    {
+     "w": "layer",
+     "t": 216.35
+    },
+    {
+     "w": "after",
+     "t": 216.8
+    },
+    {
+     "w": "layer",
+     "t": 217.24
+    },
+    {
+     "w": "for",
+     "t": 217.69
+    },
+    {
+     "w": "two",
+     "t": 218.14
+    },
+    {
+     "w": "or",
+     "t": 218.59
+    },
+    {
+     "w": "three",
+     "t": 219.03
+    },
+    {
+     "w": "days",
+     "t": 219.48
+    },
+    {
+     "w": "until",
+     "t": 219.93
+    },
+    {
+     "w": "the",
+     "t": 220.38
+    },
+    {
+     "w": "cocoon",
+     "t": 220.82
+    },
+    {
+     "w": "is",
+     "t": 221.27
+    },
+    {
+     "w": "finished.",
+     "t": 221.72
+    }
+   ]
+  },
+  {
+   "start": 222.16,
+   "end": 234.69,
+   "en": "In total, thousands of cocoons make just one kilogram of silk. In ancient China, silk was so precious that only emperors, ministers, and rich families could wear it.",
+   "title": "蚕宝宝",
+   "cn": "总共算下来，几千个蚕茧才能做出一千克丝。在古代中国，丝绸非常珍贵，只有皇帝、大臣和富贵人家才能穿它。",
+   "words": [
+    {
+     "w": "In",
+     "t": 222.16
+    },
+    {
+     "w": "total,",
+     "t": 222.61
+    },
+    {
+     "w": "thousands",
+     "t": 223.06
+    },
+    {
+     "w": "of",
+     "t": 223.51
+    },
+    {
+     "w": "cocoons",
+     "t": 223.95
+    },
+    {
+     "w": "make",
+     "t": 224.4
+    },
+    {
+     "w": "just",
+     "t": 224.85
+    },
+    {
+     "w": "one",
+     "t": 225.3
+    },
+    {
+     "w": "kilogram",
+     "t": 225.74
+    },
+    {
+     "w": "of",
+     "t": 226.19
+    },
+    {
+     "w": "silk.",
+     "t": 226.64
+    },
+    {
+     "w": "In",
+     "t": 227.09
+    },
+    {
+     "w": "ancient",
+     "t": 227.53
+    },
+    {
+     "w": "China,",
+     "t": 227.98
+    },
+    {
+     "w": "silk",
+     "t": 228.43
+    },
+    {
+     "w": "was",
+     "t": 228.87
+    },
+    {
+     "w": "so",
+     "t": 229.32
+    },
+    {
+     "w": "precious",
+     "t": 229.77
+    },
+    {
+     "w": "that",
+     "t": 230.22
+    },
+    {
+     "w": "only",
+     "t": 230.66
+    },
+    {
+     "w": "emperors,",
+     "t": 231.11
+    },
+    {
+     "w": "ministers,",
+     "t": 231.56
+    },
+    {
+     "w": "and",
+     "t": 232.01
+    },
+    {
+     "w": "rich",
+     "t": 232.45
+    },
+    {
+     "w": "families",
+     "t": 232.9
+    },
+    {
+     "w": "could",
+     "t": 233.35
+    },
+    {
+     "w": "wear",
+     "t": 233.8
+    },
+    {
+     "w": "it.",
+     "t": 234.24
+    }
+   ]
+  },
+  {
+   "start": 250.59,
+   "end": 284.79,
+   "en": "Today's idiom is \"costs an arm and a leg.\" It means something is very expensive. For example: That silk dress costs an arm and a leg, because it took thousands of silkworms to make it! Flossie's birthday cake, though, did not cost an arm and a leg: she is happiest with simple food and a sunny nap. So it means a lot of money, but not really your arm or your leg, of course! Try it this week: tell your family about something that costs an arm and a leg.",
+   "title": "今日俚语",
+   "cn": "今天的俚语是“costs an arm and a leg”（要花一条胳膊和一条腿）。它的意思是某样东西非常贵。举个例子：那件丝绸裙子 costs an arm and a leg，因为它用了几千条蚕宝宝才做出来！不过，弗洛西的生日蛋糕就没有 cost an arm and a leg：她最开心的时候，就是吃点简单的食物、晒着太阳打个盹。所以，这个俚语的意思是“花很多钱”，当然不是真的要你的胳膊和腿！这周试试用它：跟家人说说某件 costs an arm and a leg 的东西。",
+   "words": [
+    {
+     "w": "Today's",
+     "t": 250.59
+    },
+    {
+     "w": "idiom",
+     "t": 250.97
+    },
+    {
+     "w": "is",
+     "t": 251.35
+    },
+    {
+     "w": "\"costs",
+     "t": 251.73
+    },
+    {
+     "w": "an",
+     "t": 252.11
+    },
+    {
+     "w": "arm",
+     "t": 252.49
+    },
+    {
+     "w": "and",
+     "t": 252.87
+    },
+    {
+     "w": "a",
+     "t": 253.25
+    },
+    {
+     "w": "leg.\"",
+     "t": 253.63
+    },
+    {
+     "w": "It",
+     "t": 254.01
+    },
+    {
+     "w": "means",
+     "t": 254.39
+    },
+    {
+     "w": "something",
+     "t": 254.77
+    },
+    {
+     "w": "is",
+     "t": 255.15
+    },
+    {
+     "w": "very",
+     "t": 255.53
+    },
+    {
+     "w": "expensive.",
+     "t": 255.91
+    },
+    {
+     "w": "For",
+     "t": 256.29
+    },
+    {
+     "w": "example:",
+     "t": 256.67
+    },
+    {
+     "w": "That",
+     "t": 257.05
+    },
+    {
+     "w": "silk",
+     "t": 257.43
+    },
+    {
+     "w": "dress",
+     "t": 257.81
+    },
+    {
+     "w": "costs",
+     "t": 258.19
+    },
+    {
+     "w": "an",
+     "t": 258.57
+    },
+    {
+     "w": "arm",
+     "t": 258.95
+    },
+    {
+     "w": "and",
+     "t": 259.33
+    },
+    {
+     "w": "a",
+     "t": 259.71
+    },
+    {
+     "w": "leg,",
+     "t": 260.09
+    },
+    {
+     "w": "because",
+     "t": 260.47
+    },
+    {
+     "w": "it",
+     "t": 260.85
+    },
+    {
+     "w": "took",
+     "t": 261.23
+    },
+    {
+     "w": "thousands",
+     "t": 261.61
+    },
+    {
+     "w": "of",
+     "t": 261.99
+    },
+    {
+     "w": "silkworms",
+     "t": 262.37
+    },
+    {
+     "w": "to",
+     "t": 262.75
+    },
+    {
+     "w": "make",
+     "t": 263.13
+    },
+    {
+     "w": "it!",
+     "t": 263.51
+    },
+    {
+     "w": "Flossie's",
+     "t": 263.89
+    },
+    {
+     "w": "birthday",
+     "t": 264.27
+    },
+    {
+     "w": "cake,",
+     "t": 264.65
+    },
+    {
+     "w": "though,",
+     "t": 265.03
+    },
+    {
+     "w": "did",
+     "t": 265.41
+    },
+    {
+     "w": "not",
+     "t": 265.79
+    },
+    {
+     "w": "cost",
+     "t": 266.17
+    },
+    {
+     "w": "an",
+     "t": 266.55
+    },
+    {
+     "w": "arm",
+     "t": 266.93
+    },
+    {
+     "w": "and",
+     "t": 267.31
+    },
+    {
+     "w": "a",
+     "t": 267.69
+    },
+    {
+     "w": "leg:",
+     "t": 268.07
+    },
+    {
+     "w": "she",
+     "t": 268.45
+    },
+    {
+     "w": "is",
+     "t": 268.83
+    },
+    {
+     "w": "happiest",
+     "t": 269.21
+    },
+    {
+     "w": "with",
+     "t": 269.59
+    },
+    {
+     "w": "simple",
+     "t": 269.97
+    },
+    {
+     "w": "food",
+     "t": 270.35
+    },
+    {
+     "w": "and",
+     "t": 270.73
+    },
+    {
+     "w": "a",
+     "t": 271.11
+    },
+    {
+     "w": "sunny",
+     "t": 271.49
+    },
+    {
+     "w": "nap.",
+     "t": 271.87
+    },
+    {
+     "w": "So",
+     "t": 272.25
+    },
+    {
+     "w": "it",
+     "t": 272.63
+    },
+    {
+     "w": "means",
+     "t": 273.01
+    },
+    {
+     "w": "a",
+     "t": 273.39
+    },
+    {
+     "w": "lot",
+     "t": 273.77
+    },
+    {
+     "w": "of",
+     "t": 274.15
+    },
+    {
+     "w": "money,",
+     "t": 274.53
+    },
+    {
+     "w": "but",
+     "t": 274.91
+    },
+    {
+     "w": "not",
+     "t": 275.29
+    },
+    {
+     "w": "really",
+     "t": 275.67
+    },
+    {
+     "w": "your",
+     "t": 276.05
+    },
+    {
+     "w": "arm",
+     "t": 276.43
+    },
+    {
+     "w": "or",
+     "t": 276.81
+    },
+    {
+     "w": "your",
+     "t": 277.19
+    },
+    {
+     "w": "leg,",
+     "t": 277.57
+    },
+    {
+     "w": "of",
+     "t": 277.95
+    },
+    {
+     "w": "course!",
+     "t": 278.33
+    },
+    {
+     "w": "Try",
+     "t": 278.71
+    },
+    {
+     "w": "it",
+     "t": 279.09
+    },
+    {
+     "w": "this",
+     "t": 279.47
+    },
+    {
+     "w": "week:",
+     "t": 279.85
+    },
+    {
+     "w": "tell",
+     "t": 280.23
+    },
+    {
+     "w": "your",
+     "t": 280.61
+    },
+    {
+     "w": "family",
+     "t": 280.99
+    },
+    {
+     "w": "about",
+     "t": 281.37
+    },
+    {
+     "w": "something",
+     "t": 281.75
+    },
+    {
+     "w": "that",
+     "t": 282.13
+    },
+    {
+     "w": "costs",
+     "t": 282.51
+    },
+    {
+     "w": "an",
+     "t": 282.89
+    },
+    {
+     "w": "arm",
+     "t": 283.27
+    },
+    {
+     "w": "and",
+     "t": 283.65
+    },
+    {
+     "w": "a",
+     "t": 284.03
+    },
+    {
+     "w": "leg.",
+     "t": 284.41
+    }
+   ]
+  },
+  {
+   "start": 298.37,
+   "end": 321.1,
+   "en": "Now it is your turn! Two questions for you. One: Flossie is 30, and a pet cat usually lives about 14 years. How much longer has Flossie lived? Two: a silkworm spins one thread up to about 900 metres long. Can you think of something near your home about that long? Talk about it with your family!",
+   "title": "结束语与互动问题",
+   "cn": "现在轮到你们啦！两个问题考考你。第一：弗洛西 30 岁了，而宠物猫通常活大约 14 年。弗洛西比一般猫多活了多少年？第二：蚕宝宝织的一根丝线最长可达大约 900 米。你能想到家附近有什么东西差不多这么长吗？和家人聊聊吧！",
+   "words": [
+    {
+     "w": "Now",
+     "t": 298.37
+    },
+    {
+     "w": "it",
+     "t": 298.77
+    },
+    {
+     "w": "is",
+     "t": 299.17
+    },
+    {
+     "w": "your",
+     "t": 299.57
+    },
+    {
+     "w": "turn!",
+     "t": 299.97
+    },
+    {
+     "w": "Two",
+     "t": 300.36
+    },
+    {
+     "w": "questions",
+     "t": 300.76
+    },
+    {
+     "w": "for",
+     "t": 301.16
+    },
+    {
+     "w": "you.",
+     "t": 301.56
+    },
+    {
+     "w": "One:",
+     "t": 301.96
+    },
+    {
+     "w": "Flossie",
+     "t": 302.36
+    },
+    {
+     "w": "is",
+     "t": 302.76
+    },
+    {
+     "w": "30,",
+     "t": 303.16
+    },
+    {
+     "w": "and",
+     "t": 303.55
+    },
+    {
+     "w": "a",
+     "t": 303.95
+    },
+    {
+     "w": "pet",
+     "t": 304.35
+    },
+    {
+     "w": "cat",
+     "t": 304.75
+    },
+    {
+     "w": "usually",
+     "t": 305.15
+    },
+    {
+     "w": "lives",
+     "t": 305.55
+    },
+    {
+     "w": "about",
+     "t": 305.95
+    },
+    {
+     "w": "14",
+     "t": 306.35
+    },
+    {
+     "w": "years.",
+     "t": 306.74
+    },
+    {
+     "w": "How",
+     "t": 307.14
+    },
+    {
+     "w": "much",
+     "t": 307.54
+    },
+    {
+     "w": "longer",
+     "t": 307.94
+    },
+    {
+     "w": "has",
+     "t": 308.34
+    },
+    {
+     "w": "Flossie",
+     "t": 308.74
+    },
+    {
+     "w": "lived?",
+     "t": 309.14
+    },
+    {
+     "w": "Two:",
+     "t": 309.54
+    },
+    {
+     "w": "a",
+     "t": 309.93
+    },
+    {
+     "w": "silkworm",
+     "t": 310.33
+    },
+    {
+     "w": "spins",
+     "t": 310.73
+    },
+    {
+     "w": "one",
+     "t": 311.13
+    },
+    {
+     "w": "thread",
+     "t": 311.53
+    },
+    {
+     "w": "up",
+     "t": 311.93
+    },
+    {
+     "w": "to",
+     "t": 312.33
+    },
+    {
+     "w": "about",
+     "t": 312.73
+    },
+    {
+     "w": "900",
+     "t": 313.12
+    },
+    {
+     "w": "metres",
+     "t": 313.52
+    },
+    {
+     "w": "long.",
+     "t": 313.92
+    },
+    {
+     "w": "Can",
+     "t": 314.32
+    },
+    {
+     "w": "you",
+     "t": 314.72
+    },
+    {
+     "w": "think",
+     "t": 315.12
+    },
+    {
+     "w": "of",
+     "t": 315.52
+    },
+    {
+     "w": "something",
+     "t": 315.92
+    },
+    {
+     "w": "near",
+     "t": 316.31
+    },
+    {
+     "w": "your",
+     "t": 316.71
+    },
+    {
+     "w": "home",
+     "t": 317.11
+    },
+    {
+     "w": "about",
+     "t": 317.51
+    },
+    {
+     "w": "that",
+     "t": 317.91
+    },
+    {
+     "w": "long?",
+     "t": 318.31
+    },
+    {
+     "w": "Talk",
+     "t": 318.71
+    },
+    {
+     "w": "about",
+     "t": 319.11
+    },
+    {
+     "w": "it",
+     "t": 319.5
+    },
+    {
+     "w": "with",
+     "t": 319.9
+    },
+    {
+     "w": "your",
+     "t": 320.3
+    },
+    {
+     "w": "family!",
+     "t": 320.7
+    }
+   ]
+  },
+  {
+   "start": 332.76,
+   "end": 346.78,
+   "en": "That is all for today, young explorers. We appreciate you listening and learning with us. Keep your eyes open, keep asking questions, and we will meet again tomorrow morning. Goodbye, and have a wonderful day!",
+   "title": "告别",
+   "cn": "今天的节目就到这里啦，小小探险家们。感谢你们和我们一起听、一起学。保持好奇，继续提问，我们明天早上再见。再见，祝你度过美好的一天！",
+   "words": [
+    {
+     "w": "That",
+     "t": 332.76
+    },
+    {
+     "w": "is",
+     "t": 333.16
+    },
+    {
+     "w": "all",
+     "t": 333.56
+    },
+    {
+     "w": "for",
+     "t": 333.96
+    },
+    {
+     "w": "today,",
+     "t": 334.36
+    },
+    {
+     "w": "young",
+     "t": 334.76
+    },
+    {
+     "w": "explorers.",
+     "t": 335.16
+    },
+    {
+     "w": "We",
+     "t": 335.56
+    },
+    {
+     "w": "appreciate",
+     "t": 335.96
+    },
+    {
+     "w": "you",
+     "t": 336.37
+    },
+    {
+     "w": "listening",
+     "t": 336.77
+    },
+    {
+     "w": "and",
+     "t": 337.17
+    },
+    {
+     "w": "learning",
+     "t": 337.57
+    },
+    {
+     "w": "with",
+     "t": 337.97
+    },
+    {
+     "w": "us.",
+     "t": 338.37
+    },
+    {
+     "w": "Keep",
+     "t": 338.77
+    },
+    {
+     "w": "your",
+     "t": 339.17
+    },
+    {
+     "w": "eyes",
+     "t": 339.57
+    },
+    {
+     "w": "open,",
+     "t": 339.97
+    },
+    {
+     "w": "keep",
+     "t": 340.37
+    },
+    {
+     "w": "asking",
+     "t": 340.77
+    },
+    {
+     "w": "questions,",
+     "t": 341.17
+    },
+    {
+     "w": "and",
+     "t": 341.57
+    },
+    {
+     "w": "we",
+     "t": 341.97
+    },
+    {
+     "w": "will",
+     "t": 342.37
+    },
+    {
+     "w": "meet",
+     "t": 342.77
+    },
+    {
+     "w": "again",
+     "t": 343.17
+    },
+    {
+     "w": "tomorrow",
+     "t": 343.58
+    },
+    {
+     "w": "morning.",
+     "t": 343.98
+    },
+    {
+     "w": "Goodbye,",
+     "t": 344.38
+    },
+    {
+     "w": "and",
+     "t": 344.78
+    },
+    {
+     "w": "have",
+     "t": 345.18
+    },
+    {
+     "w": "a",
+     "t": 345.58
+    },
+    {
+     "w": "wonderful",
+     "t": 345.98
+    },
+    {
+     "w": "day!",
+     "t": 346.38
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "costs an arm and a leg",
+    "phon": "/kɒsts ən ɑːm ənd ə leɡ/",
+    "meaning": "(习语) 贵得离谱；价格高得吓人",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: That silk dress costs an arm and a leg!"
+   },
+   {
+    "word": "appreciate",
+    "phon": "/əˈpriːʃieɪt/",
+    "meaning": "(v.) 欣赏；感激；珍爱",
+    "tags": [],
+    "example": "Example: her family appreciate every day with her."
+   },
+   {
+    "word": "clarify",
+    "phon": "/ˈklærəfaɪ/",
+    "meaning": "(v.) 澄清；讲清楚",
+    "tags": [],
+    "example": "Example: Let me clarify: it is not many short pieces joined together."
+   },
+   {
+    "word": "minister",
+    "phon": "/ˈmɪnɪstər/",
+    "meaning": "(n.) 部长；大臣",
+    "tags": [],
+    "example": "Example: only emperors, ministers, and rich families could wear it."
+   },
+   {
+    "word": "total",
+    "phon": "/ˈtoʊtl/",
+    "meaning": "(adv.) 总共；合计",
+    "tags": [],
+    "example": "Example: In total, thousands of cocoons make just one kilogram of silk."
+   },
+   {
+    "word": "standard",
+    "phon": "/ˈstændərd/",
+    "meaning": "(adj.) 标准的；普通的",
+    "tags": [],
+    "example": "Example: The standard lifespan of a pet cat is about 14 years."
+   },
+   {
+    "word": "remark",
+    "phon": "/rɪˈmɑːrk/",
+    "meaning": "(v.) 说；评论",
+    "tags": [],
+    "example": "Example: Her owner remarked that Flossie is not treated like a record holder at all."
+   },
+   {
+    "word": "brewery",
+    "phon": "/ˈbruːəri/",
+    "meaning": "(n.) 啤酒厂",
+    "tags": [],
+    "example": "Example: Some cats live in shops, some even in breweries."
+   },
+   {
+    "word": "yell",
+    "phon": "/jel/",
+    "meaning": "(v.) 大喊；叫喊",
+    "tags": [],
+    "example": "Example: Imagine everyone yelling, \"Happy birthday, Flossie!\""
+   },
+   {
+    "word": "curtain",
+    "phon": "/ˈkɜːrtn/",
+    "meaning": "(n.) 帘子；窗帘",
+    "tags": [],
+    "example": "Example: sometimes peeking out from behind the curtain."
+   },
+   {
+    "word": "minimum",
+    "phon": "/ˈmɪnɪməm/",
+    "meaning": "(n.) 最小值；最低限度",
+    "tags": [],
+    "example": "Example: at a minimum 300 metres long."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "How old is Flossie?\nA. 14 years old\nB. 20 years old\nC. 30 years old\nD. 38 years old",
+     "What does a silkworm eat?\nA. Grass\nB. Mulberry leaves\nC. Flowers\nD. Rice",
+     "How long is one silkworm's thread, at a minimum?\nA. 30 metres\nB. 100 metres\nC. 300 metres\nD. 900 metres",
+     "What does \"costs an arm and a leg\" mean?\nA. It hurts your arm and leg\nB. It is very expensive\nC. It is very cheap\nD. It is very heavy"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "type": "text",
+        "text": "It comes out through a tiny tube near its mouth and hardens in the air into a fine thread, about 10 micrometres wide, far thinner than a human hair."
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "comes out ... and hardens ..."
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "并列谓语"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：一个主语 It（液体蛋白质）带两个动词，comes out（出来）和 hardens（变硬），中间用 and 连接——液体先出来、再变硬，两个动作一气呵成。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "about 10 micrometres wide"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "补充说明"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：about（大约）+ 数字 + wide（宽），放在 fine thread（细丝）后面补充说明它有多细，相当于“宽约 10 微米”。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "far thinner than a human hair"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "比较级"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：thinner 是 thin（细的）的比较级，far（远、得多）加强程度，than（比）引出比较对象——比人的头发细得多。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句逻辑链："
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "出来（comes out）→ 变硬（hardens）→ 多细（about 10 微米宽）→ 和谁比（比头发细得多）"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。一句话里藏着并列谓语、补充说明和比较级三个机关。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "STANDARD"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（标准的）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "FIGURE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（数字）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "FLOSSIE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（弗洛西）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "YELL"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（大喊）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "MINIMUM"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（最低限度）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SILKWORM"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（蚕宝宝）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "KILOGRAM"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（千克）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "COCOON"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（茧）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "CURTAIN"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（帘子）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "MULBERRY"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（桑树）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"she has just celebrated her 30th birthday.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"a moth's caterpillar, eating only mulberry leaves.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"It is one continuous thread, at a minimum 300 metres long.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"It means something is very expensive.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. and  2. and"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. about  2. about"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. thinner  2. longer"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "C",
+    "B",
+    "C",
+    "B"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. and 并列谓语：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "It comes out through a tiny tube ____ hardens in the air into a fine thread.",
+       "options": [
+        "and",
+        "but",
+        "so"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "Flossie eats her meals ____ takes long naps in sunny spots.",
+       "options": [
+        "but",
+        "and",
+        "so"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. about + 数字补充说明：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "The thread is ____ 10 micrometres wide.",
+       "options": [
+        "almost",
+        "over",
+        "about"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "Some cocoons hold up to ____ 900 metres.",
+       "options": [
+        "about",
+        "nearly",
+        "above"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. far + 比较级 than：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "The thread is far ____ than a human hair.",
+       "options": [
+        "thicker",
+        "thinner",
+        "shorter"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "900 metres is far ____ than 300 metres.",
+       "options": [
+        "shorter",
+        "smaller",
+        "longer"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "It comes out through a tiny tube near its mouth and hardens in the air into a fine thread, about 10 micrometres wide, far thinner than a human hair.",
+    "In total, thousands of cocoons make just one kilogram of silk."
+   ]
+  },
+  "crossword": {
+   "nrows": 14,
+   "ncols": 11,
+   "words": [
+    {
+     "word": "STANDARD",
+     "row": 0,
+     "col": 6,
+     "dir": "D",
+     "num": 1,
+     "cn": "标准的",
+     "clue": "The ___ lifespan of a pet cat is about 14 years."
+    },
+    {
+     "word": "FIGURE",
+     "row": 0,
+     "col": 9,
+     "dir": "D",
+     "num": 2,
+     "cn": "数字",
+     "clue": "The worm moves its head in a ___-eight dance."
+    },
+    {
+     "word": "FLOSSIE",
+     "row": 2,
+     "col": 0,
+     "dir": "D",
+     "num": 3,
+     "cn": "弗洛西",
+     "clue": "there lives a very special cat named ___."
+    },
+    {
+     "word": "YELL",
+     "row": 3,
+     "col": 2,
+     "dir": "D",
+     "num": 4,
+     "cn": "大喊",
+     "clue": "Imagine everyone ___ing, 'Happy birthday, Flossie!'"
+    },
+    {
+     "word": "MINIMUM",
+     "row": 3,
+     "col": 4,
+     "dir": "A",
+     "num": 5,
+     "cn": "最低限度",
+     "clue": "one continuous thread, at a ___ 300 metres long."
+    },
+    {
+     "word": "SILKWORM",
+     "row": 6,
+     "col": 0,
+     "dir": "A",
+     "num": 6,
+     "cn": "蚕宝宝",
+     "clue": "let's meet a tiny worker with a giant talent: the ___."
+    },
+    {
+     "word": "KILOGRAM",
+     "row": 6,
+     "col": 3,
+     "dir": "D",
+     "num": 7,
+     "cn": "千克",
+     "clue": "thousands of cocoons make just one ___ of silk."
+    },
+    {
+     "word": "COCOON",
+     "row": 9,
+     "col": 2,
+     "dir": "A",
+     "num": 8,
+     "cn": "茧",
+     "clue": "it stops eating and spins its ___."
+    },
+    {
+     "word": "CURTAIN",
+     "row": 11,
+     "col": 1,
+     "dir": "A",
+     "num": 9,
+     "cn": "帘子",
+     "clue": "sometimes peeking out from behind the ___."
+    },
+    {
+     "word": "MULBERRY",
+     "row": 13,
+     "col": 3,
+     "dir": "A",
+     "num": 10,
+     "cn": "桑树",
+     "clue": "eating only ___ leaves."
+    }
+   ]
+  }
+ }
+}

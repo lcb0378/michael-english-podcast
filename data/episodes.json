@@ -1,5 +1,16 @@
 [
  {
+  "id": "vol45",
+  "title": "长寿猫与蚕宝宝",
+  "words": 595,
+  "duration": "5分56秒",
+  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol45/cover.png",
+  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol45/audio.mp3",
+  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol45/video_v1.mp4",
+  "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol45/Vol45_晚读讲义_长寿猫与蚕宝宝_v1.pdf",
+  "pdfName": "Vol45_晚读讲义_长寿猫与蚕宝宝_v1.pdf"
+ },
+ {
   "id": "vol44",
   "title": "会说话的鹦鹉与企鹅伴侣之谜",
   "words": 600,

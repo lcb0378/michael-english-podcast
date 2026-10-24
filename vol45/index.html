@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.45 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol45/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol45/cover.png" controls playsinline preload="metadata"></video>
+<h1>🐱 Vol.45 · 长寿猫与蚕宝宝</h1>
+<div class="meta">英文 595 词 ｜ 音频 5分56秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol45/story-cat.png" alt="长寿猫">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol45/story-silk.png" alt="蚕宝宝">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">costs an arm and a leg</span> <span class="phon">/kɒsts ən ɑːm ənd ə leɡ/</span> (习语) 贵得离谱；价格高得吓人<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: That silk dress <b>costs an arm and a leg</b>!</div>
+</div>
+<div class="vocab">
+  <span class="word">appreciate</span> <span class="phon">/əˈpriːʃieɪt/</span> (v.) 欣赏；感激；珍爱<br>
+  
+  <div class="example">Example: her family <b>appreciate</b> every day with her.</div>
+</div>
+<div class="vocab">
+  <span class="word">clarify</span> <span class="phon">/ˈklærəfaɪ/</span> (v.) 澄清；讲清楚<br>
+  
+  <div class="example">Example: Let me <b>clarify</b>: it is not many short pieces joined together.</div>
+</div>
+<div class="vocab">
+  <span class="word">minister</span> <span class="phon">/ˈmɪnɪstər/</span> (n.) 部长；大臣<br>
+  
+  <div class="example">Example: only emperors, <b>ministers</b>, and rich families could wear it.</div>
+</div>
+<div class="vocab">
+  <span class="word">total</span> <span class="phon">/ˈtoʊtl/</span> (adv.) 总共；合计<br>
+  
+  <div class="example">Example: <b>In total</b>, thousands of cocoons make just one kilogram of silk.</div>
+</div>
+<div class="vocab">
+  <span class="word">standard</span> <span class="phon">/ˈstændərd/</span> (adj.) 标准的；普通的<br>
+  
+  <div class="example">Example: The <b>standard</b> lifespan of a pet cat is about 14 years.</div>
+</div>
+<div class="vocab">
+  <span class="word">remark</span> <span class="phon">/rɪˈmɑːrk/</span> (v.) 说；评论<br>
+  
+  <div class="example">Example: Her owner <b>remarked</b> that Flossie is not treated like a record holder at all.</div>
+</div>
+<div class="vocab">
+  <span class="word">brewery</span> <span class="phon">/ˈbruːəri/</span> (n.) 啤酒厂<br>
+  
+  <div class="example">Example: Some cats live in shops, some even in <b>breweries</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">yell</span> <span class="phon">/jel/</span> (v.) 大喊；叫喊<br>
+  
+  <div class="example">Example: Imagine everyone <b>yelling</b>, "Happy birthday, Flossie!"</div>
+</div>
+<div class="vocab">
+  <span class="word">curtain</span> <span class="phon">/ˈkɜːrtn/</span> (n.) 帘子；窗帘<br>
+  
+  <div class="example">Example: sometimes peeking out from behind the <b>curtain</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">minimum</span> <span class="phon">/ˈmɪnɪməm/</span> (n.) 最小值；最低限度<br>
+  
+  <div class="example">Example: at a <b>minimum</b> 300 metres long.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 14, "ncols": 11, "words": [{"word": "STANDARD", "row": 0, "col": 6, "dir": "D", "num": 1, "cn": "标准的", "clue": "The ___ lifespan of a pet cat is about 14 years."}, {"word": "FIGURE", "row": 0, "col": 9, "dir": "D", "num": 2, "cn": "数字", "clue": "The worm moves its head in a ___-eight dance."}, {"word": "FLOSSIE", "row": 2, "col": 0, "dir": "D", "num": 3, "cn": "弗洛西", "clue": "there lives a very special cat named ___."}, {"word": "YELL", "row": 3, "col": 2, "dir": "D", "num": 4, "cn": "大喊", "clue": "Imagine everyone ___ing, 'Happy birthday, Flossie!'"}, {"word": "MINIMUM", "row": 3, "col": 4, "dir": "A", "num": 5, "cn": "最低限度", "clue": "one continuous thread, at a ___ 300 metres long."}, {"word": "SILKWORM", "row": 6, "col": 0, "dir": "A", "num": 6, "cn": "蚕宝宝", "clue": "let's meet a tiny worker with a giant talent: the ___."}, {"word": "KILOGRAM", "row": 6, "col": 3, "dir": "D", "num": 7, "cn": "千克", "clue": "thousands of cocoons make just one ___ of silk."}, {"word": "COCOON", "row": 9, "col": 2, "dir": "A", "num": 8, "cn": "茧", "clue": "it stops eating and spins its ___."}, {"word": "CURTAIN", "row": 11, "col": 1, "dir": "A", "num": 9, "cn": "帘子", "clue": "sometimes peeking out from behind the ___."}, {"word": "MULBERRY", "row": 13, "col": 3, "dir": "A", "num": 10, "cn": "桑树", "clue": "eating only ___ leaves."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. How old is Flossie?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. 14 years old</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. 20 years old</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. 30 years old</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. 38 years old</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. What does a silkworm eat?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. Grass</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. Mulberry leaves</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. Flowers</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. Rice</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. How long is one silkworm&#x27;s thread, at a minimum?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. 30 metres</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. 100 metres</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. 300 metres</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. 900 metres</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does &quot;costs an arm and a leg&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. It hurts your arm and leg</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. It is very expensive</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. It is very cheap</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. It is very heavy</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：B</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [2, 1, 2, 1];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">It comes out through a tiny tube near its mouth and hardens in the air into a fine thread, about 10 micrometres wide, far thinner than a human hair.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li><i>comes out ... and hardens ...</i> 是<b>并列谓语</b>：一个主语 It（液体蛋白质）带两个动词，comes out（出来）和 hardens（变硬），中间用 and 连接——液体先出来、再变硬，两个动作一气呵成。</li>
+  <li><i>about 10 micrometres wide</i> 是<b>补充说明</b>：about（大约）+ 数字 + wide（宽），放在 fine thread（细丝）后面补充说明它有多细，相当于“宽约 10 微米”。</li>
+  <li><i>far thinner than a human hair</i> 是<b>比较级</b>：thinner 是 thin（细的）的比较级，far（远、得多）加强程度，than（比）引出比较对象——比人的头发细得多。</li>
+  <li>整句逻辑链：<b>出来（comes out）→ 变硬（hardens）→ 多细（about 10 微米宽）→ 和谁比（比头发细得多）</b>。一句话里藏着并列谓语、补充说明和比较级三个机关。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. and 并列谓语：用括号里的词补全</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">It comes out through a tiny tube ____ hardens in the air into a fine thread.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">and</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">but</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">so</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：and</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">Flossie eats her meals ____ takes long naps in sunny spots.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">but</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">and</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">so</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：and</p>
+</div>
+<p class="p4-gname">B. about + 数字补充说明：用括号里的词补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">The thread is ____ 10 micrometres wide.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">almost</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">over</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">about</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：about</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">Some cocoons hold up to ____ 900 metres.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">about</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">nearly</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">above</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：about</p>
+</div>
+<p class="p4-gname">C. far + 比较级 than：用括号里的词补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">The thread is far ____ than a human hair.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">thicker</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">thinner</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">shorter</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：thinner</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">900 metres is far ____ than 300 metres.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">shorter</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">smaller</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">longer</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：longer</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>It comes out through a tiny tube near its mouth and hardens in the air into a fine thread, about 10 micrometres wide, far thinner than a human hair.</li>
+<li>In total, thousands of cocoons make just one kilogram of silk.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">1</span><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">2</span><span class="cwl">F</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">3</span><span class="cwl">F</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">G</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">Y</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">5</span><span class="cwl">M</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">M</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">M</span></td></tr><tr><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">6</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwn">7</span><span class="cwl">K</span></td><td class="cwc"><span class="cwl">W</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">8</span><span class="cwl">C</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">G</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">9</span><span class="cwl">C</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">10</span><span class="cwl">M</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">B</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">Y</span></td></tr></table></div>1 竖 → <b>STANDARD</b>（标准的）<br>2 竖 → <b>FIGURE</b>（数字）<br>3 竖 → <b>FLOSSIE</b>（弗洛西）<br>4 竖 → <b>YELL</b>（大喊）<br>5 横 → <b>MINIMUM</b>（最低限度）<br>6 横 → <b>SILKWORM</b>（蚕宝宝）<br>7 竖 → <b>KILOGRAM</b>（千克）<br>8 横 → <b>COCOON</b>（茧）<br>9 横 → <b>CURTAIN</b>（帘子）<br>10 横 → <b>MULBERRY</b>（桑树）<br><br><b>B. Single Choice:</b><br>
+1 → <b>C</b>. The text says: <i>"she has just celebrated her 30th birthday."</i><br>
+2 → <b>B</b>. The text says: <i>"a moth's caterpillar, eating only mulberry leaves."</i><br>
+3 → <b>C</b>. The text says: <i>"It is one continuous thread, at a minimum 300 metres long."</i><br>
+4 → <b>B</b>. The text says: <i>"It means something is very expensive."</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. and&nbsp;&nbsp;2. and<br>
+B. 1. about&nbsp;&nbsp;2. about<br>
+C. 1. thinner&nbsp;&nbsp;2. longer<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol45/Vol45_晚读讲义_长寿猫与蚕宝宝_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 24.11, "end": 48.25, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we celebrate a very special birthday, then follow a tiny worm that makes one of the most amazing threads in the world. First, meet the oldest living cat on the planet. Then, discover how long a single silkworm's silk thread can be. Ready? Let's go!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天，我们先庆祝一个非常特别的生日，再去认识一条小小的虫子，它能造出世界上最神奇的丝线。首先，见见地球上现存最长寿的猫。然后，看看一条蚕宝宝的丝线到底能有多长。准备好了吗？出发！", "words": [{"w": "Hello,", "t": 24.11}, {"w": "young", "t": 24.54}, {"w": "explorers,", "t": 24.97}, {"w": "and", "t": 25.4}, {"w": "welcome", "t": 25.83}, {"w": "back", "t": 26.27}, {"w": "to", "t": 26.7}, {"w": "Michael's", "t": 27.13}, {"w": "Morning", "t": 27.56}, {"w": "Listening!", "t": 27.99}, {"w": "Today", "t": 28.42}, {"w": "we", "t": 28.85}, {"w": "celebrate", "t": 29.28}, {"w": "a", "t": 29.71}, {"w": "very", "t": 30.14}, {"w": "special", "t": 30.58}, {"w": "birthday,", "t": 31.01}, {"w": "then", "t": 31.44}, {"w": "follow", "t": 31.87}, {"w": "a", "t": 32.3}, {"w": "tiny", "t": 32.73}, {"w": "worm", "t": 33.16}, {"w": "that", "t": 33.59}, {"w": "makes", "t": 34.02}, {"w": "one", "t": 34.46}, {"w": "of", "t": 34.89}, {"w": "the", "t": 35.32}, {"w": "most", "t": 35.75}, {"w": "amazing", "t": 36.18}, {"w": "threads", "t": 36.61}, {"w": "in", "t": 37.04}, {"w": "the", "t": 37.47}, {"w": "world.", "t": 37.9}, {"w": "First,", "t": 38.34}, {"w": "meet", "t": 38.77}, {"w": "the", "t": 39.2}, {"w": "oldest", "t": 39.63}, {"w": "living", "t": 40.06}, {"w": "cat", "t": 40.49}, {"w": "on", "t": 40.92}, {"w": "the", "t": 41.35}, {"w": "planet.", "t": 41.78}, {"w": "Then,", "t": 42.22}, {"w": "discover", "t": 42.65}, {"w": "how", "t": 43.08}, {"w": "long", "t": 43.51}, {"w": "a", "t": 43.94}, {"w": "single", "t": 44.37}, {"w": "silkworm's", "t": 44.8}, {"w": "silk", "t": 45.23}, {"w": "thread", "t": 45.66}, {"w": "can", "t": 46.09}, {"w": "be.", "t": 46.53}, {"w": "Ready?", "t": 46.96}, {"w": "Let's", "t": 47.39}, {"w": "go!", "t": 47.82}]}, {"start": 61.51, "end": 91.52, "en": "In a quiet house in England lives a very special cat named Flossie. She is a tortoiseshell cat, black and brown, and she has just celebrated her 30th birthday. That makes her the oldest living cat in the world, confirmed by Guinness World Records. The standard lifespan of a pet cat is about 14 years, so Flossie has lived more than twice as long as most cats!", "title": "长寿猫", "cn": "在英国一座安静的房子里，住着一只非常特别的猫，名叫弗洛西。她是一只玳瑁猫，毛色黑棕相间，刚刚过了三十岁生日。这使她成为全世界现存最长寿的猫，这个纪录由吉尼斯世界纪录确认。宠物猫的标准寿命大约是 14 年，所以弗洛西活得比大多数猫长一倍还多！", "words": [{"w": "In", "t": 61.51}, {"w": "a", "t": 61.96}, {"w": "quiet", "t": 62.41}, {"w": "house", "t": 62.85}, {"w": "in", "t": 63.3}, {"w": "England", "t": 63.75}, {"w": "lives", "t": 64.2}, {"w": "a", "t": 64.65}, {"w": "very", "t": 65.09}, {"w": "special", "t": 65.54}, {"w": "cat", "t": 65.99}, {"w": "named", "t": 66.44}, {"w": "Flossie.", "t": 66.88}, {"w": "She", "t": 67.33}, {"w": "is", "t": 67.78}, {"w": "a", "t": 68.23}, {"w": "tortoiseshell", "t": 68.68}, {"w": "cat,", "t": 69.12}, {"w": "black", "t": 69.57}, {"w": "and", "t": 70.02}, {"w": "brown,", "t": 70.47}, {"w": "and", "t": 70.92}, {"w": "she", "t": 71.36}, {"w": "has", "t": 71.81}, {"w": "just", "t": 72.26}, {"w": "celebrated", "t": 72.71}, {"w": "her", "t": 73.16}, {"w": "30th", "t": 73.6}, {"w": "birthday.", "t": 74.05}, {"w": "That", "t": 74.5}, {"w": "makes", "t": 74.95}, {"w": "her", "t": 75.4}, {"w": "the", "t": 75.84}, {"w": "oldest", "t": 76.29}, {"w": "living", "t": 76.74}, {"w": "cat", "t": 77.19}, {"w": "in", "t": 77.63}, {"w": "the", "t": 78.08}, {"w": "world,", "t": 78.53}, {"w": "confirmed", "t": 78.98}, {"w": "by", "t": 79.43}, {"w": "Guinness", "t": 79.87}, {"w": "World", "t": 80.32}, {"w": "Records.", "t": 80.77}, {"w": "The", "t": 81.22}, {"w": "standard", "t": 81.67}, {"w": "lifespan", "t": 82.11}, {"w": "of", "t": 82.56}, {"w": "a", "t": 83.01}, {"w": "pet", "t": 83.46}, {"w": "cat", "t": 83.91}, {"w": "is", "t": 84.35}, {"w": "about", "t": 84.8}, {"w": "14", "t": 85.25}, {"w": "years,", "t": 85.7}, {"w": "so", "t": 86.15}, {"w": "Flossie", "t": 86.59}, {"w": "has", "t": 87.04}, {"w": "lived", "t": 87.49}, {"w": "more", "t": 87.94}, {"w": "than", "t": 88.38}, {"w": "twice", "t": 88.83}, {"w": "as", "t": 89.28}, {"w": "long", "t": 89.73}, {"w": "as", "t": 90.18}, {"w": "most", "t": 90.62}, {"w": "cats!", "t": 91.07}]}, {"start": 91.52, "end": 114.81, "en": "Flossie did not have an easy start: found as a kitten near a hospital, she lived with several different owners. Some cats live in shops, some even in breweries, but Flossie finally found a quiet home with her owner Vicki, who calls it Flossie's retirement home, where she gets whatever she wants.", "title": "长寿猫", "cn": "弗洛西的起步并不容易：她还是小猫时在医院附近被发现，之后换过好几位主人。有的猫住在商店里，有的甚至住在啤酒厂里，但弗洛西最终在主人薇姬家里找到了一个安静的家，薇姬把这里叫做弗洛西的养老之家，在这里她想要什么就有什么。", "words": [{"w": "Flossie", "t": 91.52}, {"w": "did", "t": 91.97}, {"w": "not", "t": 92.42}, {"w": "have", "t": 92.86}, {"w": "an", "t": 93.31}, {"w": "easy", "t": 93.76}, {"w": "start:", "t": 94.21}, {"w": "found", "t": 94.66}, {"w": "as", "t": 95.1}, {"w": "a", "t": 95.55}, {"w": "kitten", "t": 96.0}, {"w": "near", "t": 96.45}, {"w": "a", "t": 96.89}, {"w": "hospital,", "t": 97.34}, {"w": "she", "t": 97.79}, {"w": "lived", "t": 98.24}, {"w": "with", "t": 98.69}, {"w": "several", "t": 99.13}, {"w": "different", "t": 99.58}, {"w": "owners.", "t": 100.03}, {"w": "Some", "t": 100.48}, {"w": "cats", "t": 100.93}, {"w": "live", "t": 101.37}, {"w": "in", "t": 101.82}, {"w": "shops,", "t": 102.27}, {"w": "some", "t": 102.72}, {"w": "even", "t": 103.16}, {"w": "in", "t": 103.61}, {"w": "breweries,", "t": 104.06}, {"w": "but", "t": 104.51}, {"w": "Flossie", "t": 104.96}, {"w": "finally", "t": 105.4}, {"w": "found", "t": 105.85}, {"w": "a", "t": 106.3}, {"w": "quiet", "t": 106.75}, {"w": "home", "t": 107.2}, {"w": "with", "t": 107.64}, {"w": "her", "t": 108.09}, {"w": "owner", "t": 108.54}, {"w": "Vicki,", "t": 108.99}, {"w": "who", "t": 109.44}, {"w": "calls", "t": 109.88}, {"w": "it", "t": 110.33}, {"w": "Flossie's", "t": 110.78}, {"w": "retirement", "t": 111.23}, {"w": "home,", "t": 111.67}, {"w": "where", "t": 112.12}, {"w": "she", "t": 112.57}, {"w": "gets", "t": 113.02}, {"w": "whatever", "t": 113.47}, {"w": "she", "t": 113.91}, {"w": "wants.", "t": 114.36}]}, {"start": 114.81, "end": 143.47, "en": "Flossie cannot hear well now, and her eyesight is weak, but she still enjoys her days: meals, long naps in sunny spots, sometimes peeking out from behind the curtain, and gentle play. Her owner remarked that Flossie is not treated like a record holder at all. She is simply loved, and her family appreciate every day with her. Imagine everyone yelling, \"Happy birthday, Flossie!\"", "title": "长寿猫", "cn": "弗洛西现在听力不太好，视力也很弱，但她依然享受每一天：吃饭、在阳光充足的地方睡长觉、有时从帘子后面探出头来看看，还有轻轻地玩耍。主人说，弗洛西完全没有被当作纪录保持者来对待。她只是被爱着，家人珍爱和她在一起的每一天。想象一下，大家一起大喊：“弗洛西，生日快乐！”", "words": [{"w": "Flossie", "t": 114.81}, {"w": "cannot", "t": 115.26}, {"w": "hear", "t": 115.71}, {"w": "well", "t": 116.15}, {"w": "now,", "t": 116.6}, {"w": "and", "t": 117.05}, {"w": "her", "t": 117.5}, {"w": "eyesight", "t": 117.94}, {"w": "is", "t": 118.39}, {"w": "weak,", "t": 118.84}, {"w": "but", "t": 119.29}, {"w": "she", "t": 119.74}, {"w": "still", "t": 120.18}, {"w": "enjoys", "t": 120.63}, {"w": "her", "t": 121.08}, {"w": "days:", "t": 121.53}, {"w": "meals,", "t": 121.97}, {"w": "long", "t": 122.42}, {"w": "naps", "t": 122.87}, {"w": "in", "t": 123.32}, {"w": "sunny", "t": 123.77}, {"w": "spots,", "t": 124.21}, {"w": "sometimes", "t": 124.66}, {"w": "peeking", "t": 125.11}, {"w": "out", "t": 125.56}, {"w": "from", "t": 126.01}, {"w": "behind", "t": 126.45}, {"w": "the", "t": 126.9}, {"w": "curtain,", "t": 127.35}, {"w": "and", "t": 127.8}, {"w": "gentle", "t": 128.24}, {"w": "play.", "t": 128.69}, {"w": "Her", "t": 129.14}, {"w": "owner", "t": 129.59}, {"w": "remarked", "t": 130.04}, {"w": "that", "t": 130.48}, {"w": "Flossie", "t": 130.93}, {"w": "is", "t": 131.38}, {"w": "not", "t": 131.83}, {"w": "treated", "t": 132.27}, {"w": "like", "t": 132.72}, {"w": "a", "t": 133.17}, {"w": "record", "t": 133.62}, {"w": "holder", "t": 134.07}, {"w": "at", "t": 134.51}, {"w": "all.", "t": 134.96}, {"w": "She", "t": 135.41}, {"w": "is", "t": 135.86}, {"w": "simply", "t": 136.31}, {"w": "loved,", "t": 136.75}, {"w": "and", "t": 137.2}, {"w": "her", "t": 137.65}, {"w": "family", "t": 138.1}, {"w": "appreciate", "t": 138.54}, {"w": "every", "t": 138.99}, {"w": "day", "t": 139.44}, {"w": "with", "t": 139.89}, {"w": "her.", "t": 140.34}, {"w": "Imagine", "t": 140.78}, {"w": "everyone", "t": 141.23}, {"w": "yelling,", "t": 141.68}, {"w": "\"Happy", "t": 142.13}, {"w": "birthday,", "t": 142.57}, {"w": "Flossie!\"", "t": 143.02}]}, {"start": 154.17, "end": 173.41, "en": "Now, from a birthday cat, let's meet a tiny worker with a giant talent: the silkworm, a moth's caterpillar, eating only mulberry leaves. When fully grown, it stops eating and spins its cocoon, a soft case where it will change into a moth.", "title": "蚕宝宝", "cn": "说完生日猫，让我们认识一位身怀绝技的小工人：蚕宝宝，也就是飞蛾的幼虫，只吃桑叶。长大后，它不再吃东西，开始织茧——一个柔软的外壳，它将在里面变成飞蛾。", "words": [{"w": "Now,", "t": 154.17}, {"w": "from", "t": 154.62}, {"w": "a", "t": 155.06}, {"w": "birthday", "t": 155.51}, {"w": "cat,", "t": 155.96}, {"w": "let's", "t": 156.41}, {"w": "meet", "t": 156.85}, {"w": "a", "t": 157.3}, {"w": "tiny", "t": 157.75}, {"w": "worker", "t": 158.2}, {"w": "with", "t": 158.64}, {"w": "a", "t": 159.09}, {"w": "giant", "t": 159.54}, {"w": "talent:", "t": 159.99}, {"w": "the", "t": 160.43}, {"w": "silkworm,", "t": 160.88}, {"w": "a", "t": 161.33}, {"w": "moth's", "t": 161.78}, {"w": "caterpillar,", "t": 162.22}, {"w": "eating", "t": 162.67}, {"w": "only", "t": 163.12}, {"w": "mulberry", "t": 163.57}, {"w": "leaves.", "t": 164.01}, {"w": "When", "t": 164.46}, {"w": "fully", "t": 164.91}, {"w": "grown,", "t": 165.36}, {"w": "it", "t": 165.8}, {"w": "stops", "t": 166.25}, {"w": "eating", "t": 166.7}, {"w": "and", "t": 167.15}, {"w": "spins", "t": 167.59}, {"w": "its", "t": 168.04}, {"w": "cocoon,", "t": 168.49}, {"w": "a", "t": 168.94}, {"w": "soft", "t": 169.38}, {"w": "case", "t": 169.83}, {"w": "where", "t": 170.28}, {"w": "it", "t": 170.73}, {"w": "will", "t": 171.17}, {"w": "change", "t": 171.62}, {"w": "into", "t": 172.07}, {"w": "a", "t": 172.52}, {"w": "moth.", "t": 172.96}]}, {"start": 173.41, "end": 193.98, "en": "Here is the amazing part: the cocoon is spun from a single, unbroken thread of silk. Let me clarify: it is not many short pieces joined together. It is one continuous thread, at a minimum 300 metres long; some cocoons hold up to about 900 metres!", "title": "蚕宝宝", "cn": "最神奇的地方来了：蚕茧是由一根完整不断的丝线织成的。让我澄清一下：它不是很多短线接起来的。它是一根连续的丝线，最少也有 300 米长；有的茧甚至能达到大约 900 米！", "words": [{"w": "Here", "t": 173.41}, {"w": "is", "t": 173.86}, {"w": "the", "t": 174.3}, {"w": "amazing", "t": 174.75}, {"w": "part:", "t": 175.2}, {"w": "the", "t": 175.65}, {"w": "cocoon", "t": 176.09}, {"w": "is", "t": 176.54}, {"w": "spun", "t": 176.99}, {"w": "from", "t": 177.43}, {"w": "a", "t": 177.88}, {"w": "single,", "t": 178.33}, {"w": "unbroken", "t": 178.78}, {"w": "thread", "t": 179.22}, {"w": "of", "t": 179.67}, {"w": "silk.", "t": 180.12}, {"w": "Let", "t": 180.56}, {"w": "me", "t": 181.01}, {"w": "clarify:", "t": 181.46}, {"w": "it", "t": 181.91}, {"w": "is", "t": 182.35}, {"w": "not", "t": 182.8}, {"w": "many", "t": 183.25}, {"w": "short", "t": 183.69}, {"w": "pieces", "t": 184.14}, {"w": "joined", "t": 184.59}, {"w": "together.", "t": 185.04}, {"w": "It", "t": 185.48}, {"w": "is", "t": 185.93}, {"w": "one", "t": 186.38}, {"w": "continuous", "t": 186.83}, {"w": "thread,", "t": 187.27}, {"w": "at", "t": 187.72}, {"w": "a", "t": 188.17}, {"w": "minimum", "t": 188.61}, {"w": "300", "t": 189.06}, {"w": "metres", "t": 189.51}, {"w": "long;", "t": 189.96}, {"w": "some", "t": 190.4}, {"w": "cocoons", "t": 190.85}, {"w": "hold", "t": 191.3}, {"w": "up", "t": 191.74}, {"w": "to", "t": 192.19}, {"w": "about", "t": 192.64}, {"w": "900", "t": 193.09}, {"w": "metres!", "t": 193.53}]}, {"start": 193.98, "end": 222.16, "en": "How? Inside its body, the silkworm makes a liquid protein. It comes out through a tiny tube near its mouth and hardens in the air into a fine thread, about 10 micrometres wide, far thinner than a human hair. The worm moves its head in a figure-eight dance, laying down layer after layer for two or three days until the cocoon is finished.", "title": "蚕宝宝", "cn": "它是怎么做到的呢？在它的身体里，蚕宝宝会制造一种液体蛋白质。液体从它嘴边的一根小管子里出来，一接触空气就变硬，成为一根细丝，只有大约 10 微米宽，比人的头发细得多。蚕宝宝的头跳着“8”字舞，一层一层地织上两三天，直到茧完成。", "words": [{"w": "How?", "t": 193.98}, {"w": "Inside", "t": 194.43}, {"w": "its", "t": 194.87}, {"w": "body,", "t": 195.32}, {"w": "the", "t": 195.77}, {"w": "silkworm", "t": 196.22}, {"w": "makes", "t": 196.66}, {"w": "a", "t": 197.11}, {"w": "liquid", "t": 197.56}, {"w": "protein.", "t": 198.01}, {"w": "It", "t": 198.45}, {"w": "comes", "t": 198.9}, {"w": "out", "t": 199.35}, {"w": "through", "t": 199.79}, {"w": "a", "t": 200.24}, {"w": "tiny", "t": 200.69}, {"w": "tube", "t": 201.14}, {"w": "near", "t": 201.58}, {"w": "its", "t": 202.03}, {"w": "mouth", "t": 202.48}, {"w": "and", "t": 202.93}, {"w": "hardens", "t": 203.37}, {"w": "in", "t": 203.82}, {"w": "the", "t": 204.27}, {"w": "air", "t": 204.72}, {"w": "into", "t": 205.16}, {"w": "a", "t": 205.61}, {"w": "fine", "t": 206.06}, {"w": "thread,", "t": 206.5}, {"w": "about", "t": 206.95}, {"w": "10", "t": 207.4}, {"w": "micrometres", "t": 207.85}, {"w": "wide,", "t": 208.29}, {"w": "far", "t": 208.74}, {"w": "thinner", "t": 209.19}, {"w": "than", "t": 209.64}, {"w": "a", "t": 210.08}, {"w": "human", "t": 210.53}, {"w": "hair.", "t": 210.98}, {"w": "The", "t": 211.42}, {"w": "worm", "t": 211.87}, {"w": "moves", "t": 212.32}, {"w": "its", "t": 212.77}, {"w": "head", "t": 213.21}, {"w": "in", "t": 213.66}, {"w": "a", "t": 214.11}, {"w": "figure-eight", "t": 214.56}, {"w": "dance,", "t": 215.0}, {"w": "laying", "t": 215.45}, {"w": "down", "t": 215.9}, {"w": "layer", "t": 216.35}, {"w": "after", "t": 216.79}, {"w": "layer", "t": 217.24}, {"w": "for", "t": 217.69}, {"w": "two", "t": 218.13}, {"w": "or", "t": 218.58}, {"w": "three", "t": 219.03}, {"w": "days", "t": 219.48}, {"w": "until", "t": 219.92}, {"w": "the", "t": 220.37}, {"w": "cocoon", "t": 220.82}, {"w": "is", "t": 221.27}, {"w": "finished.", "t": 221.71}]}, {"start": 222.16, "end": 234.69, "en": "In total, thousands of cocoons make just one kilogram of silk. In ancient China, silk was so precious that only emperors, ministers, and rich families could wear it.", "title": "蚕宝宝", "cn": "总共算下来，几千个蚕茧才能做出一千克丝。在古代中国，丝绸非常珍贵，只有皇帝、大臣和富贵人家才能穿它。", "words": [{"w": "In", "t": 222.16}, {"w": "total,", "t": 222.61}, {"w": "thousands", "t": 223.06}, {"w": "of", "t": 223.5}, {"w": "cocoons", "t": 223.95}, {"w": "make", "t": 224.4}, {"w": "just", "t": 224.84}, {"w": "one", "t": 225.29}, {"w": "kilogram", "t": 225.74}, {"w": "of", "t": 226.19}, {"w": "silk.", "t": 226.63}, {"w": "In", "t": 227.08}, {"w": "ancient", "t": 227.53}, {"w": "China,", "t": 227.98}, {"w": "silk", "t": 228.43}, {"w": "was", "t": 228.87}, {"w": "so", "t": 229.32}, {"w": "precious", "t": 229.77}, {"w": "that", "t": 230.22}, {"w": "only", "t": 230.66}, {"w": "emperors,", "t": 231.11}, {"w": "ministers,", "t": 231.56}, {"w": "and", "t": 232.0}, {"w": "rich", "t": 232.45}, {"w": "families", "t": 232.9}, {"w": "could", "t": 233.35}, {"w": "wear", "t": 233.79}, {"w": "it.", "t": 234.24}]}, {"start": 250.59, "end": 284.79, "en": "Today's idiom is \"costs an arm and a leg.\" It means something is very expensive. For example: That silk dress costs an arm and a leg, because it took thousands of silkworms to make it! Flossie's birthday cake, though, did not cost an arm and a leg: she is happiest with simple food and a sunny nap. So it means a lot of money, but not really your arm or your leg, of course! Try it this week: tell your family about something that costs an arm and a leg.", "title": "今日俚语", "cn": "今天的俚语是“costs an arm and a leg”（要花一条胳膊和一条腿）。它的意思是某样东西非常贵。举个例子：那件丝绸裙子 costs an arm and a leg，因为它用了几千条蚕宝宝才做出来！不过，弗洛西的生日蛋糕就没有 cost an arm and a leg：她最开心的时候，就是吃点简单的食物、晒着太阳打个盹。所以，这个俚语的意思是“花很多钱”，当然不是真的要你的胳膊和腿！这周试试用它：跟家人说说某件 costs an arm and a leg 的东西。", "words": [{"w": "Today's", "t": 250.59}, {"w": "idiom", "t": 250.97}, {"w": "is", "t": 251.35}, {"w": "\"costs", "t": 251.73}, {"w": "an", "t": 252.11}, {"w": "arm", "t": 252.49}, {"w": "and", "t": 252.87}, {"w": "a", "t": 253.25}, {"w": "leg.\"", "t": 253.63}, {"w": "It", "t": 254.01}, {"w": "means", "t": 254.39}, {"w": "something", "t": 254.77}, {"w": "is", "t": 255.15}, {"w": "very", "t": 255.53}, {"w": "expensive.", "t": 255.91}, {"w": "For", "t": 256.29}, {"w": "example:", "t": 256.67}, {"w": "That", "t": 257.05}, {"w": "silk", "t": 257.43}, {"w": "dress", "t": 257.81}, {"w": "costs", "t": 258.19}, {"w": "an", "t": 258.57}, {"w": "arm", "t": 258.95}, {"w": "and", "t": 259.33}, {"w": "a", "t": 259.71}, {"w": "leg,", "t": 260.09}, {"w": "because", "t": 260.47}, {"w": "it", "t": 260.85}, {"w": "took", "t": 261.23}, {"w": "thousands", "t": 261.61}, {"w": "of", "t": 261.99}, {"w": "silkworms", "t": 262.37}, {"w": "to", "t": 262.75}, {"w": "make", "t": 263.13}, {"w": "it!", "t": 263.51}, {"w": "Flossie's", "t": 263.89}, {"w": "birthday", "t": 264.27}, {"w": "cake,", "t": 264.65}, {"w": "though,", "t": 265.03}, {"w": "did", "t": 265.41}, {"w": "not", "t": 265.79}, {"w": "cost", "t": 266.17}, {"w": "an", "t": 266.55}, {"w": "arm", "t": 266.93}, {"w": "and", "t": 267.31}, {"w": "a", "t": 267.69}, {"w": "leg:", "t": 268.07}, {"w": "she", "t": 268.45}, {"w": "is", "t": 268.83}, {"w": "happiest", "t": 269.21}, {"w": "with", "t": 269.59}, {"w": "simple", "t": 269.97}, {"w": "food", "t": 270.35}, {"w": "and", "t": 270.73}, {"w": "a", "t": 271.11}, {"w": "sunny", "t": 271.49}, {"w": "nap.", "t": 271.87}, {"w": "So", "t": 272.25}, {"w": "it", "t": 272.63}, {"w": "means", "t": 273.01}, {"w": "a", "t": 273.39}, {"w": "lot", "t": 273.77}, {"w": "of", "t": 274.15}, {"w": "money,", "t": 274.53}, {"w": "but", "t": 274.91}, {"w": "not", "t": 275.29}, {"w": "really", "t": 275.67}, {"w": "your", "t": 276.05}, {"w": "arm", "t": 276.43}, {"w": "or", "t": 276.81}, {"w": "your", "t": 277.19}, {"w": "leg,", "t": 277.57}, {"w": "of", "t": 277.95}, {"w": "course!", "t": 278.33}, {"w": "Try", "t": 278.71}, {"w": "it", "t": 279.09}, {"w": "this", "t": 279.47}, {"w": "week:", "t": 279.85}, {"w": "tell", "t": 280.23}, {"w": "your", "t": 280.61}, {"w": "family", "t": 280.99}, {"w": "about", "t": 281.37}, {"w": "something", "t": 281.75}, {"w": "that", "t": 282.13}, {"w": "costs", "t": 282.51}, {"w": "an", "t": 282.89}, {"w": "arm", "t": 283.27}, {"w": "and", "t": 283.65}, {"w": "a", "t": 284.03}, {"w": "leg.", "t": 284.41}]}, {"start": 298.37, "end": 321.1, "en": "Now it is your turn! Two questions for you. One: Flossie is 30, and a pet cat usually lives about 14 years. How much longer has Flossie lived? Two: a silkworm spins one thread up to about 900 metres long. Can you think of something near your home about that long? Talk about it with your family!", "title": "结束语与互动问题", "cn": "现在轮到你们啦！两个问题考考你。第一：弗洛西 30 岁了，而宠物猫通常活大约 14 年。弗洛西比一般猫多活了多少年？第二：蚕宝宝织的一根丝线最长可达大约 900 米。你能想到家附近有什么东西差不多这么长吗？和家人聊聊吧！", "words": [{"w": "Now", "t": 298.37}, {"w": "it", "t": 298.77}, {"w": "is", "t": 299.17}, {"w": "your", "t": 299.57}, {"w": "turn!", "t": 299.97}, {"w": "Two", "t": 300.36}, {"w": "questions", "t": 300.76}, {"w": "for", "t": 301.16}, {"w": "you.", "t": 301.56}, {"w": "One:", "t": 301.96}, {"w": "Flossie", "t": 302.36}, {"w": "is", "t": 302.76}, {"w": "30,", "t": 303.16}, {"w": "and", "t": 303.55}, {"w": "a", "t": 303.95}, {"w": "pet", "t": 304.35}, {"w": "cat", "t": 304.75}, {"w": "usually", "t": 305.15}, {"w": "lives", "t": 305.55}, {"w": "about", "t": 305.95}, {"w": "14", "t": 306.35}, {"w": "years.", "t": 306.74}, {"w": "How", "t": 307.14}, {"w": "much", "t": 307.54}, {"w": "longer", "t": 307.94}, {"w": "has", "t": 308.34}, {"w": "Flossie", "t": 308.74}, {"w": "lived?", "t": 309.14}, {"w": "Two:", "t": 309.54}, {"w": "a", "t": 309.93}, {"w": "silkworm", "t": 310.33}, {"w": "spins", "t": 310.73}, {"w": "one", "t": 311.13}, {"w": "thread", "t": 311.53}, {"w": "up", "t": 311.93}, {"w": "to", "t": 312.33}, {"w": "about", "t": 312.73}, {"w": "900", "t": 313.12}, {"w": "metres", "t": 313.52}, {"w": "long.", "t": 313.92}, {"w": "Can", "t": 314.32}, {"w": "you", "t": 314.72}, {"w": "think", "t": 315.12}, {"w": "of", "t": 315.52}, {"w": "something", "t": 315.92}, {"w": "near", "t": 316.31}, {"w": "your", "t": 316.71}, {"w": "home", "t": 317.11}, {"w": "about", "t": 317.51}, {"w": "that", "t": 317.91}, {"w": "long?", "t": 318.31}, {"w": "Talk", "t": 318.71}, {"w": "about", "t": 319.11}, {"w": "it", "t": 319.5}, {"w": "with", "t": 319.9}, {"w": "your", "t": 320.3}, {"w": "family!", "t": 320.7}]}, {"start": 332.76, "end": 346.78, "en": "That is all for today, young explorers. We appreciate you listening and learning with us. Keep your eyes open, keep asking questions, and we will meet again tomorrow morning. Goodbye, and have a wonderful day!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。感谢你们和我们一起听、一起学。保持好奇，继续提问，我们明天早上再见。再见，祝你度过美好的一天！", "words": [{"w": "That", "t": 332.76}, {"w": "is", "t": 333.16}, {"w": "all", "t": 333.56}, {"w": "for", "t": 333.96}, {"w": "today,", "t": 334.36}, {"w": "young", "t": 334.76}, {"w": "explorers.", "t": 335.16}, {"w": "We", "t": 335.56}, {"w": "appreciate", "t": 335.96}, {"w": "you", "t": 336.37}, {"w": "listening", "t": 336.77}, {"w": "and", "t": 337.17}, {"w": "learning", "t": 337.57}, {"w": "with", "t": 337.97}, {"w": "us.", "t": 338.37}, {"w": "Keep", "t": 338.77}, {"w": "your", "t": 339.17}, {"w": "eyes", "t": 339.57}, {"w": "open,", "t": 339.97}, {"w": "keep", "t": 340.37}, {"w": "asking", "t": 340.77}, {"w": "questions,", "t": 341.17}, {"w": "and", "t": 341.57}, {"w": "we", "t": 341.97}, {"w": "will", "t": 342.37}, {"w": "meet", "t": 342.77}, {"w": "again", "t": 343.17}, {"w": "tomorrow", "t": 343.58}, {"w": "morning.", "t": 343.98}, {"w": "Goodbye,", "t": 344.38}, {"w": "and", "t": 344.78}, {"w": "have", "t": 345.18}, {"w": "a", "t": 345.58}, {"w": "wonderful", "t": 345.98}, {"w": "day!", "t": 346.38}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol45/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
