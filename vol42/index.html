@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.42 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol42/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol42/cover.png" controls playsinline preload="metadata"></video>
+<h1>🪁 Vol.42 · 巨型章鱼风筝与河马的天然防晒霜</h1>
+<div class="meta">英文 593 词 ｜ 音频 5分33秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol42/story-kite.png" alt="巨型章鱼风筝">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol42/story-hippo.png" alt="河马的天然防晒霜">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">rain cats and dogs</span> <span class="phon">/ˌreɪn ˌkæts ən ˈdɒɡz/</span> (习语) 雨下得很大；倾盆大雨<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: It <b>rained cats and dogs</b>, so we waited under a big tent.</div>
+</div>
+<div class="vocab">
+  <span class="word">appreciate</span> <span class="phon">/əˈpriːʃieɪt/</span> (v.) 欣赏；感激；领会<br>
+  
+  <div class="example">Example: You have to <b>appreciate</b> how clever nature is!</div>
+</div>
+<div class="vocab">
+  <span class="word">clarify</span> <span class="phon">/ˈklærəfaɪ/</span> (v.) 澄清；阐明<br>
+  
+  <div class="example">Example: Let me <b>clarify</b>: it is not blood.</div>
+</div>
+<div class="vocab">
+  <span class="word">minimum</span> <span class="phon">/ˈmɪnɪməm/</span> (n./adj.) 最小值；最少的<br>
+  
+  <div class="example">Example: At <b>minimum</b>, six people hold the lines.</div>
+</div>
+<div class="vocab">
+  <span class="word">standard</span> <span class="phon">/ˈstændəd/</span> (adj.) 标准的；普通的<br>
+  
+  <div class="example">Example: A small <b>standard</b> kite fits in your hand.</div>
+</div>
+<div class="vocab">
+  <span class="word">total</span> <span class="phon">/ˈtəʊtl/</span> (n.) 总数；合计<br>
+  
+  <div class="example">Example: In <b>total</b>, a big festival can fill the sky with thousands of kites.</div>
+</div>
+<div class="vocab">
+  <span class="word">yell</span> <span class="phon">/jel/</span> (v.) 大叫；欢呼<br>
+  
+  <div class="example">Example: Visitors look up and <b>yell</b> with joy.</div>
+</div>
+<div class="vocab">
+  <span class="word">curtain</span> <span class="phon">/ˈkɜːtn/</span> (n.) 幕布；帘子<br>
+  
+  <div class="example">Example: The whole sky turns into a colorful <b>curtain</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">pigment</span> <span class="phon">/ˈpɪɡmənt/</span> (n.) 色素；颜料<br>
+  
+  <div class="example">Example: Scientists found two special <b>pigments</b> inside it.</div>
+</div>
+<div class="vocab">
+  <span class="word">ultraviolet</span> <span class="phon">/ˌʌltrəˈvaɪələt/</span> (adj.) 紫外线的<br>
+  
+  <div class="example">Example: They soak up the sun's <b>ultraviolet</b> rays.</div>
+</div>
+<div class="vocab">
+  <span class="word">bacteria</span> <span class="phon">/bækˈtɪəriə/</span> (n.) 细菌<br>
+  
+  <div class="example">Example: The same fluid also fights <b>bacteria</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">gland</span> <span class="phon">/ɡlænd/</span> (n.) 腺体<br>
+  
+  <div class="example">Example: Tiny <b>glands</b> under their skin make a clear, oily fluid.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 14, "ncols": 10, "words": [{"word": "MINIMUM", "row": 0, "col": 7, "dir": "D", "num": 1, "cn": "最少", "clue": "At ___, six people hold the lines."}, {"word": "HIPPO", "row": 1, "col": 2, "dir": "D", "num": 2, "cn": "河马", "clue": "When a ___ comes out of the water on a sunny day, its skin slowly turns pink."}, {"word": "RAIN", "row": 1, "col": 5, "dir": "A", "num": 3, "cn": "雨", "clue": "No cats or dogs really fall from the sky when it ___ cats and dogs."}, {"word": "KITE", "row": 3, "col": 6, "dir": "A", "num": 4, "cn": "风筝", "clue": "A small standard ___ fits in your hand."}, {"word": "OCTOPUS", "row": 5, "col": 2, "dir": "A", "num": 5, "cn": "章鱼", "clue": "But the biggest star of the show is an ___!"}, {"word": "CURTAIN", "row": 5, "col": 3, "dir": "D", "num": 6, "cn": "幕布", "clue": "The whole sky turns into a colorful ___."}, {"word": "PIGMENT", "row": 6, "col": 9, "dir": "D", "num": 7, "cn": "色素", "clue": "Scientists found two special ___s inside it."}, {"word": "FESTIVAL", "row": 8, "col": 0, "dir": "A", "num": 8, "cn": "风筝节", "clue": "At a giant kite ___, thousands of kites fill the air."}, {"word": "YELL", "row": 10, "col": 7, "dir": "D", "num": 9, "cn": "欢呼", "clue": "Visitors look up and ___ with joy."}, {"word": "SUNSCREEN", "row": 11, "col": 1, "dir": "A", "num": 10, "cn": "防晒霜", "clue": "Together, they work like a natural ___."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. How long is the famous octopus kite in the story?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. Eight meters</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. Eighteen meters</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. Eighty meters</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. Eight hundred meters</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. Why does a hippo&#x27;s skin turn pink in the sun?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. It is sunburned</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. Glands under its skin make a fluid that turns pink and red in the air and sun</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. It paints its skin pink</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. It eats pink flowers</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. What does &quot;rain cats and dogs&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. Cats and dogs fall from the sky</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. It rains very, very heavily</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. Animals love rainy days</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. It rains only at night</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. How many jobs does the hippo&#x27;s pink fluid do at once?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. One</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. Two</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. Three</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. Four</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：C</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [2, 1, 1, 2];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">When a hippo comes out of the water on a sunny day, its skin slowly turns pink.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li><i>When a hippo comes out of the water on a sunny day</i> 是<b>时间状语从句</b>：When（当……的时候）+ 一整句话，放在句首交代整件事发生的时间——河马从水里出来的时候。英语里 when 从句可以前置，主句在后，中间用逗号隔开。</li>
+  <li><i>slowly</i> 是<b>副词</b>：slowly（慢慢地）放在动词 turns 前面，告诉你变化的速度——不是一下子变粉，而是慢慢变粉。副词修饰动词，说明动作是怎样发生的。</li>
+  <li><i>turns pink</i> 是<b>系动词 + 表语</b>：turn（变成）+ 形容词 pink（粉色的），表示皮肤从原来的颜色变成了粉色。turn 后面跟形容词，不跟名词，这是“变色、变状态”的经典句型。</li>
+  <li>整句逻辑链：<b>时间（河马出水时）→ 方式（慢慢地）→ 变化（皮肤变粉）</b>。一句话里藏着时间状语从句、副词和系表结构三个机关。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. when 时间状语：用括号里的词补全</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">The fluid turns red ____ it meets the air.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">when</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">but</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">and</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：when</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">Visitors yell ____ the octopus kite flies up.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">but</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">when</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">and</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：when</p>
+</div>
+<p class="p4-gname">B. 系动词 + 表语：用括号里的词补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">The sky ____ dark at night.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">looks</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">seems</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">turns</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：turns</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">The fluid ____ pink in the sun.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">turns</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">looks</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">seems</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：turns</p>
+</div>
+<p class="p4-gname">C. so 结果状语：用括号里的词补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">They soak up the sun&#x27;s rays, ____ the skin does not burn.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">but</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">so</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">or</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：so</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">The kite is huge, ____ it needs a whole team.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">but</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">or</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">so</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：so</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>When a hippo comes out of the water on a sunny day, its skin slowly turns pink.</li>
+<li>A small standard kite fits in your hand, but these giants need a whole team.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">1</span><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">2</span><span class="cwl">H</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">3</span><span class="cwl">R</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">P</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">K</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">E</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">P</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">5</span><span class="cwl">O</span></td><td class="cwc"><span class="cwn">6</span><span class="cwl">C</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">M</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">7</span><span class="cwl">P</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td></tr><tr><td class="cwc"><span class="cwn">8</span><span class="cwl">F</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">V</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">G</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">M</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">9</span><span class="cwl">Y</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">10</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">N</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td></tr></table></div>1 竖 → <b>MINIMUM</b>（最少）<br>2 竖 → <b>HIPPO</b>（河马）<br>3 横 → <b>RAIN</b>（雨）<br>4 横 → <b>KITE</b>（风筝）<br>5 横 → <b>OCTOPUS</b>（章鱼）<br>6 竖 → <b>CURTAIN</b>（幕布）<br>7 竖 → <b>PIGMENT</b>（色素）<br>8 横 → <b>FESTIVAL</b>（风筝节）<br>9 竖 → <b>YELL</b>（欢呼）<br>10 横 → <b>SUNSCREEN</b>（防晒霜）<br><br><b>B. Single Choice:</b><br>
+1 → <b>C</b>. The text says: <i>"One famous octopus kite is eighty meters long."</i><br>
+2 → <b>B</b>. <i>"Tiny glands under their skin make a clear, oily fluid. In just a few minutes in the air and sun, the fluid turns pink and then red."</i><br>
+3 → <b>B</b>. The text says: <i>"When it rains cats and dogs, it rains very, very heavily!"</i><br>
+4 → <b>C</b>. The fluid works as sunscreen, fights bacteria, and keeps the skin soft and wet — three jobs at once.<br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. when&nbsp;&nbsp;2. when<br>
+B. 1. turns&nbsp;&nbsp;2. turns<br>
+C. 1. so&nbsp;&nbsp;2. so<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol42/Vol42_晚读讲义_巨型章鱼风筝与河马的天然防晒霜_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 22.27, "end": 38.4, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we have two surprises for you: a giant octopus that swims through the sky, and a river giant that makes its own sunscreen. Ready? Let's go!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天有两个惊喜等着你们：一只在天上游动的巨型章鱼，和一位会自己制造防晒霜的河里巨人。准备好了吗？出发！", "words": [{"w": "Hello,", "t": 22.27}, {"w": "young", "t": 22.71}, {"w": "explorers,", "t": 23.14}, {"w": "and", "t": 23.58}, {"w": "welcome", "t": 24.01}, {"w": "back", "t": 24.45}, {"w": "to", "t": 24.89}, {"w": "Michael's", "t": 25.32}, {"w": "Morning", "t": 25.76}, {"w": "Listening!", "t": 26.19}, {"w": "Today", "t": 26.63}, {"w": "we", "t": 27.07}, {"w": "have", "t": 27.5}, {"w": "two", "t": 27.94}, {"w": "surprises", "t": 28.37}, {"w": "for", "t": 28.81}, {"w": "you:", "t": 29.25}, {"w": "a", "t": 29.68}, {"w": "giant", "t": 30.12}, {"w": "octopus", "t": 30.55}, {"w": "that", "t": 30.99}, {"w": "swims", "t": 31.42}, {"w": "through", "t": 31.86}, {"w": "the", "t": 32.3}, {"w": "sky,", "t": 32.73}, {"w": "and", "t": 33.17}, {"w": "a", "t": 33.6}, {"w": "river", "t": 34.04}, {"w": "giant", "t": 34.48}, {"w": "that", "t": 34.91}, {"w": "makes", "t": 35.35}, {"w": "its", "t": 35.78}, {"w": "own", "t": 36.22}, {"w": "sunscreen.", "t": 36.66}, {"w": "Ready?", "t": 37.09}, {"w": "Let's", "t": 37.53}, {"w": "go!", "t": 37.96}]}, {"start": 54.62, "end": 72.73, "en": "First, let's look up at the sky. At a giant kite festival, thousands of kites fill the air. There are dragons and whales, sea turtles and astronauts, all floating high above the ground. But the biggest star of the show is an octopus — a giant octopus kite!", "title": "巨型章鱼风筝", "cn": "首先，让我们抬头看天。在巨型风筝节上，成千上万只风筝挤满了天空。有龙、有鲸鱼、有海龟，还有宇航员，全都高高地飘在地面上空。但全场最大的明星是一只章鱼——一只巨型章鱼风筝！", "words": [{"w": "First,", "t": 54.62}, {"w": "let's", "t": 55.0}, {"w": "look", "t": 55.37}, {"w": "up", "t": 55.75}, {"w": "at", "t": 56.13}, {"w": "the", "t": 56.51}, {"w": "sky.", "t": 56.88}, {"w": "At", "t": 57.26}, {"w": "a", "t": 57.64}, {"w": "giant", "t": 58.02}, {"w": "kite", "t": 58.39}, {"w": "festival,", "t": 58.77}, {"w": "thousands", "t": 59.15}, {"w": "of", "t": 59.52}, {"w": "kites", "t": 59.9}, {"w": "fill", "t": 60.28}, {"w": "the", "t": 60.66}, {"w": "air.", "t": 61.03}, {"w": "There", "t": 61.41}, {"w": "are", "t": 61.79}, {"w": "dragons", "t": 62.17}, {"w": "and", "t": 62.54}, {"w": "whales,", "t": 62.92}, {"w": "sea", "t": 63.3}, {"w": "turtles", "t": 63.67}, {"w": "and", "t": 64.05}, {"w": "astronauts,", "t": 64.43}, {"w": "all", "t": 64.81}, {"w": "floating", "t": 65.18}, {"w": "high", "t": 65.56}, {"w": "above", "t": 65.94}, {"w": "the", "t": 66.32}, {"w": "ground.", "t": 66.69}, {"w": "But", "t": 67.07}, {"w": "the", "t": 67.45}, {"w": "biggest", "t": 67.83}, {"w": "star", "t": 68.2}, {"w": "of", "t": 68.58}, {"w": "the", "t": 68.96}, {"w": "show", "t": 69.33}, {"w": "is", "t": 69.71}, {"w": "an", "t": 70.09}, {"w": "octopus", "t": 70.47}, {"w": "—", "t": 70.84}, {"w": "a", "t": 71.22}, {"w": "giant", "t": 71.6}, {"w": "octopus", "t": 71.98}, {"w": "kite!", "t": 72.35}]}, {"start": 72.73, "end": 96.87, "en": "One famous octopus kite is eighty meters long. That is longer than two blue whales, nose to tail! It took its maker six months to finish. It is so big that a team of at least six people must work together to fly it. At minimum, six people hold the lines, and sometimes they even need a car to pull it into the air!", "title": "巨型章鱼风筝", "cn": "一只著名的章鱼风筝有八十米长，比两头蓝鲸首尾相连还要长！它的制作者花了六个月才完成。它太大了，必须由至少六个人组成的小组齐心协力才能放起来。最少也得六个人拉着线，有时候甚至需要一辆汽车把它拖上天！", "words": [{"w": "One", "t": 72.73}, {"w": "famous", "t": 73.11}, {"w": "octopus", "t": 73.48}, {"w": "kite", "t": 73.86}, {"w": "is", "t": 74.24}, {"w": "eighty", "t": 74.62}, {"w": "meters", "t": 74.99}, {"w": "long.", "t": 75.37}, {"w": "That", "t": 75.75}, {"w": "is", "t": 76.12}, {"w": "longer", "t": 76.5}, {"w": "than", "t": 76.88}, {"w": "two", "t": 77.26}, {"w": "blue", "t": 77.63}, {"w": "whales,", "t": 78.01}, {"w": "nose", "t": 78.39}, {"w": "to", "t": 78.77}, {"w": "tail!", "t": 79.14}, {"w": "It", "t": 79.52}, {"w": "took", "t": 79.9}, {"w": "its", "t": 80.27}, {"w": "maker", "t": 80.65}, {"w": "six", "t": 81.03}, {"w": "months", "t": 81.41}, {"w": "to", "t": 81.78}, {"w": "finish.", "t": 82.16}, {"w": "It", "t": 82.54}, {"w": "is", "t": 82.91}, {"w": "so", "t": 83.29}, {"w": "big", "t": 83.67}, {"w": "that", "t": 84.05}, {"w": "a", "t": 84.42}, {"w": "team", "t": 84.8}, {"w": "of", "t": 85.18}, {"w": "at", "t": 85.55}, {"w": "least", "t": 85.93}, {"w": "six", "t": 86.31}, {"w": "people", "t": 86.69}, {"w": "must", "t": 87.06}, {"w": "work", "t": 87.44}, {"w": "together", "t": 87.82}, {"w": "to", "t": 88.19}, {"w": "fly", "t": 88.57}, {"w": "it.", "t": 88.95}, {"w": "At", "t": 89.33}, {"w": "minimum,", "t": 89.7}, {"w": "six", "t": 90.08}, {"w": "people", "t": 90.46}, {"w": "hold", "t": 90.84}, {"w": "the", "t": 91.21}, {"w": "lines,", "t": 91.59}, {"w": "and", "t": 91.97}, {"w": "sometimes", "t": 92.34}, {"w": "they", "t": 92.72}, {"w": "even", "t": 93.1}, {"w": "need", "t": 93.48}, {"w": "a", "t": 93.85}, {"w": "car", "t": 94.23}, {"w": "to", "t": 94.61}, {"w": "pull", "t": 94.98}, {"w": "it", "t": 95.36}, {"w": "into", "t": 95.74}, {"w": "the", "t": 96.12}, {"w": "air!", "t": 96.49}]}, {"start": 96.87, "end": 123.28, "en": "When the wind catches it, the long arms wave and dance, and the whole sky turns into a colorful curtain. Visitors look up and yell with joy. In total, a big festival can fill the sky with thousands of kites, and people come from many countries just to watch. A small standard kite fits in your hand, but these giants need a whole team — and a lot of sky!", "title": "巨型章鱼风筝", "cn": "当风抓住它时，长长的手臂挥舞跳舞，整个天空变成了一幅彩色的幕布。游客们抬头望着，高兴地欢呼起来。总的来说，一场大型风筝节可以让成千上万只风筝挤满天空，人们从许多国家赶来，只为看上一眼。一只小小的标准风筝可以握在手里，但这些庞然大物需要一整个团队——还有一大片天空！", "words": [{"w": "When", "t": 96.87}, {"w": "the", "t": 97.25}, {"w": "wind", "t": 97.62}, {"w": "catches", "t": 98.0}, {"w": "it,", "t": 98.38}, {"w": "the", "t": 98.76}, {"w": "long", "t": 99.13}, {"w": "arms", "t": 99.51}, {"w": "wave", "t": 99.89}, {"w": "and", "t": 100.27}, {"w": "dance,", "t": 100.64}, {"w": "and", "t": 101.02}, {"w": "the", "t": 101.4}, {"w": "whole", "t": 101.77}, {"w": "sky", "t": 102.15}, {"w": "turns", "t": 102.53}, {"w": "into", "t": 102.91}, {"w": "a", "t": 103.28}, {"w": "colorful", "t": 103.66}, {"w": "curtain.", "t": 104.04}, {"w": "Visitors", "t": 104.42}, {"w": "look", "t": 104.79}, {"w": "up", "t": 105.17}, {"w": "and", "t": 105.55}, {"w": "yell", "t": 105.92}, {"w": "with", "t": 106.3}, {"w": "joy.", "t": 106.68}, {"w": "In", "t": 107.06}, {"w": "total,", "t": 107.43}, {"w": "a", "t": 107.81}, {"w": "big", "t": 108.19}, {"w": "festival", "t": 108.57}, {"w": "can", "t": 108.94}, {"w": "fill", "t": 109.32}, {"w": "the", "t": 109.7}, {"w": "sky", "t": 110.08}, {"w": "with", "t": 110.45}, {"w": "thousands", "t": 110.83}, {"w": "of", "t": 111.21}, {"w": "kites,", "t": 111.58}, {"w": "and", "t": 111.96}, {"w": "people", "t": 112.34}, {"w": "come", "t": 112.72}, {"w": "from", "t": 113.09}, {"w": "many", "t": 113.47}, {"w": "countries", "t": 113.85}, {"w": "just", "t": 114.23}, {"w": "to", "t": 114.6}, {"w": "watch.", "t": 114.98}, {"w": "A", "t": 115.36}, {"w": "small", "t": 115.73}, {"w": "standard", "t": 116.11}, {"w": "kite", "t": 116.49}, {"w": "fits", "t": 116.87}, {"w": "in", "t": 117.24}, {"w": "your", "t": 117.62}, {"w": "hand,", "t": 118.0}, {"w": "but", "t": 118.38}, {"w": "these", "t": 118.75}, {"w": "giants", "t": 119.13}, {"w": "need", "t": 119.51}, {"w": "a", "t": 119.88}, {"w": "whole", "t": 120.26}, {"w": "team", "t": 120.64}, {"w": "—", "t": 121.02}, {"w": "and", "t": 121.39}, {"w": "a", "t": 121.77}, {"w": "lot", "t": 122.15}, {"w": "of", "t": 122.53}, {"w": "sky!", "t": 122.9}]}, {"start": 136.62, "end": 161.43, "en": "Now let's dive into the river and meet a very big animal with a very strange secret: the hippopotamus. When a hippo comes out of the water on a sunny day, its skin slowly turns pink. For a long time, people thought hippos sweated blood! Let me clarify: it is not blood, and it is not really sweat, either.", "title": "河马的天然防晒霜", "cn": "现在，让我们潜入河里，见一见一种身躯庞大、却藏着一个奇怪秘密的动物：河马。当河马在晴天从水里出来时，它的皮肤会慢慢变粉。很长一段时间里，人们都以为河马流的是血汗！让我澄清一下：那不是血，而且严格说来也不是汗。", "words": [{"w": "Now", "t": 136.62}, {"w": "let's", "t": 137.04}, {"w": "dive", "t": 137.46}, {"w": "into", "t": 137.88}, {"w": "the", "t": 138.3}, {"w": "river", "t": 138.72}, {"w": "and", "t": 139.14}, {"w": "meet", "t": 139.56}, {"w": "a", "t": 139.98}, {"w": "very", "t": 140.4}, {"w": "big", "t": 140.83}, {"w": "animal", "t": 141.25}, {"w": "with", "t": 141.67}, {"w": "a", "t": 142.09}, {"w": "very", "t": 142.51}, {"w": "strange", "t": 142.93}, {"w": "secret:", "t": 143.35}, {"w": "the", "t": 143.77}, {"w": "hippopotamus.", "t": 144.19}, {"w": "When", "t": 144.61}, {"w": "a", "t": 145.03}, {"w": "hippo", "t": 145.45}, {"w": "comes", "t": 145.87}, {"w": "out", "t": 146.29}, {"w": "of", "t": 146.71}, {"w": "the", "t": 147.13}, {"w": "water", "t": 147.55}, {"w": "on", "t": 147.97}, {"w": "a", "t": 148.39}, {"w": "sunny", "t": 148.81}, {"w": "day,", "t": 149.24}, {"w": "its", "t": 149.66}, {"w": "skin", "t": 150.08}, {"w": "slowly", "t": 150.5}, {"w": "turns", "t": 150.92}, {"w": "pink.", "t": 151.34}, {"w": "For", "t": 151.76}, {"w": "a", "t": 152.18}, {"w": "long", "t": 152.6}, {"w": "time,", "t": 153.02}, {"w": "people", "t": 153.44}, {"w": "thought", "t": 153.86}, {"w": "hippos", "t": 154.28}, {"w": "sweated", "t": 154.7}, {"w": "blood!", "t": 155.12}, {"w": "Let", "t": 155.54}, {"w": "me", "t": 155.96}, {"w": "clarify:", "t": 156.38}, {"w": "it", "t": 156.8}, {"w": "is", "t": 157.22}, {"w": "not", "t": 157.65}, {"w": "blood,", "t": 158.07}, {"w": "and", "t": 158.49}, {"w": "it", "t": 158.91}, {"w": "is", "t": 159.33}, {"w": "not", "t": 159.75}, {"w": "really", "t": 160.17}, {"w": "sweat,", "t": 160.59}, {"w": "either.", "t": 161.01}]}, {"start": 161.43, "end": 185.41, "en": "Hippos do not have sweat glands like we do. Instead, tiny glands under their skin make a clear, oily fluid. In just a few minutes in the air and sun, the fluid turns pink and then red. Scientists found two special pigments inside it: a red one called hipposudoric acid, and an orange one called norhipposudoric acid.", "title": "河马的天然防晒霜", "cn": "河马没有像我们这样的汗腺。相反，它们皮肤下面微小的腺体会分泌一种清澈的油性液体。在空气和阳光下短短几分钟里，这种液体就会变粉、再变红。科学家在里面发现了两种特殊的色素：一种是红色的河马汗酸，另一种是橙色的去甲河马汗酸。", "words": [{"w": "Hippos", "t": 161.43}, {"w": "do", "t": 161.85}, {"w": "not", "t": 162.27}, {"w": "have", "t": 162.69}, {"w": "sweat", "t": 163.11}, {"w": "glands", "t": 163.53}, {"w": "like", "t": 163.95}, {"w": "we", "t": 164.37}, {"w": "do.", "t": 164.8}, {"w": "Instead,", "t": 165.22}, {"w": "tiny", "t": 165.64}, {"w": "glands", "t": 166.06}, {"w": "under", "t": 166.48}, {"w": "their", "t": 166.9}, {"w": "skin", "t": 167.32}, {"w": "make", "t": 167.74}, {"w": "a", "t": 168.16}, {"w": "clear,", "t": 168.58}, {"w": "oily", "t": 169.0}, {"w": "fluid.", "t": 169.42}, {"w": "In", "t": 169.84}, {"w": "just", "t": 170.26}, {"w": "a", "t": 170.69}, {"w": "few", "t": 171.11}, {"w": "minutes", "t": 171.53}, {"w": "in", "t": 171.95}, {"w": "the", "t": 172.37}, {"w": "air", "t": 172.79}, {"w": "and", "t": 173.21}, {"w": "sun,", "t": 173.63}, {"w": "the", "t": 174.05}, {"w": "fluid", "t": 174.47}, {"w": "turns", "t": 174.89}, {"w": "pink", "t": 175.31}, {"w": "and", "t": 175.73}, {"w": "then", "t": 176.15}, {"w": "red.", "t": 176.58}, {"w": "Scientists", "t": 177.0}, {"w": "found", "t": 177.42}, {"w": "two", "t": 177.84}, {"w": "special", "t": 178.26}, {"w": "pigments", "t": 178.68}, {"w": "inside", "t": 179.1}, {"w": "it:", "t": 179.52}, {"w": "a", "t": 179.94}, {"w": "red", "t": 180.36}, {"w": "one", "t": 180.78}, {"w": "called", "t": 181.2}, {"w": "hipposudoric", "t": 181.62}, {"w": "acid,", "t": 182.04}, {"w": "and", "t": 182.47}, {"w": "an", "t": 182.89}, {"w": "orange", "t": 183.31}, {"w": "one", "t": 183.73}, {"w": "called", "t": 184.15}, {"w": "norhipposudoric", "t": 184.57}, {"w": "acid.", "t": 184.99}]}, {"start": 185.41, "end": 209.8, "en": "Together, they work like a natural sunscreen. They soak up the sun's ultraviolet rays, so the hippo's sensitive skin does not burn. The same fluid also fights bacteria, so small cuts from life in a muddy river do not easily get infected. And because it is oily, it keeps the skin soft and wet, like a built-in moisturizer.", "title": "河马的天然防晒霜", "cn": "它们一起，就像一种天然防晒霜。它们吸收太阳的紫外线，这样河马敏感的皮肤就不会被晒伤。同一种液体还能对抗细菌，所以在泥泞河里生活时受的小伤口不容易感染。而且因为它是油性的，它能让皮肤保持柔软湿润，就像自带的保湿霜。", "words": [{"w": "Together,", "t": 185.41}, {"w": "they", "t": 185.83}, {"w": "work", "t": 186.25}, {"w": "like", "t": 186.67}, {"w": "a", "t": 187.09}, {"w": "natural", "t": 187.51}, {"w": "sunscreen.", "t": 187.93}, {"w": "They", "t": 188.35}, {"w": "soak", "t": 188.77}, {"w": "up", "t": 189.19}, {"w": "the", "t": 189.62}, {"w": "sun's", "t": 190.04}, {"w": "ultraviolet", "t": 190.46}, {"w": "rays,", "t": 190.88}, {"w": "so", "t": 191.3}, {"w": "the", "t": 191.72}, {"w": "hippo's", "t": 192.14}, {"w": "sensitive", "t": 192.56}, {"w": "skin", "t": 192.98}, {"w": "does", "t": 193.4}, {"w": "not", "t": 193.82}, {"w": "burn.", "t": 194.24}, {"w": "The", "t": 194.66}, {"w": "same", "t": 195.08}, {"w": "fluid", "t": 195.5}, {"w": "also", "t": 195.92}, {"w": "fights", "t": 196.34}, {"w": "bacteria,", "t": 196.76}, {"w": "so", "t": 197.18}, {"w": "small", "t": 197.61}, {"w": "cuts", "t": 198.03}, {"w": "from", "t": 198.45}, {"w": "life", "t": 198.87}, {"w": "in", "t": 199.29}, {"w": "a", "t": 199.71}, {"w": "muddy", "t": 200.13}, {"w": "river", "t": 200.55}, {"w": "do", "t": 200.97}, {"w": "not", "t": 201.39}, {"w": "easily", "t": 201.81}, {"w": "get", "t": 202.23}, {"w": "infected.", "t": 202.65}, {"w": "And", "t": 203.07}, {"w": "because", "t": 203.49}, {"w": "it", "t": 203.91}, {"w": "is", "t": 204.33}, {"w": "oily,", "t": 204.75}, {"w": "it", "t": 205.17}, {"w": "keeps", "t": 205.59}, {"w": "the", "t": 206.02}, {"w": "skin", "t": 206.44}, {"w": "soft", "t": 206.86}, {"w": "and", "t": 207.28}, {"w": "wet,", "t": 207.7}, {"w": "like", "t": 208.12}, {"w": "a", "t": 208.54}, {"w": "built-in", "t": 208.96}, {"w": "moisturizer.", "t": 209.38}]}, {"start": 209.8, "end": 226.62, "en": "Hippos spend most of the day in the water to stay cool. But when they come out onto the bank in the sun, their own pink sunscreen is already on the job. You have to appreciate how clever nature is!", "title": "河马的天然防晒霜", "cn": "河马一天中的大部分时间都待在水里，好保持凉爽。但当它们在阳光下走上河岸时，自己那粉色的防晒霜已经开始工作了。你不得不佩服大自然是多么聪明！", "words": [{"w": "Hippos", "t": 209.8}, {"w": "spend", "t": 210.22}, {"w": "most", "t": 210.64}, {"w": "of", "t": 211.06}, {"w": "the", "t": 211.48}, {"w": "day", "t": 211.9}, {"w": "in", "t": 212.32}, {"w": "the", "t": 212.74}, {"w": "water", "t": 213.16}, {"w": "to", "t": 213.58}, {"w": "stay", "t": 214.0}, {"w": "cool.", "t": 214.43}, {"w": "But", "t": 214.85}, {"w": "when", "t": 215.27}, {"w": "they", "t": 215.69}, {"w": "come", "t": 216.11}, {"w": "out", "t": 216.53}, {"w": "onto", "t": 216.95}, {"w": "the", "t": 217.37}, {"w": "bank", "t": 217.79}, {"w": "in", "t": 218.21}, {"w": "the", "t": 218.63}, {"w": "sun,", "t": 219.05}, {"w": "their", "t": 219.47}, {"w": "own", "t": 219.89}, {"w": "pink", "t": 220.31}, {"w": "sunscreen", "t": 220.73}, {"w": "is", "t": 221.15}, {"w": "already", "t": 221.57}, {"w": "on", "t": 221.99}, {"w": "the", "t": 222.42}, {"w": "job.", "t": 222.84}, {"w": "You", "t": 223.26}, {"w": "have", "t": 223.68}, {"w": "to", "t": 224.1}, {"w": "appreciate", "t": 224.52}, {"w": "how", "t": 224.94}, {"w": "clever", "t": 225.36}, {"w": "nature", "t": 225.78}, {"w": "is!", "t": 226.2}]}, {"start": 240.68, "end": 264.87, "en": "Here's today's idiom: 'rain cats and dogs.' When it rains cats and dogs, it rains very, very heavily! Here's an example: 'We wanted to fly our kites at the festival, but it rained cats and dogs, so we waited under a big tent.' No cats or dogs really fall from the sky — it is just a fun way to say the rain is pouring down!", "title": "今日俚语", "cn": "今天的俚语是“rain cats and dogs”（下猫下狗）。当 it rains cats and dogs 时，雨下得非常非常大！举个例子：“我们想在风筝节上放风筝，但当时雨下得像猫狗从天上掉下来一样，所以我们就在一个大帐篷下面等着。”其实并没有猫狗真的从天上掉下来——这只是说雨倾盆而下的一种有趣说法！", "words": [{"w": "Here's", "t": 240.68}, {"w": "today's", "t": 241.05}, {"w": "idiom:", "t": 241.41}, {"w": "'rain", "t": 241.78}, {"w": "cats", "t": 242.15}, {"w": "and", "t": 242.51}, {"w": "dogs.'", "t": 242.88}, {"w": "When", "t": 243.25}, {"w": "it", "t": 243.61}, {"w": "rains", "t": 243.98}, {"w": "cats", "t": 244.35}, {"w": "and", "t": 244.71}, {"w": "dogs,", "t": 245.08}, {"w": "it", "t": 245.44}, {"w": "rains", "t": 245.81}, {"w": "very,", "t": 246.18}, {"w": "very", "t": 246.54}, {"w": "heavily!", "t": 246.91}, {"w": "Here's", "t": 247.28}, {"w": "an", "t": 247.64}, {"w": "example:", "t": 248.01}, {"w": "'We", "t": 248.38}, {"w": "wanted", "t": 248.74}, {"w": "to", "t": 249.11}, {"w": "fly", "t": 249.48}, {"w": "our", "t": 249.84}, {"w": "kites", "t": 250.21}, {"w": "at", "t": 250.58}, {"w": "the", "t": 250.94}, {"w": "festival,", "t": 251.31}, {"w": "but", "t": 251.68}, {"w": "it", "t": 252.04}, {"w": "rained", "t": 252.41}, {"w": "cats", "t": 252.78}, {"w": "and", "t": 253.14}, {"w": "dogs,", "t": 253.51}, {"w": "so", "t": 253.87}, {"w": "we", "t": 254.24}, {"w": "waited", "t": 254.61}, {"w": "under", "t": 254.97}, {"w": "a", "t": 255.34}, {"w": "big", "t": 255.71}, {"w": "tent.'", "t": 256.07}, {"w": "No", "t": 256.44}, {"w": "cats", "t": 256.81}, {"w": "or", "t": 257.17}, {"w": "dogs", "t": 257.54}, {"w": "really", "t": 257.91}, {"w": "fall", "t": 258.27}, {"w": "from", "t": 258.64}, {"w": "the", "t": 259.01}, {"w": "sky", "t": 259.37}, {"w": "—", "t": 259.74}, {"w": "it", "t": 260.11}, {"w": "is", "t": 260.47}, {"w": "just", "t": 260.84}, {"w": "a", "t": 261.2}, {"w": "fun", "t": 261.57}, {"w": "way", "t": 261.94}, {"w": "to", "t": 262.3}, {"w": "say", "t": 262.67}, {"w": "the", "t": 263.04}, {"w": "rain", "t": 263.4}, {"w": "is", "t": 263.77}, {"w": "pouring", "t": 264.14}, {"w": "down!", "t": 264.5}]}, {"start": 279.65, "end": 303.53, "en": "Let's think about our stories: a giant octopus kite that needs a whole team, and a hippo that makes its own sunscreen. First: if you could design any giant kite, what animal or shape would you pick? Second: the hippo's pink fluid does three jobs at once — can you think of another animal with a clever trick like that? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事：一只需要一整个团队才能放起来的巨型章鱼风筝，和一只会自己制造防晒霜的河马。第一：如果你能设计任意一只巨型风筝，你会选什么动物或形状？第二：河马的粉色液体一次能干三件活——你能想到还有哪种动物也有这样聪明的把戏吗？和家人聊聊吧！", "words": [{"w": "Let's", "t": 279.65}, {"w": "think", "t": 280.01}, {"w": "about", "t": 280.37}, {"w": "our", "t": 280.74}, {"w": "stories:", "t": 281.1}, {"w": "a", "t": 281.46}, {"w": "giant", "t": 281.82}, {"w": "octopus", "t": 282.18}, {"w": "kite", "t": 282.54}, {"w": "that", "t": 282.91}, {"w": "needs", "t": 283.27}, {"w": "a", "t": 283.63}, {"w": "whole", "t": 283.99}, {"w": "team,", "t": 284.35}, {"w": "and", "t": 284.72}, {"w": "a", "t": 285.08}, {"w": "hippo", "t": 285.44}, {"w": "that", "t": 285.8}, {"w": "makes", "t": 286.16}, {"w": "its", "t": 286.52}, {"w": "own", "t": 286.89}, {"w": "sunscreen.", "t": 287.25}, {"w": "First:", "t": 287.61}, {"w": "if", "t": 287.97}, {"w": "you", "t": 288.33}, {"w": "could", "t": 288.7}, {"w": "design", "t": 289.06}, {"w": "any", "t": 289.42}, {"w": "giant", "t": 289.78}, {"w": "kite,", "t": 290.14}, {"w": "what", "t": 290.5}, {"w": "animal", "t": 290.87}, {"w": "or", "t": 291.23}, {"w": "shape", "t": 291.59}, {"w": "would", "t": 291.95}, {"w": "you", "t": 292.31}, {"w": "pick?", "t": 292.68}, {"w": "Second:", "t": 293.04}, {"w": "the", "t": 293.4}, {"w": "hippo's", "t": 293.76}, {"w": "pink", "t": 294.12}, {"w": "fluid", "t": 294.48}, {"w": "does", "t": 294.85}, {"w": "three", "t": 295.21}, {"w": "jobs", "t": 295.57}, {"w": "at", "t": 295.93}, {"w": "once", "t": 296.29}, {"w": "—", "t": 296.66}, {"w": "can", "t": 297.02}, {"w": "you", "t": 297.38}, {"w": "think", "t": 297.74}, {"w": "of", "t": 298.1}, {"w": "another", "t": 298.46}, {"w": "animal", "t": 298.83}, {"w": "with", "t": 299.19}, {"w": "a", "t": 299.55}, {"w": "clever", "t": 299.91}, {"w": "trick", "t": 300.27}, {"w": "like", "t": 300.64}, {"w": "that?", "t": 301.0}, {"w": "Talk", "t": 301.36}, {"w": "about", "t": 301.72}, {"w": "it", "t": 302.08}, {"w": "with", "t": 302.44}, {"w": "your", "t": 302.81}, {"w": "family!", "t": 303.17}]}, {"start": 312.79, "end": 324.24, "en": "That's all for today, young explorers. Keep looking up, keep wondering, and may your next rainy day never rain cats and dogs — unless you love puddles! See you tomorrow!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。继续抬头看天，保持好奇，愿你下一个雨天永远不要下猫下狗——除非你喜欢水坑！明天见！", "words": [{"w": "That's", "t": 312.79}, {"w": "all", "t": 313.17}, {"w": "for", "t": 313.55}, {"w": "today,", "t": 313.94}, {"w": "young", "t": 314.32}, {"w": "explorers.", "t": 314.7}, {"w": "Keep", "t": 315.08}, {"w": "looking", "t": 315.46}, {"w": "up,", "t": 315.84}, {"w": "keep", "t": 316.23}, {"w": "wondering,", "t": 316.61}, {"w": "and", "t": 316.99}, {"w": "may", "t": 317.37}, {"w": "your", "t": 317.75}, {"w": "next", "t": 318.13}, {"w": "rainy", "t": 318.51}, {"w": "day", "t": 318.9}, {"w": "never", "t": 319.28}, {"w": "rain", "t": 319.66}, {"w": "cats", "t": 320.04}, {"w": "and", "t": 320.42}, {"w": "dogs", "t": 320.81}, {"w": "—", "t": 321.19}, {"w": "unless", "t": 321.57}, {"w": "you", "t": 321.95}, {"w": "love", "t": 322.33}, {"w": "puddles!", "t": 322.71}, {"w": "See", "t": 323.1}, {"w": "you", "t": 323.48}, {"w": "tomorrow!", "t": 323.86}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol42/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
