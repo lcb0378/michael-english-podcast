@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.29 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol29/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol29/cover.png" controls playsinline preload="metadata"></video>
+<h1>⛵ Vol.29 · 独自航海的少女与用脚听话的大象</h1>
+<div class="meta">英文 599 词 ｜ 音频 5分57秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol29/story-sail.png" alt="独自航海的少女">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol29/story-elephant.png" alt="用脚听话的大象">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">through thick and thin</span> <span class="phon">/θruː θɪk ənd θɪn/</span> (习语) 风雨同舟；不离不弃<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: True friends stay together <b>through thick and thin</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">patience</span> <span class="phon">/ˈpeɪʃns/</span> (n.) 耐心；忍耐<br>
+  
+  <div class="example">Example: She waited with <b>patience</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">vivid</span> <span class="phon">/ˈvɪvɪd/</span> (adj.) 鲜艳的；生动的<br>
+  
+  <div class="example">Example: Her <b>vivid</b> red boat.</div>
+</div>
+<div class="vocab">
+  <span class="word">spray</span> <span class="phon">/spreɪ/</span> (n.) 水花；喷雾<br>
+  
+  <div class="example">Example: Sea <b>spray</b> flew over the bow.</div>
+</div>
+<div class="vocab">
+  <span class="word">pedestrian</span> <span class="phon">/pəˈdestriən/</span> (n.) 行人<br>
+  
+  <div class="example">Example: <b>Pedestrians</b> on the shore stopped and cheered.</div>
+</div>
+<div class="vocab">
+  <span class="word">erupt</span> <span class="phon">/ɪˈrʌpt/</span> (v.) 迸发；爆发<br>
+  
+  <div class="example">Example: The whole harbour <b>erupted</b> in cheers.</div>
+</div>
+<div class="vocab">
+  <span class="word">caption</span> <span class="phon">/ˈkæpʃn/</span> (n.) 说明文字；标题<br>
+  
+  <div class="example">Example: The <b>caption</b> under her photo says simply: a girl, a boat, and a dream.</div>
+</div>
+<div class="vocab">
+  <span class="word">ambassador</span> <span class="phon">/æmˈbæsədər/</span> (n.) 代言人；大使<br>
+  
+  <div class="example">Example: She is an <b>ambassador</b> for young sailors.</div>
+</div>
+<div class="vocab">
+  <span class="word">format</span> <span class="phon">/ˈfɔːrmæt/</span> (n.) 形式；载体<br>
+  
+  <div class="example">Example: Their message comes in more than one <b>format</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">deaf</span> <span class="phon">/def/</span> (adj.) 听不见的<br>
+  
+  <div class="example">Example: We are nearly <b>deaf</b> to its deepest calls.</div>
+</div>
+<div class="vocab">
+  <span class="word">discrimination</span> <span class="phon">/dɪˌskrɪmɪˈneɪʃn/</span> (n.) 分辨；辨别<br>
+  
+  <div class="example">Example: They even show fine <b>discrimination</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">rumble</span> <span class="phon">/ˈrʌmbl/</span> (n.) 低鸣声；隆隆声<br>
+  
+  <div class="example">Example: An elephant's <b>rumble</b> is so low.</div>
+</div>
+<div class="vocab">
+  <span class="word">vibration</span> <span class="phon">/vaɪˈbreɪʃn/</span> (n.) 震动<br>
+  
+  <div class="example">Example: Tiny sensors that pick up <b>vibrations</b>.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 12, "ncols": 13, "words": [{"word": "KETCH", "row": 0, "col": 3, "dir": "D", "num": 1, "cn": "双桅帆船", "clue": "a twelve-metre ___ called Guppy."}, {"word": "SPRAY", "row": 0, "col": 6, "dir": "D", "num": 2, "cn": "水花", "clue": "Sea ___ flew over the bow."}, {"word": "ELEPHANT", "row": 1, "col": 3, "dir": "A", "num": 3, "cn": "大象", "clue": "An ___'s rumble is so low that it sits below what our ears can catch."}, {"word": "PATIENCE", "row": 3, "col": 5, "dir": "A", "num": 4, "cn": "耐心", "clue": "She waited with ___."}, {"word": "CAPTION", "row": 3, "col": 11, "dir": "D", "num": 5, "cn": "说明文字", "clue": "The ___ under her photo says simply: a girl, a boat, and a dream."}, {"word": "HARBOUR", "row": 5, "col": 1, "dir": "D", "num": 6, "cn": "港口", "clue": "the whole ___ erupted in cheers."}, {"word": "GUPPY", "row": 5, "col": 8, "dir": "A", "num": 7, "cn": "古比号（小船名）", "clue": "a twelve-metre ketch called ___."}, {"word": "SAILOR", "row": 6, "col": 0, "dir": "A", "num": 8, "cn": "水手", "clue": "she is an ambassador for young ___."}, {"word": "RUMBLE", "row": 6, "col": 5, "dir": "D", "num": 9, "cn": "低鸣声", "clue": "An elephant's ___ is so low that it sits below what our ears can catch."}, {"word": "VIBRATION", "row": 9, "col": 3, "dir": "A", "num": 10, "cn": "震动", "clue": "tiny sensors that pick up ___s."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. How old was Laura when she finished her solo voyage around the world?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. Fourteen</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. Fifteen</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. Sixteen</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. Eighteen</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. What is the name of Laura&#x27;s boat?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. Guppy</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. Sint Maarten</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. Pacific</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. Panama</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：A</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. How do elephants pick up trembles from the ground?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. With their ears only</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. With sensors in their foot pads</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. With their trunks in the air</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. With their eyes</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does &quot;through thick and thin&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. Through a thick book</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. Staying together in good times and bad times</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. Walking in the forest</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. Eating thick food</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：B</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [2, 0, 1, 1];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">The tremble <b class="kw">travels up</b> the bones of the leg <b class="kw">and into</b> the inner ear, <b class="kw">where</b> the brain <b class="kw">reads it as sound</b>.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li><i>travels up … and into …</i> 是<b>and 连接两个方向短语</b>：up the bones of the leg（沿着腿骨向上）和 into the inner ear（进入内耳）是同一动作 travels 的两段路程，and 把它们串成一条完整的路线——先上行、再进入。</li>
+  <li><i>where</i> 引导<b>定语从句</b>：where = in the inner ear（在内耳里），修饰前面的 the inner ear，说明大脑是在哪里把震动解读为声音的。where 从句前面必须有一个表示地点的名词（这里是 ear），不能悬空。</li>
+  <li><i>reads it as sound</i> 是<b>read … as …（把……解读为……）</b>：read 在这里不是“读书”，而是“解读、理解”；it 指前面的 tremble（震动）；as sound 说明解读的结果是“声音”。整句逻辑链：<b>震动上行 → 进入内耳 → 大脑在那里把它解读为声音</b>。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. and 连接两个方向/地点：用括号里的词补全</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">The message travels through the air ____ through the ground.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">and</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">or</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">but</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：and</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">Laura sailed across the Pacific ____ around the Cape of Good Hope.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">or</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">and</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">but</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：and</p>
+</div>
+<p class="p4-gname">B. where 定语从句：用括号里的词补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">This is the waterhole ____ elephants drink and listen.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">which</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">when</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">where</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：where</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">The inner ear is the place ____ the brain reads trembles as sound.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">where</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">which</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">when</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：where</p>
+</div>
+<p class="p4-gname">C. read … as …：用括号里的词补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">The brain reads the tremble ____ sound.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">like</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">as</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">for</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：as</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">We read the footprints ____ a message from far away.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">like</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">for</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">as</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：as</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>The tremble travels up the bones of the leg and into the inner ear, where the brain reads it as sound.</li>
+<li>True friends stay together through thick and thin, in sunny days and in great storms.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">1</span><span class="cwl">K</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">2</span><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">3</span><span class="cwl">E</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">H</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">P</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwn">5</span><span class="cwl">C</span></td><td class="cwc"><span class="cwl">E</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">H</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">Y</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">6</span><span class="cwl">H</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">7</span><span class="cwl">G</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">P</span></td><td class="cwc"><span class="cwl">Y</span></td></tr><tr><td class="cwc"><span class="cwn">8</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwn">9</span><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">B</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">M</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">10</span><span class="cwl">V</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">B</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">L</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr></table></div>1 竖 → <b>KETCH</b>（双桅帆船）<br>2 竖 → <b>SPRAY</b>（水花）<br>3 横 → <b>ELEPHANT</b>（大象）<br>4 横 → <b>PATIENCE</b>（耐心）<br>5 竖 → <b>CAPTION</b>（说明文字）<br>6 竖 → <b>HARBOUR</b>（港口）<br>7 横 → <b>GUPPY</b>（古比号（小船名））<br>8 横 → <b>SAILOR</b>（水手）<br>9 竖 → <b>RUMBLE</b>（低鸣声）<br>10 横 → <b>VIBRATION</b>（震动）<br><br><b>B. Single Choice:</b><br>
+1 → <b>C</b>. The text says: <i>"At sixteen, she was the youngest person ever to sail around the world alone."</i><br>
+2 → <b>A</b>. The text says she set off in <i>"a twelve-metre ketch called Guppy."</i><br>
+3 → <b>B</b>. The text says the foot has <i>"a soft pad, full of tiny sensors that pick up vibrations."</i><br>
+4 → <b>B</b>. The text says: <i>"It means staying with someone in good times and in bad times."</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. and&nbsp;&nbsp;2. and<br>
+B. 1. where&nbsp;&nbsp;2. where<br>
+C. 1. as&nbsp;&nbsp;2. as<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol29/Vol29_晚读讲义_独自航海的少女与用脚听话的大象_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 24.59, "end": 48.23, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we meet two great listeners: a teenage girl who sailed around the world all by herself, and the biggest land animal on Earth — an animal that listens with its feet! One teaches us courage; the other, the art of listening. Let's go!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天我们要认识两位了不起的“倾听者”：一位独自驾船环游世界的少女，和陆地上最大的动物——一种用脚来听远方朋友说话的动物。一个教我们勇气，一个教我们倾听的艺术。出发吧！", "words": [{"w": "Hello,", "t": 24.59}, {"w": "young", "t": 25.03}, {"w": "explorers,", "t": 25.47}, {"w": "and", "t": 25.9}, {"w": "welcome", "t": 26.34}, {"w": "back", "t": 26.78}, {"w": "to", "t": 27.22}, {"w": "Michael's", "t": 27.65}, {"w": "Morning", "t": 28.09}, {"w": "Listening!", "t": 28.53}, {"w": "Today", "t": 28.97}, {"w": "we", "t": 29.41}, {"w": "meet", "t": 29.84}, {"w": "two", "t": 30.28}, {"w": "great", "t": 30.72}, {"w": "listeners:", "t": 31.16}, {"w": "a", "t": 31.59}, {"w": "teenage", "t": 32.03}, {"w": "girl", "t": 32.47}, {"w": "who", "t": 32.91}, {"w": "sailed", "t": 33.35}, {"w": "around", "t": 33.78}, {"w": "the", "t": 34.22}, {"w": "world", "t": 34.66}, {"w": "all", "t": 35.1}, {"w": "by", "t": 35.53}, {"w": "herself,", "t": 35.97}, {"w": "and", "t": 36.41}, {"w": "the", "t": 36.85}, {"w": "biggest", "t": 37.29}, {"w": "land", "t": 37.72}, {"w": "animal", "t": 38.16}, {"w": "on", "t": 38.6}, {"w": "Earth", "t": 39.04}, {"w": "—", "t": 39.47}, {"w": "an", "t": 39.91}, {"w": "animal", "t": 40.35}, {"w": "that", "t": 40.79}, {"w": "listens", "t": 41.23}, {"w": "with", "t": 41.66}, {"w": "its", "t": 42.1}, {"w": "feet!", "t": 42.54}, {"w": "One", "t": 42.98}, {"w": "teaches", "t": 43.41}, {"w": "us", "t": 43.85}, {"w": "courage;", "t": 44.29}, {"w": "the", "t": 44.73}, {"w": "other,", "t": 45.17}, {"w": "the", "t": 45.6}, {"w": "art", "t": 46.04}, {"w": "of", "t": 46.48}, {"w": "listening.", "t": 46.92}, {"w": "Let's", "t": 47.35}, {"w": "go!", "t": 47.79}]}, {"start": 68.77, "end": 95.33, "en": "Laura Dekker was born on a boat, and she learned to sail as a small child. At fourteen, she told her parents her big dream: to sail around the world all alone. The grown-ups worried: the sea is huge, and storms do not care how old you are. But Laura did not give up. She learned to read maps and fix engines, and waited with patience.", "title": "独自航海的少女", "cn": "劳拉·德克出生在船上，从小就会开船。十四岁那年，她告诉爸爸妈妈自己的大梦想：一个人驾船环游世界。大人们都担心：大海那么大，暴风雨才不管你几岁。可劳拉没有放弃。她学会了看地图、修发动机，耐心地等待着，直到有人点头同意。", "words": [{"w": "Laura", "t": 68.77}, {"w": "Dekker", "t": 69.17}, {"w": "was", "t": 69.57}, {"w": "born", "t": 69.98}, {"w": "on", "t": 70.38}, {"w": "a", "t": 70.78}, {"w": "boat,", "t": 71.18}, {"w": "and", "t": 71.59}, {"w": "she", "t": 71.99}, {"w": "learned", "t": 72.39}, {"w": "to", "t": 72.79}, {"w": "sail", "t": 73.2}, {"w": "as", "t": 73.6}, {"w": "a", "t": 74.0}, {"w": "small", "t": 74.4}, {"w": "child.", "t": 74.81}, {"w": "At", "t": 75.21}, {"w": "fourteen,", "t": 75.61}, {"w": "she", "t": 76.01}, {"w": "told", "t": 76.42}, {"w": "her", "t": 76.82}, {"w": "parents", "t": 77.22}, {"w": "her", "t": 77.62}, {"w": "big", "t": 78.03}, {"w": "dream:", "t": 78.43}, {"w": "to", "t": 78.83}, {"w": "sail", "t": 79.23}, {"w": "around", "t": 79.64}, {"w": "the", "t": 80.04}, {"w": "world", "t": 80.44}, {"w": "all", "t": 80.84}, {"w": "alone.", "t": 81.25}, {"w": "The", "t": 81.65}, {"w": "grown-ups", "t": 82.05}, {"w": "worried:", "t": 82.45}, {"w": "the", "t": 82.85}, {"w": "sea", "t": 83.26}, {"w": "is", "t": 83.66}, {"w": "huge,", "t": 84.06}, {"w": "and", "t": 84.46}, {"w": "storms", "t": 84.87}, {"w": "do", "t": 85.27}, {"w": "not", "t": 85.67}, {"w": "care", "t": 86.07}, {"w": "how", "t": 86.48}, {"w": "old", "t": 86.88}, {"w": "you", "t": 87.28}, {"w": "are.", "t": 87.68}, {"w": "But", "t": 88.09}, {"w": "Laura", "t": 88.49}, {"w": "did", "t": 88.89}, {"w": "not", "t": 89.29}, {"w": "give", "t": 89.7}, {"w": "up.", "t": 90.1}, {"w": "She", "t": 90.5}, {"w": "learned", "t": 90.9}, {"w": "to", "t": 91.31}, {"w": "read", "t": 91.71}, {"w": "maps", "t": 92.11}, {"w": "and", "t": 92.51}, {"w": "fix", "t": 92.92}, {"w": "engines,", "t": 93.32}, {"w": "and", "t": 93.72}, {"w": "waited", "t": 94.12}, {"w": "with", "t": 94.53}, {"w": "patience.", "t": 94.93}]}, {"start": 95.33, "end": 123.1, "en": "At last she set off in her vivid red boat, a twelve-metre ketch called Guppy. She steered through the Panama Canal, across the wide Pacific, and past sunny islands. Sea spray flew over the bow, and at night she slept in short naps, one ear open for the wind. Once, in the Indian Ocean, a great storm shook her boat for days, but Laura held on and sailed on.", "title": "独自航海的少女", "cn": "终于，她驾驶着鲜艳的红色小船出发了——那是一艘十二米长的双桅帆船，名叫“古比”。她穿过巴拿马运河，横渡宽阔的太平洋，经过阳光明媚的岛屿。海浪的水花飞过船头，夜里她只睡短短一会儿，一只耳朵还留意着风声。有一次，在印度洋上，一场大风暴摇晃了她的小船好几天，可劳拉坚持住了，继续航行。", "words": [{"w": "At", "t": 95.33}, {"w": "last", "t": 95.73}, {"w": "she", "t": 96.13}, {"w": "set", "t": 96.54}, {"w": "off", "t": 96.94}, {"w": "in", "t": 97.34}, {"w": "her", "t": 97.74}, {"w": "vivid", "t": 98.15}, {"w": "red", "t": 98.55}, {"w": "boat,", "t": 98.95}, {"w": "a", "t": 99.35}, {"w": "twelve-metre", "t": 99.76}, {"w": "ketch", "t": 100.16}, {"w": "called", "t": 100.56}, {"w": "Guppy.", "t": 100.96}, {"w": "She", "t": 101.37}, {"w": "steered", "t": 101.77}, {"w": "through", "t": 102.17}, {"w": "the", "t": 102.57}, {"w": "Panama", "t": 102.98}, {"w": "Canal,", "t": 103.38}, {"w": "across", "t": 103.78}, {"w": "the", "t": 104.18}, {"w": "wide", "t": 104.59}, {"w": "Pacific,", "t": 104.99}, {"w": "and", "t": 105.39}, {"w": "past", "t": 105.79}, {"w": "sunny", "t": 106.2}, {"w": "islands.", "t": 106.6}, {"w": "Sea", "t": 107.0}, {"w": "spray", "t": 107.4}, {"w": "flew", "t": 107.81}, {"w": "over", "t": 108.21}, {"w": "the", "t": 108.61}, {"w": "bow,", "t": 109.01}, {"w": "and", "t": 109.42}, {"w": "at", "t": 109.82}, {"w": "night", "t": 110.22}, {"w": "she", "t": 110.62}, {"w": "slept", "t": 111.03}, {"w": "in", "t": 111.43}, {"w": "short", "t": 111.83}, {"w": "naps,", "t": 112.23}, {"w": "one", "t": 112.64}, {"w": "ear", "t": 113.04}, {"w": "open", "t": 113.44}, {"w": "for", "t": 113.84}, {"w": "the", "t": 114.25}, {"w": "wind.", "t": 114.65}, {"w": "Once,", "t": 115.05}, {"w": "in", "t": 115.45}, {"w": "the", "t": 115.86}, {"w": "Indian", "t": 116.26}, {"w": "Ocean,", "t": 116.66}, {"w": "a", "t": 117.06}, {"w": "great", "t": 117.47}, {"w": "storm", "t": 117.87}, {"w": "shook", "t": 118.27}, {"w": "her", "t": 118.67}, {"w": "boat", "t": 119.08}, {"w": "for", "t": 119.48}, {"w": "days,", "t": 119.88}, {"w": "but", "t": 120.28}, {"w": "Laura", "t": 120.69}, {"w": "held", "t": 121.09}, {"w": "on", "t": 121.49}, {"w": "and", "t": 121.89}, {"w": "sailed", "t": 122.3}, {"w": "on.", "t": 122.7}]}, {"start": 123.1, "end": 152.07, "en": "After five hundred and eighteen days at sea, Laura sailed into Sint Maarten. Pedestrians on the shore stopped and cheered, and the whole harbour erupted in cheers. At sixteen, she was the youngest person ever to sail around the world alone. The caption under her photo says simply: a girl, a boat, and a dream. Today she is an ambassador for young sailors, teaching them to sail and to believe in themselves.", "title": "独自航海的少女", "cn": "在海上航行了五百一十八天后，劳拉驶入了圣马丁。岸边的行人们停下脚步，欢呼起来，整个港口都爆发出欢呼声。十六岁的她，成了有史以来独自驾船环游世界的最年轻的人。她照片下面的说明简单地写着：一个女孩，一艘船，一个梦想。如今，她是年轻水手的代言人，教他们开船、相信自己。", "words": [{"w": "After", "t": 123.1}, {"w": "five", "t": 123.5}, {"w": "hundred", "t": 123.9}, {"w": "and", "t": 124.31}, {"w": "eighteen", "t": 124.71}, {"w": "days", "t": 125.11}, {"w": "at", "t": 125.51}, {"w": "sea,", "t": 125.92}, {"w": "Laura", "t": 126.32}, {"w": "sailed", "t": 126.72}, {"w": "into", "t": 127.12}, {"w": "Sint", "t": 127.53}, {"w": "Maarten.", "t": 127.93}, {"w": "Pedestrians", "t": 128.33}, {"w": "on", "t": 128.73}, {"w": "the", "t": 129.14}, {"w": "shore", "t": 129.54}, {"w": "stopped", "t": 129.94}, {"w": "and", "t": 130.34}, {"w": "cheered,", "t": 130.74}, {"w": "and", "t": 131.15}, {"w": "the", "t": 131.55}, {"w": "whole", "t": 131.95}, {"w": "harbour", "t": 132.35}, {"w": "erupted", "t": 132.76}, {"w": "in", "t": 133.16}, {"w": "cheers.", "t": 133.56}, {"w": "At", "t": 133.96}, {"w": "sixteen,", "t": 134.37}, {"w": "she", "t": 134.77}, {"w": "was", "t": 135.17}, {"w": "the", "t": 135.57}, {"w": "youngest", "t": 135.98}, {"w": "person", "t": 136.38}, {"w": "ever", "t": 136.78}, {"w": "to", "t": 137.18}, {"w": "sail", "t": 137.58}, {"w": "around", "t": 137.99}, {"w": "the", "t": 138.39}, {"w": "world", "t": 138.79}, {"w": "alone.", "t": 139.19}, {"w": "The", "t": 139.6}, {"w": "caption", "t": 140.0}, {"w": "under", "t": 140.4}, {"w": "her", "t": 140.8}, {"w": "photo", "t": 141.21}, {"w": "says", "t": 141.61}, {"w": "simply:", "t": 142.01}, {"w": "a", "t": 142.41}, {"w": "girl,", "t": 142.82}, {"w": "a", "t": 143.22}, {"w": "boat,", "t": 143.62}, {"w": "and", "t": 144.02}, {"w": "a", "t": 144.43}, {"w": "dream.", "t": 144.83}, {"w": "Today", "t": 145.23}, {"w": "she", "t": 145.63}, {"w": "is", "t": 146.03}, {"w": "an", "t": 146.44}, {"w": "ambassador", "t": 146.84}, {"w": "for", "t": 147.24}, {"w": "young", "t": 147.64}, {"w": "sailors,", "t": 148.05}, {"w": "teaching", "t": 148.45}, {"w": "them", "t": 148.85}, {"w": "to", "t": 149.25}, {"w": "sail", "t": 149.66}, {"w": "and", "t": 150.06}, {"w": "to", "t": 150.46}, {"w": "believe", "t": 150.86}, {"w": "in", "t": 151.27}, {"w": "themselves.", "t": 151.67}]}, {"start": 172.05, "end": 203.67, "en": "Now let's walk onto the land of Africa, where the biggest land animal on Earth is talking in a voice we can barely hear. An elephant's rumble is so low that it sits below what our ears can catch. To us, the elephant seems almost silent, and we are nearly deaf to its deepest calls. But other elephants, kilometres away, hear it clearly. Their message comes in more than one format: sound through the air, and trembles through the ground.", "title": "用脚听话的大象", "cn": "现在，让我们走到非洲的大地上，陆地上最大的动物正在用我们几乎听不见的声音说话。大象的低鸣声非常低，低到我们的耳朵捕捉不到。对我们来说，大象似乎几乎是安静的，我们几乎听不见它最深沉的叫声。可几公里外的其他大象却听得清清楚楚。它们的信息不止一种形式：有通过空气传播的声音，也有通过地面传播的震动。", "words": [{"w": "Now", "t": 172.05}, {"w": "let's", "t": 172.45}, {"w": "walk", "t": 172.84}, {"w": "onto", "t": 173.24}, {"w": "the", "t": 173.63}, {"w": "land", "t": 174.03}, {"w": "of", "t": 174.42}, {"w": "Africa,", "t": 174.82}, {"w": "where", "t": 175.21}, {"w": "the", "t": 175.61}, {"w": "biggest", "t": 176.0}, {"w": "land", "t": 176.4}, {"w": "animal", "t": 176.79}, {"w": "on", "t": 177.19}, {"w": "Earth", "t": 177.58}, {"w": "is", "t": 177.98}, {"w": "talking", "t": 178.37}, {"w": "in", "t": 178.77}, {"w": "a", "t": 179.16}, {"w": "voice", "t": 179.56}, {"w": "we", "t": 179.96}, {"w": "can", "t": 180.35}, {"w": "barely", "t": 180.75}, {"w": "hear.", "t": 181.14}, {"w": "An", "t": 181.54}, {"w": "elephant's", "t": 181.93}, {"w": "rumble", "t": 182.33}, {"w": "is", "t": 182.72}, {"w": "so", "t": 183.12}, {"w": "low", "t": 183.51}, {"w": "that", "t": 183.91}, {"w": "it", "t": 184.3}, {"w": "sits", "t": 184.7}, {"w": "below", "t": 185.09}, {"w": "what", "t": 185.49}, {"w": "our", "t": 185.88}, {"w": "ears", "t": 186.28}, {"w": "can", "t": 186.67}, {"w": "catch.", "t": 187.07}, {"w": "To", "t": 187.46}, {"w": "us,", "t": 187.86}, {"w": "the", "t": 188.26}, {"w": "elephant", "t": 188.65}, {"w": "seems", "t": 189.05}, {"w": "almost", "t": 189.44}, {"w": "silent,", "t": 189.84}, {"w": "and", "t": 190.23}, {"w": "we", "t": 190.63}, {"w": "are", "t": 191.02}, {"w": "nearly", "t": 191.42}, {"w": "deaf", "t": 191.81}, {"w": "to", "t": 192.21}, {"w": "its", "t": 192.6}, {"w": "deepest", "t": 193.0}, {"w": "calls.", "t": 193.39}, {"w": "But", "t": 193.79}, {"w": "other", "t": 194.18}, {"w": "elephants,", "t": 194.58}, {"w": "kilometres", "t": 194.97}, {"w": "away,", "t": 195.37}, {"w": "hear", "t": 195.76}, {"w": "it", "t": 196.16}, {"w": "clearly.", "t": 196.56}, {"w": "Their", "t": 196.95}, {"w": "message", "t": 197.35}, {"w": "comes", "t": 197.74}, {"w": "in", "t": 198.14}, {"w": "more", "t": 198.53}, {"w": "than", "t": 198.93}, {"w": "one", "t": 199.32}, {"w": "format:", "t": 199.72}, {"w": "sound", "t": 200.11}, {"w": "through", "t": 200.51}, {"w": "the", "t": 200.9}, {"w": "air,", "t": 201.3}, {"w": "and", "t": 201.69}, {"w": "trembles", "t": 202.09}, {"w": "through", "t": 202.48}, {"w": "the", "t": 202.88}, {"w": "ground.", "t": 203.27}]}, {"start": 203.67, "end": 243.6, "en": "How do they feel the tremble? Under an elephant's foot there is a soft pad, full of tiny sensors that pick up vibrations. The tremble travels up the bones of the leg and into the inner ear, where the brain reads it as sound. Scientists in Namibia watched elephants at a waterhole: when a faraway rumble shook the ground, they froze, lifted one foot, and turned towards the sound. They even show fine discrimination — they can tell a family member's rumble from a stranger's. So an elephant does not only listen with its ears. It listens with its feet, too.", "title": "用脚听话的大象", "cn": "它们是怎么感觉到震动的呢？大象的脚底有一块柔软的脚垫，里面布满了能感知震动的小感受器。震动沿着腿骨向上传到内耳，大脑就把它解读为声音。纳米比亚的科学家们在水塘边观察大象：当远方的低鸣震动地面时，大象们会停住，抬起一只脚，转向声音传来的方向。它们甚至能细致地分辨——能分出家人和陌生大象的低鸣声。所以，大象不只用耳朵听，它还用脚来听。", "words": [{"w": "How", "t": 203.67}, {"w": "do", "t": 204.07}, {"w": "they", "t": 204.46}, {"w": "feel", "t": 204.86}, {"w": "the", "t": 205.25}, {"w": "tremble?", "t": 205.65}, {"w": "Under", "t": 206.04}, {"w": "an", "t": 206.44}, {"w": "elephant's", "t": 206.83}, {"w": "foot", "t": 207.23}, {"w": "there", "t": 207.62}, {"w": "is", "t": 208.02}, {"w": "a", "t": 208.41}, {"w": "soft", "t": 208.81}, {"w": "pad,", "t": 209.2}, {"w": "full", "t": 209.6}, {"w": "of", "t": 210.0}, {"w": "tiny", "t": 210.39}, {"w": "sensors", "t": 210.79}, {"w": "that", "t": 211.18}, {"w": "pick", "t": 211.58}, {"w": "up", "t": 211.97}, {"w": "vibrations.", "t": 212.37}, {"w": "The", "t": 212.76}, {"w": "tremble", "t": 213.16}, {"w": "travels", "t": 213.55}, {"w": "up", "t": 213.95}, {"w": "the", "t": 214.34}, {"w": "bones", "t": 214.74}, {"w": "of", "t": 215.14}, {"w": "the", "t": 215.53}, {"w": "leg", "t": 215.93}, {"w": "and", "t": 216.32}, {"w": "into", "t": 216.72}, {"w": "the", "t": 217.11}, {"w": "inner", "t": 217.51}, {"w": "ear,", "t": 217.9}, {"w": "where", "t": 218.3}, {"w": "the", "t": 218.69}, {"w": "brain", "t": 219.09}, {"w": "reads", "t": 219.48}, {"w": "it", "t": 219.88}, {"w": "as", "t": 220.27}, {"w": "sound.", "t": 220.67}, {"w": "Scientists", "t": 221.07}, {"w": "in", "t": 221.46}, {"w": "Namibia", "t": 221.86}, {"w": "watched", "t": 222.25}, {"w": "elephants", "t": 222.65}, {"w": "at", "t": 223.04}, {"w": "a", "t": 223.44}, {"w": "waterhole:", "t": 223.83}, {"w": "when", "t": 224.23}, {"w": "a", "t": 224.62}, {"w": "faraway", "t": 225.02}, {"w": "rumble", "t": 225.41}, {"w": "shook", "t": 225.81}, {"w": "the", "t": 226.2}, {"w": "ground,", "t": 226.6}, {"w": "they", "t": 227.0}, {"w": "froze,", "t": 227.39}, {"w": "lifted", "t": 227.79}, {"w": "one", "t": 228.18}, {"w": "foot,", "t": 228.58}, {"w": "and", "t": 228.97}, {"w": "turned", "t": 229.37}, {"w": "towards", "t": 229.76}, {"w": "the", "t": 230.16}, {"w": "sound.", "t": 230.55}, {"w": "They", "t": 230.95}, {"w": "even", "t": 231.34}, {"w": "show", "t": 231.74}, {"w": "fine", "t": 232.13}, {"w": "discrimination", "t": 232.53}, {"w": "—", "t": 232.93}, {"w": "they", "t": 233.32}, {"w": "can", "t": 233.72}, {"w": "tell", "t": 234.11}, {"w": "a", "t": 234.51}, {"w": "family", "t": 234.9}, {"w": "member's", "t": 235.3}, {"w": "rumble", "t": 235.69}, {"w": "from", "t": 236.09}, {"w": "a", "t": 236.48}, {"w": "stranger's.", "t": 236.88}, {"w": "So", "t": 237.27}, {"w": "an", "t": 237.67}, {"w": "elephant", "t": 238.07}, {"w": "does", "t": 238.46}, {"w": "not", "t": 238.86}, {"w": "only", "t": 239.25}, {"w": "listen", "t": 239.65}, {"w": "with", "t": 240.04}, {"w": "its", "t": 240.44}, {"w": "ears.", "t": 240.83}, {"w": "It", "t": 241.23}, {"w": "listens", "t": 241.62}, {"w": "with", "t": 242.02}, {"w": "its", "t": 242.41}, {"w": "feet,", "t": 242.81}, {"w": "too.", "t": 243.2}]}, {"start": 260.86, "end": 287.35, "en": "Here's today's idiom: 'through thick and thin.' It means staying with someone in good times and in bad times — through thick forests and thin paths. Laura and her little boat went through thick and thin together: sunny days and great storms. Here's an example: 'True friends stay together through thick and thin.' Who has stayed with you through thick and thin?", "title": "今日俚语", "cn": "今天的俚语是“through thick and thin”（风雨同舟、不离不弃）。它的意思是无论顺境还是逆境都陪伴在某人身边——穿过茂密的森林和稀疏的小路。劳拉和她的小船一起风雨同舟：晴朗的日子和大风暴都一起经历过。举个例子：“真正的朋友会风雨同舟。”有谁一直风雨同舟地陪伴着你呢？", "words": [{"w": "Here's", "t": 260.86}, {"w": "today's", "t": 261.29}, {"w": "idiom:", "t": 261.71}, {"w": "'through", "t": 262.14}, {"w": "thick", "t": 262.57}, {"w": "and", "t": 263.0}, {"w": "thin.'", "t": 263.42}, {"w": "It", "t": 263.85}, {"w": "means", "t": 264.28}, {"w": "staying", "t": 264.71}, {"w": "with", "t": 265.13}, {"w": "someone", "t": 265.56}, {"w": "in", "t": 265.99}, {"w": "good", "t": 266.41}, {"w": "times", "t": 266.84}, {"w": "and", "t": 267.27}, {"w": "in", "t": 267.7}, {"w": "bad", "t": 268.12}, {"w": "times", "t": 268.55}, {"w": "—", "t": 268.98}, {"w": "through", "t": 269.41}, {"w": "thick", "t": 269.83}, {"w": "forests", "t": 270.26}, {"w": "and", "t": 270.69}, {"w": "thin", "t": 271.11}, {"w": "paths.", "t": 271.54}, {"w": "Laura", "t": 271.97}, {"w": "and", "t": 272.4}, {"w": "her", "t": 272.82}, {"w": "little", "t": 273.25}, {"w": "boat", "t": 273.68}, {"w": "went", "t": 274.11}, {"w": "through", "t": 274.53}, {"w": "thick", "t": 274.96}, {"w": "and", "t": 275.39}, {"w": "thin", "t": 275.81}, {"w": "together:", "t": 276.24}, {"w": "sunny", "t": 276.67}, {"w": "days", "t": 277.1}, {"w": "and", "t": 277.52}, {"w": "great", "t": 277.95}, {"w": "storms.", "t": 278.38}, {"w": "Here's", "t": 278.8}, {"w": "an", "t": 279.23}, {"w": "example:", "t": 279.66}, {"w": "'True", "t": 280.09}, {"w": "friends", "t": 280.51}, {"w": "stay", "t": 280.94}, {"w": "together", "t": 281.37}, {"w": "through", "t": 281.8}, {"w": "thick", "t": 282.22}, {"w": "and", "t": 282.65}, {"w": "thin.'", "t": 283.08}, {"w": "Who", "t": 283.5}, {"w": "has", "t": 283.93}, {"w": "stayed", "t": 284.36}, {"w": "with", "t": 284.79}, {"w": "you", "t": 285.21}, {"w": "through", "t": 285.64}, {"w": "thick", "t": 286.07}, {"w": "and", "t": 286.5}, {"w": "thin?", "t": 286.92}]}, {"start": 303.25, "end": 328.69, "en": "Let's think about our stories. Laura sailed alone for more than five hundred days, and an elephant can hear a friend kilometres away — through the ground! Two questions for you. First: what dream would you chase, even if grown-ups said it was too hard? Second: if you could talk through the ground like an elephant, what would you say? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事。劳拉独自航行了五百多天，大象能通过地面听到几公里外的朋友！现在，轮到回答两个问题。第一：如果你有一个梦想，即使大人们说太难了，你还会去追吗？第二：如果你能像大象一样通过地面说话，你想说什么？和家人聊聊吧！", "words": [{"w": "Let's", "t": 303.25}, {"w": "think", "t": 303.64}, {"w": "about", "t": 304.02}, {"w": "our", "t": 304.41}, {"w": "stories.", "t": 304.79}, {"w": "Laura", "t": 305.18}, {"w": "sailed", "t": 305.56}, {"w": "alone", "t": 305.95}, {"w": "for", "t": 306.33}, {"w": "more", "t": 306.72}, {"w": "than", "t": 307.1}, {"w": "five", "t": 307.49}, {"w": "hundred", "t": 307.88}, {"w": "days,", "t": 308.26}, {"w": "and", "t": 308.65}, {"w": "an", "t": 309.03}, {"w": "elephant", "t": 309.42}, {"w": "can", "t": 309.8}, {"w": "hear", "t": 310.19}, {"w": "a", "t": 310.57}, {"w": "friend", "t": 310.96}, {"w": "kilometres", "t": 311.34}, {"w": "away", "t": 311.73}, {"w": "—", "t": 312.12}, {"w": "through", "t": 312.5}, {"w": "the", "t": 312.89}, {"w": "ground!", "t": 313.27}, {"w": "Two", "t": 313.66}, {"w": "questions", "t": 314.04}, {"w": "for", "t": 314.43}, {"w": "you.", "t": 314.81}, {"w": "First:", "t": 315.2}, {"w": "what", "t": 315.58}, {"w": "dream", "t": 315.97}, {"w": "would", "t": 316.36}, {"w": "you", "t": 316.74}, {"w": "chase,", "t": 317.13}, {"w": "even", "t": 317.51}, {"w": "if", "t": 317.9}, {"w": "grown-ups", "t": 318.28}, {"w": "said", "t": 318.67}, {"w": "it", "t": 319.05}, {"w": "was", "t": 319.44}, {"w": "too", "t": 319.82}, {"w": "hard?", "t": 320.21}, {"w": "Second:", "t": 320.6}, {"w": "if", "t": 320.98}, {"w": "you", "t": 321.37}, {"w": "could", "t": 321.75}, {"w": "talk", "t": 322.14}, {"w": "through", "t": 322.52}, {"w": "the", "t": 322.91}, {"w": "ground", "t": 323.29}, {"w": "like", "t": 323.68}, {"w": "an", "t": 324.06}, {"w": "elephant,", "t": 324.45}, {"w": "what", "t": 324.84}, {"w": "would", "t": 325.22}, {"w": "you", "t": 325.61}, {"w": "say?", "t": 325.99}, {"w": "Talk", "t": 326.38}, {"w": "about", "t": 326.76}, {"w": "it", "t": 327.15}, {"w": "with", "t": 327.53}, {"w": "your", "t": 327.92}, {"w": "family!", "t": 328.3}]}, {"start": 337.63, "end": 348.41, "en": "That's all for today, young explorers. Be brave like Laura, and listen like an elephant. And remember: true friends stay together through thick and thin! See you tomorrow morning!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。像劳拉一样勇敢，像大象一样善于倾听。还要记住：真正的朋友会风雨同舟！明天早上见！", "words": [{"w": "That's", "t": 337.63}, {"w": "all", "t": 338.0}, {"w": "for", "t": 338.37}, {"w": "today,", "t": 338.75}, {"w": "young", "t": 339.12}, {"w": "explorers.", "t": 339.49}, {"w": "Be", "t": 339.86}, {"w": "brave", "t": 340.23}, {"w": "like", "t": 340.6}, {"w": "Laura,", "t": 340.98}, {"w": "and", "t": 341.35}, {"w": "listen", "t": 341.72}, {"w": "like", "t": 342.09}, {"w": "an", "t": 342.46}, {"w": "elephant.", "t": 342.83}, {"w": "And", "t": 343.21}, {"w": "remember:", "t": 343.58}, {"w": "true", "t": 343.95}, {"w": "friends", "t": 344.32}, {"w": "stay", "t": 344.69}, {"w": "together", "t": 345.06}, {"w": "through", "t": 345.44}, {"w": "thick", "t": 345.81}, {"w": "and", "t": 346.18}, {"w": "thin!", "t": 346.55}, {"w": "See", "t": 346.92}, {"w": "you", "t": 347.29}, {"w": "tomorrow", "t": 347.67}, {"w": "morning!", "t": 348.04}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol29/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
