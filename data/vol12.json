@@ -1,0 +1,3672 @@
+{
+ "id": "vol12",
+ "title": "熊猫姐妹的冰蛋糕与森林的悄悄话",
+ "words": 600,
+ "duration": "6分14秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol12/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol12/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol12/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol12/Vol12_晚读讲义_熊猫姐妹的冰蛋糕与森林的悄悄话_v1.pdf",
+ "pdfName": "Vol12_晚读讲义_熊猫姐妹的冰蛋糕与森林的悄悄话_v1.pdf",
+ "blocks": [
+  {
+   "start": 33.39,
+   "end": 53.53,
+   "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! This is our twelfth show together! Today we fly to a zoo in Berlin, where two birthday girls share one very cold cake. Then we tiptoe into a forest, where the trees are whispering under the ground. Let's go!",
+   "title": "开场白",
+   "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！这是我们在一起的第十二期节目啦！今天我们先飞到柏林的一家动物园，两位过生日的小寿星要分享一块超冷的蛋糕。然后我们踮起脚尖走进一片森林，那里的树木正在地底下说悄悄话。出发吧！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 33.39
+    },
+    {
+     "w": "young",
+     "t": 33.8
+    },
+    {
+     "w": "explorers,",
+     "t": 34.21
+    },
+    {
+     "w": "and",
+     "t": 34.62
+    },
+    {
+     "w": "welcome",
+     "t": 35.03
+    },
+    {
+     "w": "back",
+     "t": 35.45
+    },
+    {
+     "w": "to",
+     "t": 35.86
+    },
+    {
+     "w": "Michael's",
+     "t": 36.27
+    },
+    {
+     "w": "Morning",
+     "t": 36.68
+    },
+    {
+     "w": "Listening!",
+     "t": 37.09
+    },
+    {
+     "w": "This",
+     "t": 37.5
+    },
+    {
+     "w": "is",
+     "t": 37.91
+    },
+    {
+     "w": "our",
+     "t": 38.32
+    },
+    {
+     "w": "twelfth",
+     "t": 38.73
+    },
+    {
+     "w": "show",
+     "t": 39.14
+    },
+    {
+     "w": "together!",
+     "t": 39.56
+    },
+    {
+     "w": "Today",
+     "t": 39.97
+    },
+    {
+     "w": "we",
+     "t": 40.38
+    },
+    {
+     "w": "fly",
+     "t": 40.79
+    },
+    {
+     "w": "to",
+     "t": 41.2
+    },
+    {
+     "w": "a",
+     "t": 41.61
+    },
+    {
+     "w": "zoo",
+     "t": 42.02
+    },
+    {
+     "w": "in",
+     "t": 42.43
+    },
+    {
+     "w": "Berlin,",
+     "t": 42.84
+    },
+    {
+     "w": "where",
+     "t": 43.25
+    },
+    {
+     "w": "two",
+     "t": 43.67
+    },
+    {
+     "w": "birthday",
+     "t": 44.08
+    },
+    {
+     "w": "girls",
+     "t": 44.49
+    },
+    {
+     "w": "share",
+     "t": 44.9
+    },
+    {
+     "w": "one",
+     "t": 45.31
+    },
+    {
+     "w": "very",
+     "t": 45.72
+    },
+    {
+     "w": "cold",
+     "t": 46.13
+    },
+    {
+     "w": "cake.",
+     "t": 46.54
+    },
+    {
+     "w": "Then",
+     "t": 46.95
+    },
+    {
+     "w": "we",
+     "t": 47.36
+    },
+    {
+     "w": "tiptoe",
+     "t": 47.78
+    },
+    {
+     "w": "into",
+     "t": 48.19
+    },
+    {
+     "w": "a",
+     "t": 48.6
+    },
+    {
+     "w": "forest,",
+     "t": 49.01
+    },
+    {
+     "w": "where",
+     "t": 49.42
+    },
+    {
+     "w": "the",
+     "t": 49.83
+    },
+    {
+     "w": "trees",
+     "t": 50.24
+    },
+    {
+     "w": "are",
+     "t": 50.65
+    },
+    {
+     "w": "whispering",
+     "t": 51.06
+    },
+    {
+     "w": "under",
+     "t": 51.47
+    },
+    {
+     "w": "the",
+     "t": 51.89
+    },
+    {
+     "w": "ground.",
+     "t": 52.3
+    },
+    {
+     "w": "Let's",
+     "t": 52.71
+    },
+    {
+     "w": "go!",
+     "t": 53.12
+    }
+   ]
+  },
+  {
+   "start": 69.75,
+   "end": 93.35,
+   "en": "Happy birthday, Leni and Lotti! The twin sisters are giant pandas at Berlin Zoo. For their second birthday, their keepers made them a cake — a cake of ice! It had three tiers, pink and orange, coloured with beetroot and carrot juice. On top sat little flowers carved from carrots. No candles — pandas like presents frozen.",
+   "title": "熊猫姐妹的冰蛋糕",
+   "cn": "生日快乐，莲妮和洛蒂！这对双胞胎姐妹是柏林动物园的大熊猫。她们两岁生日时，饲养员为她们做了一个蛋糕——一个冰做的蛋糕！它有三层，粉粉的、橙橙的，是用甜菜根和胡萝卜汁染的颜色。顶上还坐着用胡萝卜雕出来的小花。没有蜡烛——熊猫就喜欢冻起来的礼物。",
+   "words": [
+    {
+     "w": "Happy",
+     "t": 69.75
+    },
+    {
+     "w": "birthday,",
+     "t": 70.16
+    },
+    {
+     "w": "Leni",
+     "t": 70.58
+    },
+    {
+     "w": "and",
+     "t": 70.99
+    },
+    {
+     "w": "Lotti!",
+     "t": 71.41
+    },
+    {
+     "w": "The",
+     "t": 71.82
+    },
+    {
+     "w": "twin",
+     "t": 72.23
+    },
+    {
+     "w": "sisters",
+     "t": 72.65
+    },
+    {
+     "w": "are",
+     "t": 73.06
+    },
+    {
+     "w": "giant",
+     "t": 73.48
+    },
+    {
+     "w": "pandas",
+     "t": 73.89
+    },
+    {
+     "w": "at",
+     "t": 74.3
+    },
+    {
+     "w": "Berlin",
+     "t": 74.72
+    },
+    {
+     "w": "Zoo.",
+     "t": 75.13
+    },
+    {
+     "w": "For",
+     "t": 75.55
+    },
+    {
+     "w": "their",
+     "t": 75.96
+    },
+    {
+     "w": "second",
+     "t": 76.37
+    },
+    {
+     "w": "birthday,",
+     "t": 76.79
+    },
+    {
+     "w": "their",
+     "t": 77.2
+    },
+    {
+     "w": "keepers",
+     "t": 77.62
+    },
+    {
+     "w": "made",
+     "t": 78.03
+    },
+    {
+     "w": "them",
+     "t": 78.44
+    },
+    {
+     "w": "a",
+     "t": 78.86
+    },
+    {
+     "w": "cake",
+     "t": 79.27
+    },
+    {
+     "w": "—",
+     "t": 79.69
+    },
+    {
+     "w": "a",
+     "t": 80.1
+    },
+    {
+     "w": "cake",
+     "t": 80.51
+    },
+    {
+     "w": "of",
+     "t": 80.93
+    },
+    {
+     "w": "ice!",
+     "t": 81.34
+    },
+    {
+     "w": "It",
+     "t": 81.76
+    },
+    {
+     "w": "had",
+     "t": 82.17
+    },
+    {
+     "w": "three",
+     "t": 82.58
+    },
+    {
+     "w": "tiers,",
+     "t": 83.0
+    },
+    {
+     "w": "pink",
+     "t": 83.41
+    },
+    {
+     "w": "and",
+     "t": 83.83
+    },
+    {
+     "w": "orange,",
+     "t": 84.24
+    },
+    {
+     "w": "coloured",
+     "t": 84.65
+    },
+    {
+     "w": "with",
+     "t": 85.07
+    },
+    {
+     "w": "beetroot",
+     "t": 85.48
+    },
+    {
+     "w": "and",
+     "t": 85.9
+    },
+    {
+     "w": "carrot",
+     "t": 86.31
+    },
+    {
+     "w": "juice.",
+     "t": 86.72
+    },
+    {
+     "w": "On",
+     "t": 87.14
+    },
+    {
+     "w": "top",
+     "t": 87.55
+    },
+    {
+     "w": "sat",
+     "t": 87.97
+    },
+    {
+     "w": "little",
+     "t": 88.38
+    },
+    {
+     "w": "flowers",
+     "t": 88.79
+    },
+    {
+     "w": "carved",
+     "t": 89.21
+    },
+    {
+     "w": "from",
+     "t": 89.62
+    },
+    {
+     "w": "carrots.",
+     "t": 90.04
+    },
+    {
+     "w": "No",
+     "t": 90.45
+    },
+    {
+     "w": "candles",
+     "t": 90.87
+    },
+    {
+     "w": "—",
+     "t": 91.28
+    },
+    {
+     "w": "pandas",
+     "t": 91.69
+    },
+    {
+     "w": "like",
+     "t": 92.11
+    },
+    {
+     "w": "presents",
+     "t": 92.52
+    },
+    {
+     "w": "frozen.",
+     "t": 92.94
+    }
+   ]
+  },
+  {
+   "start": 93.35,
+   "end": 110.32,
+   "en": "The sisters wasted no time. They nibbled the carrot flowers, pawed at the ice, and chased each other around the garden. The crowd erupted in cheers; the cameras clicked and clicked. The children at the glass had eyes round as saucers.",
+   "title": "熊猫姐妹的冰蛋糕",
+   "cn": "姐妹俩一分钟都没耽误。她们小口啃着胡萝卜花，用爪子拨弄冰块，还在园子里你追我赶。人群爆发出欢呼声，相机咔嚓咔嚓响个不停。玻璃前的小朋友们眼睛瞪得像碟子一样圆。",
+   "words": [
+    {
+     "w": "The",
+     "t": 93.35
+    },
+    {
+     "w": "sisters",
+     "t": 93.76
+    },
+    {
+     "w": "wasted",
+     "t": 94.18
+    },
+    {
+     "w": "no",
+     "t": 94.59
+    },
+    {
+     "w": "time.",
+     "t": 95.01
+    },
+    {
+     "w": "They",
+     "t": 95.42
+    },
+    {
+     "w": "nibbled",
+     "t": 95.83
+    },
+    {
+     "w": "the",
+     "t": 96.25
+    },
+    {
+     "w": "carrot",
+     "t": 96.66
+    },
+    {
+     "w": "flowers,",
+     "t": 97.08
+    },
+    {
+     "w": "pawed",
+     "t": 97.49
+    },
+    {
+     "w": "at",
+     "t": 97.9
+    },
+    {
+     "w": "the",
+     "t": 98.32
+    },
+    {
+     "w": "ice,",
+     "t": 98.73
+    },
+    {
+     "w": "and",
+     "t": 99.15
+    },
+    {
+     "w": "chased",
+     "t": 99.56
+    },
+    {
+     "w": "each",
+     "t": 99.97
+    },
+    {
+     "w": "other",
+     "t": 100.39
+    },
+    {
+     "w": "around",
+     "t": 100.8
+    },
+    {
+     "w": "the",
+     "t": 101.22
+    },
+    {
+     "w": "garden.",
+     "t": 101.63
+    },
+    {
+     "w": "The",
+     "t": 102.04
+    },
+    {
+     "w": "crowd",
+     "t": 102.46
+    },
+    {
+     "w": "erupted",
+     "t": 102.87
+    },
+    {
+     "w": "in",
+     "t": 103.29
+    },
+    {
+     "w": "cheers;",
+     "t": 103.7
+    },
+    {
+     "w": "the",
+     "t": 104.11
+    },
+    {
+     "w": "cameras",
+     "t": 104.53
+    },
+    {
+     "w": "clicked",
+     "t": 104.94
+    },
+    {
+     "w": "and",
+     "t": 105.36
+    },
+    {
+     "w": "clicked.",
+     "t": 105.77
+    },
+    {
+     "w": "The",
+     "t": 106.18
+    },
+    {
+     "w": "children",
+     "t": 106.6
+    },
+    {
+     "w": "at",
+     "t": 107.01
+    },
+    {
+     "w": "the",
+     "t": 107.43
+    },
+    {
+     "w": "glass",
+     "t": 107.84
+    },
+    {
+     "w": "had",
+     "t": 108.25
+    },
+    {
+     "w": "eyes",
+     "t": 108.67
+    },
+    {
+     "w": "round",
+     "t": 109.08
+    },
+    {
+     "w": "as",
+     "t": 109.5
+    },
+    {
+     "w": "saucers.",
+     "t": 109.91
+    }
+   ]
+  },
+  {
+   "start": 110.32,
+   "end": 137.24,
+   "en": "At the start, the twins were tiny — born blind, almost hairless, small enough to sleep in a keeper's hand. Leni weighed just one hundred and thirty-six grams — about as much as an apple! Today, each sister weighs more than fifty kilos. Their parents, Meng Meng and Jiao Qing, came from Chengdu, China — the second pair of panda twins ever born in Germany.",
+   "title": "熊猫姐妹的冰蛋糕",
+   "cn": "最开始的时候，双胞胎小得不得了——出生时眼睛看不见，几乎没有毛，小到能在饲养员的手心里睡觉。莲妮只有一百三十六克——差不多一个苹果那么重！如今，姐妹俩每个都超过五十公斤了。她们的爸爸妈妈梦梦和娇庆来自中国成都——这对双胞胎是德国出生的第二对大熊猫双胞胎。",
+   "words": [
+    {
+     "w": "At",
+     "t": 110.32
+    },
+    {
+     "w": "the",
+     "t": 110.74
+    },
+    {
+     "w": "start,",
+     "t": 111.15
+    },
+    {
+     "w": "the",
+     "t": 111.57
+    },
+    {
+     "w": "twins",
+     "t": 111.98
+    },
+    {
+     "w": "were",
+     "t": 112.39
+    },
+    {
+     "w": "tiny",
+     "t": 112.81
+    },
+    {
+     "w": "—",
+     "t": 113.22
+    },
+    {
+     "w": "born",
+     "t": 113.64
+    },
+    {
+     "w": "blind,",
+     "t": 114.05
+    },
+    {
+     "w": "almost",
+     "t": 114.46
+    },
+    {
+     "w": "hairless,",
+     "t": 114.88
+    },
+    {
+     "w": "small",
+     "t": 115.29
+    },
+    {
+     "w": "enough",
+     "t": 115.71
+    },
+    {
+     "w": "to",
+     "t": 116.12
+    },
+    {
+     "w": "sleep",
+     "t": 116.53
+    },
+    {
+     "w": "in",
+     "t": 116.95
+    },
+    {
+     "w": "a",
+     "t": 117.36
+    },
+    {
+     "w": "keeper's",
+     "t": 117.78
+    },
+    {
+     "w": "hand.",
+     "t": 118.19
+    },
+    {
+     "w": "Leni",
+     "t": 118.6
+    },
+    {
+     "w": "weighed",
+     "t": 119.02
+    },
+    {
+     "w": "just",
+     "t": 119.43
+    },
+    {
+     "w": "one",
+     "t": 119.85
+    },
+    {
+     "w": "hundred",
+     "t": 120.26
+    },
+    {
+     "w": "and",
+     "t": 120.67
+    },
+    {
+     "w": "thirty-six",
+     "t": 121.09
+    },
+    {
+     "w": "grams",
+     "t": 121.5
+    },
+    {
+     "w": "—",
+     "t": 121.92
+    },
+    {
+     "w": "about",
+     "t": 122.33
+    },
+    {
+     "w": "as",
+     "t": 122.74
+    },
+    {
+     "w": "much",
+     "t": 123.16
+    },
+    {
+     "w": "as",
+     "t": 123.57
+    },
+    {
+     "w": "an",
+     "t": 123.99
+    },
+    {
+     "w": "apple!",
+     "t": 124.4
+    },
+    {
+     "w": "Today,",
+     "t": 124.81
+    },
+    {
+     "w": "each",
+     "t": 125.23
+    },
+    {
+     "w": "sister",
+     "t": 125.64
+    },
+    {
+     "w": "weighs",
+     "t": 126.06
+    },
+    {
+     "w": "more",
+     "t": 126.47
+    },
+    {
+     "w": "than",
+     "t": 126.88
+    },
+    {
+     "w": "fifty",
+     "t": 127.3
+    },
+    {
+     "w": "kilos.",
+     "t": 127.71
+    },
+    {
+     "w": "Their",
+     "t": 128.13
+    },
+    {
+     "w": "parents,",
+     "t": 128.54
+    },
+    {
+     "w": "Meng",
+     "t": 128.95
+    },
+    {
+     "w": "Meng",
+     "t": 129.37
+    },
+    {
+     "w": "and",
+     "t": 129.78
+    },
+    {
+     "w": "Jiao",
+     "t": 130.2
+    },
+    {
+     "w": "Qing,",
+     "t": 130.61
+    },
+    {
+     "w": "came",
+     "t": 131.02
+    },
+    {
+     "w": "from",
+     "t": 131.44
+    },
+    {
+     "w": "Chengdu,",
+     "t": 131.85
+    },
+    {
+     "w": "China",
+     "t": 132.27
+    },
+    {
+     "w": "—",
+     "t": 132.68
+    },
+    {
+     "w": "the",
+     "t": 133.1
+    },
+    {
+     "w": "second",
+     "t": 133.51
+    },
+    {
+     "w": "pair",
+     "t": 133.92
+    },
+    {
+     "w": "of",
+     "t": 134.34
+    },
+    {
+     "w": "panda",
+     "t": 134.75
+    },
+    {
+     "w": "twins",
+     "t": 135.17
+    },
+    {
+     "w": "ever",
+     "t": 135.58
+    },
+    {
+     "w": "born",
+     "t": 135.99
+    },
+    {
+     "w": "in",
+     "t": 136.41
+    },
+    {
+     "w": "Germany.",
+     "t": 136.82
+    }
+   ]
+  },
+  {
+   "start": 137.24,
+   "end": 152.14,
+   "en": "Every panda birthday is a party for conservation: pandas were once in great danger, and each healthy baby shows the hard work is working. Happy birthday, Leni and Lotti — may your cake always be cold!",
+   "title": "熊猫姐妹的冰蛋糕",
+   "cn": "每一次熊猫过生日，都是为自然保护开的一场派对：大熊猫曾经处境非常危险，而每一个健康的熊猫宝宝都在告诉世界——保护它们的努力没有白费。生日快乐，莲妮和洛蒂——愿你们的蛋糕永远冰冰凉凉！",
+   "words": [
+    {
+     "w": "Every",
+     "t": 137.24
+    },
+    {
+     "w": "panda",
+     "t": 137.65
+    },
+    {
+     "w": "birthday",
+     "t": 138.06
+    },
+    {
+     "w": "is",
+     "t": 138.48
+    },
+    {
+     "w": "a",
+     "t": 138.89
+    },
+    {
+     "w": "party",
+     "t": 139.31
+    },
+    {
+     "w": "for",
+     "t": 139.72
+    },
+    {
+     "w": "conservation:",
+     "t": 140.13
+    },
+    {
+     "w": "pandas",
+     "t": 140.55
+    },
+    {
+     "w": "were",
+     "t": 140.96
+    },
+    {
+     "w": "once",
+     "t": 141.38
+    },
+    {
+     "w": "in",
+     "t": 141.79
+    },
+    {
+     "w": "great",
+     "t": 142.2
+    },
+    {
+     "w": "danger,",
+     "t": 142.62
+    },
+    {
+     "w": "and",
+     "t": 143.03
+    },
+    {
+     "w": "each",
+     "t": 143.45
+    },
+    {
+     "w": "healthy",
+     "t": 143.86
+    },
+    {
+     "w": "baby",
+     "t": 144.27
+    },
+    {
+     "w": "shows",
+     "t": 144.69
+    },
+    {
+     "w": "the",
+     "t": 145.1
+    },
+    {
+     "w": "hard",
+     "t": 145.52
+    },
+    {
+     "w": "work",
+     "t": 145.93
+    },
+    {
+     "w": "is",
+     "t": 146.34
+    },
+    {
+     "w": "working.",
+     "t": 146.76
+    },
+    {
+     "w": "Happy",
+     "t": 147.17
+    },
+    {
+     "w": "birthday,",
+     "t": 147.59
+    },
+    {
+     "w": "Leni",
+     "t": 148.0
+    },
+    {
+     "w": "and",
+     "t": 148.41
+    },
+    {
+     "w": "Lotti",
+     "t": 148.83
+    },
+    {
+     "w": "—",
+     "t": 149.24
+    },
+    {
+     "w": "may",
+     "t": 149.66
+    },
+    {
+     "w": "your",
+     "t": 150.07
+    },
+    {
+     "w": "cake",
+     "t": 150.48
+    },
+    {
+     "w": "always",
+     "t": 150.9
+    },
+    {
+     "w": "be",
+     "t": 151.31
+    },
+    {
+     "w": "cold!",
+     "t": 151.73
+    }
+   ]
+  },
+  {
+   "start": 173.72,
+   "end": 196.87,
+   "en": "Now tiptoe into the forest. Above the ground, birds sing among the leaves; below the ground, something amazing is happening. Almost every tree is plugged into a secret network — not of wires, but of fungi: tiny threads, thinner than hair, wrapping root tips in soft nets, like little capsules of cotton.",
+   "title": "森林的悄悄话",
+   "cn": "现在踮起脚尖走进森林。地面上，小鸟在树叶间唱歌；地面下，神奇的事情正在发生。几乎每一棵树都接入了一张秘密网络——不是电线织成的网，而是真菌的网：细细的丝线，比头发还细，把树根尖裹进柔软的网里，像一颗颗小小的棉花胶囊。",
+   "words": [
+    {
+     "w": "Now",
+     "t": 173.72
+    },
+    {
+     "w": "tiptoe",
+     "t": 174.17
+    },
+    {
+     "w": "into",
+     "t": 174.61
+    },
+    {
+     "w": "the",
+     "t": 175.06
+    },
+    {
+     "w": "forest.",
+     "t": 175.5
+    },
+    {
+     "w": "Above",
+     "t": 175.95
+    },
+    {
+     "w": "the",
+     "t": 176.39
+    },
+    {
+     "w": "ground,",
+     "t": 176.84
+    },
+    {
+     "w": "birds",
+     "t": 177.28
+    },
+    {
+     "w": "sing",
+     "t": 177.73
+    },
+    {
+     "w": "among",
+     "t": 178.17
+    },
+    {
+     "w": "the",
+     "t": 178.62
+    },
+    {
+     "w": "leaves;",
+     "t": 179.06
+    },
+    {
+     "w": "below",
+     "t": 179.51
+    },
+    {
+     "w": "the",
+     "t": 179.95
+    },
+    {
+     "w": "ground,",
+     "t": 180.4
+    },
+    {
+     "w": "something",
+     "t": 180.84
+    },
+    {
+     "w": "amazing",
+     "t": 181.29
+    },
+    {
+     "w": "is",
+     "t": 181.74
+    },
+    {
+     "w": "happening.",
+     "t": 182.18
+    },
+    {
+     "w": "Almost",
+     "t": 182.63
+    },
+    {
+     "w": "every",
+     "t": 183.07
+    },
+    {
+     "w": "tree",
+     "t": 183.52
+    },
+    {
+     "w": "is",
+     "t": 183.96
+    },
+    {
+     "w": "plugged",
+     "t": 184.41
+    },
+    {
+     "w": "into",
+     "t": 184.85
+    },
+    {
+     "w": "a",
+     "t": 185.3
+    },
+    {
+     "w": "secret",
+     "t": 185.74
+    },
+    {
+     "w": "network",
+     "t": 186.19
+    },
+    {
+     "w": "—",
+     "t": 186.63
+    },
+    {
+     "w": "not",
+     "t": 187.08
+    },
+    {
+     "w": "of",
+     "t": 187.52
+    },
+    {
+     "w": "wires,",
+     "t": 187.97
+    },
+    {
+     "w": "but",
+     "t": 188.41
+    },
+    {
+     "w": "of",
+     "t": 188.86
+    },
+    {
+     "w": "fungi:",
+     "t": 189.3
+    },
+    {
+     "w": "tiny",
+     "t": 189.75
+    },
+    {
+     "w": "threads,",
+     "t": 190.2
+    },
+    {
+     "w": "thinner",
+     "t": 190.64
+    },
+    {
+     "w": "than",
+     "t": 191.09
+    },
+    {
+     "w": "hair,",
+     "t": 191.53
+    },
+    {
+     "w": "wrapping",
+     "t": 191.98
+    },
+    {
+     "w": "root",
+     "t": 192.42
+    },
+    {
+     "w": "tips",
+     "t": 192.87
+    },
+    {
+     "w": "in",
+     "t": 193.31
+    },
+    {
+     "w": "soft",
+     "t": 193.76
+    },
+    {
+     "w": "nets,",
+     "t": 194.2
+    },
+    {
+     "w": "like",
+     "t": 194.65
+    },
+    {
+     "w": "little",
+     "t": 195.09
+    },
+    {
+     "w": "capsules",
+     "t": 195.54
+    },
+    {
+     "w": "of",
+     "t": 195.98
+    },
+    {
+     "w": "cotton.",
+     "t": 196.43
+    }
+   ]
+  },
+  {
+   "start": 196.87,
+   "end": 213.8,
+   "en": "Through it, trees trade: fungi carry water and minerals up, and trees pay with sugar from their leaves. Nobody gets everything, but everybody gets enough. That is a compromise — a fair deal written in sugar and water.",
+   "title": "森林的悄悄话",
+   "cn": "通过这张网，树木做起了交易：真菌把水和矿物质送上来，树木用叶子制造的糖来付款。谁也拿不到全部，但谁都够用。这就是一种妥协——一笔用糖和水写成的公平交易。",
+   "words": [
+    {
+     "w": "Through",
+     "t": 196.87
+    },
+    {
+     "w": "it,",
+     "t": 197.32
+    },
+    {
+     "w": "trees",
+     "t": 197.77
+    },
+    {
+     "w": "trade:",
+     "t": 198.21
+    },
+    {
+     "w": "fungi",
+     "t": 198.66
+    },
+    {
+     "w": "carry",
+     "t": 199.1
+    },
+    {
+     "w": "water",
+     "t": 199.55
+    },
+    {
+     "w": "and",
+     "t": 199.99
+    },
+    {
+     "w": "minerals",
+     "t": 200.44
+    },
+    {
+     "w": "up,",
+     "t": 200.88
+    },
+    {
+     "w": "and",
+     "t": 201.33
+    },
+    {
+     "w": "trees",
+     "t": 201.77
+    },
+    {
+     "w": "pay",
+     "t": 202.22
+    },
+    {
+     "w": "with",
+     "t": 202.66
+    },
+    {
+     "w": "sugar",
+     "t": 203.11
+    },
+    {
+     "w": "from",
+     "t": 203.55
+    },
+    {
+     "w": "their",
+     "t": 204.0
+    },
+    {
+     "w": "leaves.",
+     "t": 204.44
+    },
+    {
+     "w": "Nobody",
+     "t": 204.89
+    },
+    {
+     "w": "gets",
+     "t": 205.34
+    },
+    {
+     "w": "everything,",
+     "t": 205.78
+    },
+    {
+     "w": "but",
+     "t": 206.23
+    },
+    {
+     "w": "everybody",
+     "t": 206.67
+    },
+    {
+     "w": "gets",
+     "t": 207.12
+    },
+    {
+     "w": "enough.",
+     "t": 207.56
+    },
+    {
+     "w": "That",
+     "t": 208.01
+    },
+    {
+     "w": "is",
+     "t": 208.45
+    },
+    {
+     "w": "a",
+     "t": 208.9
+    },
+    {
+     "w": "compromise",
+     "t": 209.34
+    },
+    {
+     "w": "—",
+     "t": 209.79
+    },
+    {
+     "w": "a",
+     "t": 210.23
+    },
+    {
+     "w": "fair",
+     "t": 210.68
+    },
+    {
+     "w": "deal",
+     "t": 211.12
+    },
+    {
+     "w": "written",
+     "t": 211.57
+    },
+    {
+     "w": "in",
+     "t": 212.01
+    },
+    {
+     "w": "sugar",
+     "t": 212.46
+    },
+    {
+     "w": "and",
+     "t": 212.9
+    },
+    {
+     "w": "water.",
+     "t": 213.35
+    }
+   ]
+  },
+  {
+   "start": 213.8,
+   "end": 238.29,
+   "en": "Scientists observed the forest for years to determine what else moves below ground. When insects attack one tree, it sends a warning through the network — a warning relevant to every neighbour: \"Make your leaves bitter — the hungry bugs are coming!\" Mother trees turn up the dial and send extra sugar to their seedlings.",
+   "title": "森林的悄悄话",
+   "cn": "科学家观察了这片森林好多年，想弄清楚地下还在传递些什么。当昆虫攻击一棵树时，它会通过网络发出警告——这个警告和每一个邻居都息息相关：“把你们的叶子变苦——贪吃的虫子要来啦！”大树妈妈还会把“旋钮”拧大，给自己的小树苗多送一些糖。",
+   "words": [
+    {
+     "w": "Scientists",
+     "t": 213.8
+    },
+    {
+     "w": "observed",
+     "t": 214.24
+    },
+    {
+     "w": "the",
+     "t": 214.69
+    },
+    {
+     "w": "forest",
+     "t": 215.13
+    },
+    {
+     "w": "for",
+     "t": 215.58
+    },
+    {
+     "w": "years",
+     "t": 216.02
+    },
+    {
+     "w": "to",
+     "t": 216.47
+    },
+    {
+     "w": "determine",
+     "t": 216.91
+    },
+    {
+     "w": "what",
+     "t": 217.36
+    },
+    {
+     "w": "else",
+     "t": 217.8
+    },
+    {
+     "w": "moves",
+     "t": 218.25
+    },
+    {
+     "w": "below",
+     "t": 218.69
+    },
+    {
+     "w": "ground.",
+     "t": 219.14
+    },
+    {
+     "w": "When",
+     "t": 219.58
+    },
+    {
+     "w": "insects",
+     "t": 220.03
+    },
+    {
+     "w": "attack",
+     "t": 220.47
+    },
+    {
+     "w": "one",
+     "t": 220.92
+    },
+    {
+     "w": "tree,",
+     "t": 221.37
+    },
+    {
+     "w": "it",
+     "t": 221.81
+    },
+    {
+     "w": "sends",
+     "t": 222.26
+    },
+    {
+     "w": "a",
+     "t": 222.7
+    },
+    {
+     "w": "warning",
+     "t": 223.15
+    },
+    {
+     "w": "through",
+     "t": 223.59
+    },
+    {
+     "w": "the",
+     "t": 224.04
+    },
+    {
+     "w": "network",
+     "t": 224.48
+    },
+    {
+     "w": "—",
+     "t": 224.93
+    },
+    {
+     "w": "a",
+     "t": 225.37
+    },
+    {
+     "w": "warning",
+     "t": 225.82
+    },
+    {
+     "w": "relevant",
+     "t": 226.26
+    },
+    {
+     "w": "to",
+     "t": 226.71
+    },
+    {
+     "w": "every",
+     "t": 227.15
+    },
+    {
+     "w": "neighbour:",
+     "t": 227.6
+    },
+    {
+     "w": "\"Make",
+     "t": 228.04
+    },
+    {
+     "w": "your",
+     "t": 228.49
+    },
+    {
+     "w": "leaves",
+     "t": 228.93
+    },
+    {
+     "w": "bitter",
+     "t": 229.38
+    },
+    {
+     "w": "—",
+     "t": 229.83
+    },
+    {
+     "w": "the",
+     "t": 230.27
+    },
+    {
+     "w": "hungry",
+     "t": 230.72
+    },
+    {
+     "w": "bugs",
+     "t": 231.16
+    },
+    {
+     "w": "are",
+     "t": 231.61
+    },
+    {
+     "w": "coming!\"",
+     "t": 232.05
+    },
+    {
+     "w": "Mother",
+     "t": 232.5
+    },
+    {
+     "w": "trees",
+     "t": 232.94
+    },
+    {
+     "w": "turn",
+     "t": 233.39
+    },
+    {
+     "w": "up",
+     "t": 233.83
+    },
+    {
+     "w": "the",
+     "t": 234.28
+    },
+    {
+     "w": "dial",
+     "t": 234.72
+    },
+    {
+     "w": "and",
+     "t": 235.17
+    },
+    {
+     "w": "send",
+     "t": 235.61
+    },
+    {
+     "w": "extra",
+     "t": 236.06
+    },
+    {
+     "w": "sugar",
+     "t": 236.5
+    },
+    {
+     "w": "to",
+     "t": 236.95
+    },
+    {
+     "w": "their",
+     "t": 237.4
+    },
+    {
+     "w": "seedlings.",
+     "t": 237.84
+    }
+   ]
+  },
+  {
+   "start": 238.29,
+   "end": 260.55,
+   "en": "Is the forest really \"talking\"? Not with words — but signals and supplies move from tree to tree, and the forest works like one big family. It sounds almost like justice: the strong help the weak. Next time you hug a tree, remember: under your feet, the forest is whispering.",
+   "title": "森林的悄悄话",
+   "cn": "森林真的在“说话”吗？不是用语言——但是信号和物资真的在树与树之间传递，整片森林就像一个大家庭。这听起来几乎像一种公平正义：强壮的帮助弱小的。下次你抱一抱大树时，别忘了：你的脚下，森林正在说悄悄话。",
+   "words": [
+    {
+     "w": "Is",
+     "t": 238.29
+    },
+    {
+     "w": "the",
+     "t": 238.73
+    },
+    {
+     "w": "forest",
+     "t": 239.18
+    },
+    {
+     "w": "really",
+     "t": 239.62
+    },
+    {
+     "w": "\"talking\"?",
+     "t": 240.07
+    },
+    {
+     "w": "Not",
+     "t": 240.51
+    },
+    {
+     "w": "with",
+     "t": 240.96
+    },
+    {
+     "w": "words",
+     "t": 241.4
+    },
+    {
+     "w": "—",
+     "t": 241.85
+    },
+    {
+     "w": "but",
+     "t": 242.29
+    },
+    {
+     "w": "signals",
+     "t": 242.74
+    },
+    {
+     "w": "and",
+     "t": 243.18
+    },
+    {
+     "w": "supplies",
+     "t": 243.63
+    },
+    {
+     "w": "move",
+     "t": 244.07
+    },
+    {
+     "w": "from",
+     "t": 244.52
+    },
+    {
+     "w": "tree",
+     "t": 244.97
+    },
+    {
+     "w": "to",
+     "t": 245.41
+    },
+    {
+     "w": "tree,",
+     "t": 245.86
+    },
+    {
+     "w": "and",
+     "t": 246.3
+    },
+    {
+     "w": "the",
+     "t": 246.75
+    },
+    {
+     "w": "forest",
+     "t": 247.19
+    },
+    {
+     "w": "works",
+     "t": 247.64
+    },
+    {
+     "w": "like",
+     "t": 248.08
+    },
+    {
+     "w": "one",
+     "t": 248.53
+    },
+    {
+     "w": "big",
+     "t": 248.97
+    },
+    {
+     "w": "family.",
+     "t": 249.42
+    },
+    {
+     "w": "It",
+     "t": 249.86
+    },
+    {
+     "w": "sounds",
+     "t": 250.31
+    },
+    {
+     "w": "almost",
+     "t": 250.75
+    },
+    {
+     "w": "like",
+     "t": 251.2
+    },
+    {
+     "w": "justice:",
+     "t": 251.64
+    },
+    {
+     "w": "the",
+     "t": 252.09
+    },
+    {
+     "w": "strong",
+     "t": 252.53
+    },
+    {
+     "w": "help",
+     "t": 252.98
+    },
+    {
+     "w": "the",
+     "t": 253.43
+    },
+    {
+     "w": "weak.",
+     "t": 253.87
+    },
+    {
+     "w": "Next",
+     "t": 254.32
+    },
+    {
+     "w": "time",
+     "t": 254.76
+    },
+    {
+     "w": "you",
+     "t": 255.21
+    },
+    {
+     "w": "hug",
+     "t": 255.65
+    },
+    {
+     "w": "a",
+     "t": 256.1
+    },
+    {
+     "w": "tree,",
+     "t": 256.54
+    },
+    {
+     "w": "remember:",
+     "t": 256.99
+    },
+    {
+     "w": "under",
+     "t": 257.43
+    },
+    {
+     "w": "your",
+     "t": 257.88
+    },
+    {
+     "w": "feet,",
+     "t": 258.32
+    },
+    {
+     "w": "the",
+     "t": 258.77
+    },
+    {
+     "w": "forest",
+     "t": 259.21
+    },
+    {
+     "w": "is",
+     "t": 259.66
+    },
+    {
+     "w": "whispering.",
+     "t": 260.1
+    }
+   ]
+  },
+  {
+   "start": 278.05,
+   "end": 307.62,
+   "en": "Here's today's idiom: \"once in a blue moon.\" A blue moon is a rare full moon, so this means: very rarely. Listen: my neighbour, Mr. Lee, washes his car once in a blue moon — maybe twice a year. But last Sunday it rained all morning — and Mr. Lee washed his car in the rain! \"The rain is helping me,\" he laughed. And you? What do you do once in a blue moon — once a year, not once a fortnight?",
+   "title": "今日俚语",
+   "cn": "今天的俚语是“once in a blue moon”（千载难逢）：蓝月亮是一种罕见的满月，所以这个短语的意思是“非常非常难得”。听听这个小故事：我的邻居李先生洗车是千载难逢的事——一年顶多两次。可上周日下了一上午雨，李先生却在雨里洗起了车！“雨在帮我呢，”他笑着说。轮到你啦：你做什么事是千载难逢的——一年一次，而不是两周一次？",
+   "words": [
+    {
+     "w": "Here's",
+     "t": 278.05
+    },
+    {
+     "w": "today's",
+     "t": 278.41
+    },
+    {
+     "w": "idiom:",
+     "t": 278.77
+    },
+    {
+     "w": "\"once",
+     "t": 279.13
+    },
+    {
+     "w": "in",
+     "t": 279.49
+    },
+    {
+     "w": "a",
+     "t": 279.85
+    },
+    {
+     "w": "blue",
+     "t": 280.21
+    },
+    {
+     "w": "moon.\"",
+     "t": 280.57
+    },
+    {
+     "w": "A",
+     "t": 280.93
+    },
+    {
+     "w": "blue",
+     "t": 281.3
+    },
+    {
+     "w": "moon",
+     "t": 281.66
+    },
+    {
+     "w": "is",
+     "t": 282.02
+    },
+    {
+     "w": "a",
+     "t": 282.38
+    },
+    {
+     "w": "rare",
+     "t": 282.74
+    },
+    {
+     "w": "full",
+     "t": 283.1
+    },
+    {
+     "w": "moon,",
+     "t": 283.46
+    },
+    {
+     "w": "so",
+     "t": 283.82
+    },
+    {
+     "w": "this",
+     "t": 284.18
+    },
+    {
+     "w": "means:",
+     "t": 284.54
+    },
+    {
+     "w": "very",
+     "t": 284.9
+    },
+    {
+     "w": "rarely.",
+     "t": 285.26
+    },
+    {
+     "w": "Listen:",
+     "t": 285.62
+    },
+    {
+     "w": "my",
+     "t": 285.98
+    },
+    {
+     "w": "neighbour,",
+     "t": 286.34
+    },
+    {
+     "w": "Mr.",
+     "t": 286.7
+    },
+    {
+     "w": "Lee,",
+     "t": 287.07
+    },
+    {
+     "w": "washes",
+     "t": 287.43
+    },
+    {
+     "w": "his",
+     "t": 287.79
+    },
+    {
+     "w": "car",
+     "t": 288.15
+    },
+    {
+     "w": "once",
+     "t": 288.51
+    },
+    {
+     "w": "in",
+     "t": 288.87
+    },
+    {
+     "w": "a",
+     "t": 289.23
+    },
+    {
+     "w": "blue",
+     "t": 289.59
+    },
+    {
+     "w": "moon",
+     "t": 289.95
+    },
+    {
+     "w": "—",
+     "t": 290.31
+    },
+    {
+     "w": "maybe",
+     "t": 290.67
+    },
+    {
+     "w": "twice",
+     "t": 291.03
+    },
+    {
+     "w": "a",
+     "t": 291.39
+    },
+    {
+     "w": "year.",
+     "t": 291.75
+    },
+    {
+     "w": "But",
+     "t": 292.11
+    },
+    {
+     "w": "last",
+     "t": 292.47
+    },
+    {
+     "w": "Sunday",
+     "t": 292.84
+    },
+    {
+     "w": "it",
+     "t": 293.2
+    },
+    {
+     "w": "rained",
+     "t": 293.56
+    },
+    {
+     "w": "all",
+     "t": 293.92
+    },
+    {
+     "w": "morning",
+     "t": 294.28
+    },
+    {
+     "w": "—",
+     "t": 294.64
+    },
+    {
+     "w": "and",
+     "t": 295.0
+    },
+    {
+     "w": "Mr.",
+     "t": 295.36
+    },
+    {
+     "w": "Lee",
+     "t": 295.72
+    },
+    {
+     "w": "washed",
+     "t": 296.08
+    },
+    {
+     "w": "his",
+     "t": 296.44
+    },
+    {
+     "w": "car",
+     "t": 296.8
+    },
+    {
+     "w": "in",
+     "t": 297.16
+    },
+    {
+     "w": "the",
+     "t": 297.52
+    },
+    {
+     "w": "rain!",
+     "t": 297.88
+    },
+    {
+     "w": "\"The",
+     "t": 298.24
+    },
+    {
+     "w": "rain",
+     "t": 298.6
+    },
+    {
+     "w": "is",
+     "t": 298.97
+    },
+    {
+     "w": "helping",
+     "t": 299.33
+    },
+    {
+     "w": "me,\"",
+     "t": 299.69
+    },
+    {
+     "w": "he",
+     "t": 300.05
+    },
+    {
+     "w": "laughed.",
+     "t": 300.41
+    },
+    {
+     "w": "And",
+     "t": 300.77
+    },
+    {
+     "w": "you?",
+     "t": 301.13
+    },
+    {
+     "w": "What",
+     "t": 301.49
+    },
+    {
+     "w": "do",
+     "t": 301.85
+    },
+    {
+     "w": "you",
+     "t": 302.21
+    },
+    {
+     "w": "do",
+     "t": 302.57
+    },
+    {
+     "w": "once",
+     "t": 302.93
+    },
+    {
+     "w": "in",
+     "t": 303.29
+    },
+    {
+     "w": "a",
+     "t": 303.65
+    },
+    {
+     "w": "blue",
+     "t": 304.01
+    },
+    {
+     "w": "moon",
+     "t": 304.37
+    },
+    {
+     "w": "—",
+     "t": 304.74
+    },
+    {
+     "w": "once",
+     "t": 305.1
+    },
+    {
+     "w": "a",
+     "t": 305.46
+    },
+    {
+     "w": "year,",
+     "t": 305.82
+    },
+    {
+     "w": "not",
+     "t": 306.18
+    },
+    {
+     "w": "once",
+     "t": 306.54
+    },
+    {
+     "w": "a",
+     "t": 306.9
+    },
+    {
+     "w": "fortnight?",
+     "t": 307.26
+    }
+   ]
+  },
+  {
+   "start": 321.76,
+   "end": 345.01,
+   "en": "Let's think. The panda twins shared a frozen cake; the forest shared sugar and secrets. Two questions for you. First: if you made a birthday cake for an animal, which animal, and what flavour? Second: if the trees could send you one message, what would they say? Talk about it with your family!",
+   "title": "结束语与互动问题",
+   "cn": "我们来想一想。熊猫双胞胎分享了一块冰蛋糕，森林分享了糖和秘密。现在有两个问题问你。第一：如果你给一种动物做生日蛋糕，你会选哪种动物、做什么口味？第二：如果树木能给你发一条消息，你觉得它们会说什么？和家人聊聊吧！",
+   "words": [
+    {
+     "w": "Let's",
+     "t": 321.76
+    },
+    {
+     "w": "think.",
+     "t": 322.2
+    },
+    {
+     "w": "The",
+     "t": 322.64
+    },
+    {
+     "w": "panda",
+     "t": 323.08
+    },
+    {
+     "w": "twins",
+     "t": 323.51
+    },
+    {
+     "w": "shared",
+     "t": 323.95
+    },
+    {
+     "w": "a",
+     "t": 324.39
+    },
+    {
+     "w": "frozen",
+     "t": 324.83
+    },
+    {
+     "w": "cake;",
+     "t": 325.27
+    },
+    {
+     "w": "the",
+     "t": 325.71
+    },
+    {
+     "w": "forest",
+     "t": 326.15
+    },
+    {
+     "w": "shared",
+     "t": 326.59
+    },
+    {
+     "w": "sugar",
+     "t": 327.02
+    },
+    {
+     "w": "and",
+     "t": 327.46
+    },
+    {
+     "w": "secrets.",
+     "t": 327.9
+    },
+    {
+     "w": "Two",
+     "t": 328.34
+    },
+    {
+     "w": "questions",
+     "t": 328.78
+    },
+    {
+     "w": "for",
+     "t": 329.22
+    },
+    {
+     "w": "you.",
+     "t": 329.66
+    },
+    {
+     "w": "First:",
+     "t": 330.09
+    },
+    {
+     "w": "if",
+     "t": 330.53
+    },
+    {
+     "w": "you",
+     "t": 330.97
+    },
+    {
+     "w": "made",
+     "t": 331.41
+    },
+    {
+     "w": "a",
+     "t": 331.85
+    },
+    {
+     "w": "birthday",
+     "t": 332.29
+    },
+    {
+     "w": "cake",
+     "t": 332.73
+    },
+    {
+     "w": "for",
+     "t": 333.17
+    },
+    {
+     "w": "an",
+     "t": 333.6
+    },
+    {
+     "w": "animal,",
+     "t": 334.04
+    },
+    {
+     "w": "which",
+     "t": 334.48
+    },
+    {
+     "w": "animal,",
+     "t": 334.92
+    },
+    {
+     "w": "and",
+     "t": 335.36
+    },
+    {
+     "w": "what",
+     "t": 335.8
+    },
+    {
+     "w": "flavour?",
+     "t": 336.24
+    },
+    {
+     "w": "Second:",
+     "t": 336.68
+    },
+    {
+     "w": "if",
+     "t": 337.11
+    },
+    {
+     "w": "the",
+     "t": 337.55
+    },
+    {
+     "w": "trees",
+     "t": 337.99
+    },
+    {
+     "w": "could",
+     "t": 338.43
+    },
+    {
+     "w": "send",
+     "t": 338.87
+    },
+    {
+     "w": "you",
+     "t": 339.31
+    },
+    {
+     "w": "one",
+     "t": 339.75
+    },
+    {
+     "w": "message,",
+     "t": 340.18
+    },
+    {
+     "w": "what",
+     "t": 340.62
+    },
+    {
+     "w": "would",
+     "t": 341.06
+    },
+    {
+     "w": "they",
+     "t": 341.5
+    },
+    {
+     "w": "say?",
+     "t": 341.94
+    },
+    {
+     "w": "Talk",
+     "t": 342.38
+    },
+    {
+     "w": "about",
+     "t": 342.82
+    },
+    {
+     "w": "it",
+     "t": 343.26
+    },
+    {
+     "w": "with",
+     "t": 343.69
+    },
+    {
+     "w": "your",
+     "t": 344.13
+    },
+    {
+     "w": "family!",
+     "t": 344.57
+    }
+   ]
+  },
+  {
+   "start": 357.15,
+   "end": 365.0,
+   "en": "That's all for today, young explorers. Be kind like a mother tree, and sweet like a panda's birthday. See you tomorrow morning!",
+   "title": "告别",
+   "cn": "今天的节目就到这里啦，小小探险家们。要像大树妈妈一样善良，像熊猫的生日一样甜蜜。明天早上见！",
+   "words": [
+    {
+     "w": "That's",
+     "t": 357.15
+    },
+    {
+     "w": "all",
+     "t": 357.51
+    },
+    {
+     "w": "for",
+     "t": 357.86
+    },
+    {
+     "w": "today,",
+     "t": 358.22
+    },
+    {
+     "w": "young",
+     "t": 358.58
+    },
+    {
+     "w": "explorers.",
+     "t": 358.93
+    },
+    {
+     "w": "Be",
+     "t": 359.29
+    },
+    {
+     "w": "kind",
+     "t": 359.65
+    },
+    {
+     "w": "like",
+     "t": 360.0
+    },
+    {
+     "w": "a",
+     "t": 360.36
+    },
+    {
+     "w": "mother",
+     "t": 360.72
+    },
+    {
+     "w": "tree,",
+     "t": 361.07
+    },
+    {
+     "w": "and",
+     "t": 361.43
+    },
+    {
+     "w": "sweet",
+     "t": 361.79
+    },
+    {
+     "w": "like",
+     "t": 362.15
+    },
+    {
+     "w": "a",
+     "t": 362.5
+    },
+    {
+     "w": "panda's",
+     "t": 362.86
+    },
+    {
+     "w": "birthday.",
+     "t": 363.22
+    },
+    {
+     "w": "See",
+     "t": 363.57
+    },
+    {
+     "w": "you",
+     "t": 363.93
+    },
+    {
+     "w": "tomorrow",
+     "t": 364.29
+    },
+    {
+     "w": "morning!",
+     "t": 364.64
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "once in a blue moon",
+    "phon": "/wʌns ɪn ə bluː muːn/",
+    "meaning": "(习语) 千载难逢；极少发生",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: My neighbour washes his car only once in a blue moon."
+   },
+   {
+    "word": "beetroot",
+    "phon": "/ˈbiːtruːt/",
+    "meaning": "(n.) 甜菜根（紫红色蔬菜，可做天然色素）",
+    "tags": [],
+    "example": "Example: The ice cake was pink, coloured with beetroot juice."
+   },
+   {
+    "word": "nibble",
+    "phon": "/ˈnɪbl/",
+    "meaning": "(v.) 小口啃；一点点吃",
+    "tags": [],
+    "example": "Example: The sisters nibbled the carrot flowers."
+   },
+   {
+    "word": "paw",
+    "phon": "/pɔː/",
+    "meaning": "(n.) 兽爪；(v.) 用爪子抓、拨",
+    "tags": [],
+    "example": "Example: The sisters pawed at the ice."
+   },
+   {
+    "word": "fungi",
+    "phon": "/ˈfʌŋɡaɪ/",
+    "meaning": "(n.) 真菌（fungus 的复数）",
+    "tags": [],
+    "example": "Example: The network is made of fungi, not wires."
+   },
+   {
+    "word": "network",
+    "phon": "/ˈnetwɜːk/",
+    "meaning": "(n.) 网络；网状系统",
+    "tags": [],
+    "example": "Example: Every tree is plugged into a secret network."
+   },
+   {
+    "word": "seedling",
+    "phon": "/ˈsiːdlɪŋ/",
+    "meaning": "(n.) 幼苗；小树苗",
+    "tags": [],
+    "example": "Example: Mother trees send extra sugar to their seedlings."
+   },
+   {
+    "word": "whisper",
+    "phon": "/ˈwɪspə/",
+    "meaning": "(v./n.) 低语；耳语",
+    "tags": [],
+    "example": "Example: Under your feet, the forest is whispering."
+   },
+   {
+    "word": "conservation",
+    "phon": "/ˌkɒnsəˈveɪʃn/",
+    "meaning": "(n.) （动植物、自然环境的）保护",
+    "tags": [],
+    "example": "Example: Every panda birthday is a party for conservation."
+   },
+   {
+    "word": "compromise",
+    "phon": "/ˈkɒmprəmaɪz/",
+    "meaning": "(n.) 妥协；折中办法",
+    "tags": [],
+    "example": "Example: That is a compromise — a fair deal written in sugar and water."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "What did the keepers make for the twins' second birthday?\nA. A giant bamboo cake\nB. A three-tier ice cake\nC. A carrot sandwich\nD. A honey pie",
+     "How much did Leni weigh when she was born?\nA. About fifty kilos\nB. About five kilos\nC. Just one hundred and thirty-six grams\nD. About one kilo",
+     "What do the fungi carry up to the trees?\nA. Water and minerals\nB. Sugar and leaves\nC. Insects and warnings\nD. Flowers and ice",
+     "What does \"once in a blue moon\" mean?\nA. Every night\nB. Very rarely\nC. Twice a year\nD. On your birthday"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "When"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " insects attack one tree, it "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "sends"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " a warning "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "through"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " the network — a warning "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "relevant to"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " every neighbour."
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "When insects attack one tree"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是 "
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "when 引导的时间状语从句"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，意思是“当昆虫攻击一棵树时”。注意：when 从句里用"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "一般现在时"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（attack），哪怕说的是将来会发生的事，也不用 will——这是 when 从句的铁规矩。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "主干是 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "it sends a warning through the network"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：主语 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "it"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（就是那棵被攻击的树）、谓语 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "sends"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "、宾语 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "a warning"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "；"
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "through the network"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是介词短语，交代警告走的“路线”——通过网络。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "破折号后面的 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "a warning relevant to every neighbour"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "同位语"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：把前面的 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "a warning"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 换个说法再讲一遍。其中 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "relevant to every neighbour"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（与每一个邻居都相关）是形容词短语，太长了，所以"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "后置"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "到名词 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "warning"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 后面修饰它——英语里“形容词 + 介词短语”作定语时，习惯放在名词之后。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句逻辑链："
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "虫子进攻一棵树（when 从句，时间和条件）→ 这棵树发出警告（主干）→ 警告与每个邻居相关（同位语补清这个警告的重要性）"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。一句话讲完森林报警的完整过程。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "BIRTHDAY"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（生日）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SEEDLING"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（幼苗；小树苗）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ICE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（冰）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "MOON"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（月亮）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "NETWORK"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（网络）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "BLUE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（蓝色的）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "BEETROOT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（甜菜根）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PANDA"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（大熊猫）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "WHISPER"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（低语；耳语）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "FUNGI"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（真菌）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The keepers made the twins "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"a cake — a cake of ice! It had three tiers.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"Leni weighed just one hundred and thirty-six grams — about as much as an apple!\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "A"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"Fungi carry water and minerals up, and trees pay with sugar from their leaves.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". A blue moon is a rare full moon, so the idiom means something happens "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "very rarely"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "."
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. sends  2. grow"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. relevant  2. made"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. Through  2. up"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "B",
+    "C",
+    "A",
+    "B"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. when 从句的时态：用括号里的动词的正确形式补全（when 从句用一般现在时）",
+     "items": [
+      {
+       "prompt": "When insects attack one tree, it ____ a warning through the network.",
+       "options": [
+        "sends",
+        "send",
+        "will sends"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "When spring comes, the seedlings ____ fast in the warm sun.",
+       "options": [
+        "grows",
+        "grow",
+        "grew"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. 同位语与后置修饰：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "It sends a warning — a warning ____ to every neighbour.",
+       "options": [
+        "relevantly",
+        "relevance",
+        "relevant"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "The sisters share one cake — a cake ____ of ice and carrots.",
+       "options": [
+        "made",
+        "make",
+        "makes"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. 介词与短语动词：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "____ the network, trees share sugar and warnings.",
+       "options": [
+        "Under",
+        "Through",
+        "Behind"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "Mother trees turn ____ the dial and send extra sugar to their seedlings.",
+       "options": [
+        "off",
+        "down",
+        "up"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "When the bell rings, the children run to the garden.",
+    "A mother tree sends sugar through the network — a gift relevant to every seedling."
+   ]
+  },
+  "crossword": {
+   "nrows": 9,
+   "ncols": 14,
+   "words": [
+    {
+     "word": "BIRTHDAY",
+     "row": 0,
+     "col": 9,
+     "dir": "D",
+     "num": 1,
+     "cn": "生日",
+     "clue": "The day you were born — the twins celebrated theirs with an ice cake."
+    },
+    {
+     "word": "SEEDLING",
+     "row": 1,
+     "col": 3,
+     "dir": "D",
+     "num": 2,
+     "cn": "幼苗；小树苗",
+     "clue": "A very young tree, just growing from a seed."
+    },
+    {
+     "word": "ICE",
+     "row": 1,
+     "col": 7,
+     "dir": "D",
+     "num": 3,
+     "cn": "冰",
+     "clue": "Frozen water — the panda twins' birthday cake was made of it."
+    },
+    {
+     "word": "MOON",
+     "row": 1,
+     "col": 11,
+     "dir": "D",
+     "num": 4,
+     "cn": "月亮",
+     "clue": "It shines in the night sky; a blue one is very rare."
+    },
+    {
+     "word": "NETWORK",
+     "row": 1,
+     "col": 13,
+     "dir": "D",
+     "num": 5,
+     "cn": "网络",
+     "clue": "Many parts joined together, passing things along — the forest hides a secret one."
+    },
+    {
+     "word": "BLUE",
+     "row": 3,
+     "col": 6,
+     "dir": "D",
+     "num": 6,
+     "cn": "蓝色的",
+     "clue": "The colour of the sky; together with 'moon', it means very rare."
+    },
+    {
+     "word": "BEETROOT",
+     "row": 3,
+     "col": 6,
+     "dir": "A",
+     "num": 7,
+     "cn": "甜菜根",
+     "clue": "A dark-red vegetable; its juice coloured the ice cake pink."
+    },
+    {
+     "word": "PANDA",
+     "row": 4,
+     "col": 0,
+     "dir": "A",
+     "num": 8,
+     "cn": "大熊猫",
+     "clue": "A black-and-white bear from China that loves bamboo."
+    },
+    {
+     "word": "WHISPER",
+     "row": 6,
+     "col": 1,
+     "dir": "A",
+     "num": 9,
+     "cn": "低语；耳语",
+     "clue": "To speak very quietly — the forest does it under the ground."
+    },
+    {
+     "word": "FUNGI",
+     "row": 8,
+     "col": 0,
+     "dir": "A",
+     "num": 10,
+     "cn": "真菌",
+     "clue": "Living things like mushrooms; their tiny threads join tree roots together."
+    }
+   ]
+  }
+ }
+}
