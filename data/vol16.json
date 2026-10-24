@@ -1,0 +1,3786 @@
+{
+ "id": "vol16",
+ "title": "乐高大桥与比树还老的鲨鱼",
+ "words": 600,
+ "duration": "6分07秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol16/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol16/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol16/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol16/Vol16_晚读讲义_乐高大桥与比树还老的鲨鱼_v1.pdf",
+ "pdfName": "Vol16_晚读讲义_乐高大桥与比树还老的鲨鱼_v1.pdf",
+ "blocks": [
+  {
+   "start": 30.35,
+   "end": 52.07,
+   "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! This is our sixteenth show together! Today we meet a bridge built from toy bricks — the biggest LEGO build on Earth. Then we dive back in time to meet a swimmer older than the first trees. A toy bridge and an ancient shark! Let's go!",
+   "title": "开场白",
+   "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！这是我们在一起的第十六期节目啦！今天我们来认识一座用玩具积木搭成的桥——它是地球上最大的乐高建筑。然后我们潜入时光深处，去见一位比第一批树木还要古老的游泳者。一座积木桥，一条远古鲨鱼！出发吧！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 30.35
+    },
+    {
+     "w": "young",
+     "t": 30.74
+    },
+    {
+     "w": "explorers,",
+     "t": 31.13
+    },
+    {
+     "w": "and",
+     "t": 31.51
+    },
+    {
+     "w": "welcome",
+     "t": 31.9
+    },
+    {
+     "w": "back",
+     "t": 32.29
+    },
+    {
+     "w": "to",
+     "t": 32.68
+    },
+    {
+     "w": "Michael's",
+     "t": 33.06
+    },
+    {
+     "w": "Morning",
+     "t": 33.45
+    },
+    {
+     "w": "Listening!",
+     "t": 33.84
+    },
+    {
+     "w": "This",
+     "t": 34.23
+    },
+    {
+     "w": "is",
+     "t": 34.62
+    },
+    {
+     "w": "our",
+     "t": 35.0
+    },
+    {
+     "w": "sixteenth",
+     "t": 35.39
+    },
+    {
+     "w": "show",
+     "t": 35.78
+    },
+    {
+     "w": "together!",
+     "t": 36.17
+    },
+    {
+     "w": "Today",
+     "t": 36.56
+    },
+    {
+     "w": "we",
+     "t": 36.94
+    },
+    {
+     "w": "meet",
+     "t": 37.33
+    },
+    {
+     "w": "a",
+     "t": 37.72
+    },
+    {
+     "w": "bridge",
+     "t": 38.11
+    },
+    {
+     "w": "built",
+     "t": 38.5
+    },
+    {
+     "w": "from",
+     "t": 38.88
+    },
+    {
+     "w": "toy",
+     "t": 39.27
+    },
+    {
+     "w": "bricks",
+     "t": 39.66
+    },
+    {
+     "w": "—",
+     "t": 40.05
+    },
+    {
+     "w": "the",
+     "t": 40.43
+    },
+    {
+     "w": "biggest",
+     "t": 40.82
+    },
+    {
+     "w": "LEGO",
+     "t": 41.21
+    },
+    {
+     "w": "build",
+     "t": 41.6
+    },
+    {
+     "w": "on",
+     "t": 41.99
+    },
+    {
+     "w": "Earth.",
+     "t": 42.37
+    },
+    {
+     "w": "Then",
+     "t": 42.76
+    },
+    {
+     "w": "we",
+     "t": 43.15
+    },
+    {
+     "w": "dive",
+     "t": 43.54
+    },
+    {
+     "w": "back",
+     "t": 43.92
+    },
+    {
+     "w": "in",
+     "t": 44.31
+    },
+    {
+     "w": "time",
+     "t": 44.7
+    },
+    {
+     "w": "to",
+     "t": 45.09
+    },
+    {
+     "w": "meet",
+     "t": 45.48
+    },
+    {
+     "w": "a",
+     "t": 45.86
+    },
+    {
+     "w": "swimmer",
+     "t": 46.25
+    },
+    {
+     "w": "older",
+     "t": 46.64
+    },
+    {
+     "w": "than",
+     "t": 47.03
+    },
+    {
+     "w": "the",
+     "t": 47.42
+    },
+    {
+     "w": "first",
+     "t": 47.8
+    },
+    {
+     "w": "trees.",
+     "t": 48.19
+    },
+    {
+     "w": "A",
+     "t": 48.58
+    },
+    {
+     "w": "toy",
+     "t": 48.97
+    },
+    {
+     "w": "bridge",
+     "t": 49.36
+    },
+    {
+     "w": "and",
+     "t": 49.74
+    },
+    {
+     "w": "an",
+     "t": 50.13
+    },
+    {
+     "w": "ancient",
+     "t": 50.52
+    },
+    {
+     "w": "shark!",
+     "t": 50.91
+    },
+    {
+     "w": "Let's",
+     "t": 51.29
+    },
+    {
+     "w": "go!",
+     "t": 51.68
+    }
+   ]
+  },
+  {
+   "start": 64.45,
+   "end": 96.34,
+   "en": "Our first hero stands in London: the famous Tower Bridge, copied in LEGO bricks! They used five million, eight hundred and five thousand, eight hundred and forty-six bricks. It is the largest LEGO sculpture ever built: forty-four metres long and thirteen metres tall! Media cameras came from around the world, and boats sailed past below. Here is its silliest appeal: lay the bricks in one line, and they stretch from London to Paris!",
+   "title": "乐高大桥",
+   "cn": "我们的第一位主角就站在伦敦：它就是著名的塔桥，只不过是用乐高积木复制出来的！搭建它一共用掉了五百八十万五千八百四十六块积木。它是人类搭过的最大的乐高雕塑：四十四米长，十三米高！全世界的媒体摄像机都跑来拍它，船只就从它下方的河面开过。它最搞笑的魅力是：要是把这些积木排成一条线，能从伦敦一直排到巴黎！",
+   "words": [
+    {
+     "w": "Our",
+     "t": 64.45
+    },
+    {
+     "w": "first",
+     "t": 64.89
+    },
+    {
+     "w": "hero",
+     "t": 65.32
+    },
+    {
+     "w": "stands",
+     "t": 65.76
+    },
+    {
+     "w": "in",
+     "t": 66.2
+    },
+    {
+     "w": "London:",
+     "t": 66.63
+    },
+    {
+     "w": "the",
+     "t": 67.07
+    },
+    {
+     "w": "famous",
+     "t": 67.51
+    },
+    {
+     "w": "Tower",
+     "t": 67.95
+    },
+    {
+     "w": "Bridge,",
+     "t": 68.38
+    },
+    {
+     "w": "copied",
+     "t": 68.82
+    },
+    {
+     "w": "in",
+     "t": 69.26
+    },
+    {
+     "w": "LEGO",
+     "t": 69.69
+    },
+    {
+     "w": "bricks!",
+     "t": 70.13
+    },
+    {
+     "w": "They",
+     "t": 70.57
+    },
+    {
+     "w": "used",
+     "t": 71.0
+    },
+    {
+     "w": "five",
+     "t": 71.44
+    },
+    {
+     "w": "million,",
+     "t": 71.88
+    },
+    {
+     "w": "eight",
+     "t": 72.31
+    },
+    {
+     "w": "hundred",
+     "t": 72.75
+    },
+    {
+     "w": "and",
+     "t": 73.19
+    },
+    {
+     "w": "five",
+     "t": 73.63
+    },
+    {
+     "w": "thousand,",
+     "t": 74.06
+    },
+    {
+     "w": "eight",
+     "t": 74.5
+    },
+    {
+     "w": "hundred",
+     "t": 74.94
+    },
+    {
+     "w": "and",
+     "t": 75.37
+    },
+    {
+     "w": "forty-six",
+     "t": 75.81
+    },
+    {
+     "w": "bricks.",
+     "t": 76.25
+    },
+    {
+     "w": "It",
+     "t": 76.68
+    },
+    {
+     "w": "is",
+     "t": 77.12
+    },
+    {
+     "w": "the",
+     "t": 77.56
+    },
+    {
+     "w": "largest",
+     "t": 77.99
+    },
+    {
+     "w": "LEGO",
+     "t": 78.43
+    },
+    {
+     "w": "sculpture",
+     "t": 78.87
+    },
+    {
+     "w": "ever",
+     "t": 79.3
+    },
+    {
+     "w": "built:",
+     "t": 79.74
+    },
+    {
+     "w": "forty-four",
+     "t": 80.18
+    },
+    {
+     "w": "metres",
+     "t": 80.62
+    },
+    {
+     "w": "long",
+     "t": 81.05
+    },
+    {
+     "w": "and",
+     "t": 81.49
+    },
+    {
+     "w": "thirteen",
+     "t": 81.93
+    },
+    {
+     "w": "metres",
+     "t": 82.36
+    },
+    {
+     "w": "tall!",
+     "t": 82.8
+    },
+    {
+     "w": "Media",
+     "t": 83.24
+    },
+    {
+     "w": "cameras",
+     "t": 83.67
+    },
+    {
+     "w": "came",
+     "t": 84.11
+    },
+    {
+     "w": "from",
+     "t": 84.55
+    },
+    {
+     "w": "around",
+     "t": 84.98
+    },
+    {
+     "w": "the",
+     "t": 85.42
+    },
+    {
+     "w": "world,",
+     "t": 85.86
+    },
+    {
+     "w": "and",
+     "t": 86.3
+    },
+    {
+     "w": "boats",
+     "t": 86.73
+    },
+    {
+     "w": "sailed",
+     "t": 87.17
+    },
+    {
+     "w": "past",
+     "t": 87.61
+    },
+    {
+     "w": "below.",
+     "t": 88.04
+    },
+    {
+     "w": "Here",
+     "t": 88.48
+    },
+    {
+     "w": "is",
+     "t": 88.92
+    },
+    {
+     "w": "its",
+     "t": 89.35
+    },
+    {
+     "w": "silliest",
+     "t": 89.79
+    },
+    {
+     "w": "appeal:",
+     "t": 90.23
+    },
+    {
+     "w": "lay",
+     "t": 90.66
+    },
+    {
+     "w": "the",
+     "t": 91.1
+    },
+    {
+     "w": "bricks",
+     "t": 91.54
+    },
+    {
+     "w": "in",
+     "t": 91.98
+    },
+    {
+     "w": "one",
+     "t": 92.41
+    },
+    {
+     "w": "line,",
+     "t": 92.85
+    },
+    {
+     "w": "and",
+     "t": 93.29
+    },
+    {
+     "w": "they",
+     "t": 93.72
+    },
+    {
+     "w": "stretch",
+     "t": 94.16
+    },
+    {
+     "w": "from",
+     "t": 94.6
+    },
+    {
+     "w": "London",
+     "t": 95.03
+    },
+    {
+     "w": "to",
+     "t": 95.47
+    },
+    {
+     "w": "Paris!",
+     "t": 95.91
+    }
+   ]
+  },
+  {
+   "start": 96.34,
+   "end": 120.37,
+   "en": "LEGO builders hold another record: the world's longest LEGO bridge. Engineers built one thirty-four metres long, from more than two hundred and five thousand bricks — with no glue at all! Its middle span hung almost seventeen metres across the air. Every brick had to click perfectly: one loose brick could damage the whole bridge.",
+   "title": "乐高大桥",
+   "cn": "乐高玩家还握着另一个纪录：世界上最长的乐高桥。工程师们用二十万五千多块积木，搭出了一座三十四米长的桥——一滴胶水都没用！它中间的桥跨悬在空中，伸展了将近十七米。每一块积木都必须严丝合缝地扣好：一块松了，整座桥都可能受损。",
+   "words": [
+    {
+     "w": "LEGO",
+     "t": 96.34
+    },
+    {
+     "w": "builders",
+     "t": 96.78
+    },
+    {
+     "w": "hold",
+     "t": 97.22
+    },
+    {
+     "w": "another",
+     "t": 97.66
+    },
+    {
+     "w": "record:",
+     "t": 98.09
+    },
+    {
+     "w": "the",
+     "t": 98.53
+    },
+    {
+     "w": "world's",
+     "t": 98.97
+    },
+    {
+     "w": "longest",
+     "t": 99.4
+    },
+    {
+     "w": "LEGO",
+     "t": 99.84
+    },
+    {
+     "w": "bridge.",
+     "t": 100.28
+    },
+    {
+     "w": "Engineers",
+     "t": 100.71
+    },
+    {
+     "w": "built",
+     "t": 101.15
+    },
+    {
+     "w": "one",
+     "t": 101.59
+    },
+    {
+     "w": "thirty-four",
+     "t": 102.02
+    },
+    {
+     "w": "metres",
+     "t": 102.46
+    },
+    {
+     "w": "long,",
+     "t": 102.9
+    },
+    {
+     "w": "from",
+     "t": 103.34
+    },
+    {
+     "w": "more",
+     "t": 103.77
+    },
+    {
+     "w": "than",
+     "t": 104.21
+    },
+    {
+     "w": "two",
+     "t": 104.65
+    },
+    {
+     "w": "hundred",
+     "t": 105.08
+    },
+    {
+     "w": "and",
+     "t": 105.52
+    },
+    {
+     "w": "five",
+     "t": 105.96
+    },
+    {
+     "w": "thousand",
+     "t": 106.39
+    },
+    {
+     "w": "bricks",
+     "t": 106.83
+    },
+    {
+     "w": "—",
+     "t": 107.27
+    },
+    {
+     "w": "with",
+     "t": 107.7
+    },
+    {
+     "w": "no",
+     "t": 108.14
+    },
+    {
+     "w": "glue",
+     "t": 108.58
+    },
+    {
+     "w": "at",
+     "t": 109.01
+    },
+    {
+     "w": "all!",
+     "t": 109.45
+    },
+    {
+     "w": "Its",
+     "t": 109.89
+    },
+    {
+     "w": "middle",
+     "t": 110.33
+    },
+    {
+     "w": "span",
+     "t": 110.76
+    },
+    {
+     "w": "hung",
+     "t": 111.2
+    },
+    {
+     "w": "almost",
+     "t": 111.64
+    },
+    {
+     "w": "seventeen",
+     "t": 112.07
+    },
+    {
+     "w": "metres",
+     "t": 112.51
+    },
+    {
+     "w": "across",
+     "t": 112.95
+    },
+    {
+     "w": "the",
+     "t": 113.38
+    },
+    {
+     "w": "air.",
+     "t": 113.82
+    },
+    {
+     "w": "Every",
+     "t": 114.26
+    },
+    {
+     "w": "brick",
+     "t": 114.69
+    },
+    {
+     "w": "had",
+     "t": 115.13
+    },
+    {
+     "w": "to",
+     "t": 115.57
+    },
+    {
+     "w": "click",
+     "t": 116.01
+    },
+    {
+     "w": "perfectly:",
+     "t": 116.44
+    },
+    {
+     "w": "one",
+     "t": 116.88
+    },
+    {
+     "w": "loose",
+     "t": 117.32
+    },
+    {
+     "w": "brick",
+     "t": 117.75
+    },
+    {
+     "w": "could",
+     "t": 118.19
+    },
+    {
+     "w": "damage",
+     "t": 118.63
+    },
+    {
+     "w": "the",
+     "t": 119.06
+    },
+    {
+     "w": "whole",
+     "t": 119.5
+    },
+    {
+     "w": "bridge.",
+     "t": 119.94
+    }
+   ]
+  },
+  {
+   "start": 120.37,
+   "end": 147.9,
+   "en": "Then came an awkward moment. As the deck grew heavier, one anchor that held the cables began to tilt! The builders held their breath. Quickly, they piled heavy weights onto the anchor and pressed it firm. When the last plate clicked into place, a huge cheer erupted. A bridge is a quiet service to a city: it carries everyone across, asking nothing back.",
+   "title": "乐高大桥",
+   "cn": "接着，一个让人捏把汗的尴尬时刻来了。随着桥面越来越重，一只固定钢缆的锚开始倾斜了！搭建的人们屏住了呼吸。他们赶紧往锚上堆压重物，把它重新压稳。当最后一块板咔哒一声扣好的时候，一阵巨大的欢呼爆发了。说到底，一座桥就是一座城市默默的服务者：它载着所有人过河，却从不求回报。",
+   "words": [
+    {
+     "w": "Then",
+     "t": 120.37
+    },
+    {
+     "w": "came",
+     "t": 120.81
+    },
+    {
+     "w": "an",
+     "t": 121.25
+    },
+    {
+     "w": "awkward",
+     "t": 121.69
+    },
+    {
+     "w": "moment.",
+     "t": 122.12
+    },
+    {
+     "w": "As",
+     "t": 122.56
+    },
+    {
+     "w": "the",
+     "t": 123.0
+    },
+    {
+     "w": "deck",
+     "t": 123.43
+    },
+    {
+     "w": "grew",
+     "t": 123.87
+    },
+    {
+     "w": "heavier,",
+     "t": 124.31
+    },
+    {
+     "w": "one",
+     "t": 124.74
+    },
+    {
+     "w": "anchor",
+     "t": 125.18
+    },
+    {
+     "w": "that",
+     "t": 125.62
+    },
+    {
+     "w": "held",
+     "t": 126.05
+    },
+    {
+     "w": "the",
+     "t": 126.49
+    },
+    {
+     "w": "cables",
+     "t": 126.93
+    },
+    {
+     "w": "began",
+     "t": 127.37
+    },
+    {
+     "w": "to",
+     "t": 127.8
+    },
+    {
+     "w": "tilt!",
+     "t": 128.24
+    },
+    {
+     "w": "The",
+     "t": 128.68
+    },
+    {
+     "w": "builders",
+     "t": 129.11
+    },
+    {
+     "w": "held",
+     "t": 129.55
+    },
+    {
+     "w": "their",
+     "t": 129.99
+    },
+    {
+     "w": "breath.",
+     "t": 130.42
+    },
+    {
+     "w": "Quickly,",
+     "t": 130.86
+    },
+    {
+     "w": "they",
+     "t": 131.3
+    },
+    {
+     "w": "piled",
+     "t": 131.73
+    },
+    {
+     "w": "heavy",
+     "t": 132.17
+    },
+    {
+     "w": "weights",
+     "t": 132.61
+    },
+    {
+     "w": "onto",
+     "t": 133.05
+    },
+    {
+     "w": "the",
+     "t": 133.48
+    },
+    {
+     "w": "anchor",
+     "t": 133.92
+    },
+    {
+     "w": "and",
+     "t": 134.36
+    },
+    {
+     "w": "pressed",
+     "t": 134.79
+    },
+    {
+     "w": "it",
+     "t": 135.23
+    },
+    {
+     "w": "firm.",
+     "t": 135.67
+    },
+    {
+     "w": "When",
+     "t": 136.1
+    },
+    {
+     "w": "the",
+     "t": 136.54
+    },
+    {
+     "w": "last",
+     "t": 136.98
+    },
+    {
+     "w": "plate",
+     "t": 137.41
+    },
+    {
+     "w": "clicked",
+     "t": 137.85
+    },
+    {
+     "w": "into",
+     "t": 138.29
+    },
+    {
+     "w": "place,",
+     "t": 138.72
+    },
+    {
+     "w": "a",
+     "t": 139.16
+    },
+    {
+     "w": "huge",
+     "t": 139.6
+    },
+    {
+     "w": "cheer",
+     "t": 140.04
+    },
+    {
+     "w": "erupted.",
+     "t": 140.47
+    },
+    {
+     "w": "A",
+     "t": 140.91
+    },
+    {
+     "w": "bridge",
+     "t": 141.35
+    },
+    {
+     "w": "is",
+     "t": 141.78
+    },
+    {
+     "w": "a",
+     "t": 142.22
+    },
+    {
+     "w": "quiet",
+     "t": 142.66
+    },
+    {
+     "w": "service",
+     "t": 143.09
+    },
+    {
+     "w": "to",
+     "t": 143.53
+    },
+    {
+     "w": "a",
+     "t": 143.97
+    },
+    {
+     "w": "city:",
+     "t": 144.4
+    },
+    {
+     "w": "it",
+     "t": 144.84
+    },
+    {
+     "w": "carries",
+     "t": 145.28
+    },
+    {
+     "w": "everyone",
+     "t": 145.72
+    },
+    {
+     "w": "across,",
+     "t": 146.15
+    },
+    {
+     "w": "asking",
+     "t": 146.59
+    },
+    {
+     "w": "nothing",
+     "t": 147.03
+    },
+    {
+     "w": "back.",
+     "t": 147.46
+    }
+   ]
+  },
+  {
+   "start": 167.64,
+   "end": 199.66,
+   "en": "Now dive with me into the deep past. Here is a fact that astonishes even scientists: sharks are older than trees! The oldest shark fossils are not bones or teeth, but tiny scales in rocks four hundred and fifty million years old. The significance of those scales is enormous: sharks already swam when the land had no forests — only mosses a few centimetres tall, and no shady tree on any beach.",
+   "title": "比树还老的鲨鱼",
+   "cn": "现在，跟我一起潜入深深的过去吧。有一个事实，连科学家都会惊叹：鲨鱼比树木还要古老！最古老的鲨鱼化石不是骨头也不是牙齿，而是岩石里的小小鳞片，它们已经有四亿五千万年了。这些鳞片的意义非常重大：早在陆地上一片森林都没有的时候，鲨鱼就已经在海里游了——那时只有几厘米高的苔藓，任何一处海滩上都没有一棵遮阴的树。",
+   "words": [
+    {
+     "w": "Now",
+     "t": 167.64
+    },
+    {
+     "w": "dive",
+     "t": 168.08
+    },
+    {
+     "w": "with",
+     "t": 168.53
+    },
+    {
+     "w": "me",
+     "t": 168.97
+    },
+    {
+     "w": "into",
+     "t": 169.42
+    },
+    {
+     "w": "the",
+     "t": 169.86
+    },
+    {
+     "w": "deep",
+     "t": 170.31
+    },
+    {
+     "w": "past.",
+     "t": 170.75
+    },
+    {
+     "w": "Here",
+     "t": 171.2
+    },
+    {
+     "w": "is",
+     "t": 171.64
+    },
+    {
+     "w": "a",
+     "t": 172.09
+    },
+    {
+     "w": "fact",
+     "t": 172.53
+    },
+    {
+     "w": "that",
+     "t": 172.98
+    },
+    {
+     "w": "astonishes",
+     "t": 173.42
+    },
+    {
+     "w": "even",
+     "t": 173.87
+    },
+    {
+     "w": "scientists:",
+     "t": 174.31
+    },
+    {
+     "w": "sharks",
+     "t": 174.76
+    },
+    {
+     "w": "are",
+     "t": 175.2
+    },
+    {
+     "w": "older",
+     "t": 175.64
+    },
+    {
+     "w": "than",
+     "t": 176.09
+    },
+    {
+     "w": "trees!",
+     "t": 176.53
+    },
+    {
+     "w": "The",
+     "t": 176.98
+    },
+    {
+     "w": "oldest",
+     "t": 177.42
+    },
+    {
+     "w": "shark",
+     "t": 177.87
+    },
+    {
+     "w": "fossils",
+     "t": 178.31
+    },
+    {
+     "w": "are",
+     "t": 178.76
+    },
+    {
+     "w": "not",
+     "t": 179.2
+    },
+    {
+     "w": "bones",
+     "t": 179.65
+    },
+    {
+     "w": "or",
+     "t": 180.09
+    },
+    {
+     "w": "teeth,",
+     "t": 180.54
+    },
+    {
+     "w": "but",
+     "t": 180.98
+    },
+    {
+     "w": "tiny",
+     "t": 181.43
+    },
+    {
+     "w": "scales",
+     "t": 181.87
+    },
+    {
+     "w": "in",
+     "t": 182.32
+    },
+    {
+     "w": "rocks",
+     "t": 182.76
+    },
+    {
+     "w": "four",
+     "t": 183.2
+    },
+    {
+     "w": "hundred",
+     "t": 183.65
+    },
+    {
+     "w": "and",
+     "t": 184.09
+    },
+    {
+     "w": "fifty",
+     "t": 184.54
+    },
+    {
+     "w": "million",
+     "t": 184.98
+    },
+    {
+     "w": "years",
+     "t": 185.43
+    },
+    {
+     "w": "old.",
+     "t": 185.87
+    },
+    {
+     "w": "The",
+     "t": 186.32
+    },
+    {
+     "w": "significance",
+     "t": 186.76
+    },
+    {
+     "w": "of",
+     "t": 187.21
+    },
+    {
+     "w": "those",
+     "t": 187.65
+    },
+    {
+     "w": "scales",
+     "t": 188.1
+    },
+    {
+     "w": "is",
+     "t": 188.54
+    },
+    {
+     "w": "enormous:",
+     "t": 188.99
+    },
+    {
+     "w": "sharks",
+     "t": 189.43
+    },
+    {
+     "w": "already",
+     "t": 189.88
+    },
+    {
+     "w": "swam",
+     "t": 190.32
+    },
+    {
+     "w": "when",
+     "t": 190.76
+    },
+    {
+     "w": "the",
+     "t": 191.21
+    },
+    {
+     "w": "land",
+     "t": 191.65
+    },
+    {
+     "w": "had",
+     "t": 192.1
+    },
+    {
+     "w": "no",
+     "t": 192.54
+    },
+    {
+     "w": "forests",
+     "t": 192.99
+    },
+    {
+     "w": "—",
+     "t": 193.43
+    },
+    {
+     "w": "only",
+     "t": 193.88
+    },
+    {
+     "w": "mosses",
+     "t": 194.32
+    },
+    {
+     "w": "a",
+     "t": 194.77
+    },
+    {
+     "w": "few",
+     "t": 195.21
+    },
+    {
+     "w": "centimetres",
+     "t": 195.66
+    },
+    {
+     "w": "tall,",
+     "t": 196.1
+    },
+    {
+     "w": "and",
+     "t": 196.55
+    },
+    {
+     "w": "no",
+     "t": 196.99
+    },
+    {
+     "w": "shady",
+     "t": 197.44
+    },
+    {
+     "w": "tree",
+     "t": 197.88
+    },
+    {
+     "w": "on",
+     "t": 198.32
+    },
+    {
+     "w": "any",
+     "t": 198.77
+    },
+    {
+     "w": "beach.",
+     "t": 199.21
+    }
+   ]
+  },
+  {
+   "start": 199.66,
+   "end": 221.45,
+   "en": "The first true trees grew about sixty million years later. One, called Wattieza, looked like a giant fern on a stick. So for sixty million years, sharks swam almost alone as kings of the sea, while the world above the waves lay quiet and bare, as if fast asleep.",
+   "title": "比树还老的鲨鱼",
+   "cn": "第一批真正的树，大约在六千万年之后才长出来。其中一种叫瓦蒂萨树，长得像一棵站在棍子上的巨型蕨类。所以在整整六千万年里，鲨鱼几乎是独自称霸海洋的王者，而海浪之上的世界安安静静、光秃秃的，仿佛沉睡了一样。",
+   "words": [
+    {
+     "w": "The",
+     "t": 199.66
+    },
+    {
+     "w": "first",
+     "t": 200.1
+    },
+    {
+     "w": "true",
+     "t": 200.55
+    },
+    {
+     "w": "trees",
+     "t": 200.99
+    },
+    {
+     "w": "grew",
+     "t": 201.44
+    },
+    {
+     "w": "about",
+     "t": 201.88
+    },
+    {
+     "w": "sixty",
+     "t": 202.33
+    },
+    {
+     "w": "million",
+     "t": 202.77
+    },
+    {
+     "w": "years",
+     "t": 203.22
+    },
+    {
+     "w": "later.",
+     "t": 203.66
+    },
+    {
+     "w": "One,",
+     "t": 204.11
+    },
+    {
+     "w": "called",
+     "t": 204.55
+    },
+    {
+     "w": "Wattieza,",
+     "t": 205.0
+    },
+    {
+     "w": "looked",
+     "t": 205.44
+    },
+    {
+     "w": "like",
+     "t": 205.88
+    },
+    {
+     "w": "a",
+     "t": 206.33
+    },
+    {
+     "w": "giant",
+     "t": 206.77
+    },
+    {
+     "w": "fern",
+     "t": 207.22
+    },
+    {
+     "w": "on",
+     "t": 207.66
+    },
+    {
+     "w": "a",
+     "t": 208.11
+    },
+    {
+     "w": "stick.",
+     "t": 208.55
+    },
+    {
+     "w": "So",
+     "t": 209.0
+    },
+    {
+     "w": "for",
+     "t": 209.44
+    },
+    {
+     "w": "sixty",
+     "t": 209.89
+    },
+    {
+     "w": "million",
+     "t": 210.33
+    },
+    {
+     "w": "years,",
+     "t": 210.78
+    },
+    {
+     "w": "sharks",
+     "t": 211.22
+    },
+    {
+     "w": "swam",
+     "t": 211.67
+    },
+    {
+     "w": "almost",
+     "t": 212.11
+    },
+    {
+     "w": "alone",
+     "t": 212.56
+    },
+    {
+     "w": "as",
+     "t": 213.0
+    },
+    {
+     "w": "kings",
+     "t": 213.44
+    },
+    {
+     "w": "of",
+     "t": 213.89
+    },
+    {
+     "w": "the",
+     "t": 214.33
+    },
+    {
+     "w": "sea,",
+     "t": 214.78
+    },
+    {
+     "w": "while",
+     "t": 215.22
+    },
+    {
+     "w": "the",
+     "t": 215.67
+    },
+    {
+     "w": "world",
+     "t": 216.11
+    },
+    {
+     "w": "above",
+     "t": 216.56
+    },
+    {
+     "w": "the",
+     "t": 217.0
+    },
+    {
+     "w": "waves",
+     "t": 217.45
+    },
+    {
+     "w": "lay",
+     "t": 217.89
+    },
+    {
+     "w": "quiet",
+     "t": 218.34
+    },
+    {
+     "w": "and",
+     "t": 218.78
+    },
+    {
+     "w": "bare,",
+     "t": 219.23
+    },
+    {
+     "w": "as",
+     "t": 219.67
+    },
+    {
+     "w": "if",
+     "t": 220.12
+    },
+    {
+     "w": "fast",
+     "t": 220.56
+    },
+    {
+     "w": "asleep.",
+     "t": 221.0
+    }
+   ]
+  },
+  {
+   "start": 221.45,
+   "end": 250.8,
+   "en": "Since then, sharks have survived five great extinctions. Sea monsters rose and fell, dynasties of dinosaurs came and went — and the sharks just kept swimming. Even their skin is a tool: tiny tooth-like scales cover it, so rough that sailors once stretched it over a board to shave wood smooth, like sandpaper. So remember: a shark is a design older than every forest on Earth!",
+   "title": "比树还老的鲨鱼",
+   "cn": "从那以后，鲨鱼挺过了五次大灭绝。巨大的海怪兴起又衰落，恐龙的王朝来了又去——而鲨鱼，只是继续游它自己的泳。连鲨鱼的皮肤都是一件工具：上面布满像小牙齿一样的鳞片，粗糙得不得了，水手们曾经把鲨鱼皮绷在木板上，像砂纸一样磨光木头。所以记住：鲨鱼，是一套比地球上所有森林都要古老的设计！",
+   "words": [
+    {
+     "w": "Since",
+     "t": 221.45
+    },
+    {
+     "w": "then,",
+     "t": 221.89
+    },
+    {
+     "w": "sharks",
+     "t": 222.34
+    },
+    {
+     "w": "have",
+     "t": 222.78
+    },
+    {
+     "w": "survived",
+     "t": 223.23
+    },
+    {
+     "w": "five",
+     "t": 223.67
+    },
+    {
+     "w": "great",
+     "t": 224.12
+    },
+    {
+     "w": "extinctions.",
+     "t": 224.56
+    },
+    {
+     "w": "Sea",
+     "t": 225.01
+    },
+    {
+     "w": "monsters",
+     "t": 225.45
+    },
+    {
+     "w": "rose",
+     "t": 225.9
+    },
+    {
+     "w": "and",
+     "t": 226.34
+    },
+    {
+     "w": "fell,",
+     "t": 226.79
+    },
+    {
+     "w": "dynasties",
+     "t": 227.23
+    },
+    {
+     "w": "of",
+     "t": 227.68
+    },
+    {
+     "w": "dinosaurs",
+     "t": 228.12
+    },
+    {
+     "w": "came",
+     "t": 228.56
+    },
+    {
+     "w": "and",
+     "t": 229.01
+    },
+    {
+     "w": "went",
+     "t": 229.45
+    },
+    {
+     "w": "—",
+     "t": 229.9
+    },
+    {
+     "w": "and",
+     "t": 230.34
+    },
+    {
+     "w": "the",
+     "t": 230.79
+    },
+    {
+     "w": "sharks",
+     "t": 231.23
+    },
+    {
+     "w": "just",
+     "t": 231.68
+    },
+    {
+     "w": "kept",
+     "t": 232.12
+    },
+    {
+     "w": "swimming.",
+     "t": 232.57
+    },
+    {
+     "w": "Even",
+     "t": 233.01
+    },
+    {
+     "w": "their",
+     "t": 233.46
+    },
+    {
+     "w": "skin",
+     "t": 233.9
+    },
+    {
+     "w": "is",
+     "t": 234.35
+    },
+    {
+     "w": "a",
+     "t": 234.79
+    },
+    {
+     "w": "tool:",
+     "t": 235.24
+    },
+    {
+     "w": "tiny",
+     "t": 235.68
+    },
+    {
+     "w": "tooth-like",
+     "t": 236.12
+    },
+    {
+     "w": "scales",
+     "t": 236.57
+    },
+    {
+     "w": "cover",
+     "t": 237.01
+    },
+    {
+     "w": "it,",
+     "t": 237.46
+    },
+    {
+     "w": "so",
+     "t": 237.9
+    },
+    {
+     "w": "rough",
+     "t": 238.35
+    },
+    {
+     "w": "that",
+     "t": 238.79
+    },
+    {
+     "w": "sailors",
+     "t": 239.24
+    },
+    {
+     "w": "once",
+     "t": 239.68
+    },
+    {
+     "w": "stretched",
+     "t": 240.13
+    },
+    {
+     "w": "it",
+     "t": 240.57
+    },
+    {
+     "w": "over",
+     "t": 241.02
+    },
+    {
+     "w": "a",
+     "t": 241.46
+    },
+    {
+     "w": "board",
+     "t": 241.91
+    },
+    {
+     "w": "to",
+     "t": 242.35
+    },
+    {
+     "w": "shave",
+     "t": 242.8
+    },
+    {
+     "w": "wood",
+     "t": 243.24
+    },
+    {
+     "w": "smooth,",
+     "t": 243.68
+    },
+    {
+     "w": "like",
+     "t": 244.13
+    },
+    {
+     "w": "sandpaper.",
+     "t": 244.57
+    },
+    {
+     "w": "So",
+     "t": 245.02
+    },
+    {
+     "w": "remember:",
+     "t": 245.46
+    },
+    {
+     "w": "a",
+     "t": 245.91
+    },
+    {
+     "w": "shark",
+     "t": 246.35
+    },
+    {
+     "w": "is",
+     "t": 246.8
+    },
+    {
+     "w": "a",
+     "t": 247.24
+    },
+    {
+     "w": "design",
+     "t": 247.69
+    },
+    {
+     "w": "older",
+     "t": 248.13
+    },
+    {
+     "w": "than",
+     "t": 248.58
+    },
+    {
+     "w": "every",
+     "t": 249.02
+    },
+    {
+     "w": "forest",
+     "t": 249.47
+    },
+    {
+     "w": "on",
+     "t": 249.91
+    },
+    {
+     "w": "Earth!",
+     "t": 250.36
+    }
+   ]
+  },
+  {
+   "start": 267.42,
+   "end": 294.78,
+   "en": "Here's today's idiom: \"steal the show.\" Imagine a stage with one main star. If a small, funny actor suddenly gets all the cheers, we say he stole the show! It means winning all the attention and praise. The LEGO bridge stole the show in London; today the shark steals it back. Here's an example: \"My little sister sang one song and stole the show.\" Who steals the show in your class?",
+   "title": "今日俚语",
+   "cn": "今天的俚语是“steal the show”。想象一个舞台，上面有一位主角。如果一个小小的、搞笑的演员突然赢得了所有的欢呼，我们就说他 stole the show（抢了风头）！它的意思是赢得全部的注意和赞美。那座乐高大桥在伦敦抢尽了风头；今天，鲨鱼又把它抢了回来。举个例子：“我妹妹只唱了一首歌，就抢走了全场的风头。”在你们班里，谁最会抢风头呢？",
+   "words": [
+    {
+     "w": "Here's",
+     "t": 267.42
+    },
+    {
+     "w": "today's",
+     "t": 267.81
+    },
+    {
+     "w": "idiom:",
+     "t": 268.19
+    },
+    {
+     "w": "\"steal",
+     "t": 268.58
+    },
+    {
+     "w": "the",
+     "t": 268.96
+    },
+    {
+     "w": "show.\"",
+     "t": 269.35
+    },
+    {
+     "w": "Imagine",
+     "t": 269.73
+    },
+    {
+     "w": "a",
+     "t": 270.12
+    },
+    {
+     "w": "stage",
+     "t": 270.5
+    },
+    {
+     "w": "with",
+     "t": 270.89
+    },
+    {
+     "w": "one",
+     "t": 271.27
+    },
+    {
+     "w": "main",
+     "t": 271.66
+    },
+    {
+     "w": "star.",
+     "t": 272.04
+    },
+    {
+     "w": "If",
+     "t": 272.43
+    },
+    {
+     "w": "a",
+     "t": 272.81
+    },
+    {
+     "w": "small,",
+     "t": 273.2
+    },
+    {
+     "w": "funny",
+     "t": 273.59
+    },
+    {
+     "w": "actor",
+     "t": 273.97
+    },
+    {
+     "w": "suddenly",
+     "t": 274.36
+    },
+    {
+     "w": "gets",
+     "t": 274.74
+    },
+    {
+     "w": "all",
+     "t": 275.13
+    },
+    {
+     "w": "the",
+     "t": 275.51
+    },
+    {
+     "w": "cheers,",
+     "t": 275.9
+    },
+    {
+     "w": "we",
+     "t": 276.28
+    },
+    {
+     "w": "say",
+     "t": 276.67
+    },
+    {
+     "w": "he",
+     "t": 277.05
+    },
+    {
+     "w": "stole",
+     "t": 277.44
+    },
+    {
+     "w": "the",
+     "t": 277.82
+    },
+    {
+     "w": "show!",
+     "t": 278.21
+    },
+    {
+     "w": "It",
+     "t": 278.6
+    },
+    {
+     "w": "means",
+     "t": 278.98
+    },
+    {
+     "w": "winning",
+     "t": 279.37
+    },
+    {
+     "w": "all",
+     "t": 279.75
+    },
+    {
+     "w": "the",
+     "t": 280.14
+    },
+    {
+     "w": "attention",
+     "t": 280.52
+    },
+    {
+     "w": "and",
+     "t": 280.91
+    },
+    {
+     "w": "praise.",
+     "t": 281.29
+    },
+    {
+     "w": "The",
+     "t": 281.68
+    },
+    {
+     "w": "LEGO",
+     "t": 282.06
+    },
+    {
+     "w": "bridge",
+     "t": 282.45
+    },
+    {
+     "w": "stole",
+     "t": 282.83
+    },
+    {
+     "w": "the",
+     "t": 283.22
+    },
+    {
+     "w": "show",
+     "t": 283.6
+    },
+    {
+     "w": "in",
+     "t": 283.99
+    },
+    {
+     "w": "London;",
+     "t": 284.38
+    },
+    {
+     "w": "today",
+     "t": 284.76
+    },
+    {
+     "w": "the",
+     "t": 285.15
+    },
+    {
+     "w": "shark",
+     "t": 285.53
+    },
+    {
+     "w": "steals",
+     "t": 285.92
+    },
+    {
+     "w": "it",
+     "t": 286.3
+    },
+    {
+     "w": "back.",
+     "t": 286.69
+    },
+    {
+     "w": "Here's",
+     "t": 287.07
+    },
+    {
+     "w": "an",
+     "t": 287.46
+    },
+    {
+     "w": "example:",
+     "t": 287.84
+    },
+    {
+     "w": "\"My",
+     "t": 288.23
+    },
+    {
+     "w": "little",
+     "t": 288.61
+    },
+    {
+     "w": "sister",
+     "t": 289.0
+    },
+    {
+     "w": "sang",
+     "t": 289.39
+    },
+    {
+     "w": "one",
+     "t": 289.77
+    },
+    {
+     "w": "song",
+     "t": 290.16
+    },
+    {
+     "w": "and",
+     "t": 290.54
+    },
+    {
+     "w": "stole",
+     "t": 290.93
+    },
+    {
+     "w": "the",
+     "t": 291.31
+    },
+    {
+     "w": "show.\"",
+     "t": 291.7
+    },
+    {
+     "w": "Who",
+     "t": 292.08
+    },
+    {
+     "w": "steals",
+     "t": 292.47
+    },
+    {
+     "w": "the",
+     "t": 292.85
+    },
+    {
+     "w": "show",
+     "t": 293.24
+    },
+    {
+     "w": "in",
+     "t": 293.62
+    },
+    {
+     "w": "your",
+     "t": 294.01
+    },
+    {
+     "w": "class?",
+     "t": 294.39
+    }
+   ]
+  },
+  {
+   "start": 308.92,
+   "end": 334.98,
+   "en": "Let's think about our stories. A toy bridge broke world records, and a fish turned out to be older than forests. Two questions for you. First: if you could build one giant LEGO thing, what would you build — a boat, a castle, or a bridge? Second: what do you think the world looked like before there were any trees? Talk about it with your family!",
+   "title": "结束语与互动问题",
+   "cn": "我们来想想今天的故事。一座积木桥打破了世界纪录，一条鱼竟然比森林还要古老。轮到回答两个问题了。第一：如果你能用乐高积木搭一样巨大的东西，你会搭什么——一条船、一座城堡，还是一座桥？第二：你觉得在还没有任何树木的时候，世界是什么样子的？和家人聊聊吧！",
+   "words": [
+    {
+     "w": "Let's",
+     "t": 308.92
+    },
+    {
+     "w": "think",
+     "t": 309.31
+    },
+    {
+     "w": "about",
+     "t": 309.71
+    },
+    {
+     "w": "our",
+     "t": 310.1
+    },
+    {
+     "w": "stories.",
+     "t": 310.5
+    },
+    {
+     "w": "A",
+     "t": 310.89
+    },
+    {
+     "w": "toy",
+     "t": 311.29
+    },
+    {
+     "w": "bridge",
+     "t": 311.68
+    },
+    {
+     "w": "broke",
+     "t": 312.08
+    },
+    {
+     "w": "world",
+     "t": 312.47
+    },
+    {
+     "w": "records,",
+     "t": 312.87
+    },
+    {
+     "w": "and",
+     "t": 313.26
+    },
+    {
+     "w": "a",
+     "t": 313.66
+    },
+    {
+     "w": "fish",
+     "t": 314.05
+    },
+    {
+     "w": "turned",
+     "t": 314.45
+    },
+    {
+     "w": "out",
+     "t": 314.84
+    },
+    {
+     "w": "to",
+     "t": 315.24
+    },
+    {
+     "w": "be",
+     "t": 315.63
+    },
+    {
+     "w": "older",
+     "t": 316.03
+    },
+    {
+     "w": "than",
+     "t": 316.42
+    },
+    {
+     "w": "forests.",
+     "t": 316.82
+    },
+    {
+     "w": "Two",
+     "t": 317.21
+    },
+    {
+     "w": "questions",
+     "t": 317.61
+    },
+    {
+     "w": "for",
+     "t": 318.0
+    },
+    {
+     "w": "you.",
+     "t": 318.4
+    },
+    {
+     "w": "First:",
+     "t": 318.79
+    },
+    {
+     "w": "if",
+     "t": 319.19
+    },
+    {
+     "w": "you",
+     "t": 319.58
+    },
+    {
+     "w": "could",
+     "t": 319.98
+    },
+    {
+     "w": "build",
+     "t": 320.37
+    },
+    {
+     "w": "one",
+     "t": 320.77
+    },
+    {
+     "w": "giant",
+     "t": 321.16
+    },
+    {
+     "w": "LEGO",
+     "t": 321.56
+    },
+    {
+     "w": "thing,",
+     "t": 321.95
+    },
+    {
+     "w": "what",
+     "t": 322.34
+    },
+    {
+     "w": "would",
+     "t": 322.74
+    },
+    {
+     "w": "you",
+     "t": 323.13
+    },
+    {
+     "w": "build",
+     "t": 323.53
+    },
+    {
+     "w": "—",
+     "t": 323.92
+    },
+    {
+     "w": "a",
+     "t": 324.32
+    },
+    {
+     "w": "boat,",
+     "t": 324.71
+    },
+    {
+     "w": "a",
+     "t": 325.11
+    },
+    {
+     "w": "castle,",
+     "t": 325.5
+    },
+    {
+     "w": "or",
+     "t": 325.9
+    },
+    {
+     "w": "a",
+     "t": 326.29
+    },
+    {
+     "w": "bridge?",
+     "t": 326.69
+    },
+    {
+     "w": "Second:",
+     "t": 327.08
+    },
+    {
+     "w": "what",
+     "t": 327.48
+    },
+    {
+     "w": "do",
+     "t": 327.87
+    },
+    {
+     "w": "you",
+     "t": 328.27
+    },
+    {
+     "w": "think",
+     "t": 328.66
+    },
+    {
+     "w": "the",
+     "t": 329.06
+    },
+    {
+     "w": "world",
+     "t": 329.45
+    },
+    {
+     "w": "looked",
+     "t": 329.85
+    },
+    {
+     "w": "like",
+     "t": 330.24
+    },
+    {
+     "w": "before",
+     "t": 330.64
+    },
+    {
+     "w": "there",
+     "t": 331.03
+    },
+    {
+     "w": "were",
+     "t": 331.43
+    },
+    {
+     "w": "any",
+     "t": 331.82
+    },
+    {
+     "w": "trees?",
+     "t": 332.22
+    },
+    {
+     "w": "Talk",
+     "t": 332.61
+    },
+    {
+     "w": "about",
+     "t": 333.01
+    },
+    {
+     "w": "it",
+     "t": 333.4
+    },
+    {
+     "w": "with",
+     "t": 333.8
+    },
+    {
+     "w": "your",
+     "t": 334.19
+    },
+    {
+     "w": "family!",
+     "t": 334.59
+    }
+   ]
+  },
+  {
+   "start": 345.68,
+   "end": 358.07,
+   "en": "That's all for today, young explorers. Tonight, while you are fast asleep, a shark is still swimming its ancient rounds. Keep building, keep wondering — see you tomorrow morning!",
+   "title": "告别",
+   "cn": "今天的节目就到这里啦，小小探险家们。今晚，当你熟睡的时候，一条鲨鱼还在继续它古老的巡游。继续动手搭建，继续好奇探索——明天早上见！",
+   "words": [
+    {
+     "w": "That's",
+     "t": 345.68
+    },
+    {
+     "w": "all",
+     "t": 346.11
+    },
+    {
+     "w": "for",
+     "t": 346.53
+    },
+    {
+     "w": "today,",
+     "t": 346.96
+    },
+    {
+     "w": "young",
+     "t": 347.39
+    },
+    {
+     "w": "explorers.",
+     "t": 347.82
+    },
+    {
+     "w": "Tonight,",
+     "t": 348.24
+    },
+    {
+     "w": "while",
+     "t": 348.67
+    },
+    {
+     "w": "you",
+     "t": 349.1
+    },
+    {
+     "w": "are",
+     "t": 349.53
+    },
+    {
+     "w": "fast",
+     "t": 349.95
+    },
+    {
+     "w": "asleep,",
+     "t": 350.38
+    },
+    {
+     "w": "a",
+     "t": 350.81
+    },
+    {
+     "w": "shark",
+     "t": 351.23
+    },
+    {
+     "w": "is",
+     "t": 351.66
+    },
+    {
+     "w": "still",
+     "t": 352.09
+    },
+    {
+     "w": "swimming",
+     "t": 352.52
+    },
+    {
+     "w": "its",
+     "t": 352.94
+    },
+    {
+     "w": "ancient",
+     "t": 353.37
+    },
+    {
+     "w": "rounds.",
+     "t": 353.8
+    },
+    {
+     "w": "Keep",
+     "t": 354.22
+    },
+    {
+     "w": "building,",
+     "t": 354.65
+    },
+    {
+     "w": "keep",
+     "t": 355.08
+    },
+    {
+     "w": "wondering",
+     "t": 355.51
+    },
+    {
+     "w": "—",
+     "t": 355.93
+    },
+    {
+     "w": "see",
+     "t": 356.36
+    },
+    {
+     "w": "you",
+     "t": 356.79
+    },
+    {
+     "w": "tomorrow",
+     "t": 357.22
+    },
+    {
+     "w": "morning!",
+     "t": 357.64
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "steal the show",
+    "phon": "/stiːl ðə ʃəʊ/",
+    "meaning": "(习语) 抢风头；赢得全部的注意和赞美",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: The LEGO bridge stole the show in London."
+   },
+   {
+    "word": "erupt",
+    "phon": "/ɪˈrʌpt/",
+    "meaning": "(v.) 爆发；喷发",
+    "tags": [],
+    "example": "Example: When the last plate clicked into place, a huge cheer erupted."
+   },
+   {
+    "word": "astonish",
+    "phon": "/əˈstɒnɪʃ/",
+    "meaning": "(v.) 使惊讶；使吃惊",
+    "tags": [],
+    "example": "Example: Here is a fact that astonishes even scientists."
+   },
+   {
+    "word": "awkward",
+    "phon": "/ˈɔːkwəd/",
+    "meaning": "(adj.) 尴尬的；棘手的",
+    "tags": [],
+    "example": "Example: Then came an awkward moment."
+   },
+   {
+    "word": "significance",
+    "phon": "/sɪɡˈnɪfɪkəns/",
+    "meaning": "(n.) 意义；重要性",
+    "tags": [],
+    "example": "Example: The significance of those scales is enormous."
+   },
+   {
+    "word": "dynasty",
+    "phon": "/ˈdɪnəsti/",
+    "meaning": "(n.) 王朝；朝代",
+    "tags": [],
+    "example": "Example: Sea monsters rose and fell, dynasties of dinosaurs came and went."
+   },
+   {
+    "word": "appeal",
+    "phon": "/əˈpiːl/",
+    "meaning": "(n.) 吸引力",
+    "tags": [],
+    "example": "Example: Here is its silliest appeal: the bricks stretch from London to Paris!"
+   },
+   {
+    "word": "damage",
+    "phon": "/ˈdæmɪdʒ/",
+    "meaning": "(v.) 损害；损坏",
+    "tags": [],
+    "example": "Example: One loose brick could damage the whole bridge."
+   },
+   {
+    "word": "fossil",
+    "phon": "/ˈfɒsl/",
+    "meaning": "(n.) 化石",
+    "tags": [],
+    "example": "Example: The oldest shark fossils are tiny scales in old rocks."
+   },
+   {
+    "word": "span",
+    "phon": "/spæn/",
+    "meaning": "(n.) 桥跨；跨度",
+    "tags": [],
+    "example": "Example: Its middle span hung almost seventeen metres across the air."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "How many bricks did the LEGO Tower Bridge use?\nA. About two hundred and five thousand\nB. Five million, eight hundred and five thousand, eight hundred and forty-six\nC. About forty-four thousand\nD. Exactly one million",
+     "What happened when the LEGO bridge's deck grew heavier?\nA. A tower fell into the river\nB. The builders gave up and went home\nC. One of the anchors began to tilt\nD. A boat sailed under the bridge",
+     "What are the oldest shark fossils?\nA. Bones\nB. Teeth\nC. Tiny scales\nD. Footprints",
+     "What does \"steal the show\" mean?\nA. To take a show home secretly\nB. To win all the attention and praise\nC. To build a stage\nD. To sing the loudest song"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "So"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "for sixty million years"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": ", sharks "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "swam"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " almost alone "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "as"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " kings of the sea, "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "while"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " the world above the waves lay quiet and bare, "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "as if"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " fast asleep."
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "主干很简单："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "sharks swam"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（鲨鱼游着）。句首的 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "So"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是\"所以\"，承接上一段的结论——前面刚说完鲨鱼比第一棵树早出现六千万年，所以有了这一句。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "for sixty million years"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 里的 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "for"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "持续时间"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "的标志："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "for"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " + 一段时间 = \"持续了多久\"。注意它和\"为了\"没关系，看到 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "for"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 后面跟时间，先想\"有多久\"。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "as kings of the sea"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 里的 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "as"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 表示"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "身份"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：\"作为海洋之王\"。英语里 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "as"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " + 职业/身份名词，就是\"以……的身份\"。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "while the world above the waves lay quiet and bare"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 里的 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "while"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 不是\"当……的时候\"那么简单，它摆出"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "两个同时进行的对比画面"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：海里鲨鱼称王，海面上却安安静静、光秃秃的。读到对比义的 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "while"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，脑子里要立刻分成左右两幅图。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "句尾的 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "as if fast asleep"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 里，"
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "as if"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " = \"仿佛、好像\"：世界并没有真的睡着，只是静得"
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "像"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "睡着了一样。"
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "as if"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 后面常省略主语和 be 动词（完整是 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "as if it was fast asleep"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "）。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句逻辑链："
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "鲨鱼独游六千万年（主干 + for 标出时长）→ 以海洋之王的身份（as 标出身份）→ 与此同时陆上一片沉寂（while 摆对比）→ 静得仿佛睡着（as if 加比喻）"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。一句长句，四把钥匙全在里面。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "BRICK"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（积木块；砖）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SHARK"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（鲨鱼）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "FOSSIL"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（化石）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ANCHOR"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（锚）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SHOW"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（演出；表演）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SCALES"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（鳞片）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ERUPT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（爆发）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SPAN"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（桥跨）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "BRIDGE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（桥）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ANCIENT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（远古的）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says the builders "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"used five million, eight hundred and five thousand, eight hundred and forty-six bricks.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"As the deck grew heavier, one anchor that held the cables began to tilt!\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"The oldest shark fossils are not bones or teeth, but tiny scales in rocks four hundred and fifty million years old.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"It means winning all the attention and praise.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. while  2. while"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. as if  2. as if"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. as  2. as"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "B",
+    "C",
+    "C",
+    "B"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. while（与此同时；对比）：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "Sharks ruled the sea, ____ the land above lay quiet and bare.",
+       "options": [
+        "while",
+        "during",
+        "until"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "The baby shark swam near its mother, ____ the big waves rolled far away.",
+       "options": [
+        "during",
+        "while",
+        "since"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. as if（仿佛；好像）：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "The old sea lay still, ____ it was fast asleep.",
+       "options": [
+        "as well",
+        "as soon",
+        "as if"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "He held his breath, ____ the whole bridge could fall.",
+       "options": [
+        "as if",
+        "as well",
+        "as soon"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. as（作为；以……的身份）：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "Sharks swam ____ kings of the sea for sixty million years.",
+       "options": [
+        "with",
+        "as",
+        "by"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "She works ____ a builder on the bridge team.",
+       "options": [
+        "like",
+        "with",
+        "as"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "For sixty years the old lighthouse stood by the sea, as if it was watching the boats.",
+    "The turtle swam slowly as the king of its little pond, while the frogs sang on the bank."
+   ]
+  },
+  "crossword": {
+   "nrows": 15,
+   "ncols": 9,
+   "words": [
+    {
+     "word": "BRICK",
+     "row": 0,
+     "col": 3,
+     "dir": "D",
+     "num": 1,
+     "cn": "积木块；砖",
+     "clue": "One small building block. The London record used 5,805,846 of them."
+    },
+    {
+     "word": "SHARK",
+     "row": 1,
+     "col": 0,
+     "dir": "A",
+     "num": 2,
+     "cn": "鲨鱼",
+     "clue": "A great fish with sharp teeth — older than trees!"
+    },
+    {
+     "word": "FOSSIL",
+     "row": 2,
+     "col": 5,
+     "dir": "D",
+     "num": 3,
+     "cn": "化石",
+     "clue": "What is left of a living thing, kept in rock for millions of years."
+    },
+    {
+     "word": "ANCHOR",
+     "row": 3,
+     "col": 1,
+     "dir": "A",
+     "num": 4,
+     "cn": "锚",
+     "clue": "A heavy piece of iron that holds something firmly in place."
+    },
+    {
+     "word": "SHOW",
+     "row": 5,
+     "col": 5,
+     "dir": "A",
+     "num": 5,
+     "cn": "演出；表演",
+     "clue": "A performance on a stage. To steal it is to win all the attention."
+    },
+    {
+     "word": "SCALES",
+     "row": 7,
+     "col": 2,
+     "dir": "A",
+     "num": 6,
+     "cn": "鳞片",
+     "clue": "The small, hard plates on a shark's skin. The oldest shark fossils are these."
+    },
+    {
+     "word": "ERUPT",
+     "row": 7,
+     "col": 6,
+     "dir": "D",
+     "num": 7,
+     "cn": "爆发",
+     "clue": "To burst out suddenly, like a great cheer from a happy team."
+    },
+    {
+     "word": "SPAN",
+     "row": 8,
+     "col": 1,
+     "dir": "D",
+     "num": 8,
+     "cn": "桥跨",
+     "clue": "The part of a bridge that hangs between its two towers."
+    },
+    {
+     "word": "BRIDGE",
+     "row": 9,
+     "col": 3,
+     "dir": "D",
+     "num": 9,
+     "cn": "桥",
+     "clue": "It carries people and cars across a river."
+    },
+    {
+     "word": "ANCIENT",
+     "row": 11,
+     "col": 0,
+     "dir": "A",
+     "num": 10,
+     "cn": "远古的",
+     "clue": "Very old; from a time long, long ago."
+    }
+   ]
+  }
+ }
+}

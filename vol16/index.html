@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.16 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol16/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol16/cover.png" controls playsinline preload="metadata"></video>
+<h1>🧱 Vol.16 · 乐高大桥与比树还老的鲨鱼</h1>
+<div class="meta">英文 600 词 ｜ 音频 6分07秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol16/story-lego.png" alt="乐高大桥">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol16/story-shark.png" alt="比树还老的鲨鱼">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">steal the show</span> <span class="phon">/stiːl ðə ʃəʊ/</span> (习语) 抢风头；赢得全部的注意和赞美<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: The LEGO bridge <b>stole the show</b> in London.</div>
+</div>
+<div class="vocab">
+  <span class="word">erupt</span> <span class="phon">/ɪˈrʌpt/</span> (v.) 爆发；喷发<br>
+  
+  <div class="example">Example: When the last plate clicked into place, a huge cheer <b>erupted</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">astonish</span> <span class="phon">/əˈstɒnɪʃ/</span> (v.) 使惊讶；使吃惊<br>
+  
+  <div class="example">Example: Here is a fact that <b>astonishes</b> even scientists.</div>
+</div>
+<div class="vocab">
+  <span class="word">awkward</span> <span class="phon">/ˈɔːkwəd/</span> (adj.) 尴尬的；棘手的<br>
+  
+  <div class="example">Example: Then came an <b>awkward</b> moment.</div>
+</div>
+<div class="vocab">
+  <span class="word">significance</span> <span class="phon">/sɪɡˈnɪfɪkəns/</span> (n.) 意义；重要性<br>
+  
+  <div class="example">Example: The <b>significance</b> of those scales is enormous.</div>
+</div>
+<div class="vocab">
+  <span class="word">dynasty</span> <span class="phon">/ˈdɪnəsti/</span> (n.) 王朝；朝代<br>
+  
+  <div class="example">Example: Sea monsters rose and fell, <b>dynasties</b> of dinosaurs came and went.</div>
+</div>
+<div class="vocab">
+  <span class="word">appeal</span> <span class="phon">/əˈpiːl/</span> (n.) 吸引力<br>
+  
+  <div class="example">Example: Here is its silliest <b>appeal</b>: the bricks stretch from London to Paris!</div>
+</div>
+<div class="vocab">
+  <span class="word">damage</span> <span class="phon">/ˈdæmɪdʒ/</span> (v.) 损害；损坏<br>
+  
+  <div class="example">Example: One loose brick could <b>damage</b> the whole bridge.</div>
+</div>
+<div class="vocab">
+  <span class="word">fossil</span> <span class="phon">/ˈfɒsl/</span> (n.) 化石<br>
+  
+  <div class="example">Example: The oldest shark <b>fossils</b> are tiny scales in old rocks.</div>
+</div>
+<div class="vocab">
+  <span class="word">span</span> <span class="phon">/spæn/</span> (n.) 桥跨；跨度<br>
+  
+  <div class="example">Example: Its middle <b>span</b> hung almost seventeen metres across the air.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 15, "ncols": 9, "words": [{"word": "BRICK", "row": 0, "col": 3, "dir": "D", "num": 1, "cn": "积木块；砖", "clue": "One small building block. The London record used 5,805,846 of them."}, {"word": "SHARK", "row": 1, "col": 0, "dir": "A", "num": 2, "cn": "鲨鱼", "clue": "A great fish with sharp teeth — older than trees!"}, {"word": "FOSSIL", "row": 2, "col": 5, "dir": "D", "num": 3, "cn": "化石", "clue": "What is left of a living thing, kept in rock for millions of years."}, {"word": "ANCHOR", "row": 3, "col": 1, "dir": "A", "num": 4, "cn": "锚", "clue": "A heavy piece of iron that holds something firmly in place."}, {"word": "SHOW", "row": 5, "col": 5, "dir": "A", "num": 5, "cn": "演出；表演", "clue": "A performance on a stage. To steal it is to win all the attention."}, {"word": "SCALES", "row": 7, "col": 2, "dir": "A", "num": 6, "cn": "鳞片", "clue": "The small, hard plates on a shark's skin. The oldest shark fossils are these."}, {"word": "ERUPT", "row": 7, "col": 6, "dir": "D", "num": 7, "cn": "爆发", "clue": "To burst out suddenly, like a great cheer from a happy team."}, {"word": "SPAN", "row": 8, "col": 1, "dir": "D", "num": 8, "cn": "桥跨", "clue": "The part of a bridge that hangs between its two towers."}, {"word": "BRIDGE", "row": 9, "col": 3, "dir": "D", "num": 9, "cn": "桥", "clue": "It carries people and cars across a river."}, {"word": "ANCIENT", "row": 11, "col": 0, "dir": "A", "num": 10, "cn": "远古的", "clue": "Very old; from a time long, long ago."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. How many bricks did the LEGO Tower Bridge use?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. About two hundred and five thousand</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. Five million, eight hundred and five thousand, eight hundred and forty-six</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. About forty-four thousand</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. Exactly one million</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. What happened when the LEGO bridge&#x27;s deck grew heavier?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. A tower fell into the river</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. The builders gave up and went home</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. One of the anchors began to tilt</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. A boat sailed under the bridge</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. What are the oldest shark fossils?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. Bones</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. Teeth</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. Tiny scales</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. Footprints</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does &quot;steal the show&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. To take a show home secretly</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. To win all the attention and praise</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. To build a stage</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. To sing the loudest song</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：B</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [1, 2, 2, 1];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;"><b class="kw">So</b> <b class="kw">for sixty million years</b>, sharks <b class="kw">swam</b> almost alone <b class="kw">as</b> kings of the sea, <b class="kw">while</b> the world above the waves lay quiet and bare, <b class="kw">as if</b> fast asleep.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li>主干很简单：<i>sharks swam</i>（鲨鱼游着）。句首的 <i>So</i> 是"所以"，承接上一段的结论——前面刚说完鲨鱼比第一棵树早出现六千万年，所以有了这一句。</li>
+  <li><i>for sixty million years</i> 里的 <i>for</i> 是<b>持续时间</b>的标志：<i>for</i> + 一段时间 = "持续了多久"。注意它和"为了"没关系，看到 <i>for</i> 后面跟时间，先想"有多久"。</li>
+  <li><i>as kings of the sea</i> 里的 <i>as</i> 表示<b>身份</b>："作为海洋之王"。英语里 <i>as</i> + 职业/身份名词，就是"以……的身份"。</li>
+  <li><i>while the world above the waves lay quiet and bare</i> 里的 <i>while</i> 不是"当……的时候"那么简单，它摆出<b>两个同时进行的对比画面</b>：海里鲨鱼称王，海面上却安安静静、光秃秃的。读到对比义的 <i>while</i>，脑子里要立刻分成左右两幅图。</li>
+  <li>句尾的 <i>as if fast asleep</i> 里，<i>as if</i> = "仿佛、好像"：世界并没有真的睡着，只是静得<i>像</i>睡着了一样。<i>as if</i> 后面常省略主语和 be 动词（完整是 <i>as if it was fast asleep</i>）。</li>
+  <li>整句逻辑链：<b>鲨鱼独游六千万年（主干 + for 标出时长）→ 以海洋之王的身份（as 标出身份）→ 与此同时陆上一片沉寂（while 摆对比）→ 静得仿佛睡着（as if 加比喻）</b>。一句长句，四把钥匙全在里面。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. while（与此同时；对比）：用括号里的词补全</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">Sharks ruled the sea, ____ the land above lay quiet and bare.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">while</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">during</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">until</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：while</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">The baby shark swam near its mother, ____ the big waves rolled far away.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">during</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">while</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">since</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：while</p>
+</div>
+<p class="p4-gname">B. as if（仿佛；好像）：用括号里的词补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">The old sea lay still, ____ it was fast asleep.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">as well</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">as soon</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">as if</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：as if</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">He held his breath, ____ the whole bridge could fall.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">as if</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">as well</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">as soon</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：as if</p>
+</div>
+<p class="p4-gname">C. as（作为；以……的身份）：用括号里的词补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">Sharks swam ____ kings of the sea for sixty million years.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">with</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">as</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">by</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：as</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">She works ____ a builder on the bridge team.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">like</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">with</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">as</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：as</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>For sixty years the old lighthouse stood by the sea, as if it was watching the boats.</li>
+<li>The turtle swam slowly as the king of its little pond, while the frogs sang on the bank.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">1</span><span class="cwl">B</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">2</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">H</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">K</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">3</span><span class="cwl">F</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">A</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">H</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">K</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">5</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">H</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">W</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">I</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">6</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwn">7</span><span class="cwl">E</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">8</span><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">P</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">9</span><span class="cwl">B</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">U</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">P</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">10</span><span class="cwl">A</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">G</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr></table></div>1 竖 → <b>BRICK</b>（积木块；砖）<br>2 横 → <b>SHARK</b>（鲨鱼）<br>3 竖 → <b>FOSSIL</b>（化石）<br>4 横 → <b>ANCHOR</b>（锚）<br>5 横 → <b>SHOW</b>（演出；表演）<br>6 横 → <b>SCALES</b>（鳞片）<br>7 竖 → <b>ERUPT</b>（爆发）<br>8 竖 → <b>SPAN</b>（桥跨）<br>9 竖 → <b>BRIDGE</b>（桥）<br>10 横 → <b>ANCIENT</b>（远古的）<br><br><b>B. Single Choice:</b><br>
+1 → <b>B</b>. The text says the builders <i>"used five million, eight hundred and five thousand, eight hundred and forty-six bricks."</i><br>
+2 → <b>C</b>. <i>"As the deck grew heavier, one anchor that held the cables began to tilt!"</i><br>
+3 → <b>C</b>. <i>"The oldest shark fossils are not bones or teeth, but tiny scales in rocks four hundred and fifty million years old."</i><br>
+4 → <b>B</b>. <i>"It means winning all the attention and praise."</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. while&nbsp;&nbsp;2. while<br>
+B. 1. as if&nbsp;&nbsp;2. as if<br>
+C. 1. as&nbsp;&nbsp;2. as<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol16/Vol16_晚读讲义_乐高大桥与比树还老的鲨鱼_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 30.35, "end": 52.07, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! This is our sixteenth show together! Today we meet a bridge built from toy bricks — the biggest LEGO build on Earth. Then we dive back in time to meet a swimmer older than the first trees. A toy bridge and an ancient shark! Let's go!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！这是我们在一起的第十六期节目啦！今天我们来认识一座用玩具积木搭成的桥——它是地球上最大的乐高建筑。然后我们潜入时光深处，去见一位比第一批树木还要古老的游泳者。一座积木桥，一条远古鲨鱼！出发吧！", "words": [{"w": "Hello,", "t": 30.35}, {"w": "young", "t": 30.74}, {"w": "explorers,", "t": 31.13}, {"w": "and", "t": 31.51}, {"w": "welcome", "t": 31.9}, {"w": "back", "t": 32.29}, {"w": "to", "t": 32.68}, {"w": "Michael's", "t": 33.06}, {"w": "Morning", "t": 33.45}, {"w": "Listening!", "t": 33.84}, {"w": "This", "t": 34.23}, {"w": "is", "t": 34.62}, {"w": "our", "t": 35.0}, {"w": "sixteenth", "t": 35.39}, {"w": "show", "t": 35.78}, {"w": "together!", "t": 36.17}, {"w": "Today", "t": 36.56}, {"w": "we", "t": 36.94}, {"w": "meet", "t": 37.33}, {"w": "a", "t": 37.72}, {"w": "bridge", "t": 38.11}, {"w": "built", "t": 38.5}, {"w": "from", "t": 38.88}, {"w": "toy", "t": 39.27}, {"w": "bricks", "t": 39.66}, {"w": "—", "t": 40.05}, {"w": "the", "t": 40.43}, {"w": "biggest", "t": 40.82}, {"w": "LEGO", "t": 41.21}, {"w": "build", "t": 41.6}, {"w": "on", "t": 41.99}, {"w": "Earth.", "t": 42.37}, {"w": "Then", "t": 42.76}, {"w": "we", "t": 43.15}, {"w": "dive", "t": 43.54}, {"w": "back", "t": 43.92}, {"w": "in", "t": 44.31}, {"w": "time", "t": 44.7}, {"w": "to", "t": 45.09}, {"w": "meet", "t": 45.48}, {"w": "a", "t": 45.86}, {"w": "swimmer", "t": 46.25}, {"w": "older", "t": 46.64}, {"w": "than", "t": 47.03}, {"w": "the", "t": 47.42}, {"w": "first", "t": 47.8}, {"w": "trees.", "t": 48.19}, {"w": "A", "t": 48.58}, {"w": "toy", "t": 48.97}, {"w": "bridge", "t": 49.36}, {"w": "and", "t": 49.74}, {"w": "an", "t": 50.13}, {"w": "ancient", "t": 50.52}, {"w": "shark!", "t": 50.91}, {"w": "Let's", "t": 51.29}, {"w": "go!", "t": 51.68}]}, {"start": 64.45, "end": 96.34, "en": "Our first hero stands in London: the famous Tower Bridge, copied in LEGO bricks! They used five million, eight hundred and five thousand, eight hundred and forty-six bricks. It is the largest LEGO sculpture ever built: forty-four metres long and thirteen metres tall! Media cameras came from around the world, and boats sailed past below. Here is its silliest appeal: lay the bricks in one line, and they stretch from London to Paris!", "title": "乐高大桥", "cn": "我们的第一位主角就站在伦敦：它就是著名的塔桥，只不过是用乐高积木复制出来的！搭建它一共用掉了五百八十万五千八百四十六块积木。它是人类搭过的最大的乐高雕塑：四十四米长，十三米高！全世界的媒体摄像机都跑来拍它，船只就从它下方的河面开过。它最搞笑的魅力是：要是把这些积木排成一条线，能从伦敦一直排到巴黎！", "words": [{"w": "Our", "t": 64.45}, {"w": "first", "t": 64.89}, {"w": "hero", "t": 65.32}, {"w": "stands", "t": 65.76}, {"w": "in", "t": 66.2}, {"w": "London:", "t": 66.63}, {"w": "the", "t": 67.07}, {"w": "famous", "t": 67.51}, {"w": "Tower", "t": 67.94}, {"w": "Bridge,", "t": 68.38}, {"w": "copied", "t": 68.82}, {"w": "in", "t": 69.26}, {"w": "LEGO", "t": 69.69}, {"w": "bricks!", "t": 70.13}, {"w": "They", "t": 70.57}, {"w": "used", "t": 71.0}, {"w": "five", "t": 71.44}, {"w": "million,", "t": 71.88}, {"w": "eight", "t": 72.31}, {"w": "hundred", "t": 72.75}, {"w": "and", "t": 73.19}, {"w": "five", "t": 73.62}, {"w": "thousand,", "t": 74.06}, {"w": "eight", "t": 74.5}, {"w": "hundred", "t": 74.93}, {"w": "and", "t": 75.37}, {"w": "forty-six", "t": 75.81}, {"w": "bricks.", "t": 76.24}, {"w": "It", "t": 76.68}, {"w": "is", "t": 77.12}, {"w": "the", "t": 77.56}, {"w": "largest", "t": 77.99}, {"w": "LEGO", "t": 78.43}, {"w": "sculpture", "t": 78.87}, {"w": "ever", "t": 79.3}, {"w": "built:", "t": 79.74}, {"w": "forty-four", "t": 80.18}, {"w": "metres", "t": 80.61}, {"w": "long", "t": 81.05}, {"w": "and", "t": 81.49}, {"w": "thirteen", "t": 81.92}, {"w": "metres", "t": 82.36}, {"w": "tall!", "t": 82.8}, {"w": "Media", "t": 83.23}, {"w": "cameras", "t": 83.67}, {"w": "came", "t": 84.11}, {"w": "from", "t": 84.55}, {"w": "around", "t": 84.98}, {"w": "the", "t": 85.42}, {"w": "world,", "t": 85.86}, {"w": "and", "t": 86.29}, {"w": "boats", "t": 86.73}, {"w": "sailed", "t": 87.17}, {"w": "past", "t": 87.6}, {"w": "below.", "t": 88.04}, {"w": "Here", "t": 88.48}, {"w": "is", "t": 88.91}, {"w": "its", "t": 89.35}, {"w": "silliest", "t": 89.79}, {"w": "appeal:", "t": 90.22}, {"w": "lay", "t": 90.66}, {"w": "the", "t": 91.1}, {"w": "bricks", "t": 91.53}, {"w": "in", "t": 91.97}, {"w": "one", "t": 92.41}, {"w": "line,", "t": 92.85}, {"w": "and", "t": 93.28}, {"w": "they", "t": 93.72}, {"w": "stretch", "t": 94.16}, {"w": "from", "t": 94.59}, {"w": "London", "t": 95.03}, {"w": "to", "t": 95.47}, {"w": "Paris!", "t": 95.9}]}, {"start": 96.34, "end": 120.37, "en": "LEGO builders hold another record: the world's longest LEGO bridge. Engineers built one thirty-four metres long, from more than two hundred and five thousand bricks — with no glue at all! Its middle span hung almost seventeen metres across the air. Every brick had to click perfectly: one loose brick could damage the whole bridge.", "title": "乐高大桥", "cn": "乐高玩家还握着另一个纪录：世界上最长的乐高桥。工程师们用二十万五千多块积木，搭出了一座三十四米长的桥——一滴胶水都没用！它中间的桥跨悬在空中，伸展了将近十七米。每一块积木都必须严丝合缝地扣好：一块松了，整座桥都可能受损。", "words": [{"w": "LEGO", "t": 96.34}, {"w": "builders", "t": 96.78}, {"w": "hold", "t": 97.21}, {"w": "another", "t": 97.65}, {"w": "record:", "t": 98.09}, {"w": "the", "t": 98.52}, {"w": "world's", "t": 98.96}, {"w": "longest", "t": 99.4}, {"w": "LEGO", "t": 99.84}, {"w": "bridge.", "t": 100.27}, {"w": "Engineers", "t": 100.71}, {"w": "built", "t": 101.15}, {"w": "one", "t": 101.58}, {"w": "thirty-four", "t": 102.02}, {"w": "metres", "t": 102.46}, {"w": "long,", "t": 102.89}, {"w": "from", "t": 103.33}, {"w": "more", "t": 103.77}, {"w": "than", "t": 104.2}, {"w": "two", "t": 104.64}, {"w": "hundred", "t": 105.08}, {"w": "and", "t": 105.52}, {"w": "five", "t": 105.95}, {"w": "thousand", "t": 106.39}, {"w": "bricks", "t": 106.83}, {"w": "—", "t": 107.26}, {"w": "with", "t": 107.7}, {"w": "no", "t": 108.14}, {"w": "glue", "t": 108.57}, {"w": "at", "t": 109.01}, {"w": "all!", "t": 109.45}, {"w": "Its", "t": 109.88}, {"w": "middle", "t": 110.32}, {"w": "span", "t": 110.76}, {"w": "hung", "t": 111.19}, {"w": "almost", "t": 111.63}, {"w": "seventeen", "t": 112.07}, {"w": "metres", "t": 112.51}, {"w": "across", "t": 112.94}, {"w": "the", "t": 113.38}, {"w": "air.", "t": 113.82}, {"w": "Every", "t": 114.25}, {"w": "brick", "t": 114.69}, {"w": "had", "t": 115.13}, {"w": "to", "t": 115.56}, {"w": "click", "t": 116.0}, {"w": "perfectly:", "t": 116.44}, {"w": "one", "t": 116.87}, {"w": "loose", "t": 117.31}, {"w": "brick", "t": 117.75}, {"w": "could", "t": 118.19}, {"w": "damage", "t": 118.62}, {"w": "the", "t": 119.06}, {"w": "whole", "t": 119.5}, {"w": "bridge.", "t": 119.93}]}, {"start": 120.37, "end": 147.9, "en": "Then came an awkward moment. As the deck grew heavier, one anchor that held the cables began to tilt! The builders held their breath. Quickly, they piled heavy weights onto the anchor and pressed it firm. When the last plate clicked into place, a huge cheer erupted. A bridge is a quiet service to a city: it carries everyone across, asking nothing back.", "title": "乐高大桥", "cn": "接着，一个让人捏把汗的尴尬时刻来了。随着桥面越来越重，一只固定钢缆的锚开始倾斜了！搭建的人们屏住了呼吸。他们赶紧往锚上堆压重物，把它重新压稳。当最后一块板咔哒一声扣好的时候，一阵巨大的欢呼爆发了。说到底，一座桥就是一座城市默默的服务者：它载着所有人过河，却从不求回报。", "words": [{"w": "Then", "t": 120.37}, {"w": "came", "t": 120.81}, {"w": "an", "t": 121.24}, {"w": "awkward", "t": 121.68}, {"w": "moment.", "t": 122.12}, {"w": "As", "t": 122.55}, {"w": "the", "t": 122.99}, {"w": "deck", "t": 123.43}, {"w": "grew", "t": 123.87}, {"w": "heavier,", "t": 124.3}, {"w": "one", "t": 124.74}, {"w": "anchor", "t": 125.18}, {"w": "that", "t": 125.61}, {"w": "held", "t": 126.05}, {"w": "the", "t": 126.49}, {"w": "cables", "t": 126.92}, {"w": "began", "t": 127.36}, {"w": "to", "t": 127.8}, {"w": "tilt!", "t": 128.24}, {"w": "The", "t": 128.67}, {"w": "builders", "t": 129.11}, {"w": "held", "t": 129.55}, {"w": "their", "t": 129.98}, {"w": "breath.", "t": 130.42}, {"w": "Quickly,", "t": 130.86}, {"w": "they", "t": 131.29}, {"w": "piled", "t": 131.73}, {"w": "heavy", "t": 132.17}, {"w": "weights", "t": 132.61}, {"w": "onto", "t": 133.04}, {"w": "the", "t": 133.48}, {"w": "anchor", "t": 133.92}, {"w": "and", "t": 134.35}, {"w": "pressed", "t": 134.79}, {"w": "it", "t": 135.23}, {"w": "firm.", "t": 135.66}, {"w": "When", "t": 136.1}, {"w": "the", "t": 136.54}, {"w": "last", "t": 136.98}, {"w": "plate", "t": 137.41}, {"w": "clicked", "t": 137.85}, {"w": "into", "t": 138.29}, {"w": "place,", "t": 138.72}, {"w": "a", "t": 139.16}, {"w": "huge", "t": 139.6}, {"w": "cheer", "t": 140.03}, {"w": "erupted.", "t": 140.47}, {"w": "A", "t": 140.91}, {"w": "bridge", "t": 141.35}, {"w": "is", "t": 141.78}, {"w": "a", "t": 142.22}, {"w": "quiet", "t": 142.66}, {"w": "service", "t": 143.09}, {"w": "to", "t": 143.53}, {"w": "a", "t": 143.97}, {"w": "city:", "t": 144.4}, {"w": "it", "t": 144.84}, {"w": "carries", "t": 145.28}, {"w": "everyone", "t": 145.72}, {"w": "across,", "t": 146.15}, {"w": "asking", "t": 146.59}, {"w": "nothing", "t": 147.03}, {"w": "back.", "t": 147.46}]}, {"start": 167.64, "end": 199.66, "en": "Now dive with me into the deep past. Here is a fact that astonishes even scientists: sharks are older than trees! The oldest shark fossils are not bones or teeth, but tiny scales in rocks four hundred and fifty million years old. The significance of those scales is enormous: sharks already swam when the land had no forests — only mosses a few centimetres tall, and no shady tree on any beach.", "title": "比树还老的鲨鱼", "cn": "现在，跟我一起潜入深深的过去吧。有一个事实，连科学家都会惊叹：鲨鱼比树木还要古老！最古老的鲨鱼化石不是骨头也不是牙齿，而是岩石里的小小鳞片，它们已经有四亿五千万年了。这些鳞片的意义非常重大：早在陆地上一片森林都没有的时候，鲨鱼就已经在海里游了——那时只有几厘米高的苔藓，任何一处海滩上都没有一棵遮阴的树。", "words": [{"w": "Now", "t": 167.64}, {"w": "dive", "t": 168.08}, {"w": "with", "t": 168.53}, {"w": "me", "t": 168.97}, {"w": "into", "t": 169.42}, {"w": "the", "t": 169.86}, {"w": "deep", "t": 170.31}, {"w": "past.", "t": 170.75}, {"w": "Here", "t": 171.2}, {"w": "is", "t": 171.64}, {"w": "a", "t": 172.09}, {"w": "fact", "t": 172.53}, {"w": "that", "t": 172.98}, {"w": "astonishes", "t": 173.42}, {"w": "even", "t": 173.87}, {"w": "scientists:", "t": 174.31}, {"w": "sharks", "t": 174.76}, {"w": "are", "t": 175.2}, {"w": "older", "t": 175.64}, {"w": "than", "t": 176.09}, {"w": "trees!", "t": 176.53}, {"w": "The", "t": 176.98}, {"w": "oldest", "t": 177.42}, {"w": "shark", "t": 177.87}, {"w": "fossils", "t": 178.31}, {"w": "are", "t": 178.76}, {"w": "not", "t": 179.2}, {"w": "bones", "t": 179.65}, {"w": "or", "t": 180.09}, {"w": "teeth,", "t": 180.54}, {"w": "but", "t": 180.98}, {"w": "tiny", "t": 181.43}, {"w": "scales", "t": 181.87}, {"w": "in", "t": 182.32}, {"w": "rocks", "t": 182.76}, {"w": "four", "t": 183.21}, {"w": "hundred", "t": 183.65}, {"w": "and", "t": 184.09}, {"w": "fifty", "t": 184.54}, {"w": "million", "t": 184.98}, {"w": "years", "t": 185.43}, {"w": "old.", "t": 185.87}, {"w": "The", "t": 186.32}, {"w": "significance", "t": 186.76}, {"w": "of", "t": 187.21}, {"w": "those", "t": 187.65}, {"w": "scales", "t": 188.1}, {"w": "is", "t": 188.54}, {"w": "enormous:", "t": 188.99}, {"w": "sharks", "t": 189.43}, {"w": "already", "t": 189.88}, {"w": "swam", "t": 190.32}, {"w": "when", "t": 190.77}, {"w": "the", "t": 191.21}, {"w": "land", "t": 191.66}, {"w": "had", "t": 192.1}, {"w": "no", "t": 192.54}, {"w": "forests", "t": 192.99}, {"w": "—", "t": 193.43}, {"w": "only", "t": 193.88}, {"w": "mosses", "t": 194.32}, {"w": "a", "t": 194.77}, {"w": "few", "t": 195.21}, {"w": "centimetres", "t": 195.66}, {"w": "tall,", "t": 196.1}, {"w": "and", "t": 196.55}, {"w": "no", "t": 196.99}, {"w": "shady", "t": 197.44}, {"w": "tree", "t": 197.88}, {"w": "on", "t": 198.33}, {"w": "any", "t": 198.77}, {"w": "beach.", "t": 199.22}]}, {"start": 199.66, "end": 221.45, "en": "The first true trees grew about sixty million years later. One, called Wattieza, looked like a giant fern on a stick. So for sixty million years, sharks swam almost alone as kings of the sea, while the world above the waves lay quiet and bare, as if fast asleep.", "title": "比树还老的鲨鱼", "cn": "第一批真正的树，大约在六千万年之后才长出来。其中一种叫瓦蒂萨树，长得像一棵站在棍子上的巨型蕨类。所以在整整六千万年里，鲨鱼几乎是独自称霸海洋的王者，而海浪之上的世界安安静静、光秃秃的，仿佛沉睡了一样。", "words": [{"w": "The", "t": 199.66}, {"w": "first", "t": 200.1}, {"w": "true", "t": 200.55}, {"w": "trees", "t": 200.99}, {"w": "grew", "t": 201.44}, {"w": "about", "t": 201.88}, {"w": "sixty", "t": 202.33}, {"w": "million", "t": 202.77}, {"w": "years", "t": 203.22}, {"w": "later.", "t": 203.66}, {"w": "One,", "t": 204.11}, {"w": "called", "t": 204.55}, {"w": "Wattieza,", "t": 205.0}, {"w": "looked", "t": 205.44}, {"w": "like", "t": 205.89}, {"w": "a", "t": 206.33}, {"w": "giant", "t": 206.78}, {"w": "fern", "t": 207.22}, {"w": "on", "t": 207.66}, {"w": "a", "t": 208.11}, {"w": "stick.", "t": 208.55}, {"w": "So", "t": 209.0}, {"w": "for", "t": 209.44}, {"w": "sixty", "t": 209.89}, {"w": "million", "t": 210.33}, {"w": "years,", "t": 210.78}, {"w": "sharks", "t": 211.22}, {"w": "swam", "t": 211.67}, {"w": "almost", "t": 212.11}, {"w": "alone", "t": 212.56}, {"w": "as", "t": 213.0}, {"w": "kings", "t": 213.45}, {"w": "of", "t": 213.89}, {"w": "the", "t": 214.33}, {"w": "sea,", "t": 214.78}, {"w": "while", "t": 215.22}, {"w": "the", "t": 215.67}, {"w": "world", "t": 216.11}, {"w": "above", "t": 216.56}, {"w": "the", "t": 217.0}, {"w": "waves", "t": 217.45}, {"w": "lay", "t": 217.89}, {"w": "quiet", "t": 218.34}, {"w": "and", "t": 218.78}, {"w": "bare,", "t": 219.23}, {"w": "as", "t": 219.67}, {"w": "if", "t": 220.12}, {"w": "fast", "t": 220.56}, {"w": "asleep.", "t": 221.01}]}, {"start": 221.45, "end": 250.8, "en": "Since then, sharks have survived five great extinctions. Sea monsters rose and fell, dynasties of dinosaurs came and went — and the sharks just kept swimming. Even their skin is a tool: tiny tooth-like scales cover it, so rough that sailors once stretched it over a board to shave wood smooth, like sandpaper. So remember: a shark is a design older than every forest on Earth!", "title": "比树还老的鲨鱼", "cn": "从那以后，鲨鱼挺过了五次大灭绝。巨大的海怪兴起又衰落，恐龙的王朝来了又去——而鲨鱼，只是继续游它自己的泳。连鲨鱼的皮肤都是一件工具：上面布满像小牙齿一样的鳞片，粗糙得不得了，水手们曾经把鲨鱼皮绷在木板上，像砂纸一样磨光木头。所以记住：鲨鱼，是一套比地球上所有森林都要古老的设计！", "words": [{"w": "Since", "t": 221.45}, {"w": "then,", "t": 221.89}, {"w": "sharks", "t": 222.34}, {"w": "have", "t": 222.78}, {"w": "survived", "t": 223.23}, {"w": "five", "t": 223.67}, {"w": "great", "t": 224.12}, {"w": "extinctions.", "t": 224.56}, {"w": "Sea", "t": 225.01}, {"w": "monsters", "t": 225.45}, {"w": "rose", "t": 225.9}, {"w": "and", "t": 226.34}, {"w": "fell,", "t": 226.79}, {"w": "dynasties", "t": 227.23}, {"w": "of", "t": 227.68}, {"w": "dinosaurs", "t": 228.12}, {"w": "came", "t": 228.57}, {"w": "and", "t": 229.01}, {"w": "went", "t": 229.45}, {"w": "—", "t": 229.9}, {"w": "and", "t": 230.34}, {"w": "the", "t": 230.79}, {"w": "sharks", "t": 231.23}, {"w": "just", "t": 231.68}, {"w": "kept", "t": 232.12}, {"w": "swimming.", "t": 232.57}, {"w": "Even", "t": 233.01}, {"w": "their", "t": 233.46}, {"w": "skin", "t": 233.9}, {"w": "is", "t": 234.35}, {"w": "a", "t": 234.79}, {"w": "tool:", "t": 235.24}, {"w": "tiny", "t": 235.68}, {"w": "tooth-like", "t": 236.12}, {"w": "scales", "t": 236.57}, {"w": "cover", "t": 237.01}, {"w": "it,", "t": 237.46}, {"w": "so", "t": 237.9}, {"w": "rough", "t": 238.35}, {"w": "that", "t": 238.79}, {"w": "sailors", "t": 239.24}, {"w": "once", "t": 239.68}, {"w": "stretched", "t": 240.13}, {"w": "it", "t": 240.57}, {"w": "over", "t": 241.02}, {"w": "a", "t": 241.46}, {"w": "board", "t": 241.91}, {"w": "to", "t": 242.35}, {"w": "shave", "t": 242.8}, {"w": "wood", "t": 243.24}, {"w": "smooth,", "t": 243.68}, {"w": "like", "t": 244.13}, {"w": "sandpaper.", "t": 244.57}, {"w": "So", "t": 245.02}, {"w": "remember:", "t": 245.46}, {"w": "a", "t": 245.91}, {"w": "shark", "t": 246.35}, {"w": "is", "t": 246.8}, {"w": "a", "t": 247.24}, {"w": "design", "t": 247.69}, {"w": "older", "t": 248.13}, {"w": "than", "t": 248.58}, {"w": "every", "t": 249.02}, {"w": "forest", "t": 249.47}, {"w": "on", "t": 249.91}, {"w": "Earth!", "t": 250.36}]}, {"start": 267.42, "end": 294.78, "en": "Here's today's idiom: \"steal the show.\" Imagine a stage with one main star. If a small, funny actor suddenly gets all the cheers, we say he stole the show! It means winning all the attention and praise. The LEGO bridge stole the show in London; today the shark steals it back. Here's an example: \"My little sister sang one song and stole the show.\" Who steals the show in your class?", "title": "今日俚语", "cn": "今天的俚语是“steal the show”。想象一个舞台，上面有一位主角。如果一个小小的、搞笑的演员突然赢得了所有的欢呼，我们就说他 stole the show（抢了风头）！它的意思是赢得全部的注意和赞美。那座乐高大桥在伦敦抢尽了风头；今天，鲨鱼又把它抢了回来。举个例子：“我妹妹只唱了一首歌，就抢走了全场的风头。”在你们班里，谁最会抢风头呢？", "words": [{"w": "Here's", "t": 267.42}, {"w": "today's", "t": 267.81}, {"w": "idiom:", "t": 268.19}, {"w": "\"steal", "t": 268.58}, {"w": "the", "t": 268.96}, {"w": "show.\"", "t": 269.35}, {"w": "Imagine", "t": 269.73}, {"w": "a", "t": 270.12}, {"w": "stage", "t": 270.5}, {"w": "with", "t": 270.89}, {"w": "one", "t": 271.27}, {"w": "main", "t": 271.66}, {"w": "star.", "t": 272.04}, {"w": "If", "t": 272.43}, {"w": "a", "t": 272.81}, {"w": "small,", "t": 273.2}, {"w": "funny", "t": 273.59}, {"w": "actor", "t": 273.97}, {"w": "suddenly", "t": 274.36}, {"w": "gets", "t": 274.74}, {"w": "all", "t": 275.13}, {"w": "the", "t": 275.51}, {"w": "cheers,", "t": 275.9}, {"w": "we", "t": 276.28}, {"w": "say", "t": 276.67}, {"w": "he", "t": 277.05}, {"w": "stole", "t": 277.44}, {"w": "the", "t": 277.82}, {"w": "show!", "t": 278.21}, {"w": "It", "t": 278.6}, {"w": "means", "t": 278.98}, {"w": "winning", "t": 279.37}, {"w": "all", "t": 279.75}, {"w": "the", "t": 280.14}, {"w": "attention", "t": 280.52}, {"w": "and", "t": 280.91}, {"w": "praise.", "t": 281.29}, {"w": "The", "t": 281.68}, {"w": "LEGO", "t": 282.06}, {"w": "bridge", "t": 282.45}, {"w": "stole", "t": 282.83}, {"w": "the", "t": 283.22}, {"w": "show", "t": 283.6}, {"w": "in", "t": 283.99}, {"w": "London;", "t": 284.38}, {"w": "today", "t": 284.76}, {"w": "the", "t": 285.15}, {"w": "shark", "t": 285.53}, {"w": "steals", "t": 285.92}, {"w": "it", "t": 286.3}, {"w": "back.", "t": 286.69}, {"w": "Here's", "t": 287.07}, {"w": "an", "t": 287.46}, {"w": "example:", "t": 287.84}, {"w": "\"My", "t": 288.23}, {"w": "little", "t": 288.61}, {"w": "sister", "t": 289.0}, {"w": "sang", "t": 289.39}, {"w": "one", "t": 289.77}, {"w": "song", "t": 290.16}, {"w": "and", "t": 290.54}, {"w": "stole", "t": 290.93}, {"w": "the", "t": 291.31}, {"w": "show.\"", "t": 291.7}, {"w": "Who", "t": 292.08}, {"w": "steals", "t": 292.47}, {"w": "the", "t": 292.85}, {"w": "show", "t": 293.24}, {"w": "in", "t": 293.62}, {"w": "your", "t": 294.01}, {"w": "class?", "t": 294.39}]}, {"start": 308.92, "end": 334.98, "en": "Let's think about our stories. A toy bridge broke world records, and a fish turned out to be older than forests. Two questions for you. First: if you could build one giant LEGO thing, what would you build — a boat, a castle, or a bridge? Second: what do you think the world looked like before there were any trees? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事。一座积木桥打破了世界纪录，一条鱼竟然比森林还要古老。轮到回答两个问题了。第一：如果你能用乐高积木搭一样巨大的东西，你会搭什么——一条船、一座城堡，还是一座桥？第二：你觉得在还没有任何树木的时候，世界是什么样子的？和家人聊聊吧！", "words": [{"w": "Let's", "t": 308.92}, {"w": "think", "t": 309.31}, {"w": "about", "t": 309.71}, {"w": "our", "t": 310.1}, {"w": "stories.", "t": 310.5}, {"w": "A", "t": 310.89}, {"w": "toy", "t": 311.29}, {"w": "bridge", "t": 311.68}, {"w": "broke", "t": 312.08}, {"w": "world", "t": 312.47}, {"w": "records,", "t": 312.87}, {"w": "and", "t": 313.26}, {"w": "a", "t": 313.66}, {"w": "fish", "t": 314.05}, {"w": "turned", "t": 314.45}, {"w": "out", "t": 314.84}, {"w": "to", "t": 315.24}, {"w": "be", "t": 315.63}, {"w": "older", "t": 316.03}, {"w": "than", "t": 316.42}, {"w": "forests.", "t": 316.82}, {"w": "Two", "t": 317.21}, {"w": "questions", "t": 317.61}, {"w": "for", "t": 318.0}, {"w": "you.", "t": 318.4}, {"w": "First:", "t": 318.79}, {"w": "if", "t": 319.19}, {"w": "you", "t": 319.58}, {"w": "could", "t": 319.98}, {"w": "build", "t": 320.37}, {"w": "one", "t": 320.77}, {"w": "giant", "t": 321.16}, {"w": "LEGO", "t": 321.56}, {"w": "thing,", "t": 321.95}, {"w": "what", "t": 322.34}, {"w": "would", "t": 322.74}, {"w": "you", "t": 323.13}, {"w": "build", "t": 323.53}, {"w": "—", "t": 323.92}, {"w": "a", "t": 324.32}, {"w": "boat,", "t": 324.71}, {"w": "a", "t": 325.11}, {"w": "castle,", "t": 325.5}, {"w": "or", "t": 325.9}, {"w": "a", "t": 326.29}, {"w": "bridge?", "t": 326.69}, {"w": "Second:", "t": 327.08}, {"w": "what", "t": 327.48}, {"w": "do", "t": 327.87}, {"w": "you", "t": 328.27}, {"w": "think", "t": 328.66}, {"w": "the", "t": 329.06}, {"w": "world", "t": 329.45}, {"w": "looked", "t": 329.85}, {"w": "like", "t": 330.24}, {"w": "before", "t": 330.64}, {"w": "there", "t": 331.03}, {"w": "were", "t": 331.43}, {"w": "any", "t": 331.82}, {"w": "trees?", "t": 332.22}, {"w": "Talk", "t": 332.61}, {"w": "about", "t": 333.01}, {"w": "it", "t": 333.4}, {"w": "with", "t": 333.8}, {"w": "your", "t": 334.19}, {"w": "family!", "t": 334.59}]}, {"start": 345.68, "end": 358.07, "en": "That's all for today, young explorers. Tonight, while you are fast asleep, a shark is still swimming its ancient rounds. Keep building, keep wondering — see you tomorrow morning!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。今晚，当你熟睡的时候，一条鲨鱼还在继续它古老的巡游。继续动手搭建，继续好奇探索——明天早上见！", "words": [{"w": "That's", "t": 345.68}, {"w": "all", "t": 346.11}, {"w": "for", "t": 346.53}, {"w": "today,", "t": 346.96}, {"w": "young", "t": 347.39}, {"w": "explorers.", "t": 347.82}, {"w": "Tonight,", "t": 348.24}, {"w": "while", "t": 348.67}, {"w": "you", "t": 349.1}, {"w": "are", "t": 349.53}, {"w": "fast", "t": 349.95}, {"w": "asleep,", "t": 350.38}, {"w": "a", "t": 350.81}, {"w": "shark", "t": 351.23}, {"w": "is", "t": 351.66}, {"w": "still", "t": 352.09}, {"w": "swimming", "t": 352.52}, {"w": "its", "t": 352.94}, {"w": "ancient", "t": 353.37}, {"w": "rounds.", "t": 353.8}, {"w": "Keep", "t": 354.22}, {"w": "building,", "t": 354.65}, {"w": "keep", "t": 355.08}, {"w": "wondering", "t": 355.51}, {"w": "—", "t": 355.93}, {"w": "see", "t": 356.36}, {"w": "you", "t": 356.79}, {"w": "tomorrow", "t": 357.22}, {"w": "morning!", "t": 357.64}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol16/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
