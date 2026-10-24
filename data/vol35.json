@@ -1,0 +1,3506 @@
+{
+ "id": "vol35",
+ "title": "重回大海的海龟与没有大脑和血液的海星",
+ "words": 598,
+ "duration": "5分29秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol35/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol35/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol35/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol35/Vol35_晚读讲义_重回大海的海龟与没有大脑和血液的海星_v1.pdf",
+ "pdfName": "Vol35_晚读讲义_重回大海的海龟与没有大脑和血液的海星_v1.pdf",
+ "blocks": [
+  {
+   "start": 23.71,
+   "end": 42.02,
+   "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we dive into the sea to meet two amazing animals: a sea turtle who fought her way back to the ocean, and a starfish with no brain and no blood at all. Ready? Let's dive in!",
+   "title": "开场白",
+   "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天我们要潜入大海，认识两种神奇的动物：一位是历经千辛万苦重回大海的海龟，另一位是完全没有大脑、没有血液的海星。准备好了吗？让我们潜入大海吧！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 23.71
+    },
+    {
+     "w": "young",
+     "t": 24.1
+    },
+    {
+     "w": "explorers,",
+     "t": 24.49
+    },
+    {
+     "w": "and",
+     "t": 24.88
+    },
+    {
+     "w": "welcome",
+     "t": 25.27
+    },
+    {
+     "w": "back",
+     "t": 25.66
+    },
+    {
+     "w": "to",
+     "t": 26.05
+    },
+    {
+     "w": "Michael's",
+     "t": 26.44
+    },
+    {
+     "w": "Morning",
+     "t": 26.83
+    },
+    {
+     "w": "Listening!",
+     "t": 27.22
+    },
+    {
+     "w": "Today",
+     "t": 27.61
+    },
+    {
+     "w": "we",
+     "t": 28.0
+    },
+    {
+     "w": "dive",
+     "t": 28.38
+    },
+    {
+     "w": "into",
+     "t": 28.77
+    },
+    {
+     "w": "the",
+     "t": 29.16
+    },
+    {
+     "w": "sea",
+     "t": 29.55
+    },
+    {
+     "w": "to",
+     "t": 29.94
+    },
+    {
+     "w": "meet",
+     "t": 30.33
+    },
+    {
+     "w": "two",
+     "t": 30.72
+    },
+    {
+     "w": "amazing",
+     "t": 31.11
+    },
+    {
+     "w": "animals:",
+     "t": 31.5
+    },
+    {
+     "w": "a",
+     "t": 31.89
+    },
+    {
+     "w": "sea",
+     "t": 32.28
+    },
+    {
+     "w": "turtle",
+     "t": 32.67
+    },
+    {
+     "w": "who",
+     "t": 33.06
+    },
+    {
+     "w": "fought",
+     "t": 33.45
+    },
+    {
+     "w": "her",
+     "t": 33.84
+    },
+    {
+     "w": "way",
+     "t": 34.23
+    },
+    {
+     "w": "back",
+     "t": 34.62
+    },
+    {
+     "w": "to",
+     "t": 35.01
+    },
+    {
+     "w": "the",
+     "t": 35.4
+    },
+    {
+     "w": "ocean,",
+     "t": 35.79
+    },
+    {
+     "w": "and",
+     "t": 36.18
+    },
+    {
+     "w": "a",
+     "t": 36.57
+    },
+    {
+     "w": "starfish",
+     "t": 36.96
+    },
+    {
+     "w": "with",
+     "t": 37.35
+    },
+    {
+     "w": "no",
+     "t": 37.73
+    },
+    {
+     "w": "brain",
+     "t": 38.12
+    },
+    {
+     "w": "and",
+     "t": 38.51
+    },
+    {
+     "w": "no",
+     "t": 38.9
+    },
+    {
+     "w": "blood",
+     "t": 39.29
+    },
+    {
+     "w": "at",
+     "t": 39.68
+    },
+    {
+     "w": "all.",
+     "t": 40.07
+    },
+    {
+     "w": "Ready?",
+     "t": 40.46
+    },
+    {
+     "w": "Let's",
+     "t": 40.85
+    },
+    {
+     "w": "dive",
+     "t": 41.24
+    },
+    {
+     "w": "in!",
+     "t": 41.63
+    }
+   ]
+  },
+  {
+   "start": 55.04,
+   "end": 73.31,
+   "en": "On a beach in Australia, a walker found a green sea turtle in big trouble. She was tired and thin, and her shell was covered with barnacles, algae, and even leeches. Rescuers from a sea animal hospital took her in and gave her a name: Kalani.",
+   "title": "海龟卡拉尼",
+   "cn": "在澳大利亚的一片海滩上，一位散步的人发现了一只陷入大麻烦的绿海龟。她又累又瘦，壳上爬满了藤壶、海藻，甚至还有水蛭。一家海洋动物医院的救援人员收留了她，还给她起了个名字：卡拉尼。",
+   "words": [
+    {
+     "w": "On",
+     "t": 55.04
+    },
+    {
+     "w": "a",
+     "t": 55.44
+    },
+    {
+     "w": "beach",
+     "t": 55.83
+    },
+    {
+     "w": "in",
+     "t": 56.23
+    },
+    {
+     "w": "Australia,",
+     "t": 56.63
+    },
+    {
+     "w": "a",
+     "t": 57.03
+    },
+    {
+     "w": "walker",
+     "t": 57.42
+    },
+    {
+     "w": "found",
+     "t": 57.82
+    },
+    {
+     "w": "a",
+     "t": 58.22
+    },
+    {
+     "w": "green",
+     "t": 58.61
+    },
+    {
+     "w": "sea",
+     "t": 59.01
+    },
+    {
+     "w": "turtle",
+     "t": 59.41
+    },
+    {
+     "w": "in",
+     "t": 59.81
+    },
+    {
+     "w": "big",
+     "t": 60.2
+    },
+    {
+     "w": "trouble.",
+     "t": 60.6
+    },
+    {
+     "w": "She",
+     "t": 61.0
+    },
+    {
+     "w": "was",
+     "t": 61.4
+    },
+    {
+     "w": "tired",
+     "t": 61.79
+    },
+    {
+     "w": "and",
+     "t": 62.19
+    },
+    {
+     "w": "thin,",
+     "t": 62.59
+    },
+    {
+     "w": "and",
+     "t": 62.98
+    },
+    {
+     "w": "her",
+     "t": 63.38
+    },
+    {
+     "w": "shell",
+     "t": 63.78
+    },
+    {
+     "w": "was",
+     "t": 64.18
+    },
+    {
+     "w": "covered",
+     "t": 64.57
+    },
+    {
+     "w": "with",
+     "t": 64.97
+    },
+    {
+     "w": "barnacles,",
+     "t": 65.37
+    },
+    {
+     "w": "algae,",
+     "t": 65.76
+    },
+    {
+     "w": "and",
+     "t": 66.16
+    },
+    {
+     "w": "even",
+     "t": 66.56
+    },
+    {
+     "w": "leeches.",
+     "t": 66.96
+    },
+    {
+     "w": "Rescuers",
+     "t": 67.35
+    },
+    {
+     "w": "from",
+     "t": 67.75
+    },
+    {
+     "w": "a",
+     "t": 68.15
+    },
+    {
+     "w": "sea",
+     "t": 68.55
+    },
+    {
+     "w": "animal",
+     "t": 68.94
+    },
+    {
+     "w": "hospital",
+     "t": 69.34
+    },
+    {
+     "w": "took",
+     "t": 69.74
+    },
+    {
+     "w": "her",
+     "t": 70.13
+    },
+    {
+     "w": "in",
+     "t": 70.53
+    },
+    {
+     "w": "and",
+     "t": 70.93
+    },
+    {
+     "w": "gave",
+     "t": 71.33
+    },
+    {
+     "w": "her",
+     "t": 71.72
+    },
+    {
+     "w": "a",
+     "t": 72.12
+    },
+    {
+     "w": "name:",
+     "t": 72.52
+    },
+    {
+     "w": "Kalani.",
+     "t": 72.91
+    }
+   ]
+  },
+  {
+   "start": 73.31,
+   "end": 100.32,
+   "en": "The doctors found a cut on her back flipper, and her body was very weak. For six months, the team cleaned her shell, gave her medicine, and watched her day and night. Slowly, Kalani began to recover. She swam faster, ate more, and soon she was the boss of her tank! The doctors were delighted: after a final, valid health check, this turtle was ready to go home.",
+   "title": "海龟卡拉尼",
+   "cn": "医生们在她的后鳍上发现了一道伤口，她的身体非常虚弱。六个月里，团队清理她的壳、给她喂药、日夜守着她。慢慢地，卡拉尼开始恢复了。她游得更快了，吃得更多了，很快就成了自己水箱里的老大！医生们高兴极了：经过最后一次有效的健康检查，这只海龟可以回家了。",
+   "words": [
+    {
+     "w": "The",
+     "t": 73.31
+    },
+    {
+     "w": "doctors",
+     "t": 73.71
+    },
+    {
+     "w": "found",
+     "t": 74.11
+    },
+    {
+     "w": "a",
+     "t": 74.5
+    },
+    {
+     "w": "cut",
+     "t": 74.9
+    },
+    {
+     "w": "on",
+     "t": 75.3
+    },
+    {
+     "w": "her",
+     "t": 75.7
+    },
+    {
+     "w": "back",
+     "t": 76.09
+    },
+    {
+     "w": "flipper,",
+     "t": 76.49
+    },
+    {
+     "w": "and",
+     "t": 76.89
+    },
+    {
+     "w": "her",
+     "t": 77.28
+    },
+    {
+     "w": "body",
+     "t": 77.68
+    },
+    {
+     "w": "was",
+     "t": 78.08
+    },
+    {
+     "w": "very",
+     "t": 78.48
+    },
+    {
+     "w": "weak.",
+     "t": 78.87
+    },
+    {
+     "w": "For",
+     "t": 79.27
+    },
+    {
+     "w": "six",
+     "t": 79.67
+    },
+    {
+     "w": "months,",
+     "t": 80.06
+    },
+    {
+     "w": "the",
+     "t": 80.46
+    },
+    {
+     "w": "team",
+     "t": 80.86
+    },
+    {
+     "w": "cleaned",
+     "t": 81.26
+    },
+    {
+     "w": "her",
+     "t": 81.65
+    },
+    {
+     "w": "shell,",
+     "t": 82.05
+    },
+    {
+     "w": "gave",
+     "t": 82.45
+    },
+    {
+     "w": "her",
+     "t": 82.85
+    },
+    {
+     "w": "medicine,",
+     "t": 83.24
+    },
+    {
+     "w": "and",
+     "t": 83.64
+    },
+    {
+     "w": "watched",
+     "t": 84.04
+    },
+    {
+     "w": "her",
+     "t": 84.43
+    },
+    {
+     "w": "day",
+     "t": 84.83
+    },
+    {
+     "w": "and",
+     "t": 85.23
+    },
+    {
+     "w": "night.",
+     "t": 85.63
+    },
+    {
+     "w": "Slowly,",
+     "t": 86.02
+    },
+    {
+     "w": "Kalani",
+     "t": 86.42
+    },
+    {
+     "w": "began",
+     "t": 86.82
+    },
+    {
+     "w": "to",
+     "t": 87.21
+    },
+    {
+     "w": "recover.",
+     "t": 87.61
+    },
+    {
+     "w": "She",
+     "t": 88.01
+    },
+    {
+     "w": "swam",
+     "t": 88.41
+    },
+    {
+     "w": "faster,",
+     "t": 88.8
+    },
+    {
+     "w": "ate",
+     "t": 89.2
+    },
+    {
+     "w": "more,",
+     "t": 89.6
+    },
+    {
+     "w": "and",
+     "t": 90.0
+    },
+    {
+     "w": "soon",
+     "t": 90.39
+    },
+    {
+     "w": "she",
+     "t": 90.79
+    },
+    {
+     "w": "was",
+     "t": 91.19
+    },
+    {
+     "w": "the",
+     "t": 91.58
+    },
+    {
+     "w": "boss",
+     "t": 91.98
+    },
+    {
+     "w": "of",
+     "t": 92.38
+    },
+    {
+     "w": "her",
+     "t": 92.78
+    },
+    {
+     "w": "tank!",
+     "t": 93.17
+    },
+    {
+     "w": "The",
+     "t": 93.57
+    },
+    {
+     "w": "doctors",
+     "t": 93.97
+    },
+    {
+     "w": "were",
+     "t": 94.36
+    },
+    {
+     "w": "delighted:",
+     "t": 94.76
+    },
+    {
+     "w": "after",
+     "t": 95.16
+    },
+    {
+     "w": "a",
+     "t": 95.56
+    },
+    {
+     "w": "final,",
+     "t": 95.95
+    },
+    {
+     "w": "valid",
+     "t": 96.35
+    },
+    {
+     "w": "health",
+     "t": 96.75
+    },
+    {
+     "w": "check,",
+     "t": 97.14
+    },
+    {
+     "w": "this",
+     "t": 97.54
+    },
+    {
+     "w": "turtle",
+     "t": 97.94
+    },
+    {
+     "w": "was",
+     "t": 98.34
+    },
+    {
+     "w": "ready",
+     "t": 98.73
+    },
+    {
+     "w": "to",
+     "t": 99.13
+    },
+    {
+     "w": "go",
+     "t": 99.53
+    },
+    {
+     "w": "home.",
+     "t": 99.93
+    }
+   ]
+  },
+  {
+   "start": 100.32,
+   "end": 124.95,
+   "en": "On release day, Kalani swam into the waves with four other rescued turtles. But her story also carries a warning. Plastic bags in the sea can choke a turtle that mistakes one for food, and old fishing nets can trap flippers. In some countries, federal laws now protect sea turtles, but the best protection is simple: keep plastic out of the ocean.",
+   "title": "海龟卡拉尼",
+   "cn": "放归那天，卡拉尼和另外四只获救的海龟一起游进了海浪。但她的故事也带来一个警告：海里的塑料袋会被误当成食物，噎住海龟；旧渔网会缠住鳍足。在一些国家，联邦法律现在保护海龟，但最好的保护其实很简单：别让塑料进入海洋。",
+   "words": [
+    {
+     "w": "On",
+     "t": 100.32
+    },
+    {
+     "w": "release",
+     "t": 100.72
+    },
+    {
+     "w": "day,",
+     "t": 101.12
+    },
+    {
+     "w": "Kalani",
+     "t": 101.51
+    },
+    {
+     "w": "swam",
+     "t": 101.91
+    },
+    {
+     "w": "into",
+     "t": 102.31
+    },
+    {
+     "w": "the",
+     "t": 102.71
+    },
+    {
+     "w": "waves",
+     "t": 103.1
+    },
+    {
+     "w": "with",
+     "t": 103.5
+    },
+    {
+     "w": "four",
+     "t": 103.9
+    },
+    {
+     "w": "other",
+     "t": 104.29
+    },
+    {
+     "w": "rescued",
+     "t": 104.69
+    },
+    {
+     "w": "turtles.",
+     "t": 105.09
+    },
+    {
+     "w": "But",
+     "t": 105.49
+    },
+    {
+     "w": "her",
+     "t": 105.88
+    },
+    {
+     "w": "story",
+     "t": 106.28
+    },
+    {
+     "w": "also",
+     "t": 106.68
+    },
+    {
+     "w": "carries",
+     "t": 107.08
+    },
+    {
+     "w": "a",
+     "t": 107.47
+    },
+    {
+     "w": "warning.",
+     "t": 107.87
+    },
+    {
+     "w": "Plastic",
+     "t": 108.27
+    },
+    {
+     "w": "bags",
+     "t": 108.66
+    },
+    {
+     "w": "in",
+     "t": 109.06
+    },
+    {
+     "w": "the",
+     "t": 109.46
+    },
+    {
+     "w": "sea",
+     "t": 109.86
+    },
+    {
+     "w": "can",
+     "t": 110.25
+    },
+    {
+     "w": "choke",
+     "t": 110.65
+    },
+    {
+     "w": "a",
+     "t": 111.05
+    },
+    {
+     "w": "turtle",
+     "t": 111.44
+    },
+    {
+     "w": "that",
+     "t": 111.84
+    },
+    {
+     "w": "mistakes",
+     "t": 112.24
+    },
+    {
+     "w": "one",
+     "t": 112.64
+    },
+    {
+     "w": "for",
+     "t": 113.03
+    },
+    {
+     "w": "food,",
+     "t": 113.43
+    },
+    {
+     "w": "and",
+     "t": 113.83
+    },
+    {
+     "w": "old",
+     "t": 114.23
+    },
+    {
+     "w": "fishing",
+     "t": 114.62
+    },
+    {
+     "w": "nets",
+     "t": 115.02
+    },
+    {
+     "w": "can",
+     "t": 115.42
+    },
+    {
+     "w": "trap",
+     "t": 115.81
+    },
+    {
+     "w": "flippers.",
+     "t": 116.21
+    },
+    {
+     "w": "In",
+     "t": 116.61
+    },
+    {
+     "w": "some",
+     "t": 117.01
+    },
+    {
+     "w": "countries,",
+     "t": 117.4
+    },
+    {
+     "w": "federal",
+     "t": 117.8
+    },
+    {
+     "w": "laws",
+     "t": 118.2
+    },
+    {
+     "w": "now",
+     "t": 118.59
+    },
+    {
+     "w": "protect",
+     "t": 118.99
+    },
+    {
+     "w": "sea",
+     "t": 119.39
+    },
+    {
+     "w": "turtles,",
+     "t": 119.79
+    },
+    {
+     "w": "but",
+     "t": 120.18
+    },
+    {
+     "w": "the",
+     "t": 120.58
+    },
+    {
+     "w": "best",
+     "t": 120.98
+    },
+    {
+     "w": "protection",
+     "t": 121.38
+    },
+    {
+     "w": "is",
+     "t": 121.77
+    },
+    {
+     "w": "simple:",
+     "t": 122.17
+    },
+    {
+     "w": "keep",
+     "t": 122.57
+    },
+    {
+     "w": "plastic",
+     "t": 122.96
+    },
+    {
+     "w": "out",
+     "t": 123.36
+    },
+    {
+     "w": "of",
+     "t": 123.76
+    },
+    {
+     "w": "the",
+     "t": 124.16
+    },
+    {
+     "w": "ocean.",
+     "t": 124.55
+    }
+   ]
+  },
+  {
+   "start": 139.09,
+   "end": 162.93,
+   "en": "Now meet the starfish — although scientists prefer to call it a sea star, because it is not a fish at all! It is an echinoderm, a cousin of sea urchins and sand dollars. And here is the strangest part: a starfish has no brain. The brain is absent. The blood is absent too. So how does it live, move, and eat?",
+   "title": "没有大脑和血液的海星",
+   "cn": "现在来认识海星——不过科学家更喜欢叫它海星（sea star），因为它根本不是鱼！它是一种棘皮动物，是海胆和沙钱的亲戚。而最奇怪的地方是：海星没有大脑。大脑不存在。血液也不存在。那么，它是怎么活着、移动和进食的呢？",
+   "words": [
+    {
+     "w": "Now",
+     "t": 139.09
+    },
+    {
+     "w": "meet",
+     "t": 139.47
+    },
+    {
+     "w": "the",
+     "t": 139.86
+    },
+    {
+     "w": "starfish",
+     "t": 140.24
+    },
+    {
+     "w": "—",
+     "t": 140.63
+    },
+    {
+     "w": "although",
+     "t": 141.01
+    },
+    {
+     "w": "scientists",
+     "t": 141.4
+    },
+    {
+     "w": "prefer",
+     "t": 141.78
+    },
+    {
+     "w": "to",
+     "t": 142.17
+    },
+    {
+     "w": "call",
+     "t": 142.55
+    },
+    {
+     "w": "it",
+     "t": 142.94
+    },
+    {
+     "w": "a",
+     "t": 143.32
+    },
+    {
+     "w": "sea",
+     "t": 143.7
+    },
+    {
+     "w": "star,",
+     "t": 144.09
+    },
+    {
+     "w": "because",
+     "t": 144.47
+    },
+    {
+     "w": "it",
+     "t": 144.86
+    },
+    {
+     "w": "is",
+     "t": 145.24
+    },
+    {
+     "w": "not",
+     "t": 145.63
+    },
+    {
+     "w": "a",
+     "t": 146.01
+    },
+    {
+     "w": "fish",
+     "t": 146.4
+    },
+    {
+     "w": "at",
+     "t": 146.78
+    },
+    {
+     "w": "all!",
+     "t": 147.17
+    },
+    {
+     "w": "It",
+     "t": 147.55
+    },
+    {
+     "w": "is",
+     "t": 147.93
+    },
+    {
+     "w": "an",
+     "t": 148.32
+    },
+    {
+     "w": "echinoderm,",
+     "t": 148.7
+    },
+    {
+     "w": "a",
+     "t": 149.09
+    },
+    {
+     "w": "cousin",
+     "t": 149.47
+    },
+    {
+     "w": "of",
+     "t": 149.86
+    },
+    {
+     "w": "sea",
+     "t": 150.24
+    },
+    {
+     "w": "urchins",
+     "t": 150.63
+    },
+    {
+     "w": "and",
+     "t": 151.01
+    },
+    {
+     "w": "sand",
+     "t": 151.4
+    },
+    {
+     "w": "dollars.",
+     "t": 151.78
+    },
+    {
+     "w": "And",
+     "t": 152.17
+    },
+    {
+     "w": "here",
+     "t": 152.55
+    },
+    {
+     "w": "is",
+     "t": 152.93
+    },
+    {
+     "w": "the",
+     "t": 153.32
+    },
+    {
+     "w": "strangest",
+     "t": 153.7
+    },
+    {
+     "w": "part:",
+     "t": 154.09
+    },
+    {
+     "w": "a",
+     "t": 154.47
+    },
+    {
+     "w": "starfish",
+     "t": 154.86
+    },
+    {
+     "w": "has",
+     "t": 155.24
+    },
+    {
+     "w": "no",
+     "t": 155.63
+    },
+    {
+     "w": "brain.",
+     "t": 156.01
+    },
+    {
+     "w": "The",
+     "t": 156.4
+    },
+    {
+     "w": "brain",
+     "t": 156.78
+    },
+    {
+     "w": "is",
+     "t": 157.16
+    },
+    {
+     "w": "absent.",
+     "t": 157.55
+    },
+    {
+     "w": "The",
+     "t": 157.93
+    },
+    {
+     "w": "blood",
+     "t": 158.32
+    },
+    {
+     "w": "is",
+     "t": 158.7
+    },
+    {
+     "w": "absent",
+     "t": 159.09
+    },
+    {
+     "w": "too.",
+     "t": 159.47
+    },
+    {
+     "w": "So",
+     "t": 159.86
+    },
+    {
+     "w": "how",
+     "t": 160.24
+    },
+    {
+     "w": "does",
+     "t": 160.63
+    },
+    {
+     "w": "it",
+     "t": 161.01
+    },
+    {
+     "w": "live,",
+     "t": 161.39
+    },
+    {
+     "w": "move,",
+     "t": 161.78
+    },
+    {
+     "w": "and",
+     "t": 162.16
+    },
+    {
+     "w": "eat?",
+     "t": 162.55
+    }
+   ]
+  },
+  {
+   "start": 162.93,
+   "end": 195.62,
+   "en": "Instead of a brain, it has a nerve ring around its mouth, with nerves running down each arm. The arms are in charge! And instead of blood, it uses seawater. Water comes in through a tiny sieve plate on its back, called the madreporite, and flows through canals into hundreds of delicate little tube feet. The water pressure fills the feet and stretches them out, and muscles pull them back in. That is how a starfish walks, grips rocks, and even pries open a clam.",
+   "title": "没有大脑和血液的海星",
+   "cn": "大脑的位置，是一圈围着嘴的神经环，神经从这里延伸到每条腕里。腕说了算！血液的位置，是海水。水从背上一个叫筛板的小筛孔进入，流经管道，进入成百上千条娇嫩的小管足。水压把管足灌满、伸展开，肌肉再把它们拉回来。海星就是这样行走、抓紧岩石，甚至撬开蛤蜊的。",
+   "words": [
+    {
+     "w": "Instead",
+     "t": 162.93
+    },
+    {
+     "w": "of",
+     "t": 163.32
+    },
+    {
+     "w": "a",
+     "t": 163.7
+    },
+    {
+     "w": "brain,",
+     "t": 164.09
+    },
+    {
+     "w": "it",
+     "t": 164.47
+    },
+    {
+     "w": "has",
+     "t": 164.86
+    },
+    {
+     "w": "a",
+     "t": 165.24
+    },
+    {
+     "w": "nerve",
+     "t": 165.62
+    },
+    {
+     "w": "ring",
+     "t": 166.01
+    },
+    {
+     "w": "around",
+     "t": 166.39
+    },
+    {
+     "w": "its",
+     "t": 166.78
+    },
+    {
+     "w": "mouth,",
+     "t": 167.16
+    },
+    {
+     "w": "with",
+     "t": 167.55
+    },
+    {
+     "w": "nerves",
+     "t": 167.93
+    },
+    {
+     "w": "running",
+     "t": 168.32
+    },
+    {
+     "w": "down",
+     "t": 168.7
+    },
+    {
+     "w": "each",
+     "t": 169.09
+    },
+    {
+     "w": "arm.",
+     "t": 169.47
+    },
+    {
+     "w": "The",
+     "t": 169.85
+    },
+    {
+     "w": "arms",
+     "t": 170.24
+    },
+    {
+     "w": "are",
+     "t": 170.62
+    },
+    {
+     "w": "in",
+     "t": 171.01
+    },
+    {
+     "w": "charge!",
+     "t": 171.39
+    },
+    {
+     "w": "And",
+     "t": 171.78
+    },
+    {
+     "w": "instead",
+     "t": 172.16
+    },
+    {
+     "w": "of",
+     "t": 172.55
+    },
+    {
+     "w": "blood,",
+     "t": 172.93
+    },
+    {
+     "w": "it",
+     "t": 173.32
+    },
+    {
+     "w": "uses",
+     "t": 173.7
+    },
+    {
+     "w": "seawater.",
+     "t": 174.09
+    },
+    {
+     "w": "Water",
+     "t": 174.47
+    },
+    {
+     "w": "comes",
+     "t": 174.85
+    },
+    {
+     "w": "in",
+     "t": 175.24
+    },
+    {
+     "w": "through",
+     "t": 175.62
+    },
+    {
+     "w": "a",
+     "t": 176.01
+    },
+    {
+     "w": "tiny",
+     "t": 176.39
+    },
+    {
+     "w": "sieve",
+     "t": 176.78
+    },
+    {
+     "w": "plate",
+     "t": 177.16
+    },
+    {
+     "w": "on",
+     "t": 177.55
+    },
+    {
+     "w": "its",
+     "t": 177.93
+    },
+    {
+     "w": "back,",
+     "t": 178.32
+    },
+    {
+     "w": "called",
+     "t": 178.7
+    },
+    {
+     "w": "the",
+     "t": 179.08
+    },
+    {
+     "w": "madreporite,",
+     "t": 179.47
+    },
+    {
+     "w": "and",
+     "t": 179.85
+    },
+    {
+     "w": "flows",
+     "t": 180.24
+    },
+    {
+     "w": "through",
+     "t": 180.62
+    },
+    {
+     "w": "canals",
+     "t": 181.01
+    },
+    {
+     "w": "into",
+     "t": 181.39
+    },
+    {
+     "w": "hundreds",
+     "t": 181.78
+    },
+    {
+     "w": "of",
+     "t": 182.16
+    },
+    {
+     "w": "delicate",
+     "t": 182.55
+    },
+    {
+     "w": "little",
+     "t": 182.93
+    },
+    {
+     "w": "tube",
+     "t": 183.31
+    },
+    {
+     "w": "feet.",
+     "t": 183.7
+    },
+    {
+     "w": "The",
+     "t": 184.08
+    },
+    {
+     "w": "water",
+     "t": 184.47
+    },
+    {
+     "w": "pressure",
+     "t": 184.85
+    },
+    {
+     "w": "fills",
+     "t": 185.24
+    },
+    {
+     "w": "the",
+     "t": 185.62
+    },
+    {
+     "w": "feet",
+     "t": 186.01
+    },
+    {
+     "w": "and",
+     "t": 186.39
+    },
+    {
+     "w": "stretches",
+     "t": 186.78
+    },
+    {
+     "w": "them",
+     "t": 187.16
+    },
+    {
+     "w": "out,",
+     "t": 187.54
+    },
+    {
+     "w": "and",
+     "t": 187.93
+    },
+    {
+     "w": "muscles",
+     "t": 188.31
+    },
+    {
+     "w": "pull",
+     "t": 188.7
+    },
+    {
+     "w": "them",
+     "t": 189.08
+    },
+    {
+     "w": "back",
+     "t": 189.47
+    },
+    {
+     "w": "in.",
+     "t": 189.85
+    },
+    {
+     "w": "That",
+     "t": 190.24
+    },
+    {
+     "w": "is",
+     "t": 190.62
+    },
+    {
+     "w": "how",
+     "t": 191.01
+    },
+    {
+     "w": "a",
+     "t": 191.39
+    },
+    {
+     "w": "starfish",
+     "t": 191.78
+    },
+    {
+     "w": "walks,",
+     "t": 192.16
+    },
+    {
+     "w": "grips",
+     "t": 192.54
+    },
+    {
+     "w": "rocks,",
+     "t": 192.93
+    },
+    {
+     "w": "and",
+     "t": 193.31
+    },
+    {
+     "w": "even",
+     "t": 193.7
+    },
+    {
+     "w": "pries",
+     "t": 194.08
+    },
+    {
+     "w": "open",
+     "t": 194.47
+    },
+    {
+     "w": "a",
+     "t": 194.85
+    },
+    {
+     "w": "clam.",
+     "t": 195.24
+    }
+   ]
+  },
+  {
+   "start": 195.62,
+   "end": 222.54,
+   "en": "And when the tide goes out, a starfish on the rocks is exposed to the air and sun — but its tough skin and tube feet help it hold on until the water returns. Even more amazing, if it loses an arm, it can grow a new one. No brain, no blood — and yet it has lived in the oceans for hundreds of millions of years. Isn't that awesome?",
+   "title": "没有大脑和血液的海星",
+   "cn": "退潮的时候，礁石上的海星暴露在空气和阳光下——但它坚韧的皮肤和管足能帮它坚持到海水回来。更神奇的是，如果它失去一条腕，还能再长出一条新的。没有大脑，没有血液——可它已经在海洋里生活了几亿年。这难道不神奇吗？",
+   "words": [
+    {
+     "w": "And",
+     "t": 195.62
+    },
+    {
+     "w": "when",
+     "t": 196.01
+    },
+    {
+     "w": "the",
+     "t": 196.39
+    },
+    {
+     "w": "tide",
+     "t": 196.77
+    },
+    {
+     "w": "goes",
+     "t": 197.16
+    },
+    {
+     "w": "out,",
+     "t": 197.54
+    },
+    {
+     "w": "a",
+     "t": 197.93
+    },
+    {
+     "w": "starfish",
+     "t": 198.31
+    },
+    {
+     "w": "on",
+     "t": 198.7
+    },
+    {
+     "w": "the",
+     "t": 199.08
+    },
+    {
+     "w": "rocks",
+     "t": 199.47
+    },
+    {
+     "w": "is",
+     "t": 199.85
+    },
+    {
+     "w": "exposed",
+     "t": 200.24
+    },
+    {
+     "w": "to",
+     "t": 200.62
+    },
+    {
+     "w": "the",
+     "t": 201.0
+    },
+    {
+     "w": "air",
+     "t": 201.39
+    },
+    {
+     "w": "and",
+     "t": 201.77
+    },
+    {
+     "w": "sun",
+     "t": 202.16
+    },
+    {
+     "w": "—",
+     "t": 202.54
+    },
+    {
+     "w": "but",
+     "t": 202.93
+    },
+    {
+     "w": "its",
+     "t": 203.31
+    },
+    {
+     "w": "tough",
+     "t": 203.7
+    },
+    {
+     "w": "skin",
+     "t": 204.08
+    },
+    {
+     "w": "and",
+     "t": 204.47
+    },
+    {
+     "w": "tube",
+     "t": 204.85
+    },
+    {
+     "w": "feet",
+     "t": 205.23
+    },
+    {
+     "w": "help",
+     "t": 205.62
+    },
+    {
+     "w": "it",
+     "t": 206.0
+    },
+    {
+     "w": "hold",
+     "t": 206.39
+    },
+    {
+     "w": "on",
+     "t": 206.77
+    },
+    {
+     "w": "until",
+     "t": 207.16
+    },
+    {
+     "w": "the",
+     "t": 207.54
+    },
+    {
+     "w": "water",
+     "t": 207.93
+    },
+    {
+     "w": "returns.",
+     "t": 208.31
+    },
+    {
+     "w": "Even",
+     "t": 208.7
+    },
+    {
+     "w": "more",
+     "t": 209.08
+    },
+    {
+     "w": "amazing,",
+     "t": 209.46
+    },
+    {
+     "w": "if",
+     "t": 209.85
+    },
+    {
+     "w": "it",
+     "t": 210.23
+    },
+    {
+     "w": "loses",
+     "t": 210.62
+    },
+    {
+     "w": "an",
+     "t": 211.0
+    },
+    {
+     "w": "arm,",
+     "t": 211.39
+    },
+    {
+     "w": "it",
+     "t": 211.77
+    },
+    {
+     "w": "can",
+     "t": 212.16
+    },
+    {
+     "w": "grow",
+     "t": 212.54
+    },
+    {
+     "w": "a",
+     "t": 212.93
+    },
+    {
+     "w": "new",
+     "t": 213.31
+    },
+    {
+     "w": "one.",
+     "t": 213.7
+    },
+    {
+     "w": "No",
+     "t": 214.08
+    },
+    {
+     "w": "brain,",
+     "t": 214.46
+    },
+    {
+     "w": "no",
+     "t": 214.85
+    },
+    {
+     "w": "blood",
+     "t": 215.23
+    },
+    {
+     "w": "—",
+     "t": 215.62
+    },
+    {
+     "w": "and",
+     "t": 216.0
+    },
+    {
+     "w": "yet",
+     "t": 216.39
+    },
+    {
+     "w": "it",
+     "t": 216.77
+    },
+    {
+     "w": "has",
+     "t": 217.16
+    },
+    {
+     "w": "lived",
+     "t": 217.54
+    },
+    {
+     "w": "in",
+     "t": 217.93
+    },
+    {
+     "w": "the",
+     "t": 218.31
+    },
+    {
+     "w": "oceans",
+     "t": 218.69
+    },
+    {
+     "w": "for",
+     "t": 219.08
+    },
+    {
+     "w": "hundreds",
+     "t": 219.46
+    },
+    {
+     "w": "of",
+     "t": 219.85
+    },
+    {
+     "w": "millions",
+     "t": 220.23
+    },
+    {
+     "w": "of",
+     "t": 220.62
+    },
+    {
+     "w": "years.",
+     "t": 221.0
+    },
+    {
+     "w": "Isn't",
+     "t": 221.39
+    },
+    {
+     "w": "that",
+     "t": 221.77
+    },
+    {
+     "w": "awesome?",
+     "t": 222.16
+    }
+   ]
+  },
+  {
+   "start": 238.28,
+   "end": 262.02,
+   "en": "Here's today's idiom: 'miss the boat.' When you miss the boat, you miss a good chance because you were too slow! Here's an example: 'Tom slept late and missed the boat to the turtle beach — his class watched the release without him!' The doctors instructed the volunteers to arrive early, so nobody would miss the boat. When did you last miss the boat?",
+   "title": "今日俚语",
+   "cn": "今天的俚语是“miss the boat”（错过船）。当你 miss the boat 时，你是因为太慢而错过了一个好机会！举个例子：“汤姆睡过头了，错过了去海龟海滩的船——他的同学们没等他就看了放归仪式！”医生们指示志愿者们早点到，这样就没人会错过船了。你上一次错过船是什么时候？",
+   "words": [
+    {
+     "w": "Here's",
+     "t": 238.28
+    },
+    {
+     "w": "today's",
+     "t": 238.65
+    },
+    {
+     "w": "idiom:",
+     "t": 239.02
+    },
+    {
+     "w": "'miss",
+     "t": 239.39
+    },
+    {
+     "w": "the",
+     "t": 239.76
+    },
+    {
+     "w": "boat.'",
+     "t": 240.13
+    },
+    {
+     "w": "When",
+     "t": 240.51
+    },
+    {
+     "w": "you",
+     "t": 240.88
+    },
+    {
+     "w": "miss",
+     "t": 241.25
+    },
+    {
+     "w": "the",
+     "t": 241.62
+    },
+    {
+     "w": "boat,",
+     "t": 241.99
+    },
+    {
+     "w": "you",
+     "t": 242.36
+    },
+    {
+     "w": "miss",
+     "t": 242.73
+    },
+    {
+     "w": "a",
+     "t": 243.1
+    },
+    {
+     "w": "good",
+     "t": 243.47
+    },
+    {
+     "w": "chance",
+     "t": 243.84
+    },
+    {
+     "w": "because",
+     "t": 244.22
+    },
+    {
+     "w": "you",
+     "t": 244.59
+    },
+    {
+     "w": "were",
+     "t": 244.96
+    },
+    {
+     "w": "too",
+     "t": 245.33
+    },
+    {
+     "w": "slow!",
+     "t": 245.7
+    },
+    {
+     "w": "Here's",
+     "t": 246.07
+    },
+    {
+     "w": "an",
+     "t": 246.44
+    },
+    {
+     "w": "example:",
+     "t": 246.81
+    },
+    {
+     "w": "'Tom",
+     "t": 247.18
+    },
+    {
+     "w": "slept",
+     "t": 247.55
+    },
+    {
+     "w": "late",
+     "t": 247.92
+    },
+    {
+     "w": "and",
+     "t": 248.3
+    },
+    {
+     "w": "missed",
+     "t": 248.67
+    },
+    {
+     "w": "the",
+     "t": 249.04
+    },
+    {
+     "w": "boat",
+     "t": 249.41
+    },
+    {
+     "w": "to",
+     "t": 249.78
+    },
+    {
+     "w": "the",
+     "t": 250.15
+    },
+    {
+     "w": "turtle",
+     "t": 250.52
+    },
+    {
+     "w": "beach",
+     "t": 250.89
+    },
+    {
+     "w": "—",
+     "t": 251.26
+    },
+    {
+     "w": "his",
+     "t": 251.63
+    },
+    {
+     "w": "class",
+     "t": 252.0
+    },
+    {
+     "w": "watched",
+     "t": 252.38
+    },
+    {
+     "w": "the",
+     "t": 252.75
+    },
+    {
+     "w": "release",
+     "t": 253.12
+    },
+    {
+     "w": "without",
+     "t": 253.49
+    },
+    {
+     "w": "him!'",
+     "t": 253.86
+    },
+    {
+     "w": "The",
+     "t": 254.23
+    },
+    {
+     "w": "doctors",
+     "t": 254.6
+    },
+    {
+     "w": "instructed",
+     "t": 254.97
+    },
+    {
+     "w": "the",
+     "t": 255.34
+    },
+    {
+     "w": "volunteers",
+     "t": 255.71
+    },
+    {
+     "w": "to",
+     "t": 256.08
+    },
+    {
+     "w": "arrive",
+     "t": 256.46
+    },
+    {
+     "w": "early,",
+     "t": 256.83
+    },
+    {
+     "w": "so",
+     "t": 257.2
+    },
+    {
+     "w": "nobody",
+     "t": 257.57
+    },
+    {
+     "w": "would",
+     "t": 257.94
+    },
+    {
+     "w": "miss",
+     "t": 258.31
+    },
+    {
+     "w": "the",
+     "t": 258.68
+    },
+    {
+     "w": "boat.",
+     "t": 259.05
+    },
+    {
+     "w": "When",
+     "t": 259.42
+    },
+    {
+     "w": "did",
+     "t": 259.79
+    },
+    {
+     "w": "you",
+     "t": 260.17
+    },
+    {
+     "w": "last",
+     "t": 260.54
+    },
+    {
+     "w": "miss",
+     "t": 260.91
+    },
+    {
+     "w": "the",
+     "t": 261.28
+    },
+    {
+     "w": "boat?",
+     "t": 261.65
+    }
+   ]
+  },
+  {
+   "start": 277.44,
+   "end": 303.02,
+   "en": "Let's think about our stories: a turtle who fought back to the sea, and a starfish with no brain and no blood. First: if you found a hurt sea animal on the beach, what would you do first? Second: a starfish has no brain, yet it can walk, eat, and regrow an arm — which of your body parts could you never live without? Talk about it with your family!",
+   "title": "结束语与互动问题",
+   "cn": "我们来想想今天的故事：一只奋力重回大海的海龟，和一只没有大脑、没有血液的海星。第一：如果你在海滩上发现一只受伤的海洋动物，你首先会做什么？第二：海星没有大脑，却能行走、进食、再生手臂——你身体的哪个部位是你绝对离不开的？和家人聊聊吧！",
+   "words": [
+    {
+     "w": "Let's",
+     "t": 277.44
+    },
+    {
+     "w": "think",
+     "t": 277.81
+    },
+    {
+     "w": "about",
+     "t": 278.17
+    },
+    {
+     "w": "our",
+     "t": 278.54
+    },
+    {
+     "w": "stories:",
+     "t": 278.9
+    },
+    {
+     "w": "a",
+     "t": 279.27
+    },
+    {
+     "w": "turtle",
+     "t": 279.63
+    },
+    {
+     "w": "who",
+     "t": 280.0
+    },
+    {
+     "w": "fought",
+     "t": 280.36
+    },
+    {
+     "w": "back",
+     "t": 280.73
+    },
+    {
+     "w": "to",
+     "t": 281.09
+    },
+    {
+     "w": "the",
+     "t": 281.46
+    },
+    {
+     "w": "sea,",
+     "t": 281.83
+    },
+    {
+     "w": "and",
+     "t": 282.19
+    },
+    {
+     "w": "a",
+     "t": 282.56
+    },
+    {
+     "w": "starfish",
+     "t": 282.92
+    },
+    {
+     "w": "with",
+     "t": 283.29
+    },
+    {
+     "w": "no",
+     "t": 283.65
+    },
+    {
+     "w": "brain",
+     "t": 284.02
+    },
+    {
+     "w": "and",
+     "t": 284.38
+    },
+    {
+     "w": "no",
+     "t": 284.75
+    },
+    {
+     "w": "blood.",
+     "t": 285.11
+    },
+    {
+     "w": "First:",
+     "t": 285.48
+    },
+    {
+     "w": "if",
+     "t": 285.84
+    },
+    {
+     "w": "you",
+     "t": 286.21
+    },
+    {
+     "w": "found",
+     "t": 286.58
+    },
+    {
+     "w": "a",
+     "t": 286.94
+    },
+    {
+     "w": "hurt",
+     "t": 287.31
+    },
+    {
+     "w": "sea",
+     "t": 287.67
+    },
+    {
+     "w": "animal",
+     "t": 288.04
+    },
+    {
+     "w": "on",
+     "t": 288.4
+    },
+    {
+     "w": "the",
+     "t": 288.77
+    },
+    {
+     "w": "beach,",
+     "t": 289.13
+    },
+    {
+     "w": "what",
+     "t": 289.5
+    },
+    {
+     "w": "would",
+     "t": 289.86
+    },
+    {
+     "w": "you",
+     "t": 290.23
+    },
+    {
+     "w": "do",
+     "t": 290.6
+    },
+    {
+     "w": "first?",
+     "t": 290.96
+    },
+    {
+     "w": "Second:",
+     "t": 291.33
+    },
+    {
+     "w": "a",
+     "t": 291.69
+    },
+    {
+     "w": "starfish",
+     "t": 292.06
+    },
+    {
+     "w": "has",
+     "t": 292.42
+    },
+    {
+     "w": "no",
+     "t": 292.79
+    },
+    {
+     "w": "brain,",
+     "t": 293.15
+    },
+    {
+     "w": "yet",
+     "t": 293.52
+    },
+    {
+     "w": "it",
+     "t": 293.88
+    },
+    {
+     "w": "can",
+     "t": 294.25
+    },
+    {
+     "w": "walk,",
+     "t": 294.62
+    },
+    {
+     "w": "eat,",
+     "t": 294.98
+    },
+    {
+     "w": "and",
+     "t": 295.35
+    },
+    {
+     "w": "regrow",
+     "t": 295.71
+    },
+    {
+     "w": "an",
+     "t": 296.08
+    },
+    {
+     "w": "arm",
+     "t": 296.44
+    },
+    {
+     "w": "—",
+     "t": 296.81
+    },
+    {
+     "w": "which",
+     "t": 297.17
+    },
+    {
+     "w": "of",
+     "t": 297.54
+    },
+    {
+     "w": "your",
+     "t": 297.9
+    },
+    {
+     "w": "body",
+     "t": 298.27
+    },
+    {
+     "w": "parts",
+     "t": 298.63
+    },
+    {
+     "w": "could",
+     "t": 299.0
+    },
+    {
+     "w": "you",
+     "t": 299.37
+    },
+    {
+     "w": "never",
+     "t": 299.73
+    },
+    {
+     "w": "live",
+     "t": 300.1
+    },
+    {
+     "w": "without?",
+     "t": 300.46
+    },
+    {
+     "w": "Talk",
+     "t": 300.83
+    },
+    {
+     "w": "about",
+     "t": 301.19
+    },
+    {
+     "w": "it",
+     "t": 301.56
+    },
+    {
+     "w": "with",
+     "t": 301.92
+    },
+    {
+     "w": "your",
+     "t": 302.29
+    },
+    {
+     "w": "family!",
+     "t": 302.65
+    }
+   ]
+  },
+  {
+   "start": 311.8,
+   "end": 319.84,
+   "en": "That's all for today, young explorers. Be kind to the sea, and never miss the boat when a good chance comes! See you tomorrow!",
+   "title": "告别",
+   "cn": "今天的节目就到这里啦，小小探险家们。善待大海，当好机会来临时，千万别错过船！明天见！",
+   "words": [
+    {
+     "w": "That's",
+     "t": 311.8
+    },
+    {
+     "w": "all",
+     "t": 312.13
+    },
+    {
+     "w": "for",
+     "t": 312.47
+    },
+    {
+     "w": "today,",
+     "t": 312.81
+    },
+    {
+     "w": "young",
+     "t": 313.14
+    },
+    {
+     "w": "explorers.",
+     "t": 313.48
+    },
+    {
+     "w": "Be",
+     "t": 313.81
+    },
+    {
+     "w": "kind",
+     "t": 314.14
+    },
+    {
+     "w": "to",
+     "t": 314.48
+    },
+    {
+     "w": "the",
+     "t": 314.81
+    },
+    {
+     "w": "sea,",
+     "t": 315.15
+    },
+    {
+     "w": "and",
+     "t": 315.49
+    },
+    {
+     "w": "never",
+     "t": 315.82
+    },
+    {
+     "w": "miss",
+     "t": 316.15
+    },
+    {
+     "w": "the",
+     "t": 316.49
+    },
+    {
+     "w": "boat",
+     "t": 316.82
+    },
+    {
+     "w": "when",
+     "t": 317.16
+    },
+    {
+     "w": "a",
+     "t": 317.5
+    },
+    {
+     "w": "good",
+     "t": 317.83
+    },
+    {
+     "w": "chance",
+     "t": 318.16
+    },
+    {
+     "w": "comes!",
+     "t": 318.5
+    },
+    {
+     "w": "See",
+     "t": 318.83
+    },
+    {
+     "w": "you",
+     "t": 319.17
+    },
+    {
+     "w": "tomorrow!",
+     "t": 319.5
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "miss the boat",
+    "phon": "/mɪs ðə bəʊt/",
+    "meaning": "(习语) 错过好机会；因太慢而错失良机",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: Tom slept late and missed the boat to the turtle beach."
+   },
+   {
+    "word": "awesome",
+    "phon": "/ˈɔːsəm/",
+    "meaning": "(adj.) 了不起的；令人惊叹的",
+    "tags": [],
+    "example": "Example: Isn't that awesome?"
+   },
+   {
+    "word": "valid",
+    "phon": "/ˈvælɪd/",
+    "meaning": "(adj.) 有效的；合格的",
+    "tags": [],
+    "example": "Example: After a final, valid health check, this turtle was ready to go home."
+   },
+   {
+    "word": "delicate",
+    "phon": "/ˈdelɪkət/",
+    "meaning": "(adj.) 娇嫩的；精致的；易损的",
+    "tags": [],
+    "example": "Example: Flows through canals into hundreds of delicate little tube feet."
+   },
+   {
+    "word": "recover",
+    "phon": "/rɪˈkʌvər/",
+    "meaning": "(v.) 恢复；痊愈",
+    "tags": [],
+    "example": "Example: Slowly, Kalani began to recover."
+   },
+   {
+    "word": "expose",
+    "phon": "/ɪkˈspoʊz/",
+    "meaning": "(v.) 暴露；使显露",
+    "tags": [],
+    "example": "Example: A starfish on the rocks is exposed to the air and sun."
+   },
+   {
+    "word": "instruct",
+    "phon": "/ɪnˈstrʌkt/",
+    "meaning": "(v.) 指示；吩咐",
+    "tags": [],
+    "example": "Example: The doctors instructed the volunteers to arrive early."
+   },
+   {
+    "word": "choke",
+    "phon": "/tʃoʊk/",
+    "meaning": "(v.) 噎住；使窒息",
+    "tags": [],
+    "example": "Example: Plastic bags in the sea can choke a turtle."
+   },
+   {
+    "word": "absent",
+    "phon": "/ˈæbsənt/",
+    "meaning": "(adj.) 不存在的；缺席的",
+    "tags": [],
+    "example": "Example: The brain is absent. The blood is absent too."
+   },
+   {
+    "word": "federal",
+    "phon": "/ˈfedərəl/",
+    "meaning": "(adj.) 联邦的",
+    "tags": [],
+    "example": "Example: In some countries, federal laws now protect sea turtles."
+   },
+   {
+    "word": "madreporite",
+    "phon": "/ˌmædrɪˈpɔːraɪt/",
+    "meaning": "(n.) 筛板",
+    "tags": [],
+    "example": "Example: Water comes in through a tiny sieve plate called the madreporite."
+   },
+   {
+    "word": "echinoderm",
+    "phon": "/ɪˈkaɪnədɜːrm/",
+    "meaning": "(n.) 棘皮动物",
+    "tags": [],
+    "example": "Example: It is an echinoderm, a cousin of sea urchins."
+   },
+   {
+    "word": "barnacle",
+    "phon": "/ˈbɑːrnəkəl/",
+    "meaning": "(n.) 藤壶",
+    "tags": [],
+    "example": "Example: Her shell was covered with barnacles."
+   },
+   {
+    "word": "leech",
+    "phon": "/liːtʃ/",
+    "meaning": "(n.) 水蛭",
+    "tags": [],
+    "example": "Example: Her shell was covered with algae, and even leeches."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "What happened to Kalani when rescuers found her?\nA. She was strong and healthy\nB. She was tired, thin, and covered with barnacles\nC. She was swimming with four friends\nD. She was eating plastic",
+     "How does seawater help a starfish move?\nA. It fills the tube feet with water pressure\nB. It makes the starfish float\nC. It cleans the starfish's skin\nD. It carries food to the mouth",
+     "What does \"miss the boat\" mean?\nA. To fall off a boat\nB. To miss a good chance because you were too slow\nC. To catch a fish\nD. To swim faster than a boat",
+     "Why is a starfish not a fish?\nA. It has no fins\nB. It is an echinoderm, a cousin of sea urchins\nC. It cannot swim\nD. It lives on rocks"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "type": "text",
+        "text": "Water comes in through a tiny sieve plate on its back, called the "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "madreporite"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": ", and flows through canals into hundreds of delicate little tube feet."
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "through a tiny sieve plate / through canals"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "介词短语表路径"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：through（穿过、经由）+ 名词，告诉你水走的是哪条路——先穿过背上的小筛板，再穿过管道。英语里 through 短语放在动词后面，说明动作的路径。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "called the madreporite"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "过去分词短语作后置定语"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：called（被叫做）+ 名称，紧跟在 plate（筛板）后面，相当于 \"a sieve plate which is called the madreporite\" 的缩写，告诉你这个筛板叫什么名字。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "comes in ... and flows ..."
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "并列动词"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：and 把两个动词连起来，主语都是 Water——水先流进来，再流向管足，两个动作一前一后，同一个主语不用重复。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "整句逻辑链："
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "路径（穿过筛板→穿过管道）→ 名称（这个筛板叫筛板）→ 动作链（流进→流向管足）"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。一句话里藏着介词短语、后置定语和并列动词三个机关。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "TURTLE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（海龟）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "KALANI"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（卡拉尼（海龟名））"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "STARFISH"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（海星）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "MADREPORITE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（筛板）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SEAWATER"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（海水）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "NERVE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（神经）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PLASTIC"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（塑料）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "FLIPPER"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（鳍足）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "BOAT"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（船）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "CANAL"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（管道）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says she "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"was tired and thin, and her shell was covered with barnacles, algae, and even leeches.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "A"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"The water pressure fills the feet and stretches them out, and muscles pull them back in.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"When you miss the boat, you miss a good chance because you were too slow!\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"It is an echinoderm, a cousin of sea urchins and sand dollars.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. through  2. through"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. called  2. called"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. flows  2. pries"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "B",
+    "A",
+    "B",
+    "B"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. through 介词短语：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "Water comes in ____ a tiny sieve plate.",
+       "options": [
+        "through",
+        "over",
+        "under"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "It flows ____ canals into tube feet.",
+       "options": [
+        "over",
+        "through",
+        "under"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. called 后置定语：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "A plate ____ the madreporite lets water in.",
+       "options": [
+        "calling",
+        "calls",
+        "called"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "An animal ____ a starfish has no brain.",
+       "options": [
+        "called",
+        "calling",
+        "calls"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. and 并列动词：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "Water comes in and ____ through canals.",
+       "options": [
+        "flow",
+        "flows",
+        "flowing"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "A starfish walks, grips rocks, and even ____ open a clam.",
+       "options": [
+        "pry",
+        "prying",
+        "pries"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "Water comes in through a tiny sieve plate on its back, called the madreporite.",
+    "Instead of blood, it uses seawater."
+   ]
+  },
+  "crossword": {
+   "nrows": 10,
+   "ncols": 12,
+   "words": [
+    {
+     "word": "TURTLE",
+     "row": 3,
+     "col": 5,
+     "dir": "D",
+     "num": 1,
+     "cn": "海龟",
+     "clue": "a green sea ___ in big trouble."
+    },
+    {
+     "word": "KALANI",
+     "row": 1,
+     "col": 5,
+     "dir": "A",
+     "num": 2,
+     "cn": "卡拉尼（海龟名）",
+     "clue": "Rescuers gave her a name: ___."
+    },
+    {
+     "word": "STARFISH",
+     "row": 0,
+     "col": 0,
+     "dir": "D",
+     "num": 3,
+     "cn": "海星",
+     "clue": "Now meet the ___ — it is not a fish at all!"
+    },
+    {
+     "word": "MADREPORITE",
+     "row": 8,
+     "col": 1,
+     "dir": "A",
+     "num": 4,
+     "cn": "筛板",
+     "clue": "called the ___, and flows through canals."
+    },
+    {
+     "word": "SEAWATER",
+     "row": 6,
+     "col": 0,
+     "dir": "A",
+     "num": 5,
+     "cn": "海水",
+     "clue": "instead of blood, it uses ___."
+    },
+    {
+     "word": "NERVE",
+     "row": 4,
+     "col": 11,
+     "dir": "D",
+     "num": 6,
+     "cn": "神经",
+     "clue": "it has a ___ ring around its mouth."
+    },
+    {
+     "word": "PLASTIC",
+     "row": 3,
+     "col": 9,
+     "dir": "D",
+     "num": 7,
+     "cn": "塑料",
+     "clue": "___ bags in the sea can choke a turtle."
+    },
+    {
+     "word": "FLIPPER",
+     "row": 0,
+     "col": 7,
+     "dir": "D",
+     "num": 8,
+     "cn": "鳍足",
+     "clue": "The doctors found a cut on her back ___."
+    },
+    {
+     "word": "BOAT",
+     "row": 3,
+     "col": 2,
+     "dir": "A",
+     "num": 9,
+     "cn": "船",
+     "clue": "'miss the ___' means missing a good chance."
+    },
+    {
+     "word": "CANAL",
+     "row": 5,
+     "col": 2,
+     "dir": "D",
+     "num": 10,
+     "cn": "管道",
+     "clue": "flows through ___ into hundreds of little tube feet."
+    }
+   ]
+  }
+ }
+}
