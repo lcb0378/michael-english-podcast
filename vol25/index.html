@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.25 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol25/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol25/cover.png" controls playsinline preload="metadata"></video>
+<h1>🌋 Vol.25 · 热泉下的隐藏世界与会隐身的青蛙</h1>
+<div class="meta">英文 600 词 ｜ 音频 6分05秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol25/story-vent.png" alt="热泉下的隐藏世界">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol25/story-frog.png" alt="会隐身的青蛙">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">read between the lines</span> <span class="phon">/riːd bɪˈtwiːn ðə laɪnz/</span> (习语) 读字里行间；从线索中读出言外之意<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: The scientists <b>read between the lines</b> of the ocean's clues and found a hidden world.</div>
+</div>
+<div class="vocab">
+  <span class="word">erupt</span> <span class="phon">/ɪˈrʌpt/</span> (v.) 喷发；爆发<br>
+  
+  <div class="example">Example: Hot water <b>erupts</b> from cracks in the seafloor.</div>
+</div>
+<div class="vocab">
+  <span class="word">vent</span> <span class="phon">/vent/</span> (n.) 喷口；裂缝<br>
+  
+  <div class="example">Example: These are hydrothermal <b>vents</b> — underwater hot springs.</div>
+</div>
+<div class="vocab">
+  <span class="word">courage</span> <span class="phon">/ˈkʌrɪdʒ/</span> (n.) 勇气<br>
+  
+  <div class="example">Example: It takes <b>courage</b> to explore a world no human can visit.</div>
+</div>
+<div class="vocab">
+  <span class="word">delight</span> <span class="phon">/dɪˈlaɪt/</span> (n.) 高兴；欣喜<br>
+  
+  <div class="example">Example: To the <b>delight</b> of the team, it found warm, hidden caves.</div>
+</div>
+<div class="vocab">
+  <span class="word">coincidence</span> <span class="phon">/kəʊˈɪnsɪdəns/</span> (n.) 巧合<br>
+  
+  <div class="example">Example: Now scientists think it is no <b>coincidence</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">flesh</span> <span class="phon">/fleʃ/</span> (n.) 肉；身体组织<br>
+  
+  <div class="example">Example: Its <b>flesh</b> is so clear you can see its heart right through it.</div>
+</div>
+<div class="vocab">
+  <span class="word">fade</span> <span class="phon">/feɪd/</span> (v.) 逐渐消失；融入<br>
+  
+  <div class="example">Example: It simply <b>fades</b> into the leaf.</div>
+</div>
+<div class="vocab">
+  <span class="word">primary</span> <span class="phon">/ˈpraɪməri/</span> (adj.) 主要的<br>
+  
+  <div class="example">Example: Their <b>primary</b> job, carrying oxygen, can wait.</div>
+</div>
+<div class="vocab">
+  <span class="word">liver</span> <span class="phon">/ˈlɪvə/</span> (n.) 肝脏<br>
+  
+  <div class="example">Example: It packs its red blood cells into its <b>liver</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">crystal</span> <span class="phon">/ˈkrɪstl/</span> (n.) 晶体<br>
+  
+  <div class="example">Example: Hidden behind tiny mirror-like <b>crystals</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">invisible</span> <span class="phon">/ɪnˈvɪzəbl/</span> (adj.) 看不见的<br>
+  
+  <div class="example">Example: A glassfrog turns almost <b>invisible</b> when it sleeps.</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 12, "ncols": 8, "words": [{"word": "FROG", "row": 0, "col": 0, "dir": "A", "num": 1, "cn": "青蛙", "clue": "Now meet a ___ that can almost disappear."}, {"word": "GLASS", "row": 0, "col": 3, "dir": "D", "num": 2, "cn": "玻璃", "clue": "Like looking through ___."}, {"word": "LEAF", "row": 1, "col": 3, "dir": "A", "num": 3, "cn": "叶子", "clue": "It simply fades into the ___."}, {"word": "CAVES", "row": 3, "col": 5, "dir": "D", "num": 4, "cn": "洞穴", "clue": "It found warm, hidden ___."}, {"word": "SNAIL", "row": 4, "col": 3, "dir": "A", "num": 5, "cn": "蜗牛", "clue": "Young tube worms and small ___s lived in the caves."}, {"word": "BLOOD", "row": 5, "col": 2, "dir": "D", "num": 6, "cn": "血液", "clue": "The cells rush back into the ___ in seconds."}, {"word": "LIVER", "row": 6, "col": 2, "dir": "A", "num": 7, "cn": "肝脏", "clue": "It packs its red blood cells into its ___."}, {"word": "VENT", "row": 8, "col": 4, "dir": "D", "num": 8, "cn": "热泉喷口", "clue": "These are hydrothermal ___s — underwater hot springs."}, {"word": "HIDDEN", "row": 9, "col": 0, "dir": "A", "num": 9, "cn": "隐藏的", "clue": "It found warm, ___ caves."}, {"word": "ROBOT", "row": 11, "col": 0, "dir": "A", "num": 10, "cn": "机器人", "clue": "Their ___, SuBastian, did the diving."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. Where did SuBastian find the hidden caves?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. On a beach</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. Under volcanic rock at a deep-sea vent</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. Inside a ship</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. On a rainforest leaf</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. What do glassfrogs hide in their liver while they sleep?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. Food</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. Water</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. Almost ninety percent of their red blood cells</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. Tiny stones</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：C</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. What does &quot;read between the lines&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. Read very fast</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. Notice clues and understand what is not said</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. Read only the first line</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. Write a letter</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. Why is the glassfrog hard to see when it sleeps?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. It changes colour to blue</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. Its body becomes much more see-through</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. It hides under the ground</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. It closes its eyes</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：B</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [1, 2, 1, 1];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">With the red cells <b class="kw">out of the way</b>, light passes through the frog's body, <b class="kw">and</b> it becomes <b class="kw">two or three times more</b> see-through.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li>句首的 <i>With the red cells out of the way</i> 是 <b>with 复合结构</b>：with + 名词（the red cells）+ 介词短语（out of the way，挪开的），整个短语表示一种伴随状态——“在红细胞已经挪开的情况下”。读到 with 开头，要立刻把它当成背景条件，而不是主句。</li>
+  <li>主句由 <i>and</i> 并列两个分句：<i>light passes through the frog's body</i>（光穿过蛙的身体）和 <i>it becomes more see-through</i>（它变得更透明）。<i>and</i> 前面的逗号不要丢——两个完整句子并列时，and 前面要加逗号。</li>
+  <li><i>two or three times more see-through</i> 是<b>倍数 + 比较级</b>：two or three times（两三倍）+ more + 形容词（see-through，透明的）=“比原来透明两三倍”。倍数表达的公式就是：数字 + times + more + 形容词。</li>
+  <li>整句逻辑链：<b>背景条件（红细胞挪开）→ 光能穿过身体（结果一）→ 并且变得更透明（结果二，倍数说清程度）</b>。一句话里藏着条件、并列和倍数三个机关。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. with 复合结构：用括号里的词补全</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">With the sun ____, the day was bright.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">out</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">in</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">under</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：out</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">With the rain ____, we went out to play.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">stop</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">stopped</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">stops</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：stopped</p>
+</div>
+<p class="p4-gname">B. and 并列分句：用括号里的词补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">Light passes through the frog, ____ it becomes see-through.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">but</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">so</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">and</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：and</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">The cells hide in the liver, ____ the frog fades into the leaf.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">and</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">while</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">because</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：and</p>
+</div>
+<p class="p4-gname">C. 倍数 + 比较级：用括号里的词补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">The frog becomes two times ____ see-through.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">much</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">more</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">many</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：more</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">This box is three times ____ than that one.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">big</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">biggest</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">bigger</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：bigger</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>With the clouds gone, the stars shine, and the night becomes two times more beautiful.</li>
+<li>With the red cells away, light passes through, and the frog fades into the leaf.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwc"><span class="cwn">1</span><span class="cwl">F</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwn">2</span><span class="cwl">G</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">3</span><span class="cwl">L</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">F</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">C</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">5</span><span class="cwl">S</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">L</span></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">6</span><span class="cwl">B</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">V</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">7</span><span class="cwl">L</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">V</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">S</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">8</span><span class="cwl">V</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">9</span><span class="cwl">H</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">D</span></td><td class="cwc"><span class="cwl">D</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">10</span><span class="cwl">R</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">B</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr></table></div>1 横 → <b>FROG</b>（青蛙）<br>2 竖 → <b>GLASS</b>（玻璃）<br>3 横 → <b>LEAF</b>（叶子）<br>4 竖 → <b>CAVES</b>（洞穴）<br>5 横 → <b>SNAIL</b>（蜗牛）<br>6 竖 → <b>BLOOD</b>（血液）<br>7 横 → <b>LIVER</b>（肝脏）<br>8 竖 → <b>VENT</b>（热泉喷口）<br>9 横 → <b>HIDDEN</b>（隐藏的）<br>10 横 → <b>ROBOT</b>（机器人）<br><br><b>B. Single Choice:</b><br>
+1 → <b>B</b>. The text says SuBastian <i>"lifted heavy pieces of volcanic rock — and underneath … it found warm, hidden caves."</i><br>
+2 → <b>C</b>. When the glassfrog sleeps, <i>"it packs almost ninety percent of its red blood cells into its liver."</i><br>
+3 → <b>B</b>. The text says: <i>"If you read between the lines, you notice clues and understand what is not said."</i><br>
+4 → <b>B</b>. With the red cells out of the way, <i>"it becomes two or three times more see-through."</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. out&nbsp;&nbsp;2. stopped<br>
+B. 1. and&nbsp;&nbsp;2. and<br>
+C. 1. more&nbsp;&nbsp;2. bigger<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol25/Vol25_晚读讲义_热泉下的隐藏世界与会隐身的青蛙_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 27.31, "end": 51.65, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we dive to the bottom of the sea, then visit a rainforest leaf. Our first hero lives beside hot water, two thousand five hundred metres under the sea. Our second hero is no bigger than your fingernail — but it knows a disappearing trick that surprises even scientists. Let's go!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天我们先潜入大海的最深处，再去一片雨林的叶子上做客。第一位主角住在热水边，在两千五百米深的海底；第二位主角只有你的指甲盖那么大，却会一门连科学家都惊讶的隐身术。出发吧！", "words": [{"w": "Hello,", "t": 27.31}, {"w": "young", "t": 27.71}, {"w": "explorers,", "t": 28.11}, {"w": "and", "t": 28.51}, {"w": "welcome", "t": 28.91}, {"w": "back", "t": 29.31}, {"w": "to", "t": 29.7}, {"w": "Michael's", "t": 30.1}, {"w": "Morning", "t": 30.5}, {"w": "Listening!", "t": 30.9}, {"w": "Today", "t": 31.3}, {"w": "we", "t": 31.7}, {"w": "dive", "t": 32.1}, {"w": "to", "t": 32.5}, {"w": "the", "t": 32.9}, {"w": "bottom", "t": 33.3}, {"w": "of", "t": 33.69}, {"w": "the", "t": 34.09}, {"w": "sea,", "t": 34.49}, {"w": "then", "t": 34.89}, {"w": "visit", "t": 35.29}, {"w": "a", "t": 35.69}, {"w": "rainforest", "t": 36.09}, {"w": "leaf.", "t": 36.49}, {"w": "Our", "t": 36.89}, {"w": "first", "t": 37.29}, {"w": "hero", "t": 37.68}, {"w": "lives", "t": 38.08}, {"w": "beside", "t": 38.48}, {"w": "hot", "t": 38.88}, {"w": "water,", "t": 39.28}, {"w": "two", "t": 39.68}, {"w": "thousand", "t": 40.08}, {"w": "five", "t": 40.48}, {"w": "hundred", "t": 40.88}, {"w": "metres", "t": 41.28}, {"w": "under", "t": 41.67}, {"w": "the", "t": 42.07}, {"w": "sea.", "t": 42.47}, {"w": "Our", "t": 42.87}, {"w": "second", "t": 43.27}, {"w": "hero", "t": 43.67}, {"w": "is", "t": 44.07}, {"w": "no", "t": 44.47}, {"w": "bigger", "t": 44.87}, {"w": "than", "t": 45.27}, {"w": "your", "t": 45.66}, {"w": "fingernail", "t": 46.06}, {"w": "—", "t": 46.46}, {"w": "but", "t": 46.86}, {"w": "it", "t": 47.26}, {"w": "knows", "t": 47.66}, {"w": "a", "t": 48.06}, {"w": "disappearing", "t": 48.46}, {"w": "trick", "t": 48.86}, {"w": "that", "t": 49.26}, {"w": "surprises", "t": 49.65}, {"w": "even", "t": 50.05}, {"w": "scientists.", "t": 50.45}, {"w": "Let's", "t": 50.85}, {"w": "go!", "t": 51.25}]}, {"start": 68.83, "end": 94.23, "en": "Deep under the Pacific Ocean, where no sunlight comes, hot water erupts from cracks in the seafloor. These are hydrothermal vents — underwater hot springs, made where seawater meets hot rock below. Around the vents crowd giant tube worms and mussels, fed by tiny bacteria that live on the hot chemicals, not sunlight.", "title": "热泉下的隐藏世界", "cn": "在太平洋的深处，阳光照不到的地方，热水从海底的裂缝里喷涌而出。这就是深海热泉——海底的温泉，是海水在深处遇到滚烫的岩石形成的。热泉周围挤满了巨型管虫和贻贝，它们靠微小的细菌生活，这些细菌不靠阳光，靠热水里的化学物质活着。", "words": [{"w": "Deep", "t": 68.83}, {"w": "under", "t": 69.31}, {"w": "the", "t": 69.79}, {"w": "Pacific", "t": 70.27}, {"w": "Ocean,", "t": 70.75}, {"w": "where", "t": 71.23}, {"w": "no", "t": 71.71}, {"w": "sunlight", "t": 72.18}, {"w": "comes,", "t": 72.66}, {"w": "hot", "t": 73.14}, {"w": "water", "t": 73.62}, {"w": "erupts", "t": 74.1}, {"w": "from", "t": 74.58}, {"w": "cracks", "t": 75.06}, {"w": "in", "t": 75.54}, {"w": "the", "t": 76.02}, {"w": "seafloor.", "t": 76.5}, {"w": "These", "t": 76.98}, {"w": "are", "t": 77.46}, {"w": "hydrothermal", "t": 77.94}, {"w": "vents", "t": 78.41}, {"w": "—", "t": 78.89}, {"w": "underwater", "t": 79.37}, {"w": "hot", "t": 79.85}, {"w": "springs,", "t": 80.33}, {"w": "made", "t": 80.81}, {"w": "where", "t": 81.29}, {"w": "seawater", "t": 81.77}, {"w": "meets", "t": 82.25}, {"w": "hot", "t": 82.73}, {"w": "rock", "t": 83.21}, {"w": "below.", "t": 83.69}, {"w": "Around", "t": 84.17}, {"w": "the", "t": 84.65}, {"w": "vents", "t": 85.12}, {"w": "crowd", "t": 85.6}, {"w": "giant", "t": 86.08}, {"w": "tube", "t": 86.56}, {"w": "worms", "t": 87.04}, {"w": "and", "t": 87.52}, {"w": "mussels,", "t": 88.0}, {"w": "fed", "t": 88.48}, {"w": "by", "t": 88.96}, {"w": "tiny", "t": 89.44}, {"w": "bacteria", "t": 89.92}, {"w": "that", "t": 90.4}, {"w": "live", "t": 90.88}, {"w": "on", "t": 91.35}, {"w": "the", "t": 91.83}, {"w": "hot", "t": 92.31}, {"w": "chemicals,", "t": 92.79}, {"w": "not", "t": 93.27}, {"w": "sunlight.", "t": 93.75}]}, {"start": 94.23, "end": 123.94, "en": "It takes courage to explore a world no human can visit. Their ship waited far above, its engine humming, while their robot, SuBastian, did the diving. It sank two thousand five hundred metres to a volcano on the East Pacific Rise. It lifted heavy pieces of volcanic rock — and underneath, to the delight of the team, it found warm, hidden caves.", "title": "热泉下的隐藏世界", "cn": "探索一个人类无法亲身前往的世界，需要勇气。科考船在远远的上方等着，发动机轻轻轰鸣，深海机器人“苏巴斯蒂安”替他们潜了下去。它下潜到两千五百米深，来到东太平洋海隆上的一座火山。它搬开沉重的火山岩块——下面让全队欣喜的是，藏着温暖的、隐秘的洞穴。", "words": [{"w": "It", "t": 94.23}, {"w": "takes", "t": 94.71}, {"w": "courage", "t": 95.19}, {"w": "to", "t": 95.67}, {"w": "explore", "t": 96.15}, {"w": "a", "t": 96.63}, {"w": "world", "t": 97.11}, {"w": "no", "t": 97.58}, {"w": "human", "t": 98.06}, {"w": "can", "t": 98.54}, {"w": "visit.", "t": 99.02}, {"w": "Their", "t": 99.5}, {"w": "ship", "t": 99.98}, {"w": "waited", "t": 100.46}, {"w": "far", "t": 100.94}, {"w": "above,", "t": 101.42}, {"w": "its", "t": 101.9}, {"w": "engine", "t": 102.38}, {"w": "humming,", "t": 102.86}, {"w": "while", "t": 103.33}, {"w": "their", "t": 103.81}, {"w": "robot,", "t": 104.29}, {"w": "SuBastian,", "t": 104.77}, {"w": "did", "t": 105.25}, {"w": "the", "t": 105.73}, {"w": "diving.", "t": 106.21}, {"w": "It", "t": 106.69}, {"w": "sank", "t": 107.17}, {"w": "two", "t": 107.65}, {"w": "thousand", "t": 108.13}, {"w": "five", "t": 108.61}, {"w": "hundred", "t": 109.09}, {"w": "metres", "t": 109.56}, {"w": "to", "t": 110.04}, {"w": "a", "t": 110.52}, {"w": "volcano", "t": 111.0}, {"w": "on", "t": 111.48}, {"w": "the", "t": 111.96}, {"w": "East", "t": 112.44}, {"w": "Pacific", "t": 112.92}, {"w": "Rise.", "t": 113.4}, {"w": "It", "t": 113.88}, {"w": "lifted", "t": 114.36}, {"w": "heavy", "t": 114.84}, {"w": "pieces", "t": 115.31}, {"w": "of", "t": 115.79}, {"w": "volcanic", "t": 116.27}, {"w": "rock", "t": 116.75}, {"w": "—", "t": 117.23}, {"w": "and", "t": 117.71}, {"w": "underneath,", "t": 118.19}, {"w": "to", "t": 118.67}, {"w": "the", "t": 119.15}, {"w": "delight", "t": 119.63}, {"w": "of", "t": 120.11}, {"w": "the", "t": 120.59}, {"w": "team,", "t": 121.06}, {"w": "it", "t": 121.54}, {"w": "found", "t": 122.02}, {"w": "warm,", "t": 122.5}, {"w": "hidden", "t": 122.98}, {"w": "caves.", "t": 123.46}]}, {"start": 123.94, "end": 156.52, "en": "Inside those caves, at twenty-five degrees, lived animals no one had expected: young tube worms and small snails, in the dark below the seafloor. The team also found a clue to an old mystery: baby tube worms are almost never seen above the vents. Now scientists think it is no coincidence — the babies travel under the seafloor, through warm water in the cracks, to start new homes.", "title": "热泉下的隐藏世界", "cn": "这些洞穴里水温二十五度，住着谁也没料到的动物：幼小的管虫和小蜗牛，都生活在海底之下的黑暗里。科考队还找到了一条解开老谜团的线索：人们几乎从没在热泉上方的海水里见过管虫宝宝。那么，新的热泉家园是怎么开始的呢？现在科学家认为，这不是巧合——管虫宝宝是穿过海底之下裂缝里的暖水，游去远方安新家的。", "words": [{"w": "Inside", "t": 123.94}, {"w": "those", "t": 124.42}, {"w": "caves,", "t": 124.9}, {"w": "at", "t": 125.38}, {"w": "twenty-five", "t": 125.86}, {"w": "degrees,", "t": 126.34}, {"w": "lived", "t": 126.81}, {"w": "animals", "t": 127.29}, {"w": "no", "t": 127.77}, {"w": "one", "t": 128.25}, {"w": "had", "t": 128.73}, {"w": "expected:", "t": 129.21}, {"w": "young", "t": 129.69}, {"w": "tube", "t": 130.17}, {"w": "worms", "t": 130.65}, {"w": "and", "t": 131.13}, {"w": "small", "t": 131.61}, {"w": "snails,", "t": 132.09}, {"w": "in", "t": 132.56}, {"w": "the", "t": 133.04}, {"w": "dark", "t": 133.52}, {"w": "below", "t": 134.0}, {"w": "the", "t": 134.48}, {"w": "seafloor.", "t": 134.96}, {"w": "The", "t": 135.44}, {"w": "team", "t": 135.92}, {"w": "also", "t": 136.4}, {"w": "found", "t": 136.88}, {"w": "a", "t": 137.36}, {"w": "clue", "t": 137.83}, {"w": "to", "t": 138.31}, {"w": "an", "t": 138.79}, {"w": "old", "t": 139.27}, {"w": "mystery:", "t": 139.75}, {"w": "baby", "t": 140.23}, {"w": "tube", "t": 140.71}, {"w": "worms", "t": 141.19}, {"w": "are", "t": 141.67}, {"w": "almost", "t": 142.15}, {"w": "never", "t": 142.63}, {"w": "seen", "t": 143.1}, {"w": "above", "t": 143.58}, {"w": "the", "t": 144.06}, {"w": "vents.", "t": 144.54}, {"w": "Now", "t": 145.02}, {"w": "scientists", "t": 145.5}, {"w": "think", "t": 145.98}, {"w": "it", "t": 146.46}, {"w": "is", "t": 146.94}, {"w": "no", "t": 147.42}, {"w": "coincidence", "t": 147.9}, {"w": "—", "t": 148.38}, {"w": "the", "t": 148.85}, {"w": "babies", "t": 149.33}, {"w": "travel", "t": 149.81}, {"w": "under", "t": 150.29}, {"w": "the", "t": 150.77}, {"w": "seafloor,", "t": 151.25}, {"w": "through", "t": 151.73}, {"w": "warm", "t": 152.21}, {"w": "water", "t": 152.69}, {"w": "in", "t": 153.17}, {"w": "the", "t": 153.65}, {"w": "cracks,", "t": 154.12}, {"w": "to", "t": 154.6}, {"w": "start", "t": 155.08}, {"w": "new", "t": 155.56}, {"w": "homes.", "t": 156.04}]}, {"start": 173.14, "end": 198.58, "en": "Now meet a frog that can almost disappear. The glassfrog lives in the rainforests of Central and South America. It is small and green, and its flesh is so clear you can see its heart and stomach right through it — like looking through glass. By day, it sleeps on the underside of a leaf, where hungry birds could easily spot it. So how does it stay safe?", "title": "会隐身的青蛙", "cn": "现在认识一只几乎会消失的青蛙。玻璃蛙生活在中美洲和南美洲的雨林里。它又小又绿，身体清透得能直接透过它看到心脏和胃——就像透过玻璃一样。白天，它睡在叶子的背面，饿鸟很容易就能发现它。那么，它是怎么保护自己的呢？", "words": [{"w": "Now", "t": 173.14}, {"w": "meet", "t": 173.51}, {"w": "a", "t": 173.89}, {"w": "frog", "t": 174.26}, {"w": "that", "t": 174.64}, {"w": "can", "t": 175.01}, {"w": "almost", "t": 175.38}, {"w": "disappear.", "t": 175.76}, {"w": "The", "t": 176.13}, {"w": "glassfrog", "t": 176.51}, {"w": "lives", "t": 176.88}, {"w": "in", "t": 177.26}, {"w": "the", "t": 177.63}, {"w": "rainforests", "t": 178.0}, {"w": "of", "t": 178.38}, {"w": "Central", "t": 178.75}, {"w": "and", "t": 179.13}, {"w": "South", "t": 179.5}, {"w": "America.", "t": 179.87}, {"w": "It", "t": 180.25}, {"w": "is", "t": 180.62}, {"w": "small", "t": 181.0}, {"w": "and", "t": 181.37}, {"w": "green,", "t": 181.74}, {"w": "and", "t": 182.12}, {"w": "its", "t": 182.49}, {"w": "flesh", "t": 182.87}, {"w": "is", "t": 183.24}, {"w": "so", "t": 183.62}, {"w": "clear", "t": 183.99}, {"w": "you", "t": 184.36}, {"w": "can", "t": 184.74}, {"w": "see", "t": 185.11}, {"w": "its", "t": 185.49}, {"w": "heart", "t": 185.86}, {"w": "and", "t": 186.23}, {"w": "stomach", "t": 186.61}, {"w": "right", "t": 186.98}, {"w": "through", "t": 187.36}, {"w": "it", "t": 187.73}, {"w": "—", "t": 188.1}, {"w": "like", "t": 188.48}, {"w": "looking", "t": 188.85}, {"w": "through", "t": 189.23}, {"w": "glass.", "t": 189.6}, {"w": "By", "t": 189.98}, {"w": "day,", "t": 190.35}, {"w": "it", "t": 190.72}, {"w": "sleeps", "t": 191.1}, {"w": "on", "t": 191.47}, {"w": "the", "t": 191.85}, {"w": "underside", "t": 192.22}, {"w": "of", "t": 192.59}, {"w": "a", "t": 192.97}, {"w": "leaf,", "t": 193.34}, {"w": "where", "t": 193.72}, {"w": "hungry", "t": 194.09}, {"w": "birds", "t": 194.46}, {"w": "could", "t": 194.84}, {"w": "easily", "t": 195.21}, {"w": "spot", "t": 195.59}, {"w": "it.", "t": 195.96}, {"w": "So", "t": 196.34}, {"w": "how", "t": 196.71}, {"w": "does", "t": 197.08}, {"w": "it", "t": 197.46}, {"w": "stay", "t": 197.83}, {"w": "safe?", "t": 198.21}]}, {"start": 198.58, "end": 228.5, "en": "Scientists found the answer with a special camera that can see blood moving inside the body. When the glassfrog sleeps, it packs almost ninety percent of its red blood cells into its liver, hidden behind tiny mirror-like crystals. With the red cells out of the way, light passes through the frog's body, and it becomes two or three times more see-through — it simply fades into the leaf. Their primary job, carrying oxygen, can wait until the frog wakes up.", "title": "会隐身的青蛙", "cn": "科学家用一台能看到血液在体内流动的特殊相机找到了答案。玻璃蛙睡觉时，会把将近百分之九十的红细胞收进肝脏，藏在细小的镜面晶体后面。红细胞挪开后，光就能穿过蛙的身体，它变得两三倍更透明——简直就融进了叶子。红细胞的主要工作是运送氧气，这项工作可以等青蛙醒来再做。", "words": [{"w": "Scientists", "t": 198.58}, {"w": "found", "t": 198.95}, {"w": "the", "t": 199.33}, {"w": "answer", "t": 199.7}, {"w": "with", "t": 200.08}, {"w": "a", "t": 200.45}, {"w": "special", "t": 200.82}, {"w": "camera", "t": 201.2}, {"w": "that", "t": 201.57}, {"w": "can", "t": 201.95}, {"w": "see", "t": 202.32}, {"w": "blood", "t": 202.69}, {"w": "moving", "t": 203.07}, {"w": "inside", "t": 203.44}, {"w": "the", "t": 203.82}, {"w": "body.", "t": 204.19}, {"w": "When", "t": 204.56}, {"w": "the", "t": 204.94}, {"w": "glassfrog", "t": 205.31}, {"w": "sleeps,", "t": 205.69}, {"w": "it", "t": 206.06}, {"w": "packs", "t": 206.43}, {"w": "almost", "t": 206.81}, {"w": "ninety", "t": 207.18}, {"w": "percent", "t": 207.56}, {"w": "of", "t": 207.93}, {"w": "its", "t": 208.3}, {"w": "red", "t": 208.68}, {"w": "blood", "t": 209.05}, {"w": "cells", "t": 209.43}, {"w": "into", "t": 209.8}, {"w": "its", "t": 210.17}, {"w": "liver,", "t": 210.55}, {"w": "hidden", "t": 210.92}, {"w": "behind", "t": 211.3}, {"w": "tiny", "t": 211.67}, {"w": "mirror-like", "t": 212.04}, {"w": "crystals.", "t": 212.42}, {"w": "With", "t": 212.79}, {"w": "the", "t": 213.17}, {"w": "red", "t": 213.54}, {"w": "cells", "t": 213.91}, {"w": "out", "t": 214.29}, {"w": "of", "t": 214.66}, {"w": "the", "t": 215.04}, {"w": "way,", "t": 215.41}, {"w": "light", "t": 215.78}, {"w": "passes", "t": 216.16}, {"w": "through", "t": 216.53}, {"w": "the", "t": 216.91}, {"w": "frog's", "t": 217.28}, {"w": "body,", "t": 217.65}, {"w": "and", "t": 218.03}, {"w": "it", "t": 218.4}, {"w": "becomes", "t": 218.78}, {"w": "two", "t": 219.15}, {"w": "or", "t": 219.52}, {"w": "three", "t": 219.9}, {"w": "times", "t": 220.27}, {"w": "more", "t": 220.65}, {"w": "see-through", "t": 221.02}, {"w": "—", "t": 221.39}, {"w": "it", "t": 221.77}, {"w": "simply", "t": 222.14}, {"w": "fades", "t": 222.52}, {"w": "into", "t": 222.89}, {"w": "the", "t": 223.26}, {"w": "leaf.", "t": 223.64}, {"w": "Their", "t": 224.01}, {"w": "primary", "t": 224.39}, {"w": "job,", "t": 224.76}, {"w": "carrying", "t": 225.13}, {"w": "oxygen,", "t": 225.51}, {"w": "can", "t": 225.88}, {"w": "wait", "t": 226.26}, {"w": "until", "t": 226.63}, {"w": "the", "t": 227.0}, {"w": "frog", "t": 227.38}, {"w": "wakes", "t": 227.75}, {"w": "up.", "t": 228.13}]}, {"start": 228.5, "end": 244.21, "en": "When it wakes, the cells rush back into the blood in seconds, and it can jump away. Most animals could never do this safely — but the glassfrog does it every day, and its trick may teach doctors new ideas about blood.", "title": "会隐身的青蛙", "cn": "青蛙醒来时，红细胞几秒钟内就涌回血液，它马上就能跳走。大多数动物可不敢这样做——但玻璃蛙每天都这么做，它的本事说不定还能给医生们关于血液的新启发。", "words": [{"w": "When", "t": 228.5}, {"w": "it", "t": 228.87}, {"w": "wakes,", "t": 229.25}, {"w": "the", "t": 229.62}, {"w": "cells", "t": 230.0}, {"w": "rush", "t": 230.37}, {"w": "back", "t": 230.74}, {"w": "into", "t": 231.12}, {"w": "the", "t": 231.49}, {"w": "blood", "t": 231.87}, {"w": "in", "t": 232.24}, {"w": "seconds,", "t": 232.61}, {"w": "and", "t": 232.99}, {"w": "it", "t": 233.36}, {"w": "can", "t": 233.74}, {"w": "jump", "t": 234.11}, {"w": "away.", "t": 234.48}, {"w": "Most", "t": 234.86}, {"w": "animals", "t": 235.23}, {"w": "could", "t": 235.61}, {"w": "never", "t": 235.98}, {"w": "do", "t": 236.36}, {"w": "this", "t": 236.73}, {"w": "safely", "t": 237.1}, {"w": "—", "t": 237.48}, {"w": "but", "t": 237.85}, {"w": "the", "t": 238.23}, {"w": "glassfrog", "t": 238.6}, {"w": "does", "t": 238.97}, {"w": "it", "t": 239.35}, {"w": "every", "t": 239.72}, {"w": "day,", "t": 240.1}, {"w": "and", "t": 240.47}, {"w": "its", "t": 240.84}, {"w": "trick", "t": 241.22}, {"w": "may", "t": 241.59}, {"w": "teach", "t": 241.97}, {"w": "doctors", "t": 242.34}, {"w": "new", "t": 242.71}, {"w": "ideas", "t": 243.09}, {"w": "about", "t": 243.46}, {"w": "blood.", "t": 243.84}]}, {"start": 262.43, "end": 296.53, "en": "Here's today's idiom: \"read between the lines.\" Words on a page say one thing — but the real message may hide between the lines. If you read between the lines, you notice clues and understand what is not said. The deep-sea scientists did just that: they read between the lines of the ocean's clues and found a hidden world. Here's an example: \"When Mia said she was 'fine' with a tiny smile, I read between the lines — she was sad.\" What hidden messages have you found?", "title": "今日俚语", "cn": "今天的俚语是“read between the lines”（读字里行间）：纸上的字写着一层意思，可真正的意思也许就藏在字里行间。如果你 read between the lines，就是留意线索、读懂没有明说的意思。深海科学家正是这么做的：他们读懂了大海线索里的言外之意，找到了一个隐藏的世界。举个例子：米娅说自己“挺好的”，脸上却带着一丝勉强的微笑，我读出了言外之意——她其实很难过。你发现过哪些隐藏的信息呢？", "words": [{"w": "Here's", "t": 262.43}, {"w": "today's", "t": 262.82}, {"w": "idiom:", "t": 263.21}, {"w": "\"read", "t": 263.61}, {"w": "between", "t": 264.0}, {"w": "the", "t": 264.39}, {"w": "lines.\"", "t": 264.78}, {"w": "Words", "t": 265.17}, {"w": "on", "t": 265.57}, {"w": "a", "t": 265.96}, {"w": "page", "t": 266.35}, {"w": "say", "t": 266.74}, {"w": "one", "t": 267.13}, {"w": "thing", "t": 267.53}, {"w": "—", "t": 267.92}, {"w": "but", "t": 268.31}, {"w": "the", "t": 268.7}, {"w": "real", "t": 269.09}, {"w": "message", "t": 269.49}, {"w": "may", "t": 269.88}, {"w": "hide", "t": 270.27}, {"w": "between", "t": 270.66}, {"w": "the", "t": 271.05}, {"w": "lines.", "t": 271.44}, {"w": "If", "t": 271.84}, {"w": "you", "t": 272.23}, {"w": "read", "t": 272.62}, {"w": "between", "t": 273.01}, {"w": "the", "t": 273.4}, {"w": "lines,", "t": 273.8}, {"w": "you", "t": 274.19}, {"w": "notice", "t": 274.58}, {"w": "clues", "t": 274.97}, {"w": "and", "t": 275.36}, {"w": "understand", "t": 275.76}, {"w": "what", "t": 276.15}, {"w": "is", "t": 276.54}, {"w": "not", "t": 276.93}, {"w": "said.", "t": 277.32}, {"w": "The", "t": 277.72}, {"w": "deep-sea", "t": 278.11}, {"w": "scientists", "t": 278.5}, {"w": "did", "t": 278.89}, {"w": "just", "t": 279.28}, {"w": "that:", "t": 279.68}, {"w": "they", "t": 280.07}, {"w": "read", "t": 280.46}, {"w": "between", "t": 280.85}, {"w": "the", "t": 281.24}, {"w": "lines", "t": 281.64}, {"w": "of", "t": 282.03}, {"w": "the", "t": 282.42}, {"w": "ocean's", "t": 282.81}, {"w": "clues", "t": 283.2}, {"w": "and", "t": 283.6}, {"w": "found", "t": 283.99}, {"w": "a", "t": 284.38}, {"w": "hidden", "t": 284.77}, {"w": "world.", "t": 285.16}, {"w": "Here's", "t": 285.56}, {"w": "an", "t": 285.95}, {"w": "example:", "t": 286.34}, {"w": "\"When", "t": 286.73}, {"w": "Mia", "t": 287.12}, {"w": "said", "t": 287.52}, {"w": "she", "t": 287.91}, {"w": "was", "t": 288.3}, {"w": "'fine'", "t": 288.69}, {"w": "with", "t": 289.08}, {"w": "a", "t": 289.47}, {"w": "tiny", "t": 289.87}, {"w": "smile,", "t": 290.26}, {"w": "I", "t": 290.65}, {"w": "read", "t": 291.04}, {"w": "between", "t": 291.43}, {"w": "the", "t": 291.83}, {"w": "lines", "t": 292.22}, {"w": "—", "t": 292.61}, {"w": "she", "t": 293.0}, {"w": "was", "t": 293.39}, {"w": "sad.\"", "t": 293.79}, {"w": "What", "t": 294.18}, {"w": "hidden", "t": 294.57}, {"w": "messages", "t": 294.96}, {"w": "have", "t": 295.35}, {"w": "you", "t": 295.75}, {"w": "found?", "t": 296.14}]}, {"start": 312.43, "end": 335.97, "en": "Let's think about our stories. We found a hidden world under deep-sea vents, and a frog that turns almost invisible. Now, two questions for you. First: if you could explore the deep sea in a robot, what would you look for first? Second: if you could turn invisible for one day, where would you hide? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事。我们在深海热泉下面发现了一个隐藏的世界，还认识了一只睡觉时会变得几乎看不见的青蛙。现在，轮到回答两个问题。第一：如果你能坐着机器人去探索深海，你最先想找什么？第二：如果你能隐身一整天，你会藏到哪里去？和家人聊聊吧！", "words": [{"w": "Let's", "t": 312.43}, {"w": "think", "t": 312.82}, {"w": "about", "t": 313.2}, {"w": "our", "t": 313.59}, {"w": "stories.", "t": 313.97}, {"w": "We", "t": 314.36}, {"w": "found", "t": 314.75}, {"w": "a", "t": 315.13}, {"w": "hidden", "t": 315.52}, {"w": "world", "t": 315.9}, {"w": "under", "t": 316.29}, {"w": "deep-sea", "t": 316.67}, {"w": "vents,", "t": 317.06}, {"w": "and", "t": 317.45}, {"w": "a", "t": 317.83}, {"w": "frog", "t": 318.22}, {"w": "that", "t": 318.6}, {"w": "turns", "t": 318.99}, {"w": "almost", "t": 319.38}, {"w": "invisible.", "t": 319.76}, {"w": "Now,", "t": 320.15}, {"w": "two", "t": 320.53}, {"w": "questions", "t": 320.92}, {"w": "for", "t": 321.31}, {"w": "you.", "t": 321.69}, {"w": "First:", "t": 322.08}, {"w": "if", "t": 322.46}, {"w": "you", "t": 322.85}, {"w": "could", "t": 323.24}, {"w": "explore", "t": 323.62}, {"w": "the", "t": 324.01}, {"w": "deep", "t": 324.39}, {"w": "sea", "t": 324.78}, {"w": "in", "t": 325.16}, {"w": "a", "t": 325.55}, {"w": "robot,", "t": 325.94}, {"w": "what", "t": 326.32}, {"w": "would", "t": 326.71}, {"w": "you", "t": 327.09}, {"w": "look", "t": 327.48}, {"w": "for", "t": 327.87}, {"w": "first?", "t": 328.25}, {"w": "Second:", "t": 328.64}, {"w": "if", "t": 329.02}, {"w": "you", "t": 329.41}, {"w": "could", "t": 329.8}, {"w": "turn", "t": 330.18}, {"w": "invisible", "t": 330.57}, {"w": "for", "t": 330.95}, {"w": "one", "t": 331.34}, {"w": "day,", "t": 331.73}, {"w": "where", "t": 332.11}, {"w": "would", "t": 332.5}, {"w": "you", "t": 332.88}, {"w": "hide?", "t": 333.27}, {"w": "Talk", "t": 333.65}, {"w": "about", "t": 334.04}, {"w": "it", "t": 334.43}, {"w": "with", "t": 334.81}, {"w": "your", "t": 335.2}, {"w": "family!", "t": 335.58}]}, {"start": 346.35, "end": 355.59, "en": "That's all for today, young explorers. Like the deep-sea scientists, read between the lines — and keep exploring. See you tomorrow morning!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。像深海科学家一样，读懂字里行间——继续探索吧。明天早上见！", "words": [{"w": "That's", "t": 346.35}, {"w": "all", "t": 346.77}, {"w": "for", "t": 347.19}, {"w": "today,", "t": 347.61}, {"w": "young", "t": 348.03}, {"w": "explorers.", "t": 348.45}, {"w": "Like", "t": 348.87}, {"w": "the", "t": 349.29}, {"w": "deep-sea", "t": 349.71}, {"w": "scientists,", "t": 350.13}, {"w": "read", "t": 350.55}, {"w": "between", "t": 350.97}, {"w": "the", "t": 351.39}, {"w": "lines", "t": 351.81}, {"w": "—", "t": 352.23}, {"w": "and", "t": 352.65}, {"w": "keep", "t": 353.07}, {"w": "exploring.", "t": 353.49}, {"w": "See", "t": 353.91}, {"w": "you", "t": 354.33}, {"w": "tomorrow", "t": 354.75}, {"w": "morning!", "t": 355.17}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol25/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
