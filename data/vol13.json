@@ -1,0 +1,3842 @@
+{
+ "id": "vol13",
+ "title": "比犀牛还重的南瓜与三千年的蜂蜜",
+ "words": 600,
+ "duration": "5分54秒",
+ "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol13/cover.png",
+ "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol13/audio.mp3",
+ "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol13/video_v1.mp4",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol13/Vol13_晚读讲义_比犀牛还重的南瓜与三千年的蜂蜜_v1.pdf",
+ "pdfName": "Vol13_晚读讲义_比犀牛还重的南瓜与三千年的蜂蜜_v1.pdf",
+ "blocks": [
+  {
+   "start": 26.19,
+   "end": 47.24,
+   "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today our first guest is a pumpkin so heavy that it weighs more than a rhinoceros. Our second guest waited three thousand years inside a dark tomb — a pot of honey! Big, sweet, and full of surprises. Let's go!",
+   "title": "开场白",
+   "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天的第一位主角是一个南瓜，它重得超过一头犀牛。第二位主角在一座黑暗的古墓里等了三千年——是一罐蜂蜜！个头大、味道甜、满身惊喜。出发吧！",
+   "words": [
+    {
+     "w": "Hello,",
+     "t": 26.19
+    },
+    {
+     "w": "young",
+     "t": 26.61
+    },
+    {
+     "w": "explorers,",
+     "t": 27.03
+    },
+    {
+     "w": "and",
+     "t": 27.45
+    },
+    {
+     "w": "welcome",
+     "t": 27.87
+    },
+    {
+     "w": "back",
+     "t": 28.3
+    },
+    {
+     "w": "to",
+     "t": 28.72
+    },
+    {
+     "w": "Michael's",
+     "t": 29.14
+    },
+    {
+     "w": "Morning",
+     "t": 29.56
+    },
+    {
+     "w": "Listening!",
+     "t": 29.98
+    },
+    {
+     "w": "Today",
+     "t": 30.4
+    },
+    {
+     "w": "our",
+     "t": 30.82
+    },
+    {
+     "w": "first",
+     "t": 31.24
+    },
+    {
+     "w": "guest",
+     "t": 31.66
+    },
+    {
+     "w": "is",
+     "t": 32.08
+    },
+    {
+     "w": "a",
+     "t": 32.51
+    },
+    {
+     "w": "pumpkin",
+     "t": 32.93
+    },
+    {
+     "w": "so",
+     "t": 33.35
+    },
+    {
+     "w": "heavy",
+     "t": 33.77
+    },
+    {
+     "w": "that",
+     "t": 34.19
+    },
+    {
+     "w": "it",
+     "t": 34.61
+    },
+    {
+     "w": "weighs",
+     "t": 35.03
+    },
+    {
+     "w": "more",
+     "t": 35.45
+    },
+    {
+     "w": "than",
+     "t": 35.87
+    },
+    {
+     "w": "a",
+     "t": 36.29
+    },
+    {
+     "w": "rhinoceros.",
+     "t": 36.72
+    },
+    {
+     "w": "Our",
+     "t": 37.14
+    },
+    {
+     "w": "second",
+     "t": 37.56
+    },
+    {
+     "w": "guest",
+     "t": 37.98
+    },
+    {
+     "w": "waited",
+     "t": 38.4
+    },
+    {
+     "w": "three",
+     "t": 38.82
+    },
+    {
+     "w": "thousand",
+     "t": 39.24
+    },
+    {
+     "w": "years",
+     "t": 39.66
+    },
+    {
+     "w": "inside",
+     "t": 40.08
+    },
+    {
+     "w": "a",
+     "t": 40.5
+    },
+    {
+     "w": "dark",
+     "t": 40.92
+    },
+    {
+     "w": "tomb",
+     "t": 41.35
+    },
+    {
+     "w": "—",
+     "t": 41.77
+    },
+    {
+     "w": "a",
+     "t": 42.19
+    },
+    {
+     "w": "pot",
+     "t": 42.61
+    },
+    {
+     "w": "of",
+     "t": 43.03
+    },
+    {
+     "w": "honey!",
+     "t": 43.45
+    },
+    {
+     "w": "Big,",
+     "t": 43.87
+    },
+    {
+     "w": "sweet,",
+     "t": 44.29
+    },
+    {
+     "w": "and",
+     "t": 44.71
+    },
+    {
+     "w": "full",
+     "t": 45.14
+    },
+    {
+     "w": "of",
+     "t": 45.56
+    },
+    {
+     "w": "surprises.",
+     "t": 45.98
+    },
+    {
+     "w": "Let's",
+     "t": 46.4
+    },
+    {
+     "w": "go!",
+     "t": 46.82
+    }
+   ]
+  },
+  {
+   "start": 66.58,
+   "end": 88.12,
+   "en": "Meet Bagheera, the heaviest pumpkin in the world! It weighs one thousand, two hundred and ninety-five kilograms — as heavy as a small car, and heavier than a white rhinoceros. Around its middle, it measures more than six metres. Its name comes from a storybook: Bagheera, the black panther in The Jungle Book.",
+   "title": "南瓜冠军巴吉拉",
+   "cn": "来认识巴吉拉，世界上最重的南瓜！它重达一千二百九十五公斤——和一辆小汽车一样重，比一头白犀牛还要重。绕它的腰围一圈，超过六米。它的名字来自一本故事书：巴吉拉，就是《丛林之书》里的那只黑豹。",
+   "words": [
+    {
+     "w": "Meet",
+     "t": 66.58
+    },
+    {
+     "w": "Bagheera,",
+     "t": 66.99
+    },
+    {
+     "w": "the",
+     "t": 67.39
+    },
+    {
+     "w": "heaviest",
+     "t": 67.8
+    },
+    {
+     "w": "pumpkin",
+     "t": 68.21
+    },
+    {
+     "w": "in",
+     "t": 68.61
+    },
+    {
+     "w": "the",
+     "t": 69.02
+    },
+    {
+     "w": "world!",
+     "t": 69.43
+    },
+    {
+     "w": "It",
+     "t": 69.83
+    },
+    {
+     "w": "weighs",
+     "t": 70.24
+    },
+    {
+     "w": "one",
+     "t": 70.64
+    },
+    {
+     "w": "thousand,",
+     "t": 71.05
+    },
+    {
+     "w": "two",
+     "t": 71.46
+    },
+    {
+     "w": "hundred",
+     "t": 71.86
+    },
+    {
+     "w": "and",
+     "t": 72.27
+    },
+    {
+     "w": "ninety-five",
+     "t": 72.68
+    },
+    {
+     "w": "kilograms",
+     "t": 73.08
+    },
+    {
+     "w": "—",
+     "t": 73.49
+    },
+    {
+     "w": "as",
+     "t": 73.9
+    },
+    {
+     "w": "heavy",
+     "t": 74.3
+    },
+    {
+     "w": "as",
+     "t": 74.71
+    },
+    {
+     "w": "a",
+     "t": 75.12
+    },
+    {
+     "w": "small",
+     "t": 75.52
+    },
+    {
+     "w": "car,",
+     "t": 75.93
+    },
+    {
+     "w": "and",
+     "t": 76.34
+    },
+    {
+     "w": "heavier",
+     "t": 76.74
+    },
+    {
+     "w": "than",
+     "t": 77.15
+    },
+    {
+     "w": "a",
+     "t": 77.55
+    },
+    {
+     "w": "white",
+     "t": 77.96
+    },
+    {
+     "w": "rhinoceros.",
+     "t": 78.37
+    },
+    {
+     "w": "Around",
+     "t": 78.77
+    },
+    {
+     "w": "its",
+     "t": 79.18
+    },
+    {
+     "w": "middle,",
+     "t": 79.59
+    },
+    {
+     "w": "it",
+     "t": 79.99
+    },
+    {
+     "w": "measures",
+     "t": 80.4
+    },
+    {
+     "w": "more",
+     "t": 80.81
+    },
+    {
+     "w": "than",
+     "t": 81.21
+    },
+    {
+     "w": "six",
+     "t": 81.62
+    },
+    {
+     "w": "metres.",
+     "t": 82.03
+    },
+    {
+     "w": "Its",
+     "t": 82.43
+    },
+    {
+     "w": "name",
+     "t": 82.84
+    },
+    {
+     "w": "comes",
+     "t": 83.25
+    },
+    {
+     "w": "from",
+     "t": 83.65
+    },
+    {
+     "w": "a",
+     "t": 84.06
+    },
+    {
+     "w": "storybook:",
+     "t": 84.46
+    },
+    {
+     "w": "Bagheera,",
+     "t": 84.87
+    },
+    {
+     "w": "the",
+     "t": 85.28
+    },
+    {
+     "w": "black",
+     "t": 85.68
+    },
+    {
+     "w": "panther",
+     "t": 86.09
+    },
+    {
+     "w": "in",
+     "t": 86.5
+    },
+    {
+     "w": "The",
+     "t": 86.9
+    },
+    {
+     "w": "Jungle",
+     "t": 87.31
+    },
+    {
+     "w": "Book.",
+     "t": 87.72
+    }
+   ]
+  },
+  {
+   "start": 88.12,
+   "end": 111.29,
+   "en": "Its grower is Ian, a sixty-five-year-old plant grower from England. Ian and his twin brother Stuart spent more than fifty years growing giant pumpkins together. The brothers became champions and even set a world record together. This year, for the first time, Ian entered the contest alone, determined to beat his own record — and he did!",
+   "title": "南瓜冠军巴吉拉",
+   "cn": "种出它的人是伊恩，一位来自英格兰的六十五岁种植者。伊恩和他的双胞胎兄弟斯图尔特一起种了五十多年巨型南瓜。兄弟俩成了冠军，还一起创下过世界纪录。今年，伊恩第一次独自参赛，下定决心要打破自己的纪录——他做到了！",
+   "words": [
+    {
+     "w": "Its",
+     "t": 88.12
+    },
+    {
+     "w": "grower",
+     "t": 88.53
+    },
+    {
+     "w": "is",
+     "t": 88.94
+    },
+    {
+     "w": "Ian,",
+     "t": 89.34
+    },
+    {
+     "w": "a",
+     "t": 89.75
+    },
+    {
+     "w": "sixty-five-year-old",
+     "t": 90.16
+    },
+    {
+     "w": "plant",
+     "t": 90.56
+    },
+    {
+     "w": "grower",
+     "t": 90.97
+    },
+    {
+     "w": "from",
+     "t": 91.37
+    },
+    {
+     "w": "England.",
+     "t": 91.78
+    },
+    {
+     "w": "Ian",
+     "t": 92.19
+    },
+    {
+     "w": "and",
+     "t": 92.59
+    },
+    {
+     "w": "his",
+     "t": 93.0
+    },
+    {
+     "w": "twin",
+     "t": 93.41
+    },
+    {
+     "w": "brother",
+     "t": 93.81
+    },
+    {
+     "w": "Stuart",
+     "t": 94.22
+    },
+    {
+     "w": "spent",
+     "t": 94.63
+    },
+    {
+     "w": "more",
+     "t": 95.03
+    },
+    {
+     "w": "than",
+     "t": 95.44
+    },
+    {
+     "w": "fifty",
+     "t": 95.85
+    },
+    {
+     "w": "years",
+     "t": 96.25
+    },
+    {
+     "w": "growing",
+     "t": 96.66
+    },
+    {
+     "w": "giant",
+     "t": 97.07
+    },
+    {
+     "w": "pumpkins",
+     "t": 97.47
+    },
+    {
+     "w": "together.",
+     "t": 97.88
+    },
+    {
+     "w": "The",
+     "t": 98.28
+    },
+    {
+     "w": "brothers",
+     "t": 98.69
+    },
+    {
+     "w": "became",
+     "t": 99.1
+    },
+    {
+     "w": "champions",
+     "t": 99.5
+    },
+    {
+     "w": "and",
+     "t": 99.91
+    },
+    {
+     "w": "even",
+     "t": 100.32
+    },
+    {
+     "w": "set",
+     "t": 100.72
+    },
+    {
+     "w": "a",
+     "t": 101.13
+    },
+    {
+     "w": "world",
+     "t": 101.54
+    },
+    {
+     "w": "record",
+     "t": 101.94
+    },
+    {
+     "w": "together.",
+     "t": 102.35
+    },
+    {
+     "w": "This",
+     "t": 102.76
+    },
+    {
+     "w": "year,",
+     "t": 103.16
+    },
+    {
+     "w": "for",
+     "t": 103.57
+    },
+    {
+     "w": "the",
+     "t": 103.98
+    },
+    {
+     "w": "first",
+     "t": 104.38
+    },
+    {
+     "w": "time,",
+     "t": 104.79
+    },
+    {
+     "w": "Ian",
+     "t": 105.19
+    },
+    {
+     "w": "entered",
+     "t": 105.6
+    },
+    {
+     "w": "the",
+     "t": 106.01
+    },
+    {
+     "w": "contest",
+     "t": 106.41
+    },
+    {
+     "w": "alone,",
+     "t": 106.82
+    },
+    {
+     "w": "determined",
+     "t": 107.23
+    },
+    {
+     "w": "to",
+     "t": 107.63
+    },
+    {
+     "w": "beat",
+     "t": 108.04
+    },
+    {
+     "w": "his",
+     "t": 108.45
+    },
+    {
+     "w": "own",
+     "t": 108.85
+    },
+    {
+     "w": "record",
+     "t": 109.26
+    },
+    {
+     "w": "—",
+     "t": 109.67
+    },
+    {
+     "w": "and",
+     "t": 110.07
+    },
+    {
+     "w": "he",
+     "t": 110.48
+    },
+    {
+     "w": "did!",
+     "t": 110.89
+    }
+   ]
+  },
+  {
+   "start": 111.29,
+   "end": 136.09,
+   "en": "Growing a champion takes hard work. For two months, Ian worked up to six hours a day. On hot days, he gave his plant five hundred and ninety litres of water — enough to fill three bathtubs! At last, workers lifted Bagheera with a forklift onto a giant scale. A Guinness judge observed every step and announced: a new world record!",
+   "title": "南瓜冠军巴吉拉",
+   "cn": "种出一个冠军要下苦功夫。两个月里，伊恩每天最多要忙六个小时。天气热的时候，他一天要给这棵南瓜浇五百九十升水——够装满三个浴缸！最后，工人们用叉车把巴吉拉抬上一台巨型秤。吉尼斯的裁判注视着每一步，宣布：新的世界纪录诞生了！",
+   "words": [
+    {
+     "w": "Growing",
+     "t": 111.29
+    },
+    {
+     "w": "a",
+     "t": 111.7
+    },
+    {
+     "w": "champion",
+     "t": 112.1
+    },
+    {
+     "w": "takes",
+     "t": 112.51
+    },
+    {
+     "w": "hard",
+     "t": 112.92
+    },
+    {
+     "w": "work.",
+     "t": 113.32
+    },
+    {
+     "w": "For",
+     "t": 113.73
+    },
+    {
+     "w": "two",
+     "t": 114.14
+    },
+    {
+     "w": "months,",
+     "t": 114.54
+    },
+    {
+     "w": "Ian",
+     "t": 114.95
+    },
+    {
+     "w": "worked",
+     "t": 115.36
+    },
+    {
+     "w": "up",
+     "t": 115.76
+    },
+    {
+     "w": "to",
+     "t": 116.17
+    },
+    {
+     "w": "six",
+     "t": 116.58
+    },
+    {
+     "w": "hours",
+     "t": 116.98
+    },
+    {
+     "w": "a",
+     "t": 117.39
+    },
+    {
+     "w": "day.",
+     "t": 117.79
+    },
+    {
+     "w": "On",
+     "t": 118.2
+    },
+    {
+     "w": "hot",
+     "t": 118.61
+    },
+    {
+     "w": "days,",
+     "t": 119.01
+    },
+    {
+     "w": "he",
+     "t": 119.42
+    },
+    {
+     "w": "gave",
+     "t": 119.83
+    },
+    {
+     "w": "his",
+     "t": 120.23
+    },
+    {
+     "w": "plant",
+     "t": 120.64
+    },
+    {
+     "w": "five",
+     "t": 121.05
+    },
+    {
+     "w": "hundred",
+     "t": 121.45
+    },
+    {
+     "w": "and",
+     "t": 121.86
+    },
+    {
+     "w": "ninety",
+     "t": 122.27
+    },
+    {
+     "w": "litres",
+     "t": 122.67
+    },
+    {
+     "w": "of",
+     "t": 123.08
+    },
+    {
+     "w": "water",
+     "t": 123.49
+    },
+    {
+     "w": "—",
+     "t": 123.89
+    },
+    {
+     "w": "enough",
+     "t": 124.3
+    },
+    {
+     "w": "to",
+     "t": 124.7
+    },
+    {
+     "w": "fill",
+     "t": 125.11
+    },
+    {
+     "w": "three",
+     "t": 125.52
+    },
+    {
+     "w": "bathtubs!",
+     "t": 125.92
+    },
+    {
+     "w": "At",
+     "t": 126.33
+    },
+    {
+     "w": "last,",
+     "t": 126.74
+    },
+    {
+     "w": "workers",
+     "t": 127.14
+    },
+    {
+     "w": "lifted",
+     "t": 127.55
+    },
+    {
+     "w": "Bagheera",
+     "t": 127.96
+    },
+    {
+     "w": "with",
+     "t": 128.36
+    },
+    {
+     "w": "a",
+     "t": 128.77
+    },
+    {
+     "w": "forklift",
+     "t": 129.18
+    },
+    {
+     "w": "onto",
+     "t": 129.58
+    },
+    {
+     "w": "a",
+     "t": 129.99
+    },
+    {
+     "w": "giant",
+     "t": 130.4
+    },
+    {
+     "w": "scale.",
+     "t": 130.8
+    },
+    {
+     "w": "A",
+     "t": 131.21
+    },
+    {
+     "w": "Guinness",
+     "t": 131.61
+    },
+    {
+     "w": "judge",
+     "t": 132.02
+    },
+    {
+     "w": "observed",
+     "t": 132.43
+    },
+    {
+     "w": "every",
+     "t": 132.83
+    },
+    {
+     "w": "step",
+     "t": 133.24
+    },
+    {
+     "w": "and",
+     "t": 133.65
+    },
+    {
+     "w": "announced:",
+     "t": 134.05
+    },
+    {
+     "w": "a",
+     "t": 134.46
+    },
+    {
+     "w": "new",
+     "t": 134.87
+    },
+    {
+     "w": "world",
+     "t": 135.27
+    },
+    {
+     "w": "record!",
+     "t": 135.68
+    }
+   ]
+  },
+  {
+   "start": 136.09,
+   "end": 155.19,
+   "en": "Now Bagheera sits on a farm, and families bring their cameras to take photos beside it. And when the show ends? This champion will become dinner — for the cows on the farm! From one tiny seed to a pumpkin heavier than a rhinoceros: what a champion!",
+   "title": "南瓜冠军巴吉拉",
+   "cn": "现在，巴吉拉待在一个农场里，一家人带着相机来和它合影。等展览结束会怎样呢？这位冠军将成为一顿晚餐——给农场里的奶牛吃！从一颗小小的种子，到一颗比犀牛还重的南瓜：多么了不起的冠军！",
+   "words": [
+    {
+     "w": "Now",
+     "t": 136.09
+    },
+    {
+     "w": "Bagheera",
+     "t": 136.49
+    },
+    {
+     "w": "sits",
+     "t": 136.9
+    },
+    {
+     "w": "on",
+     "t": 137.31
+    },
+    {
+     "w": "a",
+     "t": 137.71
+    },
+    {
+     "w": "farm,",
+     "t": 138.12
+    },
+    {
+     "w": "and",
+     "t": 138.52
+    },
+    {
+     "w": "families",
+     "t": 138.93
+    },
+    {
+     "w": "bring",
+     "t": 139.34
+    },
+    {
+     "w": "their",
+     "t": 139.74
+    },
+    {
+     "w": "cameras",
+     "t": 140.15
+    },
+    {
+     "w": "to",
+     "t": 140.56
+    },
+    {
+     "w": "take",
+     "t": 140.96
+    },
+    {
+     "w": "photos",
+     "t": 141.37
+    },
+    {
+     "w": "beside",
+     "t": 141.78
+    },
+    {
+     "w": "it.",
+     "t": 142.18
+    },
+    {
+     "w": "And",
+     "t": 142.59
+    },
+    {
+     "w": "when",
+     "t": 143.0
+    },
+    {
+     "w": "the",
+     "t": 143.4
+    },
+    {
+     "w": "show",
+     "t": 143.81
+    },
+    {
+     "w": "ends?",
+     "t": 144.22
+    },
+    {
+     "w": "This",
+     "t": 144.62
+    },
+    {
+     "w": "champion",
+     "t": 145.03
+    },
+    {
+     "w": "will",
+     "t": 145.43
+    },
+    {
+     "w": "become",
+     "t": 145.84
+    },
+    {
+     "w": "dinner",
+     "t": 146.25
+    },
+    {
+     "w": "—",
+     "t": 146.65
+    },
+    {
+     "w": "for",
+     "t": 147.06
+    },
+    {
+     "w": "the",
+     "t": 147.47
+    },
+    {
+     "w": "cows",
+     "t": 147.87
+    },
+    {
+     "w": "on",
+     "t": 148.28
+    },
+    {
+     "w": "the",
+     "t": 148.69
+    },
+    {
+     "w": "farm!",
+     "t": 149.09
+    },
+    {
+     "w": "From",
+     "t": 149.5
+    },
+    {
+     "w": "one",
+     "t": 149.91
+    },
+    {
+     "w": "tiny",
+     "t": 150.31
+    },
+    {
+     "w": "seed",
+     "t": 150.72
+    },
+    {
+     "w": "to",
+     "t": 151.13
+    },
+    {
+     "w": "a",
+     "t": 151.53
+    },
+    {
+     "w": "pumpkin",
+     "t": 151.94
+    },
+    {
+     "w": "heavier",
+     "t": 152.34
+    },
+    {
+     "w": "than",
+     "t": 152.75
+    },
+    {
+     "w": "a",
+     "t": 153.16
+    },
+    {
+     "w": "rhinoceros:",
+     "t": 153.56
+    },
+    {
+     "w": "what",
+     "t": 153.97
+    },
+    {
+     "w": "a",
+     "t": 154.38
+    },
+    {
+     "w": "champion!",
+     "t": 154.78
+    }
+   ]
+  },
+  {
+   "start": 170.21,
+   "end": 190.27,
+   "en": "Time for something sweet. Long ago in Egypt, a king was buried with pots of honey — food for his journey to the next world. Three thousand years later, explorers opened the tomb and tasted it. Still good! How can food stay fresh for three thousand years?",
+   "title": "三千年不坏的蜂蜜",
+   "cn": "来点甜蜜的吧。很久以前在埃及，一位国王下葬时，身边放了几罐蜂蜜——那是给他前往另一个世界的旅途准备的食物。三千年后，探险家打开古墓，尝了尝蜂蜜。居然还很好吃！食物怎么能保鲜三千年呢？",
+   "words": [
+    {
+     "w": "Time",
+     "t": 170.21
+    },
+    {
+     "w": "for",
+     "t": 170.64
+    },
+    {
+     "w": "something",
+     "t": 171.06
+    },
+    {
+     "w": "sweet.",
+     "t": 171.49
+    },
+    {
+     "w": "Long",
+     "t": 171.92
+    },
+    {
+     "w": "ago",
+     "t": 172.34
+    },
+    {
+     "w": "in",
+     "t": 172.77
+    },
+    {
+     "w": "Egypt,",
+     "t": 173.2
+    },
+    {
+     "w": "a",
+     "t": 173.63
+    },
+    {
+     "w": "king",
+     "t": 174.05
+    },
+    {
+     "w": "was",
+     "t": 174.48
+    },
+    {
+     "w": "buried",
+     "t": 174.91
+    },
+    {
+     "w": "with",
+     "t": 175.33
+    },
+    {
+     "w": "pots",
+     "t": 175.76
+    },
+    {
+     "w": "of",
+     "t": 176.19
+    },
+    {
+     "w": "honey",
+     "t": 176.61
+    },
+    {
+     "w": "—",
+     "t": 177.04
+    },
+    {
+     "w": "food",
+     "t": 177.47
+    },
+    {
+     "w": "for",
+     "t": 177.89
+    },
+    {
+     "w": "his",
+     "t": 178.32
+    },
+    {
+     "w": "journey",
+     "t": 178.75
+    },
+    {
+     "w": "to",
+     "t": 179.17
+    },
+    {
+     "w": "the",
+     "t": 179.6
+    },
+    {
+     "w": "next",
+     "t": 180.03
+    },
+    {
+     "w": "world.",
+     "t": 180.46
+    },
+    {
+     "w": "Three",
+     "t": 180.88
+    },
+    {
+     "w": "thousand",
+     "t": 181.31
+    },
+    {
+     "w": "years",
+     "t": 181.74
+    },
+    {
+     "w": "later,",
+     "t": 182.16
+    },
+    {
+     "w": "explorers",
+     "t": 182.59
+    },
+    {
+     "w": "opened",
+     "t": 183.02
+    },
+    {
+     "w": "the",
+     "t": 183.44
+    },
+    {
+     "w": "tomb",
+     "t": 183.87
+    },
+    {
+     "w": "and",
+     "t": 184.3
+    },
+    {
+     "w": "tasted",
+     "t": 184.72
+    },
+    {
+     "w": "it.",
+     "t": 185.15
+    },
+    {
+     "w": "Still",
+     "t": 185.58
+    },
+    {
+     "w": "good!",
+     "t": 186.0
+    },
+    {
+     "w": "How",
+     "t": 186.43
+    },
+    {
+     "w": "can",
+     "t": 186.86
+    },
+    {
+     "w": "food",
+     "t": 187.29
+    },
+    {
+     "w": "stay",
+     "t": 187.71
+    },
+    {
+     "w": "fresh",
+     "t": 188.14
+    },
+    {
+     "w": "for",
+     "t": 188.57
+    },
+    {
+     "w": "three",
+     "t": 188.99
+    },
+    {
+     "w": "thousand",
+     "t": 189.42
+    },
+    {
+     "w": "years?",
+     "t": 189.85
+    }
+   ]
+  },
+  {
+   "start": 190.27,
+   "end": 207.35,
+   "en": "Secret number one: honey is very, very dry. Bees make it from nectar, the sweet juice inside flowers, fanning their wings like tiny fans to dry it. Germs need water to live, and inside honey they dry out and die.",
+   "title": "三千年不坏的蜂蜜",
+   "cn": "秘密一：蜂蜜非常非常干。蜜蜂用花蜜——花朵里的甜汁——来酿蜜，还像小风扇一样扇动翅膀，把水分吹干。细菌需要水才能活，在蜂蜜里，它们会被活活干死。",
+   "words": [
+    {
+     "w": "Secret",
+     "t": 190.27
+    },
+    {
+     "w": "number",
+     "t": 190.7
+    },
+    {
+     "w": "one:",
+     "t": 191.13
+    },
+    {
+     "w": "honey",
+     "t": 191.55
+    },
+    {
+     "w": "is",
+     "t": 191.98
+    },
+    {
+     "w": "very,",
+     "t": 192.41
+    },
+    {
+     "w": "very",
+     "t": 192.83
+    },
+    {
+     "w": "dry.",
+     "t": 193.26
+    },
+    {
+     "w": "Bees",
+     "t": 193.69
+    },
+    {
+     "w": "make",
+     "t": 194.12
+    },
+    {
+     "w": "it",
+     "t": 194.54
+    },
+    {
+     "w": "from",
+     "t": 194.97
+    },
+    {
+     "w": "nectar,",
+     "t": 195.4
+    },
+    {
+     "w": "the",
+     "t": 195.82
+    },
+    {
+     "w": "sweet",
+     "t": 196.25
+    },
+    {
+     "w": "juice",
+     "t": 196.68
+    },
+    {
+     "w": "inside",
+     "t": 197.1
+    },
+    {
+     "w": "flowers,",
+     "t": 197.53
+    },
+    {
+     "w": "fanning",
+     "t": 197.96
+    },
+    {
+     "w": "their",
+     "t": 198.38
+    },
+    {
+     "w": "wings",
+     "t": 198.81
+    },
+    {
+     "w": "like",
+     "t": 199.24
+    },
+    {
+     "w": "tiny",
+     "t": 199.66
+    },
+    {
+     "w": "fans",
+     "t": 200.09
+    },
+    {
+     "w": "to",
+     "t": 200.52
+    },
+    {
+     "w": "dry",
+     "t": 200.95
+    },
+    {
+     "w": "it.",
+     "t": 201.37
+    },
+    {
+     "w": "Germs",
+     "t": 201.8
+    },
+    {
+     "w": "need",
+     "t": 202.23
+    },
+    {
+     "w": "water",
+     "t": 202.65
+    },
+    {
+     "w": "to",
+     "t": 203.08
+    },
+    {
+     "w": "live,",
+     "t": 203.51
+    },
+    {
+     "w": "and",
+     "t": 203.93
+    },
+    {
+     "w": "inside",
+     "t": 204.36
+    },
+    {
+     "w": "honey",
+     "t": 204.79
+    },
+    {
+     "w": "they",
+     "t": 205.21
+    },
+    {
+     "w": "dry",
+     "t": 205.64
+    },
+    {
+     "w": "out",
+     "t": 206.07
+    },
+    {
+     "w": "and",
+     "t": 206.5
+    },
+    {
+     "w": "die.",
+     "t": 206.92
+    }
+   ]
+  },
+  {
+   "start": 207.35,
+   "end": 227.84,
+   "en": "Secret number two: honey is a little sour, like lemon juice, and germs hate sour food. Secret number three: bees add a special enzyme that makes a natural cleaner, stopping germs from growing. Then the bees seal every cell with wax, like a lid on a tiny jar.",
+   "title": "三千年不坏的蜂蜜",
+   "cn": "秘密二：蜂蜜有一点酸味，像柠檬汁，而细菌最怕酸的东西。秘密三：蜜蜂会往蜂蜜里加入一种特殊的酶，这种酶能生成一种天然清洁剂，阻止细菌生长。然后，蜜蜂用蜂蜡把每一个蜂房都封起来，就像给小罐子盖上盖子。",
+   "words": [
+    {
+     "w": "Secret",
+     "t": 207.35
+    },
+    {
+     "w": "number",
+     "t": 207.78
+    },
+    {
+     "w": "two:",
+     "t": 208.2
+    },
+    {
+     "w": "honey",
+     "t": 208.63
+    },
+    {
+     "w": "is",
+     "t": 209.06
+    },
+    {
+     "w": "a",
+     "t": 209.48
+    },
+    {
+     "w": "little",
+     "t": 209.91
+    },
+    {
+     "w": "sour,",
+     "t": 210.34
+    },
+    {
+     "w": "like",
+     "t": 210.76
+    },
+    {
+     "w": "lemon",
+     "t": 211.19
+    },
+    {
+     "w": "juice,",
+     "t": 211.62
+    },
+    {
+     "w": "and",
+     "t": 212.04
+    },
+    {
+     "w": "germs",
+     "t": 212.47
+    },
+    {
+     "w": "hate",
+     "t": 212.9
+    },
+    {
+     "w": "sour",
+     "t": 213.33
+    },
+    {
+     "w": "food.",
+     "t": 213.75
+    },
+    {
+     "w": "Secret",
+     "t": 214.18
+    },
+    {
+     "w": "number",
+     "t": 214.61
+    },
+    {
+     "w": "three:",
+     "t": 215.03
+    },
+    {
+     "w": "bees",
+     "t": 215.46
+    },
+    {
+     "w": "add",
+     "t": 215.89
+    },
+    {
+     "w": "a",
+     "t": 216.31
+    },
+    {
+     "w": "special",
+     "t": 216.74
+    },
+    {
+     "w": "enzyme",
+     "t": 217.17
+    },
+    {
+     "w": "that",
+     "t": 217.59
+    },
+    {
+     "w": "makes",
+     "t": 218.02
+    },
+    {
+     "w": "a",
+     "t": 218.45
+    },
+    {
+     "w": "natural",
+     "t": 218.87
+    },
+    {
+     "w": "cleaner,",
+     "t": 219.3
+    },
+    {
+     "w": "stopping",
+     "t": 219.73
+    },
+    {
+     "w": "germs",
+     "t": 220.16
+    },
+    {
+     "w": "from",
+     "t": 220.58
+    },
+    {
+     "w": "growing.",
+     "t": 221.01
+    },
+    {
+     "w": "Then",
+     "t": 221.44
+    },
+    {
+     "w": "the",
+     "t": 221.86
+    },
+    {
+     "w": "bees",
+     "t": 222.29
+    },
+    {
+     "w": "seal",
+     "t": 222.72
+    },
+    {
+     "w": "every",
+     "t": 223.14
+    },
+    {
+     "w": "cell",
+     "t": 223.57
+    },
+    {
+     "w": "with",
+     "t": 224.0
+    },
+    {
+     "w": "wax,",
+     "t": 224.42
+    },
+    {
+     "w": "like",
+     "t": 224.85
+    },
+    {
+     "w": "a",
+     "t": 225.28
+    },
+    {
+     "w": "lid",
+     "t": 225.7
+    },
+    {
+     "w": "on",
+     "t": 226.13
+    },
+    {
+     "w": "a",
+     "t": 226.56
+    },
+    {
+     "w": "tiny",
+     "t": 226.99
+    },
+    {
+     "w": "jar.",
+     "t": 227.41
+    }
+   ]
+  },
+  {
+   "start": 227.84,
+   "end": 242.78,
+   "en": "Dry, sour, guarded by a cleaner, and sealed with wax — no wonder honey can wait three thousand years! Keep the lid closed and the water out, and your honey might wait for you, too.",
+   "title": "三千年不坏的蜂蜜",
+   "cn": "又干、又酸、有清洁剂守护、还被蜂蜡密封——难怪蜂蜜能等上三千年！只要盖好盖子、别让水进去，你的蜂蜜说不定也能一直等你哦。",
+   "words": [
+    {
+     "w": "Dry,",
+     "t": 227.84
+    },
+    {
+     "w": "sour,",
+     "t": 228.27
+    },
+    {
+     "w": "guarded",
+     "t": 228.69
+    },
+    {
+     "w": "by",
+     "t": 229.12
+    },
+    {
+     "w": "a",
+     "t": 229.55
+    },
+    {
+     "w": "cleaner,",
+     "t": 229.97
+    },
+    {
+     "w": "and",
+     "t": 230.4
+    },
+    {
+     "w": "sealed",
+     "t": 230.83
+    },
+    {
+     "w": "with",
+     "t": 231.25
+    },
+    {
+     "w": "wax",
+     "t": 231.68
+    },
+    {
+     "w": "—",
+     "t": 232.11
+    },
+    {
+     "w": "no",
+     "t": 232.53
+    },
+    {
+     "w": "wonder",
+     "t": 232.96
+    },
+    {
+     "w": "honey",
+     "t": 233.39
+    },
+    {
+     "w": "can",
+     "t": 233.82
+    },
+    {
+     "w": "wait",
+     "t": 234.24
+    },
+    {
+     "w": "three",
+     "t": 234.67
+    },
+    {
+     "w": "thousand",
+     "t": 235.1
+    },
+    {
+     "w": "years!",
+     "t": 235.52
+    },
+    {
+     "w": "Keep",
+     "t": 235.95
+    },
+    {
+     "w": "the",
+     "t": 236.38
+    },
+    {
+     "w": "lid",
+     "t": 236.8
+    },
+    {
+     "w": "closed",
+     "t": 237.23
+    },
+    {
+     "w": "and",
+     "t": 237.66
+    },
+    {
+     "w": "the",
+     "t": 238.08
+    },
+    {
+     "w": "water",
+     "t": 238.51
+    },
+    {
+     "w": "out,",
+     "t": 238.94
+    },
+    {
+     "w": "and",
+     "t": 239.36
+    },
+    {
+     "w": "your",
+     "t": 239.79
+    },
+    {
+     "w": "honey",
+     "t": 240.22
+    },
+    {
+     "w": "might",
+     "t": 240.65
+    },
+    {
+     "w": "wait",
+     "t": 241.07
+    },
+    {
+     "w": "for",
+     "t": 241.5
+    },
+    {
+     "w": "you,",
+     "t": 241.93
+    },
+    {
+     "w": "too.",
+     "t": 242.35
+    }
+   ]
+  },
+  {
+   "start": 256.2,
+   "end": 289.54,
+   "en": "Here's today's idiom: \"a piece of cake.\" It means something is very easy — as easy as eating a sweet slice of cake. Listen to little Tom. His teacher said, \"Our class will carve a pumpkin for the autumn festival.\" Tom smiled and said, \"No problem. Carving a pumpkin is a piece of cake!\" Ten minutes later, his pumpkin had a funny face, and Tom won first prize. But growing a pumpkin like Bagheera? Ian will tell you: that is NOT a piece of cake!",
+   "title": "今日俚语",
+   "cn": "今天的俚语是“a piece of cake”（一块蛋糕）。它的意思是某件事非常容易——就像吃一块甜蛋糕一样轻松。听听小汤姆的故事。他的老师说：“我们班要为秋季的节日雕一个南瓜。”汤姆笑着说：“没问题。雕南瓜是小菜一碟！”十分钟后，他的南瓜有了一张搞笑的脸，汤姆还赢了一等奖。但是，像巴吉拉那样的南瓜种起来怎么样呢？伊恩会告诉你：那可不是小菜一碟！",
+   "words": [
+    {
+     "w": "Here's",
+     "t": 256.2
+    },
+    {
+     "w": "today's",
+     "t": 256.59
+    },
+    {
+     "w": "idiom:",
+     "t": 256.98
+    },
+    {
+     "w": "\"a",
+     "t": 257.38
+    },
+    {
+     "w": "piece",
+     "t": 257.77
+    },
+    {
+     "w": "of",
+     "t": 258.16
+    },
+    {
+     "w": "cake.\"",
+     "t": 258.55
+    },
+    {
+     "w": "It",
+     "t": 258.95
+    },
+    {
+     "w": "means",
+     "t": 259.34
+    },
+    {
+     "w": "something",
+     "t": 259.73
+    },
+    {
+     "w": "is",
+     "t": 260.12
+    },
+    {
+     "w": "very",
+     "t": 260.51
+    },
+    {
+     "w": "easy",
+     "t": 260.91
+    },
+    {
+     "w": "—",
+     "t": 261.3
+    },
+    {
+     "w": "as",
+     "t": 261.69
+    },
+    {
+     "w": "easy",
+     "t": 262.08
+    },
+    {
+     "w": "as",
+     "t": 262.48
+    },
+    {
+     "w": "eating",
+     "t": 262.87
+    },
+    {
+     "w": "a",
+     "t": 263.26
+    },
+    {
+     "w": "sweet",
+     "t": 263.65
+    },
+    {
+     "w": "slice",
+     "t": 264.04
+    },
+    {
+     "w": "of",
+     "t": 264.44
+    },
+    {
+     "w": "cake.",
+     "t": 264.83
+    },
+    {
+     "w": "Listen",
+     "t": 265.22
+    },
+    {
+     "w": "to",
+     "t": 265.61
+    },
+    {
+     "w": "little",
+     "t": 266.01
+    },
+    {
+     "w": "Tom.",
+     "t": 266.4
+    },
+    {
+     "w": "His",
+     "t": 266.79
+    },
+    {
+     "w": "teacher",
+     "t": 267.18
+    },
+    {
+     "w": "said,",
+     "t": 267.57
+    },
+    {
+     "w": "\"Our",
+     "t": 267.97
+    },
+    {
+     "w": "class",
+     "t": 268.36
+    },
+    {
+     "w": "will",
+     "t": 268.75
+    },
+    {
+     "w": "carve",
+     "t": 269.14
+    },
+    {
+     "w": "a",
+     "t": 269.54
+    },
+    {
+     "w": "pumpkin",
+     "t": 269.93
+    },
+    {
+     "w": "for",
+     "t": 270.32
+    },
+    {
+     "w": "the",
+     "t": 270.71
+    },
+    {
+     "w": "autumn",
+     "t": 271.1
+    },
+    {
+     "w": "festival.\"",
+     "t": 271.5
+    },
+    {
+     "w": "Tom",
+     "t": 271.89
+    },
+    {
+     "w": "smiled",
+     "t": 272.28
+    },
+    {
+     "w": "and",
+     "t": 272.67
+    },
+    {
+     "w": "said,",
+     "t": 273.07
+    },
+    {
+     "w": "\"No",
+     "t": 273.46
+    },
+    {
+     "w": "problem.",
+     "t": 273.85
+    },
+    {
+     "w": "Carving",
+     "t": 274.24
+    },
+    {
+     "w": "a",
+     "t": 274.64
+    },
+    {
+     "w": "pumpkin",
+     "t": 275.03
+    },
+    {
+     "w": "is",
+     "t": 275.42
+    },
+    {
+     "w": "a",
+     "t": 275.81
+    },
+    {
+     "w": "piece",
+     "t": 276.2
+    },
+    {
+     "w": "of",
+     "t": 276.6
+    },
+    {
+     "w": "cake!\"",
+     "t": 276.99
+    },
+    {
+     "w": "Ten",
+     "t": 277.38
+    },
+    {
+     "w": "minutes",
+     "t": 277.77
+    },
+    {
+     "w": "later,",
+     "t": 278.17
+    },
+    {
+     "w": "his",
+     "t": 278.56
+    },
+    {
+     "w": "pumpkin",
+     "t": 278.95
+    },
+    {
+     "w": "had",
+     "t": 279.34
+    },
+    {
+     "w": "a",
+     "t": 279.73
+    },
+    {
+     "w": "funny",
+     "t": 280.13
+    },
+    {
+     "w": "face,",
+     "t": 280.52
+    },
+    {
+     "w": "and",
+     "t": 280.91
+    },
+    {
+     "w": "Tom",
+     "t": 281.3
+    },
+    {
+     "w": "won",
+     "t": 281.7
+    },
+    {
+     "w": "first",
+     "t": 282.09
+    },
+    {
+     "w": "prize.",
+     "t": 282.48
+    },
+    {
+     "w": "But",
+     "t": 282.87
+    },
+    {
+     "w": "growing",
+     "t": 283.26
+    },
+    {
+     "w": "a",
+     "t": 283.66
+    },
+    {
+     "w": "pumpkin",
+     "t": 284.05
+    },
+    {
+     "w": "like",
+     "t": 284.44
+    },
+    {
+     "w": "Bagheera?",
+     "t": 284.83
+    },
+    {
+     "w": "Ian",
+     "t": 285.23
+    },
+    {
+     "w": "will",
+     "t": 285.62
+    },
+    {
+     "w": "tell",
+     "t": 286.01
+    },
+    {
+     "w": "you:",
+     "t": 286.4
+    },
+    {
+     "w": "that",
+     "t": 286.79
+    },
+    {
+     "w": "is",
+     "t": 287.19
+    },
+    {
+     "w": "NOT",
+     "t": 287.58
+    },
+    {
+     "w": "a",
+     "t": 287.97
+    },
+    {
+     "w": "piece",
+     "t": 288.36
+    },
+    {
+     "w": "of",
+     "t": 288.76
+    },
+    {
+     "w": "cake!",
+     "t": 289.15
+    }
+   ]
+  },
+  {
+   "start": 303.92,
+   "end": 323.29,
+   "en": "Let's think about our two stories. First: if you could grow a giant pumpkin, what would you name it, and what would you do with it? Second: honey stayed sweet for three thousand years. If you could save one food for people in the far future, what would you choose? Talk about it with your family!",
+   "title": "结束语与互动问题",
+   "cn": "我们来想想今天的两个故事。第一：如果你能种出一个巨型南瓜，你会给它起什么名字？你会拿它来做什么？第二：蜂蜜甜了三千年都不坏。如果你能为遥远未来的人们保存一种食物，你会选什么？和家人聊聊吧！",
+   "words": [
+    {
+     "w": "Let's",
+     "t": 303.92
+    },
+    {
+     "w": "think",
+     "t": 304.27
+    },
+    {
+     "w": "about",
+     "t": 304.61
+    },
+    {
+     "w": "our",
+     "t": 304.96
+    },
+    {
+     "w": "two",
+     "t": 305.3
+    },
+    {
+     "w": "stories.",
+     "t": 305.65
+    },
+    {
+     "w": "First:",
+     "t": 306.0
+    },
+    {
+     "w": "if",
+     "t": 306.34
+    },
+    {
+     "w": "you",
+     "t": 306.69
+    },
+    {
+     "w": "could",
+     "t": 307.03
+    },
+    {
+     "w": "grow",
+     "t": 307.38
+    },
+    {
+     "w": "a",
+     "t": 307.72
+    },
+    {
+     "w": "giant",
+     "t": 308.07
+    },
+    {
+     "w": "pumpkin,",
+     "t": 308.42
+    },
+    {
+     "w": "what",
+     "t": 308.76
+    },
+    {
+     "w": "would",
+     "t": 309.11
+    },
+    {
+     "w": "you",
+     "t": 309.45
+    },
+    {
+     "w": "name",
+     "t": 309.8
+    },
+    {
+     "w": "it,",
+     "t": 310.15
+    },
+    {
+     "w": "and",
+     "t": 310.49
+    },
+    {
+     "w": "what",
+     "t": 310.84
+    },
+    {
+     "w": "would",
+     "t": 311.18
+    },
+    {
+     "w": "you",
+     "t": 311.53
+    },
+    {
+     "w": "do",
+     "t": 311.88
+    },
+    {
+     "w": "with",
+     "t": 312.22
+    },
+    {
+     "w": "it?",
+     "t": 312.57
+    },
+    {
+     "w": "Second:",
+     "t": 312.91
+    },
+    {
+     "w": "honey",
+     "t": 313.26
+    },
+    {
+     "w": "stayed",
+     "t": 313.61
+    },
+    {
+     "w": "sweet",
+     "t": 313.95
+    },
+    {
+     "w": "for",
+     "t": 314.3
+    },
+    {
+     "w": "three",
+     "t": 314.64
+    },
+    {
+     "w": "thousand",
+     "t": 314.99
+    },
+    {
+     "w": "years.",
+     "t": 315.33
+    },
+    {
+     "w": "If",
+     "t": 315.68
+    },
+    {
+     "w": "you",
+     "t": 316.03
+    },
+    {
+     "w": "could",
+     "t": 316.37
+    },
+    {
+     "w": "save",
+     "t": 316.72
+    },
+    {
+     "w": "one",
+     "t": 317.06
+    },
+    {
+     "w": "food",
+     "t": 317.41
+    },
+    {
+     "w": "for",
+     "t": 317.76
+    },
+    {
+     "w": "people",
+     "t": 318.1
+    },
+    {
+     "w": "in",
+     "t": 318.45
+    },
+    {
+     "w": "the",
+     "t": 318.79
+    },
+    {
+     "w": "far",
+     "t": 319.14
+    },
+    {
+     "w": "future,",
+     "t": 319.49
+    },
+    {
+     "w": "what",
+     "t": 319.83
+    },
+    {
+     "w": "would",
+     "t": 320.18
+    },
+    {
+     "w": "you",
+     "t": 320.52
+    },
+    {
+     "w": "choose?",
+     "t": 320.87
+    },
+    {
+     "w": "Talk",
+     "t": 321.21
+    },
+    {
+     "w": "about",
+     "t": 321.56
+    },
+    {
+     "w": "it",
+     "t": 321.91
+    },
+    {
+     "w": "with",
+     "t": 322.25
+    },
+    {
+     "w": "your",
+     "t": 322.6
+    },
+    {
+     "w": "family!",
+     "t": 322.94
+    }
+   ]
+  },
+  {
+   "start": 336.87,
+   "end": 344.81,
+   "en": "That's all for today, young explorers. Dream big like Ian, work hard like the bees — and see you tomorrow morning!",
+   "title": "告别",
+   "cn": "今天的节目就到这里啦，小小探险家们。像伊恩一样怀揣大梦想，像蜜蜂一样勤劳工作——明天早上见！",
+   "words": [
+    {
+     "w": "That's",
+     "t": 336.87
+    },
+    {
+     "w": "all",
+     "t": 337.25
+    },
+    {
+     "w": "for",
+     "t": 337.63
+    },
+    {
+     "w": "today,",
+     "t": 338.0
+    },
+    {
+     "w": "young",
+     "t": 338.38
+    },
+    {
+     "w": "explorers.",
+     "t": 338.76
+    },
+    {
+     "w": "Dream",
+     "t": 339.14
+    },
+    {
+     "w": "big",
+     "t": 339.52
+    },
+    {
+     "w": "like",
+     "t": 339.89
+    },
+    {
+     "w": "Ian,",
+     "t": 340.27
+    },
+    {
+     "w": "work",
+     "t": 340.65
+    },
+    {
+     "w": "hard",
+     "t": 341.03
+    },
+    {
+     "w": "like",
+     "t": 341.41
+    },
+    {
+     "w": "the",
+     "t": 341.79
+    },
+    {
+     "w": "bees",
+     "t": 342.16
+    },
+    {
+     "w": "—",
+     "t": 342.54
+    },
+    {
+     "w": "and",
+     "t": 342.92
+    },
+    {
+     "w": "see",
+     "t": 343.3
+    },
+    {
+     "w": "you",
+     "t": 343.68
+    },
+    {
+     "w": "tomorrow",
+     "t": 344.05
+    },
+    {
+     "w": "morning!",
+     "t": 344.43
+    }
+   ]
+  }
+ ],
+ "guide": {
+  "vocab": [
+   {
+    "word": "a piece of cake",
+    "phon": "/ə piːs əv keɪk/",
+    "meaning": "(习语) 小菜一碟；非常容易的事",
+    "tags": [
+     "今日俚语必背"
+    ],
+    "example": "Example: Carving a pumpkin is a piece of cake!"
+   },
+   {
+    "word": "pumpkin",
+    "phon": "/ˈpʌmpkɪn/",
+    "meaning": "(n.) 南瓜",
+    "tags": [],
+    "example": "Example: Meet Bagheera, the heaviest pumpkin in the world!"
+   },
+   {
+    "word": "rhinoceros",
+    "phon": "/raɪˈnɒsərəs/",
+    "meaning": "(n.) 犀牛",
+    "tags": [],
+    "example": "Example: It is heavier than a white rhinoceros."
+   },
+   {
+    "word": "champion",
+    "phon": "/ˈtʃæmpiən/",
+    "meaning": "(n.) 冠军",
+    "tags": [],
+    "example": "Example: Growing a champion takes hard work."
+   },
+   {
+    "word": "determined",
+    "phon": "/dɪˈtɜːmɪnd/",
+    "meaning": "(adj.) 下定决心的；坚定的",
+    "tags": [],
+    "example": "Example: Ian entered the contest alone, determined to beat his own record."
+   },
+   {
+    "word": "observe",
+    "phon": "/əbˈzɜːv/",
+    "meaning": "(v.) 观察；注视",
+    "tags": [],
+    "example": "Example: A Guinness judge observed every step."
+   },
+   {
+    "word": "tomb",
+    "phon": "/tuːm/",
+    "meaning": "(n.) 坟墓；古墓",
+    "tags": [],
+    "example": "Example: Explorers opened the tomb and tasted the honey."
+   },
+   {
+    "word": "nectar",
+    "phon": "/ˈnektə/",
+    "meaning": "(n.) 花蜜",
+    "tags": [],
+    "example": "Example: Bees make honey from nectar, the sweet juice inside flowers."
+   },
+   {
+    "word": "germ",
+    "phon": "/dʒɜːm/",
+    "meaning": "(n.) 细菌；微生物",
+    "tags": [],
+    "example": "Example: Germs need water to live."
+   },
+   {
+    "word": "sour",
+    "phon": "/saʊə/",
+    "meaning": "(adj.) 酸的",
+    "tags": [],
+    "example": "Example: Honey is a little sour, like lemon juice."
+   },
+   {
+    "word": "enzyme",
+    "phon": "/ˈenzaɪm/",
+    "meaning": "(n.) 酶",
+    "tags": [],
+    "example": "Example: Bees add a special enzyme that stops germs from growing."
+   },
+   {
+    "word": "seal",
+    "phon": "/siːl/",
+    "meaning": "(v.) 密封；封住",
+    "tags": [],
+    "example": "Example: The bees seal every cell with wax."
+   }
+  ],
+  "quiz": [
+   {
+    "title": "B. 单项选择（Single Choice）",
+    "questions": [
+     "How heavy is Bagheera, the giant pumpkin?\nA. About ninety-five kilograms\nB. One thousand, two hundred and ninety-five kilograms\nC. Two hundred and ninety-five kilograms\nD. Twelve kilograms",
+     "What did Ian do for the first time this year?\nA. He entered the contest without his twin brother\nB. He grew his first pumpkin\nC. He bought a farm\nD. He met a Guinness judge",
+     "Why can honey stay good for three thousand years?\nA. Because it is kept in a golden pot\nB. Because kings buried it deep under the ground\nC. Because it is dry and a little sour, and bees seal it with wax\nD. Because nobody opened the tomb",
+     "What does \"a piece of cake\" mean?\nA. Something is very easy\nB. A sweet birthday present\nC. A pumpkin pie for dinner\nD. Something very hard to do"
+    ]
+   }
+  ],
+  "sentence_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "breakdown"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "经典原句："
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "span",
+      "attrs": {
+       "class": "en",
+       "style": "border:none;background:none;padding:0;"
+      },
+      "children": [
+       {
+        "type": "text",
+        "text": "It "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "weighs"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " one thousand, two hundred and ninety-five kilograms — "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "as heavy as"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " a small car, and "
+       },
+       {
+        "name": "b",
+        "attrs": {
+         "class": "kw"
+        },
+        "children": [
+         {
+          "type": "text",
+          "text": "heavier than"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": " a white rhinoceros."
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "保姆级结构拆解："
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "ul",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "主干很简单："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "It weighs one thousand, two hundred and ninety-five kilograms."
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（它重一千二百九十五公斤）主语 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "It"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "、谓语 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "weighs"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "——这里 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "weigh"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 不是\"称一称\"的动作，而是\"重达\"的意思，后面直接跟重量。数字虽长，只是一个宾语，不用怕。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "破折号 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "—"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 后面是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "补充说明"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：一串数字太抽象，作者立刻把它变成两个看得见的画面——\"和一辆小汽车一样重\"\"比一头白犀牛还重\"。读到破折号，就知道后面是帮你理解前面的话的。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "as heavy as a small car"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "同级比较"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "as + 形容词原级 + as"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，表示\"和……一样……\"。中间夹的正是形容词原级 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "heavy"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，一个词都不能换成比较级。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "heavier than a white rhinoceros"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 是"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "比较级"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "heavier"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（更重的）+ "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "than"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（比）。注意拼写："
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "heavy"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 结尾的 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "y"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 先变成 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "i"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，再加 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "-er"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "——"
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "happy → happier"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "、"
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "easy → easier"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": " 都是这个规律。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n  "
+       },
+       {
+        "name": "li",
+        "attrs": {},
+        "children": [
+         {
+          "type": "text",
+          "text": "再往上还有"
+         },
+         {
+          "name": "b",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "最高级"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "：课文第一句 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "the heaviest pumpkin in the world"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "（世界上最重的南瓜）——三者或以上比较时用 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "the + 最高级"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "，后面常跟 "
+         },
+         {
+          "name": "i",
+          "attrs": {},
+          "children": [
+           {
+            "type": "text",
+            "text": "in + 范围"
+           }
+          ]
+         },
+         {
+          "type": "text",
+          "text": "。同级、比较级、最高级，正好是形容词的\"三级台阶\"。"
+         }
+        ]
+       },
+       {
+        "type": "text",
+        "text": "\n"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     }
+    ]
+   }
+  ],
+  "answers_nodes": [
+   {
+    "name": "div",
+    "attrs": {
+     "class": "ans"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "\n1 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SCALE"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（巨型秤）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "2 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PANTHER"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（黑豹）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "3 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "WAX"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（蜂蜡）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "4 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "SEAL"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（密封；封住）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "5 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "TOMB"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（坟墓；古墓）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "6 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "WEIGH"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（称（重量））"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "7 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "GERMS"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（细菌）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "8 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "ENZYME"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（酶）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "9 竖 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "HONEY"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（蜂蜜）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "10 横 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "PUMPKIN"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": "（南瓜）"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B. Single Choice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n1 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "B"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says Bagheera "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"weighs one thousand, two hundred and ninety-five kilograms.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n2 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "A"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"This year, for the first time, Ian entered the contest alone\""
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": " — alone, without his twin brother Stuart."
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n3 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". Honey is "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"very, very dry\""
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": " and "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"a little sour\""
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ", and the bees "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"seal every cell with wax\""
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": " — so germs cannot live in it."
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n4 → "
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "A"
+       }
+      ]
+     },
+     {
+      "type": "text",
+      "text": ". The text says: "
+     },
+     {
+      "name": "i",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "\"It means something is very easy.\""
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\n"
+     },
+     {
+      "name": "b",
+      "attrs": {},
+      "children": [
+       {
+        "type": "text",
+        "text": "C. Part 4 Practice:"
+       }
+      ]
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nA. 1. as heavy as  2. as sweet as"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nB. 1. heavier than  2. faster than"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nC. 1. the heaviest  2. the biggest"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "\nD. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.\n"
+     }
+    ]
+   },
+   {
+    "name": "p",
+    "attrs": {
+     "style": "text-align:center; color:#888; margin-top: 16pt;"
+    },
+    "children": [
+     {
+      "type": "text",
+      "text": "🌟 全部答对就是今日 MVP！"
+     },
+     {
+      "name": "br",
+      "attrs": {},
+      "children": []
+     },
+     {
+      "type": "text",
+      "text": "明天早上同一时间，继续《Michael的早听晚读》～"
+     }
+    ]
+   }
+  ],
+  "keys": {
+   "choice": [
+    "B",
+    "A",
+    "C",
+    "A"
+   ]
+  },
+  "practice": {
+   "groups": [
+    {
+     "name": "A. 同级比较 as ... as：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "Bagheera is ____ a small car.",
+       "options": [
+        "as heavy as",
+        "as heavier as",
+        "so heavy as"
+       ],
+       "answer": 0
+      },
+      {
+       "prompt": "The honey in the tomb is ____ the honey in our kitchen.",
+       "options": [
+        "as sweeter as",
+        "as sweet as",
+        "so sweet as"
+       ],
+       "answer": 1
+      }
+     ]
+    },
+    {
+     "name": "B. 比较级 ... than：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "Bagheera is ____ a white rhinoceros.",
+       "options": [
+        "heavy than",
+        "more heavier than",
+        "heavier than"
+       ],
+       "answer": 2
+      },
+      {
+       "prompt": "A giant pumpkin grows ____ a normal pumpkin.",
+       "options": [
+        "faster than",
+        "fast than",
+        "more faster than"
+       ],
+       "answer": 0
+      }
+     ]
+    },
+    {
+     "name": "C. 最高级 the ...-est：用括号里的词补全",
+     "items": [
+      {
+       "prompt": "Bagheera is ____ pumpkin in the world.",
+       "options": [
+        "the heavier",
+        "the heaviest",
+        "most heaviest"
+       ],
+       "answer": 1
+      },
+      {
+       "prompt": "It is ____ pumpkin ever grown by a person.",
+       "options": [
+        "the bigger",
+        "most biggest",
+        "the biggest"
+       ],
+       "answer": 2
+      }
+     ]
+    }
+   ],
+   "open_title": "D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）",
+   "open": [
+    "This pumpkin is as big as a car, but that one is even bigger.",
+    "Honey is the sweetest food in our kitchen, and it never goes bad."
+   ]
+  },
+  "crossword": {
+   "nrows": 13,
+   "ncols": 9,
+   "words": [
+    {
+     "word": "SCALE",
+     "row": 0,
+     "col": 2,
+     "dir": "D",
+     "num": 1,
+     "cn": "巨型秤",
+     "clue": "The big machine that told everyone Bagheera’s weight."
+    },
+    {
+     "word": "PANTHER",
+     "row": 0,
+     "col": 5,
+     "dir": "D",
+     "num": 2,
+     "cn": "黑豹",
+     "clue": "Bagheera is named after this black animal in The Jungle Book."
+    },
+    {
+     "word": "WAX",
+     "row": 1,
+     "col": 4,
+     "dir": "A",
+     "num": 3,
+     "cn": "蜂蜡",
+     "clue": "Bees seal every honey cell with this, like a lid on a jar."
+    },
+    {
+     "word": "SEAL",
+     "row": 2,
+     "col": 0,
+     "dir": "A",
+     "num": 4,
+     "cn": "密封；封住",
+     "clue": "To close something tight, so nothing can get in."
+    },
+    {
+     "word": "TOMB",
+     "row": 3,
+     "col": 5,
+     "dir": "A",
+     "num": 5,
+     "cn": "坟墓；古墓",
+     "clue": "A king was buried in one, with pots of honey beside him."
+    },
+    {
+     "word": "WEIGH",
+     "row": 4,
+     "col": 1,
+     "dir": "A",
+     "num": 6,
+     "cn": "称（重量）",
+     "clue": "To find out how heavy something is."
+    },
+    {
+     "word": "GERMS",
+     "row": 6,
+     "col": 3,
+     "dir": "A",
+     "num": 7,
+     "cn": "细菌",
+     "clue": "Tiny living things that can make food go bad."
+    },
+    {
+     "word": "ENZYME",
+     "row": 6,
+     "col": 4,
+     "dir": "D",
+     "num": 8,
+     "cn": "酶",
+     "clue": "A special helper that bees add to honey to stop germs."
+    },
+    {
+     "word": "HONEY",
+     "row": 8,
+     "col": 8,
+     "dir": "D",
+     "num": 9,
+     "cn": "蜂蜜",
+     "clue": "Sweet food made by bees — it can wait three thousand years."
+    },
+    {
+     "word": "PUMPKIN",
+     "row": 10,
+     "col": 2,
+     "dir": "A",
+     "num": 10,
+     "cn": "南瓜",
+     "clue": "The giant orange fruit in our first story."
+    }
+   ]
+  }
+ }
+}

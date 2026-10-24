@@ -1,0 +1,278 @@
+[
+ {
+  "id": 1,
+  "title": "开场白",
+  "blocks": [
+   {
+    "start": 26.19,
+    "end": 30.4,
+    "en": "Hello, young explorers, and welcome back to Michael's Morning Listening!"
+   },
+   {
+    "start": 30.4,
+    "end": 37.14,
+    "en": "Today our first guest is a pumpkin so heavy that it weighs more than a rhinoceros."
+   },
+   {
+    "start": 37.14,
+    "end": 43.87,
+    "en": "Our second guest waited three thousand years inside a dark tomb — a pot of honey!"
+   },
+   {
+    "start": 43.87,
+    "end": 46.4,
+    "en": "Big, sweet, and full of surprises."
+   },
+   {
+    "start": 46.4,
+    "end": 47.24,
+    "en": "Let's go!"
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "title": "南瓜冠军巴吉拉",
+  "blocks": [
+   {
+    "start": 66.58,
+    "end": 69.83,
+    "en": "Meet Bagheera, the heaviest pumpkin in the world!"
+   },
+   {
+    "start": 69.83,
+    "end": 78.77,
+    "en": "It weighs one thousand, two hundred and ninety-five kilograms — as heavy as a small car, and heavier than a white rhinoceros."
+   },
+   {
+    "start": 78.77,
+    "end": 82.43,
+    "en": "Around its middle, it measures more than six metres."
+   },
+   {
+    "start": 82.43,
+    "end": 88.12,
+    "en": "Its name comes from a storybook: Bagheera, the black panther in The Jungle Book."
+   },
+   {
+    "start": 88.12,
+    "end": 92.19,
+    "en": "Its grower is Ian, a sixty-five-year-old plant grower from England."
+   },
+   {
+    "start": 92.19,
+    "end": 98.28,
+    "en": "Ian and his twin brother Stuart spent more than fifty years growing giant pumpkins together."
+   },
+   {
+    "start": 98.28,
+    "end": 102.76,
+    "en": "The brothers became champions and even set a world record together."
+   },
+   {
+    "start": 102.76,
+    "end": 111.29,
+    "en": "This year, for the first time, Ian entered the contest alone, determined to beat his own record — and he did!"
+   },
+   {
+    "start": 111.29,
+    "end": 113.73,
+    "en": "Growing a champion takes hard work."
+   },
+   {
+    "start": 113.73,
+    "end": 118.2,
+    "en": "For two months, Ian worked up to six hours a day."
+   },
+   {
+    "start": 118.2,
+    "end": 126.33,
+    "en": "On hot days, he gave his plant five hundred and ninety litres of water — enough to fill three bathtubs!"
+   },
+   {
+    "start": 126.33,
+    "end": 131.21,
+    "en": "At last, workers lifted Bagheera with a forklift onto a giant scale."
+   },
+   {
+    "start": 131.21,
+    "end": 136.09,
+    "en": "A Guinness judge observed every step and announced: a new world record!"
+   },
+   {
+    "start": 136.09,
+    "end": 142.59,
+    "en": "Now Bagheera sits on a farm, and families bring their cameras to take photos beside it."
+   },
+   {
+    "start": 142.59,
+    "end": 144.62,
+    "en": "And when the show ends?"
+   },
+   {
+    "start": 144.62,
+    "end": 149.5,
+    "en": "This champion will become dinner — for the cows on the farm!"
+   },
+   {
+    "start": 149.5,
+    "end": 155.19,
+    "en": "From one tiny seed to a pumpkin heavier than a rhinoceros: what a champion!"
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "title": "三千年不坏的蜂蜜",
+  "blocks": [
+   {
+    "start": 170.21,
+    "end": 171.92,
+    "en": "Time for something sweet."
+   },
+   {
+    "start": 171.92,
+    "end": 180.88,
+    "en": "Long ago in Egypt, a king was buried with pots of honey — food for his journey to the next world."
+   },
+   {
+    "start": 180.88,
+    "end": 185.58,
+    "en": "Three thousand years later, explorers opened the tomb and tasted it."
+   },
+   {
+    "start": 185.58,
+    "end": 186.43,
+    "en": "Still good!"
+   },
+   {
+    "start": 186.43,
+    "end": 190.27,
+    "en": "How can food stay fresh for three thousand years?"
+   },
+   {
+    "start": 190.27,
+    "end": 193.69,
+    "en": "Secret number one: honey is very, very dry."
+   },
+   {
+    "start": 193.69,
+    "end": 201.8,
+    "en": "Bees make it from nectar, the sweet juice inside flowers, fanning their wings like tiny fans to dry it."
+   },
+   {
+    "start": 201.8,
+    "end": 207.35,
+    "en": "Germs need water to live, and inside honey they dry out and die."
+   },
+   {
+    "start": 207.35,
+    "end": 214.18,
+    "en": "Secret number two: honey is a little sour, like lemon juice, and germs hate sour food."
+   },
+   {
+    "start": 214.18,
+    "end": 221.44,
+    "en": "Secret number three: bees add a special enzyme that makes a natural cleaner, stopping germs from growing."
+   },
+   {
+    "start": 221.44,
+    "end": 227.84,
+    "en": "Then the bees seal every cell with wax, like a lid on a tiny jar."
+   },
+   {
+    "start": 227.84,
+    "end": 235.95,
+    "en": "Dry, sour, guarded by a cleaner, and sealed with wax — no wonder honey can wait three thousand years!"
+   },
+   {
+    "start": 235.95,
+    "end": 242.78,
+    "en": "Keep the lid closed and the water out, and your honey might wait for you, too."
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "title": "今日俚语",
+  "blocks": [
+   {
+    "start": 256.2,
+    "end": 265.22,
+    "en": "Here's today's idiom: \"a piece of cake.\" It means something is very easy — as easy as eating a sweet slice of cake."
+   },
+   {
+    "start": 265.22,
+    "end": 266.79,
+    "en": "Listen to little Tom."
+   },
+   {
+    "start": 266.79,
+    "end": 274.24,
+    "en": "His teacher said, \"Our class will carve a pumpkin for the autumn festival.\" Tom smiled and said, \"No problem."
+   },
+   {
+    "start": 274.24,
+    "end": 282.87,
+    "en": "Carving a pumpkin is a piece of cake!\" Ten minutes later, his pumpkin had a funny face, and Tom won first prize."
+   },
+   {
+    "start": 282.87,
+    "end": 285.23,
+    "en": "But growing a pumpkin like Bagheera?"
+   },
+   {
+    "start": 285.23,
+    "end": 289.54,
+    "en": "Ian will tell you: that is NOT a piece of cake!"
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "title": "结束语与互动问题",
+  "blocks": [
+   {
+    "start": 303.92,
+    "end": 306.0,
+    "en": "Let's think about our two stories."
+   },
+   {
+    "start": 306.0,
+    "end": 312.91,
+    "en": "First: if you could grow a giant pumpkin, what would you name it, and what would you do with it?"
+   },
+   {
+    "start": 312.91,
+    "end": 315.68,
+    "en": "Second: honey stayed sweet for three thousand years."
+   },
+   {
+    "start": 315.68,
+    "end": 321.21,
+    "en": "If you could save one food for people in the far future, what would you choose?"
+   },
+   {
+    "start": 321.21,
+    "end": 323.29,
+    "en": "Talk about it with your family!"
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "title": "告别",
+  "blocks": [
+   {
+    "start": 336.87,
+    "end": 339.14,
+    "en": "That's all for today, young explorers."
+   },
+   {
+    "start": 339.14,
+    "end": 344.81,
+    "en": "Dream big like Ian, work hard like the bees — and see you tomorrow morning!"
+   }
+  ]
+ }
+]
