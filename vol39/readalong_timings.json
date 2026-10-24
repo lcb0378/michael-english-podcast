@@ -1,0 +1,233 @@
+[
+ {
+  "id": 1,
+  "title": "开场白",
+  "blocks": [
+   {
+    "start": 22.19,
+    "end": 26.5,
+    "en": "Hello, young explorers, and welcome back to Michael's Morning Listening!"
+   },
+   {
+    "start": 26.5,
+    "end": 34.68,
+    "en": "Today we meet a grandpa who folds paper planes, and tiny ants that sleep in a very strange way."
+   },
+   {
+    "start": 34.68,
+    "end": 35.11,
+    "en": "Ready?"
+   },
+   {
+    "start": 35.11,
+    "end": 35.97,
+    "en": "Let's go!"
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "title": "纸飞机爷爷",
+  "blocks": [
+   {
+    "start": 55.07,
+    "end": 59.67,
+    "en": "John Collins has loved paper planes since he was a boy."
+   },
+   {
+    "start": 59.67,
+    "end": 64.27,
+    "en": "He folded hundreds of them — big, small, fast, and funny."
+   },
+   {
+    "start": 64.27,
+    "end": 73.06,
+    "en": "He was not an accountant, but he counted every fold and every test flight until his planes flew straight and far."
+   },
+   {
+    "start": 73.06,
+    "end": 76.82,
+    "en": "His best design was named Suzanne, after his wife."
+   },
+   {
+    "start": 76.82,
+    "end": 81.43,
+    "en": "It used just one sheet of paper, with long, thin wings."
+   },
+   {
+    "start": 81.43,
+    "end": 90.63,
+    "en": "But a great plane needs a great throw, so John asked his friend Joe Ayoob, a strong football player, to throw it."
+   },
+   {
+    "start": 90.63,
+    "end": 96.9,
+    "en": "One day, inside a huge empty airplane hangar, Joe threw Suzanne with all his strength."
+   },
+   {
+    "start": 96.9,
+    "end": 105.69,
+    "en": "The little plane flew and flew — farther than five school buses in a row — and landed 69.14 meters away."
+   },
+   {
+    "start": 105.69,
+    "end": 110.29,
+    "en": "The judges measured it carefully and approved the new world record!"
+   },
+   {
+    "start": 110.29,
+    "end": 119.49,
+    "en": "If a fold is loose, air leaks through the gap and the plane wobbles, so every fold must be neat and tight."
+   },
+   {
+    "start": 119.49,
+    "end": 126.19,
+    "en": "And when a test plane crashed, John did not mourn it — he just folded again."
+   },
+   {
+    "start": 126.19,
+    "end": 135.39,
+    "en": "That is the bond between a designer and a thrower: one dreams, one throws, and together they fly into the record books."
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "title": "打盹的蚂蚁",
+  "blocks": [
+   {
+    "start": 150.49,
+    "end": 154.86,
+    "en": "Meanwhile, down in the grass, ants look like they never sleep."
+   },
+   {
+    "start": 154.86,
+    "end": 158.05,
+    "en": "They run here and there, day and night."
+   },
+   {
+    "start": 158.05,
+    "end": 166.79,
+    "en": "But scientists filmed a fire ant nest, and they found a secret: ants do sleep — they just sleep in tiny pieces!"
+   },
+   {
+    "start": 166.79,
+    "end": 173.55,
+    "en": "A worker ant takes about 253 naps every day, and each nap lasts just over a minute."
+   },
+   {
+    "start": 173.55,
+    "end": 177.93,
+    "en": "All those little naps accumulate into almost five hours of sleep."
+   },
+   {
+    "start": 177.93,
+    "end": 179.52,
+    "en": "The statistics are amazing."
+   },
+   {
+    "start": 179.52,
+    "end": 189.46,
+    "en": "Because workers nap at different times, about 80 out of every 100 ants are awake and working at any moment, so the nest never stops."
+   },
+   {
+    "start": 189.46,
+    "end": 198.21,
+    "en": "The queen sleeps much longer — about nine hours a day in longer naps, with her antennae twitching like she is dreaming."
+   },
+   {
+    "start": 198.21,
+    "end": 202.58,
+    "en": "Ants do not have eyelids, so they cannot close their eyes."
+   },
+   {
+    "start": 202.58,
+    "end": 209.34,
+    "en": "When a worker finds a crumb of bacon, she calls her sisters to help carry it home."
+   },
+   {
+    "start": 209.34,
+    "end": 215.7,
+    "en": "And every morning, she washes her face with her front legs — her own quick facial!"
+   },
+   {
+    "start": 215.7,
+    "end": 221.27,
+    "en": "So when you see an ant rushing past, remember: she is just between naps."
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "title": "今日俚语",
+  "blocks": [
+   {
+    "start": 235.49,
+    "end": 242.93,
+    "en": "Here's today's idiom: 'rock the boat.' When you rock the boat, you upset a calm situation or cause trouble in a group."
+   },
+   {
+    "start": 242.93,
+    "end": 257.14,
+    "en": "Here's an example: 'Our class had a happy plan for the picnic, and nobody wanted to rock the boat, so we all agreed to go to the park.' Rocking a real boat is fun for a second — and wet for everyone!"
+   },
+   {
+    "start": 257.14,
+    "end": 263.57,
+    "en": "So, when do you think it is good to speak up, even if it rocks the boat a little?"
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "title": "结束语与互动问题",
+  "blocks": [
+   {
+    "start": 276.51,
+    "end": 282.84,
+    "en": "Let's think about our stories: a record-breaking paper plane, and ants that nap one minute at a time."
+   },
+   {
+    "start": 282.84,
+    "end": 289.86,
+    "en": "First: if you folded a paper plane, what would you name it, and who would you ask to throw it?"
+   },
+   {
+    "start": 289.86,
+    "end": 297.24,
+    "en": "Second: if you could nap like an ant, would you take 253 tiny naps, or one long sleep like the queen?"
+   },
+   {
+    "start": 297.24,
+    "end": 303.92,
+    "en": "And one last question: can you think of a time when you did not want to rock the boat?"
+   },
+   {
+    "start": 303.92,
+    "end": 306.03,
+    "en": "Talk about it with your family!"
+   }
+  ]
+ },
+ {
+  "id": 6,
+  "title": "告别",
+  "blocks": [
+   {
+    "start": 316.01,
+    "end": 318.19,
+    "en": "That's all for today, young explorers."
+   },
+   {
+    "start": 318.19,
+    "end": 322.91,
+    "en": "Fold straight, nap smart like an ant — and don't rock the boat!"
+   },
+   {
+    "start": 322.91,
+    "end": 324.0,
+    "en": "See you tomorrow!"
+   }
+  ]
+ }
+]

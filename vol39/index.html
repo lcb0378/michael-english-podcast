@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vol.39 跟读高亮页 · Michael的早听晚读</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f7f5f0; color: #333; line-height: 1.7; }
+.container { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+header { text-align: center; margin-bottom: 24px; }
+header img { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; }
+header video { width: 100%; max-width: 560px; border-radius: 16px; margin: 0 auto 16px; display: block; background: #000; }
+header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+header .meta { color: #888; font-size: 0.9rem; }
+.player { position: sticky; top: 0; background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 20px; z-index: 10; }
+.controls { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+#playBtn { width: 52px; height: 52px; border-radius: 50%; border: none; background: #ff8c42; color: #fff; font-size: 1.4rem; cursor: pointer; flex-shrink: 0; }
+#playBtn:hover { background: #f07a2e; }
+.progress-wrap { flex: 1; }
+#progress { width: 100%; accent-color: #ff8c42; cursor: pointer; }
+/* 光标语义 (David 2026-10-21): 默认箭头 / 可点处小手 / 可选字处 I 形。进度条滑钮保持原生小圆圈（David 复查后定版，勿改小手） */
+body { cursor: default; }
+.guide { cursor: text; }
+.guide a, .guide button { cursor: pointer; }
+header video { cursor: pointer; }
+.time { font-size: 0.8rem; color: #888; white-space: nowrap; }
+.speeds { display: flex; gap: 8px; }
+.speeds button { border: 1px solid #ddd; background: #fff; border-radius: 20px; padding: 4px 14px; cursor: pointer; font-size: 0.85rem; }
+.speeds button.active { background: #ff8c42; color: #fff; border-color: #ff8c42; }
+.part-head { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 8px 0 16px; }
+.block { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 14px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.block.active { border-color: #ff8c42; background: #fff8f2; }
+.sec-head { font-size: 1rem; font-weight: bold; color: #1a56db; margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #dbeafe; }
+.block .en { font-size: 1.05rem; margin-bottom: 8px; }
+.block .en .w { border-radius: 3px; padding: 1px 0; }
+.block .en .w.hl { background: #ffe082; }
+.block .cn { color: #777; font-size: 0.95rem; }
+.story-strip { display: flex; gap: 12px; justify-content: center; margin: 20px auto; max-width: 560px; }
+.story-strip img { width: 48%; border-radius: 12px; }
+.pdf-dl { text-align: center; margin: 32px 0 8px; padding: 28px 20px; background: #fff; border-radius: 16px; }
+.pdf-dl a { display: inline-block; background: #ff8c42; color: #fff; text-decoration: none; font-size: 1.1rem; padding: 14px 32px; border-radius: 30px; font-weight: bold; }
+.pdf-dl a:hover { background: #f07a2e; }
+.pdf-dl p { color: #999; font-size: 0.9rem; margin-top: 12px; }
+/* Study guide styles */
+.guide { background: #fff; border-radius: 16px; padding: 24px 20px; margin: 24px 0; }
+/* 填字答案格（Part 5 solved grid）— 与 crossword_render.STYLE 同规格；
+   2026-10-22 补：此前模板缺这组样式，答案表无边框渲染成飘字（David 抓到） */
+.cwwrap { overflow-x: auto; }
+.cwt { border-collapse: collapse; margin: 10px auto; }
+.cwt td { width: 26px; height: 26px; border: 1.2px solid #333; padding: 0; position: relative; }
+.cwt td.cwb { background: #333; }
+.cwt td.cwc { background: #fff; text-align: center; }
+.cwn { font-size: 7.5pt; color: #1a56db; font-weight: bold; display: block; text-align: left; line-height: 1; padding-left: 1px; }
+.cwl { font-size: 12pt; font-weight: bold; }
+.guide h2 { font-size: 1.3rem; color: #1a56db; border-bottom: 2px solid #1a56db; padding-bottom: 8px; margin: 24px 0 16px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-size: 1.1rem; color: #333; margin: 16px 0 8px; }
+.guide .vocab { background: #fffbe8; border: 1px solid #ecd27a; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .vocab .word { font-size: 1.1rem; font-weight: bold; }
+.guide .vocab .phon { color: #888; }
+.guide .tag { display: inline-block; background: #e11d48; color: #fff; font-size: 0.8rem; border-radius: 4px; padding: 2px 8px; margin-right: 4px; }
+.guide .tag.blue { background: #1a56db; } .guide .tag.green { background: #059669; } .guide .tag.orange { background: #ea580c; }
+.guide .example { font-style: italic; color: #555; margin-top: 6px; }
+.guide .quiz li { margin-bottom: 10px; line-height: 1.6; }
+.guide .breakdown { background: #f0fdf4; border: 1px solid #86c9a2; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .ans { background: #f4f7ff; border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.guide .en { background: #f4f7ff; border-left: 4px solid #1a56db; padding: 10px 14px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.guide .cn { color: #555; padding: 6px 14px 10px 18px; }
+@media (max-width: 480px) { .story-strip { flex-direction: column; } .story-strip img { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<video id="epVideo" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol39/video_v1.mp4" poster="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol39/cover.png" controls playsinline preload="metadata"></video>
+<h1>✈️🐜 Vol.39 · 纸飞机爷爷与打盹的蚂蚁</h1>
+<div class="meta">英文 591 词 ｜ 音频 5分33秒</div>
+</header>
+<div class="player">
+<div class="controls">
+<button id="playBtn">▶</button>
+<div class="progress-wrap"><input type="range" id="progress" min="0" max="100" step="0.1" value="0"></div>
+<div class="time"><span id="cur">0:00</span> / <span id="dur">0:00</span></div>
+</div>
+<div class="speeds">
+<button data-r="0.9">0.9x</button>
+<button data-r="1" class="active">1x</button>
+<button data-r="1.1">1.1x</button>
+<button data-r="1.5">1.5x</button>
+</div>
+</div>
+<div class="story-strip">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol39/story-plane.png" alt="纸飞机爷爷">
+<img src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol39/story-ant.png" alt="打盹的蚂蚁">
+</div>
+<h2 class="part-head">📖 Part 1：双语精读对照</h2>
+<div id="blocks"></div>
+<div class="guide">
+Part 2：核心词汇</h2>
+
+<div class="vocab">
+  <span class="word">rock the boat</span> <span class="phon">/rɒk ðə bəʊt/</span> (习语) 打破平静；惹麻烦<br>
+  <span class="tag orange">今日俚语必背</span>
+  <div class="example">Example: Nobody wanted to <b>rock the boat</b>, so we all agreed to go to the park.</div>
+</div>
+<div class="vocab">
+  <span class="word">hangar</span> <span class="phon">/ˈhæŋər/</span> (n.) 飞机库<br>
+  
+  <div class="example">Example: Joe threw Suzanne inside a huge empty airplane <b>hangar</b>.</div>
+</div>
+<div class="vocab">
+  <span class="word">accountant</span> <span class="phon">/əˈkaʊntənt/</span> (n.) 会计师<br>
+  
+  <div class="example">Example: He was not an <b>accountant</b>, but he counted every fold.</div>
+</div>
+<div class="vocab">
+  <span class="word">accumulate</span> <span class="phon">/əˈkjuːmjəleɪt/</span> (v.) 积累；积聚<br>
+  
+  <div class="example">Example: All those little naps <b>accumulate</b> into almost five hours of sleep.</div>
+</div>
+<div class="vocab">
+  <span class="word">statistics</span> <span class="phon">/stəˈtɪstɪks/</span> (n.) 统计数字<br>
+  
+  <div class="example">Example: The <b>statistics</b> are amazing.</div>
+</div>
+<div class="vocab">
+  <span class="word">antennae</span> <span class="phon">/ænˈteniː/</span> (n.) 触角<br>
+  
+  <div class="example">Example: With her <b>antennae</b> twitching like she is dreaming.</div>
+</div>
+<div class="vocab">
+  <span class="word">mourn</span> <span class="phon">/mɔːrn/</span> (v.) 哀悼；为……悲伤<br>
+  
+  <div class="example">Example: John did not <b>mourn</b> it — he just folded again.</div>
+</div>
+<div class="vocab">
+  <span class="word">approve</span> <span class="phon">/əˈpruːv/</span> (v.) 批准；赞许<br>
+  
+  <div class="example">Example: The judges measured it carefully and <b>approved</b> the new world record.</div>
+</div>
+<div class="vocab">
+  <span class="word">bond</span> <span class="phon">/bɒnd/</span> (n.) 纽带；联系<br>
+  
+  <div class="example">Example: That is the <b>bond</b> between a designer and a thrower.</div>
+</div>
+<div class="vocab">
+  <span class="word">meanwhile</span> <span class="phon">/ˈmiːnwaɪl/</span> (adv.) 与此同时<br>
+  
+  <div class="example">Example: <b>Meanwhile</b>, down in the grass, ants look like they never sleep.</div>
+</div>
+<div class="vocab">
+  <span class="word">leak</span> <span class="phon">/liːk/</span> (v.) 漏出；泄露<br>
+  
+  <div class="example">Example: If a fold is loose, air <b>leaks</b> through the gap.</div>
+</div>
+<div class="vocab">
+  <span class="word">bacon</span> <span class="phon">/ˈbeɪkən/</span> (n.) 培根<br>
+  
+  <div class="example">Example: When a worker finds a crumb of <b>bacon</b>, she calls her sisters.</div>
+</div>
+<div class="vocab">
+  <span class="word">facial</span> <span class="phon">/ˈfeɪʃl/</span> (adj.) 面部的<br>
+  
+  <div class="example">Example: Her own quick <b>facial</b>!</div>
+</div>
+
+
+<h2>✏️ Part 3：阅读理解自测</h2>
+<h3>A. 填字游戏（Crossword）</h3>
+
+<div id="cwApp">
+  <p>点一条提示（或点空格）选中要填的词，再点词库里的词填进去——长度对不上会提醒你。填错了点已填的提示可以清空重选。</p>
+  <div id="cwGrid"></div>
+  <div class="cw-sec"><b>词库 Word Bank</b></div>
+  <div id="cwBank"></div>
+  <div class="cw-sec"><b>提示 Clues</b>（按编号顺序）</div>
+  <div id="cwClues"></div>
+  <div class="cw-actions">
+    <button id="cwCheck" type="button">✔ 核对答案</button>
+    <button id="cwReset" type="button">↺ 重新开始</button>
+    <span id="cwScore"></span>
+  </div>
+  <div id="cwMsg"></div>
+</div>
+<style>
+#cwGrid table { border-collapse: collapse; margin: 10px auto; }
+#cwGrid td { width: 30px; height: 30px; border: 1.5px solid #333; text-align: center; font-weight: bold; font-size: 15px; cursor: pointer; position: relative; background:#fff; }
+#cwGrid td.blk { background: #333; cursor: default; }
+#cwGrid td.sel { background: #ffe58a; }
+#cwGrid td.ok { background: #d3f9d8; }
+#cwGrid td.bad { background: #ffd8d8; }
+#cwGrid td .n { position: absolute; top: 0; left: 2px; font-size: 9px; color: #1a56db; }
+.cw-sec { margin: 14px 0 6px; }
+#cwBank { display: flex; flex-wrap: wrap; gap: 8px; }
+.cw-chip { border: 1.5px solid #1a56db; color: #1a56db; background: #fff; border-radius: 16px; padding: 4px 12px; font-weight: bold; cursor: pointer; font-size: 15px; }
+.cw-chip .cn { color: #b8860b; font-weight: normal; font-size: 13px; }
+.cw-chip.used { opacity: .35; text-decoration: line-through; }
+.cw-clue { margin: 5px 0; line-height: 1.55; cursor: pointer; }
+.cw-clue.sel { background: #fff3bf; }
+.cw-clue .mk-ok { color: #2b8a3e; font-weight: bold; }
+.cw-clue .mk-no { color: #e03131; font-weight: bold; }
+.cw-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.cw-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#cwReset { background: #868e96; }
+#cwScore { font-weight: bold; color: #1a56db; }
+#cwMsg { color: #e03131; min-height: 20px; font-size: 14px; }
+</style>
+<script>
+const CW = {"nrows": 11, "ncols": 12, "words": [{"word": "PAPER", "row": 0, "col": 4, "dir": "D", "num": 1, "cn": "纸", "clue": "A grandpa who folds ___ planes."}, {"word": "HANGAR", "row": 1, "col": 0, "dir": "A", "num": 2, "cn": "飞机库", "clue": "Inside a huge empty airplane ___, Joe threw Suzanne."}, {"word": "RECORD", "row": 5, "col": 1, "dir": "D", "num": 3, "cn": "纪录", "clue": "The judges approved the new world ___."}, {"word": "DESIGNER", "row": 3, "col": 3, "dir": "A", "num": 4, "cn": "设计师", "clue": "The bond between a ___ and a thrower."}, {"word": "NAP", "row": 5, "col": 9, "dir": "A", "num": 5, "cn": "打盹", "clue": "A worker ant takes about 253 ___s every day."}, {"word": "QUEEN", "row": 6, "col": 3, "dir": "D", "num": 6, "cn": "蚁后", "clue": "The ___ sleeps much longer."}, {"word": "ANTENNAE", "row": 0, "col": 9, "dir": "D", "num": 7, "cn": "触角", "clue": "With her ___ twitching like she is dreaming."}, {"word": "BACON", "row": 6, "col": 7, "dir": "D", "num": 8, "cn": "培根", "clue": "A crumb of ___ found by a worker."}, {"word": "BOAT", "row": 0, "col": 7, "dir": "A", "num": 9, "cn": "小船", "clue": "Nobody wanted to rock the ___."}, {"word": "ACCUMULATE", "row": 7, "col": 0, "dir": "A", "num": 10, "cn": "积累", "clue": "All those little naps ___ into almost five hours."}]};
+(function () {
+  const grid = {}, nums = {};
+  CW.words.forEach(w => {
+    nums[w.row + ',' + w.col] = w.num;
+    for (let i = 0; i < w.word.length; i++) {
+      const r = w.dir === 'A' ? w.row : w.row + i, c = w.dir === 'A' ? w.col + i : w.col;
+      (grid[r + ',' + c] = grid[r + ',' + c] || []).push(CW.words.indexOf(w));
+    }
+  });
+  let filled = {}, used = {}, marks = {}, sel = -1;
+  const order = CW.words.map((w, i) => i).sort((a, b) => CW.words[a].num - CW.words[b].num);
+  const cellWord = (r, c) => (grid[r + ',' + c] || []);
+  function slotCells(w) {
+    const out = [];
+    for (let i = 0; i < w.word.length; i++) out.push(w.dir === 'A' ? [w.row, w.col + i] : [w.row + i, w.col]);
+    return out;
+  }
+  function cellLetter(r, c) {
+    for (const i of cellWord(r, c)) if (filled[i]) {
+      const w = CW.words[i], idx = w.dir === 'A' ? c - w.col : r - w.row;
+      return filled[i][idx];
+    }
+    return '';
+  }
+  function cellState(r, c) {
+    for (const i of cellWord(r, c)) if (marks[i] !== undefined) return marks[i] ? 'ok' : 'bad';
+    return '';
+  }
+  function render() {
+    let h = '<table>';
+    for (let r = 0; r < CW.nrows; r++) {
+      h += '<tr>';
+      for (let c = 0; c < CW.ncols; c++) {
+        const k = r + ',' + c;
+        if (!grid[k]) { h += '<td class="blk"></td>'; continue; }
+        const inSel = sel >= 0 && cellWord(r, c).includes(sel);
+        h += `<td class="${inSel ? 'sel' : ''} ${cellState(r, c)}" data-r="${r}" data-c="${c}">${nums[k] ? `<span class="n">${nums[k]}</span>` : ''}${cellLetter(r, c)}</td>`;
+      }
+      h += '</tr>';
+    }
+    document.getElementById('cwGrid').innerHTML = h + '</table>';
+    document.querySelectorAll('#cwGrid td[data-r]').forEach(td => td.onclick = () => {
+      const ws = cellWord(+td.dataset.r, +td.dataset.c);
+      if (ws.length) select(ws.includes(sel) ? ws.find(i => i !== sel) ?? ws[0] : ws[0]);
+    });
+    document.getElementById('cwBank').innerHTML = CW.words.map((w, i) =>
+      `<button type="button" class="cw-chip ${used[i] ? 'used' : ''}" data-i="${i}">${w.word} <span class="cn">${w.cn}</span></button>`).join('');
+    document.querySelectorAll('.cw-chip').forEach(ch => ch.onclick = () => place(+ch.dataset.i));
+    document.getElementById('cwClues').innerHTML = order.map(i => {
+      const w = CW.words[i];
+      return `<p class="cw-clue ${sel === i ? 'sel' : ''}" data-i="${i}"><b>${w.num} ${w.dir === 'A' ? '横' : '竖'}.</b> ${w.clue} ${marks[i] === true ? '<span class="mk-ok">✓</span>' : marks[i] === false ? '<span class="mk-no">✗</span>' : ''}</p>`;
+    }).join('');
+    document.querySelectorAll('.cw-clue').forEach(cl => cl.onclick = () => select(+cl.dataset.i));
+  }
+  function select(i) {
+    if (filled[i]) { delete filled[i]; delete used[i]; delete marks[i]; }
+    sel = i; document.getElementById('cwMsg').textContent = ''; render();
+  }
+  function place(i) {
+    const msg = document.getElementById('cwMsg');
+    if (sel < 0) { msg.textContent = '先点一条提示（或一个空格），选中要填的位置，再点词。'; return; }
+    if (used[i]) { msg.textContent = '这个词已经用过了。'; return; }
+    const w = CW.words[sel], cand = CW.words[i];
+    if (cand.word.length !== w.word.length) {
+      msg.textContent = `长度对不上：${w.num} 号空是 ${w.word.length} 个字母，「${cand.word}」是 ${cand.word.length} 个字母，换一个试试。`;
+      return;
+    }
+    filled[sel] = cand.word; used[i] = true; delete marks[sel];
+    msg.textContent = ''; sel = -1; render();
+  }
+  document.getElementById('cwCheck').onclick = () => {
+    let right = 0, total = 0;
+    CW.words.forEach((w, i) => { if (filled[i]) { total++; marks[i] = filled[i] === w.word; if (marks[i]) right++; } });
+    const done = Object.keys(filled).length;
+    document.getElementById('cwScore').textContent = done < CW.words.length
+      ? `已填 ${done} / ${CW.words.length} 个词，先全部填完再核对哦`
+      : (right === CW.words.length ? `🏆 ${right} / ${CW.words.length} 全对！今日 MVP！` : `得分 ${right} / ${CW.words.length}，标 ✗ 的可以点它清空重选`);
+    render();
+  };
+  document.getElementById('cwReset').onclick = () => {
+    filled = {}; used = {}; marks = {}; sel = -1;
+    document.getElementById('cwScore').textContent = ''; render();
+  };
+  render();
+})();
+</script>
+
+
+<h3>B. 单项选择（Single Choice）</h3>
+<div id="chApp">
+<p class="ch-note">点选项作答（可以改选），全部选完后点「核对答案」。</p>
+<div class="ch-q" data-q="0">
+<p class="ch-stem">1. What was special about John&#x27;s best paper plane design?</p>
+<button type="button" class="ch-opt" data-q="0" data-o="0">A. It was made of metal</button>
+<button type="button" class="ch-opt" data-q="0" data-o="1">B. It used just one sheet of paper</button>
+<button type="button" class="ch-opt" data-q="0" data-o="2">C. It had a motor</button>
+<button type="button" class="ch-opt" data-q="0" data-o="3">D. It was as big as a bus</button>
+<p class="ch-ans" data-q="0" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="1">
+<p class="ch-stem">2. How far did Suzanne fly?</p>
+<button type="button" class="ch-opt" data-q="1" data-o="0">A. 69.14 meters</button>
+<button type="button" class="ch-opt" data-q="1" data-o="1">B. 25 meters</button>
+<button type="button" class="ch-opt" data-q="1" data-o="2">C. 100 meters</button>
+<button type="button" class="ch-opt" data-q="1" data-o="3">D. 12 meters</button>
+<p class="ch-ans" data-q="1" hidden>正确答案：A</p>
+</div>
+<div class="ch-q" data-q="2">
+<p class="ch-stem">3. How do worker ants sleep?</p>
+<button type="button" class="ch-opt" data-q="2" data-o="0">A. One long sleep at night</button>
+<button type="button" class="ch-opt" data-q="2" data-o="1">B. About 253 tiny naps a day</button>
+<button type="button" class="ch-opt" data-q="2" data-o="2">C. They never sleep at all</button>
+<button type="button" class="ch-opt" data-q="2" data-o="3">D. Only in winter</button>
+<p class="ch-ans" data-q="2" hidden>正确答案：B</p>
+</div>
+<div class="ch-q" data-q="3">
+<p class="ch-stem">4. What does &quot;rock the boat&quot; mean?</p>
+<button type="button" class="ch-opt" data-q="3" data-o="0">A. To row a boat fast</button>
+<button type="button" class="ch-opt" data-q="3" data-o="1">B. To build a boat</button>
+<button type="button" class="ch-opt" data-q="3" data-o="2">C. To upset a calm situation or cause trouble</button>
+<button type="button" class="ch-opt" data-q="3" data-o="3">D. To fish from a boat</button>
+<p class="ch-ans" data-q="3" hidden>正确答案：C</p>
+</div>
+<div class="ch-actions"><button id="chCheck" type="button">✔ 核对答案</button><button id="chReset" type="button">↺ 重新开始</button><span id="chScore"></span></div>
+</div>
+
+<style>
+.ch-note { color: #555; margin: 6px 0 10px; }
+.ch-q { margin: 14px 0; }
+.ch-stem { font-weight: bold; margin-bottom: 6px; line-height: 1.6; }
+.ch-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.ch-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.ch-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.ch-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.ch-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.ch-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.ch-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#chReset { background: #868e96; }
+#chScore { font-weight: bold; color: #1a56db; }
+</style>
+
+
+<script>
+(function () {
+  var KEY = [1, 0, 1, 2];
+  var sel = KEY.map(function () { return -1; });
+  var marks = KEY.map(function () { return null; });
+  function render() {
+    document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[q] === o);
+      btn.classList.toggle('right', marks[q] !== null && o === KEY[q]);
+      btn.classList.toggle('wrong', marks[q] === false && sel[q] === o);
+    });
+    document.querySelectorAll('#chApp .ch-ans').forEach(function (el) {
+      var q = +el.dataset.q;
+      el.hidden = marks[q] !== false;
+    });
+  }
+  document.querySelectorAll('#chApp .ch-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var q = +btn.dataset.q, o = +btn.dataset.o;
+      sel[q] = o;
+      if (marks[q] !== null) { marks[q] = null; document.getElementById('chScore').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('chCheck').onclick = function () {
+    var done = sel.filter(function (s) { return s >= 0; }).length;
+    if (done < KEY.length) {
+      document.getElementById('chScore').textContent = '已选 ' + done + ' / ' + KEY.length + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (s, i) { var ok = s === KEY[i]; if (ok) right++; return ok; });
+    document.getElementById('chScore').textContent = right === KEY.length
+      ? '🏆 ' + right + ' / ' + KEY.length + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + KEY.length + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('chReset').onclick = function () {
+    sel = KEY.map(function () { return -1; });
+    marks = KEY.map(function () { return null; });
+    document.getElementById('chScore').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2>🔬 Part 4：长难句深度拆解与练习</h2>
+<div class="breakdown">
+<b>经典原句：</b><br>
+<span class="en" style="border:none;background:none;padding:0;">If a fold is <b class="kw">loose</b>, air leaks through the gap <b class="kw">and</b> the plane wobbles, <b class="kw">so</b> every fold must be neat and tight.</span><br><br>
+<b>保姆级结构拆解：</b>
+<ul>
+  <li><i>If a fold is loose</i> 是<b>If 条件句</b>：If（如果）+ 条件（折痕松了）→ 后面跟结果（空气漏、飞机晃）。英语里 If 条件句专门表示“如果……就……”的假设。</li>
+  <li><i>air leaks through the gap and the plane wobbles</i> 是<b>and 连接两个分句</b>：and 把两个现象连起来——空气漏出来、飞机摇晃，两个结果同时发生，不用拆成两句话。</li>
+  <li><i>so every fold must be neat and tight</i> 是<b>so 结果句</b>：so（所以）+ 结论——前面说了松折痕的坏处，所以得出结论：每道折痕都必须整齐、严实。</li>
+  <li>整句逻辑链：<b>假设条件（If 折痕松）→ 并列结果（漏气 + 摇晃）→ 得出结论（so 折痕要严实）</b>。一句话里藏着条件句、并列分句和结果句三个机关。</li>
+</ul>
+</div>
+<div id="p4App">
+<p class="p4-note"><b>句型练习 · 互动版</b>（练的就是上面拆解的三个知识点；点选项作答，全部选完后点「核对答案」）</p>
+<p class="p4-gname">A. If 条件句：用括号里的词补全</p>
+<div class="p4-q" data-g="0" data-i="0">
+<p class="p4-stem">If a fold is ____, air leaks through the gap.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="0">loose</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="1">lose</button>
+<button type="button" class="p4-opt" data-g="0" data-i="0" data-o="2">lost</button>
+<p class="p4-ans" data-g="0" data-i="0" hidden>正确答案：loose</p>
+</div>
+<div class="p4-q" data-g="0" data-i="1">
+<p class="p4-stem">If a test plane ____, John folds again.</p>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="0">crash</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="1">crashes</button>
+<button type="button" class="p4-opt" data-g="0" data-i="1" data-o="2">crashed</button>
+<p class="p4-ans" data-g="0" data-i="1" hidden>正确答案：crashes</p>
+</div>
+<p class="p4-gname">B. and 并列分句：用括号里的词补全</p>
+<div class="p4-q" data-g="1" data-i="0">
+<p class="p4-stem">Air leaks through the gap and the plane ____.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="0">wobble</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="1">wobbled</button>
+<button type="button" class="p4-opt" data-g="1" data-i="0" data-o="2">wobbles</button>
+<p class="p4-ans" data-g="1" data-i="0" hidden>正确答案：wobbles</p>
+</div>
+<div class="p4-q" data-g="1" data-i="1">
+<p class="p4-stem">John dreams and Joe ____.</p>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="0">throws</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="1">throw</button>
+<button type="button" class="p4-opt" data-g="1" data-i="1" data-o="2">threw</button>
+<p class="p4-ans" data-g="1" data-i="1" hidden>正确答案：throws</p>
+</div>
+<p class="p4-gname">C. so 结果句：用括号里的词补全</p>
+<div class="p4-q" data-g="2" data-i="0">
+<p class="p4-stem">The fold is loose, so the plane ____.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="0">wobble</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="1">wobbles</button>
+<button type="button" class="p4-opt" data-g="2" data-i="0" data-o="2">wobbled</button>
+<p class="p4-ans" data-g="2" data-i="0" hidden>正确答案：wobbles</p>
+</div>
+<div class="p4-q" data-g="2" data-i="1">
+<p class="p4-stem">Workers nap at different times, so the nest never ____.</p>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="0">stop</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="1">stopped</button>
+<button type="button" class="p4-opt" data-g="2" data-i="1" data-o="2">stops</button>
+<p class="p4-ans" data-g="2" data-i="1" hidden>正确答案：stops</p>
+</div>
+<div class="p4-actions"><button id="p4Check" type="button">✔ 核对答案</button><button id="p4Reset" type="button">↺ 重新开始</button><span id="p4Score"></span></div>
+<p class="p4-gname">D. 翻译练习：把这两句译成中文（不提供译文，自己试着写）</p>
+<ol class="p4-open">
+<li>If a fold is loose, air leaks through the gap and the plane wobbles, so every fold must be neat and tight.</li>
+<li>Because workers nap at different times, about 80 out of every 100 ants are awake and working at any moment.</li>
+</ol>
+<p class="p4-note">开放练习，没有标准答案，自己动手写一写。</p>
+</div>
+
+<style>
+.p4-note { color: #555; margin: 6px 0 10px; }
+.p4-gname { font-weight: bold; margin: 16px 0 6px; }
+.p4-q { margin: 10px 0; }
+.p4-stem { margin-bottom: 4px; line-height: 1.6; }
+.p4-opt { display: block; width: 100%; text-align: left; border: 1.5px solid #ddd; background: #fff; border-radius: 8px; padding: 8px 12px; margin: 6px 0; font-size: 15px; line-height: 1.55; cursor: pointer; color: #333; }
+.p4-opt.sel { border-color: #1a56db; background: #eef4ff; }
+.p4-opt.right { border-color: #2b8a3e; background: #d3f9d8; }
+.p4-opt.wrong { border-color: #e03131; background: #ffd8d8; }
+.p4-ans { color: #2b8a3e; font-weight: bold; margin: 4px 0 0; }
+.p4-actions { margin: 14px 0; display: flex; gap: 10px; align-items: center; }
+.p4-actions button { background: #1a56db; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 15px; cursor: pointer; }
+#p4Reset { background: #868e96; }
+#p4Score { font-weight: bold; color: #1a56db; }
+.p4-open li { margin-bottom: 8px; line-height: 1.6; }
+</style>
+
+
+<script>
+(function () {
+  var ANS = [[0, 1], [2, 0], [1, 2]];
+  var sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+  var marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+  var total = 0;
+  ANS.forEach(function (g) { g.forEach(function (a) { if (a !== null) total++; }); });
+  function render() {
+    document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      btn.classList.toggle('sel', sel[g][i] === o);
+      btn.classList.toggle('right', marks[g][i] !== null && o === ANS[g][i]);
+      btn.classList.toggle('wrong', marks[g][i] === false && sel[g][i] === o);
+    });
+    document.querySelectorAll('#p4App .p4-ans').forEach(function (el) {
+      el.hidden = marks[+el.dataset.g][+el.dataset.i] !== false;
+    });
+  }
+  document.querySelectorAll('#p4App .p4-opt').forEach(function (btn) {
+    btn.onclick = function () {
+      var g = +btn.dataset.g, i = +btn.dataset.i, o = +btn.dataset.o;
+      sel[g][i] = o;
+      if (marks[g][i] !== null) { marks[g][i] = null; document.getElementById('p4Score').textContent = ''; }
+      render();
+    };
+  });
+  document.getElementById('p4Check').onclick = function () {
+    var done = 0;
+    sel.forEach(function (g, gi) { g.forEach(function (s, ii) { if (ANS[gi][ii] !== null && s >= 0) done++; }); });
+    if (done < total) {
+      document.getElementById('p4Score').textContent = '已选 ' + done + ' / ' + total + ' 题，先全部选完再核对哦';
+      return;
+    }
+    var right = 0;
+    marks = sel.map(function (g, gi) { return g.map(function (s, ii) {
+      if (ANS[gi][ii] === null) return null;
+      var ok = s === ANS[gi][ii]; if (ok) right++; return ok;
+    }); });
+    document.getElementById('p4Score').textContent = right === total
+      ? '🏆 ' + right + ' / ' + total + ' 全对！今日 MVP！'
+      : '得分 ' + right + ' / ' + total + '，标红的题目可以改选后再核对一次';
+    render();
+  };
+  document.getElementById('p4Reset').onclick = function () {
+    sel = ANS.map(function (g) { return g.map(function () { return -1; }); });
+    marks = ANS.map(function (g) { return g.map(function () { return null; }); });
+    document.getElementById('p4Score').textContent = '';
+    render();
+  };
+  render();
+})();
+</script>
+
+
+
+
+<h2 style="page-break-before: always;">✅ Part 5：答案与解析</h2>
+<div class="ans">
+<b>A. Crossword 填字答案:</b><br><div class="cwwrap"><table class="cwt"><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">1</span><span class="cwl">P</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">9</span><span class="cwl">B</span></td><td class="cwc"><span class="cwl">O</span></td><td class="cwc"><span class="cwn">7</span><span class="cwl">A</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">2</span><span class="cwl">H</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">G</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">P</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">T</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">4</span><span class="cwl">D</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">S</span></td><td class="cwc"><span class="cwl">I</span></td><td class="cwc"><span class="cwl">G</span></td><td class="cwc"><span class="cwl">N</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwn">3</span><span class="cwl">R</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">5</span><span class="cwl">N</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">P</span></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwc"><span class="cwn">6</span><span class="cwl">Q</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwn">8</span><span class="cwl">B</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">A</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwc"><span class="cwn">10</span><span class="cwl">A</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">C</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">M</span></td><td class="cwc"><span class="cwl">U</span></td><td class="cwc"><span class="cwl">L</span></td><td class="cwc"><span class="cwl">A</span></td><td class="cwc"><span class="cwl">T</span></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">C</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">R</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">E</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">O</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr><tr><td class="cwb"></td><td class="cwc"><span class="cwl">D</span></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwc"><span class="cwl">N</span></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td><td class="cwb"></td></tr></table></div>1 竖 → <b>PAPER</b>（纸）<br>2 横 → <b>HANGAR</b>（飞机库）<br>3 竖 → <b>RECORD</b>（纪录）<br>4 横 → <b>DESIGNER</b>（设计师）<br>5 横 → <b>NAP</b>（打盹）<br>6 竖 → <b>QUEEN</b>（蚁后）<br>7 竖 → <b>ANTENNAE</b>（触角）<br>8 竖 → <b>BACON</b>（培根）<br>9 横 → <b>BOAT</b>（小船）<br>10 横 → <b>ACCUMULATE</b>（积累）<br><br><b>B. Single Choice:</b><br>
+1 → <b>B</b>. <i>"It used just one sheet of paper, with long, thin wings."</i><br>
+2 → <b>A</b>. <i>"and landed 69.14 meters away."</i><br>
+3 → <b>B</b>. <i>"A worker ant takes about 253 naps every day, and each nap lasts just over a minute."</i><br>
+4 → <b>C</b>. <i>"When you rock the boat, you upset a calm situation or cause trouble in a group."</i><br><br>
+<b>C. Part 4 Practice:</b><br>
+A. 1. loose&nbsp;&nbsp;2. crashes<br>
+B. 1. wobbles&nbsp;&nbsp;2. throws<br>
+C. 1. wobbles&nbsp;&nbsp;2. stops<br>
+D. Your own translations — there is no key for this part. Read your Chinese aloud and check that it sounds natural.
+</div>
+
+<p style="text-align:center; color:#888; margin-top: 16pt;">🌟 全部答对就是今日 MVP！<br>明天早上同一时间，继续《Michael的早听晚读》～</p>
+
+
+
+</div>
+<div class="pdf-dl">
+<a href="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol39/Vol39_晚读讲义_纸飞机爷爷与打盹的蚂蚁_v1.pdf" target="_blank" rel="noopener">📄 下载本期晚读讲义 PDF</a>
+<p>听完记得做精讲练习，巩固词汇和句型</p>
+</div>
+</div>
+<audio id="audio" preload="auto"></audio>
+<script>
+const BLOCKS = [{"start": 22.19, "end": 35.97, "en": "Hello, young explorers, and welcome back to Michael's Morning Listening! Today we meet a grandpa who folds paper planes, and tiny ants that sleep in a very strange way. Ready? Let's go!", "title": "开场白", "cn": "你好，小小探险家们，欢迎回到 Michael 的早听晚读！今天我们要认识一位爱折纸飞机的爷爷，还有睡觉方式特别奇怪的小蚂蚁。准备好了吗？出发！", "words": [{"w": "Hello,", "t": 22.19}, {"w": "young", "t": 22.62}, {"w": "explorers,", "t": 23.05}, {"w": "and", "t": 23.48}, {"w": "welcome", "t": 23.91}, {"w": "back", "t": 24.34}, {"w": "to", "t": 24.77}, {"w": "Michael's", "t": 25.2}, {"w": "Morning", "t": 25.64}, {"w": "Listening!", "t": 26.07}, {"w": "Today", "t": 26.5}, {"w": "we", "t": 26.93}, {"w": "meet", "t": 27.36}, {"w": "a", "t": 27.79}, {"w": "grandpa", "t": 28.22}, {"w": "who", "t": 28.65}, {"w": "folds", "t": 29.08}, {"w": "paper", "t": 29.51}, {"w": "planes,", "t": 29.94}, {"w": "and", "t": 30.37}, {"w": "tiny", "t": 30.8}, {"w": "ants", "t": 31.23}, {"w": "that", "t": 31.66}, {"w": "sleep", "t": 32.09}, {"w": "in", "t": 32.52}, {"w": "a", "t": 32.96}, {"w": "very", "t": 33.39}, {"w": "strange", "t": 33.82}, {"w": "way.", "t": 34.25}, {"w": "Ready?", "t": 34.68}, {"w": "Let's", "t": 35.11}, {"w": "go!", "t": 35.54}]}, {"start": 55.07, "end": 90.63, "en": "John Collins has loved paper planes since he was a boy. He folded hundreds of them — big, small, fast, and funny. He was not an accountant, but he counted every fold and every test flight until his planes flew straight and far. His best design was named Suzanne, after his wife. It used just one sheet of paper, with long, thin wings. But a great plane needs a great throw, so John asked his friend Joe Ayoob, a strong football player, to throw it.", "title": "纸飞机爷爷", "cn": "约翰·柯林斯从小就喜欢纸飞机。他折了几百架——大的、小的、快的、好玩的。他不是会计师，但他数过每一次折叠和每一次试飞，直到他的飞机飞得又直又远。他最好的设计以妻子的名字命名为“苏珊号”。它只用了一张纸，有着长长的薄薄的翅膀。但一架好飞机还需要有力的一投，所以约翰请朋友乔·阿约布——一位强壮的橄榄球运动员——来投它。", "words": [{"w": "John", "t": 55.07}, {"w": "Collins", "t": 55.49}, {"w": "has", "t": 55.91}, {"w": "loved", "t": 56.33}, {"w": "paper", "t": 56.74}, {"w": "planes", "t": 57.16}, {"w": "since", "t": 57.58}, {"w": "he", "t": 58.0}, {"w": "was", "t": 58.42}, {"w": "a", "t": 58.84}, {"w": "boy.", "t": 59.25}, {"w": "He", "t": 59.67}, {"w": "folded", "t": 60.09}, {"w": "hundreds", "t": 60.51}, {"w": "of", "t": 60.93}, {"w": "them", "t": 61.35}, {"w": "—", "t": 61.76}, {"w": "big,", "t": 62.18}, {"w": "small,", "t": 62.6}, {"w": "fast,", "t": 63.02}, {"w": "and", "t": 63.44}, {"w": "funny.", "t": 63.86}, {"w": "He", "t": 64.27}, {"w": "was", "t": 64.69}, {"w": "not", "t": 65.11}, {"w": "an", "t": 65.53}, {"w": "accountant,", "t": 65.95}, {"w": "but", "t": 66.37}, {"w": "he", "t": 66.78}, {"w": "counted", "t": 67.2}, {"w": "every", "t": 67.62}, {"w": "fold", "t": 68.04}, {"w": "and", "t": 68.46}, {"w": "every", "t": 68.88}, {"w": "test", "t": 69.29}, {"w": "flight", "t": 69.71}, {"w": "until", "t": 70.13}, {"w": "his", "t": 70.55}, {"w": "planes", "t": 70.97}, {"w": "flew", "t": 71.39}, {"w": "straight", "t": 71.8}, {"w": "and", "t": 72.22}, {"w": "far.", "t": 72.64}, {"w": "His", "t": 73.06}, {"w": "best", "t": 73.48}, {"w": "design", "t": 73.9}, {"w": "was", "t": 74.31}, {"w": "named", "t": 74.73}, {"w": "Suzanne,", "t": 75.15}, {"w": "after", "t": 75.57}, {"w": "his", "t": 75.99}, {"w": "wife.", "t": 76.41}, {"w": "It", "t": 76.82}, {"w": "used", "t": 77.24}, {"w": "just", "t": 77.66}, {"w": "one", "t": 78.08}, {"w": "sheet", "t": 78.5}, {"w": "of", "t": 78.92}, {"w": "paper,", "t": 79.33}, {"w": "with", "t": 79.75}, {"w": "long,", "t": 80.17}, {"w": "thin", "t": 80.59}, {"w": "wings.", "t": 81.01}, {"w": "But", "t": 81.43}, {"w": "a", "t": 81.84}, {"w": "great", "t": 82.26}, {"w": "plane", "t": 82.68}, {"w": "needs", "t": 83.1}, {"w": "a", "t": 83.52}, {"w": "great", "t": 83.94}, {"w": "throw,", "t": 84.35}, {"w": "so", "t": 84.77}, {"w": "John", "t": 85.19}, {"w": "asked", "t": 85.61}, {"w": "his", "t": 86.03}, {"w": "friend", "t": 86.45}, {"w": "Joe", "t": 86.86}, {"w": "Ayoob,", "t": 87.28}, {"w": "a", "t": 87.7}, {"w": "strong", "t": 88.12}, {"w": "football", "t": 88.54}, {"w": "player,", "t": 88.96}, {"w": "to", "t": 89.37}, {"w": "throw", "t": 89.79}, {"w": "it.", "t": 90.21}]}, {"start": 90.63, "end": 135.39, "en": "One day, inside a huge empty airplane hangar, Joe threw Suzanne with all his strength. The little plane flew and flew — farther than five school buses in a row — and landed 69.14 meters away. The judges measured it carefully and approved the new world record! If a fold is loose, air leaks through the gap and the plane wobbles, so every fold must be neat and tight. And when a test plane crashed, John did not mourn it — he just folded again. That is the bond between a designer and a thrower: one dreams, one throws, and together they fly into the record books.", "title": "纸飞机爷爷", "cn": "有一天，在一个巨大的空飞机机库里，乔用尽全力投出了苏珊号。小飞机飞呀飞——比五辆校车排成一排还远——落在了 69.14 米外。裁判们仔细测量，批准了这项新的世界纪录！如果折痕松了，空气会从缝隙里漏出来，飞机就会摇晃，所以每道折痕都必须整齐、严实。当一架试飞的飞机坠毁时，约翰没有为它哀悼——他只是重新折了一架。这就是设计师和投掷手之间的纽带：一个做梦，一个投掷，他们一起飞进了纪录册。", "words": [{"w": "One", "t": 90.63}, {"w": "day,", "t": 91.05}, {"w": "inside", "t": 91.47}, {"w": "a", "t": 91.88}, {"w": "huge", "t": 92.3}, {"w": "empty", "t": 92.72}, {"w": "airplane", "t": 93.14}, {"w": "hangar,", "t": 93.56}, {"w": "Joe", "t": 93.98}, {"w": "threw", "t": 94.39}, {"w": "Suzanne", "t": 94.81}, {"w": "with", "t": 95.23}, {"w": "all", "t": 95.65}, {"w": "his", "t": 96.07}, {"w": "strength.", "t": 96.49}, {"w": "The", "t": 96.9}, {"w": "little", "t": 97.32}, {"w": "plane", "t": 97.74}, {"w": "flew", "t": 98.16}, {"w": "and", "t": 98.58}, {"w": "flew", "t": 99.0}, {"w": "—", "t": 99.41}, {"w": "farther", "t": 99.83}, {"w": "than", "t": 100.25}, {"w": "five", "t": 100.67}, {"w": "school", "t": 101.09}, {"w": "buses", "t": 101.51}, {"w": "in", "t": 101.92}, {"w": "a", "t": 102.34}, {"w": "row", "t": 102.76}, {"w": "—", "t": 103.18}, {"w": "and", "t": 103.6}, {"w": "landed", "t": 104.02}, {"w": "69.14", "t": 104.43}, {"w": "meters", "t": 104.85}, {"w": "away.", "t": 105.27}, {"w": "The", "t": 105.69}, {"w": "judges", "t": 106.11}, {"w": "measured", "t": 106.53}, {"w": "it", "t": 106.94}, {"w": "carefully", "t": 107.36}, {"w": "and", "t": 107.78}, {"w": "approved", "t": 108.2}, {"w": "the", "t": 108.62}, {"w": "new", "t": 109.04}, {"w": "world", "t": 109.45}, {"w": "record!", "t": 109.87}, {"w": "If", "t": 110.29}, {"w": "a", "t": 110.71}, {"w": "fold", "t": 111.13}, {"w": "is", "t": 111.55}, {"w": "loose,", "t": 111.96}, {"w": "air", "t": 112.38}, {"w": "leaks", "t": 112.8}, {"w": "through", "t": 113.22}, {"w": "the", "t": 113.64}, {"w": "gap", "t": 114.06}, {"w": "and", "t": 114.47}, {"w": "the", "t": 114.89}, {"w": "plane", "t": 115.31}, {"w": "wobbles,", "t": 115.73}, {"w": "so", "t": 116.15}, {"w": "every", "t": 116.57}, {"w": "fold", "t": 116.98}, {"w": "must", "t": 117.4}, {"w": "be", "t": 117.82}, {"w": "neat", "t": 118.24}, {"w": "and", "t": 118.66}, {"w": "tight.", "t": 119.08}, {"w": "And", "t": 119.49}, {"w": "when", "t": 119.91}, {"w": "a", "t": 120.33}, {"w": "test", "t": 120.75}, {"w": "plane", "t": 121.17}, {"w": "crashed,", "t": 121.59}, {"w": "John", "t": 122.0}, {"w": "did", "t": 122.42}, {"w": "not", "t": 122.84}, {"w": "mourn", "t": 123.26}, {"w": "it", "t": 123.68}, {"w": "—", "t": 124.1}, {"w": "he", "t": 124.51}, {"w": "just", "t": 124.93}, {"w": "folded", "t": 125.35}, {"w": "again.", "t": 125.77}, {"w": "That", "t": 126.19}, {"w": "is", "t": 126.61}, {"w": "the", "t": 127.02}, {"w": "bond", "t": 127.44}, {"w": "between", "t": 127.86}, {"w": "a", "t": 128.28}, {"w": "designer", "t": 128.7}, {"w": "and", "t": 129.12}, {"w": "a", "t": 129.53}, {"w": "thrower:", "t": 129.95}, {"w": "one", "t": 130.37}, {"w": "dreams,", "t": 130.79}, {"w": "one", "t": 131.21}, {"w": "throws,", "t": 131.63}, {"w": "and", "t": 132.04}, {"w": "together", "t": 132.46}, {"w": "they", "t": 132.88}, {"w": "fly", "t": 133.3}, {"w": "into", "t": 133.72}, {"w": "the", "t": 134.14}, {"w": "record", "t": 134.55}, {"w": "books.", "t": 134.97}]}, {"start": 150.49, "end": 177.93, "en": "Meanwhile, down in the grass, ants look like they never sleep. They run here and there, day and night. But scientists filmed a fire ant nest, and they found a secret: ants do sleep — they just sleep in tiny pieces! A worker ant takes about 253 naps every day, and each nap lasts just over a minute. All those little naps accumulate into almost five hours of sleep.", "title": "打盹的蚂蚁", "cn": "与此同时，在草地里，蚂蚁看起来好像从不睡觉。它们跑来跑去，日夜不停。但科学家们拍下了一个火蚁窝，发现了一个秘密：蚂蚁确实睡觉——只是睡成了一小段一小段！一只工蚁每天大约打 253 个盹，每个盹只有一分多钟。所有这些小盹加起来，差不多有五个小时的睡眠。", "words": [{"w": "Meanwhile,", "t": 150.49}, {"w": "down", "t": 150.89}, {"w": "in", "t": 151.29}, {"w": "the", "t": 151.68}, {"w": "grass,", "t": 152.08}, {"w": "ants", "t": 152.48}, {"w": "look", "t": 152.88}, {"w": "like", "t": 153.27}, {"w": "they", "t": 153.67}, {"w": "never", "t": 154.07}, {"w": "sleep.", "t": 154.47}, {"w": "They", "t": 154.86}, {"w": "run", "t": 155.26}, {"w": "here", "t": 155.66}, {"w": "and", "t": 156.06}, {"w": "there,", "t": 156.46}, {"w": "day", "t": 156.85}, {"w": "and", "t": 157.25}, {"w": "night.", "t": 157.65}, {"w": "But", "t": 158.05}, {"w": "scientists", "t": 158.44}, {"w": "filmed", "t": 158.84}, {"w": "a", "t": 159.24}, {"w": "fire", "t": 159.64}, {"w": "ant", "t": 160.03}, {"w": "nest,", "t": 160.43}, {"w": "and", "t": 160.83}, {"w": "they", "t": 161.23}, {"w": "found", "t": 161.63}, {"w": "a", "t": 162.02}, {"w": "secret:", "t": 162.42}, {"w": "ants", "t": 162.82}, {"w": "do", "t": 163.22}, {"w": "sleep", "t": 163.61}, {"w": "—", "t": 164.01}, {"w": "they", "t": 164.41}, {"w": "just", "t": 164.81}, {"w": "sleep", "t": 165.2}, {"w": "in", "t": 165.6}, {"w": "tiny", "t": 166.0}, {"w": "pieces!", "t": 166.4}, {"w": "A", "t": 166.79}, {"w": "worker", "t": 167.19}, {"w": "ant", "t": 167.59}, {"w": "takes", "t": 167.99}, {"w": "about", "t": 168.39}, {"w": "253", "t": 168.78}, {"w": "naps", "t": 169.18}, {"w": "every", "t": 169.58}, {"w": "day,", "t": 169.98}, {"w": "and", "t": 170.37}, {"w": "each", "t": 170.77}, {"w": "nap", "t": 171.17}, {"w": "lasts", "t": 171.57}, {"w": "just", "t": 171.96}, {"w": "over", "t": 172.36}, {"w": "a", "t": 172.76}, {"w": "minute.", "t": 173.16}, {"w": "All", "t": 173.56}, {"w": "those", "t": 173.95}, {"w": "little", "t": 174.35}, {"w": "naps", "t": 174.75}, {"w": "accumulate", "t": 175.15}, {"w": "into", "t": 175.54}, {"w": "almost", "t": 175.94}, {"w": "five", "t": 176.34}, {"w": "hours", "t": 176.74}, {"w": "of", "t": 177.13}, {"w": "sleep.", "t": 177.53}]}, {"start": 177.93, "end": 221.27, "en": "The statistics are amazing. Because workers nap at different times, about 80 out of every 100 ants are awake and working at any moment, so the nest never stops. The queen sleeps much longer — about nine hours a day in longer naps, with her antennae twitching like she is dreaming. Ants do not have eyelids, so they cannot close their eyes. When a worker finds a crumb of bacon, she calls her sisters to help carry it home. And every morning, she washes her face with her front legs — her own quick facial! So when you see an ant rushing past, remember: she is just between naps.", "title": "打盹的蚂蚁", "cn": "统计数字非常惊人。因为工蚁们在不同时间打盹，所以在任何时刻，大约每 100 只蚂蚁中就有 80 只醒着干活，蚁窝就从不停工。蚁后睡得久得多——每天大约九个小时，分成较长的几次小睡，触角抖动着，像在做梦。蚂蚁没有眼皮，所以闭不上眼睛。当一只工蚁找到一块培根碎屑时，她会叫姐妹们来帮忙搬回家。每天早上，她还用前腿洗脸——她自己的快速面部清洁！所以当你看到一只蚂蚁匆匆跑过时，记住：她只是在两次打盹之间。", "words": [{"w": "The", "t": 177.93}, {"w": "statistics", "t": 178.33}, {"w": "are", "t": 178.73}, {"w": "amazing.", "t": 179.12}, {"w": "Because", "t": 179.52}, {"w": "workers", "t": 179.92}, {"w": "nap", "t": 180.32}, {"w": "at", "t": 180.71}, {"w": "different", "t": 181.11}, {"w": "times,", "t": 181.51}, {"w": "about", "t": 181.91}, {"w": "80", "t": 182.3}, {"w": "out", "t": 182.7}, {"w": "of", "t": 183.1}, {"w": "every", "t": 183.5}, {"w": "100", "t": 183.89}, {"w": "ants", "t": 184.29}, {"w": "are", "t": 184.69}, {"w": "awake", "t": 185.09}, {"w": "and", "t": 185.48}, {"w": "working", "t": 185.88}, {"w": "at", "t": 186.28}, {"w": "any", "t": 186.68}, {"w": "moment,", "t": 187.08}, {"w": "so", "t": 187.47}, {"w": "the", "t": 187.87}, {"w": "nest", "t": 188.27}, {"w": "never", "t": 188.67}, {"w": "stops.", "t": 189.06}, {"w": "The", "t": 189.46}, {"w": "queen", "t": 189.86}, {"w": "sleeps", "t": 190.26}, {"w": "much", "t": 190.65}, {"w": "longer", "t": 191.05}, {"w": "—", "t": 191.45}, {"w": "about", "t": 191.85}, {"w": "nine", "t": 192.24}, {"w": "hours", "t": 192.64}, {"w": "a", "t": 193.04}, {"w": "day", "t": 193.44}, {"w": "in", "t": 193.83}, {"w": "longer", "t": 194.23}, {"w": "naps,", "t": 194.63}, {"w": "with", "t": 195.03}, {"w": "her", "t": 195.43}, {"w": "antennae", "t": 195.82}, {"w": "twitching", "t": 196.22}, {"w": "like", "t": 196.62}, {"w": "she", "t": 197.02}, {"w": "is", "t": 197.41}, {"w": "dreaming.", "t": 197.81}, {"w": "Ants", "t": 198.21}, {"w": "do", "t": 198.61}, {"w": "not", "t": 199.0}, {"w": "have", "t": 199.4}, {"w": "eyelids,", "t": 199.8}, {"w": "so", "t": 200.2}, {"w": "they", "t": 200.59}, {"w": "cannot", "t": 200.99}, {"w": "close", "t": 201.39}, {"w": "their", "t": 201.79}, {"w": "eyes.", "t": 202.18}, {"w": "When", "t": 202.58}, {"w": "a", "t": 202.98}, {"w": "worker", "t": 203.38}, {"w": "finds", "t": 203.77}, {"w": "a", "t": 204.17}, {"w": "crumb", "t": 204.57}, {"w": "of", "t": 204.97}, {"w": "bacon,", "t": 205.37}, {"w": "she", "t": 205.76}, {"w": "calls", "t": 206.16}, {"w": "her", "t": 206.56}, {"w": "sisters", "t": 206.96}, {"w": "to", "t": 207.35}, {"w": "help", "t": 207.75}, {"w": "carry", "t": 208.15}, {"w": "it", "t": 208.55}, {"w": "home.", "t": 208.94}, {"w": "And", "t": 209.34}, {"w": "every", "t": 209.74}, {"w": "morning,", "t": 210.14}, {"w": "she", "t": 210.53}, {"w": "washes", "t": 210.93}, {"w": "her", "t": 211.33}, {"w": "face", "t": 211.73}, {"w": "with", "t": 212.12}, {"w": "her", "t": 212.52}, {"w": "front", "t": 212.92}, {"w": "legs", "t": 213.32}, {"w": "—", "t": 213.72}, {"w": "her", "t": 214.11}, {"w": "own", "t": 214.51}, {"w": "quick", "t": 214.91}, {"w": "facial!", "t": 215.31}, {"w": "So", "t": 215.7}, {"w": "when", "t": 216.1}, {"w": "you", "t": 216.5}, {"w": "see", "t": 216.9}, {"w": "an", "t": 217.29}, {"w": "ant", "t": 217.69}, {"w": "rushing", "t": 218.09}, {"w": "past,", "t": 218.49}, {"w": "remember:", "t": 218.88}, {"w": "she", "t": 219.28}, {"w": "is", "t": 219.68}, {"w": "just", "t": 220.08}, {"w": "between", "t": 220.47}, {"w": "naps.", "t": 220.87}]}, {"start": 235.49, "end": 263.57, "en": "Here's today's idiom: 'rock the boat.' When you rock the boat, you upset a calm situation or cause trouble in a group. Here's an example: 'Our class had a happy plan for the picnic, and nobody wanted to rock the boat, so we all agreed to go to the park.' Rocking a real boat is fun for a second — and wet for everyone! So, when do you think it is good to speak up, even if it rocks the boat a little?", "title": "今日俚语", "cn": "今天的俚语是“rock the boat”（摇晃小船）。当你 rock the boat 时，你会打破平静的局面，或者在团体里惹出麻烦。举个例子：“我们班为野餐定了一个开心的计划，没人想 rock the boat，所以我们都同意去公园。”摇晃一艘真船好玩一秒钟——但每个人都会弄湿！那么，你觉得什么时候就算会稍微 rock the boat 一点，也值得说出来呢？", "words": [{"w": "Here's", "t": 235.49}, {"w": "today's", "t": 235.83}, {"w": "idiom:", "t": 236.17}, {"w": "'rock", "t": 236.5}, {"w": "the", "t": 236.84}, {"w": "boat.'", "t": 237.18}, {"w": "When", "t": 237.52}, {"w": "you", "t": 237.86}, {"w": "rock", "t": 238.2}, {"w": "the", "t": 238.53}, {"w": "boat,", "t": 238.87}, {"w": "you", "t": 239.21}, {"w": "upset", "t": 239.55}, {"w": "a", "t": 239.89}, {"w": "calm", "t": 240.23}, {"w": "situation", "t": 240.56}, {"w": "or", "t": 240.9}, {"w": "cause", "t": 241.24}, {"w": "trouble", "t": 241.58}, {"w": "in", "t": 241.92}, {"w": "a", "t": 242.26}, {"w": "group.", "t": 242.59}, {"w": "Here's", "t": 242.93}, {"w": "an", "t": 243.27}, {"w": "example:", "t": 243.61}, {"w": "'Our", "t": 243.95}, {"w": "class", "t": 244.29}, {"w": "had", "t": 244.62}, {"w": "a", "t": 244.96}, {"w": "happy", "t": 245.3}, {"w": "plan", "t": 245.64}, {"w": "for", "t": 245.98}, {"w": "the", "t": 246.32}, {"w": "picnic,", "t": 246.65}, {"w": "and", "t": 246.99}, {"w": "nobody", "t": 247.33}, {"w": "wanted", "t": 247.67}, {"w": "to", "t": 248.01}, {"w": "rock", "t": 248.35}, {"w": "the", "t": 248.68}, {"w": "boat,", "t": 249.02}, {"w": "so", "t": 249.36}, {"w": "we", "t": 249.7}, {"w": "all", "t": 250.04}, {"w": "agreed", "t": 250.38}, {"w": "to", "t": 250.71}, {"w": "go", "t": 251.05}, {"w": "to", "t": 251.39}, {"w": "the", "t": 251.73}, {"w": "park.'", "t": 252.07}, {"w": "Rocking", "t": 252.41}, {"w": "a", "t": 252.74}, {"w": "real", "t": 253.08}, {"w": "boat", "t": 253.42}, {"w": "is", "t": 253.76}, {"w": "fun", "t": 254.1}, {"w": "for", "t": 254.44}, {"w": "a", "t": 254.77}, {"w": "second", "t": 255.11}, {"w": "—", "t": 255.45}, {"w": "and", "t": 255.79}, {"w": "wet", "t": 256.13}, {"w": "for", "t": 256.47}, {"w": "everyone!", "t": 256.8}, {"w": "So,", "t": 257.14}, {"w": "when", "t": 257.48}, {"w": "do", "t": 257.82}, {"w": "you", "t": 258.16}, {"w": "think", "t": 258.5}, {"w": "it", "t": 258.83}, {"w": "is", "t": 259.17}, {"w": "good", "t": 259.51}, {"w": "to", "t": 259.85}, {"w": "speak", "t": 260.19}, {"w": "up,", "t": 260.53}, {"w": "even", "t": 260.86}, {"w": "if", "t": 261.2}, {"w": "it", "t": 261.54}, {"w": "rocks", "t": 261.88}, {"w": "the", "t": 262.22}, {"w": "boat", "t": 262.56}, {"w": "a", "t": 262.89}, {"w": "little?", "t": 263.23}]}, {"start": 276.51, "end": 306.03, "en": "Let's think about our stories: a record-breaking paper plane, and ants that nap one minute at a time. First: if you folded a paper plane, what would you name it, and who would you ask to throw it? Second: if you could nap like an ant, would you take 253 tiny naps, or one long sleep like the queen? And one last question: can you think of a time when you did not want to rock the boat? Talk about it with your family!", "title": "结束语与互动问题", "cn": "我们来想想今天的故事：一架飞进纪录册的纸飞机，和一次只睡一分钟的蚂蚁。第一：如果你折一架纸飞机，你会给它起什么名字，又会请谁来投它？第二：如果你能像蚂蚁一样打盹，你会选择 253 个小盹，还是像蚁后一样睡一次长觉？还有最后一个问题：你有没有过不想 rock the boat 的时候？和家人聊聊吧！", "words": [{"w": "Let's", "t": 276.51}, {"w": "think", "t": 276.86}, {"w": "about", "t": 277.21}, {"w": "our", "t": 277.56}, {"w": "stories:", "t": 277.92}, {"w": "a", "t": 278.27}, {"w": "record-breaking", "t": 278.62}, {"w": "paper", "t": 278.97}, {"w": "plane,", "t": 279.32}, {"w": "and", "t": 279.67}, {"w": "ants", "t": 280.02}, {"w": "that", "t": 280.38}, {"w": "nap", "t": 280.73}, {"w": "one", "t": 281.08}, {"w": "minute", "t": 281.43}, {"w": "at", "t": 281.78}, {"w": "a", "t": 282.13}, {"w": "time.", "t": 282.48}, {"w": "First:", "t": 282.84}, {"w": "if", "t": 283.19}, {"w": "you", "t": 283.54}, {"w": "folded", "t": 283.89}, {"w": "a", "t": 284.24}, {"w": "paper", "t": 284.59}, {"w": "plane,", "t": 284.94}, {"w": "what", "t": 285.3}, {"w": "would", "t": 285.65}, {"w": "you", "t": 286.0}, {"w": "name", "t": 286.35}, {"w": "it,", "t": 286.7}, {"w": "and", "t": 287.05}, {"w": "who", "t": 287.4}, {"w": "would", "t": 287.76}, {"w": "you", "t": 288.11}, {"w": "ask", "t": 288.46}, {"w": "to", "t": 288.81}, {"w": "throw", "t": 289.16}, {"w": "it?", "t": 289.51}, {"w": "Second:", "t": 289.86}, {"w": "if", "t": 290.22}, {"w": "you", "t": 290.57}, {"w": "could", "t": 290.92}, {"w": "nap", "t": 291.27}, {"w": "like", "t": 291.62}, {"w": "an", "t": 291.97}, {"w": "ant,", "t": 292.32}, {"w": "would", "t": 292.68}, {"w": "you", "t": 293.03}, {"w": "take", "t": 293.38}, {"w": "253", "t": 293.73}, {"w": "tiny", "t": 294.08}, {"w": "naps,", "t": 294.43}, {"w": "or", "t": 294.78}, {"w": "one", "t": 295.14}, {"w": "long", "t": 295.49}, {"w": "sleep", "t": 295.84}, {"w": "like", "t": 296.19}, {"w": "the", "t": 296.54}, {"w": "queen?", "t": 296.89}, {"w": "And", "t": 297.24}, {"w": "one", "t": 297.6}, {"w": "last", "t": 297.95}, {"w": "question:", "t": 298.3}, {"w": "can", "t": 298.65}, {"w": "you", "t": 299.0}, {"w": "think", "t": 299.35}, {"w": "of", "t": 299.7}, {"w": "a", "t": 300.06}, {"w": "time", "t": 300.41}, {"w": "when", "t": 300.76}, {"w": "you", "t": 301.11}, {"w": "did", "t": 301.46}, {"w": "not", "t": 301.81}, {"w": "want", "t": 302.16}, {"w": "to", "t": 302.52}, {"w": "rock", "t": 302.87}, {"w": "the", "t": 303.22}, {"w": "boat?", "t": 303.57}, {"w": "Talk", "t": 303.92}, {"w": "about", "t": 304.27}, {"w": "it", "t": 304.62}, {"w": "with", "t": 304.98}, {"w": "your", "t": 305.33}, {"w": "family!", "t": 305.68}]}, {"start": 316.01, "end": 324.0, "en": "That's all for today, young explorers. Fold straight, nap smart like an ant — and don't rock the boat! See you tomorrow!", "title": "告别", "cn": "今天的节目就到这里啦，小小探险家们。折得直直的，像蚂蚁一样聪明地打盹——别 rock the boat！明天见！", "words": [{"w": "That's", "t": 316.01}, {"w": "all", "t": 316.37}, {"w": "for", "t": 316.74}, {"w": "today,", "t": 317.1}, {"w": "young", "t": 317.46}, {"w": "explorers.", "t": 317.83}, {"w": "Fold", "t": 318.19}, {"w": "straight,", "t": 318.55}, {"w": "nap", "t": 318.92}, {"w": "smart", "t": 319.28}, {"w": "like", "t": 319.64}, {"w": "an", "t": 320.0}, {"w": "ant", "t": 320.37}, {"w": "—", "t": 320.73}, {"w": "and", "t": 321.09}, {"w": "don't", "t": 321.46}, {"w": "rock", "t": 321.82}, {"w": "the", "t": 322.18}, {"w": "boat!", "t": 322.55}, {"w": "See", "t": 322.91}, {"w": "you", "t": 323.27}, {"w": "tomorrow!", "t": 323.64}]}];
+const CURSOR_LEAD = 0.9;
+const audio = document.getElementById('audio');
+const epVideo = document.getElementById('epVideo');
+if (epVideo) {
+  epVideo.addEventListener('play', () => { if (!audio.paused) audio.pause(); });
+  audio.addEventListener('play', () => { if (!epVideo.paused) epVideo.pause(); });
+}
+const playBtn = document.getElementById('playBtn');
+const progress = document.getElementById('progress');
+const curEl = document.getElementById('cur');
+const durEl = document.getElementById('dur');
+const blocksEl = document.getElementById('blocks');
+let rafId = null, seeking = false, blobReady = false;
+
+// Load audio as blob for reliable seeking on Chromium
+fetch('https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol39/audio.mp3').then(r => r.blob()).then(blob => {
+  audio.src = URL.createObjectURL(blob);
+  blobReady = true;
+});
+
+// Render blocks (Plan B, 2026-10-21: insert a "Section N" divider at each
+// section start so Part 3 heading-matching maps to visible labels in Part 1;
+// per-block section titles removed — they leaked the heading answers)
+let _lastTitle = null, _paraNo = 0;
+BLOCKS.forEach((b, i) => {
+  if (b.title !== _lastTitle) {
+    _paraNo++; _lastTitle = b.title;
+    const ph = document.createElement('div');
+    ph.className = 'sec-head'; ph.textContent = 'Section ' + _paraNo;
+    blocksEl.appendChild(ph);
+  }
+  const div = document.createElement('div');
+  div.className = 'block'; div.dataset.idx = i;
+  const words = b.words.map((w, wi) => `<span class="w" data-wi="${wi}">${escHtml(w.w)}</span>`).join(' ');
+  div.innerHTML = `<div class="en">${words}</div><div class="cn">${escHtml(b.cn)}</div>`;
+  div.addEventListener('click', () => {
+    const t = audio.currentTime;
+    if (t >= b.start && t < b.end) {
+      if (audio.paused) audio.play(); else audio.pause();
+    } else {
+      seekTo(b.start + 0.03, true);
+    }
+  });
+  blocksEl.appendChild(div);
+});
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function fmt(t) { t = Math.max(0, Math.floor(t)); return Math.floor(t/60) + ':' + String(t%60).padStart(2, '0'); }
+
+function seekTo(time, autoplay) {
+  if (!blobReady) return;
+  seeking = true;
+  const doSeek = () => {
+    audio.currentTime = time;
+  };
+  const onSeeked = () => {
+    audio.removeEventListener('seeked', onSeeked);
+    seeking = false;
+    if (autoplay && audio.paused) audio.play();
+    updateHighlight();
+  };
+  audio.addEventListener('seeked', onSeeked);
+  doSeek();
+  setTimeout(() => { audio.removeEventListener('seeked', onSeeked); seeking = false; if (autoplay && audio.paused) audio.play(); }, 800);
+}
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+audio.addEventListener('play', () => { playBtn.textContent = '⏸'; startRaf(); });
+audio.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+audio.addEventListener('loadedmetadata', () => { durEl.textContent = fmt(audio.duration); });
+audio.addEventListener('timeupdate', () => {
+  if (!seeking) progress.value = (audio.currentTime / audio.duration) * 100;
+  curEl.textContent = fmt(audio.currentTime);
+});
+progress.addEventListener('input', () => {
+  if (!audio.duration) return;
+  seeking = true;
+  seekTo((progress.value / 100) * audio.duration, !audio.paused);
+});
+progress.addEventListener('change', () => { seeking = false; });
+
+document.querySelectorAll('.speeds button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.speeds button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    audio.playbackRate = parseFloat(btn.dataset.r);
+  });
+});
+
+let curBlock = -1;
+function updateHighlight() {
+  const t = audio.currentTime + CURSOR_LEAD;
+  let bi = -1;
+  for (let i = 0; i < BLOCKS.length; i++) {
+    if (t >= BLOCKS[i].start && t < BLOCKS[i].end) { bi = i; break; }
+  }
+  document.querySelectorAll('.block').forEach((el, i) => {
+    el.classList.toggle('active', i === bi);
+  });
+  document.querySelectorAll('.en .w.hl').forEach(el => el.classList.remove('hl'));
+  if (bi >= 0) {
+    const b = BLOCKS[bi];
+    const blockEl = document.querySelectorAll('.block')[bi];
+    let wi = -1;
+    for (let j = 0; j < b.words.length; j++) {
+      if (t >= b.words[j].t) wi = j; else break;
+    }
+    if (wi >= 0) {
+      const wEl = blockEl.querySelectorAll('.w')[wi];
+      if (wEl) wEl.classList.add('hl');
+    }
+    if (bi !== curBlock) {
+      curBlock = bi;
+      blockEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+function startRaf() {
+  cancelAnimationFrame(rafId);
+  const loop = () => { if (!audio.paused) updateHighlight(); rafId = requestAnimationFrame(loop); };
+  loop();
+}
+</script>
+</body>
+</html>
