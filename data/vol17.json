@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol17/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol17/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol17/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol17/Vol17_晚读讲义_飞上长城的外卖与蜜蜂的舞蹈_v1.pdf",
- "pdfName": "Vol17_晚读讲义_飞上长城的外卖与蜜蜂的舞蹈_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol17/Vol17_晚读讲义_飞上长城的外卖与蜜蜂的舞蹈_v2.pdf",
+ "pdfName": "Vol17_晚读讲义_飞上长城的外卖与蜜蜂的舞蹈_v2.pdf",
  "blocks": [
   {
    "start": 31.95,
@@ -3651,7 +3651,7 @@
      "dir": "D",
      "num": 1,
      "cn": "跳舞；舞蹈",
-     "clue": "Moving your body in a pattern — the bee does this to tell her sisters the news."
+     "clue": "Moving your body in a pattern — the bee does this to tell her sisters the news. Example: The bee tells her sisters where the flowers are with a special ___."
     },
     {
      "word": "NECTAR",
@@ -3660,7 +3660,7 @@
      "dir": "D",
      "num": 2,
      "cn": "花蜜",
-     "clue": "The sweet liquid inside flowers that bees love to drink."
+     "clue": "The sweet liquid inside flowers that bees love to drink. Example: Bees drink sweet ___ from inside the flowers."
     },
     {
      "word": "SAUCER",
@@ -3669,7 +3669,7 @@
      "dir": "A",
      "num": 3,
      "cn": "茶托；小浅碟",
-     "clue": "A small, shallow plate — von Frisch put sugar water in one of these."
+     "clue": "A small, shallow plate — von Frisch put sugar water in one of these. Example: Von Frisch put sugar water in a ___ to test his idea."
     },
     {
      "word": "ANCIENT",
@@ -3678,7 +3678,7 @@
      "dir": "D",
      "num": 4,
      "cn": "古代的；古老的",
-     "clue": "Very, very old — the wall is truly this."
+     "clue": "Very, very old — the wall is truly this. Example: The Great Wall is truly ___: builders worked on it for two thousand years."
     },
     {
      "word": "DRONE",
@@ -3687,7 +3687,7 @@
      "dir": "A",
      "num": 5,
      "cn": "无人机",
-     "clue": "A flying machine with no pilot inside — this one brings lunch through the sky."
+     "clue": "A flying machine with no pilot inside — this one brings lunch through the sky. Example: A flying ___ brings lunch through the sky to hungry climbers."
     },
     {
      "word": "RUBBISH",
@@ -3696,7 +3696,7 @@
      "dir": "A",
      "num": 6,
      "cn": "垃圾",
-     "clue": "Things people throw away — on the way back, the drones carry the visitors' this down."
+     "clue": "Things people throw away — on the way back, the drones carry the visitors' this down. Example: On the way back, the drones carry the visitors' ___ down the wall."
     },
     {
      "word": "WAGGLE",
@@ -3705,7 +3705,7 @@
      "dir": "D",
      "num": 7,
      "cn": "摇摆；摆动",
-     "clue": "To move from side to side — while she runs, she does this with her body."
+     "clue": "To move from side to side — while she runs, she does this with her body. Example: While she runs, the bee ___s her body from side to side."
     },
     {
      "word": "DYNASTY",
@@ -3714,7 +3714,7 @@
      "dir": "A",
      "num": 8,
      "cn": "朝代",
-     "clue": "A line of rulers from the same family — one after another of these, builders worked on the wall for two thousand years."
+     "clue": "A line of rulers from the same family — one after another of these, builders worked on the wall for two thousand years. Example: Builders from one ___ after another worked on the wall for two thousand years."
     },
     {
      "word": "ANGLE",
@@ -3723,7 +3723,7 @@
      "dir": "A",
      "num": 9,
      "cn": "角度",
-     "clue": "The space where two lines meet — the run's this gives the direction."
+     "clue": "The space where two lines meet — the run's this gives the direction. Example: The run's ___ tells the other bees which way to fly."
     },
     {
      "word": "ERUPT",
@@ -3732,7 +3732,7 @@
      "dir": "A",
      "num": 10,
      "cn": "爆发；突然发生",
-     "clue": "To burst out suddenly — the crowd did this in cheers."
+     "clue": "To burst out suddenly — the crowd did this in cheers. Example: When the first lunches flew in, the crowd ___ed in cheers."
     }
    ]
   }

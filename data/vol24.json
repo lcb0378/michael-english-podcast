@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol24/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol24/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol24/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol24/Vol24_晚读讲义_企鹅的鹅卵石求婚与考拉的指纹_v1.pdf",
- "pdfName": "Vol24_晚读讲义_企鹅的鹅卵石求婚与考拉的指纹_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol24/Vol24_晚读讲义_企鹅的鹅卵石求婚与考拉的指纹_v2.pdf",
+ "pdfName": "Vol24_晚读讲义_企鹅的鹅卵石求婚与考拉的指纹_v2.pdf",
  "blocks": [
   {
    "start": 25.31,
@@ -3684,7 +3684,7 @@
      "dir": "D",
      "num": 1,
      "cn": "勇气",
-     "clue": "Being brave. The male walks to a female, with ___."
+     "clue": "Being brave. Example: The male walks to a female, with ___."
     },
     {
      "word": "FEATHER",
@@ -3693,7 +3693,7 @@
      "dir": "D",
      "num": 2,
      "cn": "羽毛",
-     "clue": "One soft covering on a bird. Pip lost a soft ___ on the same day as Pop."
+     "clue": "One soft covering on a bird. Example: Pip lost a soft ___ on the same day as Pop."
     },
     {
      "word": "POD",
@@ -3702,7 +3702,7 @@
      "dir": "A",
      "num": 3,
      "cn": "豆荚",
-     "clue": "A case that holds peas. Peas in one ___ look the same."
+     "clue": "A case that holds peas. Example: Peas in one ___ look the same."
     },
     {
      "word": "NEST",
@@ -3711,7 +3711,7 @@
      "dir": "A",
      "num": 4,
      "cn": "巢",
-     "clue": "A bird's home. She may place the stone in her ___."
+     "clue": "A bird's home. Example: She may place the stone in her ___."
     },
     {
      "word": "PENGUIN",
@@ -3720,7 +3720,7 @@
      "dir": "D",
      "num": 5,
      "cn": "企鹅",
-     "clue": "A black-and-white bird. The ___ lives in Antarctica."
+     "clue": "A black-and-white bird. Example: The ___ lives in Antarctica."
     },
     {
      "word": "GARMENT",
@@ -3729,7 +3729,7 @@
      "dir": "D",
      "num": 6,
      "cn": "衣服",
-     "clue": "A piece of clothing. The penguin wears a black-and-white ___."
+     "clue": "A piece of clothing. Example: The penguin wears a black-and-white ___."
     },
     {
      "word": "STONE",
@@ -3738,7 +3738,7 @@
      "dir": "A",
      "num": 7,
      "cn": "石头",
-     "clue": "A small rock. A male picks up a smooth ___ in his beak."
+     "clue": "A small rock. Example: A male picks up a smooth ___ in his beak."
     },
     {
      "word": "PEBBLE",
@@ -3747,7 +3747,7 @@
      "dir": "D",
      "num": 8,
      "cn": "小石头",
-     "clue": "A small smooth stone. The penguin proposes with a ___."
+     "clue": "A small smooth stone. Example: The penguin proposes with a ___."
     },
     {
      "word": "KOALA",
@@ -3756,7 +3756,7 @@
      "dir": "A",
      "num": 9,
      "cn": "考拉",
-     "clue": "A grey furry animal from Australia. The ___ sleeps in a eucalyptus tree."
+     "clue": "A grey furry animal from Australia. Example: The ___ sleeps in a eucalyptus tree."
     },
     {
      "word": "FINGERPRINT",
@@ -3765,7 +3765,7 @@
      "dir": "A",
      "num": 10,
      "cn": "指纹",
-     "clue": "The tiny lines on a finger. The koala's ___ looks like a human's."
+     "clue": "The tiny lines on a finger. Example: The koala's ___ looks like a human's."
     }
    ]
   }

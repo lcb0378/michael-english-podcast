@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol43/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol43/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol43/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol43/Vol43_晚读讲义_少年清洁船与海马爸爸_v1.pdf",
- "pdfName": "Vol43_晚读讲义_少年清洁船与海马爸爸_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol43/Vol43_晚读讲义_少年清洁船与海马爸爸_v2.pdf",
+ "pdfName": "Vol43_晚读讲义_少年清洁船与海马爸爸_v2.pdf",
  "blocks": [
   {
    "start": 21.87,
@@ -3367,7 +3367,7 @@
      "dir": "D",
      "num": 1,
      "cn": "塑料",
-     "clue": "a teenage inventor who wants to clean ___ out of the ocean."
+     "clue": "A light man-made material used to make bags, bottles and boxes. Example: a teenage inventor who wants to clean ___ out of the ocean."
     },
     {
      "word": "WHIRLPOOL",
@@ -3376,7 +3376,7 @@
      "dir": "A",
      "num": 2,
      "cn": "漩涡",
-     "clue": "making a gentle ___ that pulls plastic to the middle of the ship."
+     "clue": "Spinning water that turns in a circle and pulls things toward its middle. Example: making a gentle ___ that pulls plastic to the middle of the ship."
     },
     {
      "word": "INVENTOR",
@@ -3385,7 +3385,7 @@
      "dir": "D",
      "num": 3,
      "cn": "发明家",
-     "clue": "a teenage ___ who wants to clean plastic out of the ocean."
+     "clue": "A person who thinks up and makes a new machine or idea for the first time. Example: a teenage ___ who wants to clean plastic out of the ocean."
     },
     {
      "word": "POUCH",
@@ -3394,7 +3394,7 @@
      "dir": "D",
      "num": 4,
      "cn": "育儿袋",
-     "clue": "The mother puts her eggs into a special ___ on the father's belly."
+     "clue": "A small soft pocket on an animal's body where babies are kept safe. Example: The mother puts her eggs into a special ___ on the father's belly."
     },
     {
      "word": "ERVIS",
@@ -3403,7 +3403,7 @@
      "dir": "D",
      "num": 5,
      "cn": "ERVIS 清洁船",
-     "clue": "At twelve, he designed a special ship to clean the sea: ___."
+     "clue": "The name of the special sea-cleaning ship designed by the boy in the story. Example: At twelve, he designed a special ship to clean the sea: ___."
     },
     {
      "word": "BANDWAGON",
@@ -3412,7 +3412,7 @@
      "dir": "D",
      "num": 6,
      "cn": "花车",
-     "clue": "Today, jumping on the ___ means joining something just because it is popular!"
+     "clue": "A decorated cart in a parade, also the popular thing everyone suddenly joins in a saying. Example: Today, jumping on the ___ means joining something just because it is popular!"
     },
     {
      "word": "CURTAIN",
@@ -3421,7 +3421,7 @@
      "dir": "A",
      "num": 7,
      "cn": "帘子",
-     "clue": "They hide behind a ___ of green sea grass."
+     "clue": "A hanging cover of plants that hides what is behind it. Example: They hide behind a ___ of green sea grass."
     },
     {
      "word": "SEAHORSE",
@@ -3430,7 +3430,7 @@
      "dir": "D",
      "num": 8,
      "cn": "海马",
-     "clue": "Now let's dive under the waves and meet the ___."
+     "clue": "A small slow-swimming fish whose head looks like the head of a tall four-legged animal, and whose tail curls like a spring. Example: Now let's dive under the waves and meet the ___."
     },
     {
      "word": "OCEAN",
@@ -3439,7 +3439,7 @@
      "dir": "A",
      "num": 9,
      "cn": "海洋",
-     "clue": "Haaziq also wants people to appreciate the ___ more."
+     "clue": "The huge salty water that covers most of the Earth. Example: Haaziq also wants people to appreciate the ___ more."
     },
     {
      "word": "TRANSPARENT",
@@ -3448,7 +3448,7 @@
      "dir": "A",
      "num": 10,
      "cn": "透明的",
-     "clue": "each nearly ___ and no bigger than your fingernail."
+     "clue": "Letting light pass through so you can see almost right through it. Example: each nearly ___ and no bigger than your fingernail."
     }
    ]
   }

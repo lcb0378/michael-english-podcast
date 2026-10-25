@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol22/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol22/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol22/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol22/Vol22_晚读讲义_看不见的登山家与三颗心脏的章鱼_v1.pdf",
- "pdfName": "Vol22_晚读讲义_看不见的登山家与三颗心脏的章鱼_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol22/Vol22_晚读讲义_看不见的登山家与三颗心脏的章鱼_v2.pdf",
+ "pdfName": "Vol22_晚读讲义_看不见的登山家与三颗心脏的章鱼_v2.pdf",
  "blocks": [
   {
    "start": 25.07,
@@ -3585,7 +3585,7 @@
      "dir": "D",
      "num": 1,
      "cn": "肉；肉体",
-     "clue": "A body of soft ___."
+     "clue": "The soft part of a living body, under the skin. Example: A body of soft ___."
     },
     {
      "word": "GARMENT",
@@ -3594,7 +3594,7 @@
      "dir": "D",
      "num": 2,
      "cn": "服装",
-     "clue": "He wore thick ___s against the cold wind."
+     "clue": "A piece of clothing worn to keep warm in cold wind. Example: He wore thick ___s against the cold wind."
     },
     {
      "word": "SYSTEMIC",
@@ -3603,7 +3603,7 @@
      "dir": "D",
      "num": 3,
      "cn": "体循环的",
-     "clue": "The ___ heart sends blood around the body."
+     "clue": "Going to all parts of the body, not just one small place. Example: The ___ heart sends blood around the body."
     },
     {
      "word": "FADE",
@@ -3612,7 +3612,7 @@
      "dir": "A",
      "num": 4,
      "cn": "渐渐消失",
-     "clue": "His eyesight ___d slowly."
+     "clue": "To grow weaker or less clear, little by little. Example: His eyesight ___d slowly."
     },
     {
      "word": "COURAGE",
@@ -3621,7 +3621,7 @@
      "dir": "D",
      "num": 5,
      "cn": "勇气",
-     "clue": "Step by step, his ___ grew."
+     "clue": "The brave feeling that grows when you keep going even when something is hard. Example: Step by step, his ___ grew."
     },
     {
      "word": "DELIGHT",
@@ -3630,7 +3630,7 @@
      "dir": "D",
      "num": 6,
      "cn": "喜悦",
-     "clue": "Erik reached the top, to the ___ of his whole team."
+     "clue": "Great happiness when something wonderful happens. Example: Erik reached the top, to the ___ of his whole team."
     },
     {
      "word": "BRANCHIAL",
@@ -3639,7 +3639,7 @@
      "dir": "D",
      "num": 7,
      "cn": "鳃的",
-     "clue": "Two small hearts, called ___ hearts, push blood to its gills."
+     "clue": "To do with the breathing parts of a sea animal, through which it takes in oxygen from water. Example: Two small hearts, called ___ hearts, push blood to its gills."
     },
     {
      "word": "ERUPT",
@@ -3648,7 +3648,7 @@
      "dir": "A",
      "num": 8,
      "cn": "爆发",
-     "clue": "His team ___ed with cheers. (past form in the text)"
+     "clue": "To burst out suddenly, all at once. Example: His team ___ed with cheers. (past form in the text)"
     },
     {
      "word": "PRIMARY",
@@ -3657,7 +3657,7 @@
      "dir": "D",
      "num": 9,
      "cn": "主要的",
-     "clue": "Touch was his ___ guide."
+     "clue": "First and most important; the one you use most. Example: Touch was his ___ guide."
     },
     {
      "word": "COINCIDENCE",
@@ -3666,7 +3666,7 @@
      "dir": "A",
      "num": 10,
      "cn": "巧合",
-     "clue": "It is no ___ that they are such good crawlers."
+     "clue": "When two things happen together by luck, not because they were planned. Example: It is no ___ that they are such good crawlers."
     }
    ]
   }

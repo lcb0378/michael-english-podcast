@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol25/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol25/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol25/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol25/Vol25_晚读讲义_热泉下的隐藏世界与会隐身的青蛙_v1.pdf",
- "pdfName": "Vol25_晚读讲义_热泉下的隐藏世界与会隐身的青蛙_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol25/Vol25_晚读讲义_热泉下的隐藏世界与会隐身的青蛙_v2.pdf",
+ "pdfName": "Vol25_晚读讲义_热泉下的隐藏世界与会隐身的青蛙_v2.pdf",
  "blocks": [
   {
    "start": 27.31,
@@ -3495,7 +3495,7 @@
      "dir": "A",
      "num": 1,
      "cn": "青蛙",
-     "clue": "Now meet a ___ that can almost disappear."
+     "clue": "A small green animal that jumps and lives near water. Example: Now meet a ___ that can almost disappear."
     },
     {
      "word": "GLASS",
@@ -3504,7 +3504,7 @@
      "dir": "D",
      "num": 2,
      "cn": "玻璃",
-     "clue": "Like looking through ___."
+     "clue": "A clear material you can see through, used in windows. Example: Like looking through ___."
     },
     {
      "word": "LEAF",
@@ -3513,7 +3513,7 @@
      "dir": "A",
      "num": 3,
      "cn": "叶子",
-     "clue": "It simply fades into the ___."
+     "clue": "A flat green part of a plant that grows on a tree or branch. Example: It simply fades into the ___."
     },
     {
      "word": "CAVES",
@@ -3522,7 +3522,7 @@
      "dir": "D",
      "num": 4,
      "cn": "洞穴",
-     "clue": "It found warm, hidden ___."
+     "clue": "Big dark rooms under the ground or under the sea floor. Example: It found warm, hidden ___."
     },
     {
      "word": "SNAIL",
@@ -3531,7 +3531,7 @@
      "dir": "A",
      "num": 5,
      "cn": "蜗牛",
-     "clue": "Young tube worms and small ___s lived in the caves."
+     "clue": "A small slow animal with a hard shell on its back. Example: Young tube worms and small ___s lived in the caves."
     },
     {
      "word": "BLOOD",
@@ -3540,7 +3540,7 @@
      "dir": "D",
      "num": 6,
      "cn": "血液",
-     "clue": "The cells rush back into the ___ in seconds."
+     "clue": "The red liquid that moves around inside your body. Example: The cells rush back into the ___ in seconds."
     },
     {
      "word": "LIVER",
@@ -3549,7 +3549,7 @@
      "dir": "A",
      "num": 7,
      "cn": "肝脏",
-     "clue": "It packs its red blood cells into its ___."
+     "clue": "A part inside the body that stores blood cells and helps keep the body safe. Example: It packs its red blood cells into its ___."
     },
     {
      "word": "VENT",
@@ -3558,7 +3558,7 @@
      "dir": "D",
      "num": 8,
      "cn": "热泉喷口",
-     "clue": "These are hydrothermal ___s — underwater hot springs."
+     "clue": "An opening in the sea floor where hot water comes out. Example: These are hydrothermal ___s — underwater hot springs."
     },
     {
      "word": "HIDDEN",
@@ -3567,7 +3567,7 @@
      "dir": "A",
      "num": 9,
      "cn": "隐藏的",
-     "clue": "It found warm, ___ caves."
+     "clue": "Kept out of sight, where others cannot easily find it. Example: It found warm, ___ caves."
     },
     {
      "word": "ROBOT",
@@ -3576,7 +3576,7 @@
      "dir": "A",
      "num": 10,
      "cn": "机器人",
-     "clue": "Their ___, SuBastian, did the diving."
+     "clue": "A machine that can do jobs for people, often in places too hard or dangerous for them. Example: Their ___, SuBastian, did the diving."
     }
    ]
   }

@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol38/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol38/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol38/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol38/Vol38_晚读讲义_会画画的大象与夜里会飞的蝙蝠_v1.pdf",
- "pdfName": "Vol38_晚读讲义_会画画的大象与夜里会飞的蝙蝠_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol38/Vol38_晚读讲义_会画画的大象与夜里会飞的蝙蝠_v2.pdf",
+ "pdfName": "Vol38_晚读讲义_会画画的大象与夜里会飞的蝙蝠_v2.pdf",
  "blocks": [
   {
    "start": 18.59,
@@ -3253,7 +3253,7 @@
      "dir": "D",
      "num": 1,
      "cn": "大象",
-     "clue": "An ___ who paints pictures with her trunk."
+     "clue": "A very big grey animal with a long nose and big ears. Example: An ___ who paints pictures with her trunk."
     },
     {
      "word": "TRUNK",
@@ -3262,7 +3262,7 @@
      "dir": "D",
      "num": 2,
      "cn": "长鼻子",
-     "clue": "Holds a brush with the tip of her ___."
+     "clue": "The long nose of a big grey animal, used to hold things. Example: Holds a brush with the tip of her ___."
     },
     {
      "word": "PAINTING",
@@ -3271,7 +3271,7 @@
      "dir": "A",
      "num": 3,
      "cn": "画",
-     "clue": "A giant ___ made by eight elephants."
+     "clue": "A picture made with colors on paper or cloth. Example: A giant ___ made by eight elephants."
     },
     {
      "word": "BAT",
@@ -3280,7 +3280,7 @@
      "dir": "D",
      "num": 4,
      "cn": "蝙蝠",
-     "clue": "A ___ — the only mammal that can truly fly."
+     "clue": "A small night animal with wings that flies and hunts insects. Example: A ___ — the only mammal that can truly fly."
     },
     {
      "word": "ECHOLOCATION",
@@ -3289,7 +3289,7 @@
      "dir": "A",
      "num": 5,
      "cn": "回声定位",
-     "clue": "It uses ___ to fly in the dark."
+     "clue": "A way of finding things in the dark by calling out sounds and listening for them coming back. Example: It uses ___ to fly in the dark."
     },
     {
      "word": "MAMMAL",
@@ -3298,7 +3298,7 @@
      "dir": "D",
      "num": 6,
      "cn": "哺乳动物",
-     "clue": "About one in every five ___ species is a bat."
+     "clue": "An animal that feeds its babies with milk and has hair or fur. Example: About one in every five ___ species is a bat."
     },
     {
      "word": "SECRET",
@@ -3307,7 +3307,7 @@
      "dir": "A",
      "num": 7,
      "cn": "秘密",
-     "clue": "You tell a ___ by mistake."
+     "clue": "Something you know but do not tell anyone else. Example: You tell a ___ by mistake."
     },
     {
      "word": "BRUSH",
@@ -3316,7 +3316,7 @@
      "dir": "A",
      "num": 8,
      "cn": "画笔",
-     "clue": "Holds a ___ with the tip of her trunk."
+     "clue": "A tool with soft hairs at one end, used to put colors on paper. Example: Holds a ___ with the tip of her trunk."
     },
     {
      "word": "CAVE",
@@ -3325,7 +3325,7 @@
      "dir": "D",
      "num": 9,
      "cn": "洞穴",
-     "clue": "Explore a dark ___."
+     "clue": "A big dark hole under the ground or in a rock. Example: Explore a dark ___."
     },
     {
      "word": "MOTH",
@@ -3334,7 +3334,7 @@
      "dir": "D",
      "num": 10,
      "cn": "飞蛾",
-     "clue": "A tree, a wall, or a tasty ___."
+     "clue": "A soft night insect with wide wings, like a butterfly that flies at night. Example: A tree, a wall, or a tasty ___."
     }
    ]
   }

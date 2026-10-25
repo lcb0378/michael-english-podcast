@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol49/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol49/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol49/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol49/Vol49_晚读讲义_搜救犬退役与狗狗的超级鼻子_v1.pdf",
- "pdfName": "Vol49_晚读讲义_搜救犬退役与狗狗的超级鼻子_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol49/Vol49_晚读讲义_搜救犬退役与狗狗的超级鼻子_v2.pdf",
+ "pdfName": "Vol49_晚读讲义_搜救犬退役与狗狗的超级鼻子_v2.pdf",
  "blocks": [
   {
    "start": 22.11,
@@ -3344,7 +3344,7 @@
      "dir": "D",
      "num": 1,
      "cn": "嗅",
-     "clue": "When a dog ___s, air goes into two rooms."
+     "clue": "To take quick short breaths in to smell something. Example: When a dog ___s, air goes into two rooms."
     },
     {
      "word": "RESCUE",
@@ -3353,7 +3353,7 @@
      "dir": "D",
      "num": 2,
      "cn": "救援",
-     "clue": "five ___ dogs have just retired."
+     "clue": "To save people or animals from danger after a disaster. Example: five ___ dogs have just retired."
     },
     {
      "word": "NOSE",
@@ -3362,7 +3362,7 @@
      "dir": "A",
      "num": 3,
      "cn": "鼻子",
-     "clue": "the secret inside a dog's ___."
+     "clue": "The part of the face you breathe and smell with. Example: the secret inside a dog's ___."
     },
     {
      "word": "FOREHEAD",
@@ -3371,7 +3371,7 @@
      "dir": "D",
      "num": 4,
      "cn": "额头",
-     "clue": "your dog wrinkles its ___ and sniffs the air."
+     "clue": "The flat part of the face above the eyes. Example: your dog wrinkles its ___ and sniffs the air."
     },
     {
      "word": "HOOK",
@@ -3380,7 +3380,7 @@
      "dir": "A",
      "num": 5,
      "cn": "钩",
-     "clue": "off the ___."
+     "clue": "A curved piece of metal for hanging things, named in a saying for being free from a job. Example: off the ___."
     },
     {
      "word": "GAIA",
@@ -3389,7 +3389,7 @@
      "dir": "D",
      "num": 6,
      "cn": "盖娅",
-     "clue": "___'s new owner, Valeria."
+     "clue": "The name of one of the five retired hero dogs in the story. Example: ___'s new owner, Valeria."
     },
     {
      "word": "ASPECT",
@@ -3398,7 +3398,7 @@
      "dir": "D",
      "num": 7,
      "cn": "方面",
-     "clue": "Here is one amazing ___."
+     "clue": "One amazing side of a thing. Example: Here is one amazing ___."
     },
     {
      "word": "PULSE",
@@ -3407,7 +3407,7 @@
      "dir": "A",
      "num": 8,
      "cn": "脉搏",
-     "clue": "the rescuers could feel the person's ___."
+     "clue": "The steady beat of blood that you can feel in a person's body. Example: the rescuers could feel the person's ___."
     },
     {
      "word": "TISSUE",
@@ -3416,7 +3416,7 @@
      "dir": "A",
      "num": 9,
      "cn": "组织",
-     "clue": "The smelling room is full of soft ___."
+     "clue": "The soft living material inside the nose that traps smells. Example: The smelling room is full of soft ___."
     },
     {
      "word": "APPROACH",
@@ -3425,7 +3425,7 @@
      "dir": "A",
      "num": 10,
      "cn": "方法",
-     "clue": "their ___ was simple: follow the nose."
+     "clue": "A simple way of doing a job. Example: their ___ was simple: follow the nose."
     }
    ]
   }

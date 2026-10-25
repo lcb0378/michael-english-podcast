@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol50/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol50/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol50/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol50/Vol50_晚读讲义_十个最爱故事与声音的旅行_v1.pdf",
- "pdfName": "Vol50_晚读讲义_十个最爱故事与声音的旅行_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol50/Vol50_晚读讲义_十个最爱故事与声音的旅行_v2.pdf",
+ "pdfName": "Vol50_晚读讲义_十个最爱故事与声音的旅行_v2.pdf",
  "blocks": [
   {
    "start": 24.27,
@@ -3333,7 +3333,7 @@
      "dir": "D",
      "num": 1,
      "cn": "猜测",
-     "clue": "your ___ is as good as mine."
+     "clue": "When you do not know the answer, you say what you think it might be. Example: your ___ is as good as mine."
     },
     {
      "word": "BONE",
@@ -3342,7 +3342,7 @@
      "dir": "D",
      "num": 2,
      "cn": "骨头",
-     "clue": "three tiny ___s — the hammer, the anvil and the stirrup."
+     "clue": "A hard white part inside your body that holds you up. Example: three tiny ___s — the hammer, the anvil and the stirrup."
     },
     {
      "word": "WAVE",
@@ -3351,7 +3351,7 @@
      "dir": "A",
      "num": 3,
      "cn": "声波",
-     "clue": "it pushes the air into a ___."
+     "clue": "A moving shake that travels through the air and carries a sound to your ear. Example: it pushes the air into a ___."
     },
     {
      "word": "TISSUE",
@@ -3360,7 +3360,7 @@
      "dir": "A",
      "num": 4,
      "cn": "组织",
-     "clue": "a thin piece of ___ called the eardrum."
+     "clue": "A thin, soft layer of living material in your body. Example: a thin piece of ___ called the eardrum."
     },
     {
      "word": "SPARROW",
@@ -3369,7 +3369,7 @@
      "dir": "D",
      "num": 5,
      "cn": "麻雀",
-     "clue": "a ___'s song."
+     "clue": "A small brown bird that sings a pretty song. Example: a ___'s song."
     },
     {
      "word": "SOUND",
@@ -3378,7 +3378,7 @@
      "dir": "D",
      "num": 6,
      "cn": "声音",
-     "clue": "Every ___ begins with a shake."
+     "clue": "What your ears hear when something shakes the air. Example: Every ___ begins with a shake."
     },
     {
      "word": "COCHLEA",
@@ -3387,7 +3387,7 @@
      "dir": "A",
      "num": 7,
      "cn": "耳蜗",
-     "clue": "a snail-shaped room called the ___."
+     "clue": "A small spiral room deep inside your ear, where tiny hair cells turn shakes into signals. Example: a snail-shaped room called the ___."
     },
     {
      "word": "PULSE",
@@ -3396,7 +3396,7 @@
      "dir": "D",
      "num": 8,
      "cn": "脉冲",
-     "clue": "Sound moves as a ___ through the air."
+     "clue": "A short, quick burst of movement that travels through the air. Example: Sound moves as a ___ through the air."
     },
     {
      "word": "DRUM",
@@ -3405,7 +3405,7 @@
      "dir": "A",
      "num": 9,
      "cn": "鼓",
-     "clue": "Hit a ___, and its skin shakes."
+     "clue": "A round musical instrument that makes a deep boom when you hit it. Example: Hit a ___, and its skin shakes."
     },
     {
      "word": "EARDRUM",
@@ -3414,7 +3414,7 @@
      "dir": "A",
      "num": 10,
      "cn": "耳膜",
-     "clue": "a thin piece of tissue called the ___."
+     "clue": "A thin sheet inside your head that shakes when a wave reaches it, and passes the shake to three tiny bones. Example: a thin piece of tissue called the ___."
     }
    ]
   }

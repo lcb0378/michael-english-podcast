@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol32/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol32/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol32/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol32/Vol32_晚读讲义_猫站长与乌鸦的好记性_v1.pdf",
- "pdfName": "Vol32_晚读讲义_猫站长与乌鸦的好记性_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol32/Vol32_晚读讲义_猫站长与乌鸦的好记性_v2.pdf",
+ "pdfName": "Vol32_晚读讲义_猫站长与乌鸦的好记性_v2.pdf",
  "blocks": [
   {
    "start": 21.15,
@@ -3495,7 +3495,7 @@
      "dir": "A",
      "num": 1,
      "cn": "面具",
-     "clue": "They wore a strange caveman ___."
+     "clue": "Something you wear over your face to hide what you look like. Example: They wore a strange caveman ___."
     },
     {
      "word": "STATION",
@@ -3504,7 +3504,7 @@
      "dir": "D",
      "num": 2,
      "cn": "火车站",
-     "clue": "there is a small train ___ called Kishi Station."
+     "clue": "A place where trains stop so people can get on and off. Example: there is a small train ___ called Kishi Station."
     },
     {
      "word": "PEARL",
@@ -3513,7 +3513,7 @@
      "dir": "D",
      "num": 3,
      "cn": "珍珠",
-     "clue": "and even a ___-colored heart."
+     "clue": "A small, shiny white ball that grows inside a shell in the sea. Example: and even a ___-colored heart."
     },
     {
      "word": "BUTTON",
@@ -3522,7 +3522,7 @@
      "dir": "D",
      "num": 4,
      "cn": "纽扣",
-     "clue": "Little beads, ___s, a paper clip, and even a pearl-colored heart."
+     "clue": "A small round thing on clothes that goes through a hole to close them. Example: Little beads, ___s, a paper clip, and even a pearl-colored heart."
     },
     {
      "word": "BEAD",
@@ -3531,7 +3531,7 @@
      "dir": "A",
      "num": 5,
      "cn": "珠子",
-     "clue": "Little ___s, buttons, a paper clip, and even a pearl-colored heart."
+     "clue": "A small round thing with a hole in the middle, for making a necklace. Example: Little ___s, buttons, a paper clip, and even a pearl-colored heart."
     },
     {
      "word": "TICKET",
@@ -3540,7 +3540,7 @@
      "dir": "A",
      "num": 6,
      "cn": "车票",
-     "clue": "Every passenger still needs a valid ___."
+     "clue": "A small paper or card that shows you have paid to travel or to enter. Example: Every passenger still needs a valid ___."
     },
     {
      "word": "CALICO",
@@ -3549,7 +3549,7 @@
      "dir": "D",
      "num": 7,
      "cn": "三花猫",
-     "clue": "a ___ cat named Tama."
+     "clue": "A cat with patches of white, orange, and black fur. Example: a ___ cat named Tama."
     },
     {
      "word": "CROW",
@@ -3558,7 +3558,7 @@
      "dir": "A",
      "num": 8,
      "cn": "乌鸦",
-     "clue": "to meet a bird with a brain like a detective: the ___."
+     "clue": "A big black bird that is very clever and can remember faces. Example: to meet a bird with a brain like a detective: the ___."
     },
     {
      "word": "GIFT",
@@ -3567,7 +3567,7 @@
      "dir": "D",
      "num": 9,
      "cn": "礼物",
-     "clue": "they started to bring her ___!"
+     "clue": "Something nice you give to someone to make them happy. Example: they started to bring her ___!"
     },
     {
      "word": "CURIOSITY",
@@ -3576,7 +3576,7 @@
      "dir": "A",
      "num": 10,
      "cn": "好奇心",
-     "clue": "enjoy your ___!"
+     "clue": "A strong wish to know or learn about something new. Example: enjoy your ___!"
     }
    ]
   }

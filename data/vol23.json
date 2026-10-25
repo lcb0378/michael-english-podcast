@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol23/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol23/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol23/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol23/Vol23_晚读讲义_测水的小发明家与返老还童的水母_v1.pdf",
- "pdfName": "Vol23_晚读讲义_测水的小发明家与返老还童的水母_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol23/Vol23_晚读讲义_测水的小发明家与返老还童的水母_v2.pdf",
+ "pdfName": "Vol23_晚读讲义_测水的小发明家与返老还童的水母_v2.pdf",
  "blocks": [
   {
    "start": 26.51,
@@ -3566,7 +3566,7 @@
      "dir": "D",
      "num": 1,
      "cn": "装置；设备",
-     "clue": "A small machine made for a special job. She built a small ___ to test water."
+     "clue": "A small machine made for a special job. Example: She built a small ___ to test water."
     },
     {
      "word": "JELLYFISH",
@@ -3575,7 +3575,7 @@
      "dir": "D",
      "num": 2,
      "cn": "水母",
-     "clue": "A soft sea animal with a bell and arms. The ___ can turn young again."
+     "clue": "A soft sea animal with a bell and arms. Example: The ___ can turn young again."
     },
     {
      "word": "LEAD",
@@ -3584,7 +3584,7 @@
      "dir": "A",
      "num": 3,
      "cn": "铅",
-     "clue": "A poison metal in dirty water. The water had ___ in it."
+     "clue": "A poison metal in dirty water. Example: The water had ___ in it."
     },
     {
      "word": "ENGINE",
@@ -3593,7 +3593,7 @@
      "dir": "D",
      "num": 4,
      "cn": "引擎（搜索引擎）",
-     "clue": "She used a search ___ to read about carbon nanotubes."
+     "clue": "A computer tool that helps you find pages on the internet. Example: She used a search ___ to read about carbon nanotubes."
     },
     {
      "word": "INVENTOR",
@@ -3602,7 +3602,7 @@
      "dir": "D",
      "num": 5,
      "cn": "发明家",
-     "clue": "A person who makes something new for the first time. Gitanjali is a young ___."
+     "clue": "A person who makes something new for the first time. Example: Gitanjali is a young ___."
     },
     {
      "word": "DELIGHT",
@@ -3611,7 +3611,7 @@
      "dir": "D",
      "num": 6,
      "cn": "高兴；喜悦",
-     "clue": "Great happiness. To everyone's ___, her device worked!"
+     "clue": "Great happiness. Example: To everyone's ___, her device worked!"
     },
     {
      "word": "COURAGE",
@@ -3620,7 +3620,7 @@
      "dir": "A",
      "num": 7,
      "cn": "勇气",
-     "clue": "The brave heart to face a big problem. It takes ___ to say, 'I can help!'"
+     "clue": "The brave heart to face a big problem. Example: It takes ___ to say, 'I can help!'"
     },
     {
      "word": "COINCIDENCE",
@@ -3629,7 +3629,7 @@
      "dir": "A",
      "num": 8,
      "cn": "巧合",
-     "clue": "A lucky surprise that is not planned. By ___, scientists found the jellyfish near Italy."
+     "clue": "A lucky surprise that is not planned. Example: By ___, scientists found the jellyfish near Italy."
     },
     {
      "word": "FLESH",
@@ -3638,7 +3638,7 @@
      "dir": "A",
      "num": 9,
      "cn": "肉；肉质",
-     "clue": "The soft part of a body. Its soft ___ sinks to the sea floor."
+     "clue": "The soft part of a body. Example: Its soft ___ sinks to the sea floor."
     },
     {
      "word": "POLYP",
@@ -3647,7 +3647,7 @@
      "dir": "A",
      "num": 10,
      "cn": "水螅体",
-     "clue": "The baby form of the jellyfish. Its cells turn back into a young ___."
+     "clue": "The baby form of the jellyfish. Example: Its cells turn back into a young ___."
     }
    ]
   }

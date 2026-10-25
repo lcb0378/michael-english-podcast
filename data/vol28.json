@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol28/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol28/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol28/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol28/Vol28_晚读讲义_种树的无人机与森林的地下网络_v1.pdf",
- "pdfName": "Vol28_晚读讲义_种树的无人机与森林的地下网络_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol28/Vol28_晚读讲义_种树的无人机与森林的地下网络_v2.pdf",
+ "pdfName": "Vol28_晚读讲义_种树的无人机与森林的地下网络_v2.pdf",
  "blocks": [
   {
    "start": 26.83,
@@ -3430,7 +3430,7 @@
      "dir": "D",
      "num": 1,
      "cn": "鲜艳的",
-     "clue": "Soon, ___ green shoots rise from the ground."
+     "clue": "Bright and strong in colour, easy to see. Example: Soon, ___ green shoots rise from the ground."
     },
     {
      "word": "MOTHER",
@@ -3439,7 +3439,7 @@
      "dir": "D",
      "num": 2,
      "cn": "母树",
-     "clue": "Big old ___ trees sit at the centre of the web."
+     "clue": "The oldest, biggest trees at the centre of the web, sharing food with young trees. Example: Big old ___ trees sit at the centre of the web."
     },
     {
      "word": "ROOTS",
@@ -3448,7 +3448,7 @@
      "dir": "A",
      "num": 3,
      "cn": "树根",
-     "clue": "Thin threads wrap around tree ___."
+     "clue": "The parts of a plant that grow under the ground and take in water. Example: Thin threads wrap around tree ___."
     },
     {
      "word": "SEED",
@@ -3457,7 +3457,7 @@
      "dir": "D",
      "num": 4,
      "cn": "种子",
-     "clue": "Every forest starts with one small ___."
+     "clue": "A tiny plant beginning that can grow into a tree. Example: Every forest starts with one small ___."
     },
     {
      "word": "FOREST",
@@ -3466,7 +3466,7 @@
      "dir": "D",
      "num": 5,
      "cn": "森林",
-     "clue": "Under every ___ floor hides a secret network."
+     "clue": "A large place full of trees growing close together. Example: Under every ___ floor hides a secret network."
     },
     {
      "word": "DRONE",
@@ -3475,7 +3475,7 @@
      "dir": "A",
      "num": 6,
      "cn": "无人机",
-     "clue": "Flash Forest sends ___ to plant trees."
+     "clue": "A small flying machine with no person inside it, guided from the ground. Example: Flash Forest sends ___ to plant trees."
     },
     {
      "word": "FUNGUS",
@@ -3484,7 +3484,7 @@
      "dir": "D",
      "num": 7,
      "cn": "真菌",
-     "clue": "The real body of the ___ lives at the bottom of the soil."
+     "clue": "A living thing like a mushroom, with thin threads that spread through the soil. Example: The real body of the ___ lives at the bottom of the soil."
     },
     {
      "word": "SPRAY",
@@ -3493,7 +3493,7 @@
      "dir": "D",
      "num": 8,
      "cn": "喷洒",
-     "clue": "Other drones ___ water and food over the young trees."
+     "clue": "To send tiny drops of liquid over something. Example: Other drones ___ water and food over the young trees."
     },
     {
      "word": "NETWORK",
@@ -3502,7 +3502,7 @@
      "dir": "D",
      "num": 9,
      "cn": "网络",
-     "clue": "Scientists call this the Wood Wide ___."
+     "clue": "A web of things joined together so they can share and help each other. Example: Scientists call this the Wood Wide ___."
     },
     {
      "word": "PATIENCE",
@@ -3511,7 +3511,7 @@
      "dir": "A",
      "num": 10,
      "cn": "耐心",
-     "clue": "It takes ___ — a seed needs years to become a tall tree."
+     "clue": "The calm power to wait years without giving up. Example: It takes ___ — a seed needs years to become a tall tree."
     }
    ]
   }

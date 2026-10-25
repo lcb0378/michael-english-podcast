@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol18/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol18/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol18/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol18/Vol18_晚读讲义_最辣的辣椒与热水结冰之谜_v1.pdf",
- "pdfName": "Vol18_晚读讲义_最辣的辣椒与热水结冰之谜_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol18/Vol18_晚读讲义_最辣的辣椒与热水结冰之谜_v2.pdf",
+ "pdfName": "Vol18_晚读讲义_最辣的辣椒与热水结冰之谜_v2.pdf",
  "blocks": [
   {
    "start": 27.63,
@@ -3604,7 +3604,7 @@
      "dir": "D",
      "num": 1,
      "cn": "冷冻柜；冰柜",
-     "clue": "The very cold box where Mpemba pushed his hot mix"
+     "clue": "The very cold box where Mpemba pushed his hot mix. Example: Mpemba pushed his hot milk mix straight into the ___."
     },
     {
      "word": "PEPPER",
@@ -3613,7 +3613,7 @@
      "dir": "A",
      "num": 2,
      "cn": "辣椒",
-     "clue": "Pepper X is the hottest one of these in the world"
+     "clue": "Pepper X is the hottest one of these in the world. Example: Ed Currie grew the hottest ___ in the world after ten years of work."
     },
     {
      "word": "QUESTION",
@@ -3622,7 +3622,7 @@
      "dir": "D",
      "num": 3,
      "cn": "问题",
-     "clue": "Mpemba kept asking this, even when people laughed"
+     "clue": "Mpemba kept asking this, even when people laughed. Example: Mpemba kept asking his ___ even when his teacher laughed."
     },
     {
      "word": "STEAM",
@@ -3631,7 +3631,7 @@
      "dir": "D",
      "num": 4,
      "cn": "水汽；蒸汽",
-     "clue": "Hot water sends this white cloud up into the air"
+     "clue": "Hot water sends this white cloud up into the air. Example: When the hot milk cooled, white ___ rose up into the air."
     },
     {
      "word": "ERUPT",
@@ -3640,7 +3640,7 @@
      "dir": "A",
      "num": 5,
      "cn": "爆发；突然发生",
-     "clue": "To burst out suddenly, like a volcano"
+     "clue": "To burst out suddenly, like a volcano. Example: The class ___ed with laughter when they first heard the idea."
     },
     {
      "word": "LAUGH",
@@ -3649,7 +3649,7 @@
      "dir": "A",
      "num": 6,
      "cn": "笑；大笑",
-     "clue": "What the teacher and the class did when they first heard the idea"
+     "clue": "What the teacher and the class did when they first heard the idea. Example: The teacher and the class ___ed when they first heard Mpemba's idea."
     },
     {
      "word": "AFRICA",
@@ -3658,7 +3658,7 @@
      "dir": "D",
      "num": 7,
      "cn": "非洲",
-     "clue": "The continent where Tanzania is"
+     "clue": "The continent where Tanzania is. Example: Tanzania sits in ___, where Mpemba went to school."
     },
     {
      "word": "TROUBLE",
@@ -3667,7 +3667,7 @@
      "dir": "A",
      "num": 8,
      "cn": "麻烦",
-     "clue": "If you are in hot water, you are in this"
+     "clue": "If you are in hot water, you are in this. Example: Tom forgot his homework again, so now he is in ___ with his teacher."
     },
     {
      "word": "MILK",
@@ -3676,7 +3676,7 @@
      "dir": "D",
      "num": 9,
      "cn": "牛奶",
-     "clue": "It carries fat and can wash away a chilli fire"
+     "clue": "It carries fat and can wash away a chilli fire. Example: A glass of cold ___ can wash away a chilli fire."
     },
     {
      "word": "CAPSAICIN",
@@ -3685,7 +3685,7 @@
      "dir": "A",
      "num": 10,
      "cn": "辣椒素",
-     "clue": "The chemical inside a chilli that makes it hot"
+     "clue": "The chemical inside a chilli that makes it hot. Example: The ___ inside Pepper X makes it the hottest chilli in the world."
     }
    ]
   }

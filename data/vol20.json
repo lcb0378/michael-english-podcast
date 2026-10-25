@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol20/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol20/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol20/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol20/Vol20_晚读讲义_团宠小河马与冻成冰块的青蛙_v1.pdf",
- "pdfName": "Vol20_晚读讲义_团宠小河马与冻成冰块的青蛙_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol20/Vol20_晚读讲义_团宠小河马与冻成冰块的青蛙_v2.pdf",
+ "pdfName": "Vol20_晚读讲义_团宠小河马与冻成冰块的青蛙_v2.pdf",
  "blocks": [
   {
    "start": 28.91,
@@ -3610,7 +3610,7 @@
      "dir": "D",
      "num": 1,
      "cn": "媒体",
-     "clue": "Social ___ is where her keeper posted the videos."
+     "clue": "News, videos and photos shared online. Example: Social ___ is where her keeper posted the videos."
     },
     {
      "word": "GLUCOSE",
@@ -3628,7 +3628,7 @@
      "dir": "D",
      "num": 3,
      "cn": "笨拙的",
-     "clue": "Clumsy and funny to watch. The baby hippo takes ___ little steps."
+     "clue": "Clumsy and funny to watch. Example: The baby hippo takes ___ little steps."
     },
     {
      "word": "VIRAL",
@@ -3637,7 +3637,7 @@
      "dir": "A",
      "num": 4,
      "cn": "（在网上）疯传的",
-     "clue": "Spread all over the internet very fast. Her videos went ___."
+     "clue": "Spread all over the internet very fast. Example: Her videos went ___."
     },
     {
      "word": "FROZEN",
@@ -3646,7 +3646,7 @@
      "dir": "D",
      "num": 5,
      "cn": "冻住的；结冰的",
-     "clue": "Turned into ice. The frog stays ___ solid for months."
+     "clue": "Turned into ice. Example: The frog stays ___ solid for months."
     },
     {
      "word": "DYNASTY",
@@ -3655,7 +3655,7 @@
      "dir": "D",
      "num": 6,
      "cn": "王朝；家族世系",
-     "clue": "A family line that keeps the same name or job. Moo Deng comes from a pork ___ of hippos."
+     "clue": "A family line that keeps the same name or job. Example: Moo Deng comes from a pork ___ of hippos."
     },
     {
      "word": "ERUPT",
@@ -3664,7 +3664,7 @@
      "dir": "D",
      "num": 7,
      "cn": "爆发（出欢笑声）",
-     "clue": "To burst out suddenly. The crowds ___ed with laughter. (past form in the text)"
+     "clue": "To burst out suddenly. Example: The crowds ___ed with laughter. (past form in the text)"
     },
     {
      "word": "HIPPO",
@@ -3673,7 +3673,7 @@
      "dir": "A",
      "num": 8,
      "cn": "河马",
-     "clue": "A big round water animal; Moo Deng is a pygmy one."
+     "clue": "A big round water animal; Moo Deng is a pygmy one. Example: Moo Deng is a baby ___ from Thailand."
     },
     {
      "word": "APPEAL",
@@ -3682,7 +3682,7 @@
      "dir": "A",
      "num": 9,
      "cn": "吸引力",
-     "clue": "The charm that makes people love something. One small hippo holds so much ___."
+     "clue": "The charm that makes people love something. Example: One small hippo holds so much ___."
     },
     {
      "word": "HIBERNATE",
@@ -3691,7 +3691,7 @@
      "dir": "A",
      "num": 10,
      "cn": "（动物）冬眠",
-     "clue": "To sleep through the whole winter, the way the wood frog does."
+     "clue": "To sleep through the whole winter, the way the wood frog does. Example: Most frogs ___ deep under the ground."
     }
    ]
   }

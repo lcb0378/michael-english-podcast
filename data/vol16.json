@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol16/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol16/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol16/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol16/Vol16_晚读讲义_乐高大桥与比树还老的鲨鱼_v1.pdf",
- "pdfName": "Vol16_晚读讲义_乐高大桥与比树还老的鲨鱼_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol16/Vol16_晚读讲义_乐高大桥与比树还老的鲨鱼_v2.pdf",
+ "pdfName": "Vol16_晚读讲义_乐高大桥与比树还老的鲨鱼_v2.pdf",
  "blocks": [
   {
    "start": 30.35,
@@ -3697,7 +3697,7 @@
      "dir": "D",
      "num": 1,
      "cn": "积木块；砖",
-     "clue": "One small building block. The London record used 5,805,846 of them."
+     "clue": "One small building block. The London record used 5,805,846 of them. Example: The London record used 5,805,846 ___s, laid in one long line."
     },
     {
      "word": "SHARK",
@@ -3706,7 +3706,7 @@
      "dir": "A",
      "num": 2,
      "cn": "鲨鱼",
-     "clue": "A great fish with sharp teeth — older than trees!"
+     "clue": "A great fish with sharp teeth — older than trees! Example: The ancient ___ swam long before the first trees grew on land."
     },
     {
      "word": "FOSSIL",
@@ -3715,7 +3715,7 @@
      "dir": "D",
      "num": 3,
      "cn": "化石",
-     "clue": "What is left of a living thing, kept in rock for millions of years."
+     "clue": "What is left of a living thing, kept in rock for millions of years. Example: The oldest shark ___s are tiny scales in rocks 450 million years old."
     },
     {
      "word": "ANCHOR",
@@ -3724,7 +3724,7 @@
      "dir": "A",
      "num": 4,
      "cn": "锚",
-     "clue": "A heavy piece of iron that holds something firmly in place."
+     "clue": "A heavy piece of iron that holds something firmly in place. Example: Sailors drop a heavy ___ to hold their boat in one place."
     },
     {
      "word": "SHOW",
@@ -3733,7 +3733,7 @@
      "dir": "A",
      "num": 5,
      "cn": "演出；表演",
-     "clue": "A performance on a stage. To steal it is to win all the attention."
+     "clue": "A performance on a stage. To steal it is to win all the attention. Example: The LEGO bridge stole the ___ in London."
     },
     {
      "word": "SCALES",
@@ -3742,7 +3742,7 @@
      "dir": "A",
      "num": 6,
      "cn": "鳞片",
-     "clue": "The small, hard plates on a shark's skin. The oldest shark fossils are these."
+     "clue": "The small, hard plates on a shark's skin. The oldest shark fossils are these. Example: The oldest shark fossils are tiny ___ in very old rocks."
     },
     {
      "word": "ERUPT",
@@ -3751,7 +3751,7 @@
      "dir": "D",
      "num": 7,
      "cn": "爆发",
-     "clue": "To burst out suddenly, like a great cheer from a happy team."
+     "clue": "To burst out suddenly, like a great cheer from a happy team. Example: The happy team ___ed with a great cheer."
     },
     {
      "word": "SPAN",
@@ -3760,7 +3760,7 @@
      "dir": "D",
      "num": 8,
      "cn": "桥跨",
-     "clue": "The part of a bridge that hangs between its two towers."
+     "clue": "The part of a bridge that hangs between its two towers. Example: Between the two towers hangs one long ___ of the bridge."
     },
     {
      "word": "BRIDGE",
@@ -3769,7 +3769,7 @@
      "dir": "D",
      "num": 9,
      "cn": "桥",
-     "clue": "It carries people and cars across a river."
+     "clue": "It carries people and cars across a river. Example: The toy copy of Tower ___ stands in London."
     },
     {
      "word": "ANCIENT",
@@ -3778,7 +3778,7 @@
      "dir": "A",
      "num": 10,
      "cn": "远古的",
-     "clue": "Very old; from a time long, long ago."
+     "clue": "Very old; from a time long, long ago. Example: Sharks are ___: they swam before the first trees ever grew."
     }
    ]
   }

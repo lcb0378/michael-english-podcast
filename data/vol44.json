@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol44/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol44/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol44/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol44/Vol44_晚读讲义_会说话的鹦鹉与企鹅伴侣之谜_v1.pdf",
- "pdfName": "Vol44_晚读讲义_会说话的鹦鹉与企鹅伴侣之谜_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol44/Vol44_晚读讲义_会说话的鹦鹉与企鹅伴侣之谜_v2.pdf",
+ "pdfName": "Vol44_晚读讲义_会说话的鹦鹉与企鹅伴侣之谜_v2.pdf",
  "blocks": [
   {
    "start": 21.63,
@@ -3378,7 +3378,7 @@
      "dir": "D",
      "num": 1,
      "cn": "摇摇摆摆地走",
-     "clue": "let's ___ down to the cold south, where penguins live."
+     "clue": "To walk with short steps, rocking from side to side like a fat bird. Example: let's ___ down to the cold south, where penguins live."
     },
     {
      "word": "PARTNER",
@@ -3387,7 +3387,7 @@
      "dir": "D",
      "num": 2,
      "cn": "伴侣",
-     "clue": "do they stay with one ___ for life?"
+     "clue": "The one animal or person you live and share family work with. Example: do they stay with one ___ for life?"
     },
     {
      "word": "ALARM",
@@ -3396,7 +3396,7 @@
      "dir": "A",
      "num": 3,
      "cn": "报警器",
-     "clue": "check the smoke ___ in your home with your parents!"
+     "clue": "A loud device that warns you when something is wrong, like a fire. Example: check the smoke ___ in your home with your parents!"
     },
     {
      "word": "PENGUIN",
@@ -3405,7 +3405,7 @@
      "dir": "D",
      "num": 4,
      "cn": "企鹅",
-     "clue": "Most ___ stay with one partner for a breeding season."
+     "clue": "A black-and-white bird that cannot fly but swims well and lives in the cold south. Example: Most ___ stay with one partner for a breeding season."
     },
     {
      "word": "PEBBLE",
@@ -3414,7 +3414,7 @@
      "dir": "A",
      "num": 5,
      "cn": "小石子",
-     "clue": "a male penguin often brings his partner a smooth ___ as a gift."
+     "clue": "A small smooth stone, often found on a beach. Example: a male penguin often brings his partner a smooth ___ as a gift."
     },
     {
      "word": "FAITHFUL",
@@ -3423,7 +3423,7 @@
      "dir": "A",
      "num": 6,
      "cn": "忠诚的",
-     "clue": "Some penguins are ___."
+     "clue": "Staying true and loyal to the same mate year after year. Example: Some penguins are ___."
     },
     {
      "word": "HERO",
@@ -3432,7 +3432,7 @@
      "dir": "D",
      "num": 7,
      "cn": "英雄",
-     "clue": "Baby became a ___!"
+     "clue": "A brave person or animal who saves others in danger. Example: Baby became a ___!"
     },
     {
      "word": "SEASON",
@@ -3441,7 +3441,7 @@
      "dir": "D",
      "num": 8,
      "cn": "季节",
-     "clue": "Most penguins stay with one partner for a breeding ___."
+     "clue": "A time of year for mating and raising babies. Example: Most penguins stay with one partner for a breeding ___."
     },
     {
      "word": "SMOKE",
@@ -3450,7 +3450,7 @@
      "dir": "A",
      "num": 9,
      "cn": "浓烟",
-     "clue": "they might have breathed in dangerous ___ in their sleep."
+     "clue": "The grey cloud that rises from a fire and is hard to breathe. Example: they might have breathed in dangerous ___ in their sleep."
     },
     {
      "word": "PARROT",
@@ -3459,7 +3459,7 @@
      "dir": "A",
      "num": 10,
      "cn": "鹦鹉",
-     "clue": "a talking ___ who became a fire hero."
+     "clue": "A bright talking bird that can copy human words. Example: a talking ___ who became a fire hero."
     }
    ]
   }

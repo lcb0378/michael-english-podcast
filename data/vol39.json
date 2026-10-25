@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol39/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol39/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol39/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol39/Vol39_晚读讲义_纸飞机爷爷与打盹的蚂蚁_v1.pdf",
- "pdfName": "Vol39_晚读讲义_纸飞机爷爷与打盹的蚂蚁_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol39/Vol39_晚读讲义_纸飞机爷爷与打盹的蚂蚁_v2.pdf",
+ "pdfName": "Vol39_晚读讲义_纸飞机爷爷与打盹的蚂蚁_v2.pdf",
  "blocks": [
   {
    "start": 22.19,
@@ -3396,7 +3396,7 @@
      "dir": "D",
      "num": 1,
      "cn": "纸",
-     "clue": "A grandpa who folds ___ planes."
+     "clue": "A thin white material for writing, drawing, and folding. Example: A grandpa who folds ___ planes."
     },
     {
      "word": "HANGAR",
@@ -3405,7 +3405,7 @@
      "dir": "A",
      "num": 2,
      "cn": "飞机库",
-     "clue": "Inside a huge empty airplane ___, Joe threw Suzanne."
+     "clue": "A huge empty building where planes are kept. Example: Inside a huge empty airplane ___, Joe threw Suzanne."
     },
     {
      "word": "RECORD",
@@ -3414,7 +3414,7 @@
      "dir": "D",
      "num": 3,
      "cn": "纪录",
-     "clue": "The judges approved the new world ___."
+     "clue": "The best result ever, written down for everyone to remember. Example: The judges approved the new world ___."
     },
     {
      "word": "DESIGNER",
@@ -3423,7 +3423,7 @@
      "dir": "A",
      "num": 4,
      "cn": "设计师",
-     "clue": "The bond between a ___ and a thrower."
+     "clue": "A person who plans and draws how something new should look and work. Example: The bond between a ___ and a thrower."
     },
     {
      "word": "NAP",
@@ -3432,7 +3432,7 @@
      "dir": "A",
      "num": 5,
      "cn": "打盹",
-     "clue": "A worker ant takes about 253 ___s every day."
+     "clue": "A very short sleep during the day. Example: A worker ant takes about 253 ___s every day."
     },
     {
      "word": "QUEEN",
@@ -3441,7 +3441,7 @@
      "dir": "D",
      "num": 6,
      "cn": "蚁后",
-     "clue": "The ___ sleeps much longer."
+     "clue": "The mother of a whole ant nest, who lays eggs and sleeps the longest. Example: The ___ sleeps much longer."
     },
     {
      "word": "ANTENNAE",
@@ -3450,7 +3450,7 @@
      "dir": "D",
      "num": 7,
      "cn": "触角",
-     "clue": "With her ___ twitching like she is dreaming."
+     "clue": "The thin feelers on an insect's head that sense the world. Example: With her ___ twitching like she is dreaming."
     },
     {
      "word": "BACON",
@@ -3459,7 +3459,7 @@
      "dir": "D",
      "num": 8,
      "cn": "培根",
-     "clue": "A crumb of ___ found by a worker."
+     "clue": "Salty meat from a pig, often eaten crisp at breakfast. Example: A crumb of ___ found by a worker."
     },
     {
      "word": "BOAT",
@@ -3468,7 +3468,7 @@
      "dir": "A",
      "num": 9,
      "cn": "小船",
-     "clue": "Nobody wanted to rock the ___."
+     "clue": "A small vehicle that travels on water. Example: Nobody wanted to rock the ___."
     },
     {
      "word": "ACCUMULATE",
@@ -3477,7 +3477,7 @@
      "dir": "A",
      "num": 10,
      "cn": "积累",
-     "clue": "All those little naps ___ into almost five hours."
+     "clue": "To grow bigger little by little, as small amounts add up. Example: All those little naps ___ into almost five hours."
     }
    ]
   }

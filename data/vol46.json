@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol46/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol46/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol46/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol46/Vol46_晚读讲义_无人机灯光秀与萤火虫_v1.pdf",
- "pdfName": "Vol46_晚读讲义_无人机灯光秀与萤火虫_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol46/Vol46_晚读讲义_无人机灯光秀与萤火虫_v2.pdf",
+ "pdfName": "Vol46_晚读讲义_无人机灯光秀与萤火虫_v2.pdf",
  "blocks": [
   {
    "start": 20.75,
@@ -3420,7 +3420,7 @@
      "dir": "D",
      "num": 1,
      "cn": "闪烁",
-     "clue": "The lights ___ on and off."
+     "clue": "To flash on and off again and again in a steady beat. Example: The lights ___ on and off."
     },
     {
      "word": "CONDUCT",
@@ -3429,7 +3429,7 @@
      "dir": "A",
      "num": 2,
      "cn": "指挥",
-     "clue": "One computer can ___ the whole show."
+     "clue": "To lead and control a whole show, like a leader with an orchestra. Example: One computer can ___ the whole show."
     },
     {
      "word": "PANDA",
@@ -3438,7 +3438,7 @@
      "dir": "D",
      "num": 3,
      "cn": "熊猫",
-     "clue": "a giant ___ munching bamboo."
+     "clue": "A big black-and-white animal from China that loves to eat bamboo. Example: a giant ___ munching bamboo."
     },
     {
      "word": "MIDNIGHT",
@@ -3447,7 +3447,7 @@
      "dir": "D",
      "num": 4,
      "cn": "午夜",
-     "clue": "burn the ___ oil."
+     "clue": "Twelve o'clock, the latest hour, when most people are asleep. Example: burn the ___ oil."
     },
     {
      "word": "FIREFLY",
@@ -3456,7 +3456,7 @@
      "dir": "A",
      "num": 5,
      "cn": "萤火虫",
-     "clue": "let's meet nature's own little lamp: the ___."
+     "clue": "A small beetle that makes its own cold glow in the dark. Example: let's meet nature's own little lamp: the ___."
     },
     {
      "word": "DRONE",
@@ -3465,7 +3465,7 @@
      "dir": "A",
      "num": 6,
      "cn": "无人机",
-     "clue": "33,615 ___ rise together into the dark."
+     "clue": "A small flying robot with a light, flown by a computer in a sky show. Example: 33,615 ___ rise together into the dark."
     },
     {
      "word": "TISSUE",
@@ -3474,7 +3474,7 @@
      "dir": "D",
      "num": 7,
      "cn": "组织",
-     "clue": "in a special ___, a thin layer of tiny cells."
+     "clue": "A thin layer of tiny living cells inside a body. Example: in a special ___, a thin layer of tiny cells."
     },
     {
      "word": "FOREHEAD",
@@ -3483,7 +3483,7 @@
      "dir": "D",
      "num": 8,
      "cn": "额头",
-     "clue": "the light sits on its ___."
+     "clue": "The flat part of the face above the eyes. Example: the light sits on its ___."
     },
     {
      "word": "SPARROW",
@@ -3492,7 +3492,7 @@
      "dir": "D",
      "num": 9,
      "cn": "麻雀",
-     "clue": "about the size of a ___."
+     "clue": "A small common brown bird, often seen in gardens. Example: about the size of a ___."
     },
     {
      "word": "ALTITUDE",
@@ -3501,7 +3501,7 @@
      "dir": "A",
      "num": 10,
      "cn": "高度",
-     "clue": "every drone holds its own ___."
+     "clue": "How high something is above the ground. Example: every drone holds its own ___."
     }
    ]
   }

@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol48/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol48/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol48/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol48/Vol48_晚读讲义_巨型向日葵与追太阳的秘密_v1.pdf",
- "pdfName": "Vol48_晚读讲义_巨型向日葵与追太阳的秘密_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol48/Vol48_晚读讲义_巨型向日葵与追太阳的秘密_v2.pdf",
+ "pdfName": "Vol48_晚读讲义_巨型向日葵与追太阳的秘密_v2.pdf",
  "blocks": [
   {
    "start": 20.75,
@@ -3366,7 +3366,7 @@
      "dir": "A",
      "num": 1,
      "cn": "鹅",
-     "clue": "a wild ___ chase."
+     "clue": "A large wild bird with a long neck, the bird in a saying about a search that finds nothing. Example: a wild ___ chase."
     },
     {
      "word": "SUNFLOWER",
@@ -3375,7 +3375,7 @@
      "dir": "D",
      "num": 2,
      "cn": "向日葵",
-     "clue": "a little girl who grew a ___ taller than a bus."
+     "clue": "A tall garden plant with a big yellow head that turns to follow bright light. Example: a little girl who grew a ___ taller than a bus."
     },
     {
      "word": "PULSE",
@@ -3384,7 +3384,7 @@
      "dir": "D",
      "num": 3,
      "cn": "跳动",
-     "clue": "a slow, steady ___, like the plant's own inner clock."
+     "clue": "A slow steady beat, like a living thing's own inner rhythm. Example: a slow, steady ___, like the plant's own inner clock."
     },
     {
      "word": "SPARROW",
@@ -3393,7 +3393,7 @@
      "dir": "D",
      "num": 4,
      "cn": "麻雀",
-     "clue": "___s came hoping for the precious seeds."
+     "clue": "Small brown garden birds that love to eat tiny seeds. Example: ___s came hoping for the precious seeds."
     },
     {
      "word": "CANE",
@@ -3402,7 +3402,7 @@
      "dir": "A",
      "num": 5,
      "cn": "竹竿",
-     "clue": "then three ___s tied together."
+     "clue": "A long thin stick used to hold up a tall plant. Example: then three ___s tied together."
     },
     {
      "word": "CHASE",
@@ -3411,7 +3411,7 @@
      "dir": "D",
      "num": 6,
      "cn": "追寻",
-     "clue": "a wild goose ___."
+     "clue": "A long search for something hard to find, often a waste of effort. Example: a wild goose ___."
     },
     {
      "word": "TISSUE",
@@ -3420,7 +3420,7 @@
      "dir": "D",
      "num": 7,
      "cn": "组织",
-     "clue": "the ___ on the shaded side grows faster."
+     "clue": "The soft living material inside a stem that grows on one side. Example: the ___ on the shaded side grows faster."
     },
     {
      "word": "POLLINATOR",
@@ -3429,7 +3429,7 @@
      "dir": "A",
      "num": 8,
      "cn": "授粉昆虫",
-     "clue": "attracted five times as many ___s!"
+     "clue": "An insect, like a bee, that carries dust from one bloom to another so seeds can form. Example: attracted five times as many ___s!"
     },
     {
      "word": "SEED",
@@ -3438,7 +3438,7 @@
      "dir": "A",
      "num": 9,
      "cn": "种子",
-     "clue": "looking for one tiny ___ in a huge field."
+     "clue": "A tiny hard grain that a plant grows from. Example: looking for one tiny ___ in a huge field."
     },
     {
      "word": "ASPECT",
@@ -3447,7 +3447,7 @@
      "dir": "A",
      "num": 10,
      "cn": "方面",
-     "clue": "the most surprising ___: when the flower grows up, it stops dancing!"
+     "clue": "One surprising side of a thing. Example: the most surprising ___: when the flower grows up, it stops dancing!"
     }
    ]
   }

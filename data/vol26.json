@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol26/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol26/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol26/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol26/Vol26_晚读讲义_登山的机器狗与倒着飞的蜂鸟_v1.pdf",
- "pdfName": "Vol26_晚读讲义_登山的机器狗与倒着飞的蜂鸟_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol26/Vol26_晚读讲义_登山的机器狗与倒着飞的蜂鸟_v2.pdf",
+ "pdfName": "Vol26_晚读讲义_登山的机器狗与倒着飞的蜂鸟_v2.pdf",
  "blocks": [
   {
    "start": 26.35,
@@ -3449,7 +3449,7 @@
      "dir": "A",
      "num": 1,
      "cn": "代表",
-     "clue": "They are ___ for a new kind of helper."
+     "clue": "People or things that stand for something new and show others what it can do. Example: They are ___ for a new kind of helper."
     },
     {
      "word": "PEDESTRIAN",
@@ -3458,7 +3458,7 @@
      "dir": "D",
      "num": 2,
      "cn": "行人",
-     "clue": "A line of ___ stops and stares."
+     "clue": "A person who walks along a road or path, not in a car. Example: A line of ___ stops and stares."
     },
     {
      "word": "PATIENCE",
@@ -3467,7 +3467,7 @@
      "dir": "A",
      "num": 3,
      "cn": "耐心",
-     "clue": "The robot's ___ never runs out."
+     "clue": "The calm power to keep waiting and trying without giving up. Example: The robot's ___ never runs out."
     },
     {
      "word": "NECTAR",
@@ -3476,7 +3476,7 @@
      "dir": "D",
      "num": 4,
      "cn": "花蜜",
-     "clue": "It drinks sweet ___ from flowers."
+     "clue": "The sweet liquid inside flowers that birds and bees drink. Example: It drinks sweet ___ from flowers."
     },
     {
      "word": "HUMMINGBIRD",
@@ -3485,7 +3485,7 @@
      "dir": "D",
      "num": 5,
      "cn": "蜂鸟",
-     "clue": "The ___ is no bigger than your thumb."
+     "clue": "A tiny flying animal that can stay still in the air and fly in every direction. Example: The ___ is no bigger than your thumb."
     },
     {
      "word": "BACKWARDS",
@@ -3494,7 +3494,7 @@
      "dir": "D",
      "num": 6,
      "cn": "倒着",
-     "clue": "It simply flies ___."
+     "clue": "Towards the place behind you, the opposite way to moving forwards. Example: It simply flies ___."
     },
     {
      "word": "MUSCLES",
@@ -3503,7 +3503,7 @@
      "dir": "D",
      "num": 7,
      "cn": "肌肉",
-     "clue": "A hummingbird's flight ___ make up nearly one third of its body."
+     "clue": "The strong parts inside the body that move bones and wings. Example: A hummingbird's flight ___ make up nearly one third of its body."
     },
     {
      "word": "CHAMPION",
@@ -3512,7 +3512,7 @@
      "dir": "A",
      "num": 8,
      "cn": "冠军",
-     "clue": "On a mountain, it is a ___."
+     "clue": "A winner; the best one in a race or a hard test. Example: On a mountain, it is a ___."
     },
     {
      "word": "SPRAY",
@@ -3521,7 +3521,7 @@
      "dir": "A",
      "num": 9,
      "cn": "飞溅的水花",
-     "clue": "Cold ___ flying around its legs."
+     "clue": "Tiny drops of water flying through the air. Example: Cold ___ flying around its legs."
     },
     {
      "word": "ERUPT",
@@ -3530,7 +3530,7 @@
      "dir": "A",
      "num": 10,
      "cn": "迸发",
-     "clue": "Cheers ___ as it arrives at the top."
+     "clue": "To burst out suddenly, all at once. Example: Cheers ___ as it arrives at the top."
     }
    ]
   }

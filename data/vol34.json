@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol34/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol34/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol34/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol34/Vol34_晚读讲义_爷爷奶奶的电竞队与比太阳还热的闪电_v1.pdf",
- "pdfName": "Vol34_晚读讲义_爷爷奶奶的电竞队与比太阳还热的闪电_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol34/Vol34_晚读讲义_爷爷奶奶的电竞队与比太阳还热的闪电_v2.pdf",
+ "pdfName": "Vol34_晚读讲义_爷爷奶奶的电竞队与比太阳还热的闪电_v2.pdf",
  "blocks": [
   {
    "start": 19.31,
@@ -3446,7 +3446,7 @@
      "dir": "A",
      "num": 1,
      "cn": "闪电",
-     "clue": "___ hotter than the surface of the Sun."
+     "clue": "A bright flash in the sky during a storm. Example: ___ hotter than the surface of the Sun."
     },
     {
      "word": "THUNDER",
@@ -3455,7 +3455,7 @@
      "dir": "D",
      "num": 2,
      "cn": "雷声",
-     "clue": "a moment later comes ___."
+     "clue": "The loud sound that comes after a flash in a storm. Example: a moment later comes ___."
     },
     {
      "word": "PLASMA",
@@ -3464,7 +3464,7 @@
      "dir": "D",
      "num": 3,
      "cn": "等离子体",
-     "clue": "it turns the air around it into ___."
+     "clue": "A super-hot kind of gas that forms when air gets extremely hot. Example: it turns the air around it into ___."
     },
     {
      "word": "ESPORTS",
@@ -3473,7 +3473,7 @@
      "dir": "A",
      "num": 4,
      "cn": "电子竞技",
-     "clue": "a senior ___ team called the Matagi Snipers."
+     "clue": "Video games played in contests, where teams try to win together. Example: a senior ___ team called the Matagi Snipers."
     },
     {
      "word": "SENIOR",
@@ -3482,7 +3482,7 @@
      "dir": "D",
      "num": 5,
      "cn": "老年的",
-     "clue": "a ___ esports team called the Matagi Snipers."
+     "clue": "An older person, often a grandparent, over sixty years old. Example: a ___ esports team called the Matagi Snipers."
     },
     {
      "word": "COACH",
@@ -3491,7 +3491,7 @@
      "dir": "D",
      "num": 6,
      "cn": "教练",
-     "clue": "their ___ told them not to choke under pressure."
+     "clue": "A person who teaches a team how to play and helps them get better. Example: their ___ told them not to choke under pressure."
     },
     {
      "word": "PRESSURE",
@@ -3500,7 +3500,7 @@
      "dir": "A",
      "num": 7,
      "cn": "压力",
-     "clue": "Do not choke under ___."
+     "clue": "A worried feeling when something important is hard to do well. Example: Do not choke under ___."
     },
     {
      "word": "PATIENCE",
@@ -3509,7 +3509,7 @@
      "dir": "D",
      "num": 8,
      "cn": "耐心",
-     "clue": "with ___ and practice, grandpas and grandmas can be awesome players too."
+     "clue": "Staying calm and not giving up, even when something takes a long time. Example: with ___ and practice, grandpas and grandmas can be awesome players too."
     },
     {
      "word": "ROAD",
@@ -3518,7 +3518,7 @@
      "dir": "A",
      "num": 9,
      "cn": "公路",
-     "clue": "hit the ___ early in the morning to play their match."
+     "clue": "A wide path for cars and trips between places. Example: hit the ___ early in the morning to play their match."
     },
     {
      "word": "FLASH",
@@ -3527,7 +3527,7 @@
      "dir": "D",
      "num": 10,
      "cn": "闪光",
-     "clue": "that ___ is lightning."
+     "clue": "A sudden bright light that lasts only a very short time. Example: that ___ is lightning."
     }
    ]
   }

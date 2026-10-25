@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol11/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol11/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol11/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol11/Vol11_晚读讲义_机器人跑半马与章鱼的梦_v1.pdf",
- "pdfName": "Vol11_晚读讲义_机器人跑半马与章鱼的梦_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol11/Vol11_晚读讲义_机器人跑半马与章鱼的梦_v2.pdf",
+ "pdfName": "Vol11_晚读讲义_机器人跑半马与章鱼的梦_v2.pdf",
  "blocks": [
   {
    "start": 27.47,
@@ -3532,7 +3532,7 @@
      "dir": "D",
      "num": 1,
      "cn": "马拉松（长跑比赛）",
-     "clue": "A very long running race — our robots ran a half one, twenty-one kilometres."
+     "clue": "A very long running race — our robots ran a half one, twenty-one kilometres. Example: Twenty-one robots lined up for a half-___ in Beijing."
     },
     {
      "word": "DREAM",
@@ -3541,7 +3541,7 @@
      "dir": "D",
      "num": 2,
      "cn": "梦",
-     "clue": "Pictures your brain shows you while you sleep; the octopus may have them too."
+     "clue": "Pictures your brain shows you while you sleep; the octopus may have them too. Example: The octopus may replay its day in a colourful ___."
     },
     {
      "word": "BATTERY",
@@ -3550,7 +3550,7 @@
      "dir": "D",
      "num": 3,
      "cn": "电池",
-     "clue": "It stores power; the winning robot stopped three times for a fresh one."
+     "clue": "It stores power; the winning robot stopped three times for a fresh one. Example: The winning robot stopped three times for a fresh ___."
     },
     {
      "word": "FORTNIGHT",
@@ -3559,7 +3559,7 @@
      "dir": "D",
      "num": 4,
      "cn": "两周；十四天",
-     "clue": "A period of two weeks: 'Keep going for a ____, and we'll hit twenty!'"
+     "clue": "A period of two weeks: Example: 'Keep going for a ____, and we'll hit twenty!'"
     },
     {
      "word": "DIAL",
@@ -3568,7 +3568,7 @@
      "dir": "A",
      "num": 5,
      "cn": "刻度盘；表盘",
-     "clue": "The round face of a clock; the octopus turns its colours up and down like one."
+     "clue": "The round face of a clock; the octopus turns its colours up and down like one. Example: The octopus turns its colours up and down, as if turning a ___."
     },
     {
      "word": "OBSERVE",
@@ -3577,7 +3577,7 @@
      "dir": "A",
      "num": 6,
      "cn": "观察",
-     "clue": "To watch something carefully — thousands of fans came to do this at the race."
+     "clue": "To watch something carefully — thousands of fans came to do this at the race. Example: Thousands of fans came to ___ the robot race in Beijing."
     },
     {
      "word": "SAUCER",
@@ -3586,7 +3586,7 @@
      "dir": "D",
      "num": 7,
      "cn": "飞碟；茶托",
-     "clue": "People once thought they saw flying ones in the sky. 'No flying ____ today!'"
+     "clue": "People once thought they saw flying ones in the sky. Example: 'No flying ____ today!'"
     },
     {
      "word": "OCTOPUS",
@@ -3595,7 +3595,7 @@
      "dir": "D",
      "num": 8,
      "cn": "章鱼",
-     "clue": "A sea animal with eight arms that can change the colour of its skin."
+     "clue": "A sea animal with eight arms that can change the colour of its skin. Example: In its active sleep, the ___ flashes red, brown and gold."
     },
     {
      "word": "COMPROMISE",
@@ -3604,7 +3604,7 @@
      "dir": "A",
      "num": 9,
      "cn": "折中；妥协",
-     "clue": "A middle way between two wants: long legs run fast, but they drink power."
+     "clue": "A middle way between two wants: long legs run fast, but they drink power. Example: Long legs run fast but drink power, so building the robot means a ___."
     },
     {
      "word": "ERUPT",
@@ -3613,7 +3613,7 @@
      "dir": "A",
      "num": 10,
      "cn": "爆发；喷发",
-     "clue": "To burst out suddenly — the crowd did this with cheers at the finish line."
+     "clue": "To burst out suddenly — the crowd did this with cheers at the finish line. Example: When the winner crossed the line, the crowd ___ed with cheers."
     }
    ]
   }

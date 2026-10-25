@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol30/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol30/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol30/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol30/Vol30_晚读讲义_巨型冰滑梯与驯鹿的蓝眼睛_v1.pdf",
- "pdfName": "Vol30_晚读讲义_巨型冰滑梯与驯鹿的蓝眼睛_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol30/Vol30_晚读讲义_巨型冰滑梯与驯鹿的蓝眼睛_v2.pdf",
+ "pdfName": "Vol30_晚读讲义_巨型冰滑梯与驯鹿的蓝眼睛_v2.pdf",
  "blocks": [
   {
    "start": 21.23,
@@ -3469,7 +3469,7 @@
      "dir": "D",
      "num": 1,
      "cn": "滑梯",
-     "clue": "Inside it stands a super ice ___."
+     "clue": "A long smooth slope you sit on and rush down for fun. Example: Inside it stands a super ice ___."
     },
     {
      "word": "TWILIGHT",
@@ -3478,7 +3478,7 @@
      "dir": "A",
      "num": 2,
      "cn": "暮光",
-     "clue": "Blue is the color of Arctic ___."
+     "clue": "The soft dim blue time in the sky between day and night. Example: Blue is the color of Arctic ___."
     },
     {
      "word": "LANTERN",
@@ -3487,7 +3487,7 @@
      "dir": "D",
      "num": 3,
      "cn": "灯笼",
-     "clue": "The ice comes in every format: castles, towers, glowing ___."
+     "clue": "A lamp with a cover that shines in the dark. Example: The ice comes in every format: castles, towers, glowing ___."
     },
     {
      "word": "LICHEN",
@@ -3496,7 +3496,7 @@
      "dir": "A",
      "num": 4,
      "cn": "地衣",
-     "clue": "Find the pale ___ they love, hidden under the snow."
+     "clue": "A pale flat growth on rocks and trees that reindeer love to eat. Example: Find the pale ___ they love, hidden under the snow."
     },
     {
      "word": "SPRAY",
@@ -3505,7 +3505,7 @@
      "dir": "A",
      "num": 5,
      "cn": "水花",
-     "clue": "A fine ___ of ice crystals flies up behind them."
+     "clue": "A cloud of tiny drops or bits flying through the air. Example: A fine ___ of ice crystals flies up behind them."
     },
     {
      "word": "PATIENCE",
@@ -3514,7 +3514,7 @@
      "dir": "D",
      "num": 6,
      "cn": "耐心",
-     "clue": "With ___, the workers rebuild the park every winter."
+     "clue": "The calm power to keep doing a hard job year after year. Example: With ___, the workers rebuild the park every winter."
     },
     {
      "word": "AMBASSADOR",
@@ -3523,7 +3523,7 @@
      "dir": "D",
      "num": 7,
      "cn": "代言人",
-     "clue": "The reindeer is like an ___ for all Arctic animals."
+     "clue": "A well-known example that stands for a whole group. Example: The reindeer is like an ___ for all Arctic animals."
     },
     {
      "word": "RETINA",
@@ -3532,7 +3532,7 @@
      "dir": "A",
      "num": 8,
      "cn": "视网膜",
-     "clue": "Behind the ___, reindeer have a mirror-like layer."
+     "clue": "The part at the back of the eye that catches what you see. Example: Behind the ___, reindeer have a mirror-like layer."
     },
     {
      "word": "VIVID",
@@ -3541,7 +3541,7 @@
      "dir": "D",
      "num": 9,
      "cn": "鲜艳的",
-     "clue": "In winter, it turns a ___ blue."
+     "clue": "Bright and strong in colour, easy to see. Example: In winter, it turns a ___ blue."
     },
     {
      "word": "PEDESTRIAN",
@@ -3550,7 +3550,7 @@
      "dir": "A",
      "num": 10,
      "cn": "行人",
-     "clue": "Outside the park, ___ walk past ice houses and bridges."
+     "clue": "People walking along a road or path, not in cars. Example: Outside the park, ___ walk past ice houses and bridges."
     }
    ]
   }

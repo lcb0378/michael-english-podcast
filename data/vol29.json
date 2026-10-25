@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol29/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol29/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol29/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol29/Vol29_晚读讲义_独自航海的少女与用脚听话的大象_v1.pdf",
- "pdfName": "Vol29_晚读讲义_独自航海的少女与用脚听话的大象_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol29/Vol29_晚读讲义_独自航海的少女与用脚听话的大象_v2.pdf",
+ "pdfName": "Vol29_晚读讲义_独自航海的少女与用脚听话的大象_v2.pdf",
  "blocks": [
   {
    "start": 24.59,
@@ -3439,7 +3439,7 @@
      "dir": "D",
      "num": 1,
      "cn": "双桅帆船",
-     "clue": "a twelve-metre ___ called Guppy."
+     "clue": "A sailing boat with two tall poles holding its sails. Example: a twelve-metre ___ called Guppy."
     },
     {
      "word": "SPRAY",
@@ -3448,7 +3448,7 @@
      "dir": "D",
      "num": 2,
      "cn": "水花",
-     "clue": "Sea ___ flew over the bow."
+     "clue": "Tiny drops of sea water flying through the air. Example: Sea ___ flew over the bow."
     },
     {
      "word": "ELEPHANT",
@@ -3457,7 +3457,7 @@
      "dir": "A",
      "num": 3,
      "cn": "大象",
-     "clue": "An ___'s rumble is so low that it sits below what our ears can catch."
+     "clue": "The biggest land animal, with a long nose and large ears. Example: An ___'s rumble is so low that it sits below what our ears can catch."
     },
     {
      "word": "PATIENCE",
@@ -3466,7 +3466,7 @@
      "dir": "A",
      "num": 4,
      "cn": "耐心",
-     "clue": "She waited with ___."
+     "clue": "The calm power to wait without giving up. Example: She waited with ___."
     },
     {
      "word": "CAPTION",
@@ -3475,7 +3475,7 @@
      "dir": "D",
      "num": 5,
      "cn": "说明文字",
-     "clue": "The ___ under her photo says simply: a girl, a boat, and a dream."
+     "clue": "A short line of words under a photo that tells you what it shows. Example: The ___ under her photo says simply: a girl, a boat, and a dream."
     },
     {
      "word": "HARBOUR",
@@ -3484,7 +3484,7 @@
      "dir": "D",
      "num": 6,
      "cn": "港口",
-     "clue": "the whole ___ erupted in cheers."
+     "clue": "A safe place by the sea where boats stop and people wait. Example: the whole ___ erupted in cheers."
     },
     {
      "word": "GUPPY",
@@ -3493,7 +3493,7 @@
      "dir": "A",
      "num": 7,
      "cn": "古比号（小船名）",
-     "clue": "a twelve-metre ketch called ___."
+     "clue": "The name of Laura's small sailing boat. Example: a twelve-metre ketch called ___."
     },
     {
      "word": "SAILOR",
@@ -3502,7 +3502,7 @@
      "dir": "A",
      "num": 8,
      "cn": "水手",
-     "clue": "she is an ambassador for young ___."
+     "clue": "A person who works on or travels in boats on the sea. Example: she is an ambassador for young ___."
     },
     {
      "word": "RUMBLE",
@@ -3511,7 +3511,7 @@
      "dir": "D",
      "num": 9,
      "cn": "低鸣声",
-     "clue": "An elephant's ___ is so low that it sits below what our ears can catch."
+     "clue": "A very low, deep sound that you can feel as much as hear. Example: An elephant's ___ is so low that it sits below what our ears can catch."
     },
     {
      "word": "VIBRATION",
@@ -3520,7 +3520,7 @@
      "dir": "A",
      "num": 10,
      "cn": "震动",
-     "clue": "tiny sensors that pick up ___s."
+     "clue": "Tiny shakes moving through the ground or the air. Example: tiny sensors that pick up ___s."
     }
    ]
   }

@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol21/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol21/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol21/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol21/Vol21_晚读讲义_空间站的菜园与树懒的花园_v1.pdf",
- "pdfName": "Vol21_晚读讲义_空间站的菜园与树懒的花园_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol21/Vol21_晚读讲义_空间站的菜园与树懒的花园_v2.pdf",
+ "pdfName": "Vol21_晚读讲义_空间站的菜园与树懒的花园_v2.pdf",
  "blocks": [
   {
    "start": 23.71,
@@ -3530,7 +3530,7 @@
      "dir": "A",
      "num": 1,
      "cn": "外衣",
-     "clue": "The algae turns the sloth's coat into a green ___."
+     "clue": "A piece of clothing that covers the body, like a coat. Example: The algae turns the sloth's coat into a green ___."
     },
     {
      "word": "ALGAE",
@@ -3539,7 +3539,7 @@
      "dir": "D",
      "num": 2,
      "cn": "绿藻",
-     "clue": "Green ___ grows in the sloth's wet fur."
+     "clue": "Tiny green living things that grow in wet places. Example: Green ___ grows in the sloth's wet fur."
     },
     {
      "word": "LETTUCE",
@@ -3548,7 +3548,7 @@
      "dir": "D",
      "num": 3,
      "cn": "生菜；莴苣",
-     "clue": "The crew picked red romaine ___, a variety called Outredgeous."
+     "clue": "A green leafy plant often eaten in salads. Example: The crew picked red romaine ___, a variety called Outredgeous."
     },
     {
      "word": "GARDEN",
@@ -3557,7 +3557,7 @@
      "dir": "A",
      "num": 4,
      "cn": "花园",
-     "clue": "A place where plants grow. The sloth carries a ___ in its fur."
+     "clue": "A place where plants grow. Example: The sloth carries a ___ in its fur."
     },
     {
      "word": "VEGGIE",
@@ -3566,7 +3566,7 @@
      "dir": "D",
      "num": 5,
      "cn": "空间站蔬菜种植箱",
-     "clue": "NASA built a small garden box called ___."
+     "clue": "The name of a small box where astronauts grow plants in space. Example: NASA built a small garden box called ___."
     },
     {
      "word": "COURAGE",
@@ -3575,7 +3575,7 @@
      "dir": "D",
      "num": 6,
      "cn": "勇气",
-     "clue": "It takes ___ to taste food grown where no food has ever grown."
+     "clue": "The brave feeling that helps you face something hard or new. Example: It takes ___ to taste food grown where no food has ever grown."
     },
     {
      "word": "CLOUDS",
@@ -3584,7 +3584,7 @@
      "dir": "A",
      "num": 7,
      "cn": "云",
-     "clue": "If your head is in the ___, your thoughts are far away."
+     "clue": "High, soft white shapes in the sky, used in a saying about daydreaming. Example: If your head is in the ___, your thoughts are far away."
     },
     {
      "word": "MOTH",
@@ -3593,7 +3593,7 @@
      "dir": "D",
      "num": 8,
      "cn": "蛾",
-     "clue": "Tiny sloth ___s live in the fur."
+     "clue": "A small flying insect with soft wings, like a butterfly that flies at night. Example: Tiny sloth ___s live in the fur."
     },
     {
      "word": "SLOTH",
@@ -3602,7 +3602,7 @@
      "dir": "D",
      "num": 9,
      "cn": "树懒",
-     "clue": "The slowest mammal in the world is the three-toed ___."
+     "clue": "A very slow animal that sleeps in trees and moves very little. Example: The slowest mammal in the world is the three-toed ___."
     },
     {
      "word": "CAMOUFLAGE",
@@ -3611,7 +3611,7 @@
      "dir": "A",
      "num": 10,
      "cn": "伪装；保护色",
-     "clue": "The green is perfect ___: among the leaves, the sloth almost disappears."
+     "clue": "Colours or shapes that help an animal hide by looking like what is around it. Example: The green is perfect ___: among the leaves, the sloth almost disappears."
     }
    ]
   }

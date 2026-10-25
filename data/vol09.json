@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol09/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol09/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol09/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol09/Vol09_晚读讲义_狮身人面像的鳄鱼邻居与柜子里的深海巨怪_v1.pdf",
- "pdfName": "Vol09_晚读讲义_狮身人面像的鳄鱼邻居与柜子里的深海巨怪_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol09/Vol09_晚读讲义_狮身人面像的鳄鱼邻居与柜子里的深海巨怪_v2.pdf",
+ "pdfName": "Vol09_晚读讲义_狮身人面像的鳄鱼邻居与柜子里的深海巨怪_v2.pdf",
  "blocks": [
   {
    "start": 23.63,
@@ -3751,7 +3751,7 @@
      "dir": "A",
      "num": 1,
      "cn": "狮身人面像",
-     "clue": "The famous statue with a lion's body and a king's face."
+     "clue": "The famous statue with a lion's body and a king's face. Example: The lion-bodied statue beside Cairo is called the Great ___."
     },
     {
      "word": "ISOPOD",
@@ -3760,7 +3760,7 @@
      "dir": "D",
      "num": 2,
      "cn": "等足虫",
-     "clue": "A deep-sea creature that looks like a giant woodlouse."
+     "clue": "A deep-sea creature that looks like a giant woodlouse. Example: The giant ___ looks like a woodlouse, but it is thirty-two centimetres long."
     },
     {
      "word": "CURATOR",
@@ -3769,7 +3769,7 @@
      "dir": "A",
      "num": 3,
      "cn": "收藏负责人",
-     "clue": "The person who looks after a museum collection."
+     "clue": "The person who looks after a museum collection. Example: The ___ wheeled the old skull into the X-ray room for a closer look."
     },
     {
      "word": "SEABED",
@@ -3778,7 +3778,7 @@
      "dir": "D",
      "num": 4,
      "cn": "海床",
-     "clue": "The floor of the sea, deep below the waves."
+     "clue": "The floor of the sea, deep below the waves. Example: The giant sea animal was caught in a trap on the ___, five hundred metres down."
     },
     {
      "word": "LIMESTONE",
@@ -3787,7 +3787,7 @@
      "dir": "A",
      "num": 5,
      "cn": "石灰岩",
-     "clue": "The rock that the Great Sphinx was carved from."
+     "clue": "The rock that the Great Sphinx was carved from. Example: The Great Sphinx was carved from a ridge of ___."
     },
     {
      "word": "SCANNER",
@@ -3796,7 +3796,7 @@
      "dir": "D",
      "num": 6,
      "cn": "扫描仪",
-     "clue": "A machine that lets scientists peek inside solid objects."
+     "clue": "A machine that lets scientists peek inside solid objects. Example: Scientists slid the old skull into a CT ___ to peek inside it."
     },
     {
      "word": "GAVIAL",
@@ -3805,7 +3805,7 @@
      "dir": "A",
      "num": 7,
      "cn": "长吻鳄",
-     "clue": "A crocodile with a long, thin snout for snapping up fish."
+     "clue": "A crocodile with a long, thin snout for snapping up fish. Example: The new crocodile was a ___, with a long, thin snout for catching fish."
     },
     {
      "word": "MUSEUM",
@@ -3814,7 +3814,7 @@
      "dir": "D",
      "num": 8,
      "cn": "博物馆",
-     "clue": "A place where old treasures are kept and shown."
+     "clue": "A place where old treasures are kept and shown. Example: The old skull slept in a German ___ for almost a hundred years."
     },
     {
      "word": "STATUE",
@@ -3823,7 +3823,7 @@
      "dir": "A",
      "num": 9,
      "cn": "雕像",
-     "clue": "A figure of a person or an animal made from stone or metal."
+     "clue": "A figure of a person or an animal made from stone or metal. Example: The Great Sphinx is a famous stone ___ with a lion's body."
     },
     {
      "word": "RIDGE",
@@ -3832,7 +3832,7 @@
      "dir": "A",
      "num": 10,
      "cn": "隆脊",
-     "clue": "A long raised line, like the one around the crocodile’s eyes."
+     "clue": "A long raised line, like the one around the crocodile’s eyes. Example: A curved ___ circled each of the crocodile's eyes."
     }
    ]
   }

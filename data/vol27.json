@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol27/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol27/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol27/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol27/Vol27_晚读讲义_长寿金鱼与一睡三年的蜗牛_v1.pdf",
- "pdfName": "Vol27_晚读讲义_长寿金鱼与一睡三年的蜗牛_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol27/Vol27_晚读讲义_长寿金鱼与一睡三年的蜗牛_v2.pdf",
+ "pdfName": "Vol27_晚读讲义_长寿金鱼与一睡三年的蜗牛_v2.pdf",
  "blocks": [
   {
    "start": 23.07,
@@ -3459,7 +3459,7 @@
      "dir": "D",
      "num": 1,
      "cn": "花园",
-     "clue": "A fine spray falls on the ___."
+     "clue": "A place outside where plants and flowers grow. Example: A fine spray falls on the ___."
     },
     {
      "word": "SILVER",
@@ -3468,7 +3468,7 @@
      "dir": "D",
      "num": 2,
      "cn": "银色",
-     "clue": "His vivid orange scales slowly turned ___."
+     "clue": "A shiny grey-white colour, like the colour of an old man's hair. Example: His vivid orange scales slowly turned ___."
     },
     {
      "word": "PEDESTRIAN",
@@ -3477,7 +3477,7 @@
      "dir": "D",
      "num": 3,
      "cn": "行人",
-     "clue": "A ___ may walk right past the quiet shell."
+     "clue": "A person walking along a path, not riding in a car. Example: A ___ may walk right past the quiet shell."
     },
     {
      "word": "PATIENCE",
@@ -3486,7 +3486,7 @@
      "dir": "A",
      "num": 4,
      "cn": "耐心",
-     "clue": "One teaches us ___."
+     "clue": "The calm power to wait a long time without giving up. Example: One teaches us ___."
     },
     {
      "word": "GOLDFISH",
@@ -3495,7 +3495,7 @@
      "dir": "D",
      "num": 5,
      "cn": "金鱼",
-     "clue": "a little ___ that outlived most dogs."
+     "clue": "A small orange pet that swims in a bowl of water. Example: a little ___ that outlived most dogs."
     },
     {
      "word": "CHAMPION",
@@ -3504,7 +3504,7 @@
      "dir": "D",
      "num": 6,
      "cn": "冠军",
-     "clue": "A tiny fish can be a ___ too."
+     "clue": "A winner; the best one, even if it is very small. Example: A tiny fish can be a ___ too."
     },
     {
      "word": "ESTIVATION",
@@ -3513,7 +3513,7 @@
      "dir": "D",
      "num": 7,
      "cn": "夏眠",
-     "clue": "Scientists call it ___ — a summer sleep for dry times."
+     "clue": "A long, deep summer sleep that helps an animal wait out hot, dry days. Example: Scientists call it ___ — a summer sleep for dry times."
     },
     {
      "word": "SNAIL",
@@ -3522,7 +3522,7 @@
      "dir": "A",
      "num": 8,
      "cn": "蜗牛",
-     "clue": "Now meet a slower champion: the garden ___."
+     "clue": "A small slow animal with a hard shell on its back. Example: Now meet a slower champion: the garden ___."
     },
     {
      "word": "AMBASSADOR",
@@ -3531,7 +3531,7 @@
      "dir": "A",
      "num": 9,
      "cn": "代言人",
-     "clue": "Tish became an ___ for all small pets."
+     "clue": "A well-known example that stands for a group and shows others what it can do. Example: Tish became an ___ for all small pets."
     },
     {
      "word": "BELL",
@@ -3540,7 +3540,7 @@
      "dir": "D",
      "num": 10,
      "cn": "铃铛",
-     "clue": "The boxer is saved by the ___."
+     "clue": "A metal thing that rings loudly to mark the end of a round in a fight. Example: The boxer is saved by the ___."
     }
    ]
   }

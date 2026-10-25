@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol31/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol31/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol31/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol31/Vol31_晚读讲义_送货机器人与皮皮虾的超级眼睛_v1.pdf",
- "pdfName": "Vol31_晚读讲义_送货机器人与皮皮虾的超级眼睛_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol31/Vol31_晚读讲义_送货机器人与皮皮虾的超级眼睛_v2.pdf",
+ "pdfName": "Vol31_晚读讲义_送货机器人与皮皮虾的超级眼睛_v2.pdf",
  "blocks": [
   {
    "start": 22.19,
@@ -3412,7 +3412,7 @@
      "dir": "A",
      "num": 1,
      "cn": "人行道",
-     "clue": "On a quiet ___, a small white box on six wheels rolls along."
+     "clue": "A flat path next to a road, for people going on foot. Example: On a quiet ___, a small white box on six wheels rolls along."
     },
     {
      "word": "AWESOME",
@@ -3421,7 +3421,7 @@
      "dir": "D",
      "num": 2,
      "cn": "棒极了的",
-     "clue": "Its eyes are the most ___ in the animal world."
+     "clue": "Something so great that it makes you say wow. Example: Its eyes are the most ___ in the animal world."
     },
     {
      "word": "RADAR",
@@ -3430,7 +3430,7 @@
      "dir": "D",
      "num": 3,
      "cn": "雷达",
-     "clue": "Cameras, ___, and GPS are its eyes and map."
+     "clue": "A tool that sends out waves and listens for them coming back, to find things you cannot see. Example: Cameras, ___, and GPS are its eyes and map."
     },
     {
      "word": "POLARIZED",
@@ -3439,7 +3439,7 @@
      "dir": "A",
      "num": 4,
      "cn": "偏振的",
-     "clue": "A secret kind of light called ___ light."
+     "clue": "A special kind of light that shakes in only one direction. Example: A secret kind of light called ___ light."
     },
     {
      "word": "DELICATE",
@@ -3448,7 +3448,7 @@
      "dir": "D",
      "num": 5,
      "cn": "精致的",
-     "clue": "The mantis shrimp uses its ___-looking eyes to hunt."
+     "clue": "Something that looks fine and pretty, and can break easily. Example: The mantis shrimp uses its ___-looking eyes to hunt."
     },
     {
      "word": "SHRIMP",
@@ -3457,7 +3457,7 @@
      "dir": "A",
      "num": 6,
      "cn": "虾",
-     "clue": "Now dive under the sea and meet the mantis ___."
+     "clue": "A small sea animal with a curved body and long feelers. Example: Now dive under the sea and meet the mantis ___."
     },
     {
      "word": "ROBOT",
@@ -3466,7 +3466,7 @@
      "dir": "D",
      "num": 7,
      "cn": "机器人",
-     "clue": "It is a delivery ___."
+     "clue": "A machine that can move and do jobs by itself, without a driver. Example: It is a delivery ___."
     },
     {
      "word": "PUNCH",
@@ -3475,7 +3475,7 @@
      "dir": "A",
      "num": 8,
      "cn": "拳头；重击",
-     "clue": "But watch out for its ___!"
+     "clue": "A fast, hard hit with a closed hand or a club-like arm. Example: But watch out for its ___!"
     },
     {
      "word": "BUBBLES",
@@ -3484,7 +3484,7 @@
      "dir": "A",
      "num": 9,
      "cn": "气泡",
-     "clue": "The punch is so strong that it makes tiny ___ in the water."
+     "clue": "Tiny round balls of air in water. Example: The punch is so strong that it makes tiny ___ in the water."
     },
     {
      "word": "ULTRAVIOLET",
@@ -3493,7 +3493,7 @@
      "dir": "A",
      "num": 10,
      "cn": "紫外线的",
-     "clue": "They can also see ___ light."
+     "clue": "A kind of light our eyes cannot see, beyond the purple end of the rainbow. Example: They can also see ___ light."
     }
    ]
   }

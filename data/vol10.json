@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol10/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol10/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol10/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol10/Vol10_晚读讲义_宇航员回家与蝴蝶的障眼法_v1.pdf",
- "pdfName": "Vol10_晚读讲义_宇航员回家与蝴蝶的障眼法_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol10/Vol10_晚读讲义_宇航员回家与蝴蝶的障眼法_v2.pdf",
+ "pdfName": "Vol10_晚读讲义_宇航员回家与蝴蝶的障眼法_v2.pdf",
  "blocks": [
   {
    "start": 26.51,
@@ -3657,7 +3657,7 @@
      "dir": "D",
      "num": 1,
      "cn": "条纹",
-     "clue": "Long, thin lines of colour on the wings."
+     "clue": "Long, thin lines of colour on the wings. Example: The ___s on the wings seem to slide the wrong way in a bird's eyes."
     },
     {
      "word": "GRAVITY",
@@ -3666,7 +3666,7 @@
      "dir": "D",
      "num": 2,
      "cn": "重力",
-     "clue": "The force that pulls everything towards the Earth."
+     "clue": "The force that pulls everything towards the Earth. Example: Without ___, astronauts would float away from the Earth."
     },
     {
      "word": "BUTTERFLY",
@@ -3675,7 +3675,7 @@
      "dir": "D",
      "num": 3,
      "cn": "蝴蝶",
-     "clue": "A garden insect with big, colourful wings."
+     "clue": "A garden insect with big, colourful wings. Example: The little ___ fooled the bird with the patterns on its wings."
     },
     {
      "word": "ORBIT",
@@ -3684,7 +3684,7 @@
      "dir": "A",
      "num": 4,
      "cn": "轨道；绕行圈数",
-     "clue": "One full trip around a planet."
+     "clue": "One full trip around a planet. Example: The astronauts flew 3,792 ___s around the Earth."
     },
     {
      "word": "PARACHUTE",
@@ -3693,7 +3693,7 @@
      "dir": "D",
      "num": 5,
      "cn": "降落伞",
-     "clue": "It opens in the sky and helps a capsule fall slowly and safely."
+     "clue": "It opens in the sky and helps a capsule fall slowly and safely. Example: Four ___s opened in the sky and carried the capsule down to the sea."
     },
     {
      "word": "PREDATOR",
@@ -3702,7 +3702,7 @@
      "dir": "A",
      "num": 6,
      "cn": "捕食者；天敌",
-     "clue": "An animal that hunts other animals for food."
+     "clue": "An animal that hunts other animals for food. Example: In the game, a hundred people played ___ and tapped at the flying insects."
     },
     {
      "word": "ILLUSION",
@@ -3711,7 +3711,7 @@
      "dir": "D",
      "num": 7,
      "cn": "错觉",
-     "clue": "Something that looks real but is not really there."
+     "clue": "Something that looks real but is not really there. Example: The moving stripes were an ___: the motion was not really there."
     },
     {
      "word": "CAPSULE",
@@ -3720,7 +3720,7 @@
      "dir": "A",
      "num": 8,
      "cn": "太空舱",
-     "clue": "The small spacecraft room that carries astronauts home."
+     "clue": "The small spacecraft room that carries astronauts home. Example: The four astronauts rode home in a small ___ named Freedom."
     },
     {
      "word": "WINGS",
@@ -3729,7 +3729,7 @@
      "dir": "A",
      "num": 9,
      "cn": "翅膀",
-     "clue": "A butterfly flaps these to fly — spread yours and explore!"
+     "clue": "A butterfly flaps these to fly — spread yours and explore! Example: The insect flaps its ___ to fly up into the sky."
     },
     {
      "word": "ASTRONAUT",
@@ -3738,7 +3738,7 @@
      "dir": "A",
      "num": 10,
      "cn": "宇航员",
-     "clue": "A person who travels and works in space."
+     "clue": "A person who travels and works in space. Example: Sophie is a French ___ who stayed in space for 237 days."
     }
    ]
   }

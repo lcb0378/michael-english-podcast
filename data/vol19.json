@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol19/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol19/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol19/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol19/Vol19_晚读讲义_百岁跳伞与袋熊的方块便便_v1.pdf",
- "pdfName": "Vol19_晚读讲义_百岁跳伞与袋熊的方块便便_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol19/Vol19_晚读讲义_百岁跳伞与袋熊的方块便便_v2.pdf",
+ "pdfName": "Vol19_晚读讲义_百岁跳伞与袋熊的方块便便_v2.pdf",
  "blocks": [
   {
    "start": 29.15,
@@ -3770,7 +3770,7 @@
      "dir": "D",
      "num": 1,
      "cn": "纪录",
-     "clue": "The best result ever — Al won this back at one hundred and six."
+     "clue": "The best result ever — Al won this back at one hundred and six. Example: At one hundred and six, Al won the ___ back for the oldest skydiver."
     },
     {
      "word": "INTESTINE",
@@ -3779,7 +3779,7 @@
      "dir": "A",
      "num": 2,
      "cn": "肠道",
-     "clue": "The long tube inside the body that food travels through."
+     "clue": "The long tube inside the body that food travels through. Example: A wombat's ___ is about ten metres long."
     },
     {
      "word": "SQUEEZE",
@@ -3788,7 +3788,7 @@
      "dir": "D",
      "num": 3,
      "cn": "挤压",
-     "clue": "To press something hard from two sides."
+     "clue": "To press something hard from two sides. Example: The long tube ___s the dry food into square corners."
     },
     {
      "word": "GOVERNOR",
@@ -3797,7 +3797,7 @@
      "dir": "A",
      "num": 4,
      "cn": "州长",
-     "clue": "The leader of a state, like Greg Abbott of Texas."
+     "clue": "The leader of a state, like Greg Abbott of Texas. Example: Greg Abbott, the ___ of Texas, promised to jump beside Al."
     },
     {
      "word": "CUBES",
@@ -3806,7 +3806,7 @@
      "dir": "A",
      "num": 5,
      "cn": "方块",
-     "clue": "Little square blocks — a wombat makes them as poop!"
+     "clue": "Little square blocks — a wombat makes them as poop! Example: A wombat makes little square ___ as poop, and stacks them on rocks."
     },
     {
      "word": "STRETCHY",
@@ -3815,7 +3815,7 @@
      "dir": "D",
      "num": 6,
      "cn": "有弹性的",
-     "clue": "Easy to pull longer, like a rubber band; the opposite of stiff."
+     "clue": "Easy to pull longer, like a rubber band; the opposite of stiff. Example: Near the end of the tube, the wall is ___ in some places and stiff in others."
     },
     {
      "word": "MARSUPIAL",
@@ -3824,7 +3824,7 @@
      "dir": "D",
      "num": 7,
      "cn": "有袋动物",
-     "clue": "An animal that carries its babies in a pouch."
+     "clue": "An animal that carries its babies in a pouch. Example: A wombat is a furry ___ that carries its babies in a pouch."
     },
     {
      "word": "WOMBAT",
@@ -3833,7 +3833,7 @@
      "dir": "D",
      "num": 8,
      "cn": "袋熊",
-     "clue": "A round, furry Australian animal with short legs."
+     "clue": "A round, furry Australian animal with short legs. Example: The round, furry Australian animal with short legs is called a ___."
     },
     {
      "word": "BURROW",
@@ -3842,7 +3842,7 @@
      "dir": "A",
      "num": 9,
      "cn": "洞穴",
-     "clue": "A hole in the ground where an animal lives."
+     "clue": "A hole in the ground where an animal lives. Example: Wombats stack their cubes on rocks and logs by their ___s."
     },
     {
      "word": "PARACHUTE",
@@ -3851,7 +3851,7 @@
      "dir": "A",
      "num": 10,
      "cn": "降落伞",
-     "clue": "It opens in the sky and helps you float down slowly and safely."
+     "clue": "It opens in the sky and helps you float down slowly and safely. Example: Al floated down slowly when his ___ opened above the field."
     }
    ]
   }

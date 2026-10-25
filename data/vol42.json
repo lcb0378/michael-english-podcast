@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol42/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol42/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol42/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol42/Vol42_晚读讲义_巨型章鱼风筝与河马的天然防晒霜_v1.pdf",
- "pdfName": "Vol42_晚读讲义_巨型章鱼风筝与河马的天然防晒霜_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol42/Vol42_晚读讲义_巨型章鱼风筝与河马的天然防晒霜_v2.pdf",
+ "pdfName": "Vol42_晚读讲义_巨型章鱼风筝与河马的天然防晒霜_v2.pdf",
  "blocks": [
   {
    "start": 22.27,
@@ -3374,7 +3374,7 @@
      "dir": "D",
      "num": 1,
      "cn": "最少",
-     "clue": "At ___, six people hold the lines."
+     "clue": "The smallest number that is enough, with no fewer than that. Example: At ___, six people hold the lines."
     },
     {
      "word": "HIPPO",
@@ -3383,7 +3383,7 @@
      "dir": "D",
      "num": 2,
      "cn": "河马",
-     "clue": "When a ___ comes out of the water on a sunny day, its skin slowly turns pink."
+     "clue": "A very large grey animal that lives in rivers and loves water. Example: When a ___ comes out of the water on a sunny day, its skin slowly turns pink."
     },
     {
      "word": "RAIN",
@@ -3392,7 +3392,7 @@
      "dir": "A",
      "num": 3,
      "cn": "雨",
-     "clue": "No cats or dogs really fall from the sky when it ___ cats and dogs."
+     "clue": "To pour down heavily from the sky in drops of water. Example: No cats or dogs really fall from the sky when it ___ cats and dogs."
     },
     {
      "word": "KITE",
@@ -3401,7 +3401,7 @@
      "dir": "A",
      "num": 4,
      "cn": "风筝",
-     "clue": "A small standard ___ fits in your hand."
+     "clue": "A light toy on a string that flies high in the wind. Example: A small standard ___ fits in your hand."
     },
     {
      "word": "OCTOPUS",
@@ -3410,7 +3410,7 @@
      "dir": "A",
      "num": 5,
      "cn": "章鱼",
-     "clue": "But the biggest star of the show is an ___!"
+     "clue": "A sea animal with eight long arms and no bones. Example: But the biggest star of the show is an ___!"
     },
     {
      "word": "CURTAIN",
@@ -3419,7 +3419,7 @@
      "dir": "D",
      "num": 6,
      "cn": "幕布",
-     "clue": "The whole sky turns into a colorful ___."
+     "clue": "A big hanging cloth of colour that covers the sky like a wall. Example: The whole sky turns into a colorful ___."
     },
     {
      "word": "PIGMENT",
@@ -3428,7 +3428,7 @@
      "dir": "D",
      "num": 7,
      "cn": "色素",
-     "clue": "Scientists found two special ___s inside it."
+     "clue": "The natural stuff inside skin or fluid that gives it its colour. Example: Scientists found two special ___s inside it."
     },
     {
      "word": "FESTIVAL",
@@ -3437,7 +3437,7 @@
      "dir": "A",
      "num": 8,
      "cn": "风筝节",
-     "clue": "At a giant kite ___, thousands of kites fill the air."
+     "clue": "A big happy gathering where many people come together to celebrate and watch a show. Example: At a giant kite ___, thousands of kites fill the air."
     },
     {
      "word": "YELL",
@@ -3446,7 +3446,7 @@
      "dir": "D",
      "num": 9,
      "cn": "欢呼",
-     "clue": "Visitors look up and ___ with joy."
+     "clue": "To shout loudly because you are happy and excited. Example: Visitors look up and ___ with joy."
     },
     {
      "word": "SUNSCREEN",
@@ -3455,7 +3455,7 @@
      "dir": "A",
      "num": 10,
      "cn": "防晒霜",
-     "clue": "Together, they work like a natural ___."
+     "clue": "A cream that protects skin from getting burned by strong bright light. Example: Together, they work like a natural ___."
     }
    ]
   }

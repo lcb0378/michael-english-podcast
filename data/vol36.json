@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol36/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol36/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol36/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol36/Vol36_晚读讲义_少年棋手与变色龙的超级舌头_v1.pdf",
- "pdfName": "Vol36_晚读讲义_少年棋手与变色龙的超级舌头_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol36/Vol36_晚读讲义_少年棋手与变色龙的超级舌头_v2.pdf",
+ "pdfName": "Vol36_晚读讲义_少年棋手与变色龙的超级舌头_v2.pdf",
  "blocks": [
   {
    "start": 21.23,
@@ -3387,7 +3387,7 @@
      "dir": "D",
      "num": 1,
      "cn": "国际象棋",
-     "clue": "called the 'Messi of ___.'"
+     "clue": "A board game for two players, with black and white pieces and a king to protect. Example: called the 'Messi of ___.'"
     },
     {
      "word": "GRANDMASTER",
@@ -3396,7 +3396,7 @@
      "dir": "A",
      "num": 2,
      "cn": "特级大师",
-     "clue": "at twelve, he is a ___."
+     "clue": "The highest title a player of the board game can earn. Example: at twelve, he is a ___."
     },
     {
      "word": "CHAMELEON",
@@ -3405,7 +3405,7 @@
      "dir": "D",
      "num": 3,
      "cn": "变色龙",
-     "clue": "meet the ___, the quiet king of hide-and-seek."
+     "clue": "A tree animal that can change its color and move its eyes in two directions. Example: meet the ___, the quiet king of hide-and-seek."
     },
     {
      "word": "TONGUE",
@@ -3414,7 +3414,7 @@
      "dir": "A",
      "num": 4,
      "cn": "舌头",
-     "clue": "its greatest trick is its ___."
+     "clue": "The soft, moving part inside your mouth that helps you taste and speak. Example: its greatest trick is its ___."
     },
     {
      "word": "CRICKET",
@@ -3423,7 +3423,7 @@
      "dir": "A",
      "num": 5,
      "cn": "蟋蟀",
-     "clue": "when it sees a ___, muscles pull back slowly."
+     "clue": "A small jumping insect that sings at night by rubbing its wings. Example: when it sees a ___, muscles pull back slowly."
     },
     {
      "word": "SECRET",
@@ -3432,7 +3432,7 @@
      "dir": "A",
      "num": 6,
      "cn": "秘密",
-     "clue": "you keep a ___ and say nothing at all!"
+     "clue": "Something you know but do not tell anyone else. Example: you keep a ___ and say nothing at all!"
     },
     {
      "word": "LIGHTNING",
@@ -3441,7 +3441,7 @@
      "dir": "D",
      "num": 7,
      "cn": "闪电",
-     "clue": "the tongue shoots out faster than ___."
+     "clue": "A bright flash in the sky during a storm. Example: the tongue shoots out faster than ___."
     },
     {
      "word": "BALLOON",
@@ -3450,7 +3450,7 @@
      "dir": "D",
      "num": 8,
      "cn": "气球",
-     "clue": "faster than a ___ rising."
+     "clue": "A thin rubber bag filled with air that floats up. Example: faster than a ___ rising."
     },
     {
      "word": "MUCUS",
@@ -3459,7 +3459,7 @@
      "dir": "D",
      "num": 9,
      "cn": "黏液",
-     "clue": "covered with sticky ___."
+     "clue": "A thick, sticky liquid that helps things stick and stay wet. Example: covered with sticky ___."
     },
     {
      "word": "LIPS",
@@ -3468,7 +3468,7 @@
      "dir": "A",
      "num": 10,
      "cn": "嘴唇",
-     "clue": "zip your ___."
+     "clue": "The soft edges around your mouth. Example: zip your ___."
     }
    ]
   }

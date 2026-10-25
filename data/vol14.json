@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol14/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol14/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol14/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol14/Vol14_晚读讲义_冲浪狗狗与牵手睡觉的海獭_v1.pdf",
- "pdfName": "Vol14_晚读讲义_冲浪狗狗与牵手睡觉的海獭_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol14/Vol14_晚读讲义_冲浪狗狗与牵手睡觉的海獭_v2.pdf",
+ "pdfName": "Vol14_晚读讲义_冲浪狗狗与牵手睡觉的海獭_v2.pdf",
  "blocks": [
   {
    "start": 27.39,
@@ -3568,7 +3568,7 @@
      "dir": "D",
      "num": 1,
      "cn": "海獭",
-     "clue": "A sea animal that holds hands while it sleeps."
+     "clue": "A sea animal that holds hands while it sleeps. Example: A sea ___ sleeps on its back, holding hands with its friends."
     },
     {
      "word": "DRIFT",
@@ -3577,7 +3577,7 @@
      "dir": "A",
      "num": 2,
      "cn": "漂走；漂流",
-     "clue": "To float away slowly on the water."
+     "clue": "To float away slowly on the water. Example: If otters do not hold hands, they may ___ away on the waves."
     },
     {
      "word": "SUPERSTAR",
@@ -3586,7 +3586,7 @@
      "dir": "D",
      "num": 3,
      "cn": "超级明星",
-     "clue": "A very famous star. Sugar the surf dog is one!"
+     "clue": "A very famous star. Sugar the surf dog is one! Example: Sugar the surf dog won five times, so she is a real ___."
     },
     {
      "word": "KELP",
@@ -3595,7 +3595,7 @@
      "dir": "A",
      "num": 4,
      "cn": "巨藻",
-     "clue": "Giant seaweed — the otter's natural anchor rope."
+     "clue": "Giant seaweed — the otter's natural anchor rope. Example: An otter wraps ___ around its body like a rope to stay in one place."
     },
     {
      "word": "PAW",
@@ -3604,7 +3604,7 @@
      "dir": "A",
      "num": 5,
      "cn": "爪子",
-     "clue": "Otters float ____ in ____, holding on to each other."
+     "clue": "An animal's foot with soft pads. Example: Otters float ____ in ____, holding on to each other."
     },
     {
      "word": "ANCHOR",
@@ -3613,7 +3613,7 @@
      "dir": "D",
      "num": 6,
      "cn": "锚",
-     "clue": "It holds a boat — or a sleepy otter — in one place."
+     "clue": "It holds a boat — or a sleepy otter — in one place. Example: The otter wraps kelp around itself as an ___, so it stays in one place."
     },
     {
      "word": "WAVES",
@@ -3622,7 +3622,7 @@
      "dir": "D",
      "num": 7,
      "cn": "海浪",
-     "clue": "Surf dogs ride them to the sand."
+     "clue": "Surf dogs ride them to the sand. Example: Surf dogs ride the ___ all the way to the sand."
     },
     {
      "word": "BOAT",
@@ -3631,7 +3631,7 @@
      "dir": "A",
      "num": 8,
      "cn": "小船",
-     "clue": "You and your friends are all in the same ____."
+     "clue": "A small vessel that carries people on water. Example: You and your friends are all in the same ____."
     },
     {
      "word": "SURFBOARD",
@@ -3640,7 +3640,7 @@
      "dir": "A",
      "num": 9,
      "cn": "冲浪板",
-     "clue": "The long board that surfers — and surf dogs — stand on."
+     "clue": "The long board that surfers — and surf dogs — stand on. Example: Sugar stands on a long ___ and rides the waves to the sand."
     },
     {
      "word": "BELLY",
@@ -3649,7 +3649,7 @@
      "dir": "D",
      "num": 10,
      "cn": "肚子；腹部",
-     "clue": "A baby otter rides on its mother's ____."
+     "clue": "The soft front part of an animal's body. Example: A baby otter rides on its mother's ____."
     }
    ]
   }

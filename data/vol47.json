@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol47/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol47/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol47/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol47/Vol47_晚读讲义_旅行奶奶与长颈鹿_v1.pdf",
- "pdfName": "Vol47_晚读讲义_旅行奶奶与长颈鹿_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol47/Vol47_晚读讲义_旅行奶奶与长颈鹿_v2.pdf",
+ "pdfName": "Vol47_晚读讲义_旅行奶奶与长颈鹿_v2.pdf",
  "blocks": [
   {
    "start": 22.91,
@@ -3430,7 +3430,7 @@
      "dir": "A",
      "num": 1,
      "cn": "麻雀",
-     "clue": "Even a tiny ___'s heart beats fast."
+     "clue": "A tiny common brown bird with a quick-beating heart. Example: Even a tiny ___'s heart beats fast."
     },
     {
      "word": "PASSPORT",
@@ -3439,7 +3439,7 @@
      "dir": "D",
      "num": 2,
      "cn": "护照",
-     "clue": "did not get her first ___ until she was 91."
+     "clue": "A small official book that lets you travel to other countries. Example: did not get her first ___ until she was 91."
     },
     {
      "word": "APPROACH",
@@ -3448,7 +3448,7 @@
      "dir": "D",
      "num": 3,
      "cn": "方法",
-     "clue": "Her ___ to life is simple."
+     "clue": "A person's way of thinking about life and doing things. Example: Her ___ to life is simple."
     },
     {
      "word": "PREGNANT",
@@ -3457,7 +3457,7 @@
      "dir": "D",
      "num": 4,
      "cn": "怀孕的",
-     "clue": "a mother giraffe is ___ for about 15 months."
+     "clue": "Carrying a baby inside the body before it is born. Example: a mother giraffe is ___ for about 15 months."
     },
     {
      "word": "PULSE",
@@ -3466,7 +3466,7 @@
      "dir": "A",
      "num": 5,
      "cn": "一股流动；脉搏",
-     "clue": "every beat sends a strong ___ of liquid blood up the long neck."
+     "clue": "A strong rush of blood pushed along by each beat of the heart. Example: every beat sends a strong ___ of liquid blood up the long neck."
     },
     {
      "word": "TISSUE",
@@ -3475,7 +3475,7 @@
      "dir": "D",
      "num": 6,
      "cn": "组织",
-     "clue": "Its walls are thick muscle ___."
+     "clue": "The thick living muscle material that makes up the walls of a heart. Example: Its walls are thick muscle ___."
     },
     {
      "word": "GIRAFFE",
@@ -3484,7 +3484,7 @@
      "dir": "A",
      "num": 7,
      "cn": "长颈鹿",
-     "clue": "let's meet the tallest animal on Earth: the ___."
+     "clue": "The tallest land animal, with a very long neck and a spotted coat. Example: let's meet the tallest animal on Earth: the ___."
     },
     {
      "word": "ALTITUDE",
@@ -3493,7 +3493,7 @@
      "dir": "D",
      "num": 8,
      "cn": "海拔；高度",
-     "clue": "almost like a brain living at a high ___."
+     "clue": "How high up a place or a head is above the ground. Example: almost like a brain living at a high ___."
     },
     {
      "word": "CONTINENT",
@@ -3502,7 +3502,7 @@
      "dir": "A",
      "num": 9,
      "cn": "大洲",
-     "clue": "At 96, Joy had set foot on all seven ___s."
+     "clue": "One of the seven very large areas of land on Earth. Example: At 96, Joy had set foot on all seven ___s."
     },
     {
      "word": "FOREHEAD",
@@ -3511,7 +3511,7 @@
      "dir": "A",
      "num": 10,
      "cn": "额头",
-     "clue": "the two little horns on a giraffe's ___."
+     "clue": "The flat part above the eyes where the two little horns sit. Example: the two little horns on a giraffe's ___."
     }
    ]
   }

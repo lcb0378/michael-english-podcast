@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol33/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol33/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol33/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol33/Vol33_晚读讲义_超级拼图与再生的六角恐龙_v1.pdf",
- "pdfName": "Vol33_晚读讲义_超级拼图与再生的六角恐龙_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol33/Vol33_晚读讲义_超级拼图与再生的六角恐龙_v2.pdf",
+ "pdfName": "Vol33_晚读讲义_超级拼图与再生的六角恐龙_v2.pdf",
  "blocks": [
   {
    "start": 21.47,
@@ -3456,7 +3456,7 @@
      "dir": "D",
      "num": 1,
      "cn": "拼图",
-     "clue": "a jigsaw ___ with more than half a million pieces."
+     "clue": "A game made of many small pieces that fit together to make a picture. Example: a jigsaw ___ with more than half a million pieces."
     },
     {
      "word": "JIGSAW",
@@ -3465,7 +3465,7 @@
      "dir": "A",
      "num": 2,
      "cn": "拼图玩具",
-     "clue": "the biggest ___ puzzle ever made."
+     "clue": "A picture game cut into many odd-shaped pieces that fit together. Example: the biggest ___ puzzle ever made."
     },
     {
      "word": "LOTUS",
@@ -3474,7 +3474,7 @@
      "dir": "D",
      "num": 3,
      "cn": "莲花",
-     "clue": "the picture was a beautiful ___ flower."
+     "clue": "A pretty pink flower that grows in water, with wide flat leaves. Example: the picture was a beautiful ___ flower."
     },
     {
      "word": "STADIUM",
@@ -3483,7 +3483,7 @@
      "dir": "D",
      "num": 4,
      "cn": "体育场",
-     "clue": "In a big ___ in Vietnam, 1,600 students worked together."
+     "clue": "A very big open place with seats all around, for games and shows. Example: In a big ___ in Vietnam, 1,600 students worked together."
     },
     {
      "word": "AXOLOTL",
@@ -3492,7 +3492,7 @@
      "dir": "A",
      "num": 5,
      "cn": "墨西哥钝口螈",
-     "clue": "Meet the ___, a salamander from Mexico."
+     "clue": "A small water animal from Mexico that keeps its baby looks when it grows up. Example: Meet the ___, a salamander from Mexico."
     },
     {
      "word": "GILLS",
@@ -3501,7 +3501,7 @@
      "dir": "D",
      "num": 6,
      "cn": "鳃",
-     "clue": "the six feathery ___ on its head."
+     "clue": "The soft parts on the sides of a water animal's head that help it breathe under water. Example: the six feathery ___ on its head."
     },
     {
      "word": "BLASTEMA",
@@ -3510,7 +3510,7 @@
      "dir": "D",
      "num": 7,
      "cn": "再生芽",
-     "clue": "form a soft lump called a ___."
+     "clue": "A soft lump of young cells that slowly builds a missing leg again. Example: form a soft lump called a ___."
     },
     {
      "word": "SCAR",
@@ -3519,7 +3519,7 @@
      "dir": "A",
      "num": 8,
      "cn": "伤疤",
-     "clue": "our body makes a ___."
+     "clue": "A mark left on skin after a cut has healed. Example: our body makes a ___."
     },
     {
      "word": "BULLET",
@@ -3528,7 +3528,7 @@
      "dir": "A",
      "num": 9,
      "cn": "子弹",
-     "clue": "'bite the ___' means facing a difficult thing bravely."
+     "clue": "A small metal piece shot from a gun. Example: 'bite the ___' means facing a difficult thing bravely."
     },
     {
      "word": "SALAMANDER",
@@ -3537,7 +3537,7 @@
      "dir": "A",
      "num": 10,
      "cn": "蝾螈",
-     "clue": "it is a ___ that keeps its baby looks as a grown-up."
+     "clue": "A small animal like a lizard that lives in water and on land. Example: it is a ___ that keeps its baby looks as a grown-up."
     }
    ]
   }

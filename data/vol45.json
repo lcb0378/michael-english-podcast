@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol45/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol45/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol45/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol45/Vol45_晚读讲义_长寿猫与蚕宝宝_v1.pdf",
- "pdfName": "Vol45_晚读讲义_长寿猫与蚕宝宝_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol45/Vol45_晚读讲义_长寿猫与蚕宝宝_v2.pdf",
+ "pdfName": "Vol45_晚读讲义_长寿猫与蚕宝宝_v2.pdf",
  "blocks": [
   {
    "start": 24.11,
@@ -3401,7 +3401,7 @@
      "dir": "D",
      "num": 1,
      "cn": "标准的",
-     "clue": "The ___ lifespan of a pet cat is about 14 years."
+     "clue": "The usual and normal length of life for most pets of one kind. Example: The ___ lifespan of a pet cat is about 14 years."
     },
     {
      "word": "FIGURE",
@@ -3410,7 +3410,7 @@
      "dir": "D",
      "num": 2,
      "cn": "数字",
-     "clue": "The worm moves its head in a ___-eight dance."
+     "clue": "The shape of the number eight, made by moving in two loops. Example: The worm moves its head in a ___-eight dance."
     },
     {
      "word": "FLOSSIE",
@@ -3419,7 +3419,7 @@
      "dir": "D",
      "num": 3,
      "cn": "弗洛西",
-     "clue": "there lives a very special cat named ___."
+     "clue": "The name of the very old tortoiseshell cat in the story. Example: there lives a very special cat named ___."
     },
     {
      "word": "YELL",
@@ -3428,7 +3428,7 @@
      "dir": "D",
      "num": 4,
      "cn": "大喊",
-     "clue": "Imagine everyone ___ing, 'Happy birthday, Flossie!'"
+     "clue": "To shout loudly, all together in celebration. Example: Imagine everyone ___ing, 'Happy birthday, Flossie!'"
     },
     {
      "word": "MINIMUM",
@@ -3437,7 +3437,7 @@
      "dir": "A",
      "num": 5,
      "cn": "最低限度",
-     "clue": "one continuous thread, at a ___ 300 metres long."
+     "clue": "The smallest length a thing can be, with no less than that. Example: one continuous thread, at a ___ 300 metres long."
     },
     {
      "word": "SILKWORM",
@@ -3446,7 +3446,7 @@
      "dir": "A",
      "num": 6,
      "cn": "蚕宝宝",
-     "clue": "let's meet a tiny worker with a giant talent: the ___."
+     "clue": "A tiny caterpillar of a moth that spins a soft shiny thread to make its case. Example: let's meet a tiny worker with a giant talent: the ___."
     },
     {
      "word": "KILOGRAM",
@@ -3455,7 +3455,7 @@
      "dir": "D",
      "num": 7,
      "cn": "千克",
-     "clue": "thousands of cocoons make just one ___ of silk."
+     "clue": "A unit for weighing things, equal to one thousand grams. Example: thousands of cocoons make just one ___ of silk."
     },
     {
      "word": "COCOON",
@@ -3464,7 +3464,7 @@
      "dir": "A",
      "num": 8,
      "cn": "茧",
-     "clue": "it stops eating and spins its ___."
+     "clue": "A soft case a caterpillar spins around itself while it changes into a moth. Example: it stops eating and spins its ___."
     },
     {
      "word": "CURTAIN",
@@ -3473,7 +3473,7 @@
      "dir": "A",
      "num": 9,
      "cn": "帘子",
-     "clue": "sometimes peeking out from behind the ___."
+     "clue": "A hanging cloth that covers a window or a corner, so you can peek out from behind it. Example: sometimes peeking out from behind the ___."
     },
     {
      "word": "MULBERRY",
@@ -3482,7 +3482,7 @@
      "dir": "A",
      "num": 10,
      "cn": "桑树",
-     "clue": "eating only ___ leaves."
+     "clue": "The name of the tree whose leaves are the only food of the tiny spinner in the story. Example: eating only ___ leaves."
     }
    ]
   }

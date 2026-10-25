@@ -6,8 +6,8 @@
  "cover": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol12/cover.png",
  "audio": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol12/audio.mp3",
  "video": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol12/video_v1.mp4",
- "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol12/Vol12_晚读讲义_熊猫姐妹的冰蛋糕与森林的悄悄话_v1.pdf",
- "pdfName": "Vol12_晚读讲义_熊猫姐妹的冰蛋糕与森林的悄悄话_v1.pdf",
+ "pdf": "https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/vol12/Vol12_晚读讲义_熊猫姐妹的冰蛋糕与森林的悄悄话_v2.pdf",
+ "pdfName": "Vol12_晚读讲义_熊猫姐妹的冰蛋糕与森林的悄悄话_v2.pdf",
  "blocks": [
   {
    "start": 33.39,
@@ -3583,7 +3583,7 @@
      "dir": "D",
      "num": 1,
      "cn": "生日",
-     "clue": "The day you were born — the twins celebrated theirs with an ice cake."
+     "clue": "The day you were born — the twins celebrated theirs with an ice cake. Example: Leni and Lotti celebrated their second ___ with an ice cake."
     },
     {
      "word": "SEEDLING",
@@ -3592,7 +3592,7 @@
      "dir": "D",
      "num": 2,
      "cn": "幼苗；小树苗",
-     "clue": "A very young tree, just growing from a seed."
+     "clue": "A very young tree, just growing from a seed. Example: Mother trees send extra sugar to their little ___s."
     },
     {
      "word": "ICE",
@@ -3601,7 +3601,7 @@
      "dir": "D",
      "num": 3,
      "cn": "冰",
-     "clue": "Frozen water — the panda twins' birthday cake was made of it."
+     "clue": "Frozen water — the panda twins' birthday cake was made of it. Example: On a hot day, the twins licked a cake made of ___."
     },
     {
      "word": "MOON",
@@ -3610,7 +3610,7 @@
      "dir": "D",
      "num": 4,
      "cn": "月亮",
-     "clue": "It shines in the night sky; a blue one is very rare."
+     "clue": "It shines in the night sky; a blue one is very rare. Example: Look up at night and you can see the ___."
     },
     {
      "word": "NETWORK",
@@ -3619,7 +3619,7 @@
      "dir": "D",
      "num": 5,
      "cn": "网络",
-     "clue": "Many parts joined together, passing things along — the forest hides a secret one."
+     "clue": "Many parts joined together, passing things along — the forest hides a secret one. Example: Trees share sugar and warnings through a secret underground ___."
     },
     {
      "word": "BLUE",
@@ -3628,7 +3628,7 @@
      "dir": "D",
      "num": 6,
      "cn": "蓝色的",
-     "clue": "The colour of the sky; together with 'moon', it means very rare."
+     "clue": "The colour of the sky; together with 'moon', it means very rare. Example: The panda cake was pink and orange, not ___."
     },
     {
      "word": "BEETROOT",
@@ -3637,7 +3637,7 @@
      "dir": "A",
      "num": 7,
      "cn": "甜菜根",
-     "clue": "A dark-red vegetable; its juice coloured the ice cake pink."
+     "clue": "A dark-red vegetable; its juice coloured the ice cake pink. Example: The pink ice cake got its colour from ___ juice."
     },
     {
      "word": "PANDA",
@@ -3646,7 +3646,7 @@
      "dir": "A",
      "num": 8,
      "cn": "大熊猫",
-     "clue": "A black-and-white bear from China that loves bamboo."
+     "clue": "A black-and-white bear from China that loves bamboo. Example: Leni and Lotti are twin ___s from China."
     },
     {
      "word": "WHISPER",
@@ -3655,7 +3655,7 @@
      "dir": "A",
      "num": 9,
      "cn": "低语；耳语",
-     "clue": "To speak very quietly — the forest does it under the ground."
+     "clue": "To speak very quietly — the forest does it under the ground. Example: Under the ground, the forest ___s its secrets."
     },
     {
      "word": "FUNGI",
@@ -3664,7 +3664,7 @@
      "dir": "A",
      "num": 10,
      "cn": "真菌",
-     "clue": "Living things like mushrooms; their tiny threads join tree roots together."
+     "clue": "Living things like mushrooms; their tiny threads join tree roots together. Example: Tiny threads of ___ join the tree roots together."
     }
    ]
   }
