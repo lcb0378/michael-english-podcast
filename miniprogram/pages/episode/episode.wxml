@@ -1,6 +1,8 @@
 <view class="container">
   <view wx:if="{{loading}}" class="loading">节目加载中…</view>
   <block wx:elif="{{ep}}">
+  <!-- 视频 + 标题（内容页）：在最上面；音频（播放器）在其下，再往下是三个 tab -->
+  <block wx:if="{{activeTab==='content'}}">
   <video wx:if="{{ep.video}}" id="epVideo" class="cover-video" src="{{ep.video}}" poster="{{ep.cover}}" controls bindplay="onVideoPlay"></video>
   <image wx:else class="cover" src="{{ep.cover}}" mode="aspectFill"></image>
   <view class="head-row">
@@ -13,20 +15,30 @@
       <view class="dl-btn ra-btn" bindtap="openReadalong">🌐 网页跟读版</view>
     </view>
   </view>
-
-  <view class="player">
-    <view class="controls">
-      <button class="play-btn" bindtap="togglePlay">{{playing ? '⏸' : '▶'}}</button>
-      <slider class="progress" min="0" max="1000" value="{{progress}}" bindchanging="onSeeking" bindchange="onSeek" block-size="14" activeColor="#ff8c42"></slider>
-      <text class="time">{{curTime}} / {{durTime}}</text>
+  </block>
+  <!-- sticky 头：播放器 + 三 tab（所有 tab 都看得见；切 tab 不停音频） -->
+  <view class="sticky-head">
+    <view class="player">
+      <view class="controls">
+        <button class="play-btn" bindtap="togglePlay">{{playing ? '⏸' : '▶'}}</button>
+        <slider class="progress" min="0" max="1000" value="{{progress}}" bindchanging="onSeeking" bindchange="onSeek" block-size="14" activeColor="#ff8c42"></slider>
+        <text class="time">{{curTime}} / {{durTime}}</text>
+      </view>
+      <view class="speeds">
+        <block wx:for="{{rates}}" wx:key="*">
+          <button class="speed-btn {{rate===item?'active':''}}" bindtap="setRate" data-r="{{item}}">{{item}}x</button>
+        </block>
+      </view>
     </view>
-    <view class="speeds">
-      <block wx:for="{{rates}}" wx:key="*">
-        <button class="speed-btn {{rate===item?'active':''}}" bindtap="setRate" data-r="{{item}}">{{item}}x</button>
-      </block>
+    <view class="tabs">
+      <view class="tab {{activeTab==='content'?'active':''}}" data-tab="content" bindtap="selectTab">📖 内容</view>
+      <view class="tab {{activeTab==='vocab'?'active':''}}" data-tab="vocab" bindtap="selectTab">🔤 词汇</view>
+      <view class="tab {{activeTab==='reading'?'active':''}}" data-tab="reading" bindtap="selectTab">📝 阅读理解</view>
     </view>
   </view>
 
+  <!-- 内容 tab：Part 1 跟读 + Part 2 词汇 + Part 4 拆解 -->
+  <block wx:if="{{activeTab==='content'}}">
   <view class="part-head">📖 Part 1：双语精读对照</view>
 
   <block wx:for="{{ep.blocks}}" wx:for-index="bi" wx:key="bi">
@@ -41,7 +53,7 @@
     </view>
   </block>
 
-  <!-- 晚读讲义：直接在小程序里看和做题 -->
+  <!-- 晚读讲义（内容部分）：Part 2 词汇 + Part 4 长难句拆解 -->
   <view wx:if="{{ep.guide}}" class="guide">
     <!-- Part 2 词汇 -->
     <view class="g-sec">
@@ -55,14 +67,28 @@
       </block>
     </view>
 
-    <!-- Part 3 练习题（互动版：有答案键时点选答题；无键回退静态） -->
+    <!-- Part 4 长难句拆解（讲解部分；句型练习在阅读理解 tab） -->
+    <view wx:if="{{ep.guide.sentence_nodes}}" class="g-sec">
+      <view class="g-h2">🔬 Part 4：长难句深度拆解</view>
+      <rich-text class="rt" tag-style="{{tagStyle}}" nodes="{{ep.guide.sentence_nodes}}"></rich-text>
+    </view>
+  </view>
+
+  <view class="pdf-dl">
+    <view class="pdf-btn" bindtap="downloadPdf">📄 下载本期晚读讲义 PDF</view>
+    <view class="pdf-btn ra-btn2" bindtap="openReadalong">🌐 网页跟读版（边听边看高亮）</view>
+    <view class="pdf-tip">想打印出来做？点第一个下载 PDF；想边听边跟读，点第二个复制链接、去浏览器打开</view>
+  </view>
+  </block>
+
+  <!-- 词汇 tab：Part 3A 填字游戏（音频照常播放，跟读不回跳） -->
+  <block wx:elif="{{activeTab==='vocab'}}">
+  <view wx:if="{{ep.guide && ep.guide.crossword}}" class="guide">
+    <!-- 填字游戏（有 crossword 数据时替代标题配对） -->
     <view class="g-sec">
-      <view class="g-h2">✏️ Part 3：阅读理解自测</view>
+      <view class="g-h2">🔤 词汇：填字游戏 Crossword</view>
       <block wx:if="{{quizVm}}">
-        <!-- 填字游戏（有 crossword 数据时替代标题配对） -->
-        <block wx:if="{{ep.guide.crossword}}">
-        <view class="g-h3">A. 填字游戏 Crossword</view>
-        <text class="q-note">点一条提示选中空位，再在词库里点一个词填进去（长度要对得上）。填错了再点那条词可以清空重选，最后点「核对答案」。</text>
+        <text class="q-note">点一条提示选中空位，再在词库里点一个词填进去（长度要对得上）。填错了再点那条词可以清空重选，最后点「核对答案」——核对后格子会全部填满，做对的显示绿色，没做对的由系统补上正确答案（红色）。</text>
         <view class="cw-grid">
           <view wx:for="{{cwGrid}}" wx:for-item="row" wx:for-index="r" wx:key="r" class="cw-row">
             <view wx:for="{{row}}" wx:for-item="cell" wx:for-index="c" wx:key="c" class="cw-cell {{cell.blank ? 'blk' : ''}} {{cell.sel ? 'sel' : ''}} {{cell.st==='ok' ? 'ok' : ''}} {{cell.st==='bad' ? 'bad' : ''}}" data-r="{{r}}" data-c="{{c}}" bindtap="cwTapCell">
@@ -85,7 +111,22 @@
           <view class="reset-btn" bindtap="cwReset">重做</view>
         </view>
         <text wx:if="{{cwScore}}" class="score">{{cwScore}}</text>
-        </block>
+      </block>
+    </view>
+  </view>
+  <view wx:else class="guide">
+    <view class="g-h2">🔤 词汇</view>
+    <text class="q-note">本期没有词汇练习。</text>
+  </view>
+  </block>
+
+  <!-- 阅读理解 tab：Part 3B 单项选择 + Part 4 句型练习（音频照常播放，跟读不回跳） -->
+  <block wx:elif="{{activeTab==='reading'}}">
+  <view wx:if="{{ep.guide}}" class="guide">
+    <!-- Part 3B 单项选择（互动版：有答案键时点选答题；无键回退静态） -->
+    <view class="g-sec">
+      <view class="g-h2">📝 阅读理解自测</view>
+      <block wx:if="{{quizVm}}">
         <view wx:if="{{quizVm.choiceTitle}}" class="g-h3">{{quizVm.choiceTitle}}</view>
         <block wx:for="{{quizVm.choiceQs}}" wx:for-index="qi" wx:key="qi">
           <text class="q">{{qi+1}}. {{item.stem}}</text>
@@ -109,11 +150,9 @@
       </block>
     </view>
 
-    <!-- Part 4 长难句 -->
-    <view wx:if="{{ep.guide.sentence_nodes}}" class="g-sec">
-      <view class="g-h2">🔬 Part 4：长难句深度拆解与练习</view>
-      <rich-text class="rt" tag-style="{{tagStyle}}" nodes="{{ep.guide.sentence_nodes}}"></rich-text>
-      <!-- 互动练习（Part 4 句型练习点选版，有 practice 数据时显示） -->
+    <!-- Part 4 句型练习（互动版：点选答案） -->
+    <view wx:if="{{ep.guide.practice}}" class="g-sec">
+      <view class="g-h2">🔬 Part 4：句型练习</view>
       <block wx:if="{{ep.guide.practice}}">
         <view class="g-h3">✍️ 句型练习 · 互动版（点选答案）</view>
         <block wx:for="{{ep.guide.practice.groups}}" wx:for-index="gi" wx:key="name">
@@ -138,30 +177,11 @@
         </block>
       </block>
     </view>
-
-    <!-- Part 5 答案 -->
-    <view wx:if="{{ep.guide.answers_nodes}}" class="g-sec">
-      <view class="g-h2">✅ Part 5：答案与解析</view>
-      <!-- 填字答案格（正解填满的静态格，与网页版/PDF 同一副数据）；其后的富文本是逐词答案表 -->
-      <block wx:if="{{ep.guide.crossword}}">
-        <view class="g-h3">A. Crossword 填字答案</view>
-        <view class="cw-grid">
-          <view wx:for="{{cwAnsGrid}}" wx:for-item="row" wx:for-index="r" wx:key="r" class="cw-row">
-            <view wx:for="{{row}}" wx:for-item="cell" wx:for-index="c" wx:key="c" class="cw-cell {{cell.blank ? 'blk' : ''}}">
-              <text wx:if="{{cell.num}}" class="cw-num">{{cell.num}}</text>
-              <text class="cw-letter">{{cell.letter}}</text>
-            </view>
-          </view>
-        </view>
-      </block>
-      <rich-text class="rt" tag-style="{{tagStyle}}" nodes="{{ep.guide.answers_nodes}}"></rich-text>
-    </view>
   </view>
-
-  <view class="pdf-dl">
-    <view class="pdf-btn" bindtap="downloadPdf">📄 下载本期晚读讲义 PDF</view>
-    <view class="pdf-btn ra-btn2" bindtap="openReadalong">🌐 网页跟读版（边听边看高亮）</view>
-    <view class="pdf-tip">想打印出来做？点第一个下载 PDF；想边听边跟读，点第二个复制链接、去浏览器打开</view>
+  <view wx:else class="guide">
+    <view class="g-h2">📝 阅读理解</view>
+    <text class="q-note">本期没有阅读理解练习。</text>
   </view>
+  </block>
   </block>
 </view>

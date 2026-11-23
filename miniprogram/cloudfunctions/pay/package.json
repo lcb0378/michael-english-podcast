@@ -1,0 +1,1 @@
+{"dependencies":{"wx-server-sdk":"~3.0.0"},"description":"Michael的早听晚读 · 微信支付接入占位（商户模式未定，暂不发起真实下单）","license":"UNLICENSED","main":"index.js","name":"pay","version":"0.1.0"}

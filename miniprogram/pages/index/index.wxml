@@ -4,6 +4,14 @@
   <image class="banner" src="https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/assets/channel-banner.jpg" mode="aspectFill"></image>
   <view class="title">🎧 Michael 的早听晚读</view>
   <view class="desc">每天一期双语播客：早上听故事磨耳朵，晚上读讲义练精读。献给每一个想学好英语的人。</view>
+  <view wx:if="{{!memberState || !memberState.isMember}}" class="member-bar" bindtap="goMember">
+    <text>⭐ 开通会员 · ¥98/年，解锁全部节目</text>
+    <text class="member-bar-go">去看看 ›</text>
+  </view>
+  <view wx:elif="{{memberState && memberState.isMember}}" class="member-bar" bindtap="goMember">
+    <text>⭐ 会员 · 有效期至 {{memberExpireText}}</text>
+    <text class="member-bar-go">会员中心 ›</text>
+  </view>
 
   <view class="section-title" id="ep-anchor">📻 节目单</view>
   <scroll-view wx:if="{{ranges.length > 1}}" class="range-bar" scroll-x="true" show-scrollbar="false">
@@ -18,6 +26,7 @@
           <view class="ep-title">{{item.label}} · {{item.title}}</view>
           <view class="ep-meta">英文 {{item.words}} 词 ｜ 音频 {{item.duration}}</view>
         </view>
+        <view wx:if="{{item.locked}}" class="ep-lock">🔒 会员</view>
         <view class="ep-arrow">›</view>
       </view>
     </block>
@@ -31,6 +40,7 @@
           <view class="ep-title">{{item.label}} · {{item.title}}</view>
           <view class="ep-meta">英文 {{item.words}} 词 ｜ 音频 {{item.duration}}</view>
         </view>
+        <view wx:if="{{item.locked}}" class="ep-lock">🔒 会员</view>
         <view class="ep-arrow">›</view>
       </view>
     </block>

@@ -12,11 +12,16 @@
 .title { font-size: 36rpx; font-weight: bold; line-height: 1.4; color: #222; margin-bottom: 8rpx; }
 .meta { color: #999; font-size: 24rpx; line-height: 1.6; }
 .dl-btn { flex-shrink: 0; background: #1a56db; color: #fff; font-size: 24rpx; line-height: 1.5; border-radius: 999rpx; padding: 9rpx 20rpx; margin: 6rpx 0 0 16rpx; white-space: nowrap; text-align: center; }
-.player { position: sticky; top: 0; background: #fff; border-radius: 20rpx; padding: 24rpx 28rpx; margin-bottom: 20rpx; z-index: 10; }
+/* sticky 头：播放器 + 三 tab（2026-11-19 David：切 tab 音频不停、练习页不回跳） */
+.sticky-head { position: sticky; top: 0; z-index: 10; background: #f7f5f0; padding-bottom: 36rpx; }
+.player { background: #fff; border-radius: 20rpx; padding: 24rpx 28rpx; margin-bottom: 28rpx; }
+.tabs { display: flex; background: #d8f0e3; border-radius: 999rpx; padding: 8rpx; }
+.tab { flex: 1; text-align: center; font-size: 32rpx; line-height: 2; color: #666; border-radius: 999rpx; }
+.tab.active { background: #0ca678; color: #fff; font-weight: bold; box-shadow: 0 4rpx 12rpx rgba(12,166,120,.35); }
 .controls { display: flex; align-items: center; }
-.play-btn { flex: 0 0 96rpx; width: 96rpx; height: 96rpx; min-width: 96rpx; border-radius: 50%; background: #ff8c42; color: #fff; font-size: 36rpx; line-height: 96rpx; padding: 0; margin: 0 16rpx 0 0; }
+.play-btn { flex: 0 0 96rpx; width: 96rpx; height: 96rpx; min-width: 96rpx; border-radius: 50%; background: #ff8c42; color: #fff; font-size: 28rpx; line-height: 96rpx; padding: 0; margin: 0 32rpx 0 0; }
 .play-btn::after { border: none; }
-.progress { flex: 1 1 auto; margin: 0 12rpx; min-width: 0; }
+.progress { flex: 1 1 auto; margin: 0 12rpx 0 24rpx; min-width: 0; }
 .time { flex: 0 0 auto; font-size: 24rpx; line-height: 1.6; color: #999; white-space: nowrap; }
 .speeds { display: flex; margin-top: 16rpx; }
 .speed-btn { font-size: 26rpx; padding: 0 28rpx; line-height: 56rpx; border-radius: 28rpx; margin-right: 16rpx; background: #f5f5f5; color: #666; }

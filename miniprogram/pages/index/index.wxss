@@ -10,6 +10,11 @@
 .banner { width: 100%; height: 340rpx; border-radius: 20rpx; margin-bottom: 24rpx; }
 .title { font-size: 36rpx; font-weight: bold; line-height: 1.4; color: #222; margin-bottom: 8rpx; }
 .desc { color: #666; font-size: 28rpx; line-height: 1.8; }
+/* 会员入口条（付费墙 1.2.1）：未会员时显示，点按去购买页 */
+.member-bar { display: flex; align-items: center; justify-content: space-between; background: #fff7ed; border-radius: 20rpx; padding: 20rpx 28rpx; margin-top: 20rpx; color: #ff8c42; font-size: 28rpx; font-weight: bold; line-height: 1.5; }
+.member-bar-go { color: #ff8c42; font-size: 28rpx; }
+/* 锁定标记：Vol.04+ 未会员时显示在卡片右侧 */
+.ep-lock { color: #ff8c42; font-size: 24rpx; font-weight: bold; margin-left: 12rpx; flex-shrink: 0; }
 .section-title { font-size: 32rpx; font-weight: bold; line-height: 1.4; color: #222; margin: 44rpx 0 20rpx; }
 .ep-card { display: flex; align-items: center; background: #fff; border-radius: 20rpx; padding: 24rpx 28rpx; margin-bottom: 20rpx; }
 .ep-cover { width: 140rpx; height: 140rpx; border-radius: 12rpx; flex-shrink: 0; }

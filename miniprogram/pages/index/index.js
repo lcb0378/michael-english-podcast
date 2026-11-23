@@ -2,12 +2,22 @@
 // 底部迷你播放器：背景音频在别的期目页播放时，
 // 返回主页也能看到正在播哪一期，并能暂停/继续/停止（David 要求）。
 const DATA_BASE = 'https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/data';
+// 会员状态工具（付费墙）：后端未确认时一律不锁内容，见 utils/member.js
+const member = require('../../utils/member.js');
 
 const bgm = wx.getBackgroundAudioManager();
 const RANGE_SIZE = 20; // 数字段大小：每 20 期一段（1–20、21–40、41–60…）
 // 显示名定版（2026-10-23 David）：期号一律「Vol.NN」（首字母大写），
 // 内部 id（vol06）只用于数据与路径，绝不直接显示给用户。
 const fmtVol = (id) => 'Vol.' + String(id || '').replace(/\D/g, '').padStart(2, '0');
+// 日期 → YYYY-MM-DD（会员有效期显示用）
+const fmtDate = (v) => {
+if (!v) return '';
+const d = new Date(v);
+if (Number.isNaN(d.getTime())) return '';
+const p = (n) => String(n).padStart(2, '0');
+return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
+};
 
 Page({
 data: {
@@ -19,6 +29,8 @@ listIntoView: '',
 loading: true,
 nowPlaying: null, // {id, title, cover}：当前装在背景播放器里的那一期
 npPlaying: false, // 它是否正在播放
+memberState: null, // 会员状态（null/未确认时不锁内容，见 utils/member.js）
+memberExpireText: '', // 会员有效期（YYYY-MM-DD），会员态的会员中心入口用
 },
 
 onLoad() {
@@ -32,6 +44,7 @@ const all = (res.data || []).slice().sort((a, b) =>
 this.setData({ allEpisodes: all, loading: false});
 this._buildRanges();
 this._syncNp();
+this._refreshMemberState();
 },
 fail: () => {
 this.setData({ loading: false});
@@ -47,6 +60,7 @@ onShow() {
 // 图标不翻、停止后播放条变死条（2026-10-20 David 实测）。
 this._bindBgm();
 this._syncNp();
+this._refreshMemberState();
 },
 
 _bindBgm() {
@@ -146,6 +160,30 @@ this._applyRange(idx, true);
 
 goEpisode(e) {
 const id = e.currentTarget.dataset.id;
+// 付费墙：Vol.04 起、已确认非会员 → 去购买页；状态未确认时照常进单集页（不锁）
+if (member.isLocked(id, this.data.memberState)) {
+wx.navigateTo({ url: `/pages/member/member?from=${id}`});
+return;
+}
 wx.navigateTo({ url: `/pages/episode/episode?id=${id}`});
+},
+
+goMember() {
+wx.navigateTo({ url: '/pages/member/member'});
+},
+
+// 会员状态刷新：只在云函数已确认“非会员”时才给 Vol.04+ 打锁定标记；
+// 状态未确认（后端未部署/调用失败/超时）时不锁，保持 1.2.0 免费行为。
+_refreshMemberState() {
+member.checkMember().then((st) => {
+this.setData({ memberState: st, memberExpireText: fmtDate(st && st.expireAt) });
+this._applyMemberLock();
+});
+},
+
+_applyMemberLock() {
+const st = this.data.memberState;
+const mark = (list) => (list || []).map((e) => ({ ...e, locked: member.isLocked(e.id, st) }));
+this.setData({ allEpisodes: mark(this.data.allEpisodes), episodes: mark(this.data.episodes) });
 }
 });

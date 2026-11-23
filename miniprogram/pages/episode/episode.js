@@ -6,6 +6,8 @@
 // 凡归属不是本期，播放/点段/拖动都先换源；页面卸载时解绑自己注册的监听。
 const DATA_BASE = 'https://michael-podcast-1513696684.cos.ap-chengdu.myqcloud.com/data';
 const CURSOR_LEAD = 0.9; // 高亮提前量（秒），与网页版一致
+// 会员状态工具（付费墙）：后端未确认时一律不锁内容，见 utils/member.js
+const member = require('../../utils/member.js');
 // 显示名定版（2026-10-23 David）：期号一律「Vol.NN」，内部 id 不直接显示。
 const fmtVol = (id) => 'Vol.' + String(id || '').replace(/\D/g, '').padStart(2, '0');
 
@@ -29,9 +31,10 @@ curWord: -1,
 rate: 1,
 rates: [0.9, 1, 1.1, 1.5],
 seeking: false,
+activeTab: 'content', // 阅读页三 tab：content 内容 / vocab 词汇 / reading 阅读理解（2026-11-19 David 改版：去掉答案 tab，练习拆为词汇+阅读理解；答案靠各练习的「核对答案」红绿标分，不再单列）
 // 互动答题（2026-10-21）：Part 3 点选 + Part 4 句型练习点选，核对判分
 quizVm: null, keyC: [], keyCL: [],
-selC: [], markC: [], selP: [], markP: [], cwAnsGrid: [],
+selC: [], markC: [], selP: [], markP: [],
 score3: '', score4: '',
 // 讲义富文本标签默认样式（排版标准 v1：正文 28/1.8，段距 16）
 tagStyle: {
@@ -66,9 +69,17 @@ this._pendingSeek = (typeof seekTo === 'number')? seekTo: null;
 this.setData({ progress: 0, curTime: '0:00', durTime: '0:00', curBlock: -1, curWord: -1});
 },
 
-onLoad(opts) {
+async onLoad(opts) {
 const id = opts.id || 'vol01';
 this._epId = id;
+
+// 付费墙（1.2.1）：Vol.04 起，未会员且会员状态已确认 → 去购买页；
+// 状态未确认（后端未部署/调用失败/超时）时照常加载，绝不锁内容（fail-open）。
+const memberState = await member.checkMember();
+if (member.isLocked(id, memberState)) {
+wx.redirectTo({ url: `/pages/member/member?from=${id}` });
+return;
+}
 
 // 【播放逻辑定版】播放器里装着别期时（无论在播还是暂停）：进页立即停掉旧期并清出播放器，
 // 本期不自动开播——和冷启动一样，等用户点播放才播（先浏览再听）；
@@ -169,9 +180,38 @@ onHide() {
 if (this.data.ep && this.data.ep.video && this._videoCtx) this._videoCtx.pause();
 },
 
+// ---- 三 tab 切换（2026-11-19 David 改版：内容 / 词汇 / 阅读理解；答案 tab 已删，答案靠各练习的核对按钮红绿标分） ----
+// 切 tab 不碰音频（背景音频是全局单例，本页不卸载，播放照常继续）；
+// 切回内容页时，滚到当前正在读的那一段；词汇/阅读理解页不跟读、不回跳。
+selectTab(e) {
+const tab = e.currentTarget.dataset.tab;
+if (!tab || tab === this.data.activeTab) return;
+this.setData({ activeTab: tab }, () => {
+if (tab === 'content') this._scrollToBlock(this.data.curBlock);
+else wx.pageScrollTo({ scrollTop: 0, duration: 0 });
+});
+},
+
+// 滚到指定跟读段（内容页用）：段顶留 220px，避开顶部的 sticky 播放器 + tab 栏
+_scrollToBlock(bi) {
+if (bi === undefined || bi === null || bi < 0) return;
+const q = wx.createSelectorQuery();
+q.selectAll('.block').boundingClientRect();
+q.selectViewport().scrollOffset();
+q.exec(res => {
+const rects = res[0], scroll = res[1];
+if (rects && rects[bi]) {
+wx.pageScrollTo({
+scrollTop: scroll.scrollTop + rects[bi].top - 220,
+duration: 300,
+});
+}
+});
+},
+
 togglePlay() {
 if (!this.data.ep) return;
-if (this.data.ep.video) this._video().pause();
+if (this.data.ep.video && this.data.activeTab === 'content') this._video().pause();
 if (this.data.playing && this._isMine()) {
 bgm.pause();
 } else if (!this._isMine() ||!bgm.src) {
@@ -188,7 +228,7 @@ bgm.play();
 _buildQuiz(ep) {
 const g = ep.guide || {};
 const keys = g.keys || {};
-const st = { quizVm: null, keyC: [], keyCL: [], selC: [], markC: [], selP: [], markP: [], score3: '', score4: '', cwVm: null, cwSel: -1, cwFilled: [], cwMark: [], cwScore: '', cwGrid: [], cwUsed: [], cwAnsGrid: [] };
+const st = { quizVm: null, keyC: [], keyCL: [], selC: [], markC: [], selP: [], markP: [], score3: '', score4: '', cwVm: null, cwSel: -1, cwFilled: [], cwMark: [], cwScore: '', cwGrid: [], cwUsed: [] };
 const hasCw = !!(g.crossword && g.crossword.words && g.crossword.words.length);
 const choiceSec = (g.quiz || []).find((q) => /单项选择|Single Choice/.test(q.title || ''));
 let choiceQs = [];
@@ -225,8 +265,6 @@ st.cwUsed = ws.map(() => false);
 st.cwMark = ws.map(() => null);
 st.cwScore = '';
 st.cwGrid = this._cwGrid(g.crossword, st.cwFilled, -1, st.cwMark);
-// Part 5 答案格：用正解填满的静态格（与网页/PDF 的答案格同一副数据）
-st.cwAnsGrid = this._cwGrid(g.crossword, ws.map((w) => w.word), -1, ws.map(() => null));
 }
 if (g.practice && g.practice.groups) {
 st.selP = g.practice.groups.map((gr) => gr.items.map(() => -1));
@@ -335,10 +373,18 @@ this.setData({ cwFilled: filled, cwMark: this.data.cwMark.map((m, i) => (i === s
 },
 
 cwCheck() {
+// 核对后把格子全部填满（2026-11-19 David）：自己填对的留绿色；
+// 答错或没填的，由系统自动填入正确答案并标红——没有答案 tab 也能看到正确词该填在哪。
 const cw = this.data.ep.guide.crossword;
 let right = 0;
-const mark = cw.words.map((w, i) => { const ok = this.data.cwFilled[i] === w.word; if (ok) right++; return ok; });
-this.setData({ cwMark: mark, cwScore: right === cw.words.length ? `🎉 ${right} / ${cw.words.length}，全部答对，就是今日 MVP！` : `答对 ${right} / ${cw.words.length} 题，点错的词条可以清空重选，再核对一次。` }, () => this._cwRefresh());
+const filled = this.data.cwFilled.slice();
+const mark = cw.words.map((w, i) => {
+const ok = this.data.cwFilled[i] === w.word;
+if (ok) { right++; return true; }
+filled[i] = w.word; // 系统补正确答案
+return false;
+});
+this.setData({ cwFilled: filled, cwMark: mark, cwScore: right === cw.words.length ? `🎉 ${right} / ${cw.words.length}，全部答对，就是今日 MVP！` : `答对 ${right} / ${cw.words.length} 题，红色格子是正确答案，点错的词条可以清空重选，再核对一次。` }, () => this._cwRefresh());
 },
 
 cwReset() {
@@ -393,20 +439,9 @@ if (bi!== this.data.curBlock) {
 d.curBlock = bi;
 d.curWord = wi;
 this.setData(d);
-if (bi >= 0) {
-const q = wx.createSelectorQuery();
-q.selectAll('.block').boundingClientRect();
-q.selectViewport().scrollOffset();
-q.exec(res => {
-const rects = res[0], scroll = res[1];
-if (rects && rects[bi]) {
-wx.pageScrollTo({
-scrollTop: scroll.scrollTop + rects[bi].top - 220,
-duration: 300,
-});
-}
-});
-}
+// 跟读滚动只在内容页发生：词汇/阅读理解页不回跳（2026-11-19 David）。
+// 高亮数据（curBlock/curWord）照常更新，切回内容页时位置是对的。
+if (bi >= 0 && this.data.activeTab === 'content') this._scrollToBlock(bi);
 } else if (wi!== this.data.curWord) {
 d.curWord = wi;
 this.setData(d);

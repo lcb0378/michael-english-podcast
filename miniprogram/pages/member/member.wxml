@@ -1,0 +1,52 @@
+<view class="container">
+  <view class="title">⭐ 开通会员</view>
+  <view class="desc">《Michael的早听晚读》辅助学习拓展服务。开通后解锁全部节目内容，订阅期内新节目持续增加。</view>
+
+  <!-- 已是会员：会员中心 -->
+  <block wx:if="{{memberState && memberState.checked && memberState.isMember}}">
+    <view class="member-card">
+      <view class="member-line">你是会员</view>
+      <view class="member-exp">有效期至 {{expireText}}</view>
+      <view class="member-row" wx:if="{{memberInfo}}">
+        <view class="member-row-line" wx:if="{{buyDateText}}">购买日期：{{buyDateText}}</view>
+        <view class="member-row-line" wx:if="{{amountText}}">支付金额：{{amountText}}</view>
+        <view class="member-row-line">绑定手机号：{{phoneText}}</view>
+      </view>
+      <view class="member-note">续费后有效期从当前到期日起顺延一年，不用等到期再续；到期后 Vol.04 起重新锁定。</view>
+    </view>
+    <view wx:if="{{payEnabled}}" class="primary-btn" bindtap="renewTap">续费 {{priceText}}</view>
+    <view wx:else class="primary-btn disabled">支付接入中，敬请期待</view>
+    <view class="primary-btn" bindtap="goHome">回到首页开始学习</view>
+    <view wx:if="{{from}}" class="link-btn" bindtap="goEpisode">返回节目</view>
+    <view wx:if="{{memberInfo && !memberInfo.phone}}" class="taobao-card">
+      <view class="taobao-title">还没绑定手机号？</view>
+      <view class="taobao-note">在淘宝买过年包的，点下面按钮一键绑定手机号，以后凭手机号就能认出你是淘宝买家。</view>
+      <button class="taobao-btn" open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber" loading="{{binding}}">我是淘宝买家，一键绑定</button>
+      <text wx:if="{{bindResult}}" class="bind-result">{{bindResult}}</text>
+    </view>
+    <view class="link-btn" bindtap="refreshTap">刷新会员状态</view>
+  </block>
+
+  <!-- 未会员：价格 + 购买 + 淘宝买家入口 -->
+  <block wx:else>
+    <view class="price-card">
+      <view class="price">{{priceText}}</view>
+      <view class="price-sub">一次付清 · 会员期 {{membershipText}}</view>
+      <view class="benefit">✓ 解锁全部节目内容（Vol.01–50 及以后新节目）</view>
+      <view class="benefit">✓ 订阅期内新节目持续增加</view>
+      <view class="benefit">✓ 不自动续费，到期自己决定续不续</view>
+      <view wx:if="{{payEnabled}}" class="primary-btn" bindtap="buyTap">立即开通 {{priceText}}</view>
+      <view wx:else class="primary-btn disabled">支付接入中，敬请期待</view>
+      <view class="free-note">Vol.01–03 免费，不用开通也能听。</view>
+    </view>
+
+    <view class="taobao-card">
+      <view class="taobao-title">在淘宝买过年包？</view>
+      <view class="taobao-note">点下面按钮一键绑定手机号，不用再付一次。手机号只用来核对淘宝购买记录，不做别的用途。</view>
+      <button class="taobao-btn" open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber" loading="{{binding}}">我是淘宝买家，一键绑定</button>
+      <text wx:if="{{bindResult}}" class="bind-result">{{bindResult}}</text>
+    </view>
+
+    <view wx:if="{{from}}" class="link-btn" bindtap="goEpisode">先不买，返回节目</view>
+  </block>
+</view>
