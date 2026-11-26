@@ -19,6 +19,9 @@
   .point p b { color: #ff8c42; }
   label { display: block; font-size: 0.95rem; font-weight: bold; margin: 0 0 6px; }
   label .opt { color: #999; font-weight: normal; font-size: 0.85rem; }
+  .checkrow { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 16px; }
+  .checkrow label { display: inline-flex; align-items: center; gap: 6px; font-weight: normal; margin: 0; font-size: 0.95rem; }
+  .checkrow input { width: auto; margin: 0; padding: 0; }
   input, textarea { width: 100%; font-size: 1rem; padding: 12px 14px; border: 1px solid #ddd; border-radius: 10px; margin-bottom: 16px; background: #fff; color: #333; }
   input:focus, textarea:focus { outline: none; border-color: #ff8c42; }
   textarea { min-height: 90px; resize: vertical; }
@@ -60,10 +63,25 @@
       <label for="wechat">微信号</label>
       <input id="wechat" name="wechat" type="text" required autocomplete="off">
 
-      <label for="platformId">小红书号</label>
-      <input id="platformId" name="platformId" type="text" required autocomplete="off">
+      <label for="phone">手机号</label>
+      <input id="phone" name="phone" type="tel" required autocomplete="tel" inputmode="numeric" placeholder="达人身份识别用，11 位手机号">
 
-      <label for="followers">小红书粉丝数 <span class="opt">（选填）</span></label>
+      <label>推广平台 <span class="opt">（至少选一个）</span></label>
+      <div class="checkrow">
+        <label><input type="checkbox" name="platform" value="xiaohongshu"> 小红书</label>
+        <label><input type="checkbox" name="platform" value="douyin"> 抖音</label>
+        <label><input type="checkbox" name="platform" value="bilibili"> Bilibili</label>
+        <label><input type="checkbox" name="platform" value="shipinhao"> 视频号</label>
+        <label><input type="checkbox" name="platform" value="other"> 其他</label>
+      </div>
+
+      <label for="platformId">平台账号</label>
+      <input id="platformId" name="platformId" type="text" required autocomplete="off" placeholder="主要平台的账号，如小红书号 / 抖音号">
+
+      <label for="otherPlatformIds">其他平台账号 <span class="opt">（选填）</span></label>
+      <input id="otherPlatformIds" name="otherPlatformIds" type="text" autocomplete="off" placeholder="其他平台的账号，可写多个">
+
+      <label for="followers">粉丝数 <span class="opt">（选填，主要平台）</span></label>
       <input id="followers" name="followers" type="number" min="0" inputmode="numeric" autocomplete="off">
 
       <label for="note">备注 <span class="opt">（选填）</span></label>
@@ -96,11 +114,26 @@ form.addEventListener('submit', function (e) {
     return;
   }
   var followersVal = document.getElementById('followers').value;
+  var platforms = [];
+  var boxes = document.querySelectorAll('input[name="platform"]:checked');
+  for (var i = 0; i < boxes.length; i++) platforms.push(boxes[i].value);
+  if (platforms.length === 0) {
+    showMsg('请至少选一个推广平台', 'error');
+    return;
+  }
+  var phoneVal = document.getElementById('phone').value.trim();
+  if (!/^1\d{10}$/.test(phoneVal)) {
+    showMsg('请填写正确的 11 位手机号', 'error');
+    return;
+  }
   var payload = {
     name: document.getElementById('name').value.trim(),
     wechat: document.getElementById('wechat').value.trim(),
-    platform: 'xiaohongshu',
+    phone: phoneVal,
+    platforms: platforms,
+    platform: platforms[0],
     platformId: document.getElementById('platformId').value.trim(),
+    otherPlatformIds: document.getElementById('otherPlatformIds').value.trim(),
     followers: followersVal === '' ? null : Number(followersVal),
     note: document.getElementById('note').value.trim()
   };
