@@ -134,7 +134,7 @@
   <div class="card">
     <h2>达人推广攻略</h2>
     <div class="guide-step">
-      <div class="point"><span class="num">1</span><p><b>拿到你的分享链接。</b>申请通过后，在「达人中心」里输入手机号，就能看到你的买家码和分享链接（形如 pages/member/member?aff=你的码）。也可以等我们微信发你。</p></div>
+      <div class="point"><span class="num">1</span><p><b>拿到你的分享链接。</b>申请通过后，在「达人中心」里输入手机号，就能看到你的买家码和分享链接（一条真的网页链接，点开直接进小程序会员页，自动带上你的码）。也可以等我们微信发你。</p></div>
     </div>
     <div class="guide-step">
       <div class="point"><span class="num">2</span><p><b>在微信里分享。</b>打开小程序，点右上角「…」→「转发给朋友」或「分享到朋友圈」，分享出去的卡片会自动带上你的买家码。朋友点开卡片就是 <b>¥79</b> 的达人价（原价 ¥98），成交记到你账上。</p></div>
@@ -298,7 +298,11 @@ statusForm.addEventListener('submit', function (e) {
       } else if (d.status === 'approved' && d.buyerCode) {
         html += '<p class="stat-line">买家码：<b>' + escHtml(d.buyerCode) + '</b></p>';
         html += '<p class="stat-line">自购码：<b>' + escHtml(d.ownCode || '') + '</b>（仅你本人用，¥49，限用 1 次）</p>';
-        html += '<p class="stat-line">分享链接：<b>' + escHtml(d.shareLink || '') + '</b><button type="button" class="copy-btn" id="copyLinkBtn">复制链接</button></p>';
+        // 分享链接是真的网页链接（小程序 URL Link）时渲染成可点击的 <a>；否则按原样显示文字。
+        var linkHtml = (/^https?:\/\//i.test(d.shareLink || ''))
+          ? '<a href="' + escHtml(d.shareLink) + '" target="_blank" rel="noopener">' + escHtml(d.shareLink) + '</a>'
+          : '<b>' + escHtml(d.shareLink || '') + '</b>';
+        html += '<p class="stat-line">分享链接：' + linkHtml + '<button type="button" class="copy-btn" id="copyLinkBtn">复制链接</button></p>';
         html += '<p class="stat-line">朋友通过你的链接开通，你赚 ¥23.70/单。</p>';
         if (d.sales) html += salesHtml(d.sales);
       } else if (d.status === 'pending') {
