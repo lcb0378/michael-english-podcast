@@ -43,6 +43,11 @@
   .guide-step p { margin: 0; line-height: 1.6; font-size: 0.95rem; }
   .guide-step p b { color: #ff8c42; }
   .foot { text-align: center; color: #999; font-size: 0.85rem; line-height: 1.6; margin-top: 8px; }
+  .tabs { display: flex; gap: 8px; margin: 0 0 16px; }
+  .tab-btn { flex: 1; padding: 13px 8px; font-size: 1.05rem; font-weight: bold; color: #666; background: #fff; border: 1px solid #ddd; border-radius: 12px; cursor: pointer; }
+  .tab-btn.active { color: #fff; background: #ff8c42; border-color: #ff8c42; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
 </style>
 </head>
 <body>
@@ -50,6 +55,12 @@
   <h1>《Michael的早听晚读》· 成为达人</h1>
   <p class="intro">每天一期双语节目，有文字和互动功能。<br>把好内容分享给朋友，一起赚点零花钱。</p>
 
+  <div class="tabs">
+    <button type="button" class="tab-btn active" id="tabPlazaBtn" data-tab="plaza">达人广场</button>
+    <button type="button" class="tab-btn" id="tabCenterBtn" data-tab="center">达人中心</button>
+  </div>
+
+  <div class="tab-panel active" id="panel-plaza">
   <div class="card">
     <h2>怎么赚钱</h2>
     <div class="point">
@@ -105,7 +116,9 @@
   </div>
 
   <p class="foot">申请通过后，我们会微信发你专属买家码和自购码。</p>
+  </div>
 
+  <div class="tab-panel" id="panel-center">
   <div class="card">
     <h2>我是达人，查我的状态</h2>
     <p class="intro" style="text-align:left;margin-bottom:16px;">已经申请过了？输入申请时填的手机号，查你的审核状态；通过后这里直接显示你的买家码、自购码和分享链接。</p>
@@ -121,7 +134,7 @@
   <div class="card">
     <h2>达人推广攻略</h2>
     <div class="guide-step">
-      <div class="point"><span class="num">1</span><p><b>拿到你的分享链接。</b>申请通过后，在上面「查我的状态」里输入手机号，就能看到你的买家码和分享链接（形如 pages/member/member?aff=你的码）。也可以等我们微信发你。</p></div>
+      <div class="point"><span class="num">1</span><p><b>拿到你的分享链接。</b>申请通过后，在「达人中心」里输入手机号，就能看到你的买家码和分享链接（形如 pages/member/member?aff=你的码）。也可以等我们微信发你。</p></div>
     </div>
     <div class="guide-step">
       <div class="point"><span class="num">2</span><p><b>在微信里分享。</b>打开小程序，点右上角「…」→「转发给朋友」或「分享到朋友圈」，分享出去的卡片会自动带上你的买家码。朋友点开卡片就是 <b>¥79</b> 的达人价（原价 ¥98），成交记到你账上。</p></div>
@@ -133,11 +146,29 @@
       <div class="point"><span class="num">4</span><p><b>自购只要 ¥49。</b>你自己开通会员用自购码，只要 <b>¥49</b>，每个自购码只能用一次，别外传。</p></div>
     </div>
     <div class="guide-step">
-      <div class="point"><span class="num">5</span><p><b>提成怎么结。</b>每成交一单你赚 <b>¥23.70</b>（提成 30%），成交自动记账，提成按月微信结算。有问题微信找我们。</p></div>
+      <div class="point"><span class="num">5</span><p><b>提成怎么结。</b>每成交一单你赚 <b>¥23.70</b>（提成 30%），成交自动记账。<b>每月一结：每月 15 号前结算上个月的提成；未结算提成满 ¥100 才能申请结算</b>，不满 ¥100 的自动累积到下个月。你在「达人中心」里能看到今天卖了几单、总共卖了几单、提成一共多少、还有多少没结，满 ¥100 了点一下「申请结算」就行，我们微信转给你。有问题微信找我们。</p></div>
     </div>
+  </div>
   </div>
 </div>
 <script>
+// ---- 顶部两个 tab：达人广场（招募 + 申请）/ 达人中心（查状态 + 推广攻略）----
+// 点哪个 tab 就只显示那一栏，不用一溜往下拉。
+var tabBtns = document.querySelectorAll('.tab-btn');
+var tabPanels = document.querySelectorAll('.tab-panel');
+function switchTab(name) {
+  for (var i = 0; i < tabBtns.length; i++) {
+    tabBtns[i].classList.toggle('active', tabBtns[i].getAttribute('data-tab') === name);
+  }
+  for (var j = 0; j < tabPanels.length; j++) {
+    tabPanels[j].classList.toggle('active', tabPanels[j].id === 'panel-' + name);
+  }
+}
+for (var k = 0; k < tabBtns.length; k++) {
+  tabBtns[k].addEventListener('click', function () {
+    switchTab(this.getAttribute('data-tab'));
+  });
+}
 // 申请接口地址：CloudBase HTTP 触发器（affiliate-apply），2026-11-26 已建并实测可用。
 var APPLY_URL = 'https://michael-podcast-d0fbngep770f0d12-1535367896.ap-shanghai.app.tcloudbase.com/affiliate-apply';
 
@@ -222,6 +253,26 @@ function escHtml(s) {
   return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+function fmtYuan(fen) {
+  var n = Number(fen) || 0;
+  return '¥' + (n / 100).toFixed(2);
+}
+
+// 销售数据 + 结算入口（只给已通过的达人看）：今日/累计单数、提成、未结算/已结算，
+// 满 ¥100 且无待处理申请时给一个「申请结算」按钮。
+function salesHtml(s) {
+  var html = '<p class="stat-line">今日订单：<b>' + (s.todayOrders || 0) + ' 单</b> · 累计订单：<b>' + (s.totalOrders || 0) + ' 单</b></p>';
+  html += '<p class="stat-line">累计提成：<b>' + fmtYuan(s.totalCommissionFen) + '</b> · 未结算：<b>' + fmtYuan(s.unsettledFen) + '</b> · 已结算：<b>' + fmtYuan(s.settledFen) + '</b></p>';
+  if (s.pendingWithdrawal) {
+    html += '<p class="stat-line">结算申请已提交，等待处理（每月 15 号前结算上个月）。</p>';
+  } else if (s.canWithdraw) {
+    html += '<p class="stat-line">未结算提成已满 ¥100，可以申请结算了。<button type="button" class="copy-btn" id="withdrawBtn">申请结算</button></p>';
+  } else {
+    html += '<p class="stat-line">结款：每月一结，每月 15 号前结上个月；未结算满 ¥100 才能申请结算，不满的自动累积到下个月。</p>';
+  }
+  return html;
+}
+
 statusForm.addEventListener('submit', function (e) {
   e.preventDefault();
   var phone = document.getElementById('statusPhone').value.trim();
@@ -240,11 +291,16 @@ statusForm.addEventListener('submit', function (e) {
   }).then(function (r) { return r.json(); }).then(function (d) {
     if (d && d.ok) {
       var html = '<p class="stat-line">' + escHtml(d.name) + ' · 状态：<b>' + statusLabel(d.status) + '</b></p>';
-      if (d.status === 'approved' && d.buyerCode) {
+      if (d.status === 'approved' && d.disabled) {
+        html += '<p class="stat-line">你的达人资格已被停用，分享链接已失效。</p>';
+        if (d.sales) html += salesHtml(d.sales);
+        html += '<p class="stat-line">剩余提成请微信联系我们结算。</p>';
+      } else if (d.status === 'approved' && d.buyerCode) {
         html += '<p class="stat-line">买家码：<b>' + escHtml(d.buyerCode) + '</b></p>';
         html += '<p class="stat-line">自购码：<b>' + escHtml(d.ownCode || '') + '</b>（仅你本人用，¥49，限用 1 次）</p>';
         html += '<p class="stat-line">分享链接：<b>' + escHtml(d.shareLink || '') + '</b><button type="button" class="copy-btn" id="copyLinkBtn">复制链接</button></p>';
-        html += '<p class="stat-line">朋友通过你的链接开通，你赚 ¥23.70/单，提成按月微信结算。</p>';
+        html += '<p class="stat-line">朋友通过你的链接开通，你赚 ¥23.70/单。</p>';
+        if (d.sales) html += salesHtml(d.sales);
       } else if (d.status === 'pending') {
         html += '<p class="stat-line">还在审核中，通过后我们会微信通知你，链接也会显示在这里。</p>';
       } else if (d.status === 'rejected') {
@@ -263,6 +319,31 @@ statusForm.addEventListener('submit', function (e) {
           } else {
             copyBtn.textContent = '请长按链接复制';
           }
+        });
+      }
+      var withdrawBtn = document.getElementById('withdrawBtn');
+      if (withdrawBtn) {
+        withdrawBtn.addEventListener('click', function () {
+          withdrawBtn.disabled = true;
+          withdrawBtn.textContent = '提交中…';
+          fetch(APPLY_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'withdraw', phone: phone })
+          }).then(function (r) { return r.json(); }).then(function (w) {
+            if (w && w.ok) {
+              showStatusMsg('结算申请已提交（¥' + ((Number(w.amountFen) || 0) / 100).toFixed(2) + '），我们会在每月 15 号前微信转给你。', '');
+              statusForm.dispatchEvent(new Event('submit'));
+            } else {
+              withdrawBtn.disabled = false;
+              withdrawBtn.textContent = '申请结算';
+              showStatusMsg((w && w.error) || '提交失败，请稍后再试', 'error');
+            }
+          }).catch(function () {
+            withdrawBtn.disabled = false;
+            withdrawBtn.textContent = '申请结算';
+            showStatusMsg('提交失败，请检查网络后重试', 'error');
+          });
         });
       }
     } else {
