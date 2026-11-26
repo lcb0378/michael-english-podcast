@@ -30,6 +30,18 @@
   #msg { display: none; text-align: center; font-size: 0.95rem; line-height: 1.6; padding: 12px; border-radius: 10px; margin-top: 16px; }
   #msg.success { display: block; color: #0ca678; background: #e6fcf5; }
   #msg.error { display: block; color: #e03131; background: #fff5f5; }
+  #statusMsg { display: none; text-align: center; font-size: 0.95rem; line-height: 1.6; padding: 12px; border-radius: 10px; margin-top: 16px; }
+  #statusMsg.success { display: block; color: #0ca678; background: #e6fcf5; }
+  #statusMsg.error { display: block; color: #e03131; background: #fff5f5; }
+  #statusResult { display: none; margin-top: 16px; }
+  #statusResult.show { display: block; }
+  .stat-line { font-size: 0.95rem; line-height: 1.7; margin: 0 0 8px; word-break: break-all; }
+  .stat-line b { color: #ff8c42; }
+  .copy-btn { display: inline-block; padding: 6px 14px; font-size: 0.9rem; font-weight: bold; color: #fff; background: #0ca678; border: none; border-radius: 8px; cursor: pointer; margin-left: 8px; }
+  .guide-step { margin-bottom: 16px; }
+  .guide-step:last-child { margin-bottom: 0; }
+  .guide-step p { margin: 0; line-height: 1.6; font-size: 0.95rem; }
+  .guide-step p b { color: #ff8c42; }
   .foot { text-align: center; color: #999; font-size: 0.85rem; line-height: 1.6; margin-top: 8px; }
 </style>
 </head>
@@ -93,6 +105,37 @@
   </div>
 
   <p class="foot">申请通过后，我们会微信发你专属买家码和自购码。</p>
+
+  <div class="card">
+    <h2>我是达人，查我的状态</h2>
+    <p class="intro" style="text-align:left;margin-bottom:16px;">已经申请过了？输入申请时填的手机号，查你的审核状态；通过后这里直接显示你的买家码、自购码和分享链接。</p>
+    <form id="statusForm">
+      <label for="statusPhone">手机号</label>
+      <input id="statusPhone" name="statusPhone" type="tel" required autocomplete="tel" inputmode="numeric" placeholder="申请时填的 11 位手机号">
+      <button type="submit" id="statusBtn">查询状态</button>
+      <div id="statusMsg" role="status"></div>
+      <div id="statusResult"></div>
+    </form>
+  </div>
+
+  <div class="card">
+    <h2>达人推广攻略</h2>
+    <div class="guide-step">
+      <div class="point"><span class="num">1</span><p><b>拿到你的分享链接。</b>申请通过后，在上面「查我的状态」里输入手机号，就能看到你的买家码和分享链接（形如 pages/member/member?aff=你的码）。也可以等我们微信发你。</p></div>
+    </div>
+    <div class="guide-step">
+      <div class="point"><span class="num">2</span><p><b>在微信里分享。</b>打开小程序，点右上角「…」→「转发给朋友」或「分享到朋友圈」，分享出去的卡片会自动带上你的买家码。朋友点开卡片就是 <b>¥79</b> 的达人价（原价 ¥98），成交记到你账上。</p></div>
+    </div>
+    <div class="guide-step">
+      <div class="point"><span class="num">3</span><p><b>在小红书、抖音、Bilibili、视频号上推广。</b>发节目相关的笔记或视频（比如听后感、学习打卡），在内容里告诉大家：微信搜「早听晚读」小程序，用你的买家码 <b>¥79</b> 开通；或者把分享链接发给感兴趣的人，让对方在微信里打开。平台不让直接挂外链，就用文字 + 私信引导。</p></div>
+    </div>
+    <div class="guide-step">
+      <div class="point"><span class="num">4</span><p><b>自购只要 ¥49。</b>你自己开通会员用自购码，只要 <b>¥49</b>，每个自购码只能用一次，别外传。</p></div>
+    </div>
+    <div class="guide-step">
+      <div class="point"><span class="num">5</span><p><b>提成怎么结。</b>每成交一单你赚 <b>¥23.70</b>（提成 30%），成交自动记账，提成按月微信结算。有问题微信找我们。</p></div>
+    </div>
+  </div>
 </div>
 <script>
 // 申请接口地址：CloudBase HTTP 触发器（affiliate-apply），2026-11-26 已建并实测可用。
@@ -155,6 +198,85 @@ form.addEventListener('submit', function (e) {
   }).finally(function () {
     btn.disabled = false;
     btn.textContent = '提交申请';
+  });
+});
+
+// ---- 达人自查：凭手机号查审核状态 + 通过后的码与链接 ----
+var statusForm = document.getElementById('statusForm');
+var statusMsg = document.getElementById('statusMsg');
+var statusResult = document.getElementById('statusResult');
+var statusBtn = document.getElementById('statusBtn');
+
+function showStatusMsg(text, kind) {
+  statusMsg.textContent = text;
+  statusMsg.className = kind;
+}
+
+function statusLabel(status) {
+  if (status === 'approved') return '已通过 ✅';
+  if (status === 'rejected') return '未通过';
+  return '审核中 ⏳';
+}
+
+function escHtml(s) {
+  return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+statusForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+  var phone = document.getElementById('statusPhone').value.trim();
+  if (!/^1\d{10}$/.test(phone)) {
+    showStatusMsg('请填写正确的 11 位手机号', 'error');
+    statusResult.className = '';
+    statusResult.innerHTML = '';
+    return;
+  }
+  statusBtn.disabled = true;
+  statusBtn.textContent = '查询中…';
+  fetch(APPLY_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action: 'lookup', phone: phone })
+  }).then(function (r) { return r.json(); }).then(function (d) {
+    if (d && d.ok) {
+      var html = '<p class="stat-line">' + escHtml(d.name) + ' · 状态：<b>' + statusLabel(d.status) + '</b></p>';
+      if (d.status === 'approved' && d.buyerCode) {
+        html += '<p class="stat-line">买家码：<b>' + escHtml(d.buyerCode) + '</b></p>';
+        html += '<p class="stat-line">自购码：<b>' + escHtml(d.ownCode || '') + '</b>（仅你本人用，¥49，限用 1 次）</p>';
+        html += '<p class="stat-line">分享链接：<b>' + escHtml(d.shareLink || '') + '</b><button type="button" class="copy-btn" id="copyLinkBtn">复制链接</button></p>';
+        html += '<p class="stat-line">朋友通过你的链接开通，你赚 ¥23.70/单，提成按月微信结算。</p>';
+      } else if (d.status === 'pending') {
+        html += '<p class="stat-line">还在审核中，通过后我们会微信通知你，链接也会显示在这里。</p>';
+      } else if (d.status === 'rejected') {
+        html += '<p class="stat-line">这次没通过，可以微信联系我们问问原因。</p>';
+      }
+      statusResult.innerHTML = html;
+      statusResult.className = 'show';
+      showStatusMsg('', '');
+      var copyBtn = document.getElementById('copyLinkBtn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', function () {
+          var link = (d.shareLink || '');
+          var done = function () { copyBtn.textContent = '已复制'; };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(link).then(done, function () { copyBtn.textContent = '复制失败，请长按复制'; });
+          } else {
+            copyBtn.textContent = '请长按链接复制';
+          }
+        });
+      }
+    } else {
+      statusResult.className = '';
+      statusResult.innerHTML = '';
+      showStatusMsg((d && d.error) || '查询失败，请稍后再试', 'error');
+    }
+  }).catch(function () {
+    statusResult.className = '';
+    statusResult.innerHTML = '';
+    showStatusMsg('查询失败，请检查网络后重试', 'error');
+  }).finally(function () {
+    statusBtn.disabled = false;
+    statusBtn.textContent = '查询状态';
   });
 });
 </script>
